@@ -1,4 +1,4 @@
-const u8 gFacilityClassToPicIndex[] =
+const u16 gFacilityClassToPicIndex[] =
 {
     [FACILITY_CLASS_HIKER] = TRAINER_PIC_HIKER,
     [FACILITY_CLASS_AQUA_GRUNT_M] = TRAINER_PIC_ROCKET_GRUNT_M,
@@ -92,7 +92,7 @@ const u8 gFacilityClassToPicIndex[] =
     [FACILITY_CLASS_ELITE_FOUR_DRAKE] = TRAINER_PIC_ELITE_FOUR_KAREN,
 };
 
-const u8 gFacilityClassToTrainerClass[] =
+const u16 gFacilityClassToTrainerClass[] =
 {
     [FACILITY_CLASS_HIKER] = TRAINER_CLASS_HIKER,
     [FACILITY_CLASS_AQUA_GRUNT_M] = TRAINER_CLASS_TEAM_AQUA,

@@ -21580,7 +21580,7 @@
             .moves = {
 #line 8608
                 MOVE_BELLY_DRUM,
-                MOVE_SMELLING_SALT,
+                MOVE_SMELLING_SALTS,
                 MOVE_FOCUS_PUNCH,
                 MOVE_SEISMIC_TOSS,
             },

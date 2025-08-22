@@ -6,3 +6,4 @@ sRegionMap_SpecialPlaceLocations needs updating
     actually, a lot in that file does
 vs seeker helper
 gTrainerClasses needs updating with money and item_balls
+Trainer sprite locations in gTrainerSprites
