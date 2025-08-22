@@ -1,0 +1,8 @@
+Check field moves, script very modified
+All the finditem stuff in item_ball_script
+All maps from emerald expansion need updating
+Follower helper needs updating
+sRegionMap_SpecialPlaceLocations needs updating
+    actually, a lot in that file does
+vs seeker helper
+gTrainerClasses needs updating with money and item_balls

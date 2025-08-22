@@ -542,10 +542,10 @@ void ClearRematchMovementByTrainerId(void)
 static u32 GetGameProgressFlags()
 {
     const u32 gameProgressFlags[] = {
-        FLAG_VISITED_LAVARIDGE_TOWN,
-        FLAG_VISITED_FORTREE_CITY,
+        // FLAG_VISITED_LAVARIDGE_TOWN,
+        // FLAG_VISITED_FORTREE_CITY,
         FLAG_SYS_GAME_CLEAR,
-        FLAG_DEFEATED_METEOR_FALLS_STEVEN
+        // FLAG_DEFEATED_METEOR_FALLS_STEVEN
     };
     u32 i = 0, numGameProgressFlags = 0;
     u32 maxGameProgressFlags = ARRAY_COUNT(gameProgressFlags);
@@ -619,54 +619,54 @@ static bool32 IsRegularLandTrainer(u8 graphicsId)
     u32 i;
     u16 regularTrainersOnLand[] =
     {
-        OBJ_EVENT_GFX_AQUA_MEMBER_F,
-        OBJ_EVENT_GFX_AQUA_MEMBER_M,
-        OBJ_EVENT_GFX_BEAUTY,
-        OBJ_EVENT_GFX_BLACK_BELT,
-        OBJ_EVENT_GFX_BOY_1,
-        OBJ_EVENT_GFX_BOY_2,
-        OBJ_EVENT_GFX_BOY_3,
-        OBJ_EVENT_GFX_BUG_CATCHER,
-        OBJ_EVENT_GFX_CAMPER,
-        OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F,
-        OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M,
-        OBJ_EVENT_GFX_EXPERT_F,
-        OBJ_EVENT_GFX_EXPERT_M,
-        OBJ_EVENT_GFX_FAT_MAN,
-        OBJ_EVENT_GFX_FISHERMAN,
-        OBJ_EVENT_GFX_GENTLEMAN,
-        OBJ_EVENT_GFX_GIRL_1,
-        OBJ_EVENT_GFX_GIRL_2,
-        OBJ_EVENT_GFX_GIRL_3,
-        OBJ_EVENT_GFX_HEX_MANIAC,
-        OBJ_EVENT_GFX_HIKER,
-        OBJ_EVENT_GFX_LASS,
-        OBJ_EVENT_GFX_LITTLE_BOY,
-        OBJ_EVENT_GFX_LITTLE_GIRL,
-        OBJ_EVENT_GFX_MAGMA_MEMBER_F,
-        OBJ_EVENT_GFX_MAGMA_MEMBER_M,
-        OBJ_EVENT_GFX_MAN_3,
-        OBJ_EVENT_GFX_MAN_4,
-        OBJ_EVENT_GFX_MAN_5,
-        OBJ_EVENT_GFX_MANIAC,
-        OBJ_EVENT_GFX_NINJA_BOY,
-        OBJ_EVENT_GFX_PICNICKER,
-        OBJ_EVENT_GFX_POKEFAN_F,
-        OBJ_EVENT_GFX_POKEFAN_M,
-        OBJ_EVENT_GFX_PSYCHIC_M,
-        OBJ_EVENT_GFX_RICH_BOY,
-        OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F,
-        OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M,
-        OBJ_EVENT_GFX_SAILOR,
-        OBJ_EVENT_GFX_SCHOOL_KID_M,
-        OBJ_EVENT_GFX_TUBER_F,
-        OBJ_EVENT_GFX_TUBER_M,
-        OBJ_EVENT_GFX_TWIN,
-        OBJ_EVENT_GFX_WOMAN_1,
-        OBJ_EVENT_GFX_WOMAN_2,
-        OBJ_EVENT_GFX_WOMAN_4,
-        OBJ_EVENT_GFX_WOMAN_5,
-        OBJ_EVENT_GFX_YOUNGSTER
+        // OBJ_EVENT_GFX_AQUA_MEMBER_F,
+        // OBJ_EVENT_GFX_AQUA_MEMBER_M,
+        // OBJ_EVENT_GFX_BEAUTY,
+        // OBJ_EVENT_GFX_BLACK_BELT,
+        // OBJ_EVENT_GFX_BOY_1,
+        // OBJ_EVENT_GFX_BOY_2,
+        // OBJ_EVENT_GFX_BOY_3,
+        // OBJ_EVENT_GFX_BUG_CATCHER,
+        // OBJ_EVENT_GFX_CAMPER,
+        // OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F,
+        // OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M,
+        // OBJ_EVENT_GFX_EXPERT_F,
+        // OBJ_EVENT_GFX_EXPERT_M,
+        // OBJ_EVENT_GFX_FAT_MAN,
+        // OBJ_EVENT_GFX_FISHERMAN,
+        // OBJ_EVENT_GFX_GENTLEMAN,
+        // OBJ_EVENT_GFX_GIRL_1,
+        // OBJ_EVENT_GFX_GIRL_2,
+        // OBJ_EVENT_GFX_GIRL_3,
+        // OBJ_EVENT_GFX_HEX_MANIAC,
+        // OBJ_EVENT_GFX_HIKER,
+        // OBJ_EVENT_GFX_LASS,
+        // OBJ_EVENT_GFX_LITTLE_BOY,
+        // OBJ_EVENT_GFX_LITTLE_GIRL,
+        // OBJ_EVENT_GFX_MAGMA_MEMBER_F,
+        // OBJ_EVENT_GFX_MAGMA_MEMBER_M,
+        // OBJ_EVENT_GFX_MAN_3,
+        // OBJ_EVENT_GFX_MAN_4,
+        // OBJ_EVENT_GFX_MAN_5,
+        // OBJ_EVENT_GFX_MANIAC,
+        // OBJ_EVENT_GFX_NINJA_BOY,
+        // OBJ_EVENT_GFX_PICNICKER,
+        // OBJ_EVENT_GFX_POKEFAN_F,
+        // OBJ_EVENT_GFX_POKEFAN_M,
+        // OBJ_EVENT_GFX_PSYCHIC_M,
+        // OBJ_EVENT_GFX_RICH_BOY,
+        // OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F,
+        // OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M,
+        // OBJ_EVENT_GFX_SAILOR,
+        // OBJ_EVENT_GFX_SCHOOL_KID_M,
+        // OBJ_EVENT_GFX_TUBER_F,
+        // OBJ_EVENT_GFX_TUBER_M,
+        // OBJ_EVENT_GFX_TWIN,
+        // OBJ_EVENT_GFX_WOMAN_1,
+        // OBJ_EVENT_GFX_WOMAN_2,
+        // OBJ_EVENT_GFX_WOMAN_4,
+        // OBJ_EVENT_GFX_WOMAN_5,
+        // OBJ_EVENT_GFX_YOUNGSTER
     };
 
     for (i = 0; i < ARRAY_COUNT(regularTrainersOnLand); i++)
@@ -682,9 +682,9 @@ static bool32 IsRegularWaterTrainer(u8 graphicsId)
     u32 i;
     u16 regularTrainersInWater[] =
     {
-        OBJ_EVENT_GFX_SWIMMER_F,
-        OBJ_EVENT_GFX_SWIMMER_M,
-        OBJ_EVENT_GFX_TUBER_M_SWIMMING
+        // OBJ_EVENT_GFX_SWIMMER_F,
+        // OBJ_EVENT_GFX_SWIMMER_M,
+        // OBJ_EVENT_GFX_TUBER_M_SWIMMING
     };
 
     for (i = 0; i < ARRAY_COUNT(regularTrainersInWater); i++)

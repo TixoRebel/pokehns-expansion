@@ -13,5 +13,5 @@ gText_StorageSystemOpened::
 gText_AccessedPlayersPC::
 	.string "Accessed {PLAYER}'s PC.$"
 
-gText_AccessedLanettesPC::
-	.string "Accessed LANETTE's PC.$"
+gText_AccessedBillsPC::
+	.string "Accessed BILL'S PC.$"

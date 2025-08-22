@@ -40,7 +40,7 @@ static const u8 LandmarkName_ShoalCave[] = _("SHOAL CAVE");
 static const u8 LandmarkName_SeafloorCavern[] = _("SEAFLOOR CAVERN");
 static const u8 LandmarkName_GraniteCave[] = _("GRANITE CAVE");
 static const u8 LandmarkName_OceanCurrent[] = _("OCEAN CURRENT");
-static const u8 LandmarkName_LanettesHouse[] = _("LANETTE'S HOUSE");
+static const u8 LandmarkName_BillsHouse[] = _("BILL'S HOUSE");
 static const u8 LandmarkName_FieryPath[] = _("FIERY PATH");
 static const u8 LandmarkName_JaggedPass[] = _("JAGGED PASS");
 static const u8 LandmarkName_SkyPillar[] = _("SKY PILLAR");
@@ -57,6 +57,8 @@ static const u8 LandmarkName_MirageTower[] = _("MIRAGE TOWER");
 static const u8 LandmarkName_AlteringCave[] = _("ALTERING CAVE");
 static const u8 LandmarkName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 LandmarkName_TrainerHill[] = _("TRAINER HILL");
+static const u8 LandmarkName_DracoChamber[] = _("DRACO CHAMBER");
+static const u8 LandmarkName_CaveOfShock[] = _("CAVE OF SHOCK");
 
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
 static const struct Landmark Landmark_PetalburgWoods = {LandmarkName_PetalburgWoods, -1};
@@ -83,7 +85,7 @@ static const struct Landmark Landmark_ShoalCave = {LandmarkName_ShoalCave, -1};
 static const struct Landmark Landmark_SeafloorCavern = {LandmarkName_SeafloorCavern, FLAG_LANDMARK_SEAFLOOR_CAVERN};
 static const struct Landmark Landmark_GraniteCave = {LandmarkName_GraniteCave, -1};
 static const struct Landmark Landmark_OceanCurrent = {LandmarkName_OceanCurrent, -1};
-static const struct Landmark Landmark_LanettesHouse = {LandmarkName_LanettesHouse, FLAG_LANDMARK_LANETTES_HOUSE};
+static const struct Landmark Landmark_BillsHouse = {LandmarkName_BillsHouse, FLAG_LANDMARK_BillS_HOUSE};
 static const struct Landmark Landmark_FieryPath = {LandmarkName_FieryPath, FLAG_LANDMARK_FIERY_PATH};
 static const struct Landmark Landmark_JaggedPass = {LandmarkName_JaggedPass, -1};
 static const struct Landmark Landmark_BerryMastersHouse = {LandmarkName_BerryMastersHouse, FLAG_LANDMARK_BERRY_MASTERS_HOUSE};
@@ -99,6 +101,8 @@ static const struct Landmark Landmark_MirageTower = {LandmarkName_MirageTower, F
 static const struct Landmark Landmark_AlteringCave = {LandmarkName_AlteringCave, FLAG_LANDMARK_ALTERING_CAVE};
 static const struct Landmark Landmark_DesertUnderpass = {LandmarkName_DesertUnderpass, FLAG_LANDMARK_DESERT_UNDERPASS};
 static const struct Landmark Landmark_TrainerHill = {LandmarkName_TrainerHill, FLAG_LANDMARK_TRAINER_HILL};
+static const struct Landmark Landmark_DracoChamber = {LandmarkName_DracoChamber, FLAG_LANDMARK_DRACO_CHAMBER};
+static const struct Landmark Landmark_CaveofShock = {LandmarkName_CaveOfShock, FLAG_LANDMARK_CAVE_OF_SHOCK};
 
 static const struct Landmark *const Landmarks_Route103_2[]  =
 {
@@ -227,7 +231,7 @@ static const struct Landmark *const Landmarks_Route114_1[]  =
 
 static const struct Landmark *const Landmarks_Route114_2[]  =
 {
-    &Landmark_LanettesHouse,
+    &Landmark_BillsHouse,
     NULL,
 };
 
@@ -336,59 +340,67 @@ static const struct Landmark *const Landmarks_MtChimney_2[]  =
     NULL,
 };
 
+static const struct Landmark *const Landmarks_CaveOfShock_0[]  =
+{
+    &Landmark_CaveofShock,
+    NULL,
+};
+
+static const struct Landmark *const Landmarks_DracoChamber_0[]  =
+{
+    &Landmark_DracoChamber,
+    NULL,
+};
+
 static const struct LandmarkList sLandmarkLists[] =
 {
-    {MAPSEC_ROUTE_103, 2, Landmarks_Route103_2},
-    {MAPSEC_ROUTE_104, 0, Landmarks_Route104_0},
-    {MAPSEC_ROUTE_104, 1, Landmarks_Route104_1},
-    {MAPSEC_ROUTE_105, 0, Landmarks_Route105_0},
-    {MAPSEC_ROUTE_106, 1, Landmarks_Route106_1},
-    {MAPSEC_ROUTE_108, 0, Landmarks_Route108_0},
-    {MAPSEC_ROUTE_109, 0, Landmarks_Route109_0},
-    {MAPSEC_ROUTE_110, 0, Landmarks_Route110_0},
-    {MAPSEC_ROUTE_110, 1, Landmarks_Route110_1},
-    {MAPSEC_ROUTE_110, 2, Landmarks_Route110_2},
-    {MAPSEC_ROUTE_111, 0, Landmarks_Route111_0},
-    {MAPSEC_ROUTE_111, 1, Landmarks_Route111_1},
-    {MAPSEC_ROUTE_111, 2, Landmarks_Route111_2},
-    {MAPSEC_ROUTE_111, 3, Landmarks_Route111_3},
-    {MAPSEC_ROUTE_111, 4, Landmarks_Route111_4},
-    {MAPSEC_ROUTE_112, 0, Landmarks_Route112_0},
-    {MAPSEC_ROUTE_112, 1, Landmarks_Route112_1},
-    {MAPSEC_ROUTE_113, 1, Landmarks_Route113_1},
-    {MAPSEC_ROUTE_114, 1, Landmarks_Route114_1},
-    {MAPSEC_ROUTE_114, 2, Landmarks_Route114_2},
-    {MAPSEC_ROUTE_114, 3, Landmarks_MeteorFalls},
-    {MAPSEC_ROUTE_115, 0, Landmarks_MeteorFalls},
-    {MAPSEC_ROUTE_115, 1, Landmarks_MeteorFalls},
-    {MAPSEC_ROUTE_116, 1, Landmarks_Route116_1},
-    {MAPSEC_ROUTE_116, 2, Landmarks_Route116_2},
-    {MAPSEC_ROUTE_117, 2, Landmarks_Route117_2},
-    {MAPSEC_ROUTE_119, 1, Landmarks_Route119_1},
-    {MAPSEC_ROUTE_120, 0, Landmarks_Route120_0},
-    {MAPSEC_ROUTE_120, 2, Landmarks_Route120_2},
-    {MAPSEC_ROUTE_121, 2, Landmarks_Route121_2},
-    {MAPSEC_ROUTE_122, 0, Landmarks_Route122_0},
-#ifdef BUGFIX
-    {MAPSEC_ROUTE_122, 1, Landmarks_Route122_0},
-    {MAPSEC_ROUTE_123, 0, Landmarks_Route123_0},
-#else
-    {MAPSEC_ROUTE_123, 0, Landmarks_Route123_0},
-    {MAPSEC_ROUTE_122, 1, Landmarks_Route122_0},
-#endif
-    {MAPSEC_ROUTE_124, 7, Landmarks_Route124_7},
-    {MAPSEC_ROUTE_125, 2, Landmarks_Route125_2},
-    {MAPSEC_ROUTE_128, 1, Landmarks_Route128_1},
-    {MAPSEC_ROUTE_131, 1, Landmarks_Route131_1},
-    {MAPSEC_ROUTE_132, 0, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_132, 1, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_133, 0, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_133, 1, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_133, 2, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_134, 0, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_134, 1, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_134, 2, Landmarks_Route134_2},
-    {MAPSEC_MT_CHIMNEY, 2, Landmarks_MtChimney_2},
+    {MAPSEC_ROUTE_28, 2, Landmarks_Route103_2},
+    {MAPSEC_ROUTE_29, 0, Landmarks_Route104_0},
+    {MAPSEC_ROUTE_29, 1, Landmarks_Route104_1},
+    {MAPSEC_ROUTE_30, 0, Landmarks_Route105_0},
+    {MAPSEC_ROUTE_31, 1, Landmarks_Route106_1},
+    {MAPSEC_ROUTE_33, 0, Landmarks_Route108_0},
+    {MAPSEC_ROUTE_34, 0, Landmarks_Route109_0},
+    {MAPSEC_ROUTE_35, 0, Landmarks_Route110_0},
+    {MAPSEC_ROUTE_35, 1, Landmarks_Route110_1},
+    {MAPSEC_ROUTE_35, 2, Landmarks_Route110_2},
+    {MAPSEC_ROUTE_36, 0, Landmarks_Route111_0},
+    {MAPSEC_ROUTE_36, 1, Landmarks_Route111_1},
+    {MAPSEC_ROUTE_36, 2, Landmarks_Route111_2},
+    {MAPSEC_ROUTE_36, 3, Landmarks_Route111_3},
+    {MAPSEC_ROUTE_36, 4, Landmarks_Route111_4},
+    {MAPSEC_ROUTE_37, 0, Landmarks_Route112_0},
+    {MAPSEC_ROUTE_37, 1, Landmarks_Route112_1},
+    {MAPSEC_ROUTE_38, 1, Landmarks_Route113_1},
+    {MAPSEC_ROUTE_39, 1, Landmarks_Route114_1},
+    {MAPSEC_ROUTE_39, 2, Landmarks_Route114_2},
+    {MAPSEC_ROUTE_39, 3, Landmarks_MeteorFalls},
+    {MAPSEC_ROUTE_40, 0, Landmarks_MeteorFalls},
+    {MAPSEC_ROUTE_40, 1, Landmarks_MeteorFalls},
+    {MAPSEC_ROUTE_41, 1, Landmarks_Route116_1},
+    {MAPSEC_ROUTE_41, 2, Landmarks_Route116_2},
+    {MAPSEC_ROUTE_42, 2, Landmarks_Route117_2},
+    {MAPSEC_ROUTE_44, 1, Landmarks_Route119_1},
+    {MAPSEC_ROUTE_45, 0, Landmarks_Route120_0},
+    {MAPSEC_ROUTE_45, 2, Landmarks_Route120_2},
+    {MAPSEC_ROUTE_46, 2, Landmarks_Route121_2},
+    {MAPSEC_ROUTE_47, 0, Landmarks_Route122_0},
+    {MAPSEC_ROUTE_48, 0, Landmarks_Route123_0},
+    {MAPSEC_ROUTE_47, 1, Landmarks_Route122_0},
+    {MAPSEC_DARK_CAVE, 7, Landmarks_Route124_7},
+    {MAPSEC_UNION_CAVE, 2, Landmarks_Route125_2},
+    {MAPSEC_WHIRL_ISLANDS, 1, Landmarks_Route128_1},
+    {MAPSEC_LAKE_OF_RAGE, 1, Landmarks_Route131_1},
+    {MAPSEC_ICE_PATH, 0, Landmarks_OceanCurrent},
+    {MAPSEC_ICE_PATH, 1, Landmarks_OceanCurrent},
+    {MAPSEC_MT_SILVER, 0, Landmarks_OceanCurrent},
+    {MAPSEC_MT_SILVER, 1, Landmarks_OceanCurrent},
+    {MAPSEC_MT_SILVER, 2, Landmarks_OceanCurrent},
+    {MAPSEC_TOHJO_FALLS, 0, Landmarks_OceanCurrent},
+    {MAPSEC_TOHJO_FALLS, 1, Landmarks_OceanCurrent},
+    {MAPSEC_TOHJO_FALLS, 2, Landmarks_Route134_2},
+    // {MAPSEC_DRACO_CHAMBER, 0, Landmarks_DracoChamber_0},
+    // {MAPSEC_CAVE_OF_SHOCK, 0, Landmarks_CaveOfShock_0},
     {MAPSEC_NONE, 0, NULL},
 };
 

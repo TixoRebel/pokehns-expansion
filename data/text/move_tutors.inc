@@ -1,4 +1,8 @@
 MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnce:
+	.string "Are you ready to learn this move?$"
+	.string "It will cost you 5.000¥.$"
+
+MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnceFinite:
 	.string "This move can be learned only\n"
 	.string "once. Is that okay?$"
 
@@ -167,7 +171,7 @@ MoveTutor_Text_DynamicPunchTeach:
 	.string "I can't do this anymore!\p"
 	.string "It's utterly hopeless!\p"
 	.string "I'm a FIGHTING-type TRAINER,\n"
-	.string "so I can't win at the MOSSDEEP GYM\l"
+	.string "so I can't win at the SAFFRON GYM\l"
 	.string "no matter how hard I try!\p"
 	.string "Argh! Punch! Punch! Punch!\n"
 	.string "Punch! Punch! Punch!\p"
@@ -185,12 +189,12 @@ MoveTutor_Text_DynamicPunchWhichMon:
 	.string "Which POKéMON should I teach?$"
 
 MoveTutor_Text_DynamicPunchTaught:
-	.string "I want you to win at the MOSSDEEP GYM\n"
+	.string "I want you to win at the SAFFRON GYM\n"
 	.string "using that DYNAMICPUNCH!$"
 
 MoveTutor_Text_DoubleEdgeTeach:
 	.string "Sigh…\p"
-	.string "SOOTOPOLIS's GYM LEADER is really\n"
+	.string "VIRIDIAN's GYM LEADER is really\n"
 	.string "lovably admirable.\p"
 	.string "But that also means I have many\n"
 	.string "rivals for his attention.\p"

@@ -1200,6 +1200,61 @@ const union AnimCmd *const sAnimTable_Following_Asym[] = {
     [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast_Asym,
 };
 
+const union AnimCmd sAnim_FaceEast2F_Special[] =
+{
+    ANIMCMD_FRAME(6, 16),
+    ANIMCMD_FRAME(6, 16),
+    ANIMCMD_FRAME(7, 16),
+    ANIMCMD_FRAME(7, 16),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd sAnim_GoEast2F_Special[] =
+{
+    ANIMCMD_FRAME(6, 6),
+    ANIMCMD_FRAME(6, 6),
+    ANIMCMD_FRAME(7, 6),
+    ANIMCMD_FRAME(7, 6),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd sAnim_GoFastEast2F_Special[] =
+{
+    ANIMCMD_FRAME(6, 4),
+    ANIMCMD_FRAME(6, 4),
+    ANIMCMD_FRAME(7, 4),
+    ANIMCMD_FRAME(7, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_FollowingSpecial[] = {
+    sAnim_FaceSouth,
+    sAnim_FaceNorth2F,
+    sAnim_FaceWest2F,
+    sAnim_FaceEast2F_Special,
+    sAnim_GoSouth2F,
+    sAnim_GoNorth2F,
+    sAnim_GoWest2F,
+    sAnim_GoEast2F_Special,
+    sAnim_GoFastSouth2F,
+    sAnim_GoFastNorth2F,
+    sAnim_GoFastWest2F,
+    sAnim_GoFastEast2F_Special,
+    sAnim_EnterSouth,
+    sAnim_EnterNorth,
+    sAnim_EnterWest,
+    sAnim_EnterEast,
+    sAnim_ExitPokeballSouth,
+    sAnim_ExitPokeballNorth,
+    sAnim_ExitPokeballWest,
+    sAnim_ExitPokeballEast,
+    // ANIM_STD_COUNT =
+    sAnim_ExitPokeballFastSouth,
+    sAnim_ExitPokeballFastNorth,
+    sAnim_ExitPokeballFastWest,
+    sAnim_ExitPokeballFastEast,
+};
+
 static const union AnimCmd *const sAnimTable_HoOh[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
@@ -1309,6 +1364,29 @@ static const union AnimCmd sAnim_RayquazaFaceEast[] =
 // equivalent images aside from flying up. Its other frames aside from the 'normal'
 // frame are for the sequence where it awakens on Sky Pillar.
 static const union AnimCmd *const sAnimTable_Rayquaza[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_RayquazaFaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_RayquazaFaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_RayquazaFaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_RayquazaFaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_RayquazaCoiledAsleep,
+    [ANIM_STD_GO_NORTH] = sAnim_RayquazaFlyUp,
+    [ANIM_STD_GO_WEST] = sAnim_RayquazaCoiledMouthOpen,
+    [ANIM_STD_GO_EAST] = sAnim_RayquazaNormal,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_RayquazaCoiledAsleep,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_RayquazaFlyUp,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_RayquazaCoiledAwake,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_RayquazaNormal,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_RayquazaCoiledAsleep,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_RayquazaFlyUp,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_RayquazaCoiledMouthOpen,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_RayquazaNormal,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_RayquazaCoiledAsleep,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_RayquazaFlyUp,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_RayquazaCoiledMouthOpen,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_RayquazaNormal,
+};
+
+static const union AnimCmd *const sAnimTable_Whirlpool[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_RayquazaFaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_RayquazaFaceNorth,
     [ANIM_STD_FACE_WEST] = sAnim_RayquazaFaceWest,

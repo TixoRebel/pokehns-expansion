@@ -14,36 +14,37 @@
 #define TRAINER_SECRET_BASE                 1024
 #define TRAINER_LINK_OPPONENT               2048
 #define TRAINER_UNION_ROOM                  3072
+#define TRAINER_STEVEN_PARTNER              3075
 
 #define TRAINER_PIC_HIKER                  0
-#define TRAINER_PIC_AQUA_GRUNT_M           1
+#define TRAINER_PIC_ROCKET_GRUNT_M           1
 #define TRAINER_PIC_POKEMON_BREEDER_F      2
 #define TRAINER_PIC_COOLTRAINER_M          3
 #define TRAINER_PIC_BIRD_KEEPER            4
 #define TRAINER_PIC_COLLECTOR              5
-#define TRAINER_PIC_AQUA_GRUNT_F           6
+#define TRAINER_PIC_ROCKET_GRUNT_F           6
 #define TRAINER_PIC_SWIMMER_M              7
-#define TRAINER_PIC_MAGMA_GRUNT_M          8
+#define TRAINER_PIC_PETREL          8
 #define TRAINER_PIC_EXPERT_M               9
-#define TRAINER_PIC_AQUA_ADMIN_M          10
+#define TRAINER_PIC_LEADER_BLAINE          10
 #define TRAINER_PIC_BLACK_BELT            11
-#define TRAINER_PIC_AQUA_ADMIN_F          12
-#define TRAINER_PIC_AQUA_LEADER_ARCHIE    13
+#define TRAINER_PIC_MR_FUJI          12
+#define TRAINER_PIC_PROTON    13
 #define TRAINER_PIC_HEX_MANIAC            14
-#define TRAINER_PIC_AROMA_LADY            15
+#define TRAINER_PIC_POLICEMAN           15
 #define TRAINER_PIC_RUIN_MANIAC           16
-#define TRAINER_PIC_INTERVIEWER           17
-#define TRAINER_PIC_TUBER_F               18
-#define TRAINER_PIC_TUBER_M               19
+#define TRAINER_PIC_FIREBREATHER           17
+#define TRAINER_PIC_ENGINEER               18
+#define TRAINER_PIC_BURGLAR               19
 #define TRAINER_PIC_COOLTRAINER_F         20
 #define TRAINER_PIC_LADY                  21
 #define TRAINER_PIC_BEAUTY                22
 #define TRAINER_PIC_RICH_BOY              23
 #define TRAINER_PIC_EXPERT_F              24
 #define TRAINER_PIC_POKEMANIAC            25
-#define TRAINER_PIC_MAGMA_GRUNT_F         26
+#define TRAINER_PIC_ARIANA         26
 #define TRAINER_PIC_GUITARIST             27
-#define TRAINER_PIC_KINDLER               28
+#define TRAINER_PIC_SUPER_NERD               28
 #define TRAINER_PIC_CAMPER                29
 #define TRAINER_PIC_PICNICKER             30
 #define TRAINER_PIC_BUG_MANIAC            31
@@ -51,31 +52,31 @@
 #define TRAINER_PIC_PSYCHIC_M             33
 #define TRAINER_PIC_PSYCHIC_F             34
 #define TRAINER_PIC_GENTLEMAN             35
-#define TRAINER_PIC_ELITE_FOUR_SIDNEY     36
-#define TRAINER_PIC_ELITE_FOUR_PHOEBE     37
-#define TRAINER_PIC_ELITE_FOUR_GLACIA     38
-#define TRAINER_PIC_ELITE_FOUR_DRAKE      39
-#define TRAINER_PIC_LEADER_ROXANNE        40
-#define TRAINER_PIC_LEADER_BRAWLY         41
-#define TRAINER_PIC_LEADER_WATTSON        42
-#define TRAINER_PIC_LEADER_FLANNERY       43
-#define TRAINER_PIC_LEADER_NORMAN         44
-#define TRAINER_PIC_LEADER_WINONA         45
-#define TRAINER_PIC_LEADER_TATE_AND_LIZA  46
-#define TRAINER_PIC_LEADER_JUAN           47
+#define TRAINER_PIC_ELITE_FOUR_WILL     36
+#define TRAINER_PIC_ELITE_FOUR_KOGA     37
+#define TRAINER_PIC_ELITE_FOUR_BRUNO     38
+#define TRAINER_PIC_ELITE_FOUR_KAREN      39
+#define TRAINER_PIC_LEADER_FALKNER        40
+#define TRAINER_PIC_LEADER_BUGSY         41
+#define TRAINER_PIC_LEADER_WHITNEY        42
+#define TRAINER_PIC_LEADER_MORTY       43
+#define TRAINER_PIC_LEADER_JASMINE         44
+#define TRAINER_PIC_LEADER_CHUCK         45
+#define TRAINER_PIC_LEADER_BLUE  46
+#define TRAINER_PIC_LEADER_CLAIR           47
 #define TRAINER_PIC_SCHOOL_KID_M          48
 #define TRAINER_PIC_SCHOOL_KID_F          49
 #define TRAINER_PIC_SR_AND_JR             50
 #define TRAINER_PIC_POKEFAN_M             51
 #define TRAINER_PIC_POKEFAN_F             52
 #define TRAINER_PIC_YOUNGSTER             53
-#define TRAINER_PIC_CHAMPION_WALLACE      54
+#define TRAINER_PIC_CHAMPION_LANCE      54
 #define TRAINER_PIC_FISHERMAN             55
-#define TRAINER_PIC_CYCLING_TRIATHLETE_M  56
-#define TRAINER_PIC_CYCLING_TRIATHLETE_F  57
-#define TRAINER_PIC_RUNNING_TRIATHLETE_M  58
-#define TRAINER_PIC_RUNNING_TRIATHLETE_F  59
-#define TRAINER_PIC_SWIMMING_TRIATHLETE_M 60
+#define TRAINER_PIC_KIMONO_GIRL  56
+#define TRAINER_PIC_EUSINE  57
+#define TRAINER_PIC_LEADER_PRYCE  58
+#define TRAINER_PIC_BIKER  59
+#define TRAINER_PIC_SAGE 60
 #define TRAINER_PIC_SWIMMING_TRIATHLETE_F 61
 #define TRAINER_PIC_DRAGON_TAMER          62
 #define TRAINER_PIC_NINJA_BOY             63
@@ -84,31 +85,34 @@
 #define TRAINER_PIC_SWIMMER_F             66
 #define TRAINER_PIC_TWINS                 67
 #define TRAINER_PIC_SAILOR                68
-#define TRAINER_PIC_MAGMA_ADMIN           69
-#define TRAINER_PIC_WALLY                 70
+#define TRAINER_PIC_JUGGLER           69
+#define TRAINER_PIC_SILVER                 70
 #define TRAINER_PIC_BRENDAN               71
 #define TRAINER_PIC_MAY                   72
 #define TRAINER_PIC_BUG_CATCHER           73
 #define TRAINER_PIC_POKEMON_RANGER_M      74
 #define TRAINER_PIC_POKEMON_RANGER_F      75
-#define TRAINER_PIC_MAGMA_LEADER_MAXIE    76
+#define TRAINER_PIC_ARCHER    76
 #define TRAINER_PIC_LASS                  77
 #define TRAINER_PIC_YOUNG_COUPLE          78
 #define TRAINER_PIC_OLD_COUPLE            79
 #define TRAINER_PIC_SIS_AND_BRO           80
 #define TRAINER_PIC_STEVEN                81
-#define TRAINER_PIC_SALON_MAIDEN_ANABEL   82
-#define TRAINER_PIC_DOME_ACE_TUCKER       83
-#define TRAINER_PIC_PALACE_MAVEN_SPENSER  84
-#define TRAINER_PIC_ARENA_TYCOON_GRETA    85
-#define TRAINER_PIC_FACTORY_HEAD_NOLAND   86
-#define TRAINER_PIC_PIKE_QUEEN_LUCY       87
-#define TRAINER_PIC_PYRAMID_KING_BRANDON  88
+#define TRAINER_PIC_LEADER_BROCK   82
+#define TRAINER_PIC_LEADER_MISTY       83
+#define TRAINER_PIC_LEADER_SURGE  84
+#define TRAINER_PIC_LEADER_ERIKA    85
+#define TRAINER_PIC_LEADER_JANINE   86
+#define TRAINER_PIC_LEADER_SABRINA       87
+#define TRAINER_PIC_GIOVANNI  88
 #define TRAINER_PIC_RED                   89
 #define TRAINER_PIC_LEAF                  90
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
-#define TRAINER_PIC_COUNT                 93
+#define TRAINER_PIC_NURSE                 93
+#define TRAINER_PIC_LEADER_TATE           94 
+#define TRAINER_PIC_LEADER_LIZA           95 
+#define TRAINER_PIC_COUNT                 96
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -157,7 +161,7 @@
 #define FACILITY_CLASS_ELITE_FOUR_PHOEBE     0x22
 #define FACILITY_CLASS_LEADER_ROXANNE        0x23
 #define FACILITY_CLASS_LEADER_BRAWLY         0x24
-#define FACILITY_CLASS_LEADER_TATE_AND_LIZA  0x25
+#define FACILITY_CLASS_LEADER_TATE           0x25
 #define FACILITY_CLASS_SCHOOL_KID_M          0x26
 #define FACILITY_CLASS_SCHOOL_KID_F          0x27
 #define FACILITY_CLASS_SR_AND_JR             0x28
@@ -195,15 +199,23 @@
 #define FACILITY_CLASS_YOUNG_COUPLE          0x48
 #define FACILITY_CLASS_OLD_COUPLE            0x49
 #define FACILITY_CLASS_SIS_AND_BRO           0x4a
-#define FACILITY_CLASS_STEVEN                0x4b
+#define FACILITY_CLASS_CHAMPION_STEVEN       0x4b
 #define FACILITY_CLASS_SALON_MAIDEN_ANABEL   0x4c
 #define FACILITY_CLASS_DOME_ACE_TUCKER       0x4d
 #define FACILITY_CLASS_RED                   0x4e
 #define FACILITY_CLASS_LEAF                  0x4f
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
+#define FACILITY_CLASS_LEADER_WATTSON        0x52
+#define FACILITY_CLASS_LEADER_FLANNERY       0x53
+#define FACILITY_CLASS_LEADER_NORMAN         0x54
+#define FACILITY_CLASS_LEADER_WINONA         0x55
+#define FACILITY_CLASS_LEADER_LIZA           0x56
+#define FACILITY_CLASS_LEADER_JUAN           0x57
+#define FACILITY_CLASS_ELITE_FOUR_GLACIA     0x58
+#define FACILITY_CLASS_ELITE_FOUR_DRAKE      0x59
 
-#define FACILITY_CLASSES_COUNT               0x52
+#define FACILITY_CLASSES_COUNT               0x5a
 
 #define RS_FACILITY_CLASS_AQUA_LEADER_ARCHIE    0x0
 #define RS_FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -310,7 +322,7 @@
 #define TRAINER_CLASS_RICH_BOY       0x16
 #define TRAINER_CLASS_POKEMANIAC     0x17
 #define TRAINER_CLASS_GUITARIST      0x18
-#define TRAINER_CLASS_KINDLER        0x19
+#define TRAINER_CLASS_SUPER_NERD     0x19
 #define TRAINER_CLASS_CAMPER         0x1a
 #define TRAINER_CLASS_PICNICKER      0x1b
 #define TRAINER_CLASS_BUG_MANIAC     0x1c
@@ -351,7 +363,23 @@
 #define TRAINER_CLASS_PIKE_QUEEN     0x3f
 #define TRAINER_CLASS_PYRAMID_KING   0x40
 #define TRAINER_CLASS_RS_PROTAG      0x41
-#define TRAINER_CLASS_COUNT          0x42
+#define TRAINER_CLASS_NURSE          0x42
+
+#define TRAINER_CLASS_POLICEMAN 0x43
+#define TRAINER_CLASS_UNUSEDB 0x44
+#define TRAINER_CLASS_TEAM_ROCKET 0x45
+#define TRAINER_CLASS_ROCKET_ADMIN 0x46
+
+#define TRAINER_CLASS_SAGE 0x47
+#define TRAINER_CLASS_ENGINEER 0x48
+#define TRAINER_CLASS_FIREBREATHER 0x49
+#define TRAINER_CLASS_KIMONO_GIRL 0x4A
+#define TRAINER_CLASS_BIKER 0x4B
+#define TRAINER_CLASS_MYSTERY_MAN 0x4C
+#define TRAINER_CLASS_BURGLAR 0x4D
+#define TRAINER_CLASS_JUGGLER 0x4E
+#define TRAINER_CLASS_PSYCHIC_M 0x4F
+#define TRAINER_CLASS_COUNT     0x50
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music
@@ -359,13 +387,13 @@
 #define TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS   3
 #define TRAINER_ENCOUNTER_MUSIC_INTENSE      4
 #define TRAINER_ENCOUNTER_MUSIC_COOL         5
-#define TRAINER_ENCOUNTER_MUSIC_AQUA         6
+#define TRAINER_ENCOUNTER_MUSIC_ROCKET       6
 #define TRAINER_ENCOUNTER_MUSIC_MAGMA        7
 #define TRAINER_ENCOUNTER_MUSIC_SWIMMER      8
 #define TRAINER_ENCOUNTER_MUSIC_TWINS        9 // used for other trainer classes too
 #define TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR  10
 #define TRAINER_ENCOUNTER_MUSIC_HIKER       11 // used for other trainer classes too
-#define TRAINER_ENCOUNTER_MUSIC_INTERVIEWER 12
+#define TRAINER_ENCOUNTER_MUSIC_SILVER      12
 #define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
 
 #define F_TRAINER_FEMALE (1 << 7)

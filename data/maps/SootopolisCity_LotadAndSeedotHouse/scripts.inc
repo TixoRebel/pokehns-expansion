@@ -1,107 +1,32 @@
 SootopolisCity_LotadAndSeedotHouse_MapScripts::
-	.byte 0
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_SeedotBrother::
-	special GetSeedotSizeRecordInfo
-	lock
-	faceplayer
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigSeedot, MSGBOX_DEFAULT
-	special ChoosePartyMon
-	waitstate
-	copyvar VAR_RESULT, VAR_0x8004
-	goto_if_eq VAR_RESULT, PARTY_NOTHING_CHOSEN, SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowSeedot
-	special CompareSeedotSize
-	goto_if_eq VAR_RESULT, 1, SootopolisCity_LotadAndSeedotHouse_EventScript_NotSeedot
-	goto_if_eq VAR_RESULT, 2, SootopolisCity_LotadAndSeedotHouse_EventScript_SmallSeedot
-	goto_if_eq VAR_RESULT, 3, SootopolisCity_LotadAndSeedotHouse_EventScript_BigSeedot
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowSeedot::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_DontHaveBigSeedot, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_NotSeedot::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_ThatsNotSeedot, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_SmallSeedot::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_SeenBiggerSeedot, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_BigSeedot::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_GoshMightBeBiggerThanLotad, MSGBOX_DEFAULT
-	giveitem ITEM_ELIXIR
-	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir1
-	closemessage
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir1::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BagCrammedFull1, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_LotadBrother::
-	special GetLotadSizeRecordInfo
-	lock
-	faceplayer
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigLotad, MSGBOX_DEFAULT
-	special ChoosePartyMon
-	waitstate
-	copyvar VAR_RESULT, VAR_0x8004
-	goto_if_eq VAR_RESULT, PARTY_NOTHING_CHOSEN, SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowLotad
-	special CompareLotadSize
-	goto_if_eq VAR_RESULT, 1, SootopolisCity_LotadAndSeedotHouse_EventScript_NotLotad
-	goto_if_eq VAR_RESULT, 2, SootopolisCity_LotadAndSeedotHouse_EventScript_SmallLotad
-	goto_if_eq VAR_RESULT, 3, SootopolisCity_LotadAndSeedotHouse_EventScript_BigLotad
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowLotad::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_DontHaveBigLotad, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_NotLotad::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_ThatsNotLotad, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_SmallLotad::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_SeenBiggerLotad, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_BigLotad::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_WowMightBeBiggerThanSeedot, MSGBOX_DEFAULT
-	giveitem ITEM_ELIXIR
-	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir2
-	closemessage
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir2::
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BagCrammedFull2, MSGBOX_DEFAULT
-	release
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_SeedotSizeRecord::
-	special GetSeedotSizeRecordInfo
-	lockall
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BiggestSeedotInHistory, MSGBOX_DEFAULT
-	releaseall
-	end
 
 SootopolisCity_LotadAndSeedotHouse_EventScript_LotadSizeRecord::
-	special GetLotadSizeRecordInfo
-	lockall
-	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BiggestLotadInHistory, MSGBOX_DEFAULT
-	releaseall
-	end
 
 SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigSeedot:
 	.string "Do you know the POKéMON SEEDOT?\n"

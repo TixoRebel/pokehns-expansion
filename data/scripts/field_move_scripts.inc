@@ -1,7 +1,7 @@
 @ Interact with cuttable tree
 EventScript_CutTree::
 	lockall
-	goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCut
+	goto_if_unset FLAG_BADGE02_GET, EventScript_CheckTreeCantCut
 	checkpartymove MOVE_CUT
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
 	setfieldeffectargument 0, VAR_RESULT
@@ -20,6 +20,7 @@ EventScript_CutTreeDown:: @ fallthrough
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
 	applymovement VAR_LAST_TALKED, Movement_CutTreeDown
+	playse SE_M_CUT
 	waitmovement 0
 	removeobject VAR_LAST_TALKED
 	releaseall
@@ -64,7 +65,7 @@ EventScript_UseRockSmash::
 @ Interact with smashable rock
 EventScript_RockSmash::
 	lockall
-	goto_if_unset FLAG_BADGE03_GET, EventScript_CantSmashRock
+	goto_if_unset FLAG_BADGE01_GET, EventScript_CantSmashRock
 	checkpartymove MOVE_ROCK_SMASH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
 	setfieldeffectargument 0, VAR_RESULT
@@ -84,6 +85,7 @@ EventScript_SmashRock:: @ fallthrough
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
 	applymovement VAR_LAST_TALKED, Movement_SmashRock
+	playse SE_M_ROCK_THROW
 	waitmovement 0
 	removeobject VAR_LAST_TALKED
 	specialvar VAR_RESULT, TryUpdateRusturfTunnelState
@@ -93,6 +95,61 @@ EventScript_SmashRock:: @ fallthrough
 	waitstate
 	releaseall
 	end
+
+@ Interact with headbutt tree
+EventScript_Headbutt::
+	lockall
+	goto_if_unset FLAG_GET_HEADBUTT, EventScript_CantHeadbuttTree
+	setvar VAR_RESULT, 0
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantHeadbuttTree
+	@setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
+	@msgbox Text_WantToHeadbutt, MSGBOX_YESNO
+	@goto_if_eq VAR_RESULT, NO, EventScript_CancelHeadbutt
+	msgbox Text_MonUsedHeadbutt, MSGBOX_DEFAULT
+	closemessage
+EventScript_HeadbuttCommon:
+	@ check if follower should use the field move
+	IsFollowerFieldMoveUser VAR_0x8004
+	@setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
+	@dofieldeffect FLDEFF_USE_ROCK_SMASH
+	@waitstate
+EventScript_HeadbuttTree:: @ fallthrough
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
+	applymovement VAR_LAST_TALKED, Movement_HeadbuttTree
+	playse SE_M_HEADBUTT
+	waitmovement 0
+	special RockSmashWildEncounter
+	goto EventScript_EndHeadbutt
+	waitstate
+	releaseall
+	end
+
+
+Movement_HeadbuttTree:
+	rock_smash_break
+	step_end
+
+EventScript_CantHeadbuttTree::
+	msgbox Text_CantHeadbutt, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_CancelHeadbutt::
+	closemessage
+	releaseall
+	end
+
+
+EventScript_EndHeadbutt::
+	releaseall
+	end
+
+Text_MonUsedHeadbutt::
+	.string "{STR_VAR_1} used HEADBUTT!$"
+
 
 EventScript_FollowerFieldMove:
 	getdirectiontoface VAR_0x8005, OBJ_EVENT_ID_FOLLOWER, OBJ_EVENT_ID_PLAYER
@@ -118,30 +175,30 @@ EventScript_FollowerSwap:
 	return
 
 EventScript_FollowerMoveNorth:
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_WalkDown
+	applymovement LOCALID_PLAYER, Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
 	return
 
 EventScript_FollowerMoveEast:
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Movement_WalkLeft
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_PLAYER, Common_Movement_FaceRight
 	waitmovement 0
 	return
 
 EventScript_FollowerMoveSouth:
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_WalkUp
+	applymovement LOCALID_PLAYER, Movement_WalkUp
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
 	return
 
 EventScript_FollowerMoveWest:
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_WalkRight
+	applymovement LOCALID_PLAYER, Movement_WalkRight
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
 	waitmovement 0
 	return
 
@@ -166,8 +223,34 @@ EventScript_FollowerJumpWest:
 	return
 
 EventScript_EndSmash::
+	random 20
+	call_if_eq VAR_RESULT, 1, EventScript_RockSmashHeartscale
+	call_if_eq VAR_RESULT, 2, EventScript_RockSmashBlueShard
+	call_if_eq VAR_RESULT, 3, EventScript_RockSmashRedShard
+	call_if_eq VAR_RESULT, 4, EventScript_RockSmashGreenShard
+	call_if_eq VAR_RESULT, 5, EventScript_RockSmashYellowShard
 	releaseall
 	end
+
+EventScript_RockSmashHeartscale::
+	giveitem ITEM_HEART_SCALE
+	return
+
+EventScript_RockSmashBlueShard::
+	giveitem ITEM_BLUE_SHARD
+	return
+
+EventScript_RockSmashRedShard::
+	giveitem ITEM_RED_SHARD
+	return
+
+EventScript_RockSmashGreenShard::
+	giveitem ITEM_GREEN_SHARD
+	return
+
+EventScript_RockSmashYellowShard::
+	giveitem ITEM_YELLOW_SHARD
+	return
 
 Movement_WalkUp:
 	walk_up
@@ -223,9 +306,17 @@ Text_CantSmash:
 	.string "It's a rugged rock, but a POKéMON\n"
 	.string "may be able to smash it.$"
 
+Text_WantToHeadbutt:
+	.string "This tree may house POKéMON.\n"
+	.string "Would you like to use HEADBUTT?$"
+
+Text_CantHeadbutt:
+	.string "It's a small tree, but a wild\n"
+	.string "POKéMON may be living within.$"
+
 EventScript_StrengthBoulder::
 	lockall
-	goto_if_unset FLAG_BADGE04_GET, EventScript_CantStrength
+	goto_if_unset FLAG_BADGE03_GET, EventScript_CantStrength
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
 	checkpartymove MOVE_STRENGTH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantStrength
@@ -372,6 +463,74 @@ EventScript_EndSurface::
 EventScript_NoSurface::
 	releaseall
 	end
+	
+@crystal
+EventScript_Whirlpool::
+	lockall
+	goto_if_unset FLAG_BADGE07_GET, EventScript_CantWhirlpool
+	checkitem ITEM_HM_WHIRLPOOL
+	goto_if_eq VAR_RESULT, FALSE, EventScript_CantWhirlpool
+	playse SE_M_WATERFALL
+	goto_if_eq VAR_FACING, DIR_NORTH, EventScript_WhirlpoolGoNorth
+	goto_if_eq VAR_FACING, DIR_SOUTH, EventScript_WhirlpoolGoSouth
+	goto_if_eq VAR_FACING, DIR_EAST, EventScript_WhirlpoolGoEast
+	goto_if_eq VAR_FACING, DIR_WEST, EventScript_WhirlpoolGoWest
+	releaseall
+	end
+
+EventScript_WhirlpoolGoNorth::
+	applymovement LOCALID_PLAYER, Movement_WhirlpoolNorth
+	waitmovement 0
+	releaseall
+	end
+
+EventScript_WhirlpoolGoSouth::
+	applymovement LOCALID_PLAYER, Movement_WhirlpoolSouth
+	waitmovement 0
+	releaseall
+	end
+
+EventScript_WhirlpoolGoEast::
+	applymovement LOCALID_PLAYER, Movement_WhirlpoolEast
+	waitmovement 0
+	releaseall
+	end
+
+EventScript_WhirlpoolGoWest::
+	applymovement LOCALID_PLAYER, Movement_WhirlpoolWest
+	waitmovement 0
+	releaseall
+	end
+
+EventScript_CantWhirlpool::
+	msgbox Text_CantWhirlpool, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+Movement_WhirlpoolNorth:
+	slide_up
+	slide_up
+	slide_up
+	step_end
+
+Movement_WhirlpoolSouth:
+	slide_down
+	slide_down
+	slide_down
+	step_end
+
+Movement_WhirlpoolEast:
+	slide_right
+	slide_right
+	slide_right
+	step_end
+
+Movement_WhirlpoolWest:
+	slide_left
+	slide_left
+	slide_left
+	step_end
 
 EventScript_DigCommon:
 	isfollowerfieldmoveuser VAR_0x8004
@@ -402,6 +561,10 @@ EventScript_UseCutGrass::
 	lockall
 	goto EventScript_CutGrassCommon
 
+Text_CantWhirlpool:
+	.string "The water is swirling and spinning\n"
+	.string "around with a mighty roar.$"
+
 Text_CantDive:
 	.string "The sea is deep here. A POKéMON\n"
 	.string "may be able to go underwater.$"
@@ -427,6 +590,10 @@ EventScript_FailSweetScent::
 
 Text_FailSweetScent:
 	.string "Looks like there's nothing here…$"
+
+SetTimeEncounters::
+	callnative SetTimeBasedEncounters
+	return
 
 EventScript_UseDefog::
 	lockall

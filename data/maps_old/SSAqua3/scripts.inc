@@ -1,0 +1,63 @@
+.set LOCALID_SSAQUA3_GRANDDAUGHTER, 2
+.set LOCALID_SSAQUA3_CAPTAIN, 1
+
+SSAqua3_MapScripts::
+	.byte 0
+
+SSAqua3_EventScript_Captain::
+	goto_if_eq VAR_TEMP_0, 1, SSAqua3_EventScrip_CaptainAfter
+	msgbox SSAqua3_Text_CaptainExhausting, MSGBOX_NPC
+	setvar VAR_TEMP_0, 1
+SSAqua3_EventScrip_CaptainAfter::
+	msgbox SSAqua3_Text_CaptainHowDoYouLike, MSGBOX_DEFAULT
+	closemessage
+	end
+
+SSAqua3_EventScript_Granddaughter::
+	lock
+	applymovement LOCALID_SSAQUA3_GRANDDAUGHTER, SSAqua3_Movement_Jump
+	waitmovement 0
+	msgbox SSAqua3_Text_GranddaughterCaptainPlayWithMe, MSGBOX_DEFAULT
+	turnobject LOCALID_SSAQUA3_CAPTAIN, DIR_WEST
+	playse SE_PIN
+	applymovement LOCALID_SSAQUA3_CAPTAIN, Common_Movement_QuestionMark
+	waitmovement 0
+	delay 60
+	faceplayer
+	msgbox SSAqua3_Text_GranddaughterHasToFindGrandpa, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_HIDE_SSAQUA3_GRANDDAUGHTER
+	setvar VAR_SSAQUA_STATE, 4
+	clearflag FLAG_HIDE_SSAQUA8_GRANDDAUGHTER
+	warp MAP_SSAQUA8, 0
+	release
+	end
+
+SSAqua3_Movement_Jump:
+	jump_in_place_right
+	jump_in_place_right
+	jump_in_place_right
+	step_end
+
+SSAqua3_Text_GranddaughterCaptainPlayWithMe:
+	.string "CAPTAIN, play with me, please?\p"
+	.string "I'm bored! I want to play more!$"
+
+SSAqua3_Text_GranddaughterHasToFindGrandpa:
+	.string "Hi! Will you play with me?\p"
+	.string "…Oh!\p"
+	.string "Grandpa's worried about me?\p"
+	.string "I have to go!\p"
+	.string "I have to go find Grandpa!$"
+
+SSAqua3_Text_CaptainExhausting:
+	.string "Whew! Thanks for coming along.\p"
+	.string "Keeping that little girl amused\n"
+	.string "was exhausting.$"
+
+SSAqua3_Text_CaptainHowDoYouLike:
+	.string "How do you like S.S.AQUA's ride?\p"
+	.string "She practically skates across\n"
+	.string "the waves.$"
+

@@ -2072,7 +2072,7 @@ static bool8 LavaridgeGymB1FWarpEffect_Init(struct Task *task, struct ObjectEven
     objectEvent->noShadow = TRUE;
     task->data[1] = 1;
     task->data[0]++;
-    if (objectEvent->localId == OBJ_EVENT_ID_PLAYER) // Hide follower before warping
+    if (objectEvent->localId == LOCALID_PLAYER) // Hide follower before warping
     {
         HideFollowerForFieldEffect();
         if (PlayerHasFollowerNPC() && gObjectEvents[GetFollowerNPCObjectId()].invisible == FALSE)
@@ -2278,7 +2278,7 @@ static bool8 LavaridgeGym1FWarpEffect_Init(struct Task *task, struct ObjectEvent
     objectEvent->fixedPriority = 1;
     objectEvent->noShadow = TRUE;
     task->data[0]++;
-    if (objectEvent->localId == OBJ_EVENT_ID_PLAYER) // Hide follower before warping
+    if (objectEvent->localId == LOCALID_PLAYER) // Hide follower before warping
     {
         HideFollowerForFieldEffect();
         if (PlayerHasFollowerNPC() && gObjectEvents[GetFollowerNPCObjectId()].invisible == FALSE)

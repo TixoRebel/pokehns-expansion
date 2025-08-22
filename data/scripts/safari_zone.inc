@@ -1,13 +1,21 @@
 SafariZone_EventScript_OutOfBallsMidBattle::
 	setvar VAR_SAFARI_ZONE_STATE, 1
 	special ExitSafariMode
-	setwarp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
+	goto_if_set FLAG_IN_KANTO_SAFARI_ZONE, SafariZone_EventScript_ExitKanto
+	setwarp MAP_SAFARI_ZONE_ENTRANCE, 9, 3
 	end
 
 SafariZone_EventScript_Exit::
 	setvar VAR_SAFARI_ZONE_STATE, 1
 	special ExitSafariMode
-	warp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
+	goto_if_set FLAG_IN_KANTO_SAFARI_ZONE, SafariZone_EventScript_ExitKanto
+	warp MAP_SAFARI_ZONE_ENTRANCE, 9, 3
+	waitstate
+	end
+
+SafariZone_EventScript_ExitKanto::
+	clearflag FLAG_IN_KANTO_SAFARI_ZONE
+	warp MAP_SAFARI_ZONE_ENTRANCE_FUCHSIA, 5, 6
 	waitstate
 	end
 
@@ -53,9 +61,7 @@ SafariZone_EventScript_ChoosePokeblock::
 	special OpenPokeblockCaseOnFeeder
 	waitstate
 	goto_if_ne VAR_RESULT, 0xFFFF, SafariZone_EventScript_PokeblockPlaced
-#ifdef BUGFIX
-	releaseall  @ Only gets called from EventScript_PokeBlockFeeder which uses lockall.
-#endif
+	releaseall
 	end
 
 SafariZone_EventScript_PokeblockPlaced::
@@ -99,7 +105,7 @@ SafariZone_Text_PokeblockWasPlaced:
 Route121_SafariZoneEntrance_Text_WelcomeToSafariZone:
 	.string "Welcome to the SAFARI ZONE!\p"
 	.string "Here, you may witness many kinds of\n"
-	.string "POKéMON rarely seen in HOENN.\p"
+	.string "POKéMON rarely seen in JOHTO.\p"
 	.string "And, you'll see them in their wild,\n"
 	.string "untamed state in natural habitats.\p"
 	.string "What's more, we've thrown open the\n"
@@ -163,7 +169,7 @@ Route121_SafariZoneEntrance_Text_YouNeedPokeblockCase:
 	.string "fruitful if you use {POKEBLOCK}S.\p"
 	.string "Please come back with a {POKEBLOCK} CASE.\p"
 	.string "You may obtain a {POKEBLOCK} CASE from\n"
-	.string "the LILYCOVE CONTEST HALL.$"
+	.string "the JOHTO SAFARI ZONE.$"
 
 SafariZone_South_Text_StillHaveTimeExit:
 	.string "You still have time left. Would you like\n"

@@ -1,5 +1,5 @@
 ProfBirch_EventScript_UpdateLocation::
-	goto_if_eq VAR_PETALBURG_GYM_STATE, 0, Common_EventScript_NopReturn
+	goto_if_eq VAR_GARBAGEVAR, 0, Common_EventScript_NopReturn
 	goto_if_set FLAG_SYS_GAME_CLEAR, ProfBirch_EventScript_MoveToLab
 	call_if_eq VAR_BIRCH_STATE, 0, ProfBirch_EventScript_MoveToLab
 	call_if_eq VAR_BIRCH_STATE, 1, ProfBirch_EventScript_MoveToLab
@@ -12,31 +12,46 @@ ProfBirch_EventScript_UpdateLocation::
 	return
 
 ProfBirch_EventScript_MoveToLab::
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380
-	setflag FLAG_HIDE_ROUTE_101_BIRCH
-	setflag FLAG_HIDE_ROUTE_103_BIRCH
+	clearflag FLAG_GARBAGEFLAGS_LAB_BIRCH
+	clearflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAG
 	return
 
 ProfBirch_EventScript_MoveToRoute101::
-	clearflag FLAG_HIDE_ROUTE_101_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380
-	setflag FLAG_HIDE_ROUTE_103_BIRCH
+	clearflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAGS_LAB_BIRCH
+	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAG
 	return
 
 ProfBirch_EventScript_MoveToRoute103::
-	clearflag FLAG_HIDE_ROUTE_103_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380
+	clearflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAGS_LAB_BIRCH
+	setflag FLAG_GARBAGEFLAG
 	return
 
 ProfBirch_EventScript_RatePokedexOrRegister::
 	lock
 	faceplayer
-	goto_if_unset FLAG_HAS_MATCH_CALL, ProfBirch_EventScript_AskRatePokedex
-	goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 3, ProfBirch_EventScript_GoFindMrPokemon
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 4, ProfBirch_EventScript_Robbery
+	goto ProfBirch_EventScript_AskRatePokedex
+	@goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
+	release
+	end
+
+ProfBirch_EventScript_GoFindMrPokemon::
+	msgbox gBirchDexRatingText_GoFindMrPokemon MSGBOX_DEFAULT
+	release
+	end
+
+ProfBirch_EventScript_Robbery::
+	msgbox gBirchDexRatingText_Robbery MSGBOX_DEFAULT
+	release
+	end
+
 
 ProfBirch_EventScript_AskRatePokedex::
 	msgbox gBirchDexRatingText_AreYouCurious, MSGBOX_YESNO

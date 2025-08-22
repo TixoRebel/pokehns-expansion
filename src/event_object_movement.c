@@ -57,6 +57,7 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "constants/event_objects.h"
 
 #define SPECIAL_LOCALIDS_START (min(LOCALID_CAMERA, \
                                 min(LOCALID_PLAYER, \
@@ -348,6 +349,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP] = MovementType_WalkSlowlyInPlace,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT] = MovementType_WalkSlowlyInPlace,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT] = MovementType_WalkSlowlyInPlace,
+    [MOVEMENT_TYPE_TOWER_BEAM] = MovementType_TowerBeam,
     [MOVEMENT_TYPE_FOLLOW_PLAYER] = MovementType_FollowPlayer,
 };
 
@@ -494,6 +496,41 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
     {gObjectEventPal_Npc3,                  OBJ_EVENT_PAL_TAG_NPC_3},
     {gObjectEventPal_Npc4,                  OBJ_EVENT_PAL_TAG_NPC_4},
+    {gObjectEventPal_Rocket1,               OBJ_EVENT_PAL_TAG_ROCKET_1},
+    {gObjectEventPal_Rocket2,               OBJ_EVENT_PAL_TAG_ROCKET_2},
+    {gObjectEventPal_Rocket3,               OBJ_EVENT_PAL_TAG_ROCKET_3},
+    {gObjectEventPal_Rocket4,               OBJ_EVENT_PAL_TAG_ROCKET_4},
+    {gObjectEventPal_Falkner,               OBJ_EVENT_PAL_TAG_FALKNER},
+    {gObjectEventPal_Bugsy,               OBJ_EVENT_PAL_TAG_BUGSY},
+    {gObjectEventPal_Whitney,               OBJ_EVENT_PAL_TAG_WHITNEY},
+    {gObjectEventPal_Morty,               OBJ_EVENT_PAL_TAG_MORTY},
+    {gObjectEventPal_Jasmine,               OBJ_EVENT_PAL_TAG_JASMINE},
+    {gObjectEventPal_Chuck,               OBJ_EVENT_PAL_TAG_CHUCK},
+    {gObjectEventPal_Pryce,               OBJ_EVENT_PAL_TAG_PRYCE},
+    {gObjectEventPal_Clair,               OBJ_EVENT_PAL_TAG_CLAIR},
+    {gObjectEventPal_Janine,               OBJ_EVENT_PAL_TAG_JANINE},
+
+    {gObjectEventPal_Will,               OBJ_EVENT_PAL_TAG_WILL},
+    {gObjectEventPal_Karen,               OBJ_EVENT_PAL_TAG_KAREN},
+    {gObjectEventPal_Lance,               OBJ_EVENT_PAL_TAG_LANCE},
+
+    {gObjectEventPal_Silver,               OBJ_EVENT_PAL_TAG_SILVER},
+    {gObjectEventPal_Kimono,               OBJ_EVENT_PAL_TAG_KIMONO},
+    {gObjectEventPal_Elm,               OBJ_EVENT_PAL_TAG_ELM},
+    {gObjectEventPal_Firebreather,               OBJ_EVENT_PAL_TAG_FIREBREATHER},
+    {gObjectEventPal_Eusine,               OBJ_EVENT_PAL_TAG_EUSINE},
+    {gObjectEventPal_Sage,               OBJ_EVENT_PAL_TAG_SAGE},
+    {gObjectEventPal_Red,               OBJ_EVENT_PAL_TAG_RED},
+    {gObjectEventPal_Steven,               OBJ_EVENT_PAL_TAG_STEVEN},
+    {gObjectEventPal_ScientistF,               OBJ_EVENT_PAL_TAG_SCIENTIST_F},
+    {gObjectEventPal_ShinyGyarados,               OBJ_EVENT_PAL_TAG_SHINY_GYARADOS},
+    {gObjectEventPal_TowerBeam,               OBJ_EVENT_PAL_TAG_TOWER_BEAM},
+    {gObjectEventPal_Whirlpool,                OBJ_EVENT_PAL_TAG_WHIRLPOOL},
+    {gObjectEventPal_Snorlax,                   OBJ_EVENT_PAL_TAG_SNORLAX},
+    {gObjectEventPal_Slowpoke,                   OBJ_EVENT_PAL_TAG_SLOWPOKE},
+    
+
+
     {gObjectEventPal_Npc1Reflection,        OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION},
     {gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
     {gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
@@ -568,6 +605,12 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {}, // BUG: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
         // If it's looking for a tag that isn't in this table, the game locks in an infinite loop.
 #endif
+    {gObjectEventPal_Substitute, OBJ_EVENT_PAL_TAG_SUBSTITUTE},
+    {gObjectEventPaletteLight, OBJ_EVENT_PAL_TAG_LIGHT},
+    {gObjectEventPaletteLight2, OBJ_EVENT_PAL_TAG_LIGHT_2},
+    {gObjectEventPaletteEmotes, OBJ_EVENT_PAL_TAG_EMOTES},
+    {gObjectEventPaletteNeonLight, OBJ_EVENT_PAL_TAG_NEON_LIGHT},
+    {NULL,                  OBJ_EVENT_PAL_TAG_NONE},
 };
 
 static const u16 sReflectionPaletteTags_Brendan[] = {
@@ -2488,22 +2531,22 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     {
         switch (gMapHeader.regionMapSectionId)
         {
-        case MAPSEC_RUSTBORO_CITY:
+        case MAPSEC_CHERRYGROVE_CITY:
         case MAPSEC_PEWTER_CITY:
             multi = TYPE_ROCK;
             break;
-        case MAPSEC_DEWFORD_TOWN:
+        case MAPSEC_AZALEA_TOWN:
             multi = TYPE_FIGHTING;
             break;
-        case MAPSEC_MAUVILLE_CITY:
+        case MAPSEC_BLACKTHORN_CITY:
         case MAPSEC_VERMILION_CITY:
             multi = TYPE_ELECTRIC;
             break;
-        case MAPSEC_LAVARIDGE_TOWN:
+        case MAPSEC_GOLDENROD_CITY:
         case MAPSEC_CINNABAR_ISLAND:
             multi = TYPE_FIRE;
             break;
-        case MAPSEC_PETALBURG_CITY:
+        case MAPSEC_SAFARI_ZONE_GATE:
             multi = TYPE_NORMAL;
             break;
         case MAPSEC_FORTREE_CITY:
@@ -3071,8 +3114,8 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
     if (graphicsId >= OBJ_EVENT_GFX_VARS && graphicsId <= OBJ_EVENT_GFX_VAR_F)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VARS);
 
-    if (graphicsId == OBJ_EVENT_GFX_BARD)
-        return gMauvilleOldManGraphicsInfoPointers[GetCurrentMauvilleOldMan()];
+    // if (graphicsId == OBJ_EVENT_GFX_BARD)
+    //     return gMauvilleOldManGraphicsInfoPointers[GetCurrentMauvilleOldMan()];
 
     if (graphicsId & OBJ_EVENT_MON)
         return SpeciesToGraphicsInfo(graphicsId & OBJ_EVENT_MON_SPECIES_MASK, graphicsId & OBJ_EVENT_MON_SHINY, graphicsId & OBJ_EVENT_MON_FEMALE);
@@ -4872,6 +4915,68 @@ bool8 MovementType_RotateCounterclockwise_Step3(struct ObjectEvent *objectEvent,
     sprite->sTypeFuncId = 0;
     return TRUE;
 }
+
+//crystal tower beam movement 
+#define TOWER_BEAM_ANIM_COUNT 4
+
+movement_type_def(MovementType_TowerBeam, gMovementTypeFuncs_TowerBeam)
+
+static const u8 sTowerBeamAnimActions[TOWER_BEAM_ANIM_COUNT] = {
+    MOVEMENT_ACTION_WALK_IN_PLACE_FAST_LEFT,
+    MOVEMENT_ACTION_WALK_IN_PLACE_FAST_LEFT,
+    MOVEMENT_ACTION_WALK_IN_PLACE_FAST_RIGHT,
+    MOVEMENT_ACTION_WALK_IN_PLACE_FAST_DOWN,
+};
+bool8 MovementType_TowerBeam_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ClearObjectEventMovement(objectEvent, sprite);
+    ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_WALK_IN_PLACE_FAST_LEFT);
+    sprite->sTypeFuncId = 1;
+    return TRUE;
+}
+
+bool8 MovementType_TowerBeam_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_LEFT);
+        sprite->sTypeFuncId = 2;
+    }
+    return FALSE;
+}
+
+bool8 MovementType_TowerBeam_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_RIGHT);
+        sprite->sTypeFuncId = 3;
+    }
+    return FALSE;
+}
+
+bool8 MovementType_TowerBeam_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_DOWN);
+        sprite->sTypeFuncId = 4;
+    }
+    return FALSE;
+}
+
+bool8 MovementType_TowerBeam_Step4(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        sprite->sTypeFuncId = 0; // Loop back to beginning
+    }
+    return FALSE;
+}
+
+
+
+
 
 movement_type_def(MovementType_RotateClockwise, gMovementTypeFuncs_RotateClockwise)
 

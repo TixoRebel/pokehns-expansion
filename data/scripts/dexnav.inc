@@ -1,7 +1,7 @@
 EventScript_StartDexNavBattle::
 	lock
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_PLAYER Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER Common_Movement_ExclamationMark
 	waitmovement 0
 	waitse
 	dowildbattle	

@@ -128,6 +128,7 @@ static void TVShowDone(void);
 static void InterviewAfter_FanClubLetter(void);
 static void InterviewAfter_RecentHappenings(void);
 static void InterviewAfter_PkmnFanClubOpinions(void);
+static void InterviewAfter_Dummy(void);
 static void InterviewAfter_BravoTrainerPokemonProfile(void);
 static void InterviewAfter_BravoTrainerBattleTowerProfile(void);
 static void InterviewAfter_ContestLiveUpdates(void);
@@ -1025,42 +1026,41 @@ u8 GabbyAndTyGetLastBattleTrivia(void)
     return 0;
 }
 
-// See gabby_and_ty.inc for details
 void GetGabbyAndTyLocalIds(void)
 {
     switch (GabbyAndTyGetBattleNum())
     {
     case 1:
-        gSpecialVar_0x8004 = LOCALID_ROUTE111_GABBY_1;
-        gSpecialVar_0x8005 = LOCALID_ROUTE111_TY_1;
+        gSpecialVar_0x8004 = 14;
+        gSpecialVar_0x8005 = 13;
         break;
     case 2:
-        gSpecialVar_0x8004 = LOCALID_ROUTE118_GABBY_1;
-        gSpecialVar_0x8005 = LOCALID_ROUTE118_TY_1;
+        gSpecialVar_0x8004 = 5;
+        gSpecialVar_0x8005 = 6;
         break;
     case 3:
-        gSpecialVar_0x8004 = LOCALID_ROUTE120_GABBY_1;
-        gSpecialVar_0x8005 = LOCALID_ROUTE120_TY_1;
+        gSpecialVar_0x8004 = 18;
+        gSpecialVar_0x8005 = 17;
         break;
     case 4:
-        gSpecialVar_0x8004 = LOCALID_ROUTE111_GABBY_2;
-        gSpecialVar_0x8005 = LOCALID_ROUTE111_TY_2;
+        gSpecialVar_0x8004 = 21;
+        gSpecialVar_0x8005 = 22;
         break;
     case 5:
-        gSpecialVar_0x8004 = LOCALID_ROUTE118_GABBY_2;
-        gSpecialVar_0x8005 = LOCALID_ROUTE118_TY_2;
+        gSpecialVar_0x8004 = 8;
+        gSpecialVar_0x8005 = 9;
         break;
     case 6:
-        gSpecialVar_0x8004 = LOCALID_ROUTE120_GABBY_2;
-        gSpecialVar_0x8005 = LOCALID_ROUTE120_TY_2;
+        gSpecialVar_0x8004 = 19;
+        gSpecialVar_0x8005 = 20;
         break;
     case 7:
-        gSpecialVar_0x8004 = LOCALID_ROUTE111_GABBY_3;
-        gSpecialVar_0x8005 = LOCALID_ROUTE111_TY_3;
+        gSpecialVar_0x8004 = 23;
+        gSpecialVar_0x8005 = 24;
         break;
     case 8:
-        gSpecialVar_0x8004 = LOCALID_ROUTE118_GABBY_3;
-        gSpecialVar_0x8005 = LOCALID_ROUTE118_TY_3;
+        gSpecialVar_0x8004 = 10;
+        gSpecialVar_0x8005 = 11;
         break;
     }
 }
@@ -1079,6 +1079,7 @@ void InterviewAfter(void)
         InterviewAfter_PkmnFanClubOpinions();
         break;
     case TVSHOW_DUMMY:
+        InterviewAfter_Dummy();
         break;
     case TVSHOW_BRAVO_TRAINER_POKEMON_PROFILE:
         InterviewAfter_BravoTrainerPokemonProfile();
@@ -1623,6 +1624,11 @@ static void InterviewAfter_PkmnFanClubOpinions(void)
         show->fanclubOpinions.pokemonNameLanguage = LANGUAGE_JAPANESE;
     else
         show->fanclubOpinions.pokemonNameLanguage = GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_LANGUAGE);
+}
+
+static void InterviewAfter_Dummy(void)
+{
+    TVShow *show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
 }
 
 static void TryStartRandomMassOutbreak(void)
@@ -3412,7 +3418,7 @@ void GetMomOrDadStringForTVMessage(void)
 void HideBattleTowerReporter(void)
 {
     VarSet(VAR_BRAVO_TRAINER_BATTLE_TOWER_ON, 0);
-    RemoveObjectEventByLocalIdAndMap(LOCALID_TOWER_LOBBY_REPORTER, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    RemoveObjectEventByLocalIdAndMap(LOCALID_BATTLE_TOWER_LOBBY_REPORTER, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
     FlagSet(FLAG_HIDE_BATTLE_TOWER_REPORTER);
 }
 
@@ -5524,22 +5530,22 @@ static void DoTVShowTodaysRivalTrainer(void)
         default:
             sTVShowState = 7;
             break;
-        case MAPSEC_SECRET_BASE:
-            sTVShowState = 8;
-            break;
-        case MAPSEC_DYNAMIC:
-            switch (show->rivalTrainer.mapLayoutId)
-            {
-            case LAYOUT_SS_TIDAL_CORRIDOR:
-            case LAYOUT_SS_TIDAL_LOWER_DECK:
-            case LAYOUT_SS_TIDAL_ROOMS:
-                sTVShowState = 10;
-                break;
-            default:
-                sTVShowState = 9;
-                break;
-            }
-            break;
+        // case MAPSEC_SECRET_BASE:
+        //     sTVShowState = 8;
+        //     break;
+        // case MAPSEC_DYNAMIC:
+        //     switch (show->rivalTrainer.mapLayoutId)
+        //     {
+        //     case LAYOUT_SS_TIDAL_CORRIDOR:
+        //     case LAYOUT_SS_TIDAL_LOWER_DECK:
+        //     case LAYOUT_SS_TIDAL_ROOMS:
+        //         sTVShowState = 10;
+        //         break;
+        //     default:
+        //         sTVShowState = 9;
+        //         break;
+        //     }
+        //     break;
         }
         break;
     case 7:
@@ -5576,31 +5582,31 @@ static void DoTVShowTodaysRivalTrainer(void)
             sTVShowState = 2;
         break;
     case 1:
-        ConvertIntToDecimalString(0, show->rivalTrainer.badgeCount);
-        if (FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER))
-        {
-            if (show->rivalTrainer.nSilverSymbols || show->rivalTrainer.nGoldSymbols)
-                sTVShowState = 4;
-            else
-                sTVShowState = 3;
-        }
-        else
-        {
+        // ConvertIntToDecimalString(0, show->rivalTrainer.badgeCount);
+        // if (FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER))
+        // {
+        //     if (show->rivalTrainer.nSilverSymbols || show->rivalTrainer.nGoldSymbols)
+        //         sTVShowState = 4;
+        //     else
+        //         sTVShowState = 3;
+        // }
+        // else
+        // {
             sTVShowState = 6;
-        }
+        // }
         break;
     case 2:
-        if (FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER))
-        {
-            if (show->rivalTrainer.nSilverSymbols || show->rivalTrainer.nGoldSymbols)
-                sTVShowState = 4;
-            else
-                sTVShowState = 3;
-        }
-        else
-        {
+        // if (FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER))
+        // {
+        //     if (show->rivalTrainer.nSilverSymbols || show->rivalTrainer.nGoldSymbols)
+        //         sTVShowState = 4;
+        //     else
+        //         sTVShowState = 3;
+        // }
+        // else
+        // {
             sTVShowState = 6;
-        }
+        // }
         break;
     case 3:
         if (show->rivalTrainer.battlePoints == 0)
@@ -5687,24 +5693,24 @@ static void DoTVShowHoennTreasureInvestigators(void)
     {
     case 0:
         StringCopy(gStringVar1, GetItemName(show->treasureInvestigators.item));
-        if (show->treasureInvestigators.location == MAPSEC_DYNAMIC)
-        {
-            switch (show->treasureInvestigators.mapLayoutId)
-            {
-            case LAYOUT_SS_TIDAL_CORRIDOR:
-            case LAYOUT_SS_TIDAL_LOWER_DECK:
-            case LAYOUT_SS_TIDAL_ROOMS:
-                sTVShowState = 2;
-                break;
-            default:
-                sTVShowState = 1;
-                break;
-            }
-        }
-        else
-        {
+        // if (show->treasureInvestigators.location == MAPSEC_DYNAMIC)
+        // {
+        //     switch (show->treasureInvestigators.mapLayoutId)
+        //     {
+        //     case LAYOUT_SS_TIDAL_CORRIDOR:
+        //     case LAYOUT_SS_TIDAL_LOWER_DECK:
+        //     case LAYOUT_SS_TIDAL_ROOMS:
+        //         sTVShowState = 2;
+        //         break;
+        //     default:
+        //         sTVShowState = 1;
+        //         break;
+        //     }
+        // }
+        // else
+        // {
             sTVShowState = 1;
-        }
+        // }
         break;
     case 1:
         StringCopy(gStringVar1, GetItemName(show->treasureInvestigators.item));

@@ -647,13 +647,14 @@ static bool8 AllowWildCheckOnNewMetatile(void)
 
 static bool8 AreLegendariesInSootopolisPreventingEncounters(void)
 {
-    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_SOOTOPOLIS_CITY)
-     || gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_SOOTOPOLIS_CITY))
-    {
-        return FALSE;
-    }
+    // if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_SOOTOPOLIS_CITY)
+    //  || gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_SOOTOPOLIS_CITY))
+    // {
+    //     return FALSE;
+    // }
 
-    return FlagGet(FLAG_LEGENDARIES_IN_SOOTOPOLIS);
+    // return FlagGet(FLAG_LEGENDARIES_IN_SOOTOPOLIS);
+    return FALSE;
 }
 
 bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)

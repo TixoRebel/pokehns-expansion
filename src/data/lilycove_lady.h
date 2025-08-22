@@ -21,8 +21,8 @@ static const struct LilycoveContestLadyValues sContestLadyValues[] =
         .contestName = gText_CoolnessContest,
     },
     [CONTEST_CATEGORY_BEAUTY] = {
-        .monGfxId = OBJ_EVENT_GFX_SKITTY,
-        .monSpecies = SPECIES_SKITTY,
+        .monGfxId = OBJ_EVENT_GFX_KECLEON,
+        .monSpecies = SPECIES_KECLEON,
         .monName = COMPOUND_STRING("VINNY"),
         .categoryName = COMPOUND_STRING("beauty"),
         .contestName = gText_BeautyContest,
@@ -52,9 +52,9 @@ static const struct LilycoveContestLadyValues sContestLadyValues[] =
 
 static const u16 sLilycoveLadyGfxId[] =
 {
-    OBJ_EVENT_GFX_WOMAN_4,
+    OBJ_EVENT_GFX_LASS,
     OBJ_EVENT_GFX_WOMAN_2,
-    OBJ_EVENT_GFX_GIRL_2
+    OBJ_EVENT_GFX_CAPTAIN
 };
 
 // Quiz Lady data

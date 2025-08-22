@@ -3,9 +3,9 @@
 
 enum DifficultyLevel
 {
-    DIFFICULTY_EASY,
+    // DIFFICULTY_EASY,
     DIFFICULTY_NORMAL, //If you rename this, the word "Normal" in fprint_trainers must be replaced with the new difficulty name.
-    DIFFICULTY_HARD,
+    // DIFFICULTY_HARD,
     DIFFICULTY_COUNT,
 };
 

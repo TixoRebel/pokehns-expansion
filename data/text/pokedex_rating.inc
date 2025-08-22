@@ -1,5 +1,16 @@
+gBirchDexRatingText_GoFindMrPokemon::
+	.string "PROF. ELM: Ah, {PLAYER}{KUN}!\p"
+	.string "Have you found MR. POKéMON's\n"
+	.string "home yet? It is on ROUTE 30,\p"
+	.string "you can't miss it!$"
+
+gBirchDexRatingText_Robbery::
+	.string "PROF. ELM: {PLAYER}{KUN}!\p"
+	.string "Get here quick! Something\n"
+	.string "awful has happened!$"
+
 gBirchDexRatingText_AreYouCurious::
-	.string "PROF. BIRCH: Ah, {PLAYER}{KUN}!\p"
+	.string "PROF. ELM: Ah, {PLAYER}{KUN}!\p"
 	.string "Are you curious about how your\n"
 	.string "POKéDEX is coming along?$"
 
@@ -66,8 +77,9 @@ gBirchDexRatingText_LessThan120::
 	.string "found using ROCK SMASH.$"
 
 gBirchDexRatingText_LessThan130::
-	.string "You should get some more POKéMON\n"
-	.string "by trading with others.$"
+	.string "I've heard of POKéMON that evolve\n"
+	.string "when they come to fully love their\l"
+	.string "TRAINERS.$"
 
 gBirchDexRatingText_LessThan140::
 	.string "I've heard of POKéMON that evolve\n"
@@ -76,7 +88,7 @@ gBirchDexRatingText_LessThan140::
 
 gBirchDexRatingText_LessThan150::
 	.string "I had no idea that there were so\n"
-	.string "many POKéMON species in the HOENN\l"
+	.string "many POKéMON species in the JOHTO\l"
 	.string "region.$"
 
 gBirchDexRatingText_LessThan160::
@@ -87,7 +99,7 @@ gBirchDexRatingText_LessThan160::
 
 gBirchDexRatingText_LessThan170::
 	.string "One can get a very good idea about\n"
-	.string "the POKéMON of the HOENN region\l"
+	.string "the POKéMON of the JOHTO region\l"
 	.string "by looking through your POKéDEX.$"
 
 gBirchDexRatingText_LessThan180::

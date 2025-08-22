@@ -1,5 +1,5 @@
 PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet::
-	setvar VAR_LITTLEROOT_INTRO_STATE, 5
+	setvar VAR_GARBAGEVAR, 5
 	return
 
 PlayersHouse_1F_EventScript_EnterHouseMovingIn::
@@ -10,7 +10,7 @@ PlayersHouse_1F_EventScript_EnterHouseMovingIn::
 	call_if_eq VAR_0x8005, FEMALE, PlayersHouse_1F_EventScript_MomFacePlayerMovingInFemale
 	msgbox PlayersHouse_1F_Text_MoversPokemonGoSetClock, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_LITTLEROOT_INTRO_STATE, 4
+	setvar VAR_GARBAGEVAR, 4
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerWalkIn
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
@@ -43,24 +43,32 @@ PlayersHouse_1F_EventScript_MomGoSeeRoom::
 LittlerootTown_BrendansHouse_2F_EventScript_WallClock::
 	lockall
 	setvar VAR_0x8004, MALE
+	goto_if_unset FLAG_SET_WALL_CLOCK, PlayersHouse_2F_EventScript_WallClock
+	msgbox LittlerootTown_BrendansHouse_2F_ClockChange, MSGBOX_DEFAULT
 	goto PlayersHouse_2F_EventScript_WallClock
 	end
 
 LittlerootTown_MaysHouse_2F_EventScript_WallClock::
 	lockall
 	setvar VAR_0x8004, FEMALE
+	goto_if_unset FLAG_SET_WALL_CLOCK, PlayersHouse_2F_EventScript_WallClock
+	msgbox LittlerootTown_BrendansHouse_2F_ClockChange, MSGBOX_DEFAULT
 	goto PlayersHouse_2F_EventScript_WallClock
 	end
+
+LittlerootTown_BrendansHouse_2F_ClockChange:
+	.string "Press the R Button to set the\n"
+	.string "clock when looking at the time.$"
 
 PlayersHouse_2F_EventScript_WallClock::
 	goto_if_set FLAG_SET_WALL_CLOCK, PlayersHouse_2F_EventScript_CheckWallClock
 	msgbox PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT
 	call PlayersHouse_2F_EventScript_SetWallClock
 	delay 30
-	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+	setvar VAR_GARBAGEVAR, 6
 	setflag FLAG_SET_WALL_CLOCK
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTH_1
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTH_2
+	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAG
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, PlayersHouse_2F_EventScript_MomComesUpstairsMale
 	call_if_eq VAR_RESULT, FEMALE, PlayersHouse_2F_EventScript_MomComesUpstairsFemale
@@ -70,7 +78,7 @@ PlayersHouse_2F_EventScript_WallClock::
 	end
 
 PlayersHouse_2F_EventScript_MomComesUpstairsMale::
-	setvar VAR_0x8008, LOCALID_PLAYERS_HOUSE_2F_MOM
+	setvar VAR_0x8008, LOCALID_MOM_2F
 	addobject VAR_0x8008
 	applymovement VAR_0x8008, PlayersHouse_2F_Movement_MomEntersMale
 	waitmovement 0
@@ -83,7 +91,7 @@ PlayersHouse_2F_EventScript_MomComesUpstairsMale::
 	return
 
 PlayersHouse_2F_EventScript_MomComesUpstairsFemale::
-	setvar VAR_0x8008, LOCALID_PLAYERS_HOUSE_2F_MOM
+	setvar VAR_0x8008, LOCALID_MOM_2F
 	addobject VAR_0x8008
 	applymovement VAR_0x8008, PlayersHouse_2F_Movement_MomEntersFemale
 	waitmovement 0
@@ -140,7 +148,7 @@ PlayersHouse_2F_Movement_MomExitsFemale:
 	step_end
 
 PlayersHouse_1F_EventScript_SetWatchedBroadcast::
-	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_GARBAGEVAR, 7
 	releaseall
 	end
 
@@ -301,12 +309,12 @@ PlayersHouse_1F_Movement_MomReturnToSeatFemale:
 PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
-	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
-	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
+	goto_if_eq VAR_GARBAGEVAR, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
+	goto_if_eq VAR_GARBAGEVAR, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_set FLAG_HAS_MATCH_CALL, PlayersHouse_1F_EventScript_TryRegisterMom
 	goto_if_set FLAG_RESCUED_BIRCH, PlayersHouse_1F_EventScript_MomHealsParty
 	goto_if_eq VAR_TEMP_1, 1, PlayersHouse_1F_EventScript_SeeYouHoney
-	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 7, PlayersHouse_1F_EventScript_DidYouMeetProfBirch
+	goto_if_eq VAR_GARBAGEVAR, 7, PlayersHouse_1F_EventScript_DidYouMeetProfBirch
 	msgbox PlayersHouse_1F_Text_IsntItNiceInHere, MSGBOX_DEFAULT
 	release
 	end
@@ -345,8 +353,15 @@ PlayersHouse_1F_EventScript_TryGiveAmuletCoin::
 	end
 
 PlayersHouse_1F_EventScript_MomHealsParty::
+	specialvar VAR_RESULT, IsPokecenterChallengeActivated
+	goto_if_eq VAR_RESULT, TRUE, PlayersHouse_1F_EventScript_MomHealsParty_PokecenterChallenge
 	msgbox PlayersHouse_1F_Text_YouShouldRestABit, MSGBOX_DEFAULT
 	goto PlayersHouse_1F_EventScript_HealParty
+	end
+
+PlayersHouse_1F_EventScript_MomHealsParty_PokecenterChallenge::
+	msgbox PlayersHouse_1F_Text_YouShouldRestABit_PokecenterChallenge, MSGBOX_DEFAULT
+	closemessage
 	end
 
 PlayersHouse_1F_EventScript_SeeYouHoney::
@@ -475,8 +490,8 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	copyvar VAR_ROAMER_POKEMON, VAR_RESULT
 	msgbox PlayersHouse_1F_Text_StillUnknownPokemon, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 4
-	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4
+	setvar VAR_GARBAGEVAR, 4
+	setvar VAR_GARBAGEVAR, 4
 	releaseall
 	end
 
@@ -487,14 +502,14 @@ PlayersHouse_1F_EventScript_AirLatiBroadcast::
 
 PlayersHouse_1F_EventScript_SetUpObjectEventVarsMale::
 	setvar VAR_0x8008, MALE
-	setvar VAR_0x8009, LOCALID_PLAYERS_HOUSE_1F_DAD
-	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
+	setvar VAR_0x8009, LOCALID_DAD
+	setvar VAR_0x800A, LOCALID_MOM
 	return
 
 PlayersHouse_1F_EventScript_SetUpObjectEventVarsFemale::
 	setvar VAR_0x8008, FEMALE
-	setvar VAR_0x8009, LOCALID_PLAYERS_HOUSE_1F_DAD
-	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
+	setvar VAR_0x8009, LOCALID_DAD
+	setvar VAR_0x800A, LOCALID_MOM
 	return
 
 PlayersHouse_1F_EventScript_DadApproachPlayerMale::

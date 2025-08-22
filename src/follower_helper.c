@@ -52,7 +52,7 @@ static const u8* const sColdTexts[] = {sCondMsg24, sCondMsg25, sCondMsg26, NULL}
 static const u8 sCondMsg27[] = _("Your POKéMON has a flower petal on\nits face!");
 static const u8 sCondMsg28[] = _("{STR_VAR_1} is growling softly.");
 static const u8 sCondMsg29[] = _("{STR_VAR_1} is trembling with fear.");
-static const u8 sCondMsg30[] = _("{STR_VAR_1} seems somehow sad…");
+static const u8 sCondMsg30[] = _("{STR_VAR_1} seems pensive.");
 static const u8* const sFearTexts[] = {sCondMsg29, sCondMsg30, NULL};
 static const u8 sCondMsg31[] = _("{STR_VAR_1} is taking shelter in the\ngrass from the rain.");
 static const u8 sCondMsg32[] = _("{STR_VAR_1} seems very cold.");
@@ -107,7 +107,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_HAPPY,
         .conditions =
         {
-            MATCH_MAP(MAP_EVER_GRANDE_CITY),
+            MATCH_MAP(MAP_ROUTE26),
         },
     },
     [COND_MSG_ROUTE_112] =
@@ -116,7 +116,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_HAPPY,
         .conditions =
         {
-            MATCH_MAP(MAP_ROUTE112),
+            MATCH_MAP(MAP_ROUTE28),
         },
     },
     [COND_MSG_DAY_CARE] =
@@ -126,7 +126,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_NEUTRAL,
         .conditions =
         {
-            MATCH_MAP(MAP_ROUTE117_POKEMON_DAY_CARE)
+            MATCH_MAP(MAP_ROUTE34DAY_CARE)
         },
     },
     [COND_MSG_MART] =
@@ -155,7 +155,8 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_PENSIVE,
         .conditions =
         {
-            MATCH_MAP(MAP_MAUVILLE_CITY_BIKE_SHOP)
+            MATCH_MAP(MAP_GOLDENROD_BIKE_SHOP),
+            MATCH_MAP(MAP_CERULEAN_CITY_BIKE_SHOP)
         },
     },
     [COND_MSG_MACHINES] =
@@ -166,9 +167,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .orFlag = 1, // match any of these maps
         .conditions =
         {
-            MATCH_MAP(MAP_NEW_MAUVILLE_INSIDE),
-            MATCH_MAP(MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F),
-            MATCH_MAP(MAP_SLATEPORT_CITY_STERNS_SHIPYARD_2F),
+            MATCH_MAPSEC(MAPSEC_POWER_PLANT)
         },
     },
     [COND_MSG_SAILING] =
@@ -226,7 +225,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_SURPRISE,
         .conditions =
         {
-            MATCH_MAP(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR),
+            MATCH_MAP(MAP_GOLDENROD_DEPARTMENT_STORE_ELEVATOR),
         },
     },
     [COND_MSG_ICE_ROOM] =
@@ -236,7 +235,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_SURPRISE,
         .conditions =
         {
-            MATCH_MAP(MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM),
+            MATCH_MAPSEC(MAPSEC_ICE_PATH)
         },
     },
     [COND_MSG_ROUTE_117] =
@@ -245,7 +244,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_SURPRISE,
         .conditions =
         {
-            MATCH_MAP(MAP_ROUTE117),
+            MATCH_MAP(MAP_GOLDENROD_FLOWER_SHOP),
         },
     },
     [COND_MSG_DRAGON_GROWL] =
@@ -255,7 +254,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .conditions =
         {
             MATCH_TYPES(TYPE_DRAGON, TYPE_DRAGON),
-            MATCH_MAPSEC(MAPSEC_SKY_PILLAR),
+            MATCH_MAPSEC(MAPSEC_DRAGONS_DEN),
         },
     },
     [COND_MSG_FEAR] =
@@ -265,9 +264,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_UPSET,
         .conditions =
         {
-            MATCH_NOT_TYPES(TYPE_GHOST, TYPE_GHOST),
-            MATCH_MAPSEC(MAPSEC_MT_PYRE),
-            MATCH_MUSIC(MUS_MT_PYRE),
+            MATCH_MAPSEC(MAPSEC_MT_SILVER),
         },
     },
     [COND_MSG_FIRE_RAIN] =
@@ -336,7 +333,8 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_PENSIVE,
         .conditions =
         {
-            MATCH_MAPSEC(MAPSEC_PETALBURG_WOODS),
+            MATCH_MAPSEC(MAPSEC_ILEX_FOREST),
+            MATCH_MAPSEC(MAPSEC_VIRIDIAN_FOREST),
         },
     },
     [COND_MSG_ICE] =

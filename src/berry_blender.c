@@ -1229,9 +1229,9 @@ static void InitLocalPlayers(u8 opponentsNum)
         sBerryBlender->numPlayers = 2;
         StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
 
-        if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
-            StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MASTER]);
-        else
+        // if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
+        //     StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MASTER]);
+        // else
             StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MISTER]);
 
         gLinkPlayers[0].language = GAME_LANGUAGE;
@@ -1561,16 +1561,16 @@ static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct B
     {
         opponentBerryId = sOpponentBerrySets[opponentSetId][i];
         berryMasterDiff = ITEM_TO_BERRY(playerBerryItemId) - ITEM_TO_BERRY(ITEM_SPELON_BERRY);
-        if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER) && gSpecialVar_0x8004 == 1)
-        {
-            opponentSetId %= ARRAY_COUNT(sBerryMasterBerries);
-            opponentBerryId = sBerryMasterBerries[opponentSetId];
+        // if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER) && gSpecialVar_0x8004 == 1)
+        // {
+        //     opponentSetId %= ARRAY_COUNT(sBerryMasterBerries);
+        //     opponentBerryId = sBerryMasterBerries[opponentSetId];
 
-            // If the player's berry is any of the Berry Master's berries,
-            // then use the next lower set of berries
-            if (berryMasterDiff < ARRAY_COUNT(sBerryMasterBerries))
-                opponentBerryId -= ARRAY_COUNT(sBerryMasterBerries);
-        }
+        //     // If the player's berry is any of the Berry Master's berries,
+        //     // then use the next lower set of berries
+        //     if (berryMasterDiff < ARRAY_COUNT(sBerryMasterBerries))
+        //         opponentBerryId -= ARRAY_COUNT(sBerryMasterBerries);
+        // }
         SetPlayerBerryData(i + 1, opponentBerryId + FIRST_BERRY_INDEX);
     }
 }
@@ -1772,9 +1772,9 @@ static void CB2_StartBlenderLocal(void)
 
         if (gSpecialVar_0x8004 == 1)
         {
-            if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
-                sBerryBlender->opponentTaskIds[0] = CreateTask(Task_HandleBerryMaster, 10);
-            else
+            // if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
+            //     sBerryBlender->opponentTaskIds[0] = CreateTask(Task_HandleBerryMaster, 10);
+            // else
                 sBerryBlender->opponentTaskIds[0] = CreateTask(sLocalOpponentTasks[0], 10);
         }
 

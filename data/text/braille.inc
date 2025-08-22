@@ -48,14 +48,15 @@ SealedChamber_OuterRoom_Braille_Comma:
 
 SealedChamber_OuterRoom_Braille_DigHere:
 	brailleformat 7, 4, 23, 15, 10, 7
-	.braille "DIG HERE.$"
+	.braille "SWEET SCENT\n"
+	.braille "HERE.$"
 
 SealedChamber_InnerRoom_Braille_FirstWailordLastRelicanth:
 	brailleformat 0, 0, 29, 19, 3, 3
 	.braille "FIRST COMES\n"
-	.braille "WAILORD.\n"
+	.braille "MAGNEZONE.\n"
 	.braille "LAST COMES\n"
-	.braille "RELICANTH.$"
+	.braille "VIBRAVA.$"
 
 SealedChamber_InnerRoom_Braille_InThisCaveWeHaveLived:
 	brailleformat 2, 0, 26, 19, 5, 3
@@ -115,3 +116,24 @@ AncientTomb_Braille_ShineInTheMiddle:
 	.braille "INHERIT OUR\n"
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
+
+Regieleki_Braille_Sapphire:
+	brailleformat 3, 0, 25, 19, 6, 3
+	.braille "GET THE BLUE\n"
+	.braille "GEM WHERE IT\n"
+	.braille "RAINS. PUT IT\n"
+	.braille "IN THE MIDDLE.$"
+
+Regidrago_Braille_Text:
+	brailleformat 3, 0, 25, 19, 6, 3
+	.braille "DOWN, THREE.\n"
+	.braille "RIGHT, FIVE.\n"
+	.braille "PRESS THE\n"
+	.braille "BUTTON.$"
+
+Regigigas_Braille_Text:
+	brailleformat 3, 0, 25, 19, 6, 3
+	.braille "FIVE TITANS\n"
+	.braille "DEFEATED.\n"
+	.braille "YOU ARE\n"
+	.braille "CHAMPION.$"

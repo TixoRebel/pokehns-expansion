@@ -172,6 +172,16 @@ u8 (*const gMovementTypeFuncs_RotateCounterclockwise[])(struct ObjectEvent *, st
     MovementType_RotateCounterclockwise_Step2,
     MovementType_RotateCounterclockwise_Step3,
 };
+//crystal tower beam
+u8 (*const gMovementTypeFuncs_TowerBeam[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_TowerBeam_Step0,
+    MovementType_TowerBeam_Step1,
+    MovementType_TowerBeam_Step2,
+    MovementType_TowerBeam_Step3,
+    MovementType_TowerBeam_Step4,
+};
+
+
 
 const u8 gCounterclockwiseDirections[] = {DIR_SOUTH, DIR_EAST, DIR_WEST, DIR_SOUTH, DIR_NORTH};
 
