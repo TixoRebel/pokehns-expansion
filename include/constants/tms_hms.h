@@ -61,7 +61,7 @@
     F(FLASH) \
     F(ROCK_SMASH) \
     F(WATERFALL) \
-    F(DIVE)
+    F(WHIRLPOOL) // HnS - DIVE in emerald
 
 #define FOREACH_TMHM(F) \
     FOREACH_TM(F) \

@@ -37,7 +37,7 @@
 //       Several places expect the ball IDs to be first and contiguous (e.g. gBattlescriptsForBallThrow and MON_DATA_POKEBALL)
 //       If adding new balls, it's easiest to insert them after the last ball and increment the below IDs (and removing ITEM_034 for example)
 #define FIRST_BALL ITEM_POKE_BALL
-#define LAST_BALL  ITEM_CHERISH_BALL
+#define LAST_BALL  ITEM_BEAST_BALL
 
 // Medicine
 #define ITEM_POTION 28

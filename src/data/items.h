@@ -589,21 +589,21 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_BeastBall,
     },
 
-    [ITEM_CHERISH_BALL] =
-    {
-        .name = _("Cherish Ball"),
-        .price = 0,
-        .description = COMPOUND_STRING(
-            "A rare Ball made\n"
-            "in commemoration\n"
-            "of some event."),
-        .pocket = POCKET_POKE_BALLS,
-        .type = ITEM_USE_BAG_MENU,
-        .battleUsage = EFFECT_ITEM_THROW_BALL,
-        .secondaryId = BALL_CHERISH,
-        .iconPic = gItemIcon_CherishBall,
-        .iconPalette = gItemIconPalette_CherishBall,
-    },
+    // [ITEM_CHERISH_BALL] =
+    // {
+    //     .name = _("Cherish Ball"),
+    //     .price = 0,
+    //     .description = COMPOUND_STRING(
+    //         "A rare Ball made\n"
+    //         "in commemoration\n"
+    //         "of some event."),
+    //     .pocket = POCKET_POKE_BALLS,
+    //     .type = ITEM_USE_BAG_MENU,
+    //     .battleUsage = EFFECT_ITEM_THROW_BALL,
+    //     .secondaryId = BALL_CHERISH,
+    //     .iconPic = gItemIcon_CherishBall,
+    //     .iconPalette = gItemIconPalette_CherishBall,
+    // },
 
 // Medicine
 
@@ -11914,19 +11914,33 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_WATERFALL,
     },
 
-    [ITEM_HM_DIVE] =
+    // [ITEM_HM_DIVE] =
+    // {
+    //     .name = _("HM08"),
+    //     .price = 0,
+    //     .description = COMPOUND_STRING(
+    //         "Dives underwater\n"
+    //         "the 1st turn, then\n"
+    //         "attacks next turn."),
+    //     .importance = 1,
+    //     .pocket = POCKET_TM_HM,
+    //     .type = ITEM_USE_PARTY_MENU,
+    //     .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+    //     .secondaryId = MOVE_DIVE,
+    // },
+
+    [ITEM_HM_WHIRLPOOL] =
     {
         .name = _("HM08"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Dives underwater\n"
-            "the 1st turn, then\n"
-            "attacks next turn."),
+            "Whirls all over\n"
+            "their pools."),
         .importance = 1,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DIVE,
+        .secondaryId = MOVE_WHIRLPOOL,
     },
 
 
