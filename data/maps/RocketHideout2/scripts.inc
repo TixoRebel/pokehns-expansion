@@ -307,18 +307,11 @@ RocketHideout2_EventScript_ChoosePartyForMultiBattle::
 	goto RocketHideout2_EventScript_ReadyForBattlePrompt
 
 RocketHideout2_EventScript_DoLanceMultiBattle::
-	special ReducePlayerPartyToSelectedMons
-	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
-	setvar VAR_0x8004, SPECIAL_BATTLE_LANCE
-	setvar VAR_0x8005, 0
 	applymovement LOCALID_ROCKETHIDEOUT2_ARIANA, Common_Movement_WalkUp1
 	applymovement LOCALID_ROCKETHIDEOUT2_GRUNT, Common_Movement_WalkUp1
 	waitmovement 0
 	turnobject LOCALID_ROCKETHIDEOUT2_GRUNT, DIR_WEST
-	special DoSpecialTrainerBattle
-	waitstate
-	frontier_saveparty
-	special LoadPlayerParty
+	multi_2_vs_2 TRAINER_ARIANA_1, RocketHideout2_Text_ArianaLoss, TRAINER_GRUNT_23, RocketHideout2_Text_GruntLoss, PARTNER_LANCE
 	switch VAR_RESULT
 	case 1, RocketHideout2_EventScript_DefeatedAriana
 	fadescreen FADE_TO_BLACK
@@ -326,19 +319,6 @@ RocketHideout2_EventScript_DoLanceMultiBattle::
 	setflag FLAG_HIDE_ROCKETHIDEOUT2_ARIANA_AND_GRUNT
 	special SetCB2WhiteOut
 	waitstate
-
-@ .macro trainerbattle type:req, localIdA:req, trainer_a:req, intro_text_a:req, lose_text_a:req, event_script_a:req, localIdB:req, trainer_b:req, intro_text_b:req, lose_text_b:req, event_script_b:req, victory_text:req, cannot_battle:req, isDouble:req, playMusicA:req, playMusicB:req, isRematch:req
-
-@ 	trainerbattle TRAINER_BATTLE_SET_TRAINERS_FOR_MULTI_BATTLE, OBJ_ID_NONE, \trainer1Id, NULL, \trainer1LoseText, NULL, OBJ_ID_NONE, \trainer2Id, NULL, \trainer2LoseText, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
-@ 	multi_do MULTI_BATTLE_2_VS_2, \partnerId
-@ 
-@ RocketHideout2_EventScript_ArianaTrainer::
-@ 	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_ARIANA_1, 0, RocketHideout2_Text_ArianaLoss, RocketHideout2_Text_ArianaLoss
-@ 	end
-@ 
-@ RocketHideout2_EventScript_GruntTrainer::
-@ 	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_23, 0, RocketHideout2_Text_GruntLoss, RocketHideout2_Text_GruntLoss
-@ 	end
 
 RocketHideout2_EventScript_DefeatedAriana::
 	clearflag FLAG_ROCKETHIDEOUT2_BATTLE

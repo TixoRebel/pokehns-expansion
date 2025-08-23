@@ -103,3 +103,80 @@
             },
         },
     },
+#line 45
+    [DIFFICULTY_NORMAL][PARTNER_LANCE] =
+    {
+#line 46
+        .trainerName = _("LANCE"),
+#line 47
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 48
+        .trainerPic = TRAINER_BACK_PIC_LANCE,
+        .encounterMusic_gender =
+#line 50
+            TRAINER_ENCOUNTER_MUSIC_MALE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 52
+            .species = SPECIES_GYARADOS,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 52
+            .heldItem = ITEM_LEFTOVERS,
+#line 54
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 53
+            .lvl = 54,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 55
+                MOVE_SURF,
+                MOVE_RAIN_DANCE,
+                MOVE_HYPER_BEAM,
+                MOVE_ROCK_SMASH,
+            },
+            },
+            {
+#line 60
+            .species = SPECIES_DRAGONITE,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 60
+            .heldItem = ITEM_SITRUS_BERRY,
+#line 62
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 61
+            .lvl = 55,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 63
+                MOVE_BLIZZARD,
+                MOVE_FIRE_BLAST,
+                MOVE_THUNDER,
+                MOVE_EXTREME_SPEED,
+            },
+            },
+            {
+#line 68
+            .species = SPECIES_AERODACTYL,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 68
+            .heldItem = ITEM_SILK_SCARF,
+#line 70
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 69
+            .lvl = 54,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 71
+                MOVE_WING_ATTACK,
+                MOVE_ROCK_SLIDE,
+                MOVE_HYPER_BEAM,
+                MOVE_EARTHQUAKE,
+            },
+            },
+        },
+    },
