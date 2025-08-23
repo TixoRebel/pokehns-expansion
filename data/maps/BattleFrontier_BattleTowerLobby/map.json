@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BattleFrontier_BattleTowerLobby_EventScript_Reporter",
-      "flag": "FLAG_HIDE_BATTLE_TOWER_REPORTER"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_APPRENTICE",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BattleFrontier_BattleTowerLobby_EventScript_Apprentice",
-      "flag": "FLAG_HIDE_APPRENTICE"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_TOWER_ATTENDANT_DOUBLES",

@@ -39,7 +39,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_PYRE_SUMMIT_OLD_LADY",
@@ -67,7 +67,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtPyre_Summit_EventScript_Grunt1",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_PYRE_SUMMIT_GRUNT_2",
@@ -81,7 +81,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtPyre_Summit_EventScript_Grunt2",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_PYRE_SUMMIT_GRUNT_3",
@@ -95,7 +95,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtPyre_Summit_EventScript_Grunt3",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_PYRE_SUMMIT_GRUNT_4",
@@ -109,7 +109,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtPyre_Summit_EventScript_Grunt4",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_PYRE_SUMMIT_MAXIE",
@@ -123,7 +123,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE"
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -212,7 +212,7 @@
       "y": 25,
       "elevation": 0,
       "item": "ITEM_ZINC",
-      "flag": "FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_ZINC"
+      "flag": "0"
     },
     {
       "type": "hidden_item",
@@ -220,7 +220,7 @@
       "y": 7,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",
-      "flag": "FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_RARE_CANDY"
+      "flag": "0"
     }
   ]
 }

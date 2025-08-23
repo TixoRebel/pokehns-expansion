@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgCity_Gym_EventScript_Norman",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_NORMAN"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
@@ -130,7 +130,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgCity_Gym_EventScript_GymGuide",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_GREETER"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_PETALBURG_GYM_WALLY",
@@ -144,7 +144,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_WALLY"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_PETALBURG_GYM_WALLYS_DAD",
@@ -158,7 +158,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD"
+      "flag": "0"
     }
   ],
   "warp_events": [

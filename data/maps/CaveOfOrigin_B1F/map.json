@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CaveOfOrigin_B1F_EventScript_Wallace",
-      "flag": "FLAG_HIDE_CAVE_OF_ORIGIN_B1F_WALLACE"
+      "flag": "0"
     }
   ],
   "warp_events": [

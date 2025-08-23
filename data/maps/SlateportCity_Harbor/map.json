@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SlateportCity_Harbor_EventScript_FerryAttendant",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SlateportCity_Harbor_EventScript_Sailor",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SlateportCity_Harbor_EventScript_FatMan",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_SLATEPORT_HARBOR_CAPT_STERN",
@@ -65,7 +65,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SlateportCity_Harbor_EventScript_CaptStern",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_CAPTAIN_STERN"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_SLATEPORT_HARBOR_SS_TIDAL",
@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_SS_TIDAL"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_SLATEPORT_HARBOR_GRUNT",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_AQUA_GRUNT"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_SLATEPORT_HARBOR_ARCHIE",
@@ -107,7 +107,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_ARCHIE"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_SLATEPORT_HARBOR_SUBMARINE",
@@ -121,7 +121,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_SUBMARINE_SHADOW"
+      "flag": "0"
     }
   ],
   "warp_events": [

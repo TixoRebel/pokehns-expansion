@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route104_MrBrineysHouse_EventScript_Briney",
-      "flag": "FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_BRINEYS_HOUSE_PEEKO",
@@ -40,7 +40,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route104_MrBrineysHouse_EventScript_Peeko",
-      "flag": "FLAG_HIDE_BRINEYS_HOUSE_PEEKO"
+      "flag": "0"
     }
   ],
   "warp_events": [

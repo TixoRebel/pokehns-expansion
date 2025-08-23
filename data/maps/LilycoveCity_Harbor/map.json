@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_Harbor_EventScript_FerryAttendant",
-      "flag": "FLAG_HIDE_LILYCOVE_HARBOR_FERRY_ATTENDANT"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LILYCOVE_HARBOR_SS_TIDAL",
@@ -40,7 +40,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LILYCOVE_HARBOR_SSTIDAL"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
@@ -67,7 +67,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LILYCOVE_HARBOR_FERRY_SAILOR"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LILYCOVE_HARBOR_BRINEY",
@@ -81,7 +81,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER"
+      "flag": "0"
     }
   ],
   "warp_events": [

@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "AquaHideout_B2F_EventScript_Matt",
-      "flag": "FLAG_HIDE_AQUA_HIDEOUT_GRUNTS"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
@@ -39,7 +39,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "AquaHideout_B2F_EventScript_Grunt4",
-      "flag": "FLAG_HIDE_AQUA_HIDEOUT_GRUNTS"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -52,7 +52,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_NEST_BALL",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_AQUA_HIDEOUT_B2F_NEST_BALL"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_AQUA_HIDEOUT_SUBMARINE",
@@ -66,7 +66,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_AQUA_HIDEOUT_B2F_SUBMARINE_SHADOW"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "AquaHideout_B2F_EventScript_Grunt6",
-      "flag": "FLAG_HIDE_AQUA_HIDEOUT_GRUNTS"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
@@ -92,7 +92,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "AquaHideout_B2F_EventScript_Grunt8",
-      "flag": "FLAG_HIDE_AQUA_HIDEOUT_GRUNTS"
+      "flag": "0"
     }
   ],
   "warp_events": [

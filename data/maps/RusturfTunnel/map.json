@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RusturfTunnel_EventScript_WandasBoyfriend",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_WANDAS_BOYFRIEND"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -39,7 +39,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_ROCK_1"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -52,7 +52,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_POKE_BALL",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_RUSTURF_TUNNEL_POKE_BALL"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -65,7 +65,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_MAX_ETHER",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_RUSTURF_TUNNEL_MAX_ETHER"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_RUSTURF_TUNNEL_BRINEY",
@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_BRINEY"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_RUSTURF_TUNNEL_GRUNT",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RusturfTunnel_EventScript_Grunt",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_AQUA_GRUNT"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_RUSTURF_TUNNEL_PEEKO",
@@ -107,7 +107,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RusturfTunnel_EventScript_Peeko",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_PEEKO"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -120,7 +120,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_ROCK_2"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -147,7 +147,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RusturfTunnel_EventScript_Wanda",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_WANDA"
+      "flag": "0"
     }
   ],
   "warp_events": [

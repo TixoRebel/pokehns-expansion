@@ -110,7 +110,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LAVARIDGE_TOWN_RIVAL_ON_BIKE"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAVARIDGE_RIVAL",
@@ -124,7 +124,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LAVARIDGE_TOWN_RIVAL"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
@@ -258,7 +258,7 @@
       "y": 5,
       "elevation": 3,
       "item": "ITEM_ICE_HEAL",
-      "flag": "FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL"
+      "flag": "0"
     }
   ]
 }

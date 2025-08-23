@@ -10,7 +10,7 @@ EverGrandeCity_PokemonLeague_1F_EventScript_Clerk::
 
 EverGrandeCity_PokemonLeague_1F_Pokemart:
 
-@ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped
+@ The door guards only check for FLAG_GARBAGEFLAG because Winonas badge is the only one that can be skipped
 @ Its assumed the player has the remaining badges
 EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 

@@ -4,7 +4,7 @@ MossdeepCity_Gym_MapScripts::
 
 MossdeepCity_Gym_OnTransition:
 
-@ All the below checks are leftover from RS. FLAG_MOSSDEEP_GYM_SWITCH_X is never set
+@ All the below checks are leftover from RS. FLAG_GARBAGEFLAG is never set
 MossdeepCity_Gym_OnLoad:
 
 MossdeepCity_Gym_EventScript_CheckSwitch2::
