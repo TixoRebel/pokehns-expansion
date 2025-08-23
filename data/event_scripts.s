@@ -1,3 +1,4 @@
+@ #include "config.h"
 #include "config/general.h"
 #include "config/battle.h"
 #include "config/item.h"
@@ -47,6 +48,8 @@
 #include "constants/pokedex.h"
 #include "constants/pokemon.h"
 #include "constants/rtc.h"
+#include "constants/sliding_puzzles.h"		@ HnS - for the Ruins of Alph tile puzzle ?
+@ #include "constants/pokemon_size_record.h"	@ HnS/Modern - for pokemon size sidequests
 #include "constants/roulette.h"
 #include "constants/script_menu.h"
 #include "constants/secret_bases.h"
@@ -93,6 +96,7 @@ gSpecialVars::
 	.4byte gSpecialVar_MonBoxPos
 	.4byte gSpecialVar_Unused_0x8014
 	.4byte gTrainerBattleParameter + 2 // gTrainerBattleParameter.params.opponentA
+	@ .4byte gTrainerBattleOpponent_A @ HnS/Modern - outdated?
 
 	.include "data/specials.inc"
 
@@ -590,7 +594,7 @@ gStdScripts_End::
 
 EventScript_WhiteOut::
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
-	goto EventScript_ResetMrBriney
+	@ goto EventScript_ResetMrBriney
 	end
 
 EventScript_AfterWhiteOutHeal::
@@ -624,76 +628,78 @@ EventScript_AfterWhiteOutMomHeal::
 	releaseall
 	end
 
-EventScript_ResetMrBriney::
-	goto_if_eq VAR_GARBAGEVAR, 1, EventScript_MoveMrBrineyToHouse
-	goto_if_eq VAR_GARBAGEVAR, 2, EventScript_MoveMrBrineyToDewford
-	goto_if_eq VAR_GARBAGEVAR, 3, EventScript_MoveMrBrineyToRoute109
-	end
+@ remove Briney scripts rather than just invalidating
+@EventScript_ResetMrBriney::
+@	goto_if_eq VAR_GARBAGEVAR, 1, EventScript_MoveMrBrineyToHouse
+@	goto_if_eq VAR_GARBAGEVAR, 2, EventScript_MoveMrBrineyToDewford
+@	goto_if_eq VAR_GARBAGEVAR, 3, EventScript_MoveMrBrineyToRoute109
+@	end
+@
+@EventScript_MoveMrBrineyToHouse::
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	end
+@
+@EventScript_MoveMrBrineyToDewford::
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	end
+@
+@EventScript_MoveMrBrineyToRoute109::
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	end
 
-EventScript_MoveMrBrineyToHouse::
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	end
-
-EventScript_MoveMrBrineyToDewford::
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	end
-
-EventScript_MoveMrBrineyToRoute109::
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	end
-
+@ HnS - maybe rename to IndigoPlateau_HallOfFame_EventScript_ResetEliteFour ??
 EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
-	clearflag FLAG_DEFEATED_ELITE_4_WILL
-	clearflag FLAG_DEFEATED_ELITE_4_KOGA
-	clearflag FLAG_DEFEATED_ELITE_4_BRUNO
-	clearflag FLAG_DEFEATED_ELITE_4_KAREN
+	clearflag FLAG_DEFEATED_ELITE_4_WILL	@ SIDNEY
+	clearflag FLAG_DEFEATED_ELITE_4_KOGA	@ PHOEBE
+	clearflag FLAG_DEFEATED_ELITE_4_BRUNO	@ GLACIA
+	clearflag FLAG_DEFEATED_ELITE_4_KAREN	@ DRAKE
 	setvar VAR_ELITE_4_STATE, 0
 	return
 
-Common_EventScript_UpdateBrineyLocation::
-	goto_if_unset FLAG_RECEIVED_POKENAV, Common_EventScript_NopReturn
-	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, Common_EventScript_NopReturn
-	goto_if_unset FLAG_GARBAGEFLAG, EventScript_SetBrineyLocation_House
-	goto_if_unset FLAG_GARBAGEFLAG, EventScript_SetBrineyLocation_Dewford
-	goto_if_unset FLAG_GARBAGEFLAG, EventScript_SetBrineyLocation_Route109
-	return
-
-EventScript_SetBrineyLocation_House::
-	setvar VAR_GARBAGEVAR, 1
-	return
-
-EventScript_SetBrineyLocation_Dewford::
-	setvar VAR_GARBAGEVAR, 2
-	return
-
-EventScript_SetBrineyLocation_Route109::
-	setvar VAR_GARBAGEVAR, 3
-	return
-
-	.include "data/scripts/pkmn_center_nurse.inc"
-	.include "data/scripts/obtain_item.inc"
-	.include "data/scripts/record_mix.inc"
-	.include "data/scripts/pc.inc"
+@Common_EventScript_UpdateBrineyLocation::
+@	goto_if_unset FLAG_RECEIVED_POKENAV, Common_EventScript_NopReturn
+@	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, Common_EventScript_NopReturn
+@	goto_if_unset FLAG_GARBAGEFLAG, EventScript_SetBrineyLocation_House
+@	goto_if_unset FLAG_GARBAGEFLAG, EventScript_SetBrineyLocation_Dewford
+@	goto_if_unset FLAG_GARBAGEFLAG, EventScript_SetBrineyLocation_Route109
+@	return
+@
+@EventScript_SetBrineyLocation_House::
+@	setvar VAR_GARBAGEVAR, 1
+@	return
+@
+@EventScript_SetBrineyLocation_Dewford::
+@	setvar VAR_GARBAGEVAR, 2
+@	return
+@
+@EventScript_SetBrineyLocation_Route109::
+@	setvar VAR_GARBAGEVAR, 3
+@	return
+@
+@	.include "data/scripts/pkmn_center_nurse.inc"
+@	.include "data/scripts/obtain_item.inc"
+@	.include "data/scripts/record_mix.inc"
+@	.include "data/scripts/pc.inc"
 
 @ scripts/notices.inc? signs.inc? See comment about text/notices.inc
 Common_EventScript_ShowPokemartSign::
@@ -710,10 +716,10 @@ Common_ShowEasyChatScreen::
 	fadescreen FADE_FROM_BLACK
 	return
 
-Common_EventScript_ReadyPetalburgGymForBattle::
-	clearflag FLAG_GARBAGEFLAG
-	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
-	return
+@Common_EventScript_ReadyPetalburgGymForBattle::
+@	clearflag FLAG_GARBAGEFLAG
+@	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
+@	return
 
 Common_EventScript_BufferTrendyPhrase::
 	dotimebasedevents
@@ -721,10 +727,10 @@ Common_EventScript_BufferTrendyPhrase::
 	special BufferTrendyPhraseString
 	return
 
-EventScript_BackupMrBrineyLocation::
-	copyvar VAR_0x8008, VAR_GARBAGEVAR
-	setvar VAR_GARBAGEVAR, 0
-	return
+@EventScript_BackupMrBrineyLocation::
+@	copyvar VAR_0x8008, VAR_GARBAGEVAR
+@	setvar VAR_GARBAGEVAR, 0
+@	return
 
 	.include "data/scripts/surf.inc"
 	.include "data/scripts/rival_graphics.inc"
@@ -809,26 +815,26 @@ Movement_FerryDepart:
 	walk_right
 	step_end
 
-EventScript_HideMrBriney::
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setvar VAR_GARBAGEVAR, 0
-	return
-
-RusturfTunnel_EventScript_SetRusturfTunnelOpen::
-	removeobject LOCALID_WANDAS_BF
-	removeobject LOCALID_WANDA
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	setvar VAR_RUSTURF_TUNNEL_STATE, 6
-	setflag FLAG_RUSTURF_TUNNEL_OPENED
-	return
+@EventScript_HideMrBriney::
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setflag FLAG_GARBAGEFLAG
+@	setvar VAR_GARBAGEVAR, 0
+@	return
+@
+@RusturfTunnel_EventScript_SetRusturfTunnelOpen::
+@	removeobject LOCALID_RUSTURF_TUNNEL_WANDAS_BF
+@	removeobject LOCALID_RUSTURF_TUNNEL_WANDA
+@	clearflag FLAG_GARBAGEFLAG
+@	clearflag FLAG_GARBAGEFLAG
+@	setvar VAR_RUSTURF_TUNNEL_STATE, 6
+@	setflag FLAG_RUSTURF_TUNNEL_OPENED
+@	return
 
 EventScript_UnusedBoardFerry::
 	delay 30
@@ -929,9 +935,57 @@ gText_UnusedNicknameReceivedPokemon::
 	.string "Want to give a nickname to\n"
 	.string "the {STR_VAR_2} you received?$"
 
+@ Hns/Modern
 gText_PlayerWhitedOut::
 	.string "{PLAYER} is out of usable\n"
 	.string "POKéMON!\p{PLAYER} whited out!$"
+
+@ Hns/Modern
+gText_FirstShouldRestoreMonsHealth::
+	.string "First, you should restore your\n"
+	.string "POKéMON to full health.$"
+
+@ Hns/Modern
+gText_MonsHealedShouldBuyPotions::
+	.string "Your POKéMON have been healed\n"
+	.string "to perfect health.\p"
+	.string "If your POKéMON's energy, HP,\n"
+	.string "is down, please come see us.\p"
+	.string "If you're planning to go far in the\n"
+	.string "field, you should buy some POTIONS\l"
+	.string "at the POKéMON MART.\p"
+	.string "We hope you excel!$"
+
+@ Hns/Modern
+gText_MonsHealed::
+	.string "Your POKéMON have been healed\n"
+	.string "to perfect health.\p"
+	.string "We hope you excel!$"
+
+@ Hns/Modern
+gText_HadQuiteAnExperienceTakeRest::
+	.string "MOM: {PLAYER}!\n"
+	.string "Welcome home.\p"
+	.string "It sounds like you had quite\n"
+	.string "an experience.\p"
+	.string "Maybe you should take a quick\n"
+	.string "rest.$"
+
+@ Hns/Modern
+gText_MomExplainHPGetPotions::
+	.string "MOM: Oh, good! You and your\n"
+	.string "POKéMON are looking great.\p"
+	.string "I just heard from PROF. BIRCH.\p"
+	.string "He said that POKéMON's energy is\n"
+	.string "measured in HP.\p"
+	.string "If your POKéMON lose their HP,\n"
+	.string "you can restore them at any\l"
+	.string "POKéMON CENTER.\p"
+	.string "If you're going to travel far away,\n"
+	.string "the smart TRAINER stocks up on\l"
+	.string "POTIONS at the POKéMON MART.\p"
+	.string "Make me proud, honey!\p"
+	.string "Take care!$"
 
 gText_RegisteredTrainerinPokeNav::
 	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"

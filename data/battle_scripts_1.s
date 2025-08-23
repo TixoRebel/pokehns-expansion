@@ -6697,6 +6697,18 @@ BattleScript_MoveEffectClearSmog::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+@ HnS/Modern - Seems to be "special attack harshly fell" script
+@ BattleScript_SAtkDown2::
+@ 	setbyte sSTAT_ANIM_PLAYED, FALSE
+@ 	playstatchangeanimation BS_ATTACKER, BIT_SPATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO
+@ 	setstatchanger STAT_SPATK, 2, TRUE
+@ 	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_SAtkDown2End
+@ 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_SAtkDown2End
+@ 	printfromtable gStatDownStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ BattleScript_SAtkDown2End::
+@ 	return
+
 BattleScript_FocusPunchSetUp::
 	flushtextbox
 	playanimation BS_ATTACKER, B_ANIM_FOCUS_PUNCH_SETUP
@@ -8079,6 +8091,25 @@ BattleScript_ItemNoStatLoss::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+@ HnS/Modern - dedicated scripts for when status affliction is prevented
+@ BattleScript_BRNPrevention::
+@ 	pause B_WAIT_TIME_SHORT
+@ 	printfromtable gBRNPreventionStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	return
+@ 
+@ BattleScript_PRLZPrevention::
+@ 	pause B_WAIT_TIME_SHORT
+@ 	printfromtable gPRLZPreventionStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	return
+@ 
+@ BattleScript_PSNPrevention::
+@ 	pause B_WAIT_TIME_SHORT
+@ 	printfromtable gPSNPreventionStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	return
+
 BattleScript_ObliviousPreventsAttraction::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
@@ -8940,6 +8971,16 @@ BattleScript_ArenaTurnBeginning::
 	volumeup
 	end2
 
+@ HnS/Modern - "Unused", seems to be reffed match stuff handled elsewhere
+BattleScript_ArenaNothingDecided::
+	playse SE_DING_DONG
+	arenadrawreftextbox
+	arenajudgmentstring B_MSG_REF_NOTHING_IS_DECIDED
+	arenawaitmessage B_MSG_REF_NOTHING_IS_DECIDED
+	pause B_WAIT_TIME_LONG
+	arenaerasereftextbox
+	end2
+
 BattleScript_ArenaDoJudgment::
 	makevisible BS_PLAYER1
 	waitstate
@@ -9031,6 +9072,32 @@ BattleScript_PrintPlayerForfeitedLinkBattle::
 	endlinkbattle
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
+@ HnS/Modern - challenge run options 
+BattleScript_Safari_OneTypeChallengeCaptureBlocked::
+	printselectionstring STRINGID_ONETYPECAPTUREBLOCKED
+	endselectionscript
+
+@ HnS/Modern
+BattleScript_Safari_NuzlockeCaptureBlocked::
+	printselectionstring STRINGID_NUZLOCKECAPTUREBLOCKED
+	endselectionscript
+
+@ HnS/Modern
+BattleScript_Safari_SpeciesClauseCaptureBlocked::
+	printselectionstring STRINGID_SPECIESCLAUSECAPTUREBLOCKED
+	endselectionscript
+
+@ HnS/Modern
+BattleScript_Safari_SameSpeciesCaptureBlocked::
+	printselectionstring STRINGID_SAMESPECIESCAPTUREBLOCKED
+	endselectionscript
+
+@ HnS/Modern - fainted wilds drop held items option
+BattleScript_ItemDropped::
+	playse SE_BALL_BOUNCE_1
+	printfromtable gItemDroppedStringIds
+	return
 
 BattleScript_TotemFlaredToLife::
 	playanimation BS_ATTACKER, B_ANIM_TOTEM_FLARE, NULL

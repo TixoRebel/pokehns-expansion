@@ -4,6 +4,7 @@
 #include "constants/battle_anim.h"
 #include "constants/battle_string_ids.h"
 #include "constants/moves.h"
+@ #include "constants/items.h" @ HnS/Modern
 #include "constants/songs.h"
 #include "constants/game_stat.h"
 	.include "asm/macros.inc"
@@ -11,6 +12,31 @@
 	.include "constants/constants.inc"
 
 	.section script_data, "aw", %progbits
+
+@ HnS/Modern - custom script for each ball type?
+@ 	.align 2
+@ gBattlescriptsForBallThrow::
+@ 	.4byte BattleScript_BallThrow        @ ITEM_NONE
+@ 	.4byte BattleScript_BallThrow        @ ITEM_MASTER_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_ULTRA_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_GREAT_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_POKE_BALL
+@ 	.4byte BattleScript_SafariBallThrow  @ ITEM_SAFARI_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_NET_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_DIVE_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_NEST_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_REPEAT_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_TIMER_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_LUXURY_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_PREMIER_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_LOVE_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_LURE_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_FRIEND_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_HEAVY_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_MOON_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_LEVEL_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_FAST_BALL
+@ 	.4byte BattleScript_BallThrow        @ ITEM_GS_BALL
 
 	.align 2
 gBattlescriptsForUsingItem::
@@ -26,6 +52,14 @@ gBattlescriptsForUsingItem::
 	.4byte BattleScript_ItemRestorePP                @ EFFECT_ITEM_RESTORE_PP
 	.4byte BattleScript_ItemIncreaseAllStats         @ EFFECT_ITEM_INCREASE_ALL_STATS
 	.4byte BattleScript_UsePokeFlute                 @ EFFECT_ITEM_USE_POKE_FLUTE
+
+@ HnS/Modern - Different approach to scripting specific items
+@ 	.4byte BattleScript_PlayerUsesItem
+@ 	.4byte BattleScript_OpponentUsesHealItem        @ AI_ITEM_FULL_RESTORE
+@ 	.4byte BattleScript_OpponentUsesHealItem        @ AI_ITEM_HEAL_HP
+@ 	.4byte BattleScript_OpponentUsesStatusCureItem  @ AI_ITEM_CURE_CONDITION
+@ 	.4byte BattleScript_OpponentUsesXItem           @ AI_ITEM_X_STAT
+@ 	.4byte BattleScript_OpponentUsesGuardSpec       @ AI_ITEM_GUARD_SPEC
 
 	.align 2
 gBattlescriptsForSafariActions::
@@ -229,6 +263,64 @@ BattleScript_TrainerBallBlock::
 	printstring STRINGID_DONTBEATHIEF
 	waitmessage B_WAIT_TIME_LONG
 	finishaction
+
+@ HnS/Modern - Should be handled by expansion
+@ BattleScript_PlayerUsesItem::
+@ 	moveendcase MOVEEND_MIRROR_MOVE
+@ 	end
+@ 
+@ BattleScript_OpponentUsesHealItem::
+@ 	printstring STRINGID_EMPTYSTRING3
+@ 	pause B_WAIT_TIME_MED
+@ 	playse SE_USE_ITEM
+@ 	printstring STRINGID_TRAINER1USEDITEM
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	useitemonopponent
+@ 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+@ 	healthbarupdate BS_ATTACKER
+@ 	datahpupdate BS_ATTACKER
+@ 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	updatestatusicon BS_ATTACKER
+@ 	moveendcase MOVEEND_MIRROR_MOVE
+@ 	finishaction
+@ 
+@ BattleScript_OpponentUsesStatusCureItem::
+@ 	printstring STRINGID_EMPTYSTRING3
+@ 	pause B_WAIT_TIME_MED
+@ 	playse SE_USE_ITEM
+@ 	printstring STRINGID_TRAINER1USEDITEM
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	useitemonopponent
+@ 	printfromtable gTrainerItemCuredStatusStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	updatestatusicon BS_ATTACKER
+@ 	moveendcase MOVEEND_MIRROR_MOVE
+@ 	finishaction
+@ 
+@ BattleScript_OpponentUsesXItem::
+@ 	printstring STRINGID_EMPTYSTRING3
+@ 	pause B_WAIT_TIME_MED
+@ 	playse SE_USE_ITEM
+@ 	printstring STRINGID_TRAINER1USEDITEM
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	useitemonopponent
+@ 	printfromtable gStatUpStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	moveendcase MOVEEND_MIRROR_MOVE
+@ 	finishaction
+@ 
+@ BattleScript_OpponentUsesGuardSpec::
+@ 	printstring STRINGID_EMPTYSTRING3
+@ 	pause B_WAIT_TIME_MED
+@ 	playse SE_USE_ITEM
+@ 	printstring STRINGID_TRAINER1USEDITEM
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	useitemonopponent
+@ 	printfromtable gMistUsedStringIds
+@ 	waitmessage B_WAIT_TIME_LONG
+@ 	moveendcase MOVEEND_MIRROR_MOVE
+@ 	finishaction
 
 BattleScript_RunByUsingItem::
 	playse SE_FLEE

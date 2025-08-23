@@ -327,13 +327,18 @@ RocketHideout2_EventScript_DoLanceMultiBattle::
 	special SetCB2WhiteOut
 	waitstate
 
-RocketHideout2_EventScript_ArianaTrainer::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_ARIANA_1, 0, RocketHideout2_Text_ArianaLoss, RocketHideout2_Text_ArianaLoss
-	end
+@ .macro trainerbattle type:req, localIdA:req, trainer_a:req, intro_text_a:req, lose_text_a:req, event_script_a:req, localIdB:req, trainer_b:req, intro_text_b:req, lose_text_b:req, event_script_b:req, victory_text:req, cannot_battle:req, isDouble:req, playMusicA:req, playMusicB:req, isRematch:req
 
-RocketHideout2_EventScript_GruntTrainer::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_23, 0, RocketHideout2_Text_GruntLoss, RocketHideout2_Text_GruntLoss
-	end
+@ 	trainerbattle TRAINER_BATTLE_SET_TRAINERS_FOR_MULTI_BATTLE, OBJ_ID_NONE, \trainer1Id, NULL, \trainer1LoseText, NULL, OBJ_ID_NONE, \trainer2Id, NULL, \trainer2LoseText, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+@ 	multi_do MULTI_BATTLE_2_VS_2, \partnerId
+@ 
+@ RocketHideout2_EventScript_ArianaTrainer::
+@ 	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_ARIANA_1, 0, RocketHideout2_Text_ArianaLoss, RocketHideout2_Text_ArianaLoss
+@ 	end
+@ 
+@ RocketHideout2_EventScript_GruntTrainer::
+@ 	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_23, 0, RocketHideout2_Text_GruntLoss, RocketHideout2_Text_GruntLoss
+@ 	end
 
 RocketHideout2_EventScript_DefeatedAriana::
 	clearflag FLAG_ROCKETHIDEOUT2_BATTLE
