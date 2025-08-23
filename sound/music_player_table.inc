@@ -1,11 +1,10 @@
 	.equiv TRACK_SIZE, 0x50
-	.equiv NUM_TRACKS_BGM, 10
+	.equiv NUM_TRACKS_BGM, 16
 	.equiv NUM_TRACKS_SE1, 3
-	.equiv NUM_TRACKS_SE2, 9
+	.equiv NUM_TRACKS_SE2, 11
 	.equiv NUM_TRACKS_SE3, 1
 
     .bss
-    .align 2
 
 gMPlayTrack_BGM::
     .space TRACK_SIZE * NUM_TRACKS_BGM

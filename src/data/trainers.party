@@ -6940,6 +6940,7 @@ Gender: Male
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Pink
 
 Espeon
 Level: 48
@@ -6957,6 +6958,7 @@ Gender: Male
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Jolteon
 Level: 48
@@ -6974,6 +6976,7 @@ Gender: Male
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Purple
 
 Umbreon
 Level: 48
@@ -6991,6 +6994,7 @@ Gender: Male
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Vaporeon
 Level: 48
@@ -7008,6 +7012,7 @@ Gender: Male
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Flareon
 Level: 48
@@ -7250,6 +7255,7 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Pidgey
 Level: 8
@@ -7275,6 +7281,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Noctowl @ Sitrus Berry
 Level: 54
@@ -7333,6 +7340,7 @@ Music: Male
 Items: Potion / Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
 Pineco
 Level: 15
@@ -7367,6 +7375,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
 Ledian @ Focus Band
 Level: 54
@@ -7425,6 +7434,7 @@ Music: Male
 Items: Super Potion / Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Pink
 
 Clefairy
 Level: 20
@@ -7459,6 +7469,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Pink
 
 Clefable
 Level: 53
@@ -7517,6 +7528,7 @@ Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Purple
 
 Haunter
 Level: 24
@@ -7559,6 +7571,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Purple
 
 Sableye
 Level: 54
@@ -7617,6 +7630,7 @@ Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Dewgong
 Level: 31
@@ -7659,6 +7673,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Weavile
 Level: 54
@@ -7717,6 +7732,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Cloyster
 Level: 33
@@ -7767,6 +7783,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Cloyster
 Level: 37
@@ -7817,6 +7834,7 @@ Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Skarmory
 Level: 35
@@ -7867,6 +7885,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Skarmory
 Level: 53
@@ -7925,6 +7944,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Skarmory
 Level: 35
@@ -7975,6 +7995,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Skarmory
 Level: 37
@@ -8025,6 +8046,7 @@ Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Hitmontop
 Level: 30
@@ -8067,6 +8089,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Hitmonchan @ Scope Lens
 Level: 54
@@ -8125,6 +8148,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Hitmontop
 Level: 35
@@ -8175,6 +8199,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Hitmontop
 Level: 37
@@ -8225,6 +8250,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Blue
 
 Dragonair
 Level: 42
@@ -8275,6 +8301,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Blue
 
 Dragonair @ Sitrus Berry
 Level: 54
@@ -8333,6 +8360,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Golem @ Quick Claw
 Level: 66
@@ -8391,6 +8419,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: LightBlue
 
 Golduck
 Level: 62
@@ -8507,6 +8536,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
 Jumpluff @ Focus Band
 Level: 61
@@ -8565,6 +8595,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Pink
 
 Mr Mime @ Quick Claw
 Level: 65
@@ -8623,6 +8654,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Purple
 
 Weezing @ Leftovers
 Level: 63
@@ -8681,6 +8713,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Rapidash @ Quick Claw
 Level: 66
@@ -8739,6 +8772,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Blue
 
 Rhyperior @ Sitrus Berry
 Level: 69
@@ -8797,6 +8831,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Blue
 
 Articuno @ Sitrus Berry
 Level: 69
@@ -8855,6 +8890,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Pink
 
 Girafarig
 Level: 48
@@ -8905,6 +8941,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Pink
 
 Gardevoir
 Level: 66
@@ -8963,6 +9000,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Hitmonchan @ Scope Lens
 Level: 53
@@ -9013,6 +9051,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Orange
 
 Steelix @ Quick Claw
 Level: 67
@@ -9071,6 +9110,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Umbreon @ Sitrus Berry
 Level: 54
@@ -9121,6 +9161,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Umbreon @ Sitrus Berry
 Level: 68
@@ -9179,6 +9220,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Purple
 
 Ariados @ Kings Rock
 Level: 50
@@ -9229,6 +9271,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Purple
 
 Tentacruel @ Chesto Berry
 Level: 67
@@ -9287,6 +9330,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Blue
 
 Gyarados @ Leftovers
 Level: 54
@@ -9345,6 +9389,7 @@ Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Blue
 
 Salamence
 Level: 69
@@ -9416,6 +9461,7 @@ Music: Silver
 Items: Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Zubat
 Level: 15
@@ -9438,6 +9484,7 @@ Music: Silver
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Larvitar
 Level: 22
@@ -9478,6 +9525,7 @@ Music: Silver
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Pupitar
 Level: 39
@@ -9527,6 +9575,7 @@ Music: Silver
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Chesto Berry
 Level: 45
@@ -9585,6 +9634,7 @@ Music: Silver
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Scope Lens
 Level: 64
@@ -9643,6 +9693,7 @@ Music: Silver
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Scope Lens
 Level: 68
@@ -9714,6 +9765,7 @@ Music: Silver
 Items: Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Zubat
 Level: 15
@@ -9736,6 +9788,7 @@ Music: Silver
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Larvitar
 Level: 22
@@ -9777,6 +9830,7 @@ Music: Silver
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Pupitar
 Level: 39
@@ -9826,6 +9880,7 @@ Music: Silver
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Chesto Berry
 Level: 45
@@ -9884,6 +9939,7 @@ Music: Silver
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Silk Scarf
 Level: 64
@@ -9942,6 +9998,7 @@ Music: Silver
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Leftovers
 Level: 68
@@ -10013,6 +10070,7 @@ Music: Silver
 Items: Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Zubat
 Level: 15
@@ -10035,6 +10093,7 @@ Music: Silver
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Larvitar
 Level: 22
@@ -10076,6 +10135,7 @@ Music: Silver
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Pupitar
 Level: 39
@@ -10126,6 +10186,7 @@ Music: Silver
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Chesto Berry
 Level: 45
@@ -10184,6 +10245,7 @@ Music: Silver
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Silk Scarf
 Level: 64
@@ -10242,6 +10304,7 @@ Music: Silver
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Ursaring @ Silk Scarf
 Level: 68
@@ -10358,6 +10421,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Yellow
 
 Politoed
 Level: 27
@@ -10392,6 +10456,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Kangaskhan
 Level: 40
@@ -10441,6 +10506,7 @@ Gender: Male
 Music: Rocket
 Double Battle: No
 AI: Check Bad Move
+Mugshot: DarkRed
 
 Koffing
 Level: 12
@@ -10463,6 +10529,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Muk
 Level: 36
@@ -10513,6 +10580,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Weezing
 Level: 39
@@ -10563,6 +10631,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Weezing
 Level: 39
@@ -10597,6 +10666,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Weezing
 Level: 39
@@ -10647,6 +10717,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Weezing
 Level: 39
@@ -10697,6 +10768,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Pineco
 Level: 30
@@ -10739,6 +10811,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Forretress
 Level: 38
@@ -10781,6 +10854,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Arbok
 Level: 31
@@ -10815,6 +10889,7 @@ Music: Rocket
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: DarkRed
 
 Arbok
 Level: 39

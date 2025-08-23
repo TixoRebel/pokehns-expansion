@@ -866,11 +866,22 @@ static const u16 sFieldEffectPal_Pokeball[] = INCBIN_U16("graphics/field_effects
 
 const struct SpritePalette gSpritePalette_Pokeball = {sFieldEffectPal_Pokeball, FLDEFF_PAL_TAG_POKEBALL_TRAIL};
 
+//sidney = purple
+//phoebe = green
+//glacia = pink
+//drake = dark blue
+//champion = yellow
+//rocket = red
+//brendan = light blue
+//may = pink
 static const u16 sMugshotPal_Purple[] = INCBIN_U16("graphics/battle_transitions/purple_bg.gbapal");
 static const u16 sMugshotPal_Green[]  = INCBIN_U16("graphics/battle_transitions/green_bg.gbapal");
 static const u16 sMugshotPal_Pink[]   = INCBIN_U16("graphics/battle_transitions/pink_bg.gbapal");
 static const u16 sMugshotPal_Blue[]   = INCBIN_U16("graphics/battle_transitions/blue_bg.gbapal");
 static const u16 sMugshotPal_Yellow[] = INCBIN_U16("graphics/battle_transitions/yellow_bg.gbapal");
+static const u16 sMugshotPal_DarkRed[] = INCBIN_U16("graphics/battle_transitions/rocket.gbapal");
+static const u16 sMugshotPal_Orange[] = INCBIN_U16("graphics/battle_transitions/orange.gbapal");
+static const u16 sMugshotPal_LightBlue[] = INCBIN_U16("graphics/battle_transitions/light_blue.gbapal");
 static const u16 sMugshotPal_Brendan[] = INCBIN_U16("graphics/battle_transitions/brendan_bg.gbapal");
 static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
 
@@ -880,7 +891,10 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOT_COLOR_COUNT] =
     [MUGSHOT_COLOR_GREEN]  = sMugshotPal_Green,
     [MUGSHOT_COLOR_PINK]   = sMugshotPal_Pink,
     [MUGSHOT_COLOR_BLUE]   = sMugshotPal_Blue,
-    [MUGSHOT_COLOR_YELLOW] = sMugshotPal_Yellow
+    [MUGSHOT_COLOR_YELLOW] = sMugshotPal_Yellow,
+    [MUGSHOT_COLOR_DARKRED] = sMugshotPal_DarkRed,
+    [MUGSHOT_COLOR_ORANGE] = sMugshotPal_Orange,
+    [MUGSHOT_COLOR_LIGHTBLUE] = sMugshotPal_LightBlue,
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
@@ -2229,15 +2243,15 @@ static void VBlankCB_Wave(void)
 // and their opponent.
 //----------------------------------------------------
 
-#define tSinIndex           data[1]
-#define tTopBannerX         data[2]
-#define tBottomBannerX      data[3]
-#define tTimer              data[3] // Re-used
-#define tFadeSpread         data[4]
+#define tSinIndex            data[1]
+#define tTopBannerX          data[2]
+#define tBottomBannerX       data[3]
+#define tTimer               data[3] // Re-used
+#define tFadeSpread          data[4]
 #define tOpponentSpriteAId   data[11]
 #define tOpponentSpriteBId   data[12]
-#define tPlayerSpriteId     data[14]
-#define tPartnerSpriteId    data[13]
+#define tPartnerSpriteId     data[13]
+#define tPlayerSpriteId      data[14]
 
 // Sprite data for trainer sprites in mugshots
 #define sState       data[0]

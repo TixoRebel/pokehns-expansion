@@ -16232,7 +16232,7 @@ static void Cmd_givecaughtmon(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
             }
 
-            // Change to B_MSG_SENT_BILLS_PC or B_MSG_LANETTES_BOX_FULL
+            // TODO? Change to B_MSG_SENT_BILLS_PC or B_MSG_LANETTES_BOX_FULL
             if (FlagGet(FLAG_SYS_PC_BILL))
                 gBattleCommunication[MULTISTRING_CHOOSER]++;
         }

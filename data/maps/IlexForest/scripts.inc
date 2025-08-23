@@ -6,6 +6,7 @@
 .set LOCALID_ILEX_FOREST_KURT, 34
 .set LOCALID_ILEX_FOREST_KIMONO, 36
 .set LOCALID_ILEX_FOREST_BUTTERFREE, 37
+.set LOCALID_ILEX_FOREST_SECOND_CELEBI, 38
 
 IlexForest_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, IlexForest_OnTransition
@@ -216,7 +217,7 @@ IlexForest_EventScript_HeadbuttMoveTutor::
 	msgbox MoveTutor_Text_HeadbuttTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_HeadbuttDeclined
 	msgbox MoveTutor_Text_HeadbuttWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, TUTOR_MOVE_HEADBUTT
+	setvar VAR_0x8005, MOVE_HEADBUTT
 	call MoveTutor_EventScript_OpenPartyMenu
 	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_HeadbuttDeclined
 	goto MoveTutor_EventScript_HeadbuttTaught
@@ -231,7 +232,7 @@ IlexForest_EventScript_HeadbuttTutorFinite::
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnceFinite
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_HeadbuttDeclined
 	msgbox MoveTutor_Text_HeadbuttWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, TUTOR_MOVE_HEADBUTT
+	setvar VAR_0x8005, MOVE_HEADBUTT
 	call MoveTutor_EventScript_OpenPartyMenu
 	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_HeadbuttDeclined
 	setflag FLAG_MOVE_TUTOR_TAUGHT_HEADBUTT
@@ -311,6 +312,30 @@ IlexForest_EventScript_Shrine_Cancel::
 	closemessage
 	release
 	end
+
+
+IlexForest_EventScript_SecondCelebi::
+	lock
+	faceplayer
+	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	seteventmon SPECIES_CELEBI, 40
+	special BattleSetup_StartLegendaryBattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	waitstate
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IlexForest_EventScript_SecondCelebiRan
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ILEX_FOREST_SECOND_CELEBI
+	setflag FLAG_HIDE_ILEX_FOREST_SECOND_CELEBI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+IlexForest_EventScript_SecondCelebiRan::
+	release
+	end
+
 
 IlexForest_EventScript_Sign::
 	lock

@@ -72,6 +72,7 @@
 #define NATURE_CAREFUL  23 // +SpDef -SpAtk
 #define NATURE_QUIRKY   24 // Neutral
 #define NUM_NATURES     25
+#define HIDDEN_NATURE_NONE      26  // 25 natures. not 0xFF to conserve bits HnS
 
 // Pokémon Stats
 #define STAT_HP      0
@@ -157,6 +158,10 @@
 #define MON_GIVEN_TO_PC         1
 #define MON_CANT_GIVE           2
 
+// HnS Magikarp Rater
+#define MON_UNSATISFACTORY 1
+#define MON_SATISFACTORY 2
+
 #define PLAYER_HAS_TWO_USABLE_MONS     0
 #define PLAYER_HAS_ONE_MON             1
 #define PLAYER_HAS_ONE_USABLE_MON      2
@@ -185,6 +190,9 @@
 #define FRIENDSHIP_EVENT_FAINT_SMALL      6
 #define FRIENDSHIP_EVENT_FAINT_FIELD_PSN  7
 #define FRIENDSHIP_EVENT_FAINT_LARGE      8 // If opponent was >= 30 levels higher. See AdjustFriendshipOnBattleFaint
+// HnS Haircuts
+#define FRIENDSHIP_EVENT_HAIRCUT1         9
+#define FRIENDSHIP_EVENT_HAIRCUT2         10
 
 // Constants for GetLeadMonFriendshipScore
 #define FRIENDSHIP_NONE        0
@@ -203,7 +211,7 @@
 #define AFFECTION_FOUR_HEARTS   4 // 220-254 friendship
 #define AFFECTION_FIVE_HEARTS   5 // Max friendship
 
-// Friendship value that the majority of species use.
+// Friendship value that the majority of species use. This was changed in Generation 8 to 50.
 #define STANDARD_FRIENDSHIP ((P_UPDATED_FRIENDSHIP >= GEN_8) ? 50 : 70)
 
 #define MAX_FRIENDSHIP  255

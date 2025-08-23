@@ -774,7 +774,7 @@ extern const u8 gText_ItGotAway[];
 
 extern const u8 gText_HallOfFame[];
 extern const u8 gText_LogOff[];
-extern const u8 gText_LanettesPC[];
+extern const u8 gText_BillsPC[];
 extern const u8 gText_SomeonesPC[];
 extern const u8 gText_PlayersPC[];
 extern const u8 gText_WhichPCShouldBeAccessed[];
@@ -1535,9 +1535,9 @@ extern const u8 gText_Love[];
 
 // battle message
 extern const u8 gText_PkmnTransferredSomeonesPCBoxFull[];
-extern const u8 gText_PkmnTransferredLanettesPCBoxFull[];
+extern const u8 gText_PkmnTransferredBillsPCBoxFull[];
 extern const u8 gText_PkmnTransferredSomeonesPC[];
-extern const u8 gText_PkmnTransferredLanettesPC[];
+extern const u8 gText_PkmnTransferredBillsPC[];
 extern const u8 gText_PkmnSentToPCAfterCatch[];
 
 // hall of fame

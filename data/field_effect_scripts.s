@@ -227,11 +227,6 @@ gFieldEffectScript_BikeTireTracks::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_BikeTireTracks
 	field_eff_end
 
-@ Hns/Modern - 
-gFieldEffectScript_TracksSlither::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_TracksSlither
-	field_eff_end
-
 gFieldEffectScript_SandDisguisePlaceholder::
 	field_eff_callnative ShowSandDisguiseFieldEffect
 	field_eff_end

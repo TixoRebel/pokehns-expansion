@@ -44,6 +44,7 @@
 #define SPECIAL_BATTLE_PIKE_DOUBLE 8
 #define SPECIAL_BATTLE_PYRAMID 9
 #define SPECIAL_BATTLE_MULTI 10
+#define SPECIAL_BATTLE_LANCE 11
 
 #define MAX_BATTLE_FRONTIER_POINTS 9999
 #define MAX_STREAK 9999
@@ -55,6 +56,11 @@
 // This is the default number of battles (or floors, in Battle Pyramid) per challenge.
 // There are 2 facilities that differ: Battle Dome (DOME_ROUNDS_COUNT) and Battle Pike (NUM_PIKE_ROOMS).
 #define FRONTIER_STAGES_PER_CHALLENGE 7
+
+// Every time you complete 7 battles, the Battle Frontier challenge repeats. After 7 repeats, the Battle
+// Frontier uses trainer IDs that always come from the last, hardest range, which is the same for both
+// trainer ID tables.
+#define FRONTIER_REPEAT_CHALLENGES_START_HARDEST_RANGE 7
 
 // These sets of facility ids would be redundant if the order was consistent
 // The order is important for this set so that all the non-link records can be continuous

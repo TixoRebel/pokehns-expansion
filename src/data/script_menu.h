@@ -955,7 +955,7 @@ static const u8 sLinkServicesMultichoiceIds[] =
 static const u8 *const sPCNameStrings[] =
 {
     gText_SomeonesPC,
-    gText_LanettesPC,
+    gText_BillsPC,
     gText_PlayersPC,
     gText_LogOff,
 };
