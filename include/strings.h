@@ -919,14 +919,14 @@ extern const u8 gText_4th[];
 extern const u8 gText_3rd[];
 extern const u8 gText_2nd[];
 extern const u8 gText_1st[];
-extern const u8 gText_SpaceAndSpace[];
-extern const u8 gText_CommaSpace[];
-extern const u8 gText_NewLine[];
-extern const u8 gText_LineBreak[];
+// extern const u8 gText_SpaceAndSpace[];
+// extern const u8 gText_CommaSpace[];
+// extern const u8 gText_NewLine[];
+// extern const u8 gText_LineBreak[];
 extern const u8 gText_Space[];
-extern const u8 gText_Space2[];
-extern const u8 gText_Are[];
-extern const u8 gText_Are2[];
+// extern const u8 gText_Space2[];
+// extern const u8 gText_Are[];
+// extern const u8 gText_Are2[];
 extern const u8 gText_123Dot[][3];
 
 // Frontier util.
@@ -1526,13 +1526,13 @@ extern const u8 gText_YourPartysFull[];
 // battle main
 extern const u8 gText_LinkStandby3[];
 extern const u8 BattleFrontier_BattleTowerBattleRoom_Text_RecordCouldntBeSaved[];
-extern const u8 gText_Poison[];
-extern const u8 gText_Sleep[];
-extern const u8 gText_Paralysis[];
-extern const u8 gText_Burn[];
-extern const u8 gText_Ice[];
-extern const u8 gText_Confusion[];
-extern const u8 gText_Love[];
+// extern const u8 gText_Poison[];
+// extern const u8 gText_Sleep[];
+// extern const u8 gText_Paralysis[];
+// extern const u8 gText_Burn[];
+// extern const u8 gText_Ice[];
+// extern const u8 gText_Confusion[];
+// extern const u8 gText_Love[];
 
 // battle message
 extern const u8 gText_PkmnTransferredSomeonesPCBoxFull[];
@@ -2503,28 +2503,28 @@ extern const u8 gText_AutorunOn[];
 
 extern const u8 gText_Autorun[];
 
-extern const u8 gText_SaveFileErased[];
-extern const u8 gText_SaveFileCorrupted[];
-extern const u8 gJPText_No1MSubCircuit[];
-extern const u8 gText_BatteryRunDry[];
-extern const u8 gText_MainMenuNewGame[];
-extern const u8 gText_MainMenuOption[];
-extern const u8 gText_MainMenuContinue[];
-extern const u8 gText_MainMenuMysteryGift2[];
-extern const u8 gText_MainMenuMysteryEvents[];
-extern const u8 gText_MainMenuMysteryGift[];
-extern const u8 gText_WirelessNotConnected[];
-extern const u8 gText_MysteryGiftCantUse[];
-extern const u8 gText_MysteryEventsCantUse[];
+// extern const u8 gText_SaveFileErased[];
+// extern const u8 gText_SaveFileCorrupted[];
+// extern const u8 gJPText_No1MSubCircuit[];
+// extern const u8 gText_BatteryRunDry[];
+// extern const u8 gText_MainMenuNewGame[];
+// extern const u8 gText_MainMenuOption[];
+// extern const u8 gText_MainMenuContinue[];
+// extern const u8 gText_MainMenuMysteryGift2[];
+// extern const u8 gText_MainMenuMysteryEvents[];
+// extern const u8 gText_MainMenuMysteryGift[];
+// extern const u8 gText_WirelessNotConnected[];
+// extern const u8 gText_MysteryGiftCantUse[];
+// extern const u8 gText_MysteryEventsCantUse[];
 
 extern const u8 gText_Birch_Difficulty[];
 extern const u8 gText_Birch_LockDifficulty[];
 extern const u8 gText_Birch_Challenge[];
 
-extern const u8 gText_ContinueMenuPlayer[];
-extern const u8 gText_ContinueMenuTime[];
-extern const u8 gText_ContinueMenuPokedex[];
-extern const u8 gText_ContinueMenuBadges[];
+// extern const u8 gText_ContinueMenuPlayer[];
+// extern const u8 gText_ContinueMenuTime[];
+// extern const u8 gText_ContinueMenuPokedex[];
+// extern const u8 gText_ContinueMenuBadges[];
 extern const u8 gText_BirchBoy[];
 extern const u8 gText_BirchGirl[];
 
@@ -2899,9 +2899,9 @@ extern const u8 gText_YouAlreadyHaveThis[];
 
 extern const u8 gText_SoldOut2[];
 
-extern const u8 gText_PokenavMatchCall_Strategy[];
-extern const u8 gText_PokenavMatchCall_TrainerPokemon[];
-extern const u8 gText_PokenavMatchCall_SelfIntroduction[];
+// extern const u8 gText_PokenavMatchCall_Strategy[];
+// extern const u8 gText_PokenavMatchCall_TrainerPokemon[];
+// extern const u8 gText_PokenavMatchCall_SelfIntroduction[];
 extern const u8 gText_Pokenav_ClearButtonList[];
 extern const u8 gText_PokenavMap_ZoomedOutButtons[];
 extern const u8 gText_PokenavMap_ZoomedInButtons[];
@@ -2914,7 +2914,7 @@ extern const u8 gText_PokenavMatchCall_CheckTrainerButtons[];
 extern const u8 gText_PokenavRibbons_MonListButtons[];
 extern const u8 gText_PokenavRibbons_RibbonListButtons[];
 extern const u8 gText_PokenavRibbons_RibbonCheckButtons[];
-extern const u8 gText_Number2[];
+// extern const u8 gText_Number2[];
 
 extern const u8 gText_Petalburg[];
 extern const u8 gText_Slateport[];
@@ -3171,7 +3171,7 @@ extern const u8 gText_ExitFromBox[];
 extern const u8 gText_WhatDoYouWantToDo[];
 extern const u8 gText_PleasePickATheme[];
 extern const u8 gText_PickTheWallpaper[];
-extern const u8 gText_PkmnIsSelected[];
+// extern const u8 gText_PkmnIsSelected[];
 extern const u8 gText_JumpToWhichBox[];
 extern const u8 gText_DepositInWhichBox[];
 extern const u8 gText_PkmnWasDeposited[];
@@ -3212,8 +3212,8 @@ extern const u8 gPCText_Jump[];
 extern const u8 gPCText_Wallpaper[];
 extern const u8 gPCText_Name[];
 extern const u8 gPCText_Take[];
-extern const u8 gPCText_Give[];
-extern const u8 gPCText_Give[];
+// extern const u8 gPCText_Give[];
+// extern const u8 gPCText_Give[];
 extern const u8 gPCText_Switch[];
 extern const u8 gPCText_Bag[];
 extern const u8 gPCText_Info[];
@@ -3238,9 +3238,9 @@ extern const u8 gPCText_PolkaDot[];
 extern const u8 gPCText_Pokecenter[];
 extern const u8 gPCText_Machine[];
 extern const u8 gPCText_Simple[];
-extern const u8 gText_PartyFull[];
-extern const u8 gText_Box[];
-extern const u8 gText_JustOnePkmn[];
+// extern const u8 gText_PartyFull[];
+// extern const u8 gText_Box[];
+// extern const u8 gText_JustOnePkmn[];
 
 extern const u8 gText_Take[];
 extern const u8 gText_Mail[];
@@ -3265,7 +3265,7 @@ extern const u8 gText_MrStoneMatchCallDesc[];
 extern const u8 gText_MrStoneMatchCallName[];
 extern const u8 gText_StevenMatchCallDesc[];
 extern const u8 gText_StevenMatchCallName[];
-extern const u8 gText_MayBrendanMatchCallDesc[];
+// extern const u8 gText_MayBrendanMatchCallDesc[];
 extern const u8 gText_WallyMatchCallDesc[];
 extern const u8 gText_NormanMatchCallDesc[];
 extern const u8 gText_NormanMatchCallName[];
@@ -3282,24 +3282,24 @@ extern const u8 gText_FlanneryMatchCallDesc[];
 extern const u8 gText_WinonaMatchCallDesc[];
 extern const u8 gText_TateLizaMatchCallDesc[];
 extern const u8 gText_JuanMatchCallDesc[];
-extern const u8 gText_EliteFourMatchCallDesc[];
+// extern const u8 gText_EliteFourMatchCallDesc[];
 extern const u8 gText_ChampionMatchCallDesc[];
 extern const u8 gText_ProfBirchMatchCallDesc[];
 extern const u8 gText_ProfBirchMatchCallName[];
-extern const u8 gText_MatchCallSteven_Strategy[];
-extern const u8 gText_MatchCallSteven_Pokemon[];
+// extern const u8 gText_MatchCallSteven_Strategy[];
+// extern const u8 gText_MatchCallSteven_Pokemon[];
 extern const u8 gText_MatchCallSteven_Intro1_BeforeMeteorFallsBattle[];
 extern const u8 gText_MatchCallSteven_Intro2_BeforeMeteorFallsBattle[];
 extern const u8 gText_MatchCallSteven_Intro1_AfterMeteorFallsBattle[];
 extern const u8 gText_MatchCallSteven_Intro2_AfterMeteorFallsBattle[];
-extern const u8 gText_MatchCallBrendan_Strategy[];
-extern const u8 gText_MatchCallBrendan_Pokemon[];
-extern const u8 gText_MatchCallBrendan_Intro1[];
-extern const u8 gText_MatchCallBrendan_Intro2[];
-extern const u8 gText_MatchCallMay_Strategy[];
-extern const u8 gText_MatchCallMay_Pokemon[];
-extern const u8 gText_MatchCallMay_Intro1[];
-extern const u8 gText_MatchCallMay_Intro2[];
+// extern const u8 gText_MatchCallBrendan_Strategy[];
+// extern const u8 gText_MatchCallBrendan_Pokemon[];
+// extern const u8 gText_MatchCallBrendan_Intro1[];
+// extern const u8 gText_MatchCallBrendan_Intro2[];
+// extern const u8 gText_MatchCallMay_Strategy[];
+// extern const u8 gText_MatchCallMay_Pokemon[];
+// extern const u8 gText_MatchCallMay_Intro1[];
+// extern const u8 gText_MatchCallMay_Intro2[];
 
 // Lilycove Lady
 extern const u8 gText_ContestLady_Handsome[];
@@ -3322,11 +3322,11 @@ extern const u8 gText_FavorLady_Pointy[];
 
 
 // PokéNav Match Call
-extern const u8 gText_CallCantBeMadeHere[];
-extern const u8 gText_NumberRegistered[];
-extern const u8 gText_NumberOfBattles[];
-extern const u8 gText_Unknown[];
-extern const u8 gText_TrainerCloseBy[];
+// extern const u8 gText_CallCantBeMadeHere[];
+// extern const u8 gText_NumberRegistered[];
+// extern const u8 gText_NumberOfBattles[];
+// extern const u8 gText_Unknown[];
+// extern const u8 gText_TrainerCloseBy[];
 extern const u8 gText_Call[];
 extern const u8 gText_Check[];
 extern const u8 gText_Cancel6[];
@@ -3346,11 +3346,11 @@ extern const u8 gText_FindCutePokemon[];
 extern const u8 gText_FindSmartPokemon[];
 extern const u8 gText_FindToughPokemon[];
 extern const u8 gText_ReturnToConditionMenu[];
-extern const u8 gText_NoRibbonWinners[];
+// extern const u8 gText_NoRibbonWinners[];
 
 // PokéNav
-extern const u8 gText_NumberIndex[];
-extern const u8 gText_RibbonsF700[];
+// extern const u8 gText_NumberIndex[];
+// extern const u8 gText_RibbonsF700[];
 
 extern const u8 gText_AshQty[];
 
