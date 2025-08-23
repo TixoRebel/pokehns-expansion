@@ -8972,14 +8972,14 @@ BattleScript_ArenaTurnBeginning::
 	end2
 
 @ HnS/Modern - "Unused", seems to be reffed match stuff handled elsewhere
-BattleScript_ArenaNothingDecided::
-	playse SE_DING_DONG
-	arenadrawreftextbox
-	arenajudgmentstring B_MSG_REF_NOTHING_IS_DECIDED
-	arenawaitmessage B_MSG_REF_NOTHING_IS_DECIDED
-	pause B_WAIT_TIME_LONG
-	arenaerasereftextbox
-	end2
+@ BattleScript_ArenaNothingDecided::
+@ 	playse SE_DING_DONG
+@ 	arenadrawreftextbox
+@ 	arenajudgmentstring B_MSG_REF_NOTHING_IS_DECIDED
+@ 	arenawaitmessage B_MSG_REF_NOTHING_IS_DECIDED
+@ 	pause B_WAIT_TIME_LONG
+@ 	arenaerasereftextbox
+@ 	end2
 
 BattleScript_ArenaDoJudgment::
 	makevisible BS_PLAYER1
@@ -9073,31 +9073,31 @@ BattleScript_PrintPlayerForfeitedLinkBattle::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
-@ HnS/Modern - challenge run options 
-BattleScript_Safari_OneTypeChallengeCaptureBlocked::
-	printselectionstring STRINGID_ONETYPECAPTUREBLOCKED
-	endselectionscript
-
-@ HnS/Modern
-BattleScript_Safari_NuzlockeCaptureBlocked::
-	printselectionstring STRINGID_NUZLOCKECAPTUREBLOCKED
-	endselectionscript
-
-@ HnS/Modern
-BattleScript_Safari_SpeciesClauseCaptureBlocked::
-	printselectionstring STRINGID_SPECIESCLAUSECAPTUREBLOCKED
-	endselectionscript
-
-@ HnS/Modern
-BattleScript_Safari_SameSpeciesCaptureBlocked::
-	printselectionstring STRINGID_SAMESPECIESCAPTUREBLOCKED
-	endselectionscript
-
-@ HnS/Modern - fainted wilds drop held items option
-BattleScript_ItemDropped::
-	playse SE_BALL_BOUNCE_1
-	printfromtable gItemDroppedStringIds
-	return
+@ @ HnS/Modern - challenge run options 
+@ BattleScript_Safari_OneTypeChallengeCaptureBlocked::
+@ 	printselectionstring STRINGID_ONETYPECAPTUREBLOCKED
+@ 	endselectionscript
+@ 
+@ @ HnS/Modern
+@ BattleScript_Safari_NuzlockeCaptureBlocked::
+@ 	printselectionstring STRINGID_NUZLOCKECAPTUREBLOCKED
+@ 	endselectionscript
+@ 
+@ @ HnS/Modern
+@ BattleScript_Safari_SpeciesClauseCaptureBlocked::
+@ 	printselectionstring STRINGID_SPECIESCLAUSECAPTUREBLOCKED
+@ 	endselectionscript
+@ 
+@ @ HnS/Modern
+@ BattleScript_Safari_SameSpeciesCaptureBlocked::
+@ 	printselectionstring STRINGID_SAMESPECIESCAPTUREBLOCKED
+@ 	endselectionscript
+@ 
+@ @ HnS/Modern - fainted wilds drop held items option
+@ BattleScript_ItemDropped::
+@ 	playse SE_BALL_BOUNCE_1
+@ 	printfromtable gItemDroppedStringIds
+@ 	return
 
 BattleScript_TotemFlaredToLife::
 	playanimation BS_ATTACKER, B_ANIM_TOTEM_FLARE, NULL
