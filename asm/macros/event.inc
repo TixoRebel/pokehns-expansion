@@ -630,12 +630,12 @@
 	@ crystal applymovement but doesnt remove follower. 
 	.macro applymovement2 localId:req, movements:req, map
 		.ifb \map
-			.byte 0xe8
+			.byte SCR_OP_APPLYMOVEMENT2
 			.2byte \localId
 			.4byte \movements
 		.else
 			@ Really only useful if the object has followed from one map to another (e.g. Wally during the catching event).
-			.byte 0x50
+			.byte SCR_OP_APPLYMOVEMENTAT
 			.2byte \localId
 			.4byte \movements
 			map \map
@@ -647,7 +647,7 @@
 	@ Gives the player a Pokémon. 1 = KENYA, 2 = SHUCKIE, 3 = EEVEE
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
 	.macro givenamedmon number:req
-	.byte 0xe9
+	.byte SCR_OP_GIVENAMEDMON
 	.2byte \number
 	.endm
 
@@ -656,7 +656,7 @@
 	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
 	.macro removenamedmon number:req
-	.byte 0xea
+	.byte SCR_OP_REMOVENAMEDMON
 	.2byte \number
 	.endm
 
@@ -665,7 +665,7 @@
 	@ Removes Pokémon from player's party. If species in VAR_0x8004 matches the species passed in as number, it will remove the mon.
 	@ VAR_RESULT will be set to TRUE if it works. FALSE if it doesn't.
 	.macro removegenericmon number:req
-	.byte 0xed
+	.byte SCR_OP_REMOVEGENERICMON
 	.2byte \number
 	.endm
 
@@ -676,7 +676,7 @@
 	@ Result: gSpecialVar_Result = TRUE if the mon at VAR_0x8004 matches the allowed
 	@ species list for the given case; FALSE otherwise.
 	.macro baobacheckmon number:req
-	.byte 0xee
+	.byte SCR_OP_BAOBACHECKMON
 	.2byte \number
 	.endm
 
@@ -685,7 +685,7 @@
 	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
 	.macro remove5mons 
-	.byte 0xeb
+	.byte SCR_OP_REMOVE5MONS
 	.endm
 
 	@ Blocks script execution until the movements being applied to the specified (localId) object finish.
@@ -2022,10 +2022,10 @@
 	@ HnS/Modern - set of scripts for various purposes
 	@ SCR_OP_CALLFUNC
 	@ Like callnative, but function expects a ctx
-	.macro callfunc func:req
-	.byte 0xe7
-	.4byte \func
-	.endm
+@	.macro callfunc func:req
+@	.byte 0xe7
+@	.4byte \func
+@	.endm
 
 	.macro _dynmultichoice left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req argv:vararg
 	.byte SCR_OP_DYNMULTICHOICE

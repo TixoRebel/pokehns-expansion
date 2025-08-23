@@ -183,6 +183,13 @@ bool8 ScrCmd_callnative(struct ScriptContext *ctx)
     return FALSE;
 }
 
+// HnS
+// bool8 ScrCmd_callfunc(struct ScriptContext *ctx)
+// {
+//     u32 func = ScriptReadWord(ctx);
+//     return ((ScrCmdFunc) func)(ctx);
+// }
+
 bool8 ScrCmd_waitstate(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
@@ -656,6 +663,16 @@ bool8 ScrCmd_checkitemspace(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1);
 
     gSpecialVar_Result = CheckBagHasSpace(itemId, quantity);
+    return FALSE;
+}
+
+// HnS
+bool8 ScrCmd_checkpcspace(struct ScriptContext *ctx)
+{
+    u16 itemId = VarGet(ScriptReadHalfword(ctx));
+    u32 quantity = VarGet(ScriptReadHalfword(ctx));
+
+    gSpecialVar_Result = CheckPCHasSpace(itemId, (u8)quantity);
     return FALSE;
 }
 
@@ -1318,6 +1335,26 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
         ScriptHideFollower();
     }
     return FALSE;
+}
+
+// HnS
+bool8 ScrCmd_applymovement2(struct ScriptContext *ctx)
+{
+    u16 localId = VarGet(ScriptReadHalfword(ctx));
+    const u8 *movementScript = (const u8 *)ScriptReadWord(ctx);
+    struct ObjectEvent *objEvent;
+
+    // When applying script movements to follower, it may have frozen animation that must be cleared
+    if (localId == OBJ_EVENT_ID_FOLLOWER && (objEvent = GetFollowerObject()) && objEvent->frozen) {
+        ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
+        gSprites[objEvent->spriteId].animCmdIndex = 0; // Reset start frame of animation
+    }
+    gObjectEvents[GetObjectEventIdByLocalId(localId)].directionOverwrite = DIR_NONE;
+    ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, movementScript);
+    sMovingNpcId = localId;
+    objEvent = GetFollowerObject();
+    return FALSE;
+
 }
 
 bool8 ScrCmd_applymovementat(struct ScriptContext *ctx)
@@ -2891,6 +2928,18 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
     return FALSE;
 }
 
+// HnS
+//crystal
+bool8 ScrCmd_setwildbattleshiny(struct ScriptContext *ctx)
+{
+    u16 species = ScriptReadHalfword(ctx);
+    u8 level = ScriptReadByte(ctx);
+    u16 item = ScriptReadHalfword(ctx);
+
+    CreateShinyScriptedMon(species, level, item);
+    return FALSE;
+}
+
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
@@ -3624,4 +3673,38 @@ void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
     u8 condition = ScriptReadByte(ctx);
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
+}
+
+// HnS
+bool8 ScrCmd_checkpartymonlevel(struct ScriptContext *ctx)
+{
+    u16 speciesLook = VarGet(ScriptReadHalfword(ctx));
+
+    gSpecialVar_Result = PARTY_SIZE;
+    struct Pokemon *pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_LEVEL) == 100) 
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+
+    return gSpecialVar_Result;
+}
+
+bool8 ScrCmd_calculatemonstats(void)
+{
+    s32 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+        CalculateMonStats(&gPlayerParty[i]);
+
+    return FALSE;
+}
+
+
+bool8 ScrCmd_deleteparty(void)
+{
+    s32 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+        ZeroMonData(&gPlayerParty[i]);
+
+    return FALSE;
 }

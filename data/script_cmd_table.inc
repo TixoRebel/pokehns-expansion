@@ -255,7 +255,7 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_CHECKPARTYMONLEVEL			ScrCmd_checkpartymonlevel           requests_effects=1  @ 0xe6
 	script_cmd_table_entry SCR_OP_CALCULATEMONSTATS				ScrCmd_calculatemonstats            requests_effects=1  @ 0xe7
 	script_cmd_table_entry SCR_OP_DELETEPARTY					ScrCmd_deleteparty                  requests_effects=1  @ 0xe8
-	script_cmd_table_entry SCR_OP_CALLFUNC						ScrCmd_callfunc                     requests_effects=1  @ 0xe9
+@	script_cmd_table_entry SCR_OP_CALLFUNC						ScrCmd_callfunc                     requests_effects=1  @ 0xe9
 	script_cmd_table_entry SCR_OP_APPLYMOVEMENT2				ScrCmd_applymovement2				requests_effects=1	@ 0xea
 	script_cmd_table_entry SCR_OP_GIVENAMEDMON					ScrCmd_givenamedmon					requests_effects=1	@ 0xeb
 	script_cmd_table_entry SCR_OP_REMOVENAMEDMON				ScrCmd_removenamedmon				requests_effects=1	@ 0xec
