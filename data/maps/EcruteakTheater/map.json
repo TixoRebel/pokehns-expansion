@@ -80,7 +80,7 @@
       "flag": "FLAG_HIDE_ECRUTEAK_THEATER_ZUKI"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
       "x": 7,
       "y": 11,
       "elevation": 0,

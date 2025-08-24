@@ -32,7 +32,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_ROUTE112_GRUNT_1",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 26,
       "y": 30,
       "elevation": 3,
@@ -71,7 +71,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER2",
       "x": 22,
       "y": 46,
       "elevation": 3,
@@ -98,7 +98,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE112_GRUNT_2",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 27,
       "y": 30,
       "elevation": 3,
@@ -189,7 +189,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
       "x": 31,
       "y": 7,
       "elevation": 3,

@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_WEATHER_INSTITUTE_2F_GRUNT_1",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 15,
       "y": 6,
       "elevation": 3,
@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_WEATHER_INSTITUTE_2F_GRUNT_2",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 10,
       "y": 8,
       "elevation": 3,
@@ -44,7 +44,7 @@
     },
     {
       "local_id": "LOCALID_WEATHER_INSTITUTE_2F_SHELLY",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
       "x": 4,
       "y": 6,
       "elevation": 3,
@@ -57,7 +57,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 0,
       "y": 6,
       "elevation": 3,
@@ -84,7 +84,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 1,
       "y": 7,
       "elevation": 3,
@@ -98,7 +98,7 @@
     },
     {
       "local_id": "LOCALID_WEATHER_INSTITUTE_2F_GRUNT_3",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 16,
       "y": 6,
       "elevation": 3,
@@ -112,7 +112,7 @@
     },
     {
       "local_id": "LOCALID_WEATHER_INSTITUTE_2F_GRUNT_4",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
       "x": 19,
       "y": 6,
       "elevation": 3,

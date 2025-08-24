@@ -28,7 +28,7 @@
       "flag": "FLAG_HIDE_GOLDENROD_NPCS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
       "x": 6,
       "y": 24,
       "elevation": 0,

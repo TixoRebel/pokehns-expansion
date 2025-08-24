@@ -55,7 +55,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
       "x": 7,
       "y": 2,
       "elevation": 3,
@@ -69,7 +69,7 @@
     },
     {
       "local_id": "LOCALID_SS_TIDAL_SCOTT",
-      "graphics_id": "OBJ_EVENT_GFX_SCOTT",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
       "x": 9,
       "y": 10,
       "elevation": 3,

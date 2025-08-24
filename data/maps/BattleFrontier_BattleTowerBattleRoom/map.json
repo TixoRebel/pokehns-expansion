@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_BATTLE_ATTENDANT_1",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 1,
       "y": 7,
       "elevation": 3,
@@ -44,7 +44,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_BATTLE_ATTENDANT_2",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 4,
       "y": 8,
       "elevation": 3,

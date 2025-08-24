@@ -72,7 +72,7 @@
     },
     {
       "local_id": "LOCALID_SPACE_CENTER_GRUNT_6",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 12,
       "y": 2,
       "elevation": 3,
@@ -86,7 +86,7 @@
     },
     {
       "local_id": "LOCALID_SPACE_CENTER_GRUNT_5",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 13,
       "y": 3,
       "elevation": 3,
@@ -100,7 +100,7 @@
     },
     {
       "local_id": "LOCALID_SPACE_CENTER_GRUNT_7",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 14,
       "y": 2,
       "elevation": 3,
@@ -114,7 +114,7 @@
     },
     {
       "local_id": "LOCALID_SPACE_CENTER_TABITHA",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 0,
       "y": 8,
       "elevation": 3,
@@ -128,7 +128,7 @@
     },
     {
       "local_id": "LOCALID_SPACE_CENTER_MAXIE",
-      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "graphics_id": "OBJ_EVENT_GFX_ARCHER",
       "x": 1,
       "y": 9,
       "elevation": 3,

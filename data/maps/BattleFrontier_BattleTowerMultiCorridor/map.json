@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_MULTI_CORRIDOR_ATTENDANT_1",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 14,
       "y": 3,
       "elevation": 3,
@@ -44,7 +44,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_MULTI_CORRIDOR_ATTENDANT_2",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 1,
       "y": 3,
       "elevation": 3,

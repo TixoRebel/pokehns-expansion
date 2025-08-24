@@ -31,7 +31,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
       "x": 29,
       "y": 14,
       "elevation": 3,
@@ -148,7 +148,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 39,
       "y": 9,
       "elevation": 3,
@@ -161,7 +161,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 40,
       "y": 9,
       "elevation": 3,
@@ -175,7 +175,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE121_GRUNT_1",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 30,
       "y": 8,
       "elevation": 3,
@@ -189,7 +189,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE121_GRUNT_2",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 30,
       "y": 7,
       "elevation": 3,
@@ -203,7 +203,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE121_GRUNT_3",
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 31,
       "y": 7,
       "elevation": 3,
@@ -268,7 +268,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
       "x": 11,
       "y": 11,
       "elevation": 3,
@@ -320,7 +320,7 @@
       "flag": "FLAG_TEMP_13"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
       "x": 11,
       "y": 6,
       "elevation": 3,
@@ -333,7 +333,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 59,
       "y": 8,
       "elevation": 3,

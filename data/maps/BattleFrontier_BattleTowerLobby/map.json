@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_TOWER_ATTENDANT_SINGLES",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 6,
       "y": 5,
       "elevation": 3,
@@ -29,7 +29,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 23,
       "y": 5,
       "elevation": 3,
@@ -69,7 +69,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_LOBBY_REPORTER",
-      "graphics_id": "OBJ_EVENT_GFX_REPORTER_F",
+      "graphics_id": "OBJ_EVENT_GFX_SAGE",
       "x": 11,
       "y": 9,
       "elevation": 3,
@@ -97,7 +97,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_ATTENDANT_DOUBLES",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 10,
       "y": 5,
       "elevation": 3,
@@ -111,7 +111,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_ATTENDANT_MULTIS",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 14,
       "y": 5,
       "elevation": 3,
@@ -125,7 +125,7 @@
     },
     {
       "local_id": "LOCALID_TOWER_ATTENDANT_LINK_MULTIS",
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_KURT",
       "x": 18,
       "y": 5,
       "elevation": 3,
