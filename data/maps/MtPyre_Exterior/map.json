@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_MAX_POTION",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM_SKILL_SWAP",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     }
   ],
   "warp_events": [
@@ -118,7 +118,7 @@
       "y": 8,
       "elevation": 0,
       "item": "ITEM_ULTRA_BALL",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_MT_PYRE_EXTERIOR_ULTRA_BALL"
     },
     {
       "type": "hidden_item",
@@ -126,7 +126,7 @@
       "y": 22,
       "elevation": 0,
       "item": "ITEM_MAX_ETHER",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_MT_PYRE_EXTERIOR_MAX_ETHER"
     }
   ]
 }

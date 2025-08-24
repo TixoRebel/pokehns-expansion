@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "0"
+      "flag": "FLAG_HIDE_HO_OH"
     }
   ],
   "warp_events": [
@@ -56,7 +56,7 @@
       "y": 9,
       "elevation": 3,
       "item": "ITEM_SACRED_ASH",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH"
     }
   ]
 }

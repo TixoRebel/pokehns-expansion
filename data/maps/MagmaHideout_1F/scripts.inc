@@ -1,10 +1,20 @@
 MagmaHideout_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MagmaHideout_1F_OnTransition
+	.byte 0
 
 MagmaHideout_1F_OnTransition:
+	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
+	end
 
 MagmaHideout_1F_EventScript_Grunt1::
+	trainerbattle_single TRAINER_NONE, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
+	msgbox MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
+	end
 
 MagmaHideout_1F_EventScript_Grunt2::
+	trainerbattle_single TRAINER_NONE, MagmaHideout_1F_Text_Grunt2Intro, MagmaHideout_1F_Text_Grunt2Defeat
+	msgbox MagmaHideout_1F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
 
 MagmaHideout_1F_Text_Grunt1Intro:
 	.string "When TEAM MAGMA has roll call, we get\n"

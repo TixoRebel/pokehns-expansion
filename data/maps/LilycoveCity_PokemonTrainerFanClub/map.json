@@ -44,7 +44,7 @@
     },
     {
       "local_id": "LOCALID_TRAINER_FAN_CLUB_POKEFAN_M",
-      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT_M",
       "x": 6,
       "y": 11,
       "elevation": 3,
@@ -82,7 +82,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_PokemonTrainerFanClub_EventScript_NinjaBoy",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "local_id": "LOCALID_TRAINER_FAN_CLUB_BOY",
@@ -96,7 +96,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_PokemonTrainerFanClub_EventScript_Boy",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "local_id": "LOCALID_TRAINER_FAN_CLUB_WOMAN",
@@ -110,11 +110,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_PokemonTrainerFanClub_EventScript_Woman",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "local_id": "LOCALID_TRAINER_FAN_CLUB_EXPERT_F",
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 10,
       "y": 10,
       "elevation": 3,
@@ -124,10 +124,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_PokemonTrainerFanClub_EventScript_ExpertF",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
+      "graphics_id": "OBJ_EVENT_GFX_MR_FUJI",
       "x": 11,
       "y": 5,
       "elevation": 3,
@@ -137,7 +137,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_PokemonTrainerFanClub_EventScript_Interviewer",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     }
   ],
   "warp_events": [

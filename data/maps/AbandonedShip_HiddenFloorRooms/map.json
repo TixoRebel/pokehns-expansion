@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_LUXURY_BALL",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_SCANNER",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM_RAIN_DANCE",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_WATER_STONE",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GARBAGEFLAG"
     }
   ],
   "warp_events": [
@@ -140,7 +140,7 @@
       "y": 10,
       "elevation": 3,
       "item": "ITEM_KEY_TO_ROOM_1",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY"
     },
     {
       "type": "hidden_item",
@@ -148,7 +148,7 @@
       "y": 5,
       "elevation": 3,
       "item": "ITEM_KEY_TO_ROOM_2",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_2_KEY"
     },
     {
       "type": "hidden_item",
@@ -156,7 +156,7 @@
       "y": 12,
       "elevation": 3,
       "item": "ITEM_KEY_TO_ROOM_4",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY"
     },
     {
       "type": "hidden_item",
@@ -164,7 +164,7 @@
       "y": 2,
       "elevation": 0,
       "item": "ITEM_KEY_TO_ROOM_6",
-      "flag": "0"
+      "flag": "FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_6_KEY"
     },
     {
       "type": "sign",

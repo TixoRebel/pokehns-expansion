@@ -1,8 +1,15 @@
 SeafloorCavern_Room3_MapScripts::
+	.byte 0
 
 SeafloorCavern_Room3_EventScript_Shelly::
+	trainerbattle_single TRAINER_NONE, SeafloorCavern_Room3_Text_ShellyIntro, SeafloorCavern_Room3_Text_ShellyDefeat
+	msgbox SeafloorCavern_Room3_Text_ShellyPostBattle, MSGBOX_AUTOCLOSE
+	end
 
 SeafloorCavern_Room3_EventScript_Grunt5::
+	trainerbattle_single TRAINER_NONE, SeafloorCavern_Room3_Text_Grunt5Intro, SeafloorCavern_Room3_Text_Grunt5Defeat
+	msgbox SeafloorCavern_Room3_Text_Grunt5PostBattle, MSGBOX_AUTOCLOSE
+	end
 
 SeafloorCavern_Room3_Text_ShellyIntro:
 	.string "Ahahahaha!\p"
