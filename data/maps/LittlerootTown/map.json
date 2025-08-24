@@ -48,7 +48,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 14,
       "y": 17,
       "elevation": 3,
@@ -116,7 +116,7 @@
     },
     {
       "local_id": "LOCALID_LITTLEROOT_BIRCH",
-      "graphics_id": "OBJ_EVENT_GFX_PROF_ELM",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
       "x": 14,
       "y": 10,
       "elevation": 3,

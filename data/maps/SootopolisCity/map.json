@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_WOMAN_2",
-      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 47,
       "y": 33,
       "elevation": 0,
@@ -169,7 +169,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_MANIAC",
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 17,
       "y": 44,
       "elevation": 3,
@@ -183,7 +183,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_GIRL",
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER2",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 14,
       "y": 42,
       "elevation": 3,
@@ -211,7 +211,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_BOY_2",
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 19,
       "y": 37,
       "elevation": 3,
@@ -225,7 +225,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_MAXIE",
-      "graphics_id": "OBJ_EVENT_GFX_ARCHER",
+      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
       "x": 29,
       "y": 33,
       "elevation": 3,
@@ -239,7 +239,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_ARCHIE",
-      "graphics_id": "OBJ_EVENT_GFX_PROTON",
+      "graphics_id": "OBJ_EVENT_GFX_ARCHIE",
       "x": 31,
       "y": 33,
       "elevation": 3,
@@ -253,7 +253,7 @@
     },
     {
       "local_id": "LOCALID_SOOTOPOLIS_WALLACE",
-      "graphics_id": "OBJ_EVENT_GFX_LANCE",
+      "graphics_id": "OBJ_EVENT_GFX_WALLACE",
       "x": 31,
       "y": 18,
       "elevation": 3,

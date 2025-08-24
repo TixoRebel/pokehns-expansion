@@ -57,7 +57,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 31,
       "y": 24,
       "elevation": 3,
@@ -96,7 +96,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER2",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 28,
       "y": 74,
       "elevation": 3,
@@ -137,7 +137,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 29,
       "y": 8,
       "elevation": 3,
@@ -228,7 +228,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 37,
       "y": 8,
       "elevation": 3,
@@ -436,7 +436,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 5,
       "y": 26,
       "elevation": 3,
@@ -449,7 +449,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 15,
       "y": 59,
       "elevation": 3,

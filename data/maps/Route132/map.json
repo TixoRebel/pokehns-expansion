@@ -26,7 +26,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
       "x": 40,
       "y": 13,
       "elevation": 1,
@@ -39,7 +39,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
       "x": 10,
       "y": 6,
       "elevation": 1,
@@ -78,7 +78,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 49,
       "y": 28,
       "elevation": 3,
@@ -117,7 +117,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 21,
       "y": 30,
       "elevation": 3,

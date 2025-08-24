@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
       "x": 6,
       "y": 6,
       "elevation": 3,
@@ -42,7 +42,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_HOUSE_WINGULL",
-      "graphics_id": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
       "x": 4,
       "y": 5,
       "elevation": 3,

@@ -92,7 +92,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 50,
       "y": 8,
       "elevation": 3,
@@ -157,7 +157,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PROF_ELM",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
       "x": 7,
       "y": 3,
       "elevation": 3,
@@ -235,7 +235,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 67,
       "y": 9,
       "elevation": 3,
@@ -248,7 +248,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
       "x": 36,
       "y": 6,
       "elevation": 1,
@@ -261,7 +261,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
       "x": 36,
       "y": 13,
       "elevation": 1,

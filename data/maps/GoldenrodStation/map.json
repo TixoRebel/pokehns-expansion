@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 21,
       "y": 18,
       "elevation": 0,
@@ -80,7 +80,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 20,
       "y": 18,
       "elevation": 0,
@@ -119,7 +119,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TOWER_DUDE",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 11,
       "y": 22,
       "elevation": 0,

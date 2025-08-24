@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_FRONTIER_MART_CLERK",
-      "graphics_id": "OBJ_EVENT_GFX_CLERK",
+      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 1,
       "y": 3,
       "elevation": 3,
@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_FRONTIER_MART_OLD_WOMAN",
-      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 5,
       "y": 4,
       "elevation": 3,
@@ -43,7 +43,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 5,
       "y": 5,
       "elevation": 3,
@@ -56,7 +56,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 8,
       "y": 4,
       "elevation": 3,

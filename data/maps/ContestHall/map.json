@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_CONTEST_MC",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 6,
       "y": 4,
       "elevation": 3,
@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_CONTEST_JUDGE",
-      "graphics_id": "OBJ_EVENT_GFX_EUSINE",
+      "graphics_id": "OBJ_EVENT_GFX_CONTEST_JUDGE",
       "x": 7,
       "y": 4,
       "elevation": 3,
@@ -212,7 +212,7 @@
     },
     {
       "local_id": "LOCALID_CONTEST_ARTIST",
-      "graphics_id": "OBJ_EVENT_GFX_UNUSED_WOMAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_ARTIST",
       "x": 12,
       "y": 6,
       "elevation": 3,

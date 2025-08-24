@@ -291,7 +291,7 @@
       "flag": "FLAG_HIDE_BATTLEFRONTIER_ENGINEER"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 19,
       "y": 13,
       "elevation": 0,

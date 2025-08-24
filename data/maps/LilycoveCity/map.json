@@ -78,7 +78,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
       "x": 16,
       "y": 9,
       "elevation": 5,
@@ -117,7 +117,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 34,
       "y": 37,
       "elevation": 5,
@@ -143,7 +143,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 73,
       "y": 15,
       "elevation": 3,
@@ -169,7 +169,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 43,
       "y": 18,
       "elevation": 3,
@@ -182,7 +182,7 @@
       "flag": "FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 46,
       "y": 12,
       "elevation": 3,
@@ -195,7 +195,7 @@
       "flag": "FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 45,
       "y": 12,
       "elevation": 3,
@@ -208,7 +208,7 @@
       "flag": "FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 38,
       "y": 9,
       "elevation": 5,
@@ -261,7 +261,7 @@
     },
     {
       "local_id": "LOCALID_LILYCOVE_WOMAN_1",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 41,
       "y": 25,
       "elevation": 3,
@@ -275,7 +275,7 @@
     },
     {
       "local_id": "LOCALID_LILYCOVE_MAN_1",
-      "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
       "x": 40,
       "y": 25,
       "elevation": 3,

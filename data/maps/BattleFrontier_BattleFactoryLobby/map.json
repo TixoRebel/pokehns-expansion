@@ -29,7 +29,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 3,
       "y": 11,
       "elevation": 0,
@@ -55,7 +55,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER2",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 13,
       "y": 11,
       "elevation": 0,

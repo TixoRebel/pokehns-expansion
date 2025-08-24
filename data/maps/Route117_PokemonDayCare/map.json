@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_DAYCARE_LADY",
-      "graphics_id": "OBJ_EVENT_GFX_ATTENDANT",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 2,
       "y": 2,
       "elevation": 3,
