@@ -135,7 +135,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
       "x": 23,
       "y": 13,
       "elevation": 5,
@@ -149,7 +149,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_1",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 44,
       "y": 23,
       "elevation": 5,
@@ -163,7 +163,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_2",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 44,
       "y": 24,
       "elevation": 5,
@@ -177,7 +177,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_3",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 44,
       "y": 25,
       "elevation": 5,
@@ -191,7 +191,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_4",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_PETREL",
       "x": 44,
       "y": 26,
       "elevation": 5,
@@ -205,7 +205,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_MAXIE",
-      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "graphics_id": "OBJ_EVENT_GFX_ARCHER",
       "x": 45,
       "y": 25,
       "elevation": 5,
@@ -232,7 +232,7 @@
     },
     {
       "local_id": "LOCALID_MOSSDEEP_SCOTT",
-      "graphics_id": "OBJ_EVENT_GFX_SCOTT",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
       "x": 61,
       "y": 29,
       "elevation": 5,

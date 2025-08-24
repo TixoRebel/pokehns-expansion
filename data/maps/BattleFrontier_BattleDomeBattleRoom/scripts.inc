@@ -531,9 +531,9 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddSemifinalAudience::
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 23, 13, 1
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_HEX_MANIAC, 28, 5, 2
+	createvobject OBJ_EVENT_GFX_CHANNELER, 28, 5, 2
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 5, 1
-	createvobject OBJ_EVENT_GFX_MART_EMPLOYEE, 30, 6, 2
+	createvobject OBJ_EVENT_GFX_CLERK, 30, 6, 2
 	createvobject OBJ_EVENT_GFX_WORKER_F, 31, 8, 2
 	return
 
@@ -559,16 +559,16 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_WOMAN_3, 18, 6, 1
 	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
 	createvobject OBJ_EVENT_GFX_OLD_WOMAN, 20, 9, 1
-	createvobject OBJ_EVENT_GFX_MAN_2, 21, 10, 1
+	createvobject OBJ_EVENT_GFX_GYM_GUY, 21, 10, 1
 	createvobject OBJ_EVENT_GFX_WORKER_F, 22, 11, 1
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 23, 13, 1
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 24, 14, 1
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
 	createvobject OBJ_EVENT_GFX_FAT_MAN, 27, 3, 2
-	createvobject OBJ_EVENT_GFX_HEX_MANIAC, 28, 5, 2
+	createvobject OBJ_EVENT_GFX_CHANNELER, 28, 5, 2
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 5, 1
-	createvobject OBJ_EVENT_GFX_MART_EMPLOYEE, 30, 6, 2
+	createvobject OBJ_EVENT_GFX_CLERK, 30, 6, 2
 	createvobject OBJ_EVENT_GFX_WORKER_F, 31, 8, 2
 	return
 

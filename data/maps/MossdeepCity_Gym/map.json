@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_TATE",
+      "graphics_id": "OBJ_EVENT_GFX_PRYCE",
       "x": 23,
       "y": 7,
       "elevation": 0,
@@ -106,7 +106,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
       "x": 5,
       "y": 33,
       "elevation": 0,
@@ -119,7 +119,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LIZA",
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 24,
       "y": 7,
       "elevation": 0,
@@ -236,7 +236,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
       "x": 7,
       "y": 5,
       "elevation": 3,
@@ -366,7 +366,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
       "x": 22,
       "y": 23,
       "elevation": 3,
