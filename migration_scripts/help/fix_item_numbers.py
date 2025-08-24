@@ -21,6 +21,8 @@ with open(file) as f, open(file_new, 'w') as f_new:
         if is_started and not is_done:
             if e := re_get_num.search(line):
                 f_new.write(e[1] + str(int(e[2]) + inc) + e[3] + '\n')
+            else:
+                f_new.write(line)
             if line == end_line:
                 is_done = True
         else:
