@@ -1,3 +1,5 @@
+.set LOCALID_MEWTWO, 5
+
 AlteringCave_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, AlteringCave_OnTransition
 	.byte 0

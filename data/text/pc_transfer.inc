@@ -28,6 +28,18 @@ gText_PkmnSentToPCAfterCatch::
 	.string "It was placed in \n"
 	.string "BOX “{STR_VAR_1}”.$"
 
+gText_PkmnSentToSomeonesPCAfterCatch::
+	.string "{STR_VAR_2} was sent to\n"
+	.string "SOMEONE'S PC.\p"
+	.string "It was placed in \n"
+	.string "BOX “{STR_VAR_1}”.$"
+
+gText_PkmnSentToBillsPCAfterCatch::
+	.string "{STR_VAR_2} was sent to\n"
+	.string "BILL'S PC.\p"
+	.string "It was placed in \n"
+	.string "BOX “{STR_VAR_1}”.$"
+
 gText_NoMoreRoomForPokemon::
 	.string "There's no more room for POKéMON!\p"
 	.string "The POKéMON BOXES are full and\n"

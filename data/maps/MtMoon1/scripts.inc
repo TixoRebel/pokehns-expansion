@@ -23,7 +23,7 @@ MtMoon1_EventScript_Silver::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	delay 60
 	applymovement2 LOCALID_MTMOON_SILVER MtMoon1_Movement_WalkToPlayer
-	applymovement2 OBJ_EVENT_ID_PLAYER Common_Movement_WalkRight1
+	applymovement2 OBJ_EVENT_ID_PLAYER Common_Movement_WalkRight
 	waitmovement LOCALID_MTMOON_SILVER
 	waitmovement OBJ_EVENT_ID_PLAYER
 	msgbox MtMoon1_Text_Rival_Before, MSGBOX_DEFAULT

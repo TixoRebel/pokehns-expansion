@@ -120,15 +120,15 @@ Route32_EventScript_SlowpokeTail_Trigger2::
 	end
 
 Route32_EventScript_Movement_Left::
-	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_WalkLeft1
+	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_WalkLeft
 	waitmovement 0
 	turnobject LOCALID_SLOWPOKETAIL_MAN, DIR_EAST
 	return 
 
 Route32_EventScript_Movement_Right::
-	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_WalkLeft1
+	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_WalkLeft1
+	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_WalkLeft
 	waitmovement 0
 	turnobject LOCALID_SLOWPOKETAIL_MAN, DIR_EAST
 	return 	

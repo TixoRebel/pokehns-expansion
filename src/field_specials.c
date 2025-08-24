@@ -68,6 +68,9 @@
 #include "constants/battle_frontier.h"
 #include "constants/weather.h"
 #include "constants/metatile_labels.h"
+#include "constants/metatile_behaviors.h"
+#include "constants/item.h"
+#include "item_menu.h"
 #include "constants/rgb.h"
 #include "palette.h"
 #include "battle_util.h"
@@ -144,6 +147,9 @@ static void Task_CloseBattlePikeCurtain(u8);
 static u8 DidPlayerGetFirstFans(void);
 static void SetInitialFansOfPlayer(void);
 static u16 PlayerGainRandomTrainerFan(void);
+static void Task_RunPokemonLeagueLightingEffect(u8 taskId);
+static void Task_CancelPokemonLeagueLightingEffect(u8 taskId);
+
 #if FREE_LINK_BATTLE_RECORDS == FALSE
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *, u8, u8);
 #else
@@ -2397,6 +2403,17 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    // HnS
+    case SCROLL_MULTI_BF_MOVE_TUTOR_3:
+        task->tMaxItemsOnScreen = 4;
+        task->tNumItems = 4;
+        task->tLeft = 15;
+        task->tTop = 1;
+        task->tWidth = 14;
+        task->tHeight = 8;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     case SCROLL_MULTI_SS_TIDAL_DESTINATION:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
         task->tNumItems = 7;
@@ -2556,6 +2573,13 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         COMPOUND_STRING("ICE PUNCH{CLEAR_TO 0x4E}48BP"),
         COMPOUND_STRING("THUNDERPUNCH{CLEAR_TO 0x4E}48BP"),
         COMPOUND_STRING("FIRE PUNCH{CLEAR_TO 0x4E}48BP"),
+        gText_Exit
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_3] =
+    {
+        COMPOUND_STRING("FRENZY PLANT{CLEAR_TO 0x4E}64BP"),
+        COMPOUND_STRING("BLAST BURN{CLEAR_TO 0x4E}64BP"),
+        COMPOUND_STRING("HYDRO CANNON{CLEAR_TO 0x4E}64BP"),
         gText_Exit
     },
     [SCROLL_MULTI_SS_TIDAL_DESTINATION] =
@@ -3068,6 +3092,43 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
     }
 }
 
+// start HnS
+static const u16 sBattleFrontier_TutorMoves1[] =
+{
+    MOVE_SOFT_BOILED,
+    MOVE_SEISMIC_TOSS,
+    MOVE_DREAM_EATER,
+    MOVE_MEGA_PUNCH,
+    MOVE_MEGA_KICK,
+    MOVE_BODY_SLAM,
+    MOVE_ROCK_SLIDE,
+    MOVE_COUNTER,
+    MOVE_THUNDER_WAVE,
+    MOVE_SWORDS_DANCE
+};
+
+static const u16 sBattleFrontier_TutorMoves2[] =
+{
+    MOVE_DEFENSE_CURL,
+    MOVE_SNORE,
+    MOVE_MUD_SLAP,
+    MOVE_SWIFT,
+    MOVE_ICY_WIND,
+    MOVE_ENDURE,
+    MOVE_PSYCH_UP,
+    MOVE_ICE_PUNCH,
+    MOVE_THUNDER_PUNCH,
+    MOVE_FIRE_PUNCH
+};
+
+static const u16 sBattleFrontier_TutorMoves3[] =
+{
+    MOVE_FRENZY_PLANT,
+    MOVE_BLAST_BURN,
+    MOVE_HYDRO_CANNON,
+};
+// end HnS
+
 void BufferBattleFrontierTutorMoveName(void)
 {
     StringCopy(gStringVar1, GetMoveName(gSpecialVar_0x8005));
@@ -3086,7 +3147,7 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
         .baseBlock = 28,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
     {
         if (gSpecialVar_0x8006 == 0)
         {
@@ -3129,13 +3190,23 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
         gText_Exit,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions3[] =
+    {
+        BattleFrontier_Lounge7_Text_StrongElementalMoveDesc,
+        BattleFrontier_Lounge7_Text_StrongElementalMoveDesc,
+        BattleFrontier_Lounge7_Text_StrongElementalMoveDesc,
+        gText_Exit,
+    };
+
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
     {
         FillWindowPixelRect(sTutorMoveAndElevatorWindowId, PIXEL_FILL(1), 0, 0, 96, 48);
         if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions2[selection], 0, 1, 0, NULL);
-        else
+        else if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions1[selection], 0, 1, 0, NULL);
+        else
+            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions3[selection], 0, 1, 0, NULL);
     }
 }
 
@@ -3163,6 +3234,58 @@ void ScrollableMultichoice_RedrawPersistentMenu(void)
         AddTextPrinterParameterized(task->tWindowId, FONT_NORMAL, gText_SelectorArrow, 0, selectedRow * 16, TEXT_SKIP_DRAW, NULL);
         PutWindowTilemap(task->tWindowId);
         CopyWindowToVram(task->tWindowId, COPYWIN_FULL);
+    }
+}
+
+// HnS
+void GetBattleFrontierTutorMoveIndex(void)
+{
+    u8 i;
+    u16 moveTutor = 0;
+    u16 moveIndex = 0;
+    gSpecialVar_0x8005 = 0;
+
+    moveTutor = VarGet(VAR_TEMP_FRONTIER_TUTOR_ID);
+    moveIndex = VarGet(VAR_TEMP_FRONTIER_TUTOR_SELECTION);
+
+    if (moveTutor == 1)
+    {
+        i = 0;
+        do
+        {
+            if (gTutorMoves[i] == sBattleFrontier_TutorMoves2[moveIndex])
+            {
+                gSpecialVar_0x8005 = i;
+                break;
+            }
+            i++;
+        } while (i < TUTOR_MOVE_COUNT);
+    }
+    else if (moveTutor == 0)
+    {
+        i = 0;
+        do
+        {
+            if (gTutorMoves[i] == sBattleFrontier_TutorMoves1[moveIndex])
+            {
+                gSpecialVar_0x8005 = i;
+                break;
+            }
+            i++;
+        } while (i < TUTOR_MOVE_COUNT);
+    }
+    else if (moveTutor == 2)
+    {
+        i = 0;
+        do
+        {
+            if (gTutorMoves[i] == sBattleFrontier_TutorMoves3[moveIndex])
+            {
+                gSpecialVar_0x8005 = i;
+                break;
+            }
+            i++;
+        } while (i < TUTOR_MOVE_COUNT);
     }
 }
 
@@ -3978,6 +4101,139 @@ u8 TryGainNewFanFromCounter(u8 incrementId)
     return GET_TRAINER_FAN_CLUB_COUNTER;
 }
 
+// start HnS
+static const u16 sEliteFourLightingPalettes[][16] = {
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_0.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_1.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_2.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_3.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_4.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_5.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_6.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_7.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_8.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_9.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_10.gbapal"),
+    INCBIN_U16("graphics/field_specials/elite_four_lighting_11.gbapal")
+};
+
+static const u16 sChampionRoomLightingPalettes[][16] = {
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_0.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_1.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_2.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_3.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_4.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_5.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_6.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_7.gbapal"),
+    INCBIN_U16("graphics/field_specials/champion_room_lighting_8.gbapal")
+};
+
+static const u8 sEliteFourLightingTimers[] = {
+    40,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12
+};
+
+static const u8 sChampionRoomLightingTimers[] = {
+    20,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8
+};
+
+void DoPokemonLeagueLightingEffect(void)
+{
+    u8 taskId = CreateTask(Task_RunPokemonLeagueLightingEffect, 8);
+    s16 *data = gTasks[taskId].data;
+    if (FlagGet(FLAG_TEMP_3) == TRUE)
+    {
+        gTasks[taskId].func = Task_CancelPokemonLeagueLightingEffect;
+    }
+    else
+    {
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE5) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE5))
+        {
+            data[0] = sChampionRoomLightingTimers[0];
+            data[2] = 8;
+            LoadPalette(sChampionRoomLightingPalettes[0], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        }
+        else
+        {
+            data[0] = sEliteFourLightingTimers[0];
+            data[2] = 11;
+            LoadPalette(sEliteFourLightingPalettes[0], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        }
+        data[1] = 0;
+        //ApplyGlobalTintToPaletteSlot(7, 1);
+    }
+}
+
+static void Task_RunPokemonLeagueLightingEffect(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    if (!gPaletteFade.active
+     && FlagGet(FLAG_TEMP_2) != FALSE
+     && FlagGet(FLAG_TEMP_5) != TRUE
+     //&& gGlobalFieldTintMode != QL_TINT_BACKUP_GRAYSCALE
+     && --data[0] == 0
+    )
+    {
+        if (++data[1] == data[2])
+            data[1] = 0;
+
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE5) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE5))
+        {
+            data[0] = sChampionRoomLightingTimers[data[1]];
+            LoadPalette(sChampionRoomLightingPalettes[data[1]], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        }
+        else
+        {
+            data[0] = sEliteFourLightingTimers[data[1]];
+            LoadPalette(sEliteFourLightingPalettes[data[1]], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        }
+        //ApplyGlobalTintToPaletteSlot(7, 1);
+    }
+}
+
+static void Task_CancelPokemonLeagueLightingEffect(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    if (FlagGet(FLAG_TEMP_4) != FALSE)
+    {
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE5) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE5))
+            LoadPalette(sChampionRoomLightingPalettes[8], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        else
+            LoadPalette(sEliteFourLightingPalettes[11], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        //ApplyGlobalTintToPaletteSlot(7, 1);
+        if (gPaletteFade.active)
+        {
+            BlendPalettes(0x00000080, 16, RGB_BLACK);
+        }
+        DestroyTask(taskId);
+    }
+}
+
+void StopPokemonLeagueLightingEffectTask(void)
+{
+    if (FuncIsActiveTask(Task_RunPokemonLeagueLightingEffect) == TRUE)
+    {
+        DestroyTask(FindTaskIdByFunc(Task_RunPokemonLeagueLightingEffect));
+    }
+}
+// end HnS
 
 // Loop through the fan club members, and if theyre not a fan of the player there is a 50% chance for them to become a fan
 // Stops when a fan is gained
@@ -4360,4 +4616,342 @@ void GetCodeFeedback(void)
         gSpecialVar_Result = 1;
     else
         gSpecialVar_Result = 0;
+}
+
+// Changes a Deoxys' form if the following conditions are met:
+// -gSpecialVar_0x8004 is currently hosting a Deoxys form.
+// -The metatile behavior of the tile in front of the Player is MB_UNUSED_2C, MB_UNUSED_2D, MB_UNUSED_2E or MB_UNUSED_2F.
+// If these conditions aren't met, gSpecialVar_Result is set to FALSE meaning Deoxys' form didn't change.
+bool16 TryChangeDeoxysForm(void)
+{
+    u16 baseSpecies = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+    u16 targetSpecies;
+    u8 metatileBehavior;
+
+    if (baseSpecies == SPECIES_DEOXYS
+     || baseSpecies == SPECIES_DEOXYS_ATTACK
+     || baseSpecies == SPECIES_DEOXYS_DEFENSE
+     || baseSpecies == SPECIES_DEOXYS_SPEED)
+    {
+        struct MapPosition position;
+        extern struct MapPosition gPlayerFacingPosition;
+        GetXYCoordsOneStepInFrontOfPlayer(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
+        metatileBehavior = MapGridGetMetatileBehaviorAt(gPlayerFacingPosition.x, gPlayerFacingPosition.y);
+
+        switch (metatileBehavior)
+        {
+            case MB_UNUSED_2C:
+                targetSpecies = SPECIES_DEOXYS;
+                break;
+            case MB_UNUSED_2D:
+                targetSpecies = SPECIES_DEOXYS_ATTACK;
+                break;
+            case MB_UNUSED_2E:
+                targetSpecies = SPECIES_DEOXYS_DEFENSE;
+                break;
+            case MB_UNUSED_2F:
+                targetSpecies = SPECIES_DEOXYS_SPEED;
+                break;
+            default:
+                gSpecialVar_Result = FALSE;
+                return 0;
+        }
+
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, &targetSpecies);
+        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+        gSpecialVar_Result = TRUE;
+        return 0;
+    }
+
+    gSpecialVar_Result = FALSE;
+    return gSpecialVar_Result;
+}
+
+// Sets the HP EVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8000 
+void SetHpEvs(void)
+{
+    u8 HpEv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &HpEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the Atk EVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8001
+void SetAtkEvs(void)
+{
+    u8 AtkEv = gSpecialVar_0x8001;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &AtkEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the Def EVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8002
+void SetDefEvs(void)
+{
+    u8 DefEv = gSpecialVar_0x8002;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &DefEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the Spd EVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8003
+void SetSpdEvs(void)
+{
+    u8 SpdEv = gSpecialVar_0x8003;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &SpdEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the SpAtk EVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8005
+void SetSpAtkEvs(void)
+{
+    u8 SpAtkEv = gSpecialVar_0x8005;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &SpAtkEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the SpDef EVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8006
+void SetSpDefEvs(void)
+{
+    u8 SpDefEv = gSpecialVar_0x8006;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &SpDefEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the HP IVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8000 
+void SetHpIvs(void)
+{
+    u8 hpIV = gSpecialVar_0x8007;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV, &hpIV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the Atk IVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8001
+void SetAtkIvs(void)
+{
+    u8 attackIV = gSpecialVar_0x8008;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_IV, &attackIV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the Def IVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8002
+void SetDefIvs(void)
+{
+    u8 defenseIV  = gSpecialVar_0x8009;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV, &defenseIV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the Spd IVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8003
+void SetSpdIvs(void)
+{
+    u8 speedIV = gSpecialVar_0x800A;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, &speedIV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the SpAtk IVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8005
+void SetSpAtkIvs(void)
+{
+    u8 spAtkIV = gSpecialVar_0x800B;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV, &spAtkIV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Sets the SpDef IVs of the Pokémon in gSpecialVar_0x8004 according to the current value of var 0x8006
+void SetSpDefIvs(void)
+{
+    u8 spDefIV = gSpecialVar_Unused_0x8014;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV, &spDefIV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+void CheckPkm(void)
+{
+    u8 i;
+    u16 species;
+    struct Pokemon *pokemon;
+    for (i = 0; i < CalculatePlayerPartyCount(); i++)
+    {
+        pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            species = GetMonData(pokemon, MON_DATA_SPECIES);
+            if (species == gSpecialVar_0x8005)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+            else
+            {
+                gSpecialVar_Result = FALSE;
+            }
+        }
+    }
+}
+
+void ChooseItemFromBag(void)
+{
+    switch (VarGet(VAR_TEMP_1))
+    {
+    case ITEMS_POCKET:
+    case BALLS_POCKET:
+    case TMHM_POCKET:
+    case BERRIES_POCKET:
+    case KEYITEMS_POCKET:
+        GoToBagMenu(ITEMMENULOCATION_CHOOSE_ITEM, VarGet(VAR_TEMP_1), CB2_ReturnToFieldContinueScript);
+    default:
+        break;
+    }
+}
+
+// Sets the HP Stat of the Pokémon according to the current value of var 0x8000 
+void SetHpStat(void)
+{
+    u16 HpStat = gSpecialVar_0x8000;
+    SetMonData(&gEnemyParty[0], MON_DATA_HP, &HpStat);
+    SetMonData(&gEnemyParty[0], MON_DATA_MAX_HP, &HpStat);
+}
+
+// Sets the Atk Stat of the Pokémon according to the current value of var 0x8001
+void SetAtkStat(void)
+{
+    u16 AtkStat = gSpecialVar_0x8001;
+    SetMonData(&gEnemyParty[0], MON_DATA_ATK, &AtkStat);
+}
+
+// Sets the Def Stat of the Pokémon according to the current value of var 0x8002
+void SetDefStat(void)
+{
+    u16 DefStat = gSpecialVar_0x8002;
+    SetMonData(&gEnemyParty[0], MON_DATA_DEF, &DefStat);
+}
+
+// Sets the Spd Stat of the Pokémon according to the current value of var 0x8003
+void SetSpdStat(void)
+{
+    u16 SpdStat = gSpecialVar_0x8003;
+    SetMonData(&gEnemyParty[0], MON_DATA_SPEED, &SpdStat);
+}
+
+// Sets the SpAtk Stat of the Pokémon according to the current value of var 0x8005
+void SetSpAtkStat(void)
+{
+    u16 SpAtkStat = gSpecialVar_0x8005;
+    SetMonData(&gEnemyParty[0], MON_DATA_SPATK, &SpAtkStat);
+}
+
+// Sets the SpDef Stat of the Pokémon according to the current value of var 0x8006
+void SetSpDefStat(void)
+{
+    u16 SpDefStat = gSpecialVar_0x8006;
+    SetMonData(&gEnemyParty[0], MON_DATA_SPDEF, &SpDefStat);
+}
+
+//crystal haircut
+void HaircutBrother1(void)
+{
+    AdjustFriendship(&gPlayerParty[gSpecialVar_0x8004], FRIENDSHIP_EVENT_HAIRCUT1);
+}
+
+void HaircutBrother2(void)
+{
+    AdjustFriendship(&gPlayerParty[gSpecialVar_0x8004], FRIENDSHIP_EVENT_HAIRCUT2);
+}
+
+void SetVermilionTrashCans(void)
+{
+    u16 idx = (Random() % 15) + 1;
+    gSpecialVar_0x8004 = idx;
+    gSpecialVar_0x8005 = idx;
+    switch (gSpecialVar_0x8004)
+    {
+    case 1:
+        idx = Random() % 2;
+        if (idx == 0)
+            gSpecialVar_0x8005 += 1;
+        else
+            gSpecialVar_0x8005 += 5;
+        break;
+    case 2:
+    case 3:
+    case 4:
+        idx = Random() % 3;
+        if (idx == 0)
+            gSpecialVar_0x8005 += 1;
+        else if (idx == 1)
+            gSpecialVar_0x8005 += 5;
+        else
+            gSpecialVar_0x8005 -= 1;
+        break;
+    case 5:
+        idx = Random() % 2;
+        if (idx == 0)
+            gSpecialVar_0x8005 += 5;
+        else
+            gSpecialVar_0x8005 -= 1;
+        break;
+    case 6:
+        idx = Random() % 3;
+        if (idx == 0)
+            gSpecialVar_0x8005 -= 5;
+        else if (idx == 1)
+            gSpecialVar_0x8005 += 1;
+        else
+            gSpecialVar_0x8005 += 5;
+        break;
+    case 7:
+    case 8:
+    case 9:
+        idx = Random() % 4;
+        if (idx == 0)
+            gSpecialVar_0x8005 -= 5;
+        else if (idx == 1)
+            gSpecialVar_0x8005 += 1;
+        else if (idx == 2)
+            gSpecialVar_0x8005 += 5;
+        else
+            gSpecialVar_0x8005 -= 1;
+        break;
+    case 10:
+        idx = Random() % 3;
+        if (idx == 0)
+            gSpecialVar_0x8005 -= 5;
+        else if (idx == 1)
+            gSpecialVar_0x8005 += 5;
+        else
+            gSpecialVar_0x8005 -= 1;
+        break;
+    case 11:
+        idx = Random() % 2;
+        if (idx == 0)
+            gSpecialVar_0x8005 -= 5;
+        else
+            gSpecialVar_0x8005 += 1;
+        break;
+    case 12:
+    case 13:
+    case 14:
+        idx = Random() % 3;
+        if (idx == 0)
+            gSpecialVar_0x8005 -= 5;
+        else if (idx == 1)
+            gSpecialVar_0x8005 += 1;
+        else
+            gSpecialVar_0x8005 -= 1;
+        break;
+    case 15:
+        idx = Random() % 2;
+        if (idx == 0)
+            gSpecialVar_0x8005 -= 5;
+        else
+            gSpecialVar_0x8005 -= 1;
+        break;
+    }
+    if (gSpecialVar_0x8005 > 15)
+    {
+        if (gSpecialVar_0x8004 % 5 == 1)
+            gSpecialVar_0x8005 = gSpecialVar_0x8004 + 1;
+        else if (gSpecialVar_0x8004 % 5 == 0)
+            gSpecialVar_0x8005 = gSpecialVar_0x8004 - 1;
+        else
+            gSpecialVar_0x8005 = gSpecialVar_0x8004 + 1;
+    }
 }

@@ -96,7 +96,7 @@ OlivineCity_EventScript_SilverWalkToPlayer3::
 	return
 
 OlivineCity_EventScript_SilverLeaveAdjust1::
-	applymovement LOCALID_OLIVINE_SILVER Common_Movement_WalkDown1
+	applymovement LOCALID_OLIVINE_SILVER Common_Movement_WalkDown
 	waitmovement 0
 	return
 

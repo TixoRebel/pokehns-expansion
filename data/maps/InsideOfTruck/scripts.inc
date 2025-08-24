@@ -23,26 +23,26 @@ InsideOfTruck_EventScript_SetIntroFlags::
 
 InsideOfTruck_EventScript_SetIntroFlagsMale::
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
-	setvar VAR_LITTLEROOT_INTRO_STATE, 1
+	setvar VAR_GARBAGEVAR, 1
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1
+	setvar VAR_GARBAGEVAR, 1
 	setdynamicwarp MAP_LITTLEROOT_TOWN, 3, 10
 	releaseall
 	end
 
 InsideOfTruck_EventScript_SetIntroFlagsFemale::
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F
-	setvar VAR_LITTLEROOT_INTRO_STATE, 2
+	setvar VAR_GARBAGEVAR, 2
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 1
+	setvar VAR_GARBAGEVAR, 1
 	setdynamicwarp MAP_LITTLEROOT_TOWN, 12, 10
 	releaseall
 	end

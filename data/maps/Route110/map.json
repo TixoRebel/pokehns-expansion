@@ -3,7 +3,7 @@
   "name": "Route110",
   "layout": "LAYOUT_ROUTE110",
   "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_ROUTE_110",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -571,7 +571,7 @@
       "x": 33,
       "y": 56,
       "elevation": 3,
-      "var": "VAR_ROUTE110_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route110_EventScript_RivalTrigger1"
     },
@@ -580,7 +580,7 @@
       "x": 34,
       "y": 56,
       "elevation": 3,
-      "var": "VAR_ROUTE110_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route110_EventScript_RivalTrigger2"
     },
@@ -589,7 +589,7 @@
       "x": 35,
       "y": 56,
       "elevation": 3,
-      "var": "VAR_ROUTE110_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route110_EventScript_RivalTrigger3"
     },

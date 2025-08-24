@@ -48,7 +48,7 @@ DragonsDen2_Trigger_ClairMid::
 	playse SE_PIN
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_ExclamationMark
 	delay 60
-	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_WalkRight1
+	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_WalkRight
 	call DragonsDen2_EventScript_Clair
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, DragonsDen2_Movement_ClairLeaveMid
 	waitmovement 0
@@ -64,9 +64,9 @@ DragonsDen2_Trigger_ClairRight::
 	playse SE_PIN
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_ExclamationMark
 	delay 60
-	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_WalkRight1
+	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_WalkRight1
+	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, Common_Movement_WalkRight
 	call DragonsDen2_EventScript_Clair
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, DragonsDen2_Movement_ClairLeaveRight
 	waitmovement 0

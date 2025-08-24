@@ -47,7 +47,7 @@ Route14_TriggerSuicune_2::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	delay 60
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	goto Route14_EventScript_Suicune
 

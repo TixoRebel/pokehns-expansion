@@ -3,7 +3,7 @@
   "name": "ShoalCave_LowTideIceRoom_Suicune",
   "layout": "LAYOUT_SHOAL_CAVE_LOW_TIDE_ICE_ROOM_SUICUNE",
   "music": "MUS_DP_MT_CORONET",
-  "region_map_section": "MAPSEC_SHOAL_CAVE",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": true,
   "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_UNDERGROUND",

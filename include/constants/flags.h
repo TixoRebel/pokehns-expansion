@@ -1434,11 +1434,11 @@
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x49) // 20
 #define FLAG_LANDMARK_FIERY_PATH                    (SYSTEM_FLAGS + 0x4A)
 
-#define FLAG_SYS_PC_BILL                         (SYSTEM_FLAGS + 0x4B)
+#define FLAG_SYS_PC_BILL                            (SYSTEM_FLAGS + 0x4B)
 #define FLAG_SYS_MYSTERY_EVENT_ENABLE               (SYSTEM_FLAGS + 0x4C)
 #define FLAG_SYS_ENC_UP_ITEM                        (SYSTEM_FLAGS + 0x4D)
 #define FLAG_SYS_ENC_DOWN_ITEM                      (SYSTEM_FLAGS + 0x4E)
-#define FLAG_SYS_BRAILLE_DIG                        (SYSTEM_FLAGS + 0x4F)
+#define FLAG_SYS_BRAILLE_SWEET_SCENT                (SYSTEM_FLAGS + 0x4F) // replaced FLAG_SYS_BRAILLE_DIG
 #define FLAG_SYS_REGIROCK_PUZZLE_COMPLETED          (SYSTEM_FLAGS + 0x50)
 #define FLAG_SYS_BRAILLE_REGICE_COMPLETED           (SYSTEM_FLAGS + 0x51)
 #define FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED         (SYSTEM_FLAGS + 0x52)

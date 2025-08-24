@@ -11,11 +11,11 @@ GoldenrodDeptElevator_EventScript_Exit::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 9, 4
 	closedoor 10, 6
@@ -118,11 +118,11 @@ GoldenrodDeptElevator_EventScript_Cancel::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 9, 4
 	closedoor 10, 6
@@ -145,11 +145,11 @@ CeladonDeptElevator_EventScript_Exit::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 6, 1
 	closedoor 10, 6
@@ -235,11 +235,11 @@ CeladonDeptElevator_EventScript_Cancel::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 6, 1
 	closedoor 10, 6

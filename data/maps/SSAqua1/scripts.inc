@@ -60,7 +60,7 @@ SSAqua1_Trigger_Grandpa::
 	call_if_eq VAR_TEMP_0, 29, SSAqua1_EventScript_GrandpaEnterRight
 	applymovement OBJ_EVENT_ID_PLAYER, SSAqua1_Movement_PlayerSlideRight
 	waitmovement 0
-	applymovement LOCALID_SSAQUA1_GRANDPA, Common_Movement_WalkRight1
+	applymovement LOCALID_SSAQUA1_GRANDPA, Common_Movement_WalkRight
 	waitmovement 0
 	msgbox SSAqua1_Text_Grandpa, MSGBOX_DEFAULT
 	closemessage

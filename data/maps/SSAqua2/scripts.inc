@@ -9,7 +9,7 @@ SSAqua2_EventScript_Trigger::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox SSAqua2_Text_FastShipOnDutySailor, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0 
 	turnobject LOCALID_SSAQUA2_SAILORLOOKING, DIR_SOUTH
 	release

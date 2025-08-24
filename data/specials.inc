@@ -150,6 +150,12 @@ gSpecials::
 	def_special GetDewfordHallPaintingNameIndex
 	def_special SwapRegisteredBike
 	def_special CalculatePlayerPartyCount
+	def_special GetMaxPartySize 				@ tx_randomizer_and_challenges
+	@def_special IsPokecenterChallengeActivated 	@ tx_randomizer_and_challenges
+	@def_special IsNuzlockeNicknamingActive		@ tx_randomizer_and_challenges
+	@def_special IsRandomItemsActivated 			@ tx_randomizer_and_challenges
+	@def_special RandomItem						@ tx_randomizer_and_challenges
+	@def_special RandomItemHidden				@ tx_randomizer_and_challenges
 	def_special CountPartyNonEggMons
 	def_special CountPartyAliveNonEggMons_IgnoreVar0x8004Slot
 	def_special ShouldReadyContestArtist
@@ -493,6 +499,7 @@ gSpecials::
 	def_special CloseBattleFrontierTutorWindow
 	def_special ScrollableMultichoice_RedrawPersistentMenu
 	def_special ChooseMonForMoveTutor
+	def_special GetBattleFrontierTutorMoveIndex
 	def_special ScrollableMultichoice_ClosePersistentMenu
 	def_special DoDeoxysRockInteraction
 	def_special SetDeoxysRockPalette
@@ -541,6 +548,48 @@ gSpecials::
 	def_special RemoveRecordsWindow
 	def_special CloseDeptStoreElevatorWindow
 	def_special TrySetBattleTowerLinkType
+	def_special DoSlidingPuzzle
+	def_special SetHpEvs
+	def_special SetAtkEvs
+	def_special SetDefEvs
+	def_special SetSpdEvs
+	def_special SetSpAtkEvs
+	def_special SetSpDefEvs
+	def_special SetHpIvs
+	def_special SetAtkIvs
+	def_special SetDefIvs
+	def_special SetSpdIvs
+	def_special SetSpAtkIvs
+	def_special SetSpDefIvs
+	@ def_special CreateWonderTradePokemon
+	def_special TryChangeDeoxysForm
+	def_special CheckPkm
+	def_special ChooseItemFromBag
+	def_special ForceSaveGame
+	@ def_special CheckIfChallengesAreActive
+	@ def_special CheckIfRandomizerIsActive
+	def_special SetHpStat
+	def_special SetAtkStat
+	def_special SetDefStat
+	def_special SetSpdStat
+	def_special SetSpAtkStat
+	def_special SetSpDefStat
+	@ def_special BufferUnitSystemText
+	def_special CheckHooh
+	def_special CheckAerodactyl
+	def_special CheckKabuto
+	def_special CheckOmanyte
+	def_special CheckTogepi
+	def_special HaircutBrother1
+	def_special HaircutBrother2
+	def_special EnterBugContestMode
+	def_special ExitBugContestMode
+	def_special TransferBugContestMon
+	def_special JudgeBugContestMon
+	def_special RemoveSafariBalls
+	def_special ShowBugContestChosenMon
+	def_special DoPokemonLeagueLightingEffect
+	def_special SetVermilionTrashCans
 	def_special TrySpecialOverworldEvo
 	def_special GetNumberSprayStrength
 	def_special GetSprayId

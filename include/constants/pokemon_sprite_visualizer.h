@@ -39,10 +39,10 @@
 #define MAP_BATTLE_SCENE_GYM          1
 #define MAP_BATTLE_SCENE_MAGMA        2
 #define MAP_BATTLE_SCENE_AQUA         3
-#define MAP_BATTLE_SCENE_SIDNEY       4
-#define MAP_BATTLE_SCENE_PHOEBE       5
-#define MAP_BATTLE_SCENE_GLACIA       6
-#define MAP_BATTLE_SCENE_DRAKE        7
+#define MAP_BATTLE_SCENE_WILL         4
+#define MAP_BATTLE_SCENE_KOGA       5
+#define MAP_BATTLE_SCENE_BRUNO       6
+#define MAP_BATTLE_SCENE_KAREN        7
 #define MAP_BATTLE_SCENE_FRONTIER     8
 #define MAP_BATTLE_SCENE_LEADER       9
 #define MAP_BATTLE_SCENE_WALLACE      10

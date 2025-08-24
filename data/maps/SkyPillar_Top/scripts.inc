@@ -124,7 +124,7 @@ SkyPillar_Top_EventScript_AwakenRayquaza::
 	applymovement LOCALID_CAMERA, SkyPillar_Top_Movement_CameraPanDown
 	waitmovement 0
 	special RemoveCameraObject
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
+	setvar VAR_GARBAGEVAR, 5
 	setvar VAR_SKY_PILLAR_STATE, 1
 	setvar VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE, 1
 	releaseall

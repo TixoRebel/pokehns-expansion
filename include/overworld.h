@@ -25,6 +25,10 @@
 #define MOVEMENT_MODE_SCRIPTED 2
 
 #define SKIP_OBJECT_EVENT_LOAD  1
+#define TIME_OF_DAY_NIGHT 0
+#define TIME_OF_DAY_TWILIGHT 1
+#define TIME_OF_DAY_DAY 2
+#define TIME_OF_DAY_MAX TIME_OF_DAY_DAY
 
 // trigger a time-of-day blend once
 #define HOURS_BLEND_ONCE 25
@@ -45,6 +49,15 @@ struct LinkPlayerObjectEvent
     u8 movementMode;
 };
 
+// HnS
+// struct __attribute__((packed)) TimeBlendSettings {
+//   u16 weight:9;
+//   u16 time1:3;
+//   u16 time0:3;
+//   u16 unused:1;
+//   u16 altWeight;
+// };
+
 // Exported RAM declarations
 extern struct WarpData gLastUsedWarp;
 extern struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4];
@@ -61,6 +74,7 @@ extern bool8 gExitStairsMovementDisabled;
 extern bool8 gSkipShowMonAnim;
 extern u8 gTimeOfDay;
 extern s16 gTimeUpdateCounter;
+extern u8 gGlobalFieldTintMode; // HnS
 
 extern struct TimeBlendSettings gTimeBlend;
 
@@ -150,10 +164,13 @@ void SetMainCallback1(void (*cb)(void));
 void SetUnusedCallback(void *func);
 void CB2_NewGame(void);
 void CB2_WhiteOut(void);
+void CB2_BugContestWhiteOut(void);  // HnS
+void CB2_EndRoamerBattle(void);     // HnS
 void CB2_LoadMap(void);
 void CB2_ReturnToFieldContestHall(void);
 void CB2_ReturnToFieldCableClub(void);
 void CB2_ReturnToField(void);
+void CB2_ReturnToField_SaveChallengesData(void); // HnS
 void CB2_ReturnToFieldFromMultiplayer(void);
 void CB2_ReturnToFieldWithOpenMenu(void);
 void CB2_ReturnToFieldContinueScript(void);
@@ -171,6 +188,7 @@ bool32 Overworld_RecvKeysFromLinkIsRunning(void);
 bool32 Overworld_SendKeysToLinkIsRunning(void);
 bool32 IsSendingKeysOverCable(void);
 void ClearLinkPlayerObjectEvents(void);
+u8 NuzlockeGetCurrentRegionMapSectionId(void); // HnS - tx_randomizer_and_challenges
 bool16 SetTimeOfDay(u16 hours);
 
 // Item Description Headers

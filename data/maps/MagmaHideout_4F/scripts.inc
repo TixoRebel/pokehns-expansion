@@ -59,7 +59,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	closemessage
 	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
-	setvar VAR_SLATEPORT_CITY_STATE, 1
+	setvar VAR_GARBAGEVAR, 1
 	setflag FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT
 	setvar VAR_SLATEPORT_HARBOR_STATE, 1
 	fadescreen FADE_TO_BLACK

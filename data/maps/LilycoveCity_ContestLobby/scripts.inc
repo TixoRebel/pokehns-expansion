@@ -349,7 +349,7 @@ LilycoveCity_ContestLobby_EventScript_SetMasterContestType::
 @ Functionally unused
 LilycoveCity_ContestLobby_EventScript_SetDebug::
 	setflag FLAG_GARBAGEFLAG
-	copyvar VAR_LILYCOVE_MUSEUM_2F_STATE, 1
+	copyvar VAR_GARBAGEVAR, 1
 	additem ITEM_CONTEST_PASS
 	setvar VAR_0x800B, 8
 	setvar VAR_CONTEST_RANK, CONTEST_RANK_MASTER
@@ -806,7 +806,7 @@ LilycoveCity_ContestLobby_EventScript_StartLinkContest::
 	waitmessage
 	subvar VAR_0x8004, 1
 	call LilycoveCity_ContestLobby_EventScript_LeadToLinkContestHall
-	setvar VAR_CONTEST_HALL_STATE, 1
+	setvar VAR_GARBAGEVAR, 1
 	special SetLinkContestPlayerGfx
 	setvar VAR_CONTEST_TYPE, CONTEST_TYPE_LINK
 	setvar VAR_CONTEST_RANK, CONTEST_RANK_MASTER

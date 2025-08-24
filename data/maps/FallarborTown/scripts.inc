@@ -4,7 +4,7 @@ FallarborTown_MapScripts::
 
 FallarborTown_OnTransition:
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_CONTEST_HALL_STATE, 0
+	setvar VAR_GARBAGEVAR, 0
 	clearflag FLAG_CONTEST_SKETCH_CREATED
 	end
 

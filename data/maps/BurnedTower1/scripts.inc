@@ -105,8 +105,8 @@ BurnedTower1_EventScript_Silver::
 	playse SE_PIN
 	applymovement LOCALID_BURNED_TOWER_SILVER, Common_Movement_ExclamationMark
 	delay 60
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
-	applymovement LOCALID_BURNED_TOWER_SILVER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_BURNED_TOWER_SILVER, Common_Movement_WalkLeft
 	waitmovement 0
 	waitmovement 0
 	msgbox BurnedTowerSilver_BeforeText, MSGBOX_DEFAULT

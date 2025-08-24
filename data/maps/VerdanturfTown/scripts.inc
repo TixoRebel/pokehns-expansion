@@ -4,7 +4,7 @@ VerdanturfTown_MapScripts::
 
 VerdanturfTown_OnTransition:
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_CONTEST_HALL_STATE, 0
+	setvar VAR_GARBAGEVAR, 0
 	end
 
 VerdanturfTown_EventScript_Twin::

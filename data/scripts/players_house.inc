@@ -181,7 +181,7 @@ PlayersHouse_1F_EventScript_PetalburgGymReportMale::
 	setvar VAR_TEMP_1, 1
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomReturnToSeatMale
 	waitmovement 0
-	goto PlayersHouse_1F_EventScript_SetWatchedBroadcast
+	@ goto PlayersHouse_1F_EventScript_SetWatchedBroadcast
 	end
 
 PlayersHouse_1F_EventScript_PetalburgGymReportFemale::
@@ -206,7 +206,7 @@ PlayersHouse_1F_EventScript_PetalburgGymReportFemale::
 	setvar VAR_TEMP_1, 1
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomReturnToSeatFemale
 	waitmovement 0
-	goto PlayersHouse_1F_EventScript_SetWatchedBroadcast
+	@ goto PlayersHouse_1F_EventScript_SetWatchedBroadcast
 	end
 
 PlayersHouse_1F_EventScript_MomNoticeGymBroadcast::
@@ -360,8 +360,8 @@ PlayersHouse_1F_EventScript_TryGiveAmuletCoin::
 	end
 
 PlayersHouse_1F_EventScript_MomHealsParty::
-	specialvar VAR_RESULT, IsPokecenterChallengeActivated
-	goto_if_eq VAR_RESULT, TRUE, PlayersHouse_1F_EventScript_MomHealsParty_PokecenterChallenge
+	@specialvar VAR_RESULT, IsPokecenterChallengeActivated
+	@goto_if_eq VAR_RESULT, TRUE, PlayersHouse_1F_EventScript_MomHealsParty_PokecenterChallenge
 	msgbox PlayersHouse_1F_Text_YouShouldRestABit, MSGBOX_DEFAULT
 	goto PlayersHouse_1F_EventScript_HealParty
 	end

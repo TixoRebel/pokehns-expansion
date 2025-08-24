@@ -145,7 +145,7 @@ Route25_Trigger_SuicuneLeft::
 	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
 	applymovement LOCALID_ROUTE25_SUICUNE, Route25_Movement_Suicune1
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Route25_Movement_WalkToSuicune
 	waitmovement 0
@@ -248,7 +248,7 @@ Route25_EventScript_SuicuneRan::
 	end
 
 Route25_AdjustPlayer::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 

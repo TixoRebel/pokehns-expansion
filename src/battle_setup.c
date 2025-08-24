@@ -1674,6 +1674,10 @@ static bool8 IsFirstTrainerIdReadyForRematch(const struct RematchTrainer *table,
     return TRUE;
 }
 
+u8 GetMaxPartySize(void){
+    return 6;
+}
+
 static bool8 IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 trainerId)
 {
     s32 tableId = TrainerIdToRematchTableId(table, trainerId);

@@ -136,31 +136,31 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     // {MAPSEC_SLOWPOKE_WELL,             MAPSEC_ILEX_FOREST},
     // {MAPSEC_BURNED_TOWER,             MAPSEC_NATIONAL_PARK},
     // {MAPSEC_OLIVINE_LIGHTHOUSE,             MAPSEC_WHIRL_ISLANDS},
-    // {MAPSEC_UNDERWATER_129,             MAPSEC_CLIFF_CAVE},
+    // {MAPSEC_NONE,             MAPSEC_CLIFF_CAVE},
     // {MAPSEC_TIN_TOWER,      MAPSEC_SOOTOPOLIS_CITY},
-    // {MAPSEC_UNDERWATER_SEAFLOOR_CAVERN, MAPSEC_WHIRL_ISLANDS},
-    // {MAPSEC_AQUA_HIDEOUT,               MAPSEC_LILYCOVE_CITY},
-    // {MAPSEC_AQUA_HIDEOUT_OLD,           MAPSEC_LILYCOVE_CITY},
-    // {MAPSEC_MAGMA_HIDEOUT,              MAPSEC_ROUTE_37},
-    // {MAPSEC_UNDERWATER_SEALED_CHAMBER,  MAPSEC_TOHJO_FALLS},
+    // {MAPSEC_NONE, MAPSEC_WHIRL_ISLANDS},
+    // {MAPSEC_NONE,               MAPSEC_LILYCOVE_CITY},
+    // {MAPSEC_NONE_OLD,           MAPSEC_LILYCOVE_CITY},
+    // {MAPSEC_NONE,              MAPSEC_ROUTE_37},
+    // {MAPSEC_NONE,  MAPSEC_TOHJO_FALLS},
     // {MAPSEC_DRAGONS_DEN,            MAPSEC_ROUTE_29},
-    // {MAPSEC_JAGGED_PASS,                MAPSEC_ROUTE_37},
-    // {MAPSEC_MT_PYRE,                    MAPSEC_ROUTE_47},
-    // {MAPSEC_SKY_PILLAR,                 MAPSEC_LAKE_OF_RAGE},
-    // {MAPSEC_MIRAGE_TOWER,               MAPSEC_ROUTE_36},
-    // {MAPSEC_TRAINER_HILL,               MAPSEC_ROUTE_36},
-    // {MAPSEC_DESERT_UNDERPASS,           MAPSEC_ROUTE_39},
-    // {MAPSEC_ALTERING_CAVE,              MAPSEC_ROUTE_28},
-    // {MAPSEC_ARTISAN_CAVE,               MAPSEC_ROUTE_28},
-    // {MAPSEC_ABANDONED_SHIP,             MAPSEC_ROUTE_33},
+    // {MAPSEC_NONE,                MAPSEC_ROUTE_37},
+    // {MAPSEC_NONE,                    MAPSEC_ROUTE_47},
+    // {MAPSEC_NONE,                 MAPSEC_LAKE_OF_RAGE},
+    // {MAPSEC_NONE,               MAPSEC_ROUTE_36},
+    // {MAPSEC_NONE,               MAPSEC_ROUTE_36},
+    // {MAPSEC_NONE,           MAPSEC_ROUTE_39},
+    // {MAPSEC_NONE,              MAPSEC_ROUTE_28},
+    // {MAPSEC_NONE,               MAPSEC_ROUTE_28},
+    // {MAPSEC_NONE,             MAPSEC_ROUTE_33},
     {MAPSEC_NONE,                       MAPSEC_NONE}
 };
 
 static const u16 sMarineCaveMapSecIds[] =
 {
-    // MAPSEC_MARINE_CAVE,
-    // MAPSEC_UNDERWATER_MARINE_CAVE,
-    // MAPSEC_UNDERWATER_MARINE_CAVE
+    // MAPSEC_NONE,
+    // MAPSEC_NONE,
+    // MAPSEC_NONE
 };
 
 static const u16 sTerraOrMarineCaveMapSecIds[ABNORMAL_WEATHER_LOCATIONS] =
@@ -267,7 +267,7 @@ static const u8 sMapSecIdsOffMap[] =
     MAPSEC_SOUTHERN_ISLAND,
     MAPSEC_BIRTH_ISLAND,
     MAPSEC_FARAWAY_ISLAND,
-    // MAPSEC_NAVEL_ROCK
+    // MAPSEC_NONE
 };
 
 static const u16 sRegionMapFramePal[] = INCBIN_U16("graphics/pokenav/region_map/frame.gbapal");
@@ -356,7 +356,7 @@ static const struct MultiNameFlyDest sMultiNameFlyDestinations[] =
 {
     // {
     //     .name = sEverGrandeCityNames,
-    //     .mapSecId = MAPSEC_EVER_GRANDE_CITY,
+    //     .mapSecId = MAPSEC_NONE,
     //     .flag = FLAG_LANDMARK_POKEMON_LEAGUE
     // }
 };
@@ -1013,7 +1013,7 @@ static void InitMapBasedOnPlayerLocation(void)
         mapHeight = gMapHeader.mapLayout->height;
         x = gSaveBlock1Ptr->pos.x;
         y = gSaveBlock1Ptr->pos.y;
-        // if (sRegionMap->mapSecId == MAPSEC_UNDERWATER_SEAFLOOR_CAVERN || sRegionMap->mapSecId == MAPSEC_UNDERWATER_MARINE_CAVE)
+        // if (sRegionMap->mapSecId == MAPSEC_NONE || sRegionMap->mapSecId == MAPSEC_NONE)
         //     sRegionMap->playerIsInCave = TRUE;
         break;
     case MAP_TYPE_UNDERGROUND:
@@ -1049,7 +1049,7 @@ static void InitMapBasedOnPlayerLocation(void)
         break;
     case MAP_TYPE_INDOOR:
         sRegionMap->mapSecId = gMapHeader.regionMapSectionId;
-        // if (sRegionMap->mapSecId != MAPSEC_DYNAMIC)
+        // if (sRegionMap->mapSecId != MAPSEC_NONE)
         // {
             warp = &gSaveBlock1Ptr->escapeWarp;
             mapHeader = Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum);
@@ -1126,7 +1126,7 @@ static void InitMapBasedOnPlayerLocation(void)
         if (xOnMap > 54)
             x++;
         break;
-    // case MAPSEC_UNDERWATER_MARINE_CAVE:
+    // case MAPSEC_NONE:
     //     GetMarineCaveCoords(&sRegionMap->cursorPosX, &sRegionMap->cursorPosY);
     //     return;
     }
@@ -1591,7 +1591,7 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     u8 *str;
     u16 i;
 
-    // if (regionMapId == MAPSEC_SECRET_BASE)
+    // if (regionMapId == MAPSEC_NONE)
     // {
     //     str = GetSecretBaseMapName(dest);
     // }
@@ -1623,9 +1623,9 @@ u8 *GetMapNameGeneric(u8 *dest, u16 mapSecId)
 {
     switch (mapSecId)
     {
-    // case MAPSEC_DYNAMIC:
+    // case MAPSEC_NONE:
     //     return StringCopy(dest, gText_Ferry);
-    // case MAPSEC_SECRET_BASE:
+    // case MAPSEC_NONE:
     //     return StringCopy(dest, gText_SecretBase);
     default:
         return GetMapName(dest, mapSecId, 0);
@@ -1634,7 +1634,7 @@ u8 *GetMapNameGeneric(u8 *dest, u16 mapSecId)
 
 u8 *GetMapNameHandleAquaHideout(u8 *dest, u16 mapSecId)
 {
-    // if (mapSecId == MAPSEC_AQUA_HIDEOUT_OLD)
+    // if (mapSecId == MAPSEC_NONE_OLD)
     //     return StringCopy(dest, gText_Hideout);
     return GetMapNameGeneric(dest, mapSecId);
 }
@@ -2036,9 +2036,9 @@ u32 FilterFlyDestination(struct RegionMap* regionMap)
         return HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR;
     case MAPSEC_BATTLE_FRONTIER:
         return HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST;
-    // case MAPSEC_LITTLEROOT_TOWN:
+    // case MAPSEC_NONE:
     //     return (gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
-    // case MAPSEC_EVER_GRANDE_CITY:
+    // case MAPSEC_NONE:
     //     return (FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && regionMap->posWithinMapSec == 0 ? HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE : HEAL_LOCATION_EVER_GRANDE_CITY);
     default:
         if (sMapHealLocations[regionMap->mapSecId][2] != HEAL_LOCATION_NONE)

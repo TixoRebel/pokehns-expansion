@@ -3,7 +3,7 @@
   "name": "InsideOfTruck",
   "layout": "LAYOUT_INSIDE_OF_TRUCK",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_INSIDE_OF_TRUCK",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -86,7 +86,7 @@
       "x": 3,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "InsideOfTruck_EventScript_SetIntroFlags"
     },
@@ -95,7 +95,7 @@
       "x": 3,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "InsideOfTruck_EventScript_SetIntroFlags"
     },
@@ -104,7 +104,7 @@
       "x": 3,
       "y": 3,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "InsideOfTruck_EventScript_SetIntroFlags"
     }

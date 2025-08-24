@@ -133,12 +133,12 @@ SafariZoneEntranceFuchsia_EventScript_TryEnterSafariZone::
 	end
 
 SafariZoneEntranceFuchsia_EventScript_CorrectionRight::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
 SafariZoneEntranceFuchsia_EventScript_CorrectionLeft::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	return
 

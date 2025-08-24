@@ -8,7 +8,7 @@ MauvilleCity_OnTransition:
 	clearflag FLAG_GARBAGEFLAG
 	setflag FLAG_SYS_TV_START
 	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
-	setvar VAR_MAUVILLE_GYM_STATE, 0
+	setvar VAR_GARBAGEVAR, 0
 	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
 	end
 

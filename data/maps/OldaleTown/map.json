@@ -3,7 +3,7 @@
   "name": "OldaleTown",
   "layout": "LAYOUT_OLDALE_TOWN",
   "music": "MUS_OLDALE",
-  "region_map_section": "MAPSEC_OLDALE_TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",
@@ -122,7 +122,7 @@
       "x": 0,
       "y": 10,
       "elevation": 3,
-      "var": "VAR_OLDALE_TOWN_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "OldaleTown_EventScript_BlockedPath"
     },

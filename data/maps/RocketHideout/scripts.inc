@@ -63,7 +63,7 @@ RocketHideout_EventScript_SpawnGruntRight::
 	return
 
 RocketHideout_EventScript_HeightAdjust::
-	applymovement VAR_TEMP_0, Common_Movement_WalkDown1
+	applymovement VAR_TEMP_0, Common_Movement_WalkDown
 	waitmovement 0
 	return
 

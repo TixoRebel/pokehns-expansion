@@ -100,10 +100,22 @@ Common_Movement_WalkUp::
 	walk_up
 	step_end
 
+Common_Movement_WalkUp1:
+	walk_up
+	step_end
+
 @ Unused
 Common_Movement_WalkUp2::
 	walk_up
 	walk_up
+	step_end
+
+Common_Movement_Enter_Pokeball::
+	enter_pokeball
+	step_end
+
+Common_Movement_Exit_Pokeball::
+	exit_pokeball
 	step_end
 
 @ Follower NPC
@@ -165,4 +177,20 @@ Common_Movement_WalkRightFaster::
 
 Common_Movement_WalkLeftFaster::
     walk_faster_left
+    step_end
+
+Common_Movement_JumpUp::
+	jump_up
+	step_end
+
+Common_Movement_JumpDown::
+	jump_down
+	step_end
+
+Common_Movement_JumpRight::
+	jump_right
+	step_end
+
+Common_Movement_JumpLeft::
+	jump_left
     step_end

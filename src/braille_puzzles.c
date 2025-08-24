@@ -61,17 +61,17 @@ static void DoBrailleRegisteelEffect(void);
 
 bool8 ShouldDoBrailleDigEffect(void)
 {
-    if (!FlagGet(FLAG_SYS_BRAILLE_DIG)
-     && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SEALED_CHAMBER_OUTER_ROOM)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SEALED_CHAMBER_OUTER_ROOM)))
-    {
-        if (gSaveBlock1Ptr->pos.x == 10 && gSaveBlock1Ptr->pos.y == 3)
-            return TRUE;
-        if (gSaveBlock1Ptr->pos.x == 9 && gSaveBlock1Ptr->pos.y == 3)
-            return TRUE;
-        if (gSaveBlock1Ptr->pos.x == 11 && gSaveBlock1Ptr->pos.y == 3)
-            return TRUE;
-    }
+    // if (!FlagGet(FLAG_SYS_BRAILLE_DIG)
+    //  && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SEALED_CHAMBER_OUTER_ROOM)
+    //  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SEALED_CHAMBER_OUTER_ROOM)))
+    // {
+    //     if (gSaveBlock1Ptr->pos.x == 10 && gSaveBlock1Ptr->pos.y == 3)
+    //         return TRUE;
+    //     if (gSaveBlock1Ptr->pos.x == 9 && gSaveBlock1Ptr->pos.y == 3)
+    //         return TRUE;
+    //     if (gSaveBlock1Ptr->pos.x == 11 && gSaveBlock1Ptr->pos.y == 3)
+    //         return TRUE;
+    // }
 
     return FALSE;
 }
@@ -86,7 +86,7 @@ void DoBrailleDigEffect(void)
     MapGridSetMetatileIdAt(11 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_BottomRight | MAPGRID_IMPASSABLE);
     DrawWholeMapView();
     PlaySE(SE_BANG);
-    FlagSet(FLAG_SYS_BRAILLE_DIG);
+    // FlagSet(FLAG_SYS_BRAILLE_DIG);
 }
 
 bool8 CheckRelicanthWailord(void)
@@ -102,6 +102,104 @@ bool8 CheckRelicanthWailord(void)
     }
     return FALSE;
 }
+
+// start HnS
+bool8 ShouldDoBrailleSweetScentEffect(void)
+{
+    if (!FlagGet(FLAG_SYS_BRAILLE_SWEET_SCENT)
+     && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SEALED_CHAMBER_OUTER_ROOM)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SEALED_CHAMBER_OUTER_ROOM)))
+    {
+        if (gSaveBlock1Ptr->pos.x == 10 && gSaveBlock1Ptr->pos.y == 3)
+            return TRUE;
+        if (gSaveBlock1Ptr->pos.x == 9 && gSaveBlock1Ptr->pos.y == 3)
+            return TRUE;
+        if (gSaveBlock1Ptr->pos.x == 11 && gSaveBlock1Ptr->pos.y == 3)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+void DoBrailleSweetScentEffect(void)
+{
+    MapGridSetMetatileIdAt( 9 + MAP_OFFSET, 1 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopLeft);
+    MapGridSetMetatileIdAt(10 + MAP_OFFSET, 1 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopMid);
+    MapGridSetMetatileIdAt(11 + MAP_OFFSET, 1 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopRight);
+    MapGridSetMetatileIdAt( 9 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_BottomLeft | MAPGRID_IMPASSABLE);
+    MapGridSetMetatileIdAt(10 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_BottomMid);
+    MapGridSetMetatileIdAt(11 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_BottomRight | MAPGRID_IMPASSABLE);
+    DrawWholeMapView();
+    PlaySE(SE_BANG);
+    FlagSet(FLAG_SYS_BRAILLE_SWEET_SCENT);
+    UnlockPlayerFieldControls();
+}
+
+bool8 CheckVibravaMagnezone(void)
+{
+ 
+    // First comes Magnezone
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_WAILORD)
+    {
+        CalculatePlayerPartyCount();
+        // Last comes Relicanth
+        if (GetMonData(&gPlayerParty[gPlayerPartyCount - 1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_RELICANTH)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckHooh(void)
+{
+ 
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_HO_OH)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckAerodactyl(void)
+{
+ 
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_AERODACTYL)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckKabuto(void)
+{
+ 
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_KABUTO)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckOmanyte(void)
+{
+ 
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_OMANYTE)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckTogepi(void)
+{
+ 
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_TOGEPI
+    || GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_TOGETIC
+    || GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_TOGEKISS){
+        return TRUE;
+    }
+    return FALSE;
+}
+// end HnS
 
 // THEORY: this was caused by block commenting out all of the older R/S braille functions but leaving the call to it itself, which creates the nullsub.
 void ShouldDoBrailleRegirockEffectOld(void)

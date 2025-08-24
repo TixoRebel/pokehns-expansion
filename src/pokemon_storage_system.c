@@ -105,6 +105,8 @@ enum {
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
+    MSG_NUZLOCKE,
+    MSG_DEAD_POKEMON,
 };
 
 // IDs for how to resolve variables in the above messages
@@ -229,7 +231,7 @@ enum {
 #define BOXID_CANCELED    201
 
 enum {
-    PALTAG_MON_ICON_0 = POKE_ICON_BASE_PAL_TAG,
+    PALTAG_MON_ICON_0 = POKE_ICON_BASE_PAL_TAG, // POKE_ICON_BASE_PAL_TAG = 56000
     PALTAG_MON_ICON_1, // Used implicitly in CreateMonIconSprite
     PALTAG_MON_ICON_2, // Used implicitly in CreateMonIconSprite
     PALTAG_MON_ICON_3, // Used implicitly in CreateMonIconSprite
@@ -873,6 +875,37 @@ static const struct WindowTemplate sWindowTemplate_MainMenu =
     .paletteNum = 15,
     .baseBlock = 0x1,
 };
+
+// HnS - crystal - required for bug catching contest
+s32 StorePokemonInBox(struct BoxPokemon *src, u8 *boxId, u8 *position)
+{
+    u8 boxIdTemp = StorageGetCurrentBox();
+    u32 boxPosition;
+
+    while (boxIdTemp < TOTAL_BOXES_COUNT)
+    {
+        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+        {
+            if (GetBoxMonDataAt(boxIdTemp, boxPosition, MON_DATA_SPECIES) == SPECIES_NONE)
+            {
+                // Copy mon to box
+                gPokemonStoragePtr->boxes[boxIdTemp][boxPosition] = *src;
+
+                if (boxId != NULL)
+                    *boxId = boxIdTemp;
+                if (position != NULL)
+                    *position = boxPosition;
+
+                return 0; // success
+            }
+        }
+
+        boxIdTemp++;
+    }
+
+    return -1; // all boxes full
+}
+
 
 static const union AnimCmd sAnim_ChooseBoxMenu_TopLeft[] =
 {

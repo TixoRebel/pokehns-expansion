@@ -3,7 +3,7 @@
   "name": "Route118",
   "layout": "LAYOUT_ROUTE118",
   "music": "MUS_ROUTE118",
-  "region_map_section": "MAPSEC_ROUTE_118",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -333,7 +333,7 @@
       "x": 43,
       "y": 11,
       "elevation": 3,
-      "var": "VAR_ROUTE118_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route118_EventScript_StevenTrigger0"
     },
@@ -342,7 +342,7 @@
       "x": 44,
       "y": 11,
       "elevation": 3,
-      "var": "VAR_ROUTE118_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route118_EventScript_StevenTrigger1"
     },
@@ -351,7 +351,7 @@
       "x": 45,
       "y": 11,
       "elevation": 3,
-      "var": "VAR_ROUTE118_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route118_EventScript_StevenTrigger2"
     }

@@ -3,7 +3,7 @@
   "name": "Route121",
   "layout": "LAYOUT_ROUTE121",
   "music": "MUS_ROUTE120",
-  "region_map_section": "MAPSEC_ROUTE_121",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -426,7 +426,7 @@
       "x": 25,
       "y": 5,
       "elevation": 3,
-      "var": "VAR_ROUTE121_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route121_EventScript_AquaGruntsMoveOut"
     },
@@ -435,7 +435,7 @@
       "x": 25,
       "y": 6,
       "elevation": 3,
-      "var": "VAR_ROUTE121_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route121_EventScript_AquaGruntsMoveOut"
     },
@@ -444,7 +444,7 @@
       "x": 25,
       "y": 7,
       "elevation": 3,
-      "var": "VAR_ROUTE121_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route121_EventScript_AquaGruntsMoveOut"
     },
@@ -453,7 +453,7 @@
       "x": 25,
       "y": 8,
       "elevation": 3,
-      "var": "VAR_ROUTE121_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "Route121_EventScript_AquaGruntsMoveOut"
     }

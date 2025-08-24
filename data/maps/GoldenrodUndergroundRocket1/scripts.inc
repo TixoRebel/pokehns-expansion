@@ -320,7 +320,7 @@ GoldenrodUndergroundRocket1_EventScript_SilverTriggerTop::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_GOLDENROD_UNDERGROUND_SILVER, GoldenrodUndergroundRocket1_Movement_SilverEnterTop
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	waitmovement 0
 	msgbox GoldenrodUnderground_Text_SilverBefore, MSGBOX_DEFAULT
@@ -353,7 +353,7 @@ GoldenrodUndergroundRocket1_EventScript_SilverTriggerBot::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_GOLDENROD_UNDERGROUND_SILVER, GoldenrodUndergroundRocket1_Movement_SilverEnterBot
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	waitmovement 0
 	msgbox GoldenrodUnderground_Text_SilverBefore, MSGBOX_DEFAULT

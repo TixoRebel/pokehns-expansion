@@ -43,34 +43,34 @@ OlivineGym_EventScript_MoveLeft0::
 	return
 
 OlivineGym_EventScript_MoveLeft1::
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
 OlivineGym_EventScript_MoveLeft2::
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
 OlivineGym_EventScript_MoveLeft3::
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
 OlivineGym_EventScript_MoveLeft4::
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkLeft1
+	applymovement VAR_TEMP_0, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
@@ -126,34 +126,34 @@ OlivineGym_EventScript_MoveRight0::
 	return
 
 OlivineGym_EventScript_MoveRight1::
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
 	return
 
 OlivineGym_EventScript_MoveRight2::
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
 	return
 
 OlivineGym_EventScript_MoveRight3::
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
 	return
 
 OlivineGym_EventScript_MoveRight4::
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement VAR_TEMP_0, Common_Movement_WalkRight1
+	applymovement VAR_TEMP_0, Common_Movement_WalkRight
 	waitmovement 0
 	return
 

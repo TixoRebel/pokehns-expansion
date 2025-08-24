@@ -9,6 +9,7 @@
 #include "constants/flags.h"
 #include "constants/map_scripts.h"
 #include "field_message_box.h"
+#include "rtc.h"
 
 #define RAM_SCRIPT_MAGIC 51
 
@@ -75,6 +76,18 @@ void StopScript(struct ScriptContext *ctx)
     ctx->mode = SCRIPT_MODE_STOPPED;
     ctx->scriptPtr = NULL;
 }
+
+// HnS
+void GetObjectEventTrainerRangeFromTemplate(void)
+{
+    gSpecialVar_Result = gMapHeader.events->objectEvents[gSpecialVar_LastTalked - 1].trainerRange_berryTreeId;
+}
+
+// HnS
+// void DifficultyHardStyleToSet(void)
+// {
+//     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+// }
 
 bool8 RunScriptCommand(struct ScriptContext *ctx)
 {
@@ -636,4 +649,27 @@ void Script_RequestWriteVar_Internal(u32 varId)
     if (SPECIAL_VARS_START <= varId && varId <= SPECIAL_VARS_END)
         return;
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
+}
+
+// HnS
+void SetTimeBasedEncounters(void)
+{
+	RtcCalcLocalTime();
+    /*if ((gLocalTime.hours >= 6 && gLocalTime.hours <= 19) && (gSaveBlock1Ptr->tx_Mode_AlternateSpawns == 1))
+    {
+		VarSet(VAR_TIME_BASED_ENCOUNTER, 3); // Modern Spawns, Day
+	}
+    else if (gSaveBlock1Ptr->tx_Mode_AlternateSpawns == 1)
+    {
+		VarSet(VAR_TIME_BASED_ENCOUNTER, 4); // Modern Spawns, Night
+	}
+	else */
+    if ((gLocalTime.hours >= 6 && gLocalTime.hours <= 19))
+	{
+		VarSet(VAR_TIME_BASED_ENCOUNTER, 1); // Day
+	}
+	else
+    {
+		VarSet(VAR_TIME_BASED_ENCOUNTER, 2); // Night
+	}
 }

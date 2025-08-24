@@ -3,7 +3,7 @@
   "name": "Route116",
   "layout": "LAYOUT_ROUTE116",
   "music": "MUS_ROUTE104",
-  "region_map_section": "MAPSEC_ROUTE_116",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -435,7 +435,7 @@
       "x": 47,
       "y": 9,
       "elevation": 3,
-      "var": "VAR_ROUTE116_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "Route116_EventScript_BrineyTrigger"
     }

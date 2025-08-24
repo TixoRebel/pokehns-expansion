@@ -1688,7 +1688,7 @@
 	@ Prepares to start a wild battle against a 'species' at 'level' holding 'item'. Running this command will not affect
 	@ normal wild battles. You start the prepared battle with dowildbattle.
 	.macro setwildbattleshiny species:req, level:req, item=ITEM_NONE
-	.byte SCR_OP_DOWILDBATTLESHINY
+	.byte SCR_OP_DOWILDBATTLE @ SCR_OP_DOWILDBATTLESHINY ??
 	.2byte \species
 	.byte \level
 	.2byte \item

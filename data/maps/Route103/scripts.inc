@@ -138,7 +138,7 @@ Route103_EventScript_RivalExitFacingSouth::
 
 Route103_EventScript_RivalEnd::
 	removeobject LOCALID_ROUTE103_RIVAL
-	setvar VAR_BIRCH_LAB_STATE, 4
+	setvar VAR_GARBAGEVAR, 4
 	clearflag FLAG_GARBAGEFLAG
 	setflag FLAG_DEFEATED_RIVAL_ROUTE103
 	setvar VAR_OLDALE_RIVAL_STATE, 1

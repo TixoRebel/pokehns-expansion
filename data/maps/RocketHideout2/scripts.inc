@@ -183,11 +183,11 @@ RocketHideout2_Text_MurkrowUnlock:
 @============================================================================================================================================
 
 RocketHideout2_Trigger_PlayerMoveLeft::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	return
 RocketHideout2_Trigger_PlayerMoveRight::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
@@ -328,8 +328,8 @@ RocketHideout2_EventScript_DefeatedAriana::
 	applymovement LOCALID_ROCKETHIDEOUT2_LANCE, Common_Movement_WalkUp1
 	applymovement LOCALID_ROCKETHIDEOUT2_DRAGONITE, Common_Movement_WalkUp1
 	waitmovement 0
-	applymovement LOCALID_ROCKETHIDEOUT2_LANCE, Common_Movement_WalkRight1
-	applymovement LOCALID_ROCKETHIDEOUT2_DRAGONITE, Common_Movement_WalkRight1
+	applymovement LOCALID_ROCKETHIDEOUT2_LANCE, Common_Movement_WalkRight
+	applymovement LOCALID_ROCKETHIDEOUT2_DRAGONITE, Common_Movement_WalkRight
 	waitmovement 0
 	setflag FLAG_HIDE_MAHOGANY_ROCKETS
 	setflag FLAG_HIDE_ROCKETHIDEOUT2_ARIANA_AND_GRUNT
@@ -451,7 +451,7 @@ RocketHideout2_Trigger_Electrode::
 	msgbox RocketHideout2_Text_LanceSide, MSGBOX_DEFAULT
 	closemessage
 	turnobject LOCALID_ROCKETHIDEOUT2_LANCE, DIR_NORTH
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	release
 	end
@@ -524,7 +524,7 @@ RocketHideout2_EventScript_ElectrodeDone::
 	end
 
 RocketHideout2_Movement_PlayerMeetLanceTop:
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
 	return
 
@@ -677,14 +677,14 @@ RocketHideout_EventScript_Item_Thief::
 
 RocketHideout2_EventScript_LanceTriggerLeft::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	goto RocketHideout2_EventScript_Lance
 
 RocketHideout2_EventScript_LanceTriggerRight::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	goto RocketHideout2_EventScript_Lance

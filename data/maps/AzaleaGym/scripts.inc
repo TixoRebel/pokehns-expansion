@@ -27,7 +27,7 @@ AzaleaGym_EventScript_Trigger_1::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_LEFT1, DIR_NORTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT1, AzaleaGym_Movement_Ariados_Up
@@ -43,7 +43,7 @@ AzaleaGym_EventScript_Trigger_1::
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT1, AzaleaGym_Movement_Ariados_Up
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT1, AzaleaGym_Movement_Ariados_Down
 	waitmovement 0
@@ -62,7 +62,7 @@ AzaleaGym_EventScript_Trigger_5::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_MID1, DIR_SOUTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID1, AzaleaGym_Movement_Ariados_Down
@@ -80,7 +80,7 @@ AzaleaGym_EventScript_Trigger_5::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Down
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID1, AzaleaGym_Movement_Ariados_Up
 	waitmovement 0
@@ -100,7 +100,7 @@ AzaleaGym_EventScript_Trigger_2::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_MID1, DIR_NORTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID1, AzaleaGym_Movement_Ariados_Up
@@ -116,7 +116,7 @@ AzaleaGym_EventScript_Trigger_2::
 	applymovement LOCALID_AZALEA_ARIADOS_MID1, AzaleaGym_Movement_Ariados_Up
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID1, AzaleaGym_Movement_Ariados_Down
 	waitmovement 0
@@ -135,7 +135,7 @@ AzaleaGym_EventScript_Trigger_6::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_RIGHT1, DIR_SOUTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT1, AzaleaGym_Movement_Ariados_Down
@@ -153,7 +153,7 @@ AzaleaGym_EventScript_Trigger_6::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Down
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT1, AzaleaGym_Movement_Ariados_Up
 	waitmovement 0
@@ -173,7 +173,7 @@ AzaleaGym_EventScript_Trigger_3::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_RIGHT1, DIR_NORTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT1, AzaleaGym_Movement_Ariados_Up
@@ -193,7 +193,7 @@ AzaleaGym_EventScript_Trigger_3::
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT1, AzaleaGym_Movement_Ariados_Up
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT1, AzaleaGym_Movement_Ariados_Down
 	waitmovement 0
@@ -212,7 +212,7 @@ AzaleaGym_EventScript_Trigger_4::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_LEFT1, DIR_SOUTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT1, AzaleaGym_Movement_Ariados_Down
@@ -234,7 +234,7 @@ AzaleaGym_EventScript_Trigger_4::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Down
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT1, AzaleaGym_Movement_Ariados_Up
 	waitmovement 0
@@ -254,7 +254,7 @@ AzaleaGym_EventScript_Trigger_7::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_LEFT2, DIR_NORTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT2, AzaleaGym_Movement_Ariados_Up
@@ -264,7 +264,7 @@ AzaleaGym_EventScript_Trigger_7::
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT2, AzaleaGym_Movement_Ariados_Up
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT2, AzaleaGym_Movement_Ariados_Down
 	waitmovement 0
@@ -283,7 +283,7 @@ AzaleaGym_EventScript_Trigger_10::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_LEFT2, DIR_SOUTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT2, AzaleaGym_Movement_Ariados_Down
@@ -295,7 +295,7 @@ AzaleaGym_EventScript_Trigger_10::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Down
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_LEFT2, AzaleaGym_Movement_Ariados_Up
 	waitmovement 0
@@ -316,7 +316,7 @@ AzaleaGym_EventScript_Trigger_8::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_MID2, DIR_NORTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID2, AzaleaGym_Movement_Ariados_Up
@@ -332,7 +332,7 @@ AzaleaGym_EventScript_Trigger_8::
 	applymovement LOCALID_AZALEA_ARIADOS_MID2, AzaleaGym_Movement_Ariados_Up
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID2, AzaleaGym_Movement_Ariados_Down
 	waitmovement 0
@@ -351,7 +351,7 @@ AzaleaGym_EventScript_Trigger_12::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_RIGHT2, DIR_SOUTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT2, AzaleaGym_Movement_Ariados_Down
@@ -369,7 +369,7 @@ AzaleaGym_EventScript_Trigger_12::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Down
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT2, AzaleaGym_Movement_Ariados_Up
 	waitmovement 0
@@ -389,7 +389,7 @@ AzaleaGym_EventScript_Trigger_9::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_RIGHT2, DIR_NORTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT2, AzaleaGym_Movement_Ariados_Up
@@ -405,7 +405,7 @@ AzaleaGym_EventScript_Trigger_9::
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT2, AzaleaGym_Movement_Ariados_Up
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpUp
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_RIGHT2, AzaleaGym_Movement_Ariados_Down
 	waitmovement 0
@@ -424,7 +424,7 @@ AzaleaGym_EventScript_Trigger_11::
 	waitmovement 0
 	turnobject LOCALID_AZALEA_ARIADOS_MID2, DIR_SOUTH
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID2, AzaleaGym_Movement_Ariados_Down
@@ -442,7 +442,7 @@ AzaleaGym_EventScript_Trigger_11::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, AzaleaGym_Movement_Player_Down
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_JumpDown
 	waitmovement 0
 	applymovement LOCALID_AZALEA_ARIADOS_MID2, AzaleaGym_Movement_Ariados_Up
 	waitmovement 0

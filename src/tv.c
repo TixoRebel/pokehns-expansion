@@ -2432,10 +2432,10 @@ void TryPutSecretBaseSecretsOnAir(void)
             show->secretBaseSecrets.flags = VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) + (VarGet(VAR_SECRET_BASE_HIGH_TV_FLAGS) << 16);
             StorePlayerIdInRecordMixShow(show);
             show->secretBaseSecrets.language = gGameLanguage;
-            if (show->secretBaseSecrets.language == LANGUAGE_JAPANESE || gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language == LANGUAGE_JAPANESE)
+            if (show->secretBaseSecrets.language == LANGUAGE_JAPANESE || gSaveBlock1Ptr->secretBases[VarGet(VAR_GARBAGEVAR)].language == LANGUAGE_JAPANESE)
                 show->secretBaseSecrets.baseOwnersNameLanguage = LANGUAGE_JAPANESE;
             else
-                show->secretBaseSecrets.baseOwnersNameLanguage = gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language;
+                show->secretBaseSecrets.baseOwnersNameLanguage = gSaveBlock1Ptr->secretBases[VarGet(VAR_GARBAGEVAR)].language;
         }
     }
 }
@@ -5530,10 +5530,10 @@ static void DoTVShowTodaysRivalTrainer(void)
         default:
             sTVShowState = 7;
             break;
-        // case MAPSEC_SECRET_BASE:
+        // case MAPSEC_NONE:
         //     sTVShowState = 8;
         //     break;
-        // case MAPSEC_DYNAMIC:
+        // case MAPSEC_NONE:
         //     switch (show->rivalTrainer.mapLayoutId)
         //     {
         //     case LAYOUT_SS_TIDAL_CORRIDOR:
@@ -5693,7 +5693,7 @@ static void DoTVShowHoennTreasureInvestigators(void)
     {
     case 0:
         StringCopy(gStringVar1, GetItemName(show->treasureInvestigators.item));
-        // if (show->treasureInvestigators.location == MAPSEC_DYNAMIC)
+        // if (show->treasureInvestigators.location == MAPSEC_NONE)
         // {
         //     switch (show->treasureInvestigators.mapLayoutId)
         //     {

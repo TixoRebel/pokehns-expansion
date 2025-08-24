@@ -8,12 +8,12 @@ Route101_OnTransition:
 	end
 
 Route101_OnFrame:
-	map_script_2 VAR_ROUTE101_STATE, 0, Route101_EventScript_HideMapNamePopup
+	map_script_2 VAR_GARBAGEVAR, 0, Route101_EventScript_HideMapNamePopup
 	.2byte 0
 
 Route101_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_ROUTE101_STATE, 1
+	setvar VAR_GARBAGEVAR, 1
 	end
 
 Route101_EventScript_StartBirchRescue::
@@ -37,7 +37,7 @@ Route101_EventScript_StartBirchRescue::
 	waitmovement 0
 	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_ROUTE101_STATE, 2
+	setvar VAR_GARBAGEVAR, 2
 	releaseall
 	end
 
@@ -234,8 +234,8 @@ Route101_EventScript_BirchsBag::
 	setflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_BIRCH_LAB_STATE, 2
-	setvar VAR_ROUTE101_STATE, 3
+	setvar VAR_GARBAGEVAR, 2
+	setvar VAR_GARBAGEVAR, 3
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom

@@ -129,9 +129,9 @@ NationalPark2_EventScript_EnterSide::
 	lock
 	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	delay 20
 	clearflag FLAG_HIDE_BUG_CONTEST_ATTENDANT_SIDE

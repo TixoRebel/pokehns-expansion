@@ -20,6 +20,7 @@
 #include "constants/field_effects.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "braille_puzzles.h"
 
 static void FieldCallback_SweetScent(void);
 static void TrySweetScentEncounter(u8 taskId);
@@ -46,6 +47,8 @@ bool8 FldEff_SweetScent(void)
     taskId = CreateFieldMoveTask();
     gTasks[taskId].data[8] = (u32)StartSweetScentFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartSweetScentFieldEffect;
+    /*if ((!ShouldDoBrailleDigEffect()) || (gPlayerAvatar.flags & !PLAYER_AVATAR_FLAG_SURFING))
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);*/
     return FALSE;
 }
 
@@ -54,19 +57,25 @@ bool8 FldEff_SweetScent(void)
 
 void StartSweetScentFieldEffect(void)
 {
-    void *palBuffer;
     u32 taskId;
-    u32 palettes = ~(1 << (gSprites[GetPlayerAvatarSpriteId()].oam.paletteNum + 16) | (1 << 13) | (1 << 14) | (1 << 15));
 
     PlaySE(SE_M_SWEET_SCENT);
-    palBuffer = Alloc(PLTT_SIZE);
-    CpuFastCopy(gPlttBufferUnfaded, palBuffer, PLTT_SIZE);
-    CpuFastCopy(gPlttBufferFaded, gPlttBufferUnfaded, PLTT_SIZE);
-    BeginNormalPaletteFade(palettes, 4, 0, 8, RGB_RED);
-    taskId = CreateTask(TrySweetScentEncounter, 0);
-    gTasks[taskId].data[0] = 0;
-    StoreWordInTwoHalfwords((u16 *)&gTasks[taskId].tPalBuffer1, (u32) palBuffer);
-    FieldEffectActiveListRemove(FLDEFF_SWEET_SCENT);
+    if (ShouldDoBrailleSweetScentEffect())
+    {
+        DoBrailleSweetScentEffect();
+    }
+    else
+    {
+        void *palBuffer = Alloc(PLTT_SIZE);
+        u32 palettes = ~(1 << (gSprites[GetPlayerAvatarSpriteId()].oam.paletteNum + 16) | (1 << 13) | (1 << 14) | (1 << 15));
+        CpuFastCopy(gPlttBufferUnfaded, palBuffer, PLTT_SIZE);
+        CpuFastCopy(gPlttBufferFaded, gPlttBufferUnfaded, PLTT_SIZE);
+        BeginNormalPaletteFade(palettes, 4, 0, 8, RGB_RED);
+        taskId = CreateTask(TrySweetScentEncounter, 0);
+        gTasks[taskId].data[0] = 0;
+        StoreWordInTwoHalfwords((u16 *)&gTasks[taskId].tPalBuffer1, (u32) palBuffer);
+        FieldEffectActiveListRemove(FLDEFF_SWEET_SCENT);
+    }
 }
 
 static void *GetPalBufferPtr(u32 taskId)

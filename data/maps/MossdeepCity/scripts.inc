@@ -94,7 +94,7 @@ MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter::
 	removeobject LOCALID_MOSSDEEP_GRUNT_3
 	removeobject LOCALID_MOSSDEEP_GRUNT_4
 	delay 30
-	setvar VAR_MOSSDEEP_CITY_STATE, 2
+	setvar VAR_GARBAGEVAR, 2
 	setflag FLAG_GARBAGEFLAG
 	releaseall
 	end

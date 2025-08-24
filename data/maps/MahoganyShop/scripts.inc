@@ -83,13 +83,13 @@ MahoganyShop_EventScript_Raid::
 	turnobject LOCALID_MAHOGANYSHOP_LANCE, DIR_SOUTH
 	msgbox MahoganyMart1F_Text_Lance_SplitUp, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_MAHOGANYSHOP_DRAGONITE, Common_Movement_WalkRight1
+	applymovement LOCALID_MAHOGANYSHOP_DRAGONITE, Common_Movement_WalkRight
 	waitmovement 0
 	removeobject LOCALID_MAHOGANYSHOP_DRAGONITE
 	playse SE_EXIT
-	applymovement LOCALID_MAHOGANYSHOP_LANCE, Common_Movement_WalkRight1
+	applymovement LOCALID_MAHOGANYSHOP_LANCE, Common_Movement_WalkRight
 	waitmovement 0
-	applymovement LOCALID_MAHOGANYSHOP_LANCE, Common_Movement_WalkRight1
+	applymovement LOCALID_MAHOGANYSHOP_LANCE, Common_Movement_WalkRight
 	waitmovement 0
 	removeobject LOCALID_MAHOGANYSHOP_LANCE
 	playse SE_EXIT

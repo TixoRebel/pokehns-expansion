@@ -4,7 +4,7 @@ PetalburgCity_WallysHouse_MapScripts::
 	.byte 0
 
 PetalburgCity_WallysHouse_OnWarp:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther
+	map_script_2 VAR_GARBAGEVAR, 4, PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther
 	.2byte 0
 
 PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther::
@@ -13,7 +13,7 @@ PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther::
 	end
 
 PetalburgCity_WallysHouse_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_WallysHouse_EventScript_GiveHMSurf
+	map_script_2 VAR_GARBAGEVAR, 4, PetalburgCity_WallysHouse_EventScript_GiveHMSurf
 	.2byte 0
 
 PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
@@ -22,7 +22,7 @@ PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 	giveitem ITEM_HM_SURF
 	setflag FLAG_RECEIVED_HM_SURF
 	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
-	setvar VAR_PETALBURG_CITY_STATE, 5
+	setvar VAR_GARBAGEVAR, 5
 	releaseall
 	end
 

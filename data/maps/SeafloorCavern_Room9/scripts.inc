@@ -115,8 +115,8 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	applymovement VAR_0x8004, SeafloorCavern_Room9_Movement_ArchieExit
 	waitmovement 0
 	msgbox SeafloorCavern_Room9_Text_MaxieComeOnPlayer, MSGBOX_DEFAULT
-	setvar VAR_ROUTE128_STATE, 1
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 1
+	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_GARBAGEVAR, 1
 	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG

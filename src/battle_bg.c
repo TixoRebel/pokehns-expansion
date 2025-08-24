@@ -828,22 +828,22 @@ void DrawMainBattleBackground(void)
             LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
             LoadPalette(gBattleEnvironmentPalette_StadiumAqua, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
-        case MAP_BATTLE_SCENE_SIDNEY:
+        case MAP_BATTLE_SCENE_WILL:
             LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
             LoadPalette(gBattleEnvironmentPalette_StadiumSidney, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
-        case MAP_BATTLE_SCENE_PHOEBE:
+        case MAP_BATTLE_SCENE_KOGA:
             LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
             LoadPalette(gBattleEnvironmentPalette_StadiumPhoebe, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
-        case MAP_BATTLE_SCENE_GLACIA:
+        case MAP_BATTLE_SCENE_BRUNO:
             LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
             LoadPalette(gBattleEnvironmentPalette_StadiumGlacia, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
-        case MAP_BATTLE_SCENE_DRAKE:
+        case MAP_BATTLE_SCENE_KAREN:
             LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
             LoadPalette(gBattleEnvironmentPalette_StadiumDrake, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
@@ -1282,16 +1282,16 @@ bool8 LoadChosenBattleElement(u8 caseId)
             case MAP_BATTLE_SCENE_AQUA:
                 LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                 break;
-            case MAP_BATTLE_SCENE_SIDNEY:
+            case MAP_BATTLE_SCENE_WILL:
                 LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                 break;
-            case MAP_BATTLE_SCENE_PHOEBE:
+            case MAP_BATTLE_SCENE_KOGA:
                 LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                 break;
-            case MAP_BATTLE_SCENE_GLACIA:
+            case MAP_BATTLE_SCENE_BRUNO:
                 LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                 break;
-            case MAP_BATTLE_SCENE_DRAKE:
+            case MAP_BATTLE_SCENE_KAREN:
                 LZDecompressVram(gBattleEnvironmentTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                 break;
             case MAP_BATTLE_SCENE_FRONTIER:
@@ -1344,16 +1344,16 @@ bool8 LoadChosenBattleElement(u8 caseId)
             case MAP_BATTLE_SCENE_AQUA:
                 LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
                 break;
-            case MAP_BATTLE_SCENE_SIDNEY:
+            case MAP_BATTLE_SCENE_WILL:
                 LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
                 break;
-            case MAP_BATTLE_SCENE_PHOEBE:
+            case MAP_BATTLE_SCENE_KOGA:
                 LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
                 break;
-            case MAP_BATTLE_SCENE_GLACIA:
+            case MAP_BATTLE_SCENE_BRUNO:
                 LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
                 break;
-            case MAP_BATTLE_SCENE_DRAKE:
+            case MAP_BATTLE_SCENE_KAREN:
                 LZDecompressVram(gBattleEnvironmentTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
                 break;
             case MAP_BATTLE_SCENE_FRONTIER:
@@ -1406,16 +1406,16 @@ bool8 LoadChosenBattleElement(u8 caseId)
             case MAP_BATTLE_SCENE_AQUA:
                 LoadPalette(gBattleEnvironmentPalette_StadiumAqua, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
-            case MAP_BATTLE_SCENE_SIDNEY:
+            case MAP_BATTLE_SCENE_WILL:
                 LoadPalette(gBattleEnvironmentPalette_StadiumSidney, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
-            case MAP_BATTLE_SCENE_PHOEBE:
+            case MAP_BATTLE_SCENE_KOGA:
                 LoadPalette(gBattleEnvironmentPalette_StadiumPhoebe, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
-            case MAP_BATTLE_SCENE_GLACIA:
+            case MAP_BATTLE_SCENE_BRUNO:
                 LoadPalette(gBattleEnvironmentPalette_StadiumGlacia, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
-            case MAP_BATTLE_SCENE_DRAKE:
+            case MAP_BATTLE_SCENE_KAREN:
                 LoadPalette(gBattleEnvironmentPalette_StadiumDrake, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
             case MAP_BATTLE_SCENE_FRONTIER:

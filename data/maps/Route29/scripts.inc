@@ -20,16 +20,16 @@ Route29_Trigger_Monview::
 	message Route29_Text_PressAorB
 	waitbuttonpress
 	closemessage
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown
 	waitmovement 0
 	special RemoveCameraObject
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
 	end
 

@@ -372,7 +372,7 @@
       "x": 42,
       "y": 21,
       "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
@@ -381,7 +381,7 @@
       "x": 41,
       "y": 22,
       "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
@@ -390,7 +390,7 @@
       "x": 41,
       "y": 23,
       "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
@@ -399,7 +399,7 @@
       "x": 41,
       "y": 24,
       "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
@@ -408,7 +408,7 @@
       "x": 40,
       "y": 25,
       "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
@@ -417,7 +417,7 @@
       "x": 40,
       "y": 26,
       "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     }

@@ -39,7 +39,7 @@ RocketHideout3_EventScript_LancePassword::
 	playse SE_PIN
 	applymovement LOCALID_ROCKETHIDEOUT3_LANCE, Common_Movement_ExclamationMark
 	delay 20
-	applymovement LOCALID_ROCKETHIDEOUT3_LANCE, Common_Movement_WalkRight1
+	applymovement LOCALID_ROCKETHIDEOUT3_LANCE, Common_Movement_WalkRight
 	msgbox RocketHideout3_Text_LanceGetPassword, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ROCKETHIDEOUT3_LANCE, RocketHideout3_Movement_LanceLeave
@@ -366,16 +366,16 @@ RocketHideout3_EventScript_Giovanni::
 	end
 
 RocketHideout3_EventScript_FacingEastMurkrow::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement OBJ_EVENT_ID_PLAYER
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement OBJ_EVENT_ID_PLAYER
 	return
 
 RocketHideout3_EventScript_FacingWestMurkrow::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement OBJ_EVENT_ID_PLAYER
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement OBJ_EVENT_ID_PLAYER
 	return
 

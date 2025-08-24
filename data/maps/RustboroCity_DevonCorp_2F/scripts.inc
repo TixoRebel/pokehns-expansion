@@ -258,7 +258,7 @@ RustboroCity_DevonCorp_2F_EventScript_MatchCallScientist::
 	lock
 	faceplayer
 	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	goto_if_ge VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_DevonCorp_2F_EventScript_WorkOnNext
+	goto_if_ge VAR_GARBAGEVAR, 6, RustboroCity_DevonCorp_2F_EventScript_WorkOnNext
 	msgbox RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature, MSGBOX_DEFAULT
 	release
 	end

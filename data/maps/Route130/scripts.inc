@@ -3,7 +3,7 @@ Route130_MapScripts::
 	.byte 0
 
 Route130_OnTransition:
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route130_EventScript_CheckSetAbnormalWeather
+	call_if_ge VAR_GARBAGEVAR, 4, Route130_EventScript_CheckSetAbnormalWeather
 	specialvar VAR_RESULT, IsMirageIslandPresent
 	goto_if_eq VAR_RESULT, TRUE, Route130_EventScript_SetMirageIslandLayout
 @ Mirage Island isn't currently visible, hide any objects on the island. Only the first flag is actually associated with anything.

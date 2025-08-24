@@ -3,7 +3,7 @@
   "name": "PetalburgCity",
   "layout": "LAYOUT_PETALBURG_CITY",
   "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_PETALBURG_CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_CITY",
@@ -198,7 +198,7 @@
       "x": 8,
       "y": 10,
       "elevation": 3,
-      "var": "VAR_PETALBURG_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "PetalburgCity_EventScript_ShowGymToPlayer0"
     },
@@ -207,7 +207,7 @@
       "x": 8,
       "y": 11,
       "elevation": 3,
-      "var": "VAR_PETALBURG_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "PetalburgCity_EventScript_ShowGymToPlayer1"
     },
@@ -216,7 +216,7 @@
       "x": 8,
       "y": 12,
       "elevation": 3,
-      "var": "VAR_PETALBURG_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "PetalburgCity_EventScript_ShowGymToPlayer2"
     },
@@ -225,7 +225,7 @@
       "x": 8,
       "y": 13,
       "elevation": 3,
-      "var": "VAR_PETALBURG_CITY_STATE",
+      "var": "VAR_GARBAGEVAR",
       "var_value": "0",
       "script": "PetalburgCity_EventScript_ShowGymToPlayer3"
     },

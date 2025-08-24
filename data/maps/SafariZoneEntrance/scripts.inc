@@ -19,7 +19,7 @@ SafariZoneEntrance_EventScript_ExitSafari::
 	setflag FLAG_GOOD_LUCK_SAFARI_ZONE
 	msgbox SafariZone_South_Text_ExitEarlyThankYouForPlaying
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
 	release
 	end

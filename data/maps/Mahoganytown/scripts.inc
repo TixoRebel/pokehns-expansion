@@ -170,7 +170,7 @@ MahoganyTown_EventScript_MerchantAfter::
 	end
 
 MahoganyTown_EventScript_PushPlayer::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 

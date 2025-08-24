@@ -77,6 +77,13 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "party_menu.h"
+
+// #include "tx_randomizer_and_challenges.h"
+// #include "pokemon_storage_system.h" //tx_randomizer_and_challenges
+// #include "item.h"
+// #include "constants/items.h"
+#include "bug_contest.h"
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -183,6 +190,7 @@ static void TransitionMapMusic(void);
 static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u8, u16, u8);
 static u16 GetCenterScreenMetatileBehavior(void);
+static bool8 CanLearnFlashInParty(void); // HnS
 
 static void *sUnusedOverworldCallback;
 static u8 sPlayerLinkStates[MAX_LINK_PLAYERS];
@@ -1046,12 +1054,28 @@ bool32 Overworld_IsBikingAllowed(void)
         return TRUE;
 }
 
+// HnS
+static bool8 CanLearnFlashInParty(void)
+{
+    u8 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL))
+            break;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanLearnTeachableMove(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL), ItemIdToBattleMoveId(ITEM_HM05))) // ITEM_HM05 - ITEM_TM01))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 // Flash level of 0 is fully bright
 // Flash level of 1 is the largest flash radius
 // Flash level of 7 is the smallest flash radius
 // Flash level of 8 is fully black
 void SetDefaultFlashLevel(void)
 {
+    //if (CheckBagHasItem(ITEM_HM05_FLASH ,1) && CanLearnFlashInParty())
+    //    FlagSet(FLAG_SYS_USE_FLASH);
     if (!gMapHeader.cave)
         gSaveBlock1Ptr->flashLevel = 0;
     else if (FlagGet(FLAG_SYS_USE_FLASH))
@@ -1108,7 +1132,7 @@ static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
         case MAP_NUM(MAP_ROUTE128):
             return TRUE;
         default:
-            if (VarGet(VAR_SOOTOPOLIS_CITY_STATE) < 4)
+            if (VarGet(VAR_GARBAGEVAR) < 4)
                 return FALSE;
             switch (warp->mapNum)
             {
@@ -1149,9 +1173,9 @@ static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
 
 static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
 {
-    if (VarGet(VAR_MOSSDEEP_CITY_STATE) == 0)
+    if (VarGet(VAR_GARBAGEVAR) == 0)
         return FALSE;
-    else if (VarGet(VAR_MOSSDEEP_CITY_STATE) > 2)
+    else if (VarGet(VAR_GARBAGEVAR) > 2)
         return FALSE;
     else if (warp->mapGroup != MAP_GROUP(MAP_MOSSDEEP_CITY_SPACE_CENTER_1F))
         return FALSE;
@@ -1221,10 +1245,32 @@ void Overworld_ResetMapMusic(void)
     ResetMapMusic();
 }
 
+// HnS
+#define IS_MAP(mapGroupId, mapNumId) \
+    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(mapGroupId) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(mapNumId))
+
 void Overworld_PlaySpecialMapMusic(void)
 {
     u16 music = GetCurrLocationDefaultMusic();
 
+    // HnS - Inject Rocket Takeover override logic
+    if (VarGet(VAR_MAHOGANY_TOWN_STATE) == 16)
+    {
+        if (
+            IS_MAP(MAP_GOLDENROD_CITY, MAP_GOLDENROD_CITY) ||
+            IS_MAP(MAP_GOLDENROD_RADIO_TOWER, MAP_GOLDENROD_RADIO_TOWER) ||
+            IS_MAP(MAP_GOLDENROD_RADIO_TOWER1, MAP_GOLDENROD_RADIO_TOWER1) ||
+            IS_MAP(MAP_GOLDENROD_RADIO_TOWER2, MAP_GOLDENROD_RADIO_TOWER2) ||
+            IS_MAP(MAP_GOLDENROD_RADIO_TOWER3, MAP_GOLDENROD_RADIO_TOWER3) ||
+            IS_MAP(MAP_GOLDENROD_RADIO_TOWER5, MAP_GOLDENROD_RADIO_TOWER5) ||
+            IS_MAP(MAP_GOLDEN_ROD_UNDERGROUND1, MAP_GOLDEN_ROD_UNDERGROUND1) ||
+            IS_MAP(MAP_GOLDENROD_UNDERGROUND2, MAP_GOLDENROD_UNDERGROUND2)
+        )
+            if (music != GetCurrentMapMusic())
+                music = MUS_HG_ROCKET_TAKEOVER;
+    }
+
+    // HnS - Surfing Music and such
     if (music != MUS_ABNORMAL_WEATHER && music != MUS_NONE)
     {
         if (gSaveBlock1Ptr->savedMusic)
@@ -1475,6 +1521,37 @@ u8 GetCurrentRegionMapSectionId(void)
     return Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId;
 }
 
+// HnS
+// u8 NuzlockeGetCurrentRegionMapSectionId(void) //tx_randomizer_and_challenges @Kurausukun
+// {
+//     u8 regionMapSectionId = GetCurrentRegionMapSectionId();
+// 
+//     #ifndef NDEBUG
+//     MgbaPrintf(MGBA_LOG_DEBUG, "location.mapGroup=%d; location.mapNum=%d; location.regionMapSectionId=%d", gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId);
+//     #endif
+// 
+//     if (regionMapSectionId == MAPSEC_SAFARI_ZONE)
+//     {
+//         switch(gSaveBlock1Ptr->location.mapNum)
+//         {
+//         case MAP_NUM(MAP_SAFARI_ZONE_SOUTH):
+//             return MAPSEC_SAFARI_ZONE_AREA1;
+//         case MAP_NUM(MAP_SAFARI_ZONE_SOUTHWEST):
+//             return MAPSEC_SAFARI_ZONE_AREA2;
+//         case MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST):
+//             return MAPSEC_SAFARI_ZONE_AREA3;
+//         case MAP_NUM(MAP_SAFARI_ZONE_NORTH):
+//             return MAPSEC_SAFARI_ZONE_AREA4;
+//         case MAP_NUM(MAP_SAFARI_ZONE_SOUTHEAST):
+//             return MAPSEC_SAFARI_ZONE_AREA5;
+//         case MAP_NUM(MAP_SAFARI_ZONE_NORTHEAST):
+//             return MAPSEC_SAFARI_ZONE_AREA6;
+//         }
+//     }
+// 
+//     return regionMapSectionId;
+// }
+
 u8 GetCurrentMapBattleScene(void)
 {
     return Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->battleType;
@@ -1563,6 +1640,7 @@ const struct BlendSettings gTimeOfDayBlend[] =
 
 #define MORNING_HOUR_MIDDLE (MORNING_HOUR_BEGIN + ((MORNING_HOUR_END - MORNING_HOUR_BEGIN) / 2))
 
+// Hns NOTE - time stuff will be notably different after port, may want to manually adjust?
 void UpdateTimeOfDay(void)
 {
     s32 hours, minutes;
@@ -1614,6 +1692,18 @@ void UpdateTimeOfDay(void)
         gTimeBlend.weight = gTimeBlend.altWeight = DEFAULT_WEIGHT;
         gTimeBlend.startBlend = gTimeBlend.endBlend = gTimeOfDayBlend[TIME_DAY];
         gTimeOfDay = TIME_DAY;
+    }
+
+    // HnS port - Set Encounters
+    if (gTimeOfDay == TIME_MORNING || gTimeOfDay == TIME_NIGHT)
+    {
+        FlagSet(FLAG_NIGHT_POKEMON); // Hide night pokemon
+        FlagClear(FLAG_DAY_POKEMON); //Show day pokemon
+    }
+    else
+    {
+        FlagClear(FLAG_NIGHT_POKEMON); //Show night pokemon
+        FlagSet(FLAG_DAY_POKEMON); //Hide day pokemon
     }
 }
 
@@ -1824,6 +1914,39 @@ void CB2_WhiteOut(void)
     }
 }
 
+// HnS - why is it empty?
+void CB2_EndRoamerBattle(void){
+    
+}
+
+// HnS - bug catching contest
+void CB2_BugContestWhiteOut(void){
+    u8 state;
+
+    if (++gMain.state >= 120)
+    {
+        FieldClearVBlankHBlankCallbacks();
+        StopMapMusic();
+        // if (gSaveBlock1Ptr->tx_Challenges_NuzlockeHardcore && !FlagGet(FLAG_IS_CHAMPION)) //tx_randomizer_and_challenges
+        // {
+        //     ClearSaveData();
+        //     DoSoftReset();
+        // }
+        ResetSafariZoneFlag_();
+
+        ResetInitialPlayerAvatarState();
+        ScriptContext_Init();
+        UnlockPlayerFieldControls();
+        gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+        state = 0;
+        DoMapLoadLoop(&state);
+        SetFieldVBlankCallback();
+        SetMainCallback1(CB1_Overworld);
+        SetMainCallback2(CB2_Overworld);
+        ScriptContext_SetupScript(BugContest_EventScript_WhiteOut);
+    }
+}
+
 void CB2_LoadMap(void)
 {
     FieldClearVBlankHBlankCallbacks();
@@ -1888,6 +2011,23 @@ void CB2_ReturnToField(void)
         FieldClearVBlankHBlankCallbacks();
         SetMainCallback2(CB2_ReturnToFieldLocal);
     }
+}
+
+// HnS - ?
+void CB2_ReturnToField_SaveChallengesData(void)
+{
+    CB2_ReturnToField();
+    // if (IsOverworldLinkActive() == TRUE)
+    // {
+    //     SetMainCallback2(CB2_ReturnToFieldLink);
+    //     SaveData_TxRandomizerAndChallenges();
+    // }
+    // else
+    // {
+    //     FieldClearVBlankHBlankCallbacks();
+    //     SetMainCallback2(CB2_ReturnToFieldLocal);
+    //     SaveData_TxRandomizerAndChallenges();
+    // }
 }
 
 static void CB2_ReturnToFieldLocal(void)

@@ -4,7 +4,7 @@ Route104_MapScripts::
 	.byte 0
 
 Route104_OnFrame:
-	map_script_2 VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_StartSailToDewford
+	map_script_2 VAR_GARBAGEVAR, 1, Route104_EventScript_StartSailToDewford
 	.2byte 0
 
 Route104_EventScript_StartSailToDewford::
@@ -29,7 +29,7 @@ Route104_EventScript_HideWhiteHerbFlorist::
 	return
 
 Route104_EventScript_TrySetRivalPos::
-	goto_if_ge VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_DontSetRivalPos
+	goto_if_ge VAR_GARBAGEVAR, 1, Route104_EventScript_DontSetRivalPos
 	goto_if_set FLAG_MET_RIVAL_RUSTBORO, Route104_EventScript_DontSetRivalPos
 	goto_if_unset FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_DontSetRivalPos
 	setobjectxyperm LOCALID_ROUTE104_RIVAL, 17, 52
@@ -48,8 +48,8 @@ Route104_EventScript_Rival::
 Route104_EventScript_RivalTrigger::
 	lockall
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_RUSTBORO_CITY_STATE, 8
-	setvar VAR_ROUTE104_STATE, 2
+	setvar VAR_GARBAGEVAR, 8
+	setvar VAR_GARBAGEVAR, 2
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 10
@@ -400,11 +400,11 @@ Route104_EventScript_ArriveInDewford::
 	call Common_EventScript_StopBrineysBoatMusic
 	setflag FLAG_GARBAGEFLAG
 	hideobjectat LOCALID_ROUTE104_BOAT, MAP_ROUTE104
-	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
+	copyvar VAR_GARBAGEVAR, VAR_0x8008
 	resetobjectsubpriority LOCALID_PLAYER, MAP_ROUTE104
 	resetobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
-	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
+	setvar VAR_GARBAGEVAR, 0
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_DeliverLetterReminder
 	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_LandedInDewford
 	end

@@ -6,8 +6,8 @@ PetalburgCity_Gym_MapScripts::
 	.byte 0
 
 PetalburgCity_Gym_OnLoad:
-	goto_if_eq VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_OpenUnlockedDoors
-	call_if_ge VAR_PETALBURG_GYM_STATE, 7, PetalburgCity_Gym_EventScript_UnlockAllDoors
+	goto_if_eq VAR_GARBAGEVAR, 6, PetalburgCity_Gym_EventScript_OpenUnlockedDoors
+	call_if_ge VAR_GARBAGEVAR, 7, PetalburgCity_Gym_EventScript_UnlockAllDoors
 	end
 
 @ NOTE: Strength and OHKO rooms are misleading. Both are more accurately Critical-Hit
@@ -36,8 +36,8 @@ PetalburgCity_Gym_EventScript_UnlockAllDoors::
 	return
 
 PetalburgCity_Gym_OnTransition:
-	call_if_eq VAR_PETALBURG_GYM_STATE, 1, PetalburgCity_Gym_EventScript_MoveWallyToEntrance
-	call_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_MoveNormanToEntrance
+	call_if_eq VAR_GARBAGEVAR, 1, PetalburgCity_Gym_EventScript_MoveWallyToEntrance
+	call_if_lt VAR_GARBAGEVAR, 6, PetalburgCity_Gym_EventScript_MoveNormanToEntrance
 	call_if_set FLAG_SYS_GAME_CLEAR, PetalburgCity_Gym_EventScript_CheckNormanForRematch
 	end
 
@@ -53,16 +53,16 @@ PetalburgCity_Gym_EventScript_CheckNormanForRematch::
 	setorcopyvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_NONE
 	specialvar VAR_RESULT, IsTrainerReadyForRematch
 	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_Gym_EventScript_DontMoveNormanToFront
-	goto_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_Gym_EventScript_DontMoveNormanToFront
+	goto_if_eq VAR_GARBAGEVAR, 8, PetalburgCity_Gym_EventScript_DontMoveNormanToFront
 	setobjectxyperm LOCALID_PETALBURG_GYM_NORMAN, 4, 107
 	return
 
 PetalburgCity_Gym_EventScript_DontMoveNormanToFront::
-	setvar VAR_PETALBURG_GYM_STATE, 8
+	setvar VAR_GARBAGEVAR, 8
 	end
 
 PetalburgCity_Gym_OnWarp:
-	map_script_2 VAR_PETALBURG_GYM_STATE, 1, PetalburgCity_Gym_EventScript_TurnPlayerNorth
+	map_script_2 VAR_GARBAGEVAR, 1, PetalburgCity_Gym_EventScript_TurnPlayerNorth
 	.2byte 0
 
 PetalburgCity_Gym_EventScript_TurnPlayerNorth::
@@ -70,7 +70,7 @@ PetalburgCity_Gym_EventScript_TurnPlayerNorth::
 	end
 
 PetalburgCity_Gym_OnFrame:
-	map_script_2 VAR_PETALBURG_GYM_STATE, 1, PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial
+	map_script_2 VAR_GARBAGEVAR, 1, PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial
 	.2byte 0
 
 PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial::
@@ -88,7 +88,7 @@ PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox PetalburgCity_Gym_Text_DadGoCollectBadges, MSGBOX_DEFAULT
-	setvar VAR_PETALBURG_GYM_STATE, 2
+	setvar VAR_GARBAGEVAR, 2
 	releaseall
 	end
 
@@ -102,7 +102,7 @@ PetalburgCity_Gym_Movement_WallyExitGym:
 PetalburgCity_Gym_EventScript_Norman::
 	lock
 	faceplayer
-	switch VAR_PETALBURG_GYM_STATE
+	switch VAR_GARBAGEVAR
 	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
 	case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
 	case 4, PetalburgCity_Gym_EventScript_NormanTwoBadges
@@ -180,8 +180,8 @@ PetalburgCity_Gym_EventScript_BeginWallyTutorial::
 	call_if_eq VAR_0x8008, 3, PetalburgCity_Gym_EventScript_ExitGymWithWallyEast
 	removeobject LOCALID_PETALBURG_GYM_WALLY
 	setflag FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM
-	setvar VAR_PETALBURG_GYM_STATE, 1
-	setvar VAR_PETALBURG_CITY_STATE, 2
+	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_GARBAGEVAR, 2
 	clearflag FLAG_HIDE_PETALBURG_CITY_WALLY
 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
 	setflag FLAG_GARBAGEFLAG
@@ -375,7 +375,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_PETALBURG_GYM_STATE, 7
+	setvar VAR_GARBAGEVAR, 7
 	setflag FLAG_BADGE05_GET
 	special ResetHealLocationFromDewford
 @	call EventScript_HideMrBriney
@@ -445,7 +445,7 @@ PetalburgCity_Gym_EventScript_WallysDadArrives::
 	call_if_eq VAR_0x8008, 2, PetalburgCity_Gym_EventScript_ExitGymWithWallysDadEast
 	call_if_eq VAR_0x8008, 3, PetalburgCity_Gym_EventScript_ExitGymWithWallysDadWest
 	removeobject LOCALID_PETALBURG_GYM_WALLYS_DAD
-	setvar VAR_PETALBURG_CITY_STATE, 4
+	setvar VAR_GARBAGEVAR, 4
 	clearflag FLAG_GARBAGEFLAG
 	warp MAP_PETALBURG_CITY, 15, 8
 	waitstate
@@ -732,7 +732,7 @@ PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough::
 
 PetalburgCity_Gym_EventScript_SpeedRoomDoor::
 	lockall
-	goto_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_lt VAR_GARBAGEVAR, 6, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 85
 	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
@@ -760,7 +760,7 @@ PetalburgCity_Gym_EventScript_DoorLocked::
 @ VAR_0x8008 and VAR_0x8009 below are the x and y coordinates of the warp
 PetalburgCity_Gym_EventScript_AccuracyRoomDoor::
 	lockall
-	goto_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_lt VAR_GARBAGEVAR, 6, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 1
 	setvar VAR_0x8009, 98
 	msgbox PetalburgCity_Gym_Text_EnterAccuracyRoom, MSGBOX_YESNO

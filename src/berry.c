@@ -22,6 +22,7 @@ static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water);
 static u8 CalcBerryYield(struct BerryTree *tree);
 static u8 GetBerryCountByBerryTreeId(u8 id);
 static u16 GetStageDurationByBerryType(u8);
+void Berry_Ready(u8 taskId);
 static u8 GetDrainRateByBerryType(u8);
 static u8 GetWaterBonusByBerryType(u8);
 static u8 GetWeedingBonusByBerryType(u8);
@@ -2299,6 +2300,25 @@ void SetBerryTreesSeen(void)
             s16 y = gObjectEvents[i].currentCoords.y;
             if (left <= x && x <= right && top <= y && y <= bottom)
                 AllowBerryTreeGrowth(gObjectEvents[i].trainerRange_berryTreeId);
+        }
+    }
+}
+
+void Berry_Ready(u8 taskId)
+{
+    u8 i;
+    struct BerryTree *tree;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (gObjectEvents[i].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
+        {
+            tree = &gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(i)];
+            if (tree->stage != BERRY_STAGE_NO_BERRY)
+            {
+                tree->stage = BERRY_STAGE_FLOWERING;
+                BerryTreeGrow(tree);
+            }
         }
     }
 }

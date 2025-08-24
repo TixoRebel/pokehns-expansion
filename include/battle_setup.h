@@ -97,6 +97,7 @@ bool32 IsRematchTrainerIn(u16 mapGroup, u16 mapNum);
 u16 GetLastBeatenRematchTrainerId(u16 trainerId);
 bool8 ShouldTryRematchBattle(void);
 bool8 IsTrainerReadyForRematch(void);
+u8 GetMaxPartySize(void);
 void ShouldTryGetTrainerScript(void);
 u16 CountBattledRematchTeams(u16 trainerId);
 void TrainerBattleLoadArgs(const u8 *data);

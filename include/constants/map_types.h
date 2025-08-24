@@ -16,10 +16,10 @@
 #define MAP_BATTLE_SCENE_GYM          1
 #define MAP_BATTLE_SCENE_MAGMA        2
 #define MAP_BATTLE_SCENE_AQUA         3
-#define MAP_BATTLE_SCENE_SIDNEY       4
-#define MAP_BATTLE_SCENE_PHOEBE       5
-#define MAP_BATTLE_SCENE_GLACIA       6
-#define MAP_BATTLE_SCENE_DRAKE        7
+#define MAP_BATTLE_SCENE_WILL         4 // SIDNEY
+#define MAP_BATTLE_SCENE_KOGA         5 // PHOEBE
+#define MAP_BATTLE_SCENE_BRUNO        6 // GLACIA
+#define MAP_BATTLE_SCENE_KAREN        7 // DRAKE
 #define MAP_BATTLE_SCENE_FRONTIER     8
 
 #endif  // GUARD_CONSTANTS_MAP_TYPES_H
