@@ -212,6 +212,50 @@ static void DisplayCannotDismountBikeMessage(u8 taskId, bool8 isUsingRegisteredK
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, sText_CantDismountBike);
 }
 
+// HnS
+static void DisplayRadioMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField) //crystal radio logic
+{
+    if (!Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
+        if (gMapHeader.regionMapSectionId == MAPSEC_RUINS_OF_ALPH) 
+        {
+        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_UnownMessage);
+        PlayBGM(MUS_HG_RADIO_UNOWN);
+        }
+        else 
+        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RadioNoSignal);
+    else if (gMapHeader.regionMapSectionId == MAPSEC_RUINS_OF_ALPH) 
+    {
+        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_UnownMessage);
+        PlayBGM(MUS_HG_RADIO_UNOWN);
+    }
+    else
+    {
+        if(FlagGet(FLAG_HIDE_GOLDENROD_ROCKETS) == FALSE){
+            DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RocketRadio);
+            PlayBGM(MUS_HG_RADIO_ROCKET);}
+        else
+        {
+            static const u8 *const sOakRadioMessages[] =
+            {
+                gText_OakTalk_Clefairy,
+                gText_OakTalk_Lapras,
+                gText_OakTalk_Ampharos,
+                gText_OakTalk_Sudowoodo,
+                gText_OakTalk_RedGyarados,
+                gText_OakTalk_Unown,
+                gText_OakTalk_Snubbull,
+                gText_OakTalk_Slowpoke,
+                gText_OakTalk_LavenderTower,
+                gText_OakTalk_TentacruelWhirl,
+            };
+            SeedRng(gMain.vblankCounter1);  
+            const u8 *selectedMsg = sOakRadioMessages[Random() % ARRAY_COUNT(sOakRadioMessages)];
+            DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, selectedMsg);
+            PlayBGM(MUS_HG_RADIO_OAK);
+        }
+    }
+}
+
 static void Task_CloseCantUseKeyItemMessage(u8 taskId)
 {
     ClearDialogWindowAndFrame(0, TRUE);
@@ -1585,6 +1629,13 @@ void ItemUseOutOfBattle_TownMap(u8 taskId)
     {
         gTasks[taskId].func = ItemUseOnFieldCB_TownMap;
     }
+}
+
+// HnS
+void ItemUseOutOfBattle_Radio(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    DisplayRadioMessage(taskId, tUsingRegisteredKeyItem);
 }
 
 #undef tUsingRegisteredKeyItem

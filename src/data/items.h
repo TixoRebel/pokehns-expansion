@@ -12840,22 +12840,22 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_MagmaEmblem,
     },
 
-    [ITEM_CONTEST_PASS] =
-    {
-        .name = _("Contest Pass"),
-        .pluralName = _("Contest Passes"),
-        .price = 0,
-        .description = COMPOUND_STRING(
-            "The pass required\n"
-            "for entering\n"
-            "Pokémon Contests."),
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_ContestPass,
-        .iconPalette = gItemIconPalette_ContestPass,
-    },
+    // [ITEM_CONTEST_PASS] =
+    // {
+    //     .name = _("Contest Pass"),
+    //     .pluralName = _("Contest Passes"),
+    //     .price = 0,
+    //     .description = COMPOUND_STRING(
+    //         "The pass required\n"
+    //         "for entering\n"
+    //         "Pokémon Contests."),
+    //     .importance = 1,
+    //     .pocket = POCKET_KEY_ITEMS,
+    //     .type = ITEM_USE_BAG_MENU,
+    //     .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    //     .iconPic = gItemIcon_ContestPass,
+    //     .iconPalette = gItemIconPalette_ContestPass,
+    // },
 
     [ITEM_PARCEL] =
     {
@@ -14154,5 +14154,170 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    // HnS
+    [ITEM_CLEAR_BELL] = {    
+        .name = _("CLEAR BELL"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Old fashioned bell\n"
+            "that makes a\n"
+            "gentle ringing."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ClearBell,
+        .iconPalette = gItemIcon_Palette_ClearBell,
+    },
+
+    [ITEM_LOST_ITEM] = {    
+        .name = _("LOST ITEM"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "The POKéDOLL lost\n"
+            "by the copycat."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LostItem,
+        .iconPalette = gItemIcon_Palette_LostItem,
+    },
+
+    [ITEM_MACHINE_PART] = {    
+        .name = _("MACHINE PART"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Important machine\n"
+            "part stolen from\n"
+            "the POWER PLANT."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MachinePart,
+        .iconPalette = gItemIcon_Palette_MachinePart,
+    },
+
+    [ITEM_MYSTERY_EGG] = {    
+        .name = _("MYSTERY EGG"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Obtained from MR.\n"
+            "POKéMON. Who knows\n"
+            "what's inside?"),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MysteryEgg,
+        .iconPalette = gItemIcon_Palette_MysteryEgg,
+    },
+
+    [ITEM_PASS] = {    
+        .name = _("PASS"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A ticket for\n"
+            "riding the Magnet\n"
+            "Train."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Pass,
+        .iconPalette = gItemIcon_Palette_Pass,
+    },
+
+    [ITEM_RAINBOW_WING] = {    
+        .name = _("RAINBOW WING"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A mystical\n"
+            "rainbow feather\n"
+            "that sparkles."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RainbowWing,
+        .iconPalette = gItemIcon_Palette_RainbowWing,
+    },
+
+    [ITEM_RED_SCALE] = {    
+        .name = _("RED SCALE"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A scale from the\n"
+            "red GYARADOS.\n"
+            "It glows red."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RedScale,
+        .iconPalette = gItemIcon_Palette_RedScale,
+    },
+
+    [ITEM_SECRET_POTION] = {    
+        .name = _("SECRET POTION"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A fantastic\n"
+            "medicine from the\n"
+            "Cianwood pharmacy."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SecretPotion,
+        .iconPalette = gItemIcon_Palette_SecretPotion,
+    },
+
+    [ITEM_SILVER_WING] = {    
+        .name = _("SILVER WING"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A strange silvery\n"
+            "feather that\n"
+            "sparkles."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SilverWing,
+        .iconPalette = gItemIcon_Palette_SilverWing,
+    },
+
+    [ITEM_TIDAL_BELL] = {    
+        .name = _("TIDAL BELL"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Old-fashioned bell\n"
+            "with a gentle,\n"
+            "soothing sound."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TidalBell,
+        .iconPalette = gItemIcon_Palette_TidalBell,
+    },
+
+    [ITEM_RADIO] =
+    {
+        .name = _("RADIO"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A shiny new radio\n"
+            "that plays music."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Radio,
+        .iconPic = gItemIcon_Radio,
+        .iconPalette = gItemIconPalette_DevonParts,
     },
 };

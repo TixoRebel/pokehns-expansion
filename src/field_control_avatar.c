@@ -40,6 +40,8 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
+#include "constants/items.h"
+#include "bug_contest.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -235,6 +237,25 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
 
     if (input->pressedRButton && TryStartDexNavSearch())
         return TRUE;
+
+    // HnS
+    if (input->pressedRButton && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
+    {
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        {
+            gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_MACH_BIKE;
+            gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_ACRO_BIKE;
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+            PlaySE(SE_BIKE_BELL);
+        }
+        else
+        {
+            gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_ACRO_BIKE;
+            gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_MACH_BIKE;
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
+            PlaySE(SE_BIKE_BELL);
+        }
+    }
 
     if(input->input_field_1_2 && DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU)
     {
@@ -471,6 +492,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_TV;
     if (MetatileBehavior_IsPC(metatileBehavior) == TRUE)
         return EventScript_PC;
+    if (MetatileBehavior_IsHeadbuttTree(metatileBehavior) == TRUE) // HnS
+        return EventScript_Headbutt;
     if (MetatileBehavior_IsClosedSootopolisDoor(metatileBehavior) == TRUE)
         return EventScript_ClosedSootopolisDoor;
     if (MetatileBehavior_IsSkyPillarClosedDoor(metatileBehavior) == TRUE)
@@ -723,6 +746,24 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext_SetupScript(MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall);
             return TRUE;
         }
+        // HnS
+        //whirlpools appear below player
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE41) &&
+            gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE41))
+        {
+            SetObjectSubpriority(34, MAP_NUM(MAP_ROUTE41), MAP_GROUP(MAP_ROUTE41), (99+83));
+            SetObjectSubpriority(35, MAP_NUM(MAP_ROUTE41), MAP_GROUP(MAP_ROUTE41), (99+83));
+            SetObjectSubpriority(36, MAP_NUM(MAP_ROUTE41), MAP_GROUP(MAP_ROUTE41), (99+83));
+            SetObjectSubpriority(37, MAP_NUM(MAP_ROUTE41), MAP_GROUP(MAP_ROUTE41), (99+83));
+            SetObjectSubpriority(38, MAP_NUM(MAP_ROUTE41), MAP_GROUP(MAP_ROUTE41), (99+83));
+            SetObjectSubpriority(39, MAP_NUM(MAP_ROUTE41), MAP_GROUP(MAP_ROUTE41), (99+83));
+        }
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_DRAGONS_DEN2) &&
+            gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_DRAGONS_DEN2))
+        {
+            SetObjectSubpriority(23, MAP_NUM(MAP_DRAGONS_DEN2), MAP_GROUP(MAP_DRAGONS_DEN2), (99+83));
+            SetObjectSubpriority(24, MAP_NUM(MAP_DRAGONS_DEN2), MAP_GROUP(MAP_DRAGONS_DEN2), (99+83));
+        }
         if (UpdateVsSeekerStepCounter())
         {
             ScriptContext_SetupScript(EventScript_VsSeekerChargingDone);
@@ -731,6 +772,8 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     }
 
     if (SafariZoneTakeStep() == TRUE)
+        return TRUE;
+    if (BugContestCheckTimeLimit() == TRUE)
         return TRUE;
     if (CountSSTidalStep(1) == TRUE)
     {
