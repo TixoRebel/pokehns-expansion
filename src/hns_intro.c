@@ -353,7 +353,8 @@ static const struct SpriteTemplate sSpriteTemplate_PresentsText = {
 };
 
 
-#define tState gMain.state
+// #define tState gMain.state
+#define tState gTasks[taskId].data[0]
 void Task_HandleHnSIntro(u8 taskId)
 {
     switch (tState)
@@ -365,7 +366,7 @@ void Task_HandleHnSIntro(u8 taskId)
         SetVBlankCallback(VBlankCB_HnSIntro);
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
         InitHeap(gHeap, HEAP_SIZE);
-        ResetTasks();
+        // ResetTasks();
         ResetSpriteData();
         ResetPaletteFade();
         ResetTempTileDataBuffers();
@@ -378,16 +379,15 @@ void Task_HandleHnSIntro(u8 taskId)
         InitBgsFromTemplates(0, sBgTemplates_GameFreakScene, ARRAY_COUNT(sBgTemplates_GameFreakScene));
         break;
     case 1:
-        m4aSongNumStartOrChange(MUS_POKE_CENTER);
         LoadPalette(sBg3Pal_GameFreakPresents, 0x00, 0x20);
         DecompressAndCopyTileDataToVram(3, sBg3Tiles_GameFreakPresents, 0, 0, 0);
         DecompressAndCopyTileDataToVram(3, sBg3Map_GameFreakPresents, 0, 0, 1);
         LoadPalette(sSpritePals_GameFreakPresents, 0xD0, 0x20);
         break;
     case 2:
-        m4aSongNumStartOrChange(MUS_POKE_MART);
         if (!FreeTempTileDataBuffersIfPossible())
         {
+            ResetTasks();
             StartHnSIntroSequence();
             BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
             SetMainCallback2(CB2_HnSIntro);

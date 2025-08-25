@@ -1134,6 +1134,7 @@ static u8 SetUpCopyrightScreen(void)
         CreateTask(Task_HandleExpansionIntro, 0);
 // HnS = Heart & Soul
 #elif HNS_INTRO == TRUE
+        // ResetTasks();
         SetMainCallback2(CB2_HnSIntro);
         CreateTask(Task_HandleHnSIntro, 0);
 #else
