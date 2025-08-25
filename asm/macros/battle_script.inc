@@ -3,9 +3,6 @@
 	.byte 0x0
 	.endm
 
-	@ HnS TODO - do a full DIFF of this file (it's big)
-
-	@ HnS NOTE - Expansion uses "Instr" instead of "Ptr"
 	.macro accuracycheck failInstr:req, move:req
 	.byte 0x1
 	.4byte \failInstr
@@ -99,7 +96,6 @@
 	.4byte \ptr
 	.endm
 
-	@ DEBUG - check this syntax
 	.macro setadditionaleffects
 	1:
 	.byte 0x15
@@ -482,7 +478,6 @@
 	.byte \battler
 	.endm
 
-	@ HnS PORT - was only for substitute? now transform (the move, or any forms?)
 	.macro switchinanim battler:req, dontClearTransform:req, dontClearSubstitute:req
 	.byte 0x4e
 	.byte \battler

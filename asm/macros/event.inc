@@ -144,7 +144,6 @@
 	.4byte \source
 	.endm
 
-	@ HnS NOTE - Expansion added a safety check, otherwise identical
 	@ Changes the value of destination to value.
 	.macro setvar destination:req, value:req, warn=TRUE
 	.if \warn && ((\value >= VARS_START && \value <= VARS_END) || (\value >= SPECIAL_VARS_START && \value <= SPECIAL_VARS_END))
@@ -257,7 +256,6 @@
 		.endif
 	.endm
 
-	@ HnS NOTE - Expansion added "request effects" flag for additional functionality
 	@ Calls the native C function stored at func.
 	@ 'callnative's should set 'requests_effects=1' if the native
 	@ contains a call to 'Script_RequestEffects', which allows them
@@ -343,7 +341,6 @@
 	.byte SCR_OP_GETTIME
 	.endm
 
-	@ HnS USEFUL - easy way to identify time of day
 	@ Sets the values of variable VAR_0x8000 to the time of day according to those found in rtc.h.
 	@ 0 = MORNING, 1 = DAY, 2 = EVENING, 3 = NIGHT
 	.macro gettimeofday
@@ -629,7 +626,7 @@
 		.endif
 	.endm
 
-	@ HnS PORT - seems to keep follower loaded between transitions?
+	@ HnS - Scripts for Gen II side quests
 	@ crystal applymovement but doesnt remove follower. 
 	.macro applymovement2 localId:req, movements:req, map
 		.ifb \map
@@ -646,6 +643,7 @@
 	.endm
 
 	@ HnS - Scripts for Gen II side quests
+	@ TODO - replace byte hex value with a #define identifier
 	@ Gives the player a Pokémon. 1 = KENYA, 2 = SHUCKIE, 3 = EEVEE
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
 	.macro givenamedmon number:req
@@ -654,7 +652,7 @@
 	.endm
 
 	@ HnS - Scripts for Gen II side quests
-	@ HnS TODO - maybe switch to "MON_TAKEN_FROM_PARTY" or "MON_CANT_TAKE"?
+	@ TODO - replace byte hex value with a #define identifier
 	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
 	.macro removenamedmon number:req
@@ -663,8 +661,8 @@
 	.endm
 
 	@ HnS - Scripts for Gen II side quests
-	@ Removes Pokémon from player's party.
-	@ If species in VAR_0x8004 matches the species passed in as number, it will remove the mon.
+	@ TODO - replace byte hex value with a #define identifier
+	@ Removes Pokémon from player's party. If species in VAR_0x8004 matches the species passed in as number, it will remove the mon.
 	@ VAR_RESULT will be set to TRUE if it works. FALSE if it doesn't.
 	.macro removegenericmon number:req
 	.byte SCR_OP_REMOVEGENERICMON
@@ -672,17 +670,18 @@
 	.endm
 
 	@ HnS - Scripts for Gen II side quests
+	@ TODO - replace byte hex value with a #define identifier
 	@ New: Check Baoba target species in party slot VAR_0x8004.
 	@ Usage (script): baobacheckmon <1|2|3|4>
-	@ Result: gSpecialVar_Result = TRUE if the mon at VAR_0x8004 matches
-	@ the allowed species list for the given case; FALSE otherwise.
+	@ Result: gSpecialVar_Result = TRUE if the mon at VAR_0x8004 matches the allowed
+	@ species list for the given case; FALSE otherwise.
 	.macro baobacheckmon number:req
 	.byte SCR_OP_BAOBACHECKMON
 	.2byte \number
 	.endm
 
-	@ HNS NOTE - I don't understand the name/actual function of this? why 5mons?
 	@ HnS - Scripts for Gen II side quests
+	@ TODO - replace byte hex value with a #define identifier
 	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
 	.macro remove5mons 
@@ -766,12 +765,9 @@
 	.byte \direction
 	.endm
 
-	@ HnS PORT - where did these come from?
 	NULL = 0
 	OBJ_ID_NONE = 0
 
-	@ HnS PORT - Major Rework of trainerbattle. Should be more usable across the board.
-	@ HnS USEFUL - Can be called by any of the trainerbattle_XXX macros below.
 	@ Configures the arguments for a trainer battle, then jumps to the appropriate script in scripts/trainer_battle.inc
 	.macro trainerbattle type:req, localIdA:req, trainer_a:req, intro_text_a:req, lose_text_a:req, event_script_a:req, localIdB:req, trainer_b:req, intro_text_b:req, lose_text_b:req, event_script_b:req, victory_text:req, cannot_battle:req, isDouble:req, playMusicA:req, playMusicB:req, isRematch:req
 	.byte SCR_OP_TRAINERBATTLE
@@ -795,6 +791,62 @@
 	.4byte \victory_text        @ victoryText
 	.4byte \cannot_battle       @ cannotBattle
 	.endm
+
+@ HnS implementation
+@	@ Configures the arguments for a trainer battle, then jumps to the appropriate script in scripts/trainer_battle.inc
+@	.macro trainerbattle type:req, trainer:req, local_id:req, pointer1:req, pointer2, pointer3, pointer4
+@	.byte 0x5c
+@	.byte \type
+@	.2byte \trainer
+@	.2byte \local_id
+@	.if \type == TRAINER_BATTLE_SINGLE
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@		.4byte \pointer3 @ event script
+@	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@		.4byte \pointer3 @ event script
+@	.elseif \type == TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT
+@		.4byte \pointer1 @ text
+@	.elseif \type == TRAINER_BATTLE_DOUBLE
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@		.4byte \pointer3 @ text
+@	.elseif \type == TRAINER_BATTLE_REMATCH
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@		.4byte \pointer3 @ text
+@		.4byte \pointer4 @ event script
+@	.elseif \type == TRAINER_BATTLE_REMATCH_DOUBLE
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@		.4byte \pointer3 @ text
+@	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@		.4byte \pointer3 @ text
+@		.4byte \pointer4 @ event script
+@	.elseif \type == TRAINER_BATTLE_PYRAMID
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@	.elseif \type == TRAINER_BATTLE_SET_TRAINER_A
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@	.elseif \type == TRAINER_BATTLE_SET_TRAINER_B
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@	.elseif \type == TRAINER_BATTLE_HILL
+@		.4byte \pointer1 @ text
+@		.4byte \pointer2 @ text
+@	.endif
+@	.endm
 
 	NO_MUSIC = FALSE
 
@@ -840,12 +892,11 @@
 	@ Starts a double battle with the player against two trainers
 	@ Takes two trainers and defeat text for each
 	.macro trainerbattle_two_trainers trainer_a:req, lose_text_a:req, trainer_b:req, lose_text_b:req
-	trainerbattle TRAINER_BATTLE_TWO_TRAINERS_NO_INTRO, LOCALID_NONE, \trainer_a, NULL, \lose_text_a, NULL, LOCALID_NONE, \trainer_b, NULL, \lose_text_b, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+	trainerbattle TRAINER_BATTLE_TWO_TRAINERS_NO_INTRO, OBJ_ID_NONE, \trainer_a, NULL, \lose_text_a, NULL, OBJ_ID_NONE, \trainer_b, NULL, \lose_text_b, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
 	.endm
 
-	@ Starts a trainer battle using the battle information stored in RAM
-	@ (usually by the scripts in trainer_battle.inc, which are run by trainerbattle),
-	@ and blocks script execution until the battle finishes.
+	@ Starts a trainer battle using the battle information stored in RAM (usually by the scripts in trainer_battle.inc, which
+	@ are run by trainerbattle), and blocks script execution until the battle finishes.
 	.macro dotrainerbattle
 	.byte SCR_OP_DOTRAINERBATTLE
 	.endm
@@ -1051,8 +1102,6 @@
 	.byte \textTop
 	.endm
 
-	@ HnS PORT - Major Rework. Allows a far simpler one-stop-shop for generating a far more customized pokemon.
-	@ HnS TODO - can this be made to send it to box?
 	@ Gives the player a Pokémon of the specified species and level, and allows to customize extra parameters.
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
 	.macro givemon species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny, gmaxFactor, teraType, dmaxLevel
@@ -1289,7 +1338,6 @@
 	.4byte \products
 	.endm
 
-	@ HnS PORT USEFUL - Expansion added this for QOL
 	@ Used as the endpoint for a Pokemart item list
 	.macro pokemartlistend
 	.2byte ITEM_NONE
@@ -1619,13 +1667,11 @@
 	.2byte \count
 	.endm
 
-	@ HnS PORT - Notable Rework.
-	@ HnS TODO - can a isShiny flag be added?
 	@ Prepares to start a wild battle against a 'species' at 'level' holding 'item'.
 	@ If 'species2' is something other than SPECIES_NONE, then the battle is a double battle
 	@ that is also against 'species2' at 'level2' holding 'item2'.
 	@ Running this command will not affect normal wild battles. You start the prepared battle with dowildbattle.
-	@ If the player only has one Pokemon, the scripted double battle will be buggy.
+	@ If the player only has one Pokemon, a scripted double battle will be buggy.
 	.macro setwildbattle species:req, level:req, item=ITEM_NONE, species2=SPECIES_NONE, level2=0, item2=ITEM_NONE
 	.byte SCR_OP_SETWILDBATTLE
 	.2byte \species
@@ -1637,10 +1683,12 @@
 	.endm
 
 	@ HnS - may have an alternative in expansion, but at least used for the Red Gyarados
+	@ TODO - actually define SCR_OP_DOWILDBATTLESHINY wherever SCR_OP_SETWILDBATTLE is defined
+	@ 0xec
 	@ Prepares to start a wild battle against a 'species' at 'level' holding 'item'. Running this command will not affect
 	@ normal wild battles. You start the prepared battle with dowildbattle.
 	.macro setwildbattleshiny species:req, level:req, item=ITEM_NONE
-	.byte SCR_OP_SETWILDBATTLESHINY
+	.byte SCR_OP_DOWILDBATTLE @ SCR_OP_DOWILDBATTLESHINY ??
 	.2byte \species
 	.byte \level
 	.2byte \item
@@ -1944,7 +1992,7 @@
 	@ Checks if the player has enough space in their PC to hold quantity more of the specified item. Sets VAR_RESULT to
 	@ TRUE if there is room, or FALSE is there is no room.
 	.macro checkpcspace itemId:req, quantity=1
-	.byte SCR_OP_CHECKPCSPACE
+	.byte 0xe3
 	.2byte \itemId
 	.2byte \quantity
 	.endm
@@ -1953,7 +2001,7 @@
 	@ SCR_OP_CHECKPARTYMONLEVEL
 	@ Checks to see if the player has a Pokemon in their party. Result returns to VAR_RESULT
     .macro checkpartymonlevel level:req
-    .byte SCR_OP_CHECKPARTYMONLEVEL
+    .byte 0xe4
     .2byte \level
     .endm
 
@@ -1961,20 +2009,25 @@
 	@ SCR_OP_CALCULATEMONSTATS
 	@ re-calculates mon party
     .macro calculatemonstats
-    .byte SCR_OP_CALCULATEMONSTATS
+    .byte 0xe5
     .endm
 
 	@ HnS/Modern - set of scripts for various purposes
 	@ SCR_OP_DELETEPARTY
 	@ deletesparty
     .macro deleteparty
-    .byte SCR_OP_DELETEPARTY
+    .byte 0xe6
     .endm
 	
-	@ HnS PORT - removed callfunc, all uses should be replaced with callnative or gotonative
+	@ HnS/Modern - set of scripts for various purposes
+	@ SCR_OP_CALLFUNC
+	@ Like callnative, but function expects a ctx
+@	.macro callfunc func:req
+@	.byte 0xe7
+@	.4byte \func
+@	.endm
 
-	@ HnS TODO - add explanatory comments for this
-	.macro _dynmultichoice left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req, argv:vararg
+	.macro _dynmultichoice left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req argv:vararg
 	.byte SCR_OP_DYNMULTICHOICE
 	.2byte \left
 	.2byte \top
@@ -1993,7 +2046,7 @@
 	@ Lists of options are provided in argv.
 	@ If ignoreBPress is set to a non-zero value, then the user will not be allowed to back out of the multichoice with the B button.
 	@ For a simple menu supply DYN_MULTICHOICE_CB_NONE in callbacks.
-	.macro dynmultichoice left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, initialSelected:req, callbacks:req, argv:vararg
+	.macro dynmultichoice left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, initialSelected:req, callbacks:req argv:vararg
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, FALSE, \initialSelected, \callbacks, \argv
 	.endm
 
@@ -2217,7 +2270,7 @@
 	special CreateEnemyEventMon
 	.endm
 
-	@ HnS PORT TODO - May have Expansion alternative (but a useful macro if not)
+	@ HnS/Modern - may have expansion alternative, but a useful macro if not
 	@ SCR_OP_CHOOSEITEM
 	@ Opens the bag in the specified pocket and lets the Player choose an item.
 	@ This item can be used for scripting purposes and it's stored in VAR_ITEM_ID.
@@ -2568,7 +2621,6 @@
 	.2byte \dest
 	.endm
 
-	@ HnS NOTE USEFUL - suite of pokedex seen/caught flag getters/setters
 	@ Returns the state of the Pokedex Seen Flag to VAR_RESULT for the Pokemon with speciesId
 	.macro getseenmon species:req
 	callnative Scrcmd_getsetpokedexflag, requests_effects=1
@@ -2597,7 +2649,6 @@
 	.2byte FLAG_SET_CAUGHT
 	.endm
 
-	@ HnS PORT USEFUL - might be the alternative to baobacheckmon or used in other HnS-added macros
 	@ Check if the Player has speciesId in their party. OPEN_PARTY_SCREEN will have the player select a mon from their party. NO_PARTY_SCREEN will automatically check every mon in the player's party.
 	.macro checkspecies speciesId:req, mode=NO_PARTY_SCREEN
 	.if \mode == OPEN_PARTY_SCREEN
@@ -2650,7 +2701,6 @@
 	waitstate
 	.endm
 
-	@ HnS NOTE USEFUL - disable trainers locking eyes
 	@ Makes the trainer unable to see the player if executed.
 	@ This is a no-op if the player interacts with the trainer.
 	.macro cant_see_if, condition:req

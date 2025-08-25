@@ -2929,7 +2929,7 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 }
 
 // HnS
-// crystal
+//crystal
 bool8 ScrCmd_setwildbattleshiny(struct ScriptContext *ctx)
 {
     u16 species = ScriptReadHalfword(ctx);

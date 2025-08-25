@@ -255,13 +255,14 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_CHECKPARTYMONLEVEL			ScrCmd_checkpartymonlevel           requests_effects=1  @ 0xe6
 	script_cmd_table_entry SCR_OP_CALCULATEMONSTATS				ScrCmd_calculatemonstats            requests_effects=1  @ 0xe7
 	script_cmd_table_entry SCR_OP_DELETEPARTY					ScrCmd_deleteparty                  requests_effects=1  @ 0xe8
-	script_cmd_table_entry SCR_OP_APPLYMOVEMENT2				ScrCmd_applymovement2				requests_effects=1	@ 0xe9
-	script_cmd_table_entry SCR_OP_GIVENAMEDMON					ScrCmd_givenamedmon					requests_effects=1	@ 0xea
-	script_cmd_table_entry SCR_OP_REMOVENAMEDMON				ScrCmd_removenamedmon				requests_effects=1	@ 0xeb
-	script_cmd_table_entry SCR_OP_REMOVE5MONS					ScrCmd_remove5mons					requests_effects=1	@ 0xec
-	script_cmd_table_entry SCR_OP_SETWILDBATTLESHINY			ScrCmd_setwildbattleshiny           requests_effects=1  @ 0xed
-	script_cmd_table_entry SCR_OP_REMOVEGENERICMON				ScrCmd_removegenericmon				requests_effects=1	@ 0xee
-	script_cmd_table_entry SCR_OP_BAOBACHECKMON					ScrCmd_baobacheckmon				requests_effects=1	@ 0xef
+@	script_cmd_table_entry SCR_OP_CALLFUNC						ScrCmd_callfunc                     requests_effects=1  @ 0xe9
+	script_cmd_table_entry SCR_OP_APPLYMOVEMENT2				ScrCmd_applymovement2				requests_effects=1	@ 0xea
+	script_cmd_table_entry SCR_OP_GIVENAMEDMON					ScrCmd_givenamedmon					requests_effects=1	@ 0xeb
+	script_cmd_table_entry SCR_OP_REMOVENAMEDMON				ScrCmd_removenamedmon				requests_effects=1	@ 0xec
+	script_cmd_table_entry SCR_OP_REMOVE5MONS					ScrCmd_remove5mons					requests_effects=1	@ 0xed
+	script_cmd_table_entry SCR_OP_SETWILDBATTLESHINY			ScrCmd_setwildbattleshiny           requests_effects=1  @ 0xee
+	script_cmd_table_entry SCR_OP_REMOVEGENERICMON				ScrCmd_removegenericmon				requests_effects=1	@ 0xef
+	script_cmd_table_entry SCR_OP_BAOBACHECKMON					ScrCmd_baobacheckmon				requests_effects=1	@ 0xf0
 
 	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
