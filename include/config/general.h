@@ -67,7 +67,8 @@
 #define GEN_LATEST GEN_9
 
 // General settings
-#define EXPANSION_INTRO              TRUE    // If TRUE, a custom RHH intro will play after the vanilla copyright screen.
+#define HNS_INTRO                    FALSE    // If TRUE, a custom Heart & Soul intro will play after the vanilla copyright screen.
+#define EXPANSION_INTRO              TRUE   // If TRUE, a custom RHH intro will play after the vanilla copyright screen.
 #define HQ_RANDOM                    TRUE    // If TRUE, replaces the default RNG with an implementation of SFC32 RNG. May break code that relies on RNG.
 #define COMPETITIVE_PARTY_SYNTAX     TRUE    // If TRUE, parties are defined in "competitive syntax".
 #define AUTO_SCROLL_TEXT             FALSE   // If TRUE, text will automatically scroll to the next line after NUM_FRAMES_AUTO_SCROLL_DELAY. Players can still press A_BUTTON or B_BUTTON to scroll on their own.

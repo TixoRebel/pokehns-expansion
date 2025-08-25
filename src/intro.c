@@ -24,6 +24,7 @@
 #include "util.h"
 #include "title_screen.h"
 #include "expansion_intro.h"
+#include "hns_intro.h" // HnS TODO - port intro
 #include "constants/rgb.h"
 #include "constants/battle_anim.h"
 
@@ -45,11 +46,11 @@ static void Task_Scene1_End(u8);
 
 // Scene 1 supplemental functions
 static void IntroResetGpuRegs(void);
-static u8 CreateGameFreakLogoSprites(s16, s16, s16);
+static u8   CreateGameFreakLogoSprites(s16, s16, s16);
 static void Task_BlendLogoIn(u8);
 static void Task_BlendLogoOut(u8);
 static void Task_CreateSparkles(u8);
-static u8 CreateWaterDrop(s16, s16, u16, u16, u16, u8);
+static u8   CreateWaterDrop(s16, s16, u16, u16, u16, u8);
 static void SpriteCB_WaterDrop(struct Sprite *sprite);
 static void SpriteCB_WaterDrop_Slide(struct Sprite *);
 static void SpriteCB_WaterDrop_ReachLeafEnd(struct Sprite *);
@@ -106,8 +107,6 @@ static void SpriteCB_KyogreBubbles(struct Sprite *sprite);
 static void SpriteCB_Lightning(struct Sprite *sprite);
 static void SpriteCB_RayquazaOrb(struct Sprite *sprite);
 
-static void MainCB2_EndIntro(void);
-
 extern const struct CompressedSpriteSheet gBattleAnimPicTable[];
 extern const struct SpritePalette gBattleAnimPaletteTable[];
 extern const struct SpriteTemplate gAncientPowerRockSpriteTemplate;
@@ -117,6 +116,7 @@ enum {
     COPYRIGHT_EMULATOR_BLEND,
     COPYRIGHT_START_FADE = 140,
     COPYRIGHT_START_INTRO,
+    COPYRIGHT_END_INTRO
 };
 
 #define TAG_VOLBEAT   1500
@@ -181,6 +181,7 @@ static EWRAM_DATA u16 sFlygonYOffset = 0;
 COMMON_DATA u32 gIntroFrameCounter = 0;
 COMMON_DATA struct GcmbStruct gMultibootProgramStruct = {0};
 
+// Scenes
 static const u16 sIntroDrops_Pal[]            = INCBIN_U16("graphics/intro/scene_1/drops.gbapal");
 static const u16 sIntroLogo_Pal[]             = INCBIN_U16("graphics/intro/scene_1/logo.gbapal");
 static const u32 sIntroDropsLogo_Gfx[]        = INCBIN_U32("graphics/intro/scene_1/drops_logo.4bpp.lz");
@@ -207,6 +208,7 @@ static const u8 sUnusedData[] = {
     0x10, 0x11, 0x12, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 0x20, 0x21, 0x02, 0x0D, 0x0E, 0x0F, 0x10,
     0x11, 0x12, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x00
 };
+
 static const struct CompressedSpriteSheet sSpriteSheet_Sparkle[] =
 {
     {gIntroSparkle_Gfx, 0x400, TAG_SPARKLE},
@@ -1051,7 +1053,7 @@ void MainCB2_Intro(void)
         gIntroFrameCounter++;
 }
 
-static void MainCB2_EndIntro(void)
+void MainCB2_EndIntro(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitTitleScreen);
@@ -1102,6 +1104,10 @@ static u8 SetUpCopyrightScreen(void)
         REG_DISPCNT = DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON;
         SetSerialCallback(SerialCB_CopyrightScreen);
         GameCubeMultiBoot_Init(&gMultibootProgramStruct);
+#if HNS_INTRO == TRUE
+        m4aSongNumStart(MUS_HG_INTRO);
+#endif
+    // Expansion
     // REG_DISPCNT needs to be overwritten the second time, because otherwise the intro won't show up on VBA 1.7.2 and John GBA Lite emulators.
     // The REG_DISPCNT overwrite is NOT needed in m-GBA, No$GBA, VBA 1.8.0, My Boy and Pizza Boy GBA emulators.
     case COPYRIGHT_EMULATOR_BLEND:
@@ -1122,9 +1128,14 @@ static u8 SetUpCopyrightScreen(void)
     case COPYRIGHT_START_INTRO:
         if (UpdatePaletteFade())
             break;
+// Expansion
 #if EXPANSION_INTRO == TRUE
         SetMainCallback2(CB2_ExpansionIntro);
         CreateTask(Task_HandleExpansionIntro, 0);
+// HnS = Heart & Soul
+#elif HNS_INTRO == TRUE
+        SetMainCallback2(CB2_HnSIntro);
+        CreateTask(Task_HandleHnSIntro, 0);
 #else
         CreateTask(Task_Scene1_Load, 0);
         SetMainCallback2(MainCB2_Intro);
@@ -1148,6 +1159,10 @@ static u8 SetUpCopyrightScreen(void)
             SetSerialCallback(SerialCB);
         }
         return 0;
+    case COPYRIGHT_END_INTRO:
+        ResetSerial();
+        SetMainCallback2(MainCB2_EndIntro);
+        break;
     }
 
     return 1;
