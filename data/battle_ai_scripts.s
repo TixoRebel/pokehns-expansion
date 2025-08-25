@@ -1,4 +1,3 @@
-#include "config.h"
 #include "constants/battle.h"
 #include "constants/battle_ai.h"
 #include "constants/abilities.h"
