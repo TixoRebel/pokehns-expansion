@@ -93,7 +93,7 @@ NewBarkTown_EventScript_LeaveTrigger::
 	lock
 	call_if_eq VAR_NEWBARK_TOWN_STATE, 2, NewBarkTown_EventScript_LeaveTriggersState2
 	call_if_eq VAR_NEWBARK_TOWN_STATE, 4, NewBarkTown_EventScript_LeaveTriggersState4
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerStepBack
+	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepBack
 	waitmovement 0
 	release
 	end
@@ -147,7 +147,7 @@ NewBarkTown_EventScript_Silver::
 	msgbox NewBarkTown_Text_Silver2, MSGBOX_DEFAULT
 	playse SE_BANG
 	applymovement LOCALID_SILVER, NewBarkTown_Movement_SilverPushesPlayer
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTown_Movement_PlayerPushedBySilver
+	applymovement LOCALID_PLAYER, NewBarkTown_Movement_PlayerPushedBySilver
 	waitmovement 0
 	applymovement LOCALID_SILVER, Common_Movement_FaceOriginalDirection
 	waitmovement 0

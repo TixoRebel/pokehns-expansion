@@ -11,20 +11,20 @@ Celadon_Route16Gate_TriggerScript::
 Celadon_Route16Gate_NoBike::
 	msgbox Route110_SeasideCyclingRoadSouthEntrance_Text_TooDangerousToWalk, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	clearflag FLAG_SYS_CYCLING_ROAD
 	releaseall
 	end
 
 Celadon_Route16Gate_EnterCyclingRoad::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	setflag FLAG_SYS_CYCLING_ROAD
 	end
 
 Celadon_Route16Gate_ExitCyclingRoad::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	clearflag FLAG_SYS_CYCLING_ROAD
 	end

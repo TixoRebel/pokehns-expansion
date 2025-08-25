@@ -31,7 +31,7 @@ MagmaHideout_3F_1R_EntranceTrigger::
 	delay 40
 	waitmoncry
 	setvar VAR_ENTEI_EVENT, 1
-	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_3F_1R_EntranceTriggerMovement
+	applymovement LOCALID_PLAYER, MagmaHideout_3F_1R_EntranceTriggerMovement
 	waitmovement 0
 	msgbox MagmaHideout_3F_1R_EntranceTrigger_Text, MSGBOX_DEFAULT
 	waitmessage

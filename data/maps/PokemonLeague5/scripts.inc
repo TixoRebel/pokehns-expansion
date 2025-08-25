@@ -20,7 +20,7 @@ ChampionRoom_CloseDoor::
 	lock
 	setflag FLAG_TEMP_2
 	special DrawWholeMapView
-	applymovement OBJ_EVENT_ID_PLAYER, ChamionRoom_Movement_Enter
+	applymovement LOCALID_PLAYER, ChamionRoom_Movement_Enter
 	waitmovement 0
 	setvar VAR_TEMP_0, 1
 	release
@@ -37,7 +37,7 @@ ChamionRoom_Movement_Enter:
 
 ChampionRoom_Trigger::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	release
 	end
@@ -79,10 +79,10 @@ PokemonLeague1_EventScript_LanceOnDefeatJohto::
 	playse SE_PIN
 	applymovement LOCALID_LEAGUE_LANCE, Common_Movement_ExclamationMark
 	delay 40
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_PlayerMoveToCenter
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_PlayerMoveToCenter
 	applymovement LOCALID_LEAGUE_LANCE, PokemonLeague5_Movement_LanceMoveOver
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 	waitmovement LOCALID_LEAGUE_LANCE
 	addobject LOCALID_LEAGUE_MARY
 	addobject LOCALID_LEAGUE_OAK
@@ -106,14 +106,14 @@ PokemonLeague1_EventScript_LanceOnDefeatJohto::
 	closemessage
 	applymovement LOCALID_LEAGUE_LANCE, PokemonLeague5_Movement_LanceLeave
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_PlayerLeave
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_PlayerLeave
 	waitmovement LOCALID_LEAGUE_LANCE
 	@setobjectxyperm LOCALID_LEAGUE_LANCE, 6, 14
 	removeobject LOCALID_LEAGUE_LANCE
 	playse SE_EXIT
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 	special SpawnCameraObject
-	removeobject OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_PLAYER
 	playse SE_EXIT
 	waitse
 	delay 50
@@ -146,10 +146,10 @@ PokemonLeague1_EventScript_LanceOnDefeatKanto::
 	playse SE_PIN
 	applymovement LOCALID_LEAGUE_LANCE, Common_Movement_ExclamationMark
 	delay 40
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_PlayerMoveToCenter
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_PlayerMoveToCenter
 	applymovement LOCALID_LEAGUE_LANCE, PokemonLeague5_Movement_LanceMoveOver
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 	waitmovement LOCALID_LEAGUE_LANCE
 	addobject LOCALID_LEAGUE_MARY
 	addobject LOCALID_LEAGUE_OAK
@@ -173,14 +173,14 @@ PokemonLeague1_EventScript_LanceOnDefeatKanto::
 	closemessage
 	applymovement LOCALID_LEAGUE_LANCE, PokemonLeague5_Movement_LanceLeave
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_PlayerLeave
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_PlayerLeave
 	waitmovement LOCALID_LEAGUE_LANCE
 	@setobjectxyperm LOCALID_LEAGUE_LANCE, 6, 14
 	removeobject LOCALID_LEAGUE_LANCE
 	playse SE_EXIT
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 	special SpawnCameraObject
-	removeobject OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_PLAYER
 	playse SE_EXIT
 	waitse
 	delay 50
@@ -197,15 +197,15 @@ PokemonLeague1_EventScript_LanceOnDefeatKanto::
 	end
 
 PokemonLeague5_EventScript_AdjustPlayerFacingEast::
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_AdjustPlayerFacingEast
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_AdjustPlayerFacingEast
 	waitmovement 0
 	return
 PokemonLeague5_EventScript_AdjustPlayerFacingSouth::
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_AdjustPlayerFacingSouth
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_AdjustPlayerFacingSouth
 	waitmovement 0
 	return
 PokemonLeague5_EventScript_AdjustPlayerFacingWest::
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague5_Movement_AdjustPlayerFacingWest
+	applymovement LOCALID_PLAYER, PokemonLeague5_Movement_AdjustPlayerFacingWest
 	waitmovement 0
 	return
 

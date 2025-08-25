@@ -5,7 +5,7 @@ CeladonCityGym_MapScripts::
 CeladonCityGym_EventScript_Erika::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_CELADON_GYM, CeladonCityGym_EventScript_Erika_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_CELADON_GYM, CeladonCityGym_EventScript_Erika_Defeated
 	msgbox CeladonCityGym_Text_ErikaBeforeBattle, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_ERIKA, CeladonCityGym_Text_ErikaBeaten
 	message CeladonCityGym_Text_PlayerReceivedRainbowBadge
@@ -14,7 +14,7 @@ CeladonCityGym_EventScript_Erika::
 	msgbox CeladonCityGym_Text_ErikaExplainTM, MSGBOX_DEFAULT
 	giveitem ITEM_TM_GIGA_DRAIN
 	setflag FLAG_BADGE12_GET
-	setflag FLAG_DEFEATED_CELADON_GYM
+	setflag FLAG_DEFEATED_JOHTO_CELADON_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 12
 	call Common_EventScript_SetGymTrainers

@@ -29,7 +29,7 @@ Route29_Trigger_Monview::
 	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown
 	waitmovement 0
 	special RemoveCameraObject
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
 	end
 

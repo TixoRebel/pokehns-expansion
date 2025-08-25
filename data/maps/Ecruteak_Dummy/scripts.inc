@@ -36,7 +36,7 @@ EcruteakBellchimeTrail_EventScript_DoorTrigger::
 	opendoor 28, 12
 	waitdooranim
 	addobject OBJ_EVENT_ID_CAMERA
-	removeobject OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_PLAYER
 	closedoor 28, 12
 	applymovement OBJ_EVENT_ID_CAMERA, EcruteakBellchimeTrail_Movement_CameraPanUp
 	waitmovement 0

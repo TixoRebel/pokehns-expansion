@@ -100,7 +100,7 @@ NationalPark2_EventScript_JudgeScene::
 	setobjectxyperm LOCALID_BUGCONTEST_BOY, 16, 28
 	setobjectxyperm LOCALID_BUGCONTEST_ATTENDANT, 20, 26
 
-	setobjectmovementtype OBJ_EVENT_ID_PLAYER, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype LOCALID_PLAYER, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_BUGCONTEST_GIRL, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_BUGCONTEST_BC1, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_BUGCONTEST_BC2, MOVEMENT_TYPE_FACE_UP
@@ -110,7 +110,7 @@ NationalPark2_EventScript_JudgeScene::
 
 NationalPark2_EventScript_JudgeSceneActivate::
 	lockall
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	goto BugContestEventScript_Judging
 	end
 
@@ -119,7 +119,7 @@ NationalPark2_EventScript_Enter::
 	lock
 	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	setvar VAR_BUG_CONTEST_STATE, 2
 	release
@@ -129,9 +129,9 @@ NationalPark2_EventScript_EnterSide::
 	lock
 	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	delay 20
 	clearflag FLAG_HIDE_BUG_CONTEST_ATTENDANT_SIDE
@@ -160,7 +160,7 @@ NationalPark2_EventScript_RetireChoice::
 	goto_if_eq VAR_RESULT, TRUE, BugContest_EventScript_TimesUp
 	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	release
 	end

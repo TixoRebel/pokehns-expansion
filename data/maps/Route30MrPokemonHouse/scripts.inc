@@ -18,7 +18,7 @@ MrPokemonHouse_EventScript_GiveEgg::
 	turnobject LOCALID_MRPOKEMON, DIR_SOUTH
 	msgbox MrPokemonHouse_Text_Intro1, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, MrPokemonHouse_Movement_MeetMrPokemon
+	applymovement LOCALID_PLAYER, MrPokemonHouse_Movement_MeetMrPokemon
 	waitmovement 0
 	msgbox MrPokemonHouse_Text_Intro2, MSGBOX_DEFAULT
 
@@ -32,7 +32,7 @@ MrPokemonHouse_EventScript_GiveEgg::
 	playbgm MUS_HG_OAK, TRUE
 	applymovement LOCALID_ROUTE30_OAK, MrPokemonHouse_Movement_OakToPlayer
 	waitmovement 0 
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	msgbox MrPokemonHouse_Text_OakIntro, MSGBOX_DEFAULT
 	
 
@@ -48,7 +48,7 @@ MrPokemonHouse_EventScript_GiveEgg::
 	playse SE_EXIT
 	removeobject LOCALID_ROUTE30_OAK
 	setflag FLAG_DELIVERED_EGG
-	turnobject OBJ_EVENT_ID_PLAYER DIR_NORTH
+	turnobject LOCALID_PLAYER DIR_NORTH
 	fadedefaultbgm
 	msgbox MrPokemonHouse_Text_Heal, MSGBOX_DEFAULT
 	call Common_EventScript_OutOfCenterPartyHeal

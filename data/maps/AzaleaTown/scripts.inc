@@ -158,7 +158,7 @@ AzaleaTown_EventScript_SilverTriggerTop::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	applymovement LOCALID_AZALEA_TOWN_SILVER, AzaleaTown_Movement_Silver_EnterTop
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	msgbox AzaleaTown_Text_RivalBefore, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_STARTER_MON, 0, AzaleaTown_Silver_Battle_Cyndaquil
@@ -166,7 +166,7 @@ AzaleaTown_EventScript_SilverTriggerTop::
 	call_if_eq VAR_STARTER_MON, 2, AzaleaTown_Silver_Battle_Chikorita
 	msgbox AzaleaTown_Text_RivalAfter, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Movement_Player_LeaveTop
+	applymovement LOCALID_PLAYER, AzaleaTown_Movement_Player_LeaveTop
 	waitmovement 0
 	applymovement LOCALID_AZALEA_TOWN_SILVER, AzaleaTown_Movement_Silver_LeaveTop
 	waitmovement 0
@@ -185,7 +185,7 @@ AzaleaTown_EventScript_SilverTriggerBot::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	applymovement LOCALID_AZALEA_TOWN_SILVER, AzaleaTown_Movement_Silver_EnterBot
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	msgbox AzaleaTown_Text_RivalBefore, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_STARTER_MON, 0, AzaleaTown_Silver_Battle_Cyndaquil
@@ -193,7 +193,7 @@ AzaleaTown_EventScript_SilverTriggerBot::
 	call_if_eq VAR_STARTER_MON, 2, AzaleaTown_Silver_Battle_Chikorita
 	msgbox AzaleaTown_Text_RivalAfter, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Movement_Player_LeaveBot
+	applymovement LOCALID_PLAYER, AzaleaTown_Movement_Player_LeaveBot
 	waitmovement 0
 	applymovement LOCALID_AZALEA_TOWN_SILVER, AzaleaTown_Movement_Silver_LeaveBot
 	waitmovement 0
@@ -220,7 +220,7 @@ AzaleaTown_Silver_Battle_Chikorita::
 
 AzaleaTown_EventScript_GSBall::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Movement_PlayerGSBall
+	applymovement LOCALID_PLAYER, AzaleaTown_Movement_PlayerGSBall
 	waitmovement 0
 	clearflag FLAG_HIDE_AZALEA_TOWN_KURT
 	addobject LOCALID_AZALEA_TOWN_KURT_GS
@@ -240,11 +240,11 @@ AzaleaTown_EventScript_GSBall::
 	waitse
 	playse SE_M_PETAL_DANCE
 	turnobject LOCALID_AZALEA_TOWN_KURT_GS, DIR_WEST
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	playse SE_M_PETAL_DANCE
 	waitse
 	turnobject LOCALID_AZALEA_TOWN_KURT_GS, DIR_SOUTH
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	msgbox AzaleaTown_Text_Kurt3, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_AZALEA_TOWN_KURT_GS, AzaleaTown_Movement_KurtLeave

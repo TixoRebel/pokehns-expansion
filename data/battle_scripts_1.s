@@ -20,6 +20,9 @@
 
 	.section script_data, "aw", %progbits
 
+@ HnS PORT NOTE - HnS had a huge list "gBattleScriptsForMoveEffects"
+@ see battle_move_effects.h in src/data/ and include/constants
+
 BattleScript_DamageToQuarterTargetHP::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE

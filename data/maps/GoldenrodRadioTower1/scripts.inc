@@ -134,7 +134,7 @@ RadioTower1F_EventScript_ReceptionGiveRadio::
 	delay 60
 	turnobject LOCALID_GOLDENROD_RADIOTOWER_WHITNEY, DIR_EAST
 	delay 20
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox RadioTower1F_Text_Whitney2, MSGBOX_DEFAULT
 	closemessage
 	applymovement2 LOCALID_GOLDENROD_RADIOTOWER_WHITNEY, GoldenrodRadioTower_Movement_WhitneyLeave

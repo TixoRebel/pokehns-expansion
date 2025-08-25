@@ -2,7 +2,7 @@ SaffronCityGym_MapScripts::
 	.byte 0
 
 SaffronCityGym_EventScript_GymGuy::
-	goto_if_set FLAG_DEFEATED_SAFFRON_GYM, SaffronCityGym_EventScript_GymGuy2
+	goto_if_set FLAG_DEFEATED_JOHTO_SAFFRON_GYM, SaffronCityGym_EventScript_GymGuy2
 	msgbox SaffronCityGym_Text_GymGuideIntro, MSGBOX_NPC
 	end
 
@@ -33,7 +33,7 @@ SaffronCityGym_EventScript_Jared::
 SaffronCityGym_EventScript_Sabrina::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_SAFFRON_GYM, SaffronCityGym_EventScript_Sabrina_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_SAFFRON_GYM, SaffronCityGym_EventScript_Sabrina_Defeated
 	msgbox SaffronCityGym_Text_SabrinaIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_SABRINA, SaffronCityGym_Text_SabrinaWinLoss
 	message SaffronCityGym_Text_ReceivedMarshBadge
@@ -41,7 +41,7 @@ SaffronCityGym_EventScript_Sabrina::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox SaffronCityGym_Text_MarshBadgeInfo, MSGBOX_DEFAULT
 	setflag FLAG_BADGE13_GET
-	setflag FLAG_DEFEATED_SAFFRON_GYM
+	setflag FLAG_DEFEATED_JOHTO_SAFFRON_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 13
 	call Common_EventScript_SetGymTrainers

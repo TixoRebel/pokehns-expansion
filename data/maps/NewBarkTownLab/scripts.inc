@@ -26,21 +26,21 @@ NewBarkTownLab_EventScript_ElmAtComputer::
 
 NewBarkTownLab_EventScript_TriggerStartLabLeft::	
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLab_Movement_WalkRight
+	applymovement LOCALID_PLAYER, NewBarkTownLab_Movement_WalkRight
 	waitmovement 0
 	goto NewBarkTownLab_EventScript_TriggerStartLab
 	end
 
 NewBarkTownLab_EventScript_TriggerStartLabRight::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLab_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, NewBarkTownLab_Movement_WalkLeft
 	waitmovement 0
 	goto NewBarkTownLab_EventScript_TriggerStartLab
 	end
 
 NewBarkTownLab_EventScript_TriggerStartLab::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLabMovement_WalkToElm
+	applymovement LOCALID_PLAYER, NewBarkTownLabMovement_WalkToElm
 	waitmovement 0
 	goto NewBarkTownLab_EventScript_ElmIntro
 	end
@@ -108,14 +108,14 @@ NewBarkTownLab_EventScript_ElmAccepted::
 	waitmovement 0 
 	delay 50
 	applymovement LOCALID_ELM, NewBarkTownLab_Movement_CheckEmail
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLab_Movement_Look_Left
+	applymovement LOCALID_PLAYER, NewBarkTownLab_Movement_Look_Left
 	waitmovement 0
 	waitmovement 0
 	msgbox NewBarkTownLab_Text_ElmGotAnEmail, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ELM, NewBarkTownLab_Movement_ReturnFromEmail
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLab_Movement_Look_Up
+	applymovement LOCALID_PLAYER, NewBarkTownLab_Movement_Look_Up
 	waitmovement 0
 	delay 30
 	msgbox NewBarkTownLab_Text_ElmMissionFromMrPokemon, MSGBOX_DEFAULT
@@ -133,7 +133,7 @@ NewBarkTownLab_EventScript_TriggerReturnPlayer::
 	lock
 	msgbox NewBarkTownLab_Text_ElmWhereGoing, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLab_Movement_ReturnPlayer
+	applymovement LOCALID_PLAYER, NewBarkTownLab_Movement_ReturnPlayer
 	waitmovement 0
 	release
 	end
@@ -271,7 +271,7 @@ NewBarkTownLab_EventScript_TriggerAideGivePotion::
 	lock
 	applymovement LOCALID_AIDE1, NewBarkTownLab_Movement_Aide1WalkToPlayer
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox NewBarkTownLab_Text_AideGivePotion, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_POTION
@@ -280,7 +280,7 @@ NewBarkTownLab_EventScript_TriggerAideGivePotion::
 	setvar VAR_NEWBARKTOWN_LABSTATE, 3
 	applymovement LOCALID_AIDE1, NewBarkTownLab_Movement_Aide1LeavePlayer
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	release
 	end
 
@@ -300,7 +300,7 @@ NewBarkTownLab_EventScript_PoliceEpisode::
 	call_if_eq VAR_STARTER_MON, 0 NewBarkTownLab_EventScript_HideCyndaquil
 	call_if_eq VAR_STARTER_MON, 1 NewBarkTownLab_EventScript_HideTotodile
 	call_if_eq VAR_STARTER_MON, 2 NewBarkTownLab_EventScript_HideChikorita
-	applymovement OBJ_EVENT_ID_PLAYER, NeBarkTownLab_Movement_PlayerWalkToCop
+	applymovement LOCALID_PLAYER, NeBarkTownLab_Movement_PlayerWalkToCop
 	waitmovement 0
 	setflag FLAG_HIDE_LAB_POLICEMAN
 	turnobject LOCALID_COP DIR_WEST
@@ -323,7 +323,7 @@ NewBarkTownLab_EventScript_PoliceYes::
 	removeobject LOCALID_COP
 
 	@ setobjectxyperm LOCALID_COP, 25, 4
-	applymovement OBJ_EVENT_ID_PLAYER, NewBarkTownLab_Movement_PlayerStepsToElm
+	applymovement LOCALID_PLAYER, NewBarkTownLab_Movement_PlayerStepsToElm
 	waitmovement 0
 	msgbox NewBarkTownLab_Text_ElmAfterTheft1, MSGBOX_DEFAULT
 	msgbox NewBarkTownLab_Text_ElmAfterTheft2, MSGBOX_DEFAULT
@@ -405,7 +405,7 @@ NewBarkTownLab_EventScript_TriggerAideGiveBalls::
 	lock
 	applymovement LOCALID_AIDE1, NewBarkTownLab_Movement_Aide1WalkToPlayer
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox NewBarkTownLab_Text_AideGiveBalls, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_POKE_BALL, 5
@@ -414,7 +414,7 @@ NewBarkTownLab_EventScript_TriggerAideGiveBalls::
 	setvar VAR_NEWBARKTOWN_LABSTATE, 6
 	applymovement LOCALID_AIDE1, NewBarkTownLab_Movement_Aide1LeavePlayer
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	release
 	end
 

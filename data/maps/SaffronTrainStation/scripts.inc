@@ -53,10 +53,10 @@ SaffronStation_EventScript_BoardTrain::
 	closemessage
 	applymovement LOCALID_SAFFRON_STATION_ATTENDANT, SaffronStation_Movement_Attendant_Move_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, SaffronStation_Movement_WalktoTrain
+	applymovement LOCALID_PLAYER, SaffronStation_Movement_WalktoTrain
 	waitmovement 0
 	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	playse SE_EXIT
 	waitse
@@ -88,7 +88,7 @@ SaffronStation_EventScript_BoardTrain::
 SaffronStation_EventScript_ExitTrain::
 	lock
 	applymovement LOCALID_SAFFRON_STATION_ATTENDANT, SaffronStation_Movement_Attendant_Move_Up
-	applymovement OBJ_EVENT_ID_PLAYER, SaffronStation_Movement_ExitTrain
+	applymovement LOCALID_PLAYER, SaffronStation_Movement_ExitTrain
 	waitmovement 0
 	waitmovement 0
 	setvar VAR_TRAIN, 0

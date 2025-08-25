@@ -103,7 +103,7 @@ IndigoPlateau_EventScript_Psychic::
 IndigoPlateau_EventScript_PsychicTeleport::
 	msgbox IndigoPlateau_Text_TeleportGuyYes, MSGBOX_DEFAULT
 	closemessage
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	playbgm MUS_HG_NEW_BARK, TRUE
 	delay 60
 	playmoncry SPECIES_ABRA, CRY_MODE_NORMAL

@@ -166,11 +166,11 @@ CianwoodCity_EventScript_SuicuneTrigger::
 	waitmovement 0
 	waitmoncry
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 60
 	applymovement LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Movement_Suicune2
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
 	waitmoncry
 	applymovement LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Movement_Suicune3

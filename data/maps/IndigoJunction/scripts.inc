@@ -48,7 +48,7 @@ IndigoJunction_Trigger::
 IndigoJunction_EventScript_Kimono::
     msgbox VictoryRoadGate_Text_Kimono, MSGBOX_DEFAULT
     closemessage
-    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+    applymovement LOCALID_PLAYER, Common_Movement_WalkDown
     waitmovement 0
     release
     end 
@@ -56,7 +56,7 @@ IndigoJunction_EventScript_Kimono::
 IndigoJunction_EventScript_NotEnough::
     msgbox VictoryRoadGate_Text_NotEnoughBadges, MSGBOX_DEFAULT
     closemessage
-    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+    applymovement LOCALID_PLAYER, Common_Movement_WalkDown
     waitmovement 0
     release
     end

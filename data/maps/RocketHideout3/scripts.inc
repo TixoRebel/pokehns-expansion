@@ -156,7 +156,7 @@ RocketHideout3_Trigger_Silver::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	applymovement LOCALID_ROCKETHIDEOUT3_SILVER, RocketHideout3_Movement_SilverEnter
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox RocketHideout3_Text_Rival, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ROCKETHIDEOUT3_SILVER, RocketHideout3_Movement_SilverLeave
@@ -344,7 +344,7 @@ RocketHideout3_EventScript_Giovanni::
 	call_if_eq VAR_FACING, DIR_EAST, RocketHideout3_EventScript_FacingEastMurkrow
 	call_if_eq VAR_FACING, DIR_WEST, RocketHideout3_EventScript_FacingWestMurkrow
 
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	waitmovement LOCALID_ROCKETHIDEOUT3_MURKROW
 	playmoncry SPECIES_MURKROW, CRY_MODE_NORMAL
 	msgbox RocketHideout3_Text_MurkrowSpeak1, MSGBOX_DEFAULT
@@ -366,17 +366,17 @@ RocketHideout3_EventScript_Giovanni::
 	end
 
 RocketHideout3_EventScript_FacingEastMurkrow::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
-	waitmovement OBJ_EVENT_ID_PLAYER
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
+	waitmovement LOCALID_PLAYER
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
+	waitmovement LOCALID_PLAYER
 	return
 
 RocketHideout3_EventScript_FacingWestMurkrow::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
-	waitmovement OBJ_EVENT_ID_PLAYER
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
+	waitmovement LOCALID_PLAYER
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
+	waitmovement LOCALID_PLAYER
 	return
 
 RocketHideout3_EventScript_FacingEast::

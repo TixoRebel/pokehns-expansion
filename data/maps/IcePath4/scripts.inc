@@ -15,9 +15,9 @@ IcePath4_Trigger_Swinub_Jump::
 	goto_if_set FLAG_DAY_POKEMON, IcePath4_Trigger_Night
 	lock
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 30
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	delay 10
 	playmoncry SPECIES_SWINUB, CRY_MODE_NORMAL
 	applymovement LOCALID_ICEPATH4_STUCK_SWINUB, IcePath4_Movement_StuckSwinubJump0
@@ -65,13 +65,13 @@ IcePath4_EventScript_SwinubDislikedBerry::
 
 IcePath4_EventScript_SwinubBlowPlayerUp::
 	applymovement LOCALID_ICEPATH4_ICYWIND_SWINUB, IcePath4_Movement_JumpUp
-	applymovement OBJ_EVENT_ID_PLAYER, IcePath4_Movement_Player_BlownUp
+	applymovement LOCALID_PLAYER, IcePath4_Movement_Player_BlownUp
 	waitmovement 0
 	return
 
 IcePath4_EventScript_SwinubBlowPlayerLeft::
 	applymovement LOCALID_ICEPATH4_ICYWIND_SWINUB, IcePath4_Movement_JumpLeft
-	applymovement OBJ_EVENT_ID_PLAYER, IcePath4_Movement_Player_BlownLeft
+	applymovement LOCALID_PLAYER, IcePath4_Movement_Player_BlownLeft
 	waitmovement 0
 	return
 
@@ -105,13 +105,13 @@ IcePath4_EventScript_DelibirdDislikedBerry::
 
 IcePath4_EventScript_DelibirdBlowPlayerUp::
 	applymovement LOCALID_ICEPATH4_ICYWIND_DELIBIRD, IcePath4_Movement_JumpUp
-	applymovement OBJ_EVENT_ID_PLAYER, IcePath4_Movement_Player_BlownUp
+	applymovement LOCALID_PLAYER, IcePath4_Movement_Player_BlownUp
 	waitmovement 0
 	return
 
 IcePath4_EventScript_DelibirdBlowPlayerLeft::
 	applymovement LOCALID_ICEPATH4_ICYWIND_DELIBIRD, IcePath4_Movement_JumpLeft
-	applymovement OBJ_EVENT_ID_PLAYER, IcePath4_Movement_Player_BlownLeft
+	applymovement LOCALID_PLAYER, IcePath4_Movement_Player_BlownLeft
 	waitmovement 0
 	return
 

@@ -12,12 +12,12 @@ HallOfFame_EventScript_Cutscene::
 	lock
 	goto_if_set FLAG_IS_CHAMPION, HallOfFame_EventScript_CutsceneKantoChamp
 	applymovement LOCALID_HALLOFFAME_LANCE, HallOfFame_Movement_LanceEnter
-	applymovement OBJ_EVENT_ID_PLAYER, HallOfFame_Movement_PlayerEnter
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, HallOfFame_Movement_PlayerEnter
+	waitmovement LOCALID_PLAYER
 	waitmovement LOCALID_HALLOFFAME_LANCE
 	msgbox HallOfFame_LanceText, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 20
 	dofieldeffect FLDEFF_HALL_OF_FAME_RECORD
@@ -34,12 +34,12 @@ HallOfFame_EventScript_Cutscene::
 
 HallOfFame_EventScript_CutsceneKantoChamp::
 	applymovement LOCALID_HALLOFFAME_LANCE, HallOfFame_Movement_LanceEnter
-	applymovement OBJ_EVENT_ID_PLAYER, HallOfFame_Movement_PlayerEnter
-	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_PLAYER, HallOfFame_Movement_PlayerEnter
+	waitmovement LOCALID_PLAYER
 	waitmovement LOCALID_HALLOFFAME_LANCE
 	msgbox HallOfFame_Rematch_LanceText, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 20
 	dofieldeffect FLDEFF_HALL_OF_FAME_RECORD

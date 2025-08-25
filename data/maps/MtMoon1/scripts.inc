@@ -20,12 +20,12 @@ MtMoon1_EventScript_Silver::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	playse SE_PIN
 	applymovement2 LOCALID_MTMOON_SILVER, Common_Movement_ExclamationMark
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	delay 60
 	applymovement2 LOCALID_MTMOON_SILVER MtMoon1_Movement_WalkToPlayer
-	applymovement2 OBJ_EVENT_ID_PLAYER Common_Movement_WalkRight
+	applymovement2 LOCALID_PLAYER Common_Movement_WalkRight
 	waitmovement LOCALID_MTMOON_SILVER
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 	msgbox MtMoon1_Text_Rival_Before, MSGBOX_DEFAULT
 	goto_if_eq VAR_STARTER_MON, 0, MtMoon1_EventScript_Silver_Battle_Cyndaquil
 	goto_if_eq VAR_STARTER_MON, 1, MtMoon1_EventScript_Silver_Battle_Totodile

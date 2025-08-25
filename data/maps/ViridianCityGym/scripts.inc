@@ -5,8 +5,8 @@ ViridianCityGym_EventScript_Blue::
 	lock
 	faceplayer
 	goto_if_unset FLAG_HIDE_DOJO_BLUE, ViridianCityGym_EventScript_BlueAtDojo
-	goto_if_set FLAG_DEFEATED_VIRIDIAN_GYM, ViridianCityGym_EventScript_BlueGotoDojo
-	goto_if_set FLAG_DEFEATED_VIRIDIAN_GYM, ViridianCityGym_EventScript_Blue_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_VIRIDIAN_GYM, ViridianCityGym_EventScript_BlueGotoDojo
+	goto_if_set FLAG_DEFEATED_JOHTO_VIRIDIAN_GYM, ViridianCityGym_EventScript_Blue_Defeated
 	msgbox ViridianCityGym_Text_LeaderBlue_Before, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BLUE, ViridianCityGym_Text_LeaderBlue_Win
 	message ViridianCityGym_Text_ReceivedEarthBadge
@@ -15,7 +15,7 @@ ViridianCityGym_EventScript_Blue::
 	msgbox ViridianCityGym_Text_LeaderBlue_After, MSGBOX_DEFAULT
 	giveitem ITEM_TM_BULK_UP
 	setflag FLAG_BADGE16_GET
-	setflag FLAG_DEFEATED_VIRIDIAN_GYM
+	setflag FLAG_DEFEATED_JOHTO_VIRIDIAN_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 16
 	call Common_EventScript_SetGymTrainers
@@ -89,7 +89,7 @@ ViridianCityGym_Text_LeaderBlue_Epilogue:
 
 
 ViridianCityGym_EventScript_GymGuy::
-	goto_if_set FLAG_DEFEATED_VIRIDIAN_GYM, ViridianCityGym_EventScript_GymGuyAfter
+	goto_if_set FLAG_DEFEATED_JOHTO_VIRIDIAN_GYM, ViridianCityGym_EventScript_GymGuyAfter
 	msgbox ViridianCityGym_Text_Guide, MSGBOX_NPC
 	end
 

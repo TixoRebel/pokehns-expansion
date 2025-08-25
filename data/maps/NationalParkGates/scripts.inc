@@ -40,12 +40,12 @@ NationalParkGates_EventScript_AttendantStart::
 	end
 
 NationalParkGates_EventScript_AttendantEnterTop::
-	applymovement OBJ_EVENT_ID_PLAYER, NationalParkGates_Movement_Player_EnterParkTop
+	applymovement LOCALID_PLAYER, NationalParkGates_Movement_Player_EnterParkTop
 	waitmovement 0
 	return
 
 NationalParkGates_EventScript_AttendantEnterBot::
-	applymovement OBJ_EVENT_ID_PLAYER, NationalParkGates_Movement_Player_EnterParkBot
+	applymovement LOCALID_PLAYER, NationalParkGates_Movement_Player_EnterParkBot
 	waitmovement 0
 	return
 
@@ -132,12 +132,12 @@ NationalParkGates_EventScript_BAttendantStart::
 
 
 NationalParkGates_EventScript_AttendantBEnterTop::
-	applymovement OBJ_EVENT_ID_PLAYER, NationalParkGates_Movement_Player_EnterParkTopB
+	applymovement LOCALID_PLAYER, NationalParkGates_Movement_Player_EnterParkTopB
 	waitmovement 0
 	return
 
 NationalParkGates_EventScript_AttendantBEnterBot::
-	applymovement OBJ_EVENT_ID_PLAYER, NationalParkGates_Movement_Player_EnterParkBotB
+	applymovement LOCALID_PLAYER, NationalParkGates_Movement_Player_EnterParkBotB
 	waitmovement 0
 	return
 

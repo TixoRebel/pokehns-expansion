@@ -69,7 +69,7 @@ VioletCity_EventScript_EarlTrainerSchoolSouth::
 	applymovement LOCALID_VIOLETCITY_EARL, VioletCity_Movement_Earl_South_Adjustment
 	waitmovement 0
 	applymovement LOCALID_VIOLETCITY_EARL, VioletCity_Movement_Earl_Spin
-	applymovement OBJ_EVENT_ID_PLAYER, VioletCity_Movement_Player_South_Adjustment
+	applymovement LOCALID_PLAYER, VioletCity_Movement_Player_South_Adjustment
 	waitmovement 0
 	waitmovement 0
 	goto VioletCity_EventScript_EarlTrainerSchoolTransition
@@ -78,7 +78,7 @@ VioletCity_EventScript_EarlTrainerSchoolSouth::
 
 VioletCity_EventScript_EarlTrainerSchoolEast::
 	applymovement LOCALID_VIOLETCITY_EARL, VioletCity_Movement_Earl_East_Adjustment
-	applymovement OBJ_EVENT_ID_PLAYER, VioletCity_Movement_Player_East_Adjustment
+	applymovement LOCALID_PLAYER, VioletCity_Movement_Player_East_Adjustment
 	waitmovement 0
 	waitmovement 0
 	goto VioletCity_EventScript_EarlTrainerSchoolTransition
@@ -87,7 +87,7 @@ VioletCity_EventScript_EarlTrainerSchoolEast::
 
 VioletCity_EventScript_EarlTrainerSchoolTransition:
 	applymovement LOCALID_VIOLETCITY_EARL, VioletCity_Movement_Walk_To_School
-	applymovement OBJ_EVENT_ID_PLAYER, VioletCity_Movement_Walk_To_School
+	applymovement LOCALID_PLAYER, VioletCity_Movement_Walk_To_School
 	waitmovement 0
 	waitmovement 0
 	applymovement LOCALID_VIOLETCITY_EARL, VioletCity_Movement_Earl_Spin

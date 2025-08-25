@@ -23,7 +23,7 @@ MahoganyShop_EventScript_Raid::
 	playbgm MUS_HG_TEAM_ROCKET_HQ, TRUE
 	lock
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 60
 	msgbox MahoganyMart1F_Text_Lance_HyperBeam, MSGBOX_DEFAULT
 	closemessage
@@ -55,9 +55,9 @@ MahoganyShop_EventScript_Raid::
 	playmoncry SPECIES_DRAGONITE, CRY_MODE_NORMAL
 	waitmovement 0
 	applymovement LOCALID_MAHOGANYSHOP_LANCE, MahoganyShop_Movement_LanceGotoBox
-	applymovement OBJ_EVENT_ID_PLAYER, MahoganyShop_Movement_PlayerGotoBox
+	applymovement LOCALID_PLAYER, MahoganyShop_Movement_PlayerGotoBox
 	waitmovement LOCALID_MAHOGANYSHOP_LANCE
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 
 	playse SE_M_HYPER_BEAM
 	applymovement LOCALID_MAHOGANYSHOP_DRAGONITE, MahoganyShop_Movement_Dragonite2

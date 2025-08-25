@@ -29,9 +29,9 @@ EliteFourRoom_OnFrame::
 EliteFourRoom_CloseDoor::
 	lock
 	setflag FLAG_TEMP_2
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	setmetatile 5, 11, 0x29D, TRUE
 	setmetatile 6, 11, 0x29E, TRUE

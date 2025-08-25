@@ -11,11 +11,11 @@ GoldenrodDeptElevator_EventScript_Exit::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 9, 4
 	closedoor 10, 6
@@ -27,15 +27,15 @@ GoldenrodDeptElevator_EventScript_Exit::
 
 GoldenrodDeptElevator_EventScript_Elevator::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	delay 8
 	opendoor 9, 4
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	closedoor 9, 4
 	closedoor 10, 6
@@ -118,11 +118,11 @@ GoldenrodDeptElevator_EventScript_Cancel::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 9, 4
 	closedoor 10, 6
@@ -145,11 +145,11 @@ CeladonDeptElevator_EventScript_Exit::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 6, 1
 	closedoor 10, 6
@@ -161,15 +161,15 @@ CeladonDeptElevator_EventScript_Exit::
 
 CeladonDeptElevator_EventScript_Elevator::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	delay 8
 	opendoor 6, 1
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	closedoor 6, 1
 	closedoor 10, 6
@@ -235,11 +235,11 @@ CeladonDeptElevator_EventScript_Cancel::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0	
 	closedoor 6, 1
 	closedoor 10, 6

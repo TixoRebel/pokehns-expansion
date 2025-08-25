@@ -48,7 +48,7 @@
 #include "constants/pokedex.h"
 #include "constants/pokemon.h"
 #include "constants/rtc.h"
-#include "constants/sliding_puzzles.h"		@ HnS - for the Ruins of Alph tile puzzle ?
+#include "constants/sliding_puzzles.h"			@ HnS - for the Ruins of Alph tile puzzle ?
 @ #include "constants/pokemon_size_record.h"	@ HnS/Modern - for pokemon size sidequests
 #include "constants/roulette.h"
 #include "constants/script_menu.h"
@@ -96,7 +96,7 @@ gSpecialVars::
 	.4byte gSpecialVar_MonBoxPos
 	.4byte gSpecialVar_Unused_0x8014
 	.4byte gTrainerBattleParameter + 2 // gTrainerBattleParameter.params.opponentA
-	@ .4byte gTrainerBattleOpponent_A @ HnS/Modern - outdated?
+	@ .4byte gTrainerBattleOpponent_A  @ HnS PORT - expansion has changed the approach to this
 
 	.include "data/specials.inc"
 
@@ -351,7 +351,7 @@ gStdScripts_End::
 	.include "data/maps/Route114_LanettesHouse/scripts.inc"
 	.include "data/maps/Route116_TunnelersRestHouse/scripts.inc"
 	.include "data/maps/Route117_PokemonDayCare/scripts.inc"
-	.include "data/maps/Route121_SafariZoneEntrance/scripts.inc"
+	.include "data/maps/Route121_SafariZoneEntrance/scripts.inc" @ HnS PORT DEBUG - this and others need to be re-confirmed
 	.include "data/maps/MeteorFalls_1F_1R/scripts.inc"
 	.include "data/maps/MeteorFalls_1F_2R/scripts.inc"
 	.include "data/maps/MeteorFalls_B1F_1R/scripts.inc"
@@ -575,8 +575,8 @@ gStdScripts_End::
 	.include "data/maps/Route110_TrickHousePuzzle6/scripts.inc"
 	.include "data/maps/Route110_TrickHousePuzzle7/scripts.inc"
 	.include "data/maps/Route110_TrickHousePuzzle8/scripts.inc"
-	.include "data/maps/Route110_SeasideCyclingRoadSouthEntrance/scripts.inc"
 	.include "data/maps/Route110_SeasideCyclingRoadNorthEntrance/scripts.inc"
+	.include "data/maps/Route110_SeasideCyclingRoadSouthEntrance/scripts.inc"
 	.include "data/maps/Route113_GlassWorkshop/scripts.inc"
 	.include "data/maps/Route123_BerryMastersHouse/scripts.inc"
 	.include "data/maps/Route119_WeatherInstitute_1F/scripts.inc"
@@ -592,17 +592,21 @@ gStdScripts_End::
 	.include "data/scripts/config.inc"
 	.include "data/scripts/debug.inc"
 
+@ HnS PORT TODO - Disabled Briney Scripts for port, re-add them alongside functional maps
 EventScript_WhiteOut::
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 	@ goto EventScript_ResetMrBriney
 	end
 
+@ HnS PORT TODO - Disabled different Pre-Roxanne whiteout message
+@ However, could easily switch to Pre-Falkner
 EventScript_AfterWhiteOutHeal::
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	@ call_if_unset FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsgPreRoxanne
 	@ call_if_set FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsg
+	call EventScript_AfterWhiteOutHealMsg
 	applymovement VAR_LAST_TALKED, Movement_PkmnCenterNurse_Bow
 	waitmovement 0
 	fadedefaultbgm
@@ -628,7 +632,7 @@ EventScript_AfterWhiteOutMomHeal::
 	releaseall
 	end
 
-@ DO NOT remove Briney scripts rather than just invalidating - creates more work
+@ HnS PORT TODO - Disabled Briney Scripts
 EventScript_ResetMrBriney::
 	goto_if_eq VAR_GARBAGEVAR, 1, EventScript_MoveMrBrineyToHouse
 	goto_if_eq VAR_GARBAGEVAR, 2, EventScript_MoveMrBrineyToDewford
@@ -667,12 +671,13 @@ EventScript_MoveMrBrineyToRoute109::
 	clearflag FLAG_GARBAGEFLAG
 	end
 
-@ HnS - maybe rename to IndigoPlateau_HallOfFame_EventScript_ResetEliteFour ??
+@ HnS PORT TODO - maybe rename to IndigoPlateau_HallOfFame_EventScript_ResetEliteFour ??
+@ Alternatively, make generic for use in multiple versions
 EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
-	clearflag FLAG_DEFEATED_ELITE_4_WILL	@ SIDNEY
-	clearflag FLAG_DEFEATED_ELITE_4_KOGA	@ PHOEBE
-	clearflag FLAG_DEFEATED_ELITE_4_BRUNO	@ GLACIA
-	clearflag FLAG_DEFEATED_ELITE_4_KAREN	@ DRAKE
+	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_WILL	@ SIDNEY
+	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_KOGA	@ PHOEBE
+	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_BRUNO	@ GLACIA
+	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_KAREN	@ DRAKE
 	setvar VAR_ELITE_4_STATE, 0
 	return
 
@@ -736,6 +741,7 @@ EventScript_BackupMrBrineyLocation::
 	.include "data/scripts/rival_graphics.inc"
 	.include "data/scripts/set_gym_trainers.inc"
 
+@ HnS PORT NOTE - seems to be used in Expansion to disengage with signs?
 EventScript_CancelMessageBox::
 	special UseBlankMessageToCancelPokemonPic
 	release
@@ -935,7 +941,6 @@ gText_UnusedNicknameReceivedPokemon::
 	.string "Want to give a nickname to\n"
 	.string "the {STR_VAR_2} you received?$"
 
-@ Hns/Modern
 gText_PlayerWhitedOut::
 	.string "{PLAYER} is out of usable\n"
 	.string "POKéMON!\p{PLAYER} whited out!$"

@@ -368,7 +368,7 @@
 // Used for link player OWs in CreateLinkPlayerSprite
 #define OBJ_EVENT_ID_DYNAMIC_BASE 0xF0
 #define OBJ_EVENT_ID_CAMERA LOCALID_CAMERA
-#define OBJ_EVENT_ID_PLAYER LOCALID_PLAYER
+#define OBJ_EVENT_ID_PLAYER LOCALID_PLAYER // HnS PORT NOTE - no instances of OBJ_EVENT_ID_PLAYER should remain, but keeping this define just in case
 
 // Moved from src/event_object_movement.c so that they're accesible from other files.
 #define OBJ_EVENT_PAL_TAG_BRENDAN                 0x1100

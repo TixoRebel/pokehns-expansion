@@ -71,9 +71,9 @@ SaffronCitySilphCo_EventScript_AfterStarterGiven::
 	end
 
 SaffronCitySilphCo_EventScript_PlayerMove:
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	return
 
 SaffronCitySilphCo_Movement_StevenLeave:

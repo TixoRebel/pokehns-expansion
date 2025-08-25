@@ -56,14 +56,14 @@ PlayersHouse1_EventScript_Mom_Regular::
 
 PlayersHouse1_EventScript_MomsIntroTrigger1::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse1_PlayerIntroMovement1
+	applymovement LOCALID_PLAYER, PlayersHouse1_PlayerIntroMovement1
 	waitmovement 0
 	goto PlayersHouse1_EventScript_MomsIntro
 	end
 
 PlayersHouse1_EventScript_MomsIntroTrigger2::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse1_PlayerIntroMovement2
+	applymovement LOCALID_PLAYER, PlayersHouse1_PlayerIntroMovement2
 	waitmovement 0
 	goto PlayersHouse1_EventScript_MomsIntro
 	end

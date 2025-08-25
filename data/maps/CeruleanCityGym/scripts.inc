@@ -26,7 +26,7 @@ CeruleanCityGym_EventScript_RocketGrunt::
 	waitmovement 0
 	msgbox CeruleanGym_Text_GruntBye, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, CeruleanCityGym_Movement_PlayerSlide
+	applymovement LOCALID_PLAYER, CeruleanCityGym_Movement_PlayerSlide
 	delay 10
 	applymovement LOCALID_CERULEAN_GYM_ROCKET, CeruleanCityGym_Movement_GruntLeave
 	waitmovement 0
@@ -134,7 +134,7 @@ CeruleanGym_EventScript_Parker::
 	end
 
 CeruleanCityGym_EventScript_GymGuy::
-	goto_if_set FLAG_DEFEATED_CERULEAN_GYM, CeruleanCityGym_EventScript_GymGuyAfter
+	goto_if_set FLAG_DEFEATED_JOHTO_CERULEAN_GYM, CeruleanCityGym_EventScript_GymGuyAfter
 	msgbox CeruleanGym_Text_GuideIntro, MSGBOX_NPC
 	end
 
@@ -165,14 +165,14 @@ CeruleanGym_Text_Note:
 CeruleanCityGym_EventScript_Misty::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_CERULEAN_GYM, CeruleanCityGym_EventScript_Misty_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_CERULEAN_GYM, CeruleanCityGym_EventScript_Misty_Defeated
 	msgbox CeruleanGym_Text_MistyIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_MISTY, CeruleanGym_Text_MistyWinLoss
 	message CeruleanGym_Text_ReceivedBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_BADGE10_GET
-	setflag FLAG_DEFEATED_CERULEAN_GYM
+	setflag FLAG_DEFEATED_JOHTO_CERULEAN_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 10
 	call Common_EventScript_SetGymTrainers

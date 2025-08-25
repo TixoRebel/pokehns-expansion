@@ -19,7 +19,7 @@ ShoalCave_LowTideIceRoom_Suicune_EntranceTrigger::
 	delay 40
 	waitmoncry
 	setvar VAR_SUICUNE_EVENT, 1
-	applymovement OBJ_EVENT_ID_PLAYER, ShoalCave_LowTideIceRoom_Suicune_EntranceTriggerMovement
+	applymovement LOCALID_PLAYER, ShoalCave_LowTideIceRoom_Suicune_EntranceTriggerMovement
 	waitmovement 0
 	msgbox ShoalCave_LowTideIceRoom_Suicune_EntranceTrigger_Text, MSGBOX_DEFAULT
 	waitmessage

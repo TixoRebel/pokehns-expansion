@@ -105,7 +105,7 @@ BurnedTower1_EventScript_Silver::
 	playse SE_PIN
 	applymovement LOCALID_BURNED_TOWER_SILVER, Common_Movement_ExclamationMark
 	delay 60
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	applymovement LOCALID_BURNED_TOWER_SILVER, Common_Movement_WalkLeft
 	waitmovement 0
 	waitmovement 0
@@ -127,7 +127,7 @@ BurnedTower1_EventScript_Silver::
 	waitse
 	delay 60
 	special SpawnCameraObject
-	removeobject OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_PLAYER
 	playse SE_FALL
 	delay 60
 	msgbox BurnedTowerSilver_AfterText2, MSGBOX_AUTOCLOSE

@@ -32,7 +32,7 @@ IcePath1_Trigger_KimonoGirl::
 	lock
 	msgbox IcePath1_Text_Leave, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	release
 	end
@@ -44,7 +44,7 @@ IcePath1_EventScript_KimonoGirlPush::
 	msgbox IcePath1_Text_Shove, MSGBOX_AUTOCLOSE
 	closemessage
 	playse SE_LEDGE
-	applymovement OBJ_EVENT_ID_PLAYER, IcePath_Movement_PlayerJump
+	applymovement LOCALID_PLAYER, IcePath_Movement_PlayerJump
 	waitmovement 0
 	waitse
 	playse SE_M_ICY_WIND

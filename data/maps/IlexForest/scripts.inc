@@ -176,11 +176,11 @@ IlexForest_EventScript_Farfetchd_Done::
 
 IlexForest_EventScript_TriggerBot::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER Common_Movement_WalkUp
+	applymovement LOCALID_PLAYER Common_Movement_WalkUp
 	waitmovement 0
 IlexForest_EventScript_Trigger::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	msgbox IlexForest_Text_CharcoalMasterIntro, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_HM_CUT
@@ -270,12 +270,12 @@ IlexForest_EventScript_Celebi_Event::
 	waitmovement 0
 	playse SE_M_PETAL_DANCE
 	applymovement LOCALID_ILEX_FOREST_CELEBI, IlexForest_Movement_Celebi2
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	waitmovement 0
 	playse SE_M_PETAL_DANCE
 	applymovement LOCALID_ILEX_FOREST_CELEBI, IlexForest_Movement_Celebi3
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
@@ -293,7 +293,7 @@ IlexForest_EventScript_Kurt::
 	addobject LOCALID_ILEX_FOREST_KURT
 	applymovement LOCALID_ILEX_FOREST_KURT, IlexForest_Movement_Kurt1
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	msgbox IlexForest_Text_KurtCaughtCelebi, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ILEX_FOREST_KURT, IlexForest_Movement_Kurt2

@@ -29,9 +29,9 @@ Route39_EventScript_LegendaryTrigger::
 	removeobject LOCALID_R39_SHADOW
 	playse SE_PIN
 	applymovement LOCALID_R39_BAOBA, Common_Movement_QuestionMark
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
 	turnobject LOCALID_R39_BAOBA DIR_SOUTH
-	turnobject OBJ_EVENT_ID_PLAYER DIR_SOUTH
+	turnobject LOCALID_PLAYER DIR_SOUTH
 	delay 60
 
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
@@ -42,7 +42,7 @@ Route39_EventScript_LegendaryTrigger::
 	call_if_eq VAR_TEMP_1, 23, Route39_EventScript_BaobaMovement4
 
 	turnobject LOCALID_R39_BAOBA DIR_EAST
-	turnobject OBJ_EVENT_ID_PLAYER DIR_WEST
+	turnobject LOCALID_PLAYER DIR_WEST
 Route39_EventScript_ChooseLegend::
 	msgbox Route39_Text_ChooseLegend, MSGBOX_DEFAULT
 	multichoice 20, 8, MULTI_GOLDSILVER, FALSE

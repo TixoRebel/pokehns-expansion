@@ -32,10 +32,10 @@ GoldenrodStation_EventScript_BoardTrain::
 	closemessage
 	applymovement LOCALID_GOLDENROD_STATION_ATTENDANT, GoldenrodStation_Movement_Attendant_Move_Up
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, GoldenrodStation_Movement_WalktoTrain
+	applymovement LOCALID_PLAYER, GoldenrodStation_Movement_WalktoTrain
 	waitmovement 0
 	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement 0
 	playse SE_EXIT
 	waitse
@@ -67,7 +67,7 @@ GoldenrodStation_EventScript_BoardTrain::
 GoldenrodStation_EventScript_ExitTrain::
 	lock
 	applymovement LOCALID_GOLDENROD_STATION_ATTENDANT, GoldenrodStation_Movement_Attendant_Move_Up
-	applymovement OBJ_EVENT_ID_PLAYER, GoldenrodStation_Movement_ExitTrain
+	applymovement LOCALID_PLAYER, GoldenrodStation_Movement_ExitTrain
 	waitmovement 0
 	waitmovement 0
 	setvar VAR_TRAIN, 0

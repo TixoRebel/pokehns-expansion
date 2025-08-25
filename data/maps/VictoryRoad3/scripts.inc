@@ -18,7 +18,7 @@ VictoryRoad3_Trigger::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	delay 5
 	playse SE_PIN
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement2 LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 60
 	addobject LOCALID_VICTORYROAD_SILVER
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
@@ -41,21 +41,21 @@ VictoryRoad3_Trigger::
 
 VictoryRoad3_EventScript_SilverEnterLeft::
 	applymovement2 LOCALID_VICTORYROAD_SILVER, VictoryRoad3_Movement_SilverEnterLeft
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
 	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp1
 	waitmovement LOCALID_VICTORYROAD_SILVER
 	return
 
 VictoryRoad3_EventScript_SilverEnterMid::
 	applymovement2 LOCALID_VICTORYROAD_SILVER, VictoryRoad3_Movement_SilverEnterMid
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
 	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp1
 	waitmovement LOCALID_VICTORYROAD_SILVER
 	return
 
 VictoryRoad3_EventScript_SilverEnterRight::
 	applymovement2 LOCALID_VICTORYROAD_SILVER, VictoryRoad3_Movement_SilverEnterRight
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
 	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp1
 	waitmovement LOCALID_VICTORYROAD_SILVER
 	return

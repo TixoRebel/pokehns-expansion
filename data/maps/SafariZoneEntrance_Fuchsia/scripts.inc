@@ -21,7 +21,7 @@ SafariZoneEntranceFuchsia_FirstTime::
 
 SafariZoneEntranceFuchsia_EventScript_ExitSafari::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	msgbox SafariZone_Text_WouldYouLikeToExit, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, SafariZoneEntranceFuchsia_EventScript_ReenterSafari
 	clearflag FLAG_IN_KANTO_SAFARI_ZONE
@@ -30,14 +30,14 @@ SafariZoneEntranceFuchsia_EventScript_ExitSafari::
 	setflag FLAG_GOOD_LUCK_SAFARI_ZONE
 	msgbox SafariZone_South_Text_ExitEarlyThankYouForPlaying
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, SafariZoneEntranceFuchsia_Movement_ExitSafariZone
+	applymovement LOCALID_PLAYER, SafariZoneEntranceFuchsia_Movement_ExitSafariZone
 	waitmovement 0
 	release
 	end
  
 SafariZoneEntranceFuchsia_EventScript_ReenterSafari::
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, SafariZoneEntranceFuchsia_Movement_EnterSafariZone
+	applymovement LOCALID_PLAYER, SafariZoneEntranceFuchsia_Movement_EnterSafariZone
 	waitmovement 0
 	warp MAP_SAFARI_ZONE_ENTERANCE, 0
 	delay 120
@@ -49,7 +49,7 @@ SafariZoneEntranceFuchsia_MeetSteven::
 	applymovement LOCALID_SAFARIZONEFUCHSIA_STEVEN, Common_Movement_ExclamationMark
 	delay 60
 	applymovement LOCALID_SAFARIZONEFUCHSIA_STEVEN, SafariZoneEntranceFuchsia_Movement_WalkToPlayer
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
 	waitmovement LOCALID_SAFARIZONEFUCHSIA_STEVEN
 
 	msgbox SafariZoneEntranceFuchsia_Text_StevenWelcome, MSGBOX_DEFAULT
@@ -94,7 +94,7 @@ SafariZoneEntranceFuchsia_Text_StevenChamp:
 
 SafariZoneEntranceFuchsia_EventScript_EntranceCounterTrigger::
 	lockall
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	showmoneybox 0, 0
 	msgbox Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, SafariZoneEntranceFuchsia_EventScript_TryEnterSafariZone
@@ -122,7 +122,7 @@ SafariZoneEntranceFuchsia_EventScript_TryEnterSafariZone::
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_eq VAR_TEMP_0, 4, SafariZoneEntranceFuchsia_EventScript_CorrectionLeft
 	call_if_eq VAR_TEMP_0, 6, SafariZoneEntranceFuchsia_EventScript_CorrectionRight
-	applymovement OBJ_EVENT_ID_PLAYER, SafariZoneEntranceFuchsia_Movement_EnterSafariZone
+	applymovement LOCALID_PLAYER, SafariZoneEntranceFuchsia_Movement_EnterSafariZone
 	waitmovement 0
 	setflag FLAG_IN_KANTO_SAFARI_ZONE
 	special EnterSafariMode
@@ -133,12 +133,12 @@ SafariZoneEntranceFuchsia_EventScript_TryEnterSafariZone::
 	end
 
 SafariZoneEntranceFuchsia_EventScript_CorrectionRight::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 
 SafariZoneEntranceFuchsia_EventScript_CorrectionLeft::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	return
 
@@ -167,7 +167,7 @@ SafariZoneEntranceFuchsia_EventScript_NotEnoughMoney::
 SafariZoneEntranceFuchsia_EventScript_MovePlayerBackFromCounter::
 	closemessage
 	hidemoneybox
-	applymovement OBJ_EVENT_ID_PLAYER, SafariZoneEntranceFuchsia_Movement_BackAwayFromCounter
+	applymovement LOCALID_PLAYER, SafariZoneEntranceFuchsia_Movement_BackAwayFromCounter
 	waitmovement 0
 	releaseall
 	end

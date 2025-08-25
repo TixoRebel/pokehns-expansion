@@ -211,7 +211,7 @@ VermilionCity_Gym_EventScript_SetBeamsOn::
 VermilionCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_VERMILION_GYM, VermilionCity_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_DEFEATED_JOHTO_VERMILION_GYM, VermilionCity_Gym_EventScript_GymGuyPostVictory
 	msgbox VermilionCity_Gym_Text_GymGuyAdvice
 	release
 	end
@@ -251,7 +251,7 @@ VermilionCityGym_EventScript_Horton::
 VermilionCityGym_EventScript_Surge::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_VERMILION_GYM, VermilionCityGym_EventScript_Surge_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_VERMILION_GYM, VermilionCityGym_EventScript_Surge_Defeated
 	msgbox VermilionGym_Text_LtSurgeIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_LTSURGE, VermilionGym_Text_LtSurgeWinLoss
 	message VermilionGym_Text_ReceivedThunderBadge
@@ -259,7 +259,7 @@ VermilionCityGym_EventScript_Surge::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox VermilionGym_Text_ThunderBadgeInfo, MSGBOX_DEFAULT
 	setflag FLAG_BADGE11_GET
-	setflag FLAG_DEFEATED_VERMILION_GYM
+	setflag FLAG_DEFEATED_JOHTO_VERMILION_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 11
 	call Common_EventScript_SetGymTrainers

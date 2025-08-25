@@ -31,7 +31,7 @@ AzaleaKurtsHouse_EventScript_KurtBefore::
 	end
 
 AzaleaKurtsHouse_EventScript_PlayerMove::
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaKurtsHouse_Movement_Player
+	applymovement LOCALID_PLAYER, AzaleaKurtsHouse_Movement_Player
 	waitmovement 0
 	applymovement LOCALID_AZALEA_TOWN_KURT_BEFORE, AzaleaKurtsHouse_Movement_KurtWalkDown
 	waitmovement 0
@@ -88,7 +88,7 @@ AzaleaKurtsHouse_EventScript_ReturnFromWellSetup::
 
 AzaleaKurtsHouse_EventScript_ReturnFromWell::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	msgbox KurtsHouse_Text_KurtHonoredToMakeBalls, MSGBOX_DEFAULT
 	giveitem ITEM_FAST_BALL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
@@ -325,13 +325,13 @@ AzaleaKurtsHouse_EventScript_KurtGsBall::
 	waitse
 	playse SE_PIN
 	applymovement LOCALID_AZALEA_TOWN_KURT, Common_Movement_ExclamationMark
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 60
 	waitse
 	playse SE_M_PETAL_DANCE
 	waitse
 	applymovement LOCALID_AZALEA_TOWN_KURT, AzaleaTownKurt_Movement_Look_Around
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTownKurt_Movement_Look_Around
+	applymovement LOCALID_PLAYER, AzaleaTownKurt_Movement_Look_Around
 	waitmovement 0
 	waitmovement 0
 AzaleaKurtsHouse_EventScript_KurtGsBall2::

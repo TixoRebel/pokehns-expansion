@@ -109,11 +109,11 @@ OlivinePort_EventScript_EnterShip::
 	applymovement LOCALID_OLIVINEMARINA_SAILOR, OlivinePort_Movement_SailorEnterBoat
 	waitmovement 0
 	playse SE_EXIT
-	applymovement OBJ_EVENT_ID_PLAYER, OlivinePort_Movement_PlayerEnterBoat
+	applymovement LOCALID_PLAYER, OlivinePort_Movement_PlayerEnterBoat
 	waitmovement 0
 	special SpawnCameraObject
 	playse SE_EXIT
-	removeobject OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_PLAYER
 	delay 60
 	applymovement LOCALID_OLIVINEMARINA_SAILOR, OlivinePort_Movement_BoatLeave
 	applymovement LOCALID_OLIVINEMARINA_BOAT, OlivinePort_Movement_BoatLeave

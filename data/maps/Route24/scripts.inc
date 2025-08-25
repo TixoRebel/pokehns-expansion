@@ -87,7 +87,7 @@ Route24_EventScript_Grunt::
 	delay 50
 	msgbox Route24_Text_RocketDisappears, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route24_Movement_PlayerSlide
+	applymovement LOCALID_PLAYER, Route24_Movement_PlayerSlide
 	delay 20
 	applymovement LOCALID_ROUTE24_GRUNT, Route24_Movement_GruntLeave
 	waitmovement LOCALID_ROUTE24_GRUNT

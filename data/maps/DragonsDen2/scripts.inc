@@ -79,7 +79,7 @@ DragonsDen2_Trigger_ClairRight::
 
 
 DragonsDen2_EventScript_Clair::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox DragonsDen2_Text_ClairGiveDragonclaw, MSGBOX_DEFAULT
 	giveitem ITEM_TM_DRAGON_CLAW
 	msgbox DragonsDen2_Text_ClairDescribeDragonclaw, MSGBOX_DEFAULT

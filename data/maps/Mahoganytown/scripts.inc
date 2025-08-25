@@ -83,7 +83,7 @@ MahoganyTown_EventScript_MerchantTrigger::
 	playse SE_PIN
 	applymovement LOCALID_MAHOGANY_MERCHANT, Common_Movement_ExclamationMark
 	delay 60
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_eq VAR_TEMP_1, 14, MahoganyTown_EventScript_WalkUp2
 	call_if_eq VAR_TEMP_1, 13, MahoganyTown_EventScript_WalkUp1
@@ -106,12 +106,12 @@ MahoganyTown_EventScript_MerchantTrigger::
 	end
 
 MahoganyTown_EventScript_WalkUp1::
-	applymovement OBJ_EVENT_ID_PLAYER, MahoganyTown_Movement_PlayerMerchant1
+	applymovement LOCALID_PLAYER, MahoganyTown_Movement_PlayerMerchant1
 	waitmovement 0
 	return
 
 MahoganyTown_EventScript_WalkUp2::
-	applymovement OBJ_EVENT_ID_PLAYER, MahoganyTown_Movement_PlayerMerchant2
+	applymovement LOCALID_PLAYER, MahoganyTown_Movement_PlayerMerchant2
 	waitmovement 0
 	return
 
@@ -170,7 +170,7 @@ MahoganyTown_EventScript_MerchantAfter::
 	end
 
 MahoganyTown_EventScript_PushPlayer::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	return
 

@@ -58,7 +58,7 @@ SSAqua1_Trigger_Grandpa::
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_eq VAR_TEMP_0, 28, SSAqua1_EventScript_GrandpaEnterLeft
 	call_if_eq VAR_TEMP_0, 29, SSAqua1_EventScript_GrandpaEnterRight
-	applymovement OBJ_EVENT_ID_PLAYER, SSAqua1_Movement_PlayerSlideRight
+	applymovement LOCALID_PLAYER, SSAqua1_Movement_PlayerSlideRight
 	waitmovement 0
 	applymovement LOCALID_SSAQUA1_GRANDPA, Common_Movement_WalkRight
 	waitmovement 0

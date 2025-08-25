@@ -14,7 +14,7 @@ FuchsiaCityGym_MapScripts::
 	.byte 0
 
 FuchsiaCityGym_OnTransition::
-	goto_if_set FLAG_DEFEATED_FUCHSIA_GYM, FuchsiaCityGym_OnTransitionAfter
+	goto_if_set FLAG_DEFEATED_JOHTO_FUCHSIA_GYM, FuchsiaCityGym_OnTransitionAfter
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
@@ -31,7 +31,7 @@ FuchsiaCityGym_OnTransitionAfter::
 FuchsiaCityGym_EventScript_Janine::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_FUCHSIA_GYM, FuchsiaCityGym_EventScript_Janine_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_FUCHSIA_GYM, FuchsiaCityGym_EventScript_Janine_Defeated
 	msgbox FuchsiaCityGym_Text_Janine_DisappointYou, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_JANINE, FuchsiaCityGym_Text_Janine_ToughOne
 	message FuchsiaCityGym_Text_ReceivedSoulBadge
@@ -40,7 +40,7 @@ FuchsiaCityGym_EventScript_Janine::
 	msgbox FuchsiaCityGym_Text_Janine_ToxicSpeech, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TOXIC
 	setflag FLAG_BADGE14_GET
-	setflag FLAG_DEFEATED_FUCHSIA_GYM
+	setflag FLAG_DEFEATED_JOHTO_FUCHSIA_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 14
 	call Common_EventScript_SetGymTrainers
@@ -239,7 +239,7 @@ FuchsiaCityGym_Text_CamperBarry_After:
 	.string "what, huh?$"
 
 FuchsiaCityGym_EventScript_GymGuy::
-	goto_if_set FLAG_DEFEATED_FUCHSIA_GYM, FuchsiaCityGym_EventScript_GymGuyAfter
+	goto_if_set FLAG_DEFEATED_JOHTO_FUCHSIA_GYM, FuchsiaCityGym_EventScript_GymGuyAfter
 	msgbox FuchsiaCityGym_Text_Guide, MSGBOX_NPC
 	end
 
@@ -249,7 +249,7 @@ FuchsiaCityGym_EventScript_GymGuyAfter::
 
 FuchsiaCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_DEFEATED_FUCHSIA_GYM, FuchsiaCity_Gym_EventScript_GymStatuePostVictory
+	goto_if_set FLAG_DEFEATED_JOHTO_FUCHSIA_GYM, FuchsiaCity_Gym_EventScript_GymStatuePostVictory
 	msgbox FuchsiaCity_Gym_Text_GymStatue
 	releaseall
 	end

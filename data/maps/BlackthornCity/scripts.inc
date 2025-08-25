@@ -85,7 +85,7 @@ BlackThornCity_Trigger_Sage::
 	turnobject LOCALID_BLACKTHORN_SAGE, DIR_EAST
 	msgbox BlackthornGrampsRefusesEntryText, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER Common_Movement_WalkDown
+	applymovement LOCALID_PLAYER Common_Movement_WalkDown
 	waitmovement 0
 	turnobject LOCALID_BLACKTHORN_SAGE, DIR_SOUTH
 	release

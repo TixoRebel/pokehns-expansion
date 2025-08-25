@@ -317,10 +317,10 @@ GoldenrodUndergroundRocket1_EventScript_SilverTriggerTop::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	@clearflag FLAG_HIDE_GOLDENROD_UNDERGROUND_SILVER
 	addobject LOCALID_GOLDENROD_UNDERGROUND_SILVER
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_GOLDENROD_UNDERGROUND_SILVER, GoldenrodUndergroundRocket1_Movement_SilverEnterTop
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	waitmovement 0
 	msgbox GoldenrodUnderground_Text_SilverBefore, MSGBOX_DEFAULT
@@ -350,10 +350,10 @@ GoldenrodUndergroundRocket1_EventScript_SilverTriggerBot::
 	playbgm MUS_HG_ENCOUNTER_RIVAL, TRUE
 	clearflag FLAG_HIDE_GOLDENROD_UNDERGROUND_SILVER
 	addobject LOCALID_GOLDENROD_UNDERGROUND_SILVER
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_GOLDENROD_UNDERGROUND_SILVER, GoldenrodUndergroundRocket1_Movement_SilverEnterBot
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	waitmovement 0
 	msgbox GoldenrodUnderground_Text_SilverBefore, MSGBOX_DEFAULT

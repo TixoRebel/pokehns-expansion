@@ -24,7 +24,7 @@ UnionCave1_Trigger_Monview::
 	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkLeft
 	waitmovement 0
 	special RemoveCameraObject
-	applymovement2 OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement2 LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	end
 

@@ -71,7 +71,7 @@ Route32_EventScript_Roar2::
 Route32_EventScript_SlowpokeTail_TriggerLeft::
 	lock
 	turnobject LOCALID_SLOWPOKETAIL_MAN, DIR_EAST
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	playse SE_PIN
 	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_ExclamationMark
 	delay 60
@@ -82,7 +82,7 @@ Route32_EventScript_SlowpokeTail_TriggerLeft::
 Route32_EventScript_SlowpokeTail_TriggerMid::
 	lock
 	turnobject LOCALID_SLOWPOKETAIL_MAN, DIR_EAST
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	playse SE_PIN
 	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_ExclamationMark
 	delay 60
@@ -93,7 +93,7 @@ Route32_EventScript_SlowpokeTail_TriggerMid::
 Route32_EventScript_SlowpokeTail_TriggerRight::
 	lock
 	turnobject LOCALID_SLOWPOKETAIL_MAN, DIR_EAST
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	playse SE_PIN
 	applymovement LOCALID_SLOWPOKETAIL_MAN, Common_Movement_ExclamationMark
 	delay 60
@@ -207,7 +207,7 @@ Route32_EventScript_BaldingManTriggerLeft::
 	playse SE_PIN
 	applymovement LOCALID_ROUTE32_BALDINGMAN, Common_Movement_ExclamationMark
 	delay 60
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	goto Route32_EventScript_BaldingManCheck
 	end
 Route32_EventScript_BaldingManTriggerMid::
@@ -215,7 +215,7 @@ Route32_EventScript_BaldingManTriggerMid::
 	playse SE_PIN
 	applymovement LOCALID_ROUTE32_BALDINGMAN, Common_Movement_ExclamationMark
 	delay 60
-	applymovement OBJ_EVENT_ID_PLAYER, Route32_Movement_StartMid
+	applymovement LOCALID_PLAYER, Route32_Movement_StartMid
 	waitmovement 0
 	goto Route32_EventScript_BaldingManCheck
 	end
@@ -224,7 +224,7 @@ Route32_EventScript_BaldingManTriggerRight::
 	playse SE_PIN
 	applymovement LOCALID_ROUTE32_BALDINGMAN, Common_Movement_ExclamationMark
 	delay 60
-	applymovement OBJ_EVENT_ID_PLAYER, Route32_Movment_StartRight
+	applymovement LOCALID_PLAYER, Route32_Movment_StartRight
 	waitmovement 0
 	goto Route32_EventScript_BaldingManCheck
 	end
@@ -243,7 +243,7 @@ Route32_EventScript_BaldingManTower::
 	msgbox Route32_Text_CooltrainerM_WhatsTheHurry, MSGBOX_DEFAULT
 	msgbox Route32_Text_CooltrainerM_SproutTower, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route32_Movement_Turnback
+	applymovement LOCALID_PLAYER, Route32_Movement_Turnback
 	waitmovement 0
 	release
 	end
@@ -251,7 +251,7 @@ Route32_EventScript_BaldingManGym::
 	msgbox Route32_Text_CooltrainerM_WhatsTheHurry, MSGBOX_DEFAULT
 	msgbox Route32_Text_CooltrainerM_VioletGym, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route32_Movement_Turnback
+	applymovement LOCALID_PLAYER, Route32_Movement_Turnback
 	waitmovement 0
 	release
 	end
@@ -259,7 +259,7 @@ Route32_EventScript_BaldingManEgg::
 	msgbox Route32_Text_CooltrainerM_WhatsTheHurry, MSGBOX_DEFAULT
 	msgbox Route32_Text_CooltrainerM_AideIsWaiting, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route32_Movement_Turnback
+	applymovement LOCALID_PLAYER, Route32_Movement_Turnback
 	waitmovement 0
 	release
 	end

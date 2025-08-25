@@ -9,7 +9,7 @@ SeafoamIslands2_OnTransition:
 SeafoamIslands2_EventScript_Blaine::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_CINNABAR_GYM, SeafoamIslands2_EventScript_Blaine_Defeated
+	goto_if_set FLAG_DEFEATED_JOHTO_CINNABAR_GYM, SeafoamIslands2_EventScript_Blaine_Defeated
 	msgbox SeafoamIslands2_Text_BlaineIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BLAINE, SeafoamIslands2_Text_BlaineWinLoss
 	message SeafoamIslands2_Text_ReceivedVolcanoBadge
@@ -18,7 +18,7 @@ SeafoamIslands2_EventScript_Blaine::
 	msgbox SeafoamIslands2_Text_TM, MSGBOX_DEFAULT
 	giveitem ITEM_TM_OVERHEAT
 	setflag FLAG_BADGE15_GET
-	setflag FLAG_DEFEATED_CINNABAR_GYM
+	setflag FLAG_DEFEATED_JOHTO_CINNABAR_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 15
 	clearflag FLAG_HIDE_SEAFOAM_GYMGUY

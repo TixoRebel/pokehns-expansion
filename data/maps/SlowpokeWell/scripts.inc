@@ -58,7 +58,7 @@ SlowpokeWell_EventScript_Proton::
 	delay 120
 	fadescreen FADE_FROM_BLACK
 	special DrawWholeMapView
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	applymovement LOCALID_WELL_KURT, SlowpokeWell_Movement_Kurt
 	waitmovement 0
 	msgbox SlowpokeWell_Text_KurtAfter, MSGBOX_DEFAULT

@@ -78,7 +78,7 @@ PowerPlant1_Trigger_Cop::
 	msgbox PowerPlant1_Text_Officer1CeruleanShadyCharacter, MSGBOX_DEFAULT
 	closemessage
 	turnobject LOCALID_POWERPLANT_COP, DIR_WEST
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	delay 30
 	msgbox PowerPlant1_Text_Officer1CouldIAskForYourCooperation, MSGBOX_DEFAULT
 	closemessage
