@@ -166,7 +166,7 @@ struct SoundChannel
 
 // https://github.com/pret/pokeemerald/wiki/Implementing-ipatix's-High-Quality-Audio-Mixer
 
-#define MAX_DIRECTSOUND_CHANNELS 12 // 5, 12, or 15? who knows?
+#define MAX_DIRECTSOUND_CHANNELS 15 // 5, 12, or 15? who knows?
 
 #define PCM_DMA_BUF_SIZE 2128 // 1584 or 2128 size of Direct Sound buffer
 

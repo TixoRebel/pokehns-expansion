@@ -88,7 +88,7 @@ lt_PCM_DMA_BUF_SIZE:      .word PCM_DMA_BUF_SIZE
 /* HQ-Mixer rev 4.0 created by ipatix (c) 2021
  * licensed under GPLv3, see LICENSE.txt for details */
 
-	.equ ENABLE_REVERB, 1                        @ <-- if you want faster code or don't like reverb, set this to '0', set to '1' otherwise
+	.equ ENABLE_REVERB, 0                        @ <-- if you want faster code or don't like reverb, set this to '0', set to '1' otherwise @ TODO - try and fix reverb
 	.equ ENABLE_DMA, 1                           @ <-- Using DMA produces smaller code and has better performance. Disable it if your case does not allow to use DMA.
 
 	/*****************
