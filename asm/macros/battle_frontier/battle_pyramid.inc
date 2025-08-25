@@ -68,6 +68,7 @@
 	special CallBattlePyramidFunction
 	.endm
 
+	@ HnS - Expansion changed "InBattlePyramid" checks to a "GetLocation" and "CheckCurrentLocation"
 	@ VAR_RESULT is 1 if player is on a Pyramid floor, 2 if on the Pyramid peak, 0 otherwise
 	.macro pyramid_getlocation
 	setvar VAR_0x8004, BATTLE_PYRAMID_FUNC_CURRENT_LOCATION
