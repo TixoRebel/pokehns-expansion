@@ -1,4 +1,4 @@
-#include "config/item.h"
+#include "config/item.h"				@ HnS PORT NOTE - Expansion includes this
 	.include "asm/macros.inc"
 	.include "constants/constants.inc"
 
@@ -25,9 +25,9 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_JumpSmallSplash           @ FLDEFF_JUMP_SMALL_SPLASH
 	.4byte gFieldEffectScript_LongGrass                 @ FLDEFF_LONG_GRASS
 	.4byte gFieldEffectScript_JumpLongGrass             @ FLDEFF_JUMP_LONG_GRASS
-	.4byte gFieldEffectScript_ShakingGrass              @ FLDEFF_SHAKING_GRASS
-	.4byte gFieldEffectScript_ShakingGrass2             @ FLDEFF_SHAKING_LONG_GRASS
-	.4byte gFieldEffectScript_UnusedSand                @ FLDEFF_SAND_HOLE
+	.4byte gFieldEffectScript_ShakingGrass              @ FLDEFF_SHAKING_GRASS			@ HnS PORT NOTE - Expansion added more encounter methods
+	.4byte gFieldEffectScript_ShakingGrass2             @ FLDEFF_SHAKING_LONG_GRASS		@
+	.4byte gFieldEffectScript_UnusedSand                @ FLDEFF_SAND_HOLE				@
 	.4byte gFieldEffectScript_WaterSurfacing            @ FLDEFF_WATER_SURFACING
 	.4byte gFieldEffectScript_BerryTreeGrowthSparkle    @ FLDEFF_BERRY_TREE_GROWTH_SPARKLE
 	.4byte gFieldEffectScript_DeepSandFootprints        @ FLDEFF_DEEP_SAND_FOOTPRINTS
@@ -79,7 +79,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_TracksSlither             @ FLDEFF_TRACKS_SLITHER
 	.4byte gFieldEffectScript_TracksBug                 @ FLDEFF_TRACKS_BUG
 	.4byte gFieldEffectScript_TracksSpot                @ FLDEFF_TRACKS_SPOT
-	.4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST
+	.4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST	@ HnS PORT NOTE - Expansion added more encounter methods
 	.4byte gFieldEffectScript_Defog                     @ FLDEFF_DEFOG
 
 gFieldEffectScript_ExclamationMarkIcon1::
@@ -115,7 +115,7 @@ gFieldEffectScript_Ash::
 	field_eff_end
 
 gFieldEffectScript_SurfBlob::
-	field_eff_callnative FldEff_SurfBlob
+	field_eff_callnative CreateSurfablePokemonSprite
 	field_eff_end
 
 gFieldEffectScript_UseSurf::

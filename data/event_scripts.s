@@ -891,7 +891,8 @@ Common_EventScript_PlayerHandedOverTheItem::
 	.include "data/text/pkmn_center_nurse.inc"
 	.include "data/text/mart_clerk.inc"
 	.include "data/text/obtain_item.inc"
-	
+
+@ HnS TODO - move text constants out of event_scripts.s, what?
 @ The below and surf.inc could be split into some text/notices.inc
 gText_PokemartSign::
 	.string "“Selected items for your convenience!”\n"
@@ -1083,7 +1084,7 @@ EventScript_SelectWithoutRegisteredLongItem::
 Common_EventScript_NopReturn::
 	return
 
-@crystal 
+@ HnS PORT - copied over some scripts 
 Common_EventScript_GiftMon::
 	call_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Common_EventScript_RecieveMonParty
 	call_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Common_EventScript_ReceiveMonPC
