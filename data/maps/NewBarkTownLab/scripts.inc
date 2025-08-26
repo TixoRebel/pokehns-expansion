@@ -368,7 +368,7 @@ NewBarkTownLab_EventScript_ElmMasterBall::
 	msgbox NewBarkTownLab_Text_KimonoGirls, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_NEWBARKTOWN_LABSTATE, 8
-	setvar VAR_ECRUTEAK_THEATER, 4
+	setvar VAR_ECRUTEAK_CITY_THEATER, 4
 	setflag FLAG_HIDE_ECRUTEAK_SILVER
 	setflag FLAG_HIDE_ECRUTEAK_THEATER_NPCS
 	clearflag FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS

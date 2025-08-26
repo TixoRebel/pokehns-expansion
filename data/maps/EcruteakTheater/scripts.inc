@@ -13,8 +13,8 @@ EcruteakTheater_MapScripts::
 	.byte 0
 
 EcruteakTheater_OnTransition::
-	call_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_MapScript_SetRocketSceneActive
-	call_if_eq VAR_ECRUTEAK_THEATER, 7, EcruteakTheater_MapScript_SetKimonoMovement
+	call_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_MapScript_SetRocketSceneActive
+	call_if_eq VAR_ECRUTEAK_CITY_THEATER, 7, EcruteakTheater_MapScript_SetKimonoMovement
 	end
 
 EcruteakTheater_MapScript_SetRocketSceneActive::
@@ -57,7 +57,7 @@ EcruteakTheater_EventScript_RocketEventTrigger::
 	special RemoveCameraObject
 	setobjectmovementtype LOCALID_ECRUTEAK_ROCKET, MOVEMENT_TYPE_TOWER_BEAM
 	setobjectxyperm LOCALID_ECRUTEAK_ZUKI, 10, 2
-	setvar VAR_ECRUTEAK_THEATER, 1
+	setvar VAR_ECRUTEAK_CITY_THEATER, 1
 	releaseall
 	end
 
@@ -153,7 +153,7 @@ EcruteakTheater_EventScript_Rocket::
 	turnobject LOCALID_PLAYER, DIR_NORTH
 	msgbox EcruteakTheater_Text_KimonoRocket3, MSGBOX_DEFAULT
 	closemessage	
-	setvar VAR_ECRUTEAK_THEATER, 2
+	setvar VAR_ECRUTEAK_CITY_THEATER, 2
 	release
 	end
 	
@@ -219,7 +219,7 @@ EcruteakTheater_Text_KimonoRocket3:
 EcruteakTheater_EventScript_KimonoGirl::
 	lock
 	faceplayer
-	goto_if_eq VAR_ECRUTEAK_THEATER, 6, EcruteakTheater_EventScript_KimonoGirlDuringEvent
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 6, EcruteakTheater_EventScript_KimonoGirlDuringEvent
 	msgbox EcruteakTheater_Text_KimonoDone, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -234,9 +234,9 @@ EcruteakTheater_EventScript_KimonoGirlDuringEvent::
 EcruteakTheater_EventScript_Zuki::
 	lock
 	faceplayer
-	goto_if_ge VAR_ECRUTEAK_THEATER, 7, EcruteakTheater_EventScript_ZukiAfterLegendary
-	goto_if_eq VAR_ECRUTEAK_THEATER, 6, EcruteakTheater_EventScript_ZukiBattle
-	goto_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_EventScript_ZukiDuringRocket
+	goto_if_ge VAR_ECRUTEAK_CITY_THEATER, 7, EcruteakTheater_EventScript_ZukiAfterLegendary
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 6, EcruteakTheater_EventScript_ZukiBattle
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_EventScript_ZukiDuringRocket
 	msgbox EcruteakTheater_Text_Kimono, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -266,7 +266,7 @@ EcruteakTheater_Text_Kimono:
 EcruteakTheater_EventScript_SurfGuy::
 	lock
 	faceplayer
-	goto_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_EventScript_SurfGuyDuringRocket
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_EventScript_SurfGuyDuringRocket
 	goto_if_unset FLAG_RECEIVED_HM_SURF, EcruteakTheater_EventScript_SurfGuy_GiveSurf
 	msgbox EcruteakTheater_Text_SurfGuyAfter, MSGBOX_DEFAULT
 	closemessage
@@ -280,7 +280,7 @@ EcruteakTheater_EventScript_SurfGuy_GiveSurf::
 	msgbox EcruteakTheater_Text_SurfGuyGaveSurf
 	closemessage
 	setflag FLAG_RECEIVED_HM_SURF
-	setvar VAR_ECRUTEAK_THEATER, 3
+	setvar VAR_ECRUTEAK_CITY_THEATER, 3
 	release
 	end
 
@@ -301,7 +301,7 @@ EcruteakTheater_EventScript_TriggerSurfGuy::
 	msgbox EcruteakTheater_Text_SurfGuyGaveSurf
 	closemessage
 	setflag FLAG_RECEIVED_HM_SURF
-	setvar VAR_ECRUTEAK_THEATER, 3
+	setvar VAR_ECRUTEAK_CITY_THEATER, 3
 	applymovement LOCALID_SURF_GUY, EcruteakTheater_Movement_SurfGuy2
 	waitmovement 0 
 	release
@@ -321,7 +321,7 @@ EcruteakTheater_EventScript_Psyduck::
 EcruteakTheater_EventScript_Boy::
 	lock
 	faceplayer
-	goto_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_EventScript_BoyDuringRocket
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_EventScript_BoyDuringRocket
 	msgbox EcruteakTheater_Text_Boy, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -337,7 +337,7 @@ EcruteakTheater_EventScript_BoyDuringRocket::
 EcruteakTheater_EventScript_Granny::
 	lock
 	faceplayer
-	goto_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_EventScript_GrannyDuringRocket
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_EventScript_GrannyDuringRocket
 	msgbox EcruteakTheater_Text_Granny, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -353,7 +353,7 @@ EcruteakTheater_EventScript_GrannyDuringRocket::
 EcruteakTheater_EventScript_Gramps::
 	lock
 	faceplayer
-	goto_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_EventScript_GrampsDuringRocket
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_EventScript_GrampsDuringRocket
 	msgbox EcruteakTheater_Text_Gramps, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -368,7 +368,7 @@ EcruteakTheater_EventScript_GrampsDuringRocket::
 EcruteakTheater_EventScript_Girl::
 	lock
 	faceplayer
-	goto_if_eq VAR_ECRUTEAK_THEATER, 1, EcruteakTheater_EventScript_GirlDuringRocket
+	goto_if_eq VAR_ECRUTEAK_CITY_THEATER, 1, EcruteakTheater_EventScript_GirlDuringRocket
 	msgbox EcruteakTheater_Text_Girl, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -699,7 +699,7 @@ EcruteakTheater_EventScript_LegendaryCutscene::
 	playse SE_M_PETAL_DANCE
 	applymovement2 LOCALID_ECRUTEAK_ZUKI, EcruteakTheater_Movement_KimonoSpin
 	waitmovement 0
-	setvar VAR_ECRUTEAK_THEATER, 6
+	setvar VAR_ECRUTEAK_CITY_THEATER, 6
 EcruteakTheater_EventScript_ZukiBattle::
 	msgbox EcruteakTheater_Text_ZukiSeenAgain, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, EcruteakTheater_EventScript_LegendaryDenied
@@ -830,7 +830,7 @@ EcruteakTheater_EventScript_Lugia::
 	setflag FLAG_HIDE_ECRUTEAK_THEATER_ZUKI
 	setflag FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS
 	setvar VAR_NEWBARKTOWN_LABSTATE, 9
-	setvar VAR_ECRUTEAK_THEATER, 7
+	setvar VAR_ECRUTEAK_CITY_THEATER, 7
 	release
 	end
 EcruteakTheater_EventScript_Hooh::
@@ -875,7 +875,7 @@ EcruteakTheater_EventScript_Hooh::
 	setflag FLAG_HIDE_ECRUTEAK_THEATER_ZUKI
 	setflag FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS
 	setvar VAR_NEWBARKTOWN_LABSTATE, 9
-	setvar VAR_ECRUTEAK_THEATER, 7
+	setvar VAR_ECRUTEAK_CITY_THEATER, 7
 	release
 	end
 

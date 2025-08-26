@@ -678,7 +678,7 @@ EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
 	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_KOGA	@ PHOEBE
 	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_BRUNO	@ GLACIA
 	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_KAREN	@ DRAKE
-	setvar VAR_ELITE_4_STATE, 0
+	setvar VAR_GARBAGEVAR, 0
 	return
 
 Common_EventScript_UpdateBrineyLocation::

@@ -131,7 +131,7 @@
 #define VAR_LUGIA_OR_HOOH                                0x406F // 0 = unset, 1 = lugia, 2 = ho-oh
 #define VAR_KENYA                                        0x4070 // 0 = take, 1 = deliver, 2 = delivered, 3 = informed of delivery
 #define VAR_BUG_CONTEST_STATE                            0x4071
-#define VAR_ECRUTEAK_THEATER                             0x4072 //0 = goto theater, 1 = talk to rocket, 2 = get surf, 3 = wait until 8th badge elm visit. 4 = talktosilver, 5 = fightkimono, 6 = goto legendary, 7 = done legendary.
+#define VAR_ECRUTEAK_CITY_THEATER                        0x4072 //0 = goto theater, 1 = talk to rocket, 2 = get surf, 3 = wait until 8th badge elm visit. 4 = talktosilver, 5 = fightkimono, 6 = goto legendary, 7 = done legendary.
 #define VAR_ROUTE39_BARN                                 0x4073 // 0 = give 5 berries. 1 = give 4 berries. 2 = give 3 berries, 3 = give 2 berries, 4 = give 1 berry, 5 = healed, can buy milk.
 #define VAR_RUINSOFALPH_STATE                            0x4074
 #define VAR_SHUCKIE                                      0x4075 // 0 = unset, 1 = given, 2 = returnable, 3 = returned
@@ -167,25 +167,25 @@
 #define VAR_CINNABAR_ISLAND_STATE                        0x4093
 #define VAR_MT_SILVER_STATE                              0x4094
 #define VAR_LILYCOVE_FAN_CLUB_STATE                      0x4095
-#define VAR_EMBEDDED_TOWER                               0x4096 // 2 = fight rayquaza
-#define VAR_INIT_SECRET_BASE                             0x4097
-#define VAR_PETALBURG_WOODS_STATE                        0x4098
-#define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
-#define VAR_RUSTURF_TUNNEL_STATE                         0x409A
-#define VAR_UNUSED_0x409B                                0x409B // Unused Var
-#define VAR_ELITE_4_STATE                                0x409C
-#define VAR_UNUSED_0x409D                                0x409D // Unused Var
-#define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE      0x409E
-#define VAR_MOSSDEEP_SPACE_CENTER_STATE                  0x409F
+#define VAR_EMBEDDED_TOWER                               0x4096 
+#define VAR_INIT_SECRET_BASE                             0x4097 //Not used in HnS
+#define VAR_UNUSED_HNS_VAR1                              0x4098
+#define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099 //Not used in HnS but may be later
+#define VAR_UNUSED_HNS_VAR2                              0x409A
+#define VAR_UNUSED_HNS_VAR3                              0x409B 
+#define VAR_UNUSED_HNS_VAR4                              0x409C
+#define VAR_UNUSED_HNS_VAR5                              0x409D 
+#define VAR_UNUSED_HNS_VAR6                              0x409E
+#define VAR_UNUSED_HNS_VAR7                              0x409F// HnS Vars end
 #define VAR_SLATEPORT_HARBOR_STATE                       0x40A0
-#define VAR_UNUSED_0x40A1                                0x40A1 // Unused var
+#define VAR_UNUSED_0x40A1                                0x40A1 
 #define VAR_SEAFLOOR_CAVERN_STATE                        0x40A2
 #define VAR_CABLE_CAR_STATION_STATE                      0x40A3
 #define VAR_SAFARI_ZONE_STATE                            0x40A4  // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
-#define VAR_UNUSED_0x40A8                                0x40A8 // Unused Var
+#define VAR_UNUSED_0x40A8                                0x40A8 
 #define VAR_CYCLING_CHALLENGE_STATE                      0x40A9
 #define VAR_SLATEPORT_MUSEUM_1F_STATE                    0x40AA
 #define VAR_TRICK_HOUSE_PUZZLE_1_STATE                   0x40AB
@@ -270,8 +270,8 @@
 #define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_SURF_MON_SLOT                                0x40FD // Added new VAR for Surfing Overworld Sprites - Holds Surfing Party Mon index
+#define VAR_FREEZE_SURF_BLOB                             0x40FE // Added new VAR for Surfing Overworld Sprites - Set on surf init to stop blob overlay being offset incorrectly
 #define VAR_GARBAGEVAR                                   0x40FF // Used to replace little root state
 
 #define VARS_END                                         0x40FF

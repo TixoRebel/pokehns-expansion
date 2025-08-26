@@ -81,7 +81,7 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
 	clearflag FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_2F_STEVEN
 	setvar VAR_GARBAGEVAR, 1
 	setflag FLAG_GARBAGEFLAG
-	setvar VAR_MOSSDEEP_SPACE_CENTER_STATE, 1
+	setvar VAR_GARBAGEVAR, 1
 	call MossdeepCity_Gym_EventScript_GiveCalmMind
 	closemessage
 	delay 30

@@ -302,7 +302,7 @@ RustboroCity_EventScript_StolenGoodsScene::
 	clearflag FLAG_GARBAGEFLAG
 	setflag FLAG_DEVON_GOODS_STOLEN
 	setvar VAR_GARBAGEVAR, 2
-	setvar VAR_RUSTURF_TUNNEL_STATE, 2
+	setvar VAR_GARBAGEVAR, 2
 	setvar VAR_GARBAGEVAR, 1
 	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG

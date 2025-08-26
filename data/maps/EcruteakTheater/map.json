@@ -186,7 +186,7 @@
       "x": 10,
       "y": 16,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "0",
       "script": "EcruteakTheater_EventScript_RocketEventTrigger"
     },
@@ -195,7 +195,7 @@
       "x": 11,
       "y": 17,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "0",
       "script": "EcruteakTheater_EventScript_RocketEventTrigger"
     },
@@ -204,7 +204,7 @@
       "x": 9,
       "y": 17,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "0",
       "script": "EcruteakTheater_EventScript_RocketEventTrigger"
     },
@@ -213,7 +213,7 @@
       "x": 10,
       "y": 17,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "2",
       "script": "EcruteakTheater_EventScript_TriggerSurfGuy"
     },
@@ -222,7 +222,7 @@
       "x": 10,
       "y": 16,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "5",
       "script": "EcruteakTheater_Trigger_PreBattleCutsceneTop"
     },
@@ -231,7 +231,7 @@
       "x": 11,
       "y": 17,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "5",
       "script": "EcruteakTheater_Trigger_PreBattleCutsceneRight"
     },
@@ -240,7 +240,7 @@
       "x": 9,
       "y": 17,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "5",
       "script": "EcruteakTheater_Trigger_PreBattleCutsceneLeft"
     }

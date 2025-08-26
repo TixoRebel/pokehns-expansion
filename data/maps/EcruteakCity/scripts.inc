@@ -51,7 +51,7 @@ EcruteakCity_EventScript_Trigger::
 	setflag FLAG_HIDE_ECRUTEAK_SILVER
 	setvar VAR_COMPLETED_HO_OH, 0
 	setvar VAR_COMPLETED_LUGIA, 0
-	setvar VAR_ECRUTEAK_THEATER, 0 
+	setvar VAR_ECRUTEAK_CITY_THEATER, 0 
 	setvar VAR_ECRUTEAK_CITY_STATE, 1
 	end
 
@@ -90,7 +90,7 @@ EcruteakCity_Trigger_Silver::
 	removeobject LOCALID_ECRUTEK_SILVER
 	fadedefaultbgm
 
-	setvar VAR_ECRUTEAK_THEATER, 5
+	setvar VAR_ECRUTEAK_CITY_THEATER, 5
 	releaseall
 	end
 

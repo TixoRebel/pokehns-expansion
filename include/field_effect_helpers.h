@@ -13,7 +13,7 @@ enum {
 };
 
 u8 CreateWarpArrowSprite(void);
-u8 StartUnderwaterSurfBlobBobbing(u8 blobSpriteId);
+u8 StartUnderwaterSurfBlobBobbing(u8 oldSpriteId);
 void SetSurfBlob_BobState(u8 spriteId, u8 state);
 void SetSurfBlob_DontSyncAnim(u8 spriteId, bool8 dontSync);
 void SetSurfBlob_PlayerOffset(u8 spriteId, bool8 hasOffset, s16 offset);
@@ -42,5 +42,6 @@ void UpdateBubblesFieldEffect(struct Sprite *sprite);
 void UpdateSparkleFieldEffect(struct Sprite *sprite);
 void SetSpriteInvisible(u8 spriteId);
 void ShowWarpArrowSprite(u8 spriteId, u8 direction, s16 x, s16 y);
+void UpdateBobbingEffect(struct ObjectEvent *playerObj, struct Sprite *playerSprite, struct Sprite *sprite);
 
 #endif //GUARD_FIELD_EFFECT_HELPERS_H

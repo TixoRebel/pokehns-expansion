@@ -4,12 +4,12 @@ RusturfTunnel_MapScripts::
 	.byte 0
 
 RusturfTunnel_OnFrame:
-	map_script_2 VAR_RUSTURF_TUNNEL_STATE, 4, RusturfTunnel_EventScript_ClearTunnelScene
-	map_script_2 VAR_RUSTURF_TUNNEL_STATE, 5, RusturfTunnel_EventScript_ClearTunnelScene
+	map_script_2 VAR_GARBAGEVAR, 4, RusturfTunnel_EventScript_ClearTunnelScene
+	map_script_2 VAR_GARBAGEVAR, 5, RusturfTunnel_EventScript_ClearTunnelScene
 	.2byte 0
 
 RusturfTunnel_OnTransition:
-	call_if_eq VAR_RUSTURF_TUNNEL_STATE, 2, RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos
+	call_if_eq VAR_GARBAGEVAR, 2, RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos
 	end
 
 RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos::
@@ -276,7 +276,7 @@ RusturfTunnel_EventScript_AquaGruntBackUp::
 	waitmovement 0
 	copyobjectxytoperm LOCALID_RUSTURF_TUNNEL_GRUNT
 	copyobjectxytoperm LOCALID_RUSTURF_TUNNEL_PEEKO
-	setvar VAR_RUSTURF_TUNNEL_STATE, 3
+	setvar VAR_GARBAGEVAR, 3
 	releaseall
 	end
 

@@ -578,7 +578,7 @@
       "x": 39,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_ECRUTEAK_THEATER",
+      "var": "VAR_ECRUTEAK_CITY_THEATER",
       "var_value": "4",
       "script": "EcruteakCity_Trigger_Silver"
     }
