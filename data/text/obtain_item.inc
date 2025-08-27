@@ -1,4 +1,34 @@
 gText_ObtainedTheItem::
+	.string "{PLAYER} Obtained the {STR_VAR_2}!$"
+gText_FoundTheItem::
+	.string "{PLAYER} Found the {STR_VAR_2}!$"
+gText_ObtainedTheHiddenItem::
+	.string "{PLAYER} Obtained the hidden {STR_VAR_2}!$"
+gText_FoundTheHiddenItem::
+	.string "{PLAYER} Found the hidden {STR_VAR_2}!$"
+
+gText_ObtainedItems::
+	.string "{PLAYER} Obtained {STR_VAR_1} {STR_VAR_2}!$"
+gText_FoundItems::
+	.string "{PLAYER} Found {STR_VAR_1} {STR_VAR_2}!$"
+gText_ObtainedHiddenItems::
+	.string "{PLAYER} Obtained {STR_VAR_1} hidden {STR_VAR_2}!$"
+gText_FoundHiddenItems::
+	.string "{PLAYER} Found {STR_VAR_1} hidden {STR_VAR_2}!$"
+
+gText_PutItemInPocket::
+	.string "{PLAYER} put away the {STR_VAR_2} in the {STR_VAR_3} POCKET.$"
+gText_SentItemToPC::
+	.string "{PLAYER} transferred the {STR_VAR_2} to the PC.$"
+gText_BagIsFull::
+	.string "The BAG is full...$"
+gText_PCIsFull::
+	.string "Too bad! The PC is full...$"
+gText_BagAndPCAreFull::
+	.string "Too bad! Both the BAG and the PC are full...$"
+
+
+gText_ObtainedTheItem::
 	.string "Obtained the {STR_VAR_2}!$"
 
 gText_TheBagIsFull::

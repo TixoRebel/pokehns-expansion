@@ -778,6 +778,7 @@ extern const u8 gText_LogOff[];
 extern const u8 gText_BillsPC[];
 extern const u8 gText_SomeonesPC[];
 extern const u8 gText_PlayersPC[];
+extern const u8 gText_YourPC[];
 extern const u8 gText_WhichPCShouldBeAccessed[];
 
 extern const u8 gText_Info2[];

@@ -929,6 +929,7 @@ const u8 *const gStdStrings[] =
     [STDSTRING_POKEBALLS] = gText_Poke_Balls,
     [STDSTRING_TMHMS] = gText_TMs_Hms,
     [STDSTRING_BERRIES] = gText_Berries2,
+    [STDSTRING_YOURPC] = gText_YourPC,
     [STDSTRING_SINGLE] = gText_Single2,
     [STDSTRING_DOUBLE] = gText_Double2,
     [STDSTRING_MULTI] = gText_Multi,
