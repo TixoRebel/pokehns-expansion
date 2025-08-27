@@ -28,6 +28,10 @@
 #include "constants/battle_anim.h"
 #include "constants/battle_partner.h"
 
+#if B_RTC_BACKGROUND == TRUE
+#include "rtc.h"
+#endif // B_RTC_BACKGROUND == TRUE
+
 // .rodata
 
 static const struct OamData sVsLetter_V_OamData =

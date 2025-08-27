@@ -360,4 +360,7 @@
 #define B_POOL_RULE_ITEM_CLAUSE             FALSE    // Only allow each item to be picked once
 #define B_POOL_RULES_USE_ITEM_EXCLUSIONS    FALSE    // Exclude items listed in poolItemClauseExclusions
 
+#define B_NEW_BACKGROUND                    TRUE     // Use the updated battle backgrounds instead of the Gen 3 ones
+#define B_RTC_BACKGROUND                    TRUE     // Switch the background pallet with the time of day
+
 #endif // GUARD_CONFIG_BATTLE_H
