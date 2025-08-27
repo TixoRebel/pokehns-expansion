@@ -1256,6 +1256,7 @@ EventScript_CloseMossdeepGameCornerBarrier::
 	setmetatile 5, 3, METATILE_MossdeepGameCorner_CounterClosed_Bottom, TRUE
 	return
 
+@ HnS PORT NOTE - only change in Expansion, makes resuming into the union room possible?
 CableClub_OnResume:
 	special InitUnionRoom
 .if OW_FLAG_MOVE_UNION_ROOM_CHECK != 0

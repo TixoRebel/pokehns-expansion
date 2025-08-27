@@ -12,6 +12,7 @@ LilycoveCity_ContestLobby_EventScript_ReceptionWelcome::
 	msgbox LilycoveCity_ContestLobby_Text_ContestReception, MSGBOX_DEFAULT
 	return
 
+@ HnS PORT NOTE - added handling for if the player has no room for pokeblock case
 LilycoveCity_ContestLobby_EventScript_GivePokeblockCase::
 	msgbox LilycoveCity_ContestLobby_Text_ReceptionDontHavePokeblockCase, MSGBOX_DEFAULT
 	giveitem ITEM_POKEBLOCK_CASE

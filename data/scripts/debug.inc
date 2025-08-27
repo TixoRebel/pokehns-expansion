@@ -1,12 +1,14 @@
+@ HnS PORT NOTE - the specific call to ShowFieldMessageStringVar4 was separated
+@ from the more generically useful Debug_MessageEnd in Expansion
+Debug_ShowFieldMessageStringVar4::
+	special ShowFieldMessageStringVar4
+	goto Debug_MessageEnd
+
 Debug_MessageEnd:
 	waitmessage
 	waitbuttonpress
 	releaseall
 	end
-
-Debug_ShowFieldMessageStringVar4::
-	special ShowFieldMessageStringVar4
-	goto Debug_MessageEnd
 
 Debug_CheatStart::
 	lockall
@@ -112,6 +114,7 @@ Debug_EventScript_Text_OffensiveIVs:
 Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
+@ HnS PORT NOTE - Expansion adds "_EventScript" to the name, and a release to each script
 Debug_EventScript_Script_1::
 	release
 	end
@@ -144,6 +147,7 @@ Debug_EventScript_Script_8::
 	release
 	end
 
+@ HnS PORT NOTE - Expansion added SaveBlock3 debug options
 Debug_CheckSaveBlock::
 	callnative CheckSaveBlock1Size
 	msgbox Debug_SaveBlock1Size, MSGBOX_DEFAULT
@@ -172,6 +176,7 @@ Debug_PokemonStorageSize::
 	.string "{PKMN}Storage size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
 	.string "Free space: {STR_VAR_3}b.$"
 
+@ HnS PORT NOTE - Expansion added ROM debug options
 Debug_CheckROMSpace::
 	callnative CheckROMSize
 	msgbox Debug_ROMSize, MSGBOX_DEFAULT
@@ -213,6 +218,7 @@ DebugScript_Text_EmptyParty::
 DebugScript_HatchAnEgg_Text_NotAnEgg::
 	.string "That's not a Pokémon Egg.$"
 
+@ HnS PORT NOTE - Expansion added a number of DayCare debug options
 DebugScript_ZeroDaycareMons::
 	msgbox DebugText_DaycareNoPokemon, MSGBOX_DEFAULT
 	releaseall
@@ -243,6 +249,7 @@ Debug_ShowExpansionVersion::
 	release
 	end
 
+@ TODO - rename to DebugText_ExpansionVersion ?
 Debug_ExpansionVersion:
 	.string "pokeemerald-expansion {STR_VAR_1}$"
 

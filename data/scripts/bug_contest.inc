@@ -29,7 +29,7 @@ BugContest_EventScript_TimesUp::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, BugContest_EventScript_WrongChoiceMon
 	goto_if_eq VAR_0x8004, 0, BugContest_EventScript_WrongChoiceMon
 	fadescreen FADE_TO_BLACK
-	warp MAP_NATIONAL_PARK2, 5
+	warp MAP_NATIONAL_PARK2, 5	@ HnS PORT NOTE - Apparently 2 versions of the map?
 	delay 90
 	end
 
