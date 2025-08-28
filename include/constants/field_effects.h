@@ -77,6 +77,8 @@
 #define FLDEFF_TRACKS_BUG                72
 #define FLDEFF_CAVE_DUST                 73
 #define FLDEFF_DEFOG                     74
+#define FLDEFF_USE_WHIRLPOOL             75
+#define FLDEFF_USE_HEADBUTT              76
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

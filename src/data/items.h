@@ -589,21 +589,37 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_BeastBall,
     },
 
-    // [ITEM_CHERISH_BALL] =
-    // {
-    //     .name = _("Cherish Ball"),
-    //     .price = 0,
-    //     .description = COMPOUND_STRING(
-    //         "A rare Ball made\n"
-    //         "in commemoration\n"
-    //         "of some event."),
-    //     .pocket = POCKET_POKE_BALLS,
-    //     .type = ITEM_USE_BAG_MENU,
-    //     .battleUsage = EFFECT_ITEM_THROW_BALL,
-    //     .secondaryId = BALL_CHERISH,
-    //     .iconPic = gItemIcon_CherishBall,
-    //     .iconPalette = gItemIconPalette_CherishBall,
-    // },
+    [ITEM_CHERISH_BALL] =
+    {
+        .name = _("Cherish Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A rare Ball made\n"
+            "in commemoration\n"
+            "of some event."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_CHERISH,
+        .iconPic = gItemIcon_CherishBall,
+        .iconPalette = gItemIconPalette_CherishBall,
+    },
+
+        [ITEM_GS_BALL] =
+    {
+        .name = _("GS Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A Ball Ball made\n"
+            "to commemorate\n"
+            "muh balls."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_GS,
+        .iconPic = gItemIcon_GSBall,
+        .iconPalette = gItemIconPalette_GSBall,
+    },
 
 // Medicine
 

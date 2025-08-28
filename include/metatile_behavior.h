@@ -101,7 +101,7 @@ bool8 MetatileBehavior_IsNorthBlocked(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSouthBlocked(u8 metatileBehavior);
 bool8 MetatileBehavior_IsShortGrass(u8 metatileBehavior);
 bool8 MetatileBehavior_IsHotSprings(u8 metatileBehavior);
-bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior);
+bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior); // TODO USEFUL
 bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPacifidlogVerticalLogTop(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPacifidlogVerticalLogBottom(u8 metatileBehavior);

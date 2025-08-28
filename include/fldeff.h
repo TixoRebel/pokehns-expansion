@@ -55,4 +55,13 @@ bool8 FldEff_UseRockSmash(void);
 bool8 SetUpFieldMove_Defog(void);
 bool8 FldEff_Defog(void);
 
+// headbutt
+bool8 CheckMetatileBehaviorInFrontOfPlayer(u32 metatileBehavior);
+bool8 SetUpFieldMove_Headbutt(void);
+bool8 FldEff_UseHeadbutt(void);
+
+// whirlpool
+bool8 SetUpFieldMove_Whirlpool(void);
+bool8 FldEff_UseWhirlpool(void);
+
 #endif // GUARD_FLDEFF_H

@@ -1,21 +1,27 @@
+@ HnS PORT NOTE - IsFollowerFieldMoveUser is implemented (all lowercase) in event.inc
+@ HnS PORT TODO - Is party learnset being checked at all??
+
+@ HnS PORT TODO - make HM use logic depend on a flag (build or user option?)
 @ Interact with cuttable tree
 EventScript_CutTree::
 	lockall
 	goto_if_unset FLAG_BADGE02_GET, EventScript_CheckTreeCantCut
-	checkpartymove MOVE_CUT
+	goto_if_unset FLAG_RECEIVED_HM_CUT, EventScript_CheckTreeCantCut @ HnS PORT NOTE - checks for badge and access to move, not party movesets
+	@checkpartymove MOVE_CUT @ HnS PORT TODO - maybe replace with "checkpartylearnsets" or modify behavior?
+	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
-	setfieldeffectargument 0, VAR_RESULT
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	buffermovename STR_VAR_2, MOVE_CUT
-	msgbox Text_WantToCut, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_CancelCut
+	@setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT	@ loads the lead pokemon's nickname into STR_VAR_1
+	buffermovename STR_VAR_2, MOVE_CUT			@ loads the HM name Cut into STR_VAR_2
+	@msgbox Text_WantToCut, MSGBOX_YESNO
+	@goto_if_eq VAR_RESULT, NO, EventScript_CancelCut
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
-EventScript_CutTreeCommon:
+EventScript_CutTreeCommon: @ fallthrough
 	isfollowerfieldmoveuser VAR_0x8004
-	setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
-	dofieldeffect FLDEFF_USE_CUT_ON_TREE
-	waitstate
+	@setfieldeffectargument 3, VAR_0x8004 @ skip pose if so	@
+	@dofieldeffect FLDEFF_USE_CUT_ON_TREE					@ HnS PORT NOTE - these three lines were commented out in HnS, why?
+	@waitstate												@
 EventScript_CutTreeDown:: @ fallthrough
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
@@ -62,25 +68,28 @@ EventScript_UseRockSmash::
 	lockall
 	goto EventScript_RockSmashCommon
 
+@ HnS PORT TODO - make HM use logic depend on a flag (build or user option?)
 @ Interact with smashable rock
 EventScript_RockSmash::
 	lockall
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CantSmashRock
-	checkpartymove MOVE_ROCK_SMASH
+	goto_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, EventScript_CantSmashRock
+	@checkpartymove MOVE_ROCK_SMASH
+	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
-	setfieldeffectargument 0, VAR_RESULT
+	@setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
-	msgbox Text_WantToSmash, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
+	@msgbox Text_WantToSmash, MSGBOX_YESNO
+	@goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
-EventScript_RockSmashCommon:
+EventScript_RockSmashCommon: @ fallthrough
 	@ check if follower should use the field move
 	isfollowerfieldmoveuser VAR_0x8004
-	setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
-	dofieldeffect FLDEFF_USE_ROCK_SMASH
-	waitstate
+	@setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
+	@dofieldeffect FLDEFF_USE_ROCK_SMASH
+	@waitstate
 EventScript_SmashRock:: @ fallthrough
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
@@ -88,7 +97,7 @@ EventScript_SmashRock:: @ fallthrough
 	playse SE_M_ROCK_THROW
 	waitmovement 0
 	removeobject VAR_LAST_TALKED
-	specialvar VAR_RESULT, TryUpdateRusturfTunnelState
+	@ specialvar VAR_RESULT, TryUpdateRusturfTunnelState @ HnS NOTE - not relevant to HnS
 	goto_if_eq VAR_RESULT, TRUE, EventScript_EndSmash
 	special RockSmashWildEncounter
 	goto_if_eq VAR_RESULT, FALSE, EventScript_EndSmash
@@ -96,22 +105,24 @@ EventScript_SmashRock:: @ fallthrough
 	releaseall
 	end
 
+@ HnS TODO - rename FLAG_GET_HEADBUTT to "FLAG_LEARNED_HEADBUTT"
 @ Interact with headbutt tree
 EventScript_Headbutt::
 	lockall
 	goto_if_unset FLAG_GET_HEADBUTT, EventScript_CantHeadbuttTree
+	@checkpartymove MOVE_HEADBUTT
 	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantHeadbuttTree
 	@setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
+	buffermovename STR_VAR_2, MOVE_HEADBUTT
 	@msgbox Text_WantToHeadbutt, MSGBOX_YESNO
 	@goto_if_eq VAR_RESULT, NO, EventScript_CancelHeadbutt
-	msgbox Text_MonUsedHeadbutt, MSGBOX_DEFAULT
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
 EventScript_HeadbuttCommon:
 	@ check if follower should use the field move
-	IsFollowerFieldMoveUser VAR_0x8004
+	Isfollowerfieldmoveuser VAR_0x8004
 	@setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
 	@dofieldeffect FLDEFF_USE_ROCK_SMASH
 	@waitstate
@@ -121,12 +132,11 @@ EventScript_HeadbuttTree:: @ fallthrough
 	applymovement VAR_LAST_TALKED, Movement_HeadbuttTree
 	playse SE_M_HEADBUTT
 	waitmovement 0
-	special RockSmashWildEncounter
+	special RockSmashWildEncounter	@ HnS PORT TODO - implement a separate Headbutt encounter path
 	goto EventScript_EndHeadbutt
 	waitstate
 	releaseall
 	end
-
 
 Movement_HeadbuttTree:
 	rock_smash_break
@@ -147,12 +157,8 @@ EventScript_EndHeadbutt::
 	releaseall
 	end
 
-Text_MonUsedHeadbutt::
-	.string "{STR_VAR_1} used HEADBUTT!$"
-
-
 EventScript_FollowerFieldMove:
-	getdirectiontoface VAR_0x8005, OBJ_EVENT_ID_FOLLOWER, LOCALID_PLAYER
+	getdirectiontoface VAR_0x8005, OBJ_EVENT_ID_FOLLOWER, LOCALID_PLAYER @ HnS PORT NOTE - Expansion defines a macro in event.inc rather than a func to call
 	specialvar VAR_0x8006, GetPlayerFacingDirection
 	goto_if_eq VAR_0x8005, DIR_NONE, EventScript_FollowerFieldMoveEnd
 	@ Swap follower and player
@@ -174,7 +180,9 @@ EventScript_FollowerSwap:
 	case DIR_WEST, EventScript_FollowerMoveWest
 	return
 
+@ HnS PORT NOTE - why does follower move north, but player south?
 EventScript_FollowerMoveNorth:
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_WalkUp
 	applymovement LOCALID_PLAYER, Movement_WalkDown
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
@@ -182,6 +190,7 @@ EventScript_FollowerMoveNorth:
 	return
 
 EventScript_FollowerMoveEast:
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_WalkRight
 	applymovement LOCALID_PLAYER, Movement_WalkLeft
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_FaceRight
@@ -189,6 +198,7 @@ EventScript_FollowerMoveEast:
 	return
 
 EventScript_FollowerMoveSouth:
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_WalkDown
 	applymovement LOCALID_PLAYER, Movement_WalkUp
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
@@ -196,6 +206,7 @@ EventScript_FollowerMoveSouth:
 	return
 
 EventScript_FollowerMoveWest:
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_WalkLeft
 	applymovement LOCALID_PLAYER, Movement_WalkRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
@@ -222,6 +233,7 @@ EventScript_FollowerJumpWest:
 	waitmovement 0
 	return
 
+@ HnS PORT TODO - make this pull from a table like w/ wild encounters, or even change "RockSmashWildEncounter" to "RockSmashSecondaryEvents"
 EventScript_EndSmash::
 	random 20
 	call_if_eq VAR_RESULT, 1, EventScript_RockSmashHeartscale
@@ -317,28 +329,36 @@ Text_CantHeadbutt:
 EventScript_StrengthBoulder::
 	lockall
 	goto_if_unset FLAG_BADGE03_GET, EventScript_CantStrength
-	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
-	checkpartymove MOVE_STRENGTH
+	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder @ NOTE - checks if Strength is already active
+	@checkpartymove MOVE_STRENGTH
+	@checkitem ITEM_HM_STRENGTH @ HnS PORT NOTE - why checkitem and not FLAG_RECEIVED_HM_STRENGTH?
+	@goto_if_eq VAR_RESULT, FALSE, EventScript_CantStrength
+	goto_if_unset FLAG_RECEIVED_HM_STRENGTH, EventScript_CantStrength
+	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantStrength
 	setfieldeffectargument 0, VAR_RESULT
-	msgbox Text_WantToStrength, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_CancelStrength
-	closemessage
-	dofieldeffect FLDEFF_USE_STRENGTH
-	waitstate
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	@msgbox Text_WantToStrength, MSGBOX_YESNO
+	@goto_if_eq VAR_RESULT, NO, EventScript_CancelStrength
+	@closemessage
+	@dofieldeffect FLDEFF_USE_STRENGTH
+	@waitstate
 	goto EventScript_ActivateStrength
 	end
 
 EventScript_UseStrength::
 	lockall
-	dofieldeffect FLDEFF_USE_STRENGTH
-	waitstate
+	@dofieldeffect FLDEFF_USE_STRENGTH
+	@waitstate
 	goto EventScript_ActivateStrength
 	end
 
 EventScript_ActivateStrength::
 	setflag FLAG_SYS_USE_STRENGTH
-	msgbox Text_MonUsedStrength, MSGBOX_DEFAULT
+	msgbox Text_MonUsedStrength, MSGBOX_DEFAULT @ TEST - more standardized practice
+	@ buffermovename STR_VAR_2, MOVE_STRENGTH
+	@ msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	@ msgbox Text_StrengthActivated, MSGBOX_DEFAULT @ TEST - can this be reused instead?
 	releaseall
 	end
 
@@ -375,20 +395,30 @@ Text_StrengthActivated:
 	.string "STRENGTH made it possible to move\n"
 	.string "boulders around.$"
 
+@ HnS PORT TODO - make waterfall like strength - only interact with "a" once, then just movement
 EventScript_UseWaterfall::
 	lockall
-	checkpartymove MOVE_WATERFALL
+	goto_if_unset FLAG_BADGE08_GET, EventScript_CantWaterfall @ badge 8
+	goto_if_unset FLAG_RECEIVED_HM_WATERFALL, EventScript_CantWaterfall
+	@goto_if_set FLAG_SYS_USE_WATERFALL, EventScript_CheckActivatedWaterfall @ NOTE - checks if Waterfall is already active
+	@checkpartymove MOVE_WATERFALL
+	@checkitem ITEM_HM_WATERFALL @ HnS PORT NOTE - why checkitem and not FLAG_RECEIVED_HM_WATERFALL?
+	@checkpartymove MOVE_WATERFALL
+	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
-	msgbox Text_WantToWaterfall, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall
-	msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
-	hidefollowernpc
-	dofieldeffect FLDEFF_USE_WATERFALL
-	callnative FollowerNPC_WarpSetEnd
+	@msgbox Text_WantToWaterfall, MSGBOX_YESNO
+	@goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall
+	@msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
+	buffermovename STR_VAR_2, MOVE_WATERFALL
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	hidefollowernpc @ HnS PORT NOTE - why not in HnS?
+	dofieldeffect FLDEFF_USE_WATERFALL @ HnS PORT NOTE - why other calls to "dofieldeffect" removed, but not this one?
+	callnative FollowerNPC_WarpSetEnd @ HnS PORT NOTE - seems to move follower to player's end destination?
 	goto EventScript_EndWaterfall
 
+@ NOTE - Why does this exist??
 EventScript_CannotUseWaterfall::
 	lockall
 
@@ -410,6 +440,7 @@ Text_WantToWaterfall:
 Text_MonUsedWaterfall:
 	.string "{STR_VAR_1} used WATERFALL.$"
 
+@ HnS PORT NOTE - this is just Expansion's version of dive
 EventScript_UseDive::
 	lockall
 	checkpartymove MOVE_DIVE
@@ -420,7 +451,9 @@ EventScript_UseDive::
 	setfieldeffectargument 1, 1
 	msgbox Text_WantToDive, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_EndDive
-	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
+	@msgbox Text_MonUsedDive, MSGBOX_DEFAULT
+	buffermovename STR_VAR_2, MOVE_DIVE
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	hidefollowernpc
 	setfieldeffectargument 0, VAR_0x8004
 	setfieldeffectargument 1, 1
@@ -446,7 +479,9 @@ EventScript_UseDiveUnderwater::
 	setfieldeffectargument 1, 1
 	msgbox Text_WantToSurface, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_NoSurface
-	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
+	@msgbox Text_MonUsedDive, MSGBOX_DEFAULT
+	buffermovename STR_VAR_2, MOVE_DIVE
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	hidefollowernpc
 	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndSurface
@@ -464,13 +499,17 @@ EventScript_NoSurface::
 	releaseall
 	end
 	
-@crystal
+@ HnS PORT NOTE - seems potentially oversimplified?
 EventScript_Whirlpool::
 	lockall
 	goto_if_unset FLAG_BADGE07_GET, EventScript_CantWhirlpool
-	checkitem ITEM_HM_WHIRLPOOL
+	goto_if_unset FLAG_RECEIVED_HM_WHIRLPOOL, EventScript_CantWhirlpool
+	@checkitem ITEM_HM_WHIRLPOOL @ HnS PORT NOTE - why not FLAG_RECEIVED_HM_WHIRLPOOL?
 	goto_if_eq VAR_RESULT, FALSE, EventScript_CantWhirlpool
-	playse SE_M_WATERFALL
+	playse SE_M_WHIRLPOOL
+	buffermovename STR_VAR_2, MOVE_WHIRLPOOL
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	@ msgbox Text_MonUsedWhirlpool, MSGBOX_DEFAULT @ why not in HnS?
 	goto_if_eq VAR_FACING, DIR_NORTH, EventScript_WhirlpoolGoNorth
 	goto_if_eq VAR_FACING, DIR_SOUTH, EventScript_WhirlpoolGoSouth
 	goto_if_eq VAR_FACING, DIR_EAST, EventScript_WhirlpoolGoEast
@@ -549,7 +588,8 @@ EventScript_UseDig::
 	lockall
 	goto EventScript_DigCommon
 
-
+@ HnS PORT NOTE - Expansion implemented the Cut Grass mechanic!
+@ HnS PORT TODO - Make reusing Cut Grass way easier/faster
 EventScript_CutGrassCommon:
 	isfollowerfieldmoveuser VAR_0x8004
 	setfieldeffectargument 3, VAR_0x8004 @ skip pose if true
@@ -564,6 +604,9 @@ EventScript_UseCutGrass::
 Text_CantWhirlpool:
 	.string "The water is swirling and spinning\n"
 	.string "around with a mighty roar.$"
+
+Text_MonUsedWhirlpool:
+	.string "{STR_VAR_1} used WHIRLPOOL.$"
 
 Text_CantDive:
 	.string "The sea is deep here. A POKéMON\n"
@@ -595,7 +638,7 @@ SetTimeEncounters::
 	callnative SetTimeBasedEncounters
 	return
 
-EventScript_UseDefog::
+EventScript_Defog::
 	lockall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_DEFOG

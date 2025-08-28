@@ -785,6 +785,19 @@ static const u8 sPartyMenuActionCounts[] =
     [ACTIONS_ZYGARDE_CUBE]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
 };
 
+// IDEA - separate "HMs" (teach moves) and "Field Items" (enable Field Moves)
+// example: getting the HM Surf and the relevant badge don't enabled overworld surfing unless you have a "Surfboard" or something
+#define ENABLE_FIELD_MOVE_CUT           (FlagGet(FLAG_BADGE02_GET) && FlagGet(FLAG_RECEIVED_HM_CUT))
+#define ENABLE_FIELD_MOVE_FLY           (FlagGet(FLAG_BADGE05_GET) && FlagGet(FLAG_RECEIVED_HM_FLY))
+#define ENABLE_FIELD_MOVE_SURF          (FlagGet(FLAG_BADGE04_GET) && FlagGet(FLAG_RECEIVED_HM_SURF))
+#define ENABLE_FIELD_MOVE_STRENGTH      (FlagGet(FLAG_BADGE03_GET) && FlagGet(FLAG_RECEIVED_HM_STRENGTH))
+#define ENABLE_FIELD_MOVE_FLASH         (FlagGet(FLAG_BADGE01_GET) && FlagGet(FLAG_RECEIVED_HM_FLASH))
+#define ENABLE_FIELD_MOVE_ROCK_SMASH    (FlagGet(FLAG_BADGE01_GET) && FlagGet(FLAG_RECEIVED_HM_ROCK_SMASH))
+#define ENABLE_FIELD_MOVE_WATERFALL     (FlagGet(FLAG_BADGE08_GET) && FlagGet(FLAG_RECEIVED_HM_WATERFALL))
+#define ENABLE_FIELD_MOVE_WHIRLPOOL     (FlagGet(FLAG_BADGE07_GET) && FlagGet(FLAG_RECEIVED_HM_WHIRLPOOL))
+
+#define ENABLE_FIELD_MOVE_HEADBUTT      (FlagGet(FLAG_GET_HEADBUTT)) // HnS TODO - make sure this gets set if a mon learns Headbutt by any means
+
 static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =
 {
     [FIELD_MOVE_CUT]          = MOVE_CUT,
@@ -793,16 +806,29 @@ static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =
     [FIELD_MOVE_STRENGTH]     = MOVE_STRENGTH,
     [FIELD_MOVE_SURF]         = MOVE_SURF,
     [FIELD_MOVE_FLY]          = MOVE_FLY,
-    [FIELD_MOVE_DIVE]         = MOVE_DIVE,
     [FIELD_MOVE_WATERFALL]    = MOVE_WATERFALL,
     [FIELD_MOVE_TELEPORT]     = MOVE_TELEPORT,
     [FIELD_MOVE_DIG]          = MOVE_DIG,
-    [FIELD_MOVE_SECRET_POWER] = MOVE_SECRET_POWER,
     [FIELD_MOVE_MILK_DRINK]   = MOVE_MILK_DRINK,
     [FIELD_MOVE_SOFT_BOILED]  = MOVE_SOFT_BOILED,
     [FIELD_MOVE_SWEET_SCENT]  = MOVE_SWEET_SCENT,
+#if OW_HEADBUTT_FIELD_MOVE == TRUE
+    [FIELD_MOVE_HEADBUTT]     = MOVE_HEADBUTT,
+#endif
+#if OW_WHIRLPOOL_FIELD_MOVE == TRUE
+    [FIELD_MOVE_WHIRLPOOL]    = MOVE_WHIRLPOOL,
+#endif
+#if OW_SECRET_POWER_FIELD_MOVE == TRUE
+    [FIELD_MOVE_SECRET_POWER] = MOVE_SECRET_POWER,
+#endif
+#if OW_DIVE_FIELD_MOVE == TRUE
+    [FIELD_MOVE_DIVE]         = MOVE_DIVE,
+#endif
 #if OW_DEFOG_FIELD_MOVE == TRUE
     [FIELD_MOVE_DEFOG]        = MOVE_DEFOG,
+#endif
+#if OW_ROCK_CLIMB_FIELD_MOVE == TRUE
+    [FIELD_MOVE_ROCK_CLIMB]   = MOVE_ROCK_CLIMB,
 #endif
     // NOTE: This value is used as the terminal value for the table. There's no reason to do this, as the size of the table is known.
     //       Whichever move shares this value (MOVE_SWORDS_DANCE by default) if present will be treated as the end of the array rather than a field move.
@@ -821,16 +847,29 @@ struct
     [FIELD_MOVE_STRENGTH]     = {SetUpFieldMove_Strength,    PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_SURF]         = {SetUpFieldMove_Surf,        PARTY_MSG_CANT_SURF_HERE},
     [FIELD_MOVE_FLY]          = {SetUpFieldMove_Fly,         PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_DIVE]         = {SetUpFieldMove_Dive,        PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_WATERFALL]    = {SetUpFieldMove_Waterfall,   PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_TELEPORT]     = {SetUpFieldMove_Teleport,    PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_DIG]          = {SetUpFieldMove_Dig,         PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_SECRET_POWER] = {SetUpFieldMove_SecretPower, PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_MILK_DRINK]   = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
     [FIELD_MOVE_SOFT_BOILED]  = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
     [FIELD_MOVE_SWEET_SCENT]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
+#if OW_HEADBUTT_FIELD_MOVE == TRUE
+    [FIELD_MOVE_HEADBUTT]     = {SetUpFieldMove_Headbutt,    PARTY_MSG_CANT_USE_HERE},
+#endif
+#if OW_WHIRLPOOL_FIELD_MOVE == TRUE
+    [FIELD_MOVE_WHIRLPOOL]    = {SetUpFieldMove_Whirlpool,   PARTY_MSG_CANT_USE_HERE},
+#endif
+#if OW_SECRET_POWER_FIELD_MOVE == TRUE
+    [FIELD_MOVE_SECRET_POWER] = {SetUpFieldMove_SecretPower, PARTY_MSG_CANT_USE_HERE},
+#endif
+#if OW_DIVE_FIELD_MOVE == TRUE
+    [FIELD_MOVE_DIVE]         = {SetUpFieldMove_Dive,        PARTY_MSG_CANT_USE_HERE},
+#endif
 #if OW_DEFOG_FIELD_MOVE == TRUE
     [FIELD_MOVE_DEFOG]        = {SetUpFieldMove_Defog,       PARTY_MSG_CANT_USE_HERE},
+#endif
+#if OW_ROCK_CLIMB_FIELD_MOVE == TRUE
+    [FIELD_MOVE_ROCK_CLIMB]   = {SetUpFieldMove_RockClimb,   PARTY_MSG_CANT_USE_HERE},
 #endif
 };
 

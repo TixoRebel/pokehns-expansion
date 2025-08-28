@@ -949,8 +949,15 @@ static const s8 sFriendshipEventModifiers[][3] =
 
 static const u16 sHMMoves[] =
 {
-    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
+    MOVE_CUT,           // HM01
+    MOVE_FLY,           // HM02
+    MOVE_SURF,          // HM03
+    MOVE_STRENGTH,      // HM04
+    MOVE_FLASH,         // HM05
+    MOVE_ROCK_SMASH,    // HM06
+    MOVE_WHIRLPOOL,     // HM07
+    MOVE_WATERFALL,     // HM08
+    HM_MOVES_END
 };
 
 static const struct SpeciesItem sAlteringCaveWildMonHeldItems[] =

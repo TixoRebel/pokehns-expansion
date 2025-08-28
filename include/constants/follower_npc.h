@@ -8,10 +8,11 @@
 #define FOLLOWER_NPC_FLAG_CAN_SURF              0x8     // Player is allowed to Surf. Part of FOLLOWER_NPC_FLAG_ALL_WATER.
 #define FOLLOWER_NPC_FLAG_CAN_WATERFALL         0x10    // Player is allowed to use Waterfall. Part of FOLLOWER_NPC_FLAG_ALL_WATER.
 #define FOLLOWER_NPC_FLAG_CAN_DIVE              0x20    // Player is allowed to use Dive. Part of FOLLOWER_NPC_FLAG_ALL_WATER.
+#define FOLLOWER_NPC_FLAG_CAN_WHIRLPOOL         0x40    // Player is allowed to use Whirlpool. Part of FOLLOWER_NPC_FLAG_ALL_WATER.
 #define FOLLOWER_NPC_FLAG_CLEAR_ON_WHITE_OUT    0x80    // The NPC follower will be destroyed if the player whites out.
 
 #define FOLLOWER_NPC_FLAG_ALL_LAND              FOLLOWER_NPC_FLAG_HAS_RUNNING_FRAMES | FOLLOWER_NPC_FLAG_CAN_BIKE | FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE
-#define FOLLOWER_NPC_FLAG_ALL_WATER             FOLLOWER_NPC_FLAG_CAN_SURF | FOLLOWER_NPC_FLAG_CAN_WATERFALL | FOLLOWER_NPC_FLAG_CAN_DIVE
+#define FOLLOWER_NPC_FLAG_ALL_WATER             FOLLOWER_NPC_FLAG_CAN_SURF | FOLLOWER_NPC_FLAG_CAN_WATERFALL | FOLLOWER_NPC_FLAG_CAN_DIVE | FOLLOWER_NPC_FLAG_CAN_WHIRLPOOL
 #define FOLLOWER_NPC_FLAG_ALL                   FOLLOWER_NPC_FLAG_ALL_LAND | FOLLOWER_NPC_FLAG_ALL_WATER | FOLLOWER_NPC_FLAG_CLEAR_ON_WHITE_OUT
 
 // Shorter flag names for ease of use in setfollowernpc script macro
@@ -21,6 +22,7 @@
 #define FNPC_SURF                             FOLLOWER_NPC_FLAG_CAN_SURF
 #define FNPC_WATERFALL                        FOLLOWER_NPC_FLAG_CAN_WATERFALL
 #define FNPC_DIVE                             FOLLOWER_NPC_FLAG_CAN_DIVE
+#define FNPC_WHIRLPOOL                        FOLLOWER_NPC_FLAG_CAN_WHIRLPOOL
 #define FNPC_WHITE_OUT                        FOLLOWER_NPC_FLAG_CLEAR_ON_WHITE_OUT
 
 #define FNPC_ALL_LAND                         FOLLOWER_NPC_FLAG_ALL_LAND

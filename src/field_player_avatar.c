@@ -993,6 +993,31 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
     return FALSE;
 }
 
+// TODO NOTE - trying to make waterfall behave like strength - might have found a better approach
+// static bool8 TryClimbWaterfall(s16 x, s16 y, u8 direction)
+// {
+//     if (FlagGet(FLAG_SYS_USE_WATERFALL))
+//     {
+//         // if attempting to move into a waterfall tile from a valid direction, climb it
+
+//         u8 objectEventId = GetObjectEventIdByXY(x, y);
+
+//         if (objectEventId != OBJECT_EVENTS_COUNT && gObjectEvents[objectEventId].graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+//         {
+//             x = gObjectEvents[objectEventId].currentCoords.x;
+//             y = gObjectEvents[objectEventId].currentCoords.y;
+//             MoveCoords(direction, &x, &y);
+//             if (GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE
+//              && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
+//             {
+//                 StartStrengthAnim(objectEventId, direction);
+//                 return TRUE;
+//             }
+//         }
+//     }
+//     return FALSE;
+// }
+
 static void CheckAcroBikeCollision(s16 x, s16 y, u8 metatileBehavior, u8 *collision)
 {
     u8 i;

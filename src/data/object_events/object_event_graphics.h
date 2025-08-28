@@ -464,6 +464,7 @@ const u32 gObjectEventPic_BeastBall[] = INCBIN_U32("graphics/object_events/pics/
 #ifdef ITEM_STRANGE_BALL
 const u32 gObjectEventPic_StrangeBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_strange.4bpp");
 #endif //ITEM_STRANGE_BALL
+const u32 gObjectEventPic_GSBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_gs.4bpp");
 #endif //OW_FOLLOWERS_POKEBALLS
 
 #if OW_FOLLOWERS_POKEBALLS
@@ -503,6 +504,7 @@ const u16 gObjectEventPal_BeastBall[] = INCBIN_U16("graphics/object_events/pics/
 #ifdef ITEM_STRANGE_BALL
 const u16 gObjectEventPal_StrangeBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_strange.gbapal");
 #endif //ITEM_STRANGE_BALL
+const u16 gObjectEventPal_GSBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_gs.gbapal");
 #endif //OW_FOLLOWERS_POKEBALLS
 
 const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");

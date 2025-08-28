@@ -417,35 +417,35 @@
 #define OBJ_EVENT_PAL_TAG_ROCKET_3                0x112B
 #define OBJ_EVENT_PAL_TAG_ROCKET_4                0x112C
 #define OBJ_EVENT_PAL_TAG_FALKNER                 0x112D
-#define OBJ_EVENT_PAL_TAG_BUGSY                 0x112E
+#define OBJ_EVENT_PAL_TAG_BUGSY                   0x112E
 #define OBJ_EVENT_PAL_TAG_WHITNEY                 0x112F
-#define OBJ_EVENT_PAL_TAG_MORTY                 0x1130
+#define OBJ_EVENT_PAL_TAG_MORTY                   0x1130
 #define OBJ_EVENT_PAL_TAG_JASMINE                 0x1131
-#define OBJ_EVENT_PAL_TAG_CHUCK                 0x1132
-#define OBJ_EVENT_PAL_TAG_PRYCE                 0x1133
-#define OBJ_EVENT_PAL_TAG_CLAIR                 0x1134
-#define OBJ_EVENT_PAL_TAG_UNUSED3          0x1135
-#define OBJ_EVENT_PAL_TAG_UNUSED4       0x1136
+#define OBJ_EVENT_PAL_TAG_CHUCK                   0x1132
+#define OBJ_EVENT_PAL_TAG_PRYCE                   0x1133
+#define OBJ_EVENT_PAL_TAG_CLAIR                   0x1134
+#define OBJ_EVENT_PAL_TAG_UNUSED3                 0x1135
+#define OBJ_EVENT_PAL_TAG_UNUSED4                 0x1136
 #define OBJ_EVENT_PAL_TAG_UNUSED2                 0x1137
-#define OBJ_EVENT_PAL_TAG_JANINE                 0x1138
-#define OBJ_EVENT_PAL_TAG_WILL                   0x1139
-#define OBJ_EVENT_PAL_TAG_KAREN                  0x113A
-#define OBJ_EVENT_PAL_TAG_LANCE                  0x113B
+#define OBJ_EVENT_PAL_TAG_JANINE                  0x1138
+#define OBJ_EVENT_PAL_TAG_WILL                    0x1139
+#define OBJ_EVENT_PAL_TAG_KAREN                   0x113A
+#define OBJ_EVENT_PAL_TAG_LANCE                   0x113B
 
 #define OBJ_EVENT_PAL_TAG_SILVER                  0x113C
-#define OBJ_EVENT_PAL_TAG_RED                  0x113D
+#define OBJ_EVENT_PAL_TAG_RED                     0x113D
 #define OBJ_EVENT_PAL_TAG_KIMONO                  0x113E
 #define OBJ_EVENT_PAL_TAG_EUSINE                  0x113F
-#define OBJ_EVENT_PAL_TAG_ELM                  0x1140
-#define OBJ_EVENT_PAL_TAG_FIREBREATHER                  0x1141
-#define OBJ_EVENT_PAL_TAG_SAGE                  0x1142
-#define OBJ_EVENT_PAL_TAG_STEVEN                0x1143
-#define OBJ_EVENT_PAL_TAG_SCIENTIST_F           0x1144
-#define OBJ_EVENT_PAL_TAG_SHINY_GYARADOS        0x1145
-#define OBJ_EVENT_PAL_TAG_TOWER_BEAM            0x1146
-#define OBJ_EVENT_PAL_TAG_SNORLAX               0x1147
-#define OBJ_EVENT_PAL_TAG_SLOWPOKE              0x1148
-#define OBJ_EVENT_PAL_TAG_WHIRLPOOL             0x1149
+#define OBJ_EVENT_PAL_TAG_ELM                     0x1140
+#define OBJ_EVENT_PAL_TAG_FIREBREATHER            0x1141
+#define OBJ_EVENT_PAL_TAG_SAGE                    0x1142
+#define OBJ_EVENT_PAL_TAG_STEVEN                  0x1143
+#define OBJ_EVENT_PAL_TAG_SCIENTIST_F             0x1144
+#define OBJ_EVENT_PAL_TAG_SHINY_GYARADOS          0x1145
+#define OBJ_EVENT_PAL_TAG_TOWER_BEAM              0x1146
+#define OBJ_EVENT_PAL_TAG_SNORLAX                 0x1147
+#define OBJ_EVENT_PAL_TAG_SLOWPOKE                0x1148
+#define OBJ_EVENT_PAL_TAG_WHIRLPOOL               0x1149
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
@@ -481,6 +481,7 @@
 #define OBJ_EVENT_PAL_TAG_BALL_BEAST              0x1169
 // Gen VIII
 #define OBJ_EVENT_PAL_TAG_BALL_STRANGE            0x116A
+#define OBJ_EVENT_PAL_TAG_BALL_GS                 0x116B
 #endif //OW_FOLLOWERS_POKEBALLS
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

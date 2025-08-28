@@ -45,6 +45,7 @@ CianwoodCity_EventScript_Flytrigger::
 	waitmovement 0
 	msgbox CianwoodCity_Text_ChucksWifeGiveHM, MSGBOX_DEFAULT
 	giveitem ITEM_HM_FLY
+	setflag FLAG_RECEIVED_HM_FLY
 	msgbox CianwoodCity_Text_ChucksWifeFlySpeech, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_GETFLY, 2
@@ -81,6 +82,7 @@ CianwoodCity_EventScript_ChucksWife::
 CianwoodCity_EventScript_ChucksWifeGiveFly::
 	msgbox CianwoodCity_Text_ChucksWifeGiveHM, MSGBOX_DEFAULT
 	giveitem ITEM_HM_FLY
+	setflag FLAG_RECEIVED_HM_FLY
 	msgbox CianwoodCity_Text_ChucksWifeFlySpeech, MSGBOX_DEFAULT
 	closemessage
 	release

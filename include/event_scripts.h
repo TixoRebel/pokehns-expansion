@@ -407,7 +407,12 @@ extern const u8 EventScript_UseCut[];
 extern const u8 EventScript_UseRockSmash[];
 extern const u8 EventScript_UseDig[];
 extern const u8 EventScript_UseCutGrass[];
-extern const u8 EventScript_UseDefog[];
+extern const u8 EventScript_Defog[];
+extern const u8 EventScript_Headbutt[];
+extern const u8 EventScript_Whirlpool[];
+// extern const u8 EventScript_UseWaterfall[]; // ?
+// extern const u8 EventScript_UseDive[]; // ?
+// extern const u8 EventScript_UseDiveUnderwater[]; // ?
 
 //player pc
 extern const u8 LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC[];

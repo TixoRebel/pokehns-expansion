@@ -16,6 +16,7 @@ IcePath1_EventScript_Item_Protein::
 	end
 IcePath1_EventScript_Item_HM_Waterfall::
 	finditem ITEM_HM_WATERFALL
+	setflag FLAG_RECEIVED_HM_WATERFALL
 	end
 
 IcePath1_EventScript_KimonoGirl::

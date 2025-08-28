@@ -6576,6 +6576,7 @@ struct
     {MAP_GROUP(MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_2F), MAP_NUM(MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_2F), MOVE_ROCK_SMASH},
 };
 
+// HnS PORT TODO - create a box-wide analogue for CanSelectedMonUseUniqueHM() in party_menu.c
 static void GetRestrictedReleaseMoves(u16 *moves)
 {
     s32 i;

@@ -209,48 +209,6 @@ IlexForest_EventScript_BugcatcherWayne::
 	msgbox IlexForest_Text_BugCatcherWayneAfter, MSGBOX_AUTOCLOSE
 	end
 
-IlexForest_EventScript_HeadbuttMoveTutor::
-	lock
-	faceplayer
-	goto_if_set FLAG_FINITE_TMS, IlexForest_EventScript_HeadbuttTutorFinite
-	clearflag FLAG_MOVE_TUTOR_TAUGHT_HEADBUTT
-	msgbox MoveTutor_Text_HeadbuttTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_HeadbuttDeclined
-	msgbox MoveTutor_Text_HeadbuttWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, MOVE_HEADBUTT
-	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_HeadbuttDeclined
-	goto MoveTutor_EventScript_HeadbuttTaught
-	end
-
-IlexForest_EventScript_HeadbuttTutorFinite::
-	lock
-	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_HEADBUTT, MoveTutor_EventScript_HeadbuttTaught
-	msgbox MoveTutor_Text_HeadbuttTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_HeadbuttDeclined
-	call MoveTutor_EventScript_CanOnlyBeLearnedOnceFinite
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_HeadbuttDeclined
-	msgbox MoveTutor_Text_HeadbuttWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, MOVE_HEADBUTT
-	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_HeadbuttDeclined
-	setflag FLAG_MOVE_TUTOR_TAUGHT_HEADBUTT
-	goto MoveTutor_EventScript_HeadbuttTaught
-	end
-
-MoveTutor_EventScript_HeadbuttDeclined::
-	msgbox MoveTutor_Text_HeadbuttDeclined, MSGBOX_DEFAULT
-	release
-	end
-
-MoveTutor_EventScript_HeadbuttTaught::
-	setflag FLAG_GET_HEADBUTT
-	msgbox MoveTutor_Text_HeadbuttTaught, MSGBOX_DEFAULT
-	release
-	end
-
-
 IlexForest_EventScript_Shrine::
 	lock
 	goto_if_eq VAR_AZALEA_TOWN_STATE, 9, IlexForest_EventScript_Celebi_Event

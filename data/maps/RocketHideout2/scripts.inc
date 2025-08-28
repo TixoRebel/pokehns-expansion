@@ -500,6 +500,7 @@ RocketHideout2_EventScript_ElectrodeDone::
 	delay 30
 	msgbox RocketHideout2_Text_LanceElectrodeDone, MSGBOX_DEFAULT
 	giveitem ITEM_HM_WHIRLPOOL
+	setflag FLAG_RECEIVED_HM_WHIRLPOOL
 	msgbox RocketHideout2_Text_LanceWhirlpool, MSGBOX_DEFAULT
 	closemessage
 	turnobject LOCALID_ROCKETHIDEOUT2_LANCE, DIR_SOUTH

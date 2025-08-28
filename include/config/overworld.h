@@ -10,7 +10,13 @@
 #define OW_DOUBLE_APPROACH_WITH_ONE_MON FALSE      // If enabled, you can be spotted by two trainers at the same time even if you only have one eligible Pokémon in your party.
 #define OW_HIDE_REPEAT_MAP_POPUP        FALSE      // If enabled, map popups will not appear if entering a map with the same Map Section Id as the last.
 #define OW_FRLG_WHITEOUT                FALSE      // If enabled, shows an additional whiteout message and post whiteout event script with healing NPC.
+#define OW_LEARNSET_FIELD_MOVES         TRUE       // If enabled, certain Field Moves can be used by any Pokemon with them in its Learnset.
+#define OW_HEADBUTT_FIELD_MOVE          TRUE       // If enabled, Headbutt can be used as a Field Move as seen in HGSS/HnS.
+#define OW_WHIRLPOOL_FIELD_MOVE         TRUE       // If enabled, Whirlpool can be used as a Field Move as seen in HGSS/HnS.
+#define OW_SECRET_POWER_FIELD_MOVE      FALSE      // If enabled, Secret Power can be used as a Field Move as seen in RSE.
+#define OW_DIVE_FIELD_MOVE              FALSE      // If enabled, Dive can be used as a Field Move as seen in RSE.
 #define OW_DEFOG_FIELD_MOVE             FALSE      // If enabled, Defog can be used as a Field Move as seen in DPPt.
+#define OW_ROCK_CLIMB_FIELD_MOVE        FALSE      // If enabled, Rock Climb can be used as a Field Move as seen in DPPt.
 
 // Item Obtain Description Box
 #define OW_ITEM_DESCRIPTIONS_OFF        0   // never show descriptions
@@ -23,11 +29,11 @@
 #define GEN_6_ORAS GEN_LATEST + 1
 
 // PC settings
-#define OW_PC_PRESS_B               GEN_LATEST // In Gen4, pressing B when holding a Pokémon is equivalent to placing it. In Gen3, it gives the "You're holding a Pokémon!" error.
-#define OW_PC_JAPAN_WALDA_ICONS     TRUE       // In the US release of Emerald, the Cross, Bolt, and Plusle icons for Walda's wallpapers were left blank from the Japan release. Setting this to TRUE will restore them.
-#define OW_PC_HEAL                  GEN_LATEST // In Gen8+, Pokémon are not healed when deposited in the PC.
-#define OW_PC_MOVE_ORDER            GEN_LATEST // Starting in Gen4, the order of options in the PC menu change.
-#define OW_PC_RELEASE_ITEM          GEN_LATEST // In Gen8+, Pokémon that get released with a held item return it to the bag.
+#define OW_PC_PRESS_B                  GEN_LATEST // In Gen4, pressing B when holding a Pokémon is equivalent to placing it. In Gen3, it gives the "You're holding a Pokémon!" error.
+#define OW_PC_JAPAN_WALDA_ICONS        TRUE       // In the US release of Emerald, the Cross, Bolt, and Plusle icons for Walda's wallpapers were left blank from the Japan release. Setting this to TRUE will restore them.
+#define OW_PC_HEAL                     GEN_LATEST // In Gen8+, Pokémon are not healed when deposited in the PC.
+#define OW_PC_MOVE_ORDER               GEN_LATEST // Starting in Gen4, the order of options in the PC menu change.
+#define OW_PC_RELEASE_ITEM             GEN_LATEST // In Gen8+, Pokémon that get released with a held item return it to the bag.
 
 #define OW_BERRY_MUTATIONS             FALSE      // If enabled, Berry plants can mutate based on berries planted next to them.
 #define OW_BERRY_MUTATION_CHANCE       25         // Determines the % chance of a mutation.

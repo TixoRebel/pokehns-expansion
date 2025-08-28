@@ -594,6 +594,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     #ifdef ITEM_STRANGE_BALL
     {gObjectEventPal_StrangeBall,           OBJ_EVENT_PAL_TAG_BALL_STRANGE},
     #endif //ITEM_STRANGE_BALL
+    {gObjectEventPal_GSBall,                OBJ_EVENT_PAL_TAG_BALL_GS},
 #endif //OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_Substitute,            OBJ_EVENT_PAL_TAG_SUBSTITUTE},
     {gObjectEventPaletteLight,              OBJ_EVENT_PAL_TAG_LIGHT},
@@ -11338,6 +11339,7 @@ bool8 MovementAction_EmoteDoubleExclamationMark_Step0(struct ObjectEvent *object
     return TRUE;
 }
 
+// TODO USEFUL - seems to be what pushes you back if you move into the bottom of a waterfall tile?
 bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent)
 {
     s16 x;

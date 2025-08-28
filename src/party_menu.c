@@ -129,25 +129,37 @@ enum {
     ACTIONS_ZYGARDE_CUBE,
 };
 
-// In CursorCb_FieldMove, field moves <= FIELD_MOVE_WATERFALL are assumed to line up with the badge flags.
-// Badge flag names are commented here for people searching for references to remove the badge requirement.
+// HnS PORT NOTE - redid logic for field move requirements. See CanMonUseFieldMove()
 enum {
-    FIELD_MOVE_CUT,         // FLAG_BADGE01_GET
-    FIELD_MOVE_FLASH,       // FLAG_BADGE02_GET
-    FIELD_MOVE_ROCK_SMASH,  // FLAG_BADGE03_GET
-    FIELD_MOVE_STRENGTH,    // FLAG_BADGE04_GET
-    FIELD_MOVE_SURF,        // FLAG_BADGE05_GET
-    FIELD_MOVE_FLY,         // FLAG_BADGE06_GET
-    FIELD_MOVE_DIVE,        // FLAG_BADGE07_GET
-    FIELD_MOVE_WATERFALL,   // FLAG_BADGE08_GET
-    FIELD_MOVE_TELEPORT,
-    FIELD_MOVE_DIG,
+    FIELD_MOVE_CUT,
+    FIELD_MOVE_FLASH, // cannot be triggered from overworld
+    FIELD_MOVE_ROCK_SMASH,
+    FIELD_MOVE_STRENGTH,
+    FIELD_MOVE_SURF,
+    FIELD_MOVE_FLY, // cannot be triggered from overworld
+    FIELD_MOVE_WATERFALL,
+    FIELD_MOVE_TELEPORT, // cannot be triggered from overworld
+    FIELD_MOVE_DIG, // cannot be triggered from overworld
+    FIELD_MOVE_MILK_DRINK, // cannot be triggered from overworld
+    FIELD_MOVE_SOFT_BOILED, // cannot be triggered from overworld
+    FIELD_MOVE_SWEET_SCENT, // cannot be triggered from overworld
+#if OW_HEADBUTT_FIELD_MOVE == TRUE
+    FIELD_MOVE_HEADBUTT,
+#endif
+#if OW_WHIRLPOOL_FIELD_MOVE == TRUE
+    FIELD_MOVE_WHIRLPOOL,
+#endif
+#if OW_SECRET_POWER_FIELD_MOVE == TRUE
     FIELD_MOVE_SECRET_POWER,
-    FIELD_MOVE_MILK_DRINK,
-    FIELD_MOVE_SOFT_BOILED,
-    FIELD_MOVE_SWEET_SCENT,
+#endif
+#if OW_DIVE_FIELD_MOVE == TRUE
+    FIELD_MOVE_DIVE,
+#endif
 #if OW_DEFOG_FIELD_MOVE == TRUE
-    FIELD_MOVE_DEFOG,
+    FIELD_MOVE_DEFOG, // cannot be triggered from overworld
+#endif
+#if OW_ROCK_CLIMB_FIELD_MOVE == TRUE
+    FIELD_MOVE_ROCK_CLIMB,
 #endif
     FIELD_MOVES_COUNT
 };
@@ -183,8 +195,15 @@ enum {
 
 static const u16 sHMMoves[] =
 {
-    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
+    MOVE_CUT,           // HM01
+    MOVE_FLY,           // HM02
+    MOVE_SURF,          // HM03
+    MOVE_STRENGTH,      // HM04
+    MOVE_FLASH,         // HM05
+    MOVE_ROCK_SMASH,    // HM06
+    MOVE_WHIRLPOOL,     // HM07
+    MOVE_WATERFALL,     // HM08
+    HM_MOVES_END
 };
 
 enum {
@@ -219,7 +238,7 @@ struct PartyMenuInternal
     u32 spriteIdCancelPokeball:7;
     u32 messageId:14;
     u8 windowId[3];
-    u8 actions[8];
+    u8 actions[16];
     u8 numActions;
     // In vanilla Emerald, only the first 0xB0 hwords (0x160 bytes) are actually used.
     // However, a full 0x100 hwords (0x200 bytes) are allocated.
@@ -274,6 +293,7 @@ static void LoadPartyMenuWindows(void);
 static void InitPartyMenuBoxes(u8);
 static void LoadPartyMenuBoxes(u8);
 static void LoadPartyMenuPokeballGfx(void);
+// static void LoadPartyMenuAilmentGfx(void); // HnS
 static bool8 CreatePartyMonSpritesLoop(void);
 static bool8 RenderPartyMenuBoxes(void);
 static void CreateCancelConfirmPokeballSprites(void);
@@ -334,6 +354,9 @@ static u16 PartyMenuButtonHandler(s8 *);
 static s8 *GetCurrentPartySlotPtr(void);
 static bool8 IsSelectedMonNotEgg(u8 *);
 static bool8 DoesSelectedMonKnowHM(u8 *);
+static bool8 CanSelectedMonUseUniqueHM(u8 *); // HnS PORT - identify if a mon is your only user of a given HM
+static bool8 CanMonUseFieldMove(struct Pokemon *, u16); // HnS PORT - centralizes field move moveset/learnset checks
+static bool8 CanPlayerUseFieldMove(u16); // HnS PORT - centralizes field move flag checks
 static void PartyMenuRemoveWindow(u8 *);
 static void CB2_SetUpExitToBattleScreen(void);
 static void Task_ClosePartyMenuAfterText(u8);
@@ -909,7 +932,7 @@ static bool8 AllocPartyMenuBgGfx(void)
         }
         break;
     case 2:
-        LoadPalette(gPartyMenuBg_Pal, BG_PLTT_ID(0), 11 * PLTT_SIZE_4BPP);
+        LoadPalette(gPartyMenuBg_Pal, BG_PLTT_ID(0), 11 * PLTT_SIZE_4BPP); // HnS - Not Compresed in expansion?
         CpuCopy16(gPlttBufferUnfaded, sPartyMenuInternal->palBuffer, 11 * PLTT_SIZE_4BPP);
         sPartyMenuInternal->data[0]++;
         break;
@@ -1437,6 +1460,9 @@ void Task_HandleChooseMonInput(u8 taskId)
         case B_BUTTON: // Selected Cancel / pressed B
             HandleChooseMonCancel(taskId, slotPtr);
             break;
+        // case SELECT_BUTTON: // Quick Swap // HnS PORT - interesting option?
+        //     DestroyTask(taskId);
+        //     break;
         case START_BUTTON:
             if (sPartyMenuInternal->chooseHalf)
             {
@@ -1549,7 +1575,7 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
                 // Can't select if mon is currently on the field, or doesn't belong to you
                 PlaySE(SE_FAILURE);
             }
-            else if (DoesSelectedMonKnowHM((u8 *)slotPtr))
+            else if (CanSelectedMonUseUniqueHM((u8 *)slotPtr)) // HnS PORT NOTE - stronger anti-softlock
             {
                 PlaySE(SE_FAILURE);
                 DisplayPartyMenuMessage(gText_CannotSendMonToBoxHM, FALSE);
@@ -1584,6 +1610,7 @@ static bool8 IsSelectedMonNotEgg(u8 *slotPtr)
     return TRUE;
 }
 
+// Only returns true if the mon knows an HM and B_CATCH_SWAP_CHECK_HMS makes that prevent catch-swap
 static bool8 DoesSelectedMonKnowHM(u8 *slotPtr)
 {
     if (B_CATCH_SWAP_CHECK_HMS == FALSE)
@@ -1601,6 +1628,82 @@ static bool8 DoesSelectedMonKnowHM(u8 *slotPtr)
         }
     }
     return FALSE;
+}
+
+// HnS NOTE - Returns true if the mon knows any HMs that prevent catch-swap, including "knowing" an HM no other mon in the party knows
+static bool8 CanSelectedMonUseUniqueHM(u8 *slotPtr)
+{
+    // do the simpler check if possible
+    if (B_CATCH_SWAP_CHECK_HMS == TRUE)
+        return DoesSelectedMonKnowHM(slotPtr);
+
+    u32 i = 0;
+    while (sHMMoves[i] != HM_MOVES_END)
+    {
+        if (CanMonUseFieldMove(&gPlayerParty[*slotPtr], sHMMoves[i]))
+        {
+            for (u32 j = 0; j < PARTY_SIZE; j++)
+            {
+                if (j != *slotPtr && CanMonUseFieldMove(&gPlayerParty[j], sHMMoves[i]))
+                    break;
+            }
+            return TRUE;
+        }
+        i++;
+    }
+
+    return FALSE;
+}
+
+// returns false if CanPlayerUseFieldMove() would return false
+// if OW_LEARNSET_FIELD_MOVES is set,
+//   uses learnset instead of moveset for moves requiring Player Flags, such as HMs
+static bool8 CanMonUseFieldMove(struct Pokemon *mon, u16 move)
+{
+    switch (move)
+    {
+    case MOVE_CUT:
+    case MOVE_FLY:
+    case MOVE_SURF:
+    case MOVE_STRENGTH:
+    case MOVE_FLASH:
+    case MOVE_ROCK_SMASH:
+    case MOVE_WATERFALL:
+    case MOVE_WHIRLPOOL:
+    case MOVE_HEADBUTT:
+        return CanPlayerUseFieldMove(move) && ((OW_LEARNSET_FIELD_MOVES && CanLearnTeachableMove(GetMonData(mon, MON_DATA_SPECIES_OR_EGG), move)) || (MonKnowsMove(mon, move)));
+    default:
+        return MonKnowsMove(mon, move);
+    }
+}
+
+// should have a case for every Field Move requiring Player Flags, such as HMs
+// TODO? - current implementation prevents using HMs learned by level-up without having received the item
+static bool8 CanPlayerUseFieldMove(u16 move)
+{
+    switch (move)
+    {
+    case MOVE_CUT:
+        return ENABLE_FIELD_MOVE_CUT;
+    case MOVE_FLY:
+        return ENABLE_FIELD_MOVE_FLY;
+    case MOVE_SURF:
+        return ENABLE_FIELD_MOVE_SURF;
+    case MOVE_STRENGTH:
+        return ENABLE_FIELD_MOVE_STRENGTH;
+    case MOVE_FLASH:
+        return ENABLE_FIELD_MOVE_FLASH;
+    case MOVE_ROCK_SMASH:
+        return ENABLE_FIELD_MOVE_ROCK_SMASH;
+    case MOVE_WATERFALL:
+        return ENABLE_FIELD_MOVE_WATERFALL;
+    case MOVE_WHIRLPOOL:
+        return ENABLE_FIELD_MOVE_WHIRLPOOL;
+    case MOVE_HEADBUTT:
+        return ENABLE_FIELD_MOVE_HEADBUTT;
+    default:
+        return TRUE;
+    }
 }
 
 static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
@@ -2864,21 +2967,17 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
-    u8 i, j;
-
+    u8 i;
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
+    // HnS PORT NOTE - changed this to accommodate OW_LEARNSET_FIELD_MOVES
     // Add field moves to action list
-    for (i = 0; i < MAX_MON_MOVES; i++)
+    for (i = 0; i < FIELD_MOVES_COUNT; i++)
     {
-        for (j = 0; j != FIELD_MOVES_COUNT; j++)
+        if (CanMonUseFieldMove(&mons[slotId], sFieldMoves[i]))
         {
-            if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
-            {
-                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
-                break;
-            }
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FIELD_MOVES + i);
         }
     }
 
@@ -4000,13 +4099,23 @@ static void CursorCb_FieldMove(u8 taskId)
     }
     else
     {
-        // All field moves before WATERFALL are HMs.
-        if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
+        if (!CanPlayerUseFieldMove(sFieldMoves[fieldMove]))
         {
-            DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
-            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            u8 i = 0;
+            while (sHMMoves[i] != HM_MOVES_END)
+            {
+                if (sHMMoves[i] == sFieldMoves[fieldMove])
+                {
+                    DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
+                    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+                    return;
+                }
+                i++;
+            }
         }
-        else if (sFieldMoveCursorCallbacks[fieldMove].fieldMoveFunc() == TRUE)
+
+        // Now process the move if the badge check (if any) passed
+        if (sFieldMoveCursorCallbacks[fieldMove].fieldMoveFunc() == TRUE)
         {
             switch (fieldMove)
             {
@@ -4038,8 +4147,7 @@ static void CursorCb_FieldMove(u8 taskId)
                 break;
             }
         }
-        // Cant use Field Move
-        else
+        else // Cant use Field Move
         {
             switch (fieldMove)
             {
@@ -4219,6 +4327,7 @@ void CB2_ReturnToPartyMenuFromFlyMap(void)
     InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldWithOpenMenu);
 }
 
+// HnS TODO USEFUL
 static void FieldCallback_Waterfall(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
@@ -4229,7 +4338,7 @@ static bool8 SetUpFieldMove_Waterfall(void)
 {
     s16 x, y;
 
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_WATERFALL))
+    if (!CheckFollowerNPCFlag(FNPC_WATERFALL))
         return FALSE;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
@@ -4250,7 +4359,7 @@ static void FieldCallback_Dive(void)
 
 static bool8 SetUpFieldMove_Dive(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE))
+    if (!CheckFollowerNPCFlag(FNPC_DIVE))
         return FALSE;
 
     gFieldEffectArguments[1] = TrySetDiveWarp();
@@ -4511,7 +4620,7 @@ static void LoadPartyMenuPokeballGfx(void)
 {
     LoadCompressedSpriteSheet(&sSpriteSheet_MenuPokeball);
     LoadCompressedSpriteSheet(&sSpriteSheet_MenuPokeballSmall);
-    LoadSpritePalette(&sSpritePalette_MenuPokeball);
+    LoadSpritePalette(&sSpritePalette_MenuPokeball); // not compressed in Expansion?
 }
 
 static void CreatePartyMonStatusSprite(struct Pokemon *mon, struct PartyMenuBox *menuBox)

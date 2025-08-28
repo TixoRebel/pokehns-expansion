@@ -652,6 +652,7 @@ static bool8 (*const sEscalatorWarpInFieldEffectFuncs[])(struct Task *) =
     EscalatorWarpIn_End,
 };
 
+// TODO USEFUL - where the actual waterfall sequence plays out?
 static bool8 (*const sWaterfallFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
 {
     WaterfallFieldEffect_Init,
@@ -1932,6 +1933,7 @@ static bool8 EscalatorWarpIn_End(struct Task *task)
 #define tState data[0]
 #define tMonId data[1]
 
+// TODO USEFUL - Waterfall functions
 bool8 FldEff_UseWaterfall(void)
 {
     u8 taskId;

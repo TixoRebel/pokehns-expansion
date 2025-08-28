@@ -343,6 +343,7 @@ bool8 UNUSED Unref_MetatileBehavior_IsArrowWarp(u8 metatileBehavior)
     return isArrowWarp;
 }
 
+// TODO USEFUL
 bool8 MetatileBehavior_IsForcedMovementTile(u8 metatileBehavior)
 {
     if ((metatileBehavior >= MB_WALK_EAST && metatileBehavior <= MB_TRICK_HOUSE_PUZZLE_8_FLOOR)
@@ -1010,6 +1011,7 @@ bool8 MetatileBehavior_IsHotSprings(u8 metatileBehavior)
         return FALSE;
 }
 
+// TODO USEFUL
 bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_WATERFALL)
