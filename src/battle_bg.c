@@ -15,6 +15,7 @@
 #include "menu.h"
 #include "overworld.h"
 #include "palette.h"
+#include "rtc.h"
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
@@ -27,10 +28,6 @@
 #include "constants/trainers.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_partner.h"
-
-#if B_RTC_BACKGROUND == TRUE
-#include "rtc.h"
-#endif // B_RTC_BACKGROUND == TRUE
 
 // .rodata
 
@@ -614,6 +611,167 @@ const struct WindowTemplate *const gBattleWindowTemplates[] =
     [B_WIN_TYPE_ARENA]  = sBattleArenaWindowTemplates,
 };
 
+const void * const gBattleEnvironmentPalette_TallGrass[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_TallGrass_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_TallGrass_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_TallGrass_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_TallGrass_Night,
+};
+
+const void * const gBattleEnvironmentPalette_LongGrass[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_LongGrass_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_LongGrass_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_LongGrass_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_LongGrass_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Sand[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Sand_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Sand_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Sand_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Sand_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Underwater[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Underwater_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Underwater_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Underwater_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Underwater_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Water[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Water_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Water_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Water_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Water_Night,
+};
+
+const void * const gBattleEnvironmentPalette_PondWater[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_PondWater_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_PondWater_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_PondWater_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_PondWater_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Rock[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Rock_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Rock_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Rock_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Rock_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Cave[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Cave_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Cave_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Cave_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Cave_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Plain[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Plain_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Plain_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Plain_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Plain_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Building[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Building_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Building_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Building_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Building_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Frontier[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Frontier_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Frontier_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Frontier_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Frontier_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Rayquaza[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Rayquaza_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Rayquaza_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Rayquaza_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Rayquaza_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Kyogre[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Kyogre_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Kyogre_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Kyogre_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Kyogre_Night,
+};
+
+const void * const gBattleEnvironmentPalette_Groudon[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Groudon_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Groudon_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Groudon_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Groudon_Night,
+};
+
+const void * const gBattleEnvironmentPalette_BuildingGym[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_BuildingGym_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_BuildingGym_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_BuildingGym_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_BuildingGym_Night,
+};
+
+const void * const gBattleEnvironmentPalette_BuildingLeader[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_BuildingLeader_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_BuildingLeader_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_BuildingLeader_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_BuildingLeader_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumAqua[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumAqua_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumAqua_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumAqua_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumAqua_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumMagma[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumMagma_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumMagma_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumMagma_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumMagma_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumSidney[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumSidney_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumSidney_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumSidney_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumSidney_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumPhoebe[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumPhoebe_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumPhoebe_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumPhoebe_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumPhoebe_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumGlacia[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumGlacia_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumGlacia_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumGlacia_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumGlacia_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumDrake[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumDrake_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumDrake_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumDrake_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumDrake_Night,
+};
+
+const void * const gBattleEnvironmentPalette_StadiumWallace[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_StadiumWallace_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_StadiumWallace_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_StadiumWallace_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_StadiumWallace_Night,
+};
+
 const struct BattleBackground sBattleEnvironmentTable[] =
 {
     [BATTLE_ENVIRONMENT_GRASS] =
@@ -756,6 +914,8 @@ void LoadBattleMenuWindowGfx(void)
 
 void DrawMainBattleBackground(void)
 {
+    enum TimeOfDay td = GetTimeOfDay();
+
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_RECORDED_LINK))
     {
         LZDecompressVram(gBattleEnvironmentTiles_Building, (void *)(BG_CHAR_ADDR(2)));
@@ -784,7 +944,7 @@ void DrawMainBattleBackground(void)
         default:
             LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tileset, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tilemap, (void *)(BG_SCREEN_ADDR(26)));
-            LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette[td], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
         }
     }
@@ -815,7 +975,7 @@ void DrawMainBattleBackground(void)
         case MAP_BATTLE_SCENE_NORMAL:
             LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tileset, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tilemap, (void *)(BG_SCREEN_ADDR(26)));
-            LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette[td], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
         case MAP_BATTLE_SCENE_GYM:
             LZDecompressVram(gBattleEnvironmentTiles_Building, (void *)(BG_CHAR_ADDR(2)));
@@ -1225,6 +1385,8 @@ bool8 LoadChosenBattleElement(u8 caseId)
 {
     bool8 ret = FALSE;
 
+    enum TimeOfDay td = GetTimeOfDay();
+
     switch (caseId)
     {
     case 0:
@@ -1399,7 +1561,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
             {
             default:
             case MAP_BATTLE_SCENE_NORMAL:
-                LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+                LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette[td], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
             case MAP_BATTLE_SCENE_GYM:
                 LoadPalette(gBattleEnvironmentPalette_BuildingGym, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);

@@ -16,6 +16,7 @@
 #include "party_menu.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "rtc.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"
@@ -702,7 +703,7 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         }
         break;
     case 8:
-        LoadPalette(gBattleEnvironmentPalette_Frontier, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+        LoadPalette(gBattleEnvironmentPalette_Frontier[GetTimeOfDay()], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
         sPokeblockFeed->loadGfxState = 0;
         return TRUE;
     }

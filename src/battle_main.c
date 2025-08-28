@@ -18,6 +18,7 @@
 #include "battle_gimmick.h"
 #include "berry.h"
 #include "bg.h"
+#include "clock.h"
 #include "data.h"
 #include "debug.h"
 #include "decompress.h"
@@ -37,6 +38,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "m4a.h"
+#include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeball.h"
@@ -45,6 +47,7 @@
 #include "random.h"
 #include "recorded_battle.h"
 #include "roamer.h"
+#include "rtc.h"
 #include "safari_zone.h"
 #include "scanline_effect.h"
 #include "script.h"
@@ -448,6 +451,9 @@ void CB2_InitBattle(void)
     AllocateBattleSpritesData();
     AllocateMonSpritesGfx();
     RecordedBattle_ClearFrontierPassFlag();
+
+    UpdateTimeOfDay();
+    FormChangeTimeUpdate();
 
 #if T_SHOULD_RUN_MOVE_ANIM
     gLoadFail = FALSE;
