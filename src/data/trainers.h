@@ -23118,7 +23118,7 @@
         .trainerPic = TRAINER_PIC_CHAMPION_LANCE,
         .encounterMusic_gender =
 #line 9329
-            TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+            TRAINER_ENCOUNTER_MUSIC_CHAMPION,
 #line 9330
         .items = { ITEM_FULL_RESTORE, ITEM_FULL_RESTORE },
 #line 9331
@@ -23261,7 +23261,7 @@
         .trainerPic = TRAINER_PIC_CHAMPION_LANCE,
         .encounterMusic_gender =
 #line 9388
-            TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+            TRAINER_ENCOUNTER_MUSIC_CHAMPION,
 #line 9389
         .items = { ITEM_FULL_RESTORE, ITEM_FULL_RESTORE },
 #line 9390
@@ -25591,7 +25591,7 @@
         .trainerPic = TRAINER_PIC_RED,
         .encounterMusic_gender =
 #line 10362
-            TRAINER_ENCOUNTER_MUSIC_MALE,
+            TRAINER_ENCOUNTER_MUSIC_CHAMPION,
 #line 10363
         .items = { ITEM_FULL_RESTORE, ITEM_FULL_RESTORE },
 #line 10364

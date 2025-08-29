@@ -9326,7 +9326,7 @@ Name: LANCE
 Class: Champion
 Pic: Champion Lance
 Gender: Male
-Music: Elite Four
+Music: Champion
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -9385,7 +9385,7 @@ Name: LANCE
 Class: Champion
 Pic: Champion Lance
 Gender: Male
-Music: Elite Four
+Music: Champion
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10359,7 +10359,7 @@ Name: RED
 Class: Pkmn Trainer 1
 Pic: Red
 Gender: Male
-Music: Male
+Music: Champion
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability

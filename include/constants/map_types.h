@@ -8,7 +8,7 @@
 #define MAP_TYPE_UNDERGROUND 4
 #define MAP_TYPE_UNDERWATER  5
 #define MAP_TYPE_OCEAN_ROUTE 6
-#define MAP_TYPE_UNKNOWN     7 // Not used by any map.
+#define MAP_TYPE_FOREST      7 // New for HnS expansion
 #define MAP_TYPE_INDOOR      8
 #define MAP_TYPE_SECRET_BASE 9
 

@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_ILEX_FOREST",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_FOREST",
   "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": true,

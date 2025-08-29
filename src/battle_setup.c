@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "bug_contest.h"
 #include "load_save.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
@@ -14,6 +15,7 @@
 #include "fieldmap.h"
 #include "follower_npc.h"
 #include "random.h"
+#include "roamer.h"
 #include "starter_choose.h"
 #include "script_pokemon_util.h"
 #include "palette.h"
@@ -64,6 +66,7 @@ enum {
 // this file's functions
 static void DoBattlePikeWildBattle(void);
 static void DoSafariBattle(void);
+static void DoBugContestBattle(void);
 static void DoStandardWildBattle(bool32 isDouble);
 static void CB2_EndWildBattle(void);
 static void CB2_EndScriptedWildBattle(void);
@@ -310,6 +313,8 @@ void BattleSetup_StartWildBattle(void)
 {
     if (GetSafariZoneFlag())
         DoSafariBattle();
+    else if (GetBugContestFlag())
+        DoBugContestBattle();
     else
         DoStandardWildBattle(FALSE);
 }
@@ -390,6 +395,20 @@ static void DoSafariBattle(void)
     gMain.savedCallback = CB2_EndSafariBattle;
     gBattleTypeFlags = BATTLE_TYPE_SAFARI;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
+}
+
+static void DoBugContestBattle(void)
+{
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    StopPlayerAvatar();
+    gMain.savedCallback = CB2_EndBugContestBattle;
+    gBattleTypeFlags = 0;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
 }
 
 static void DoBattlePikeWildBattle(void)
@@ -499,12 +518,40 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_DEOXYS_SPEED:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
         break;
+    case SPECIES_RAIKOU:
+        CreateBattleStartTask(B_TRANSITION_BLACKHOLE, MUS_HG_VS_RAIKOU);
+        break;
+    case SPECIES_ENTEI:
+        CreateBattleStartTask(B_TRANSITION_BLACKHOLE, MUS_HG_VS_ENTEI);
+        break;
+    case SPECIES_SUICUNE:
+        CreateBattleStartTask(B_TRANSITION_BLACKHOLE, MUS_HG_VS_SUICUNE);
+        break;
     case SPECIES_LUGIA:
+        CreateBattleStartTask(B_TRANSITION_RECTANGULAR_SPIRAL, MUS_HG_VS_LUGIA);
+        break;
     case SPECIES_HO_OH:
+        CreateBattleStartTask(B_TRANSITION_RECTANGULAR_SPIRAL, MUS_HG_VS_HO_OH);
+        break;
+    case SPECIES_ARTICUNO:
+    case SPECIES_ZAPDOS:
+    case SPECIES_MOLTRES:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
+    case SPECIES_REGIGIGAS:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_LEGEND);
+        break;
     case SPECIES_MEW:
+    case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+        break;
+    case SPECIES_CELEBI:
+    case SPECIES_JIRACHI:
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_DP_VS_UXIE_MESPRIT_AZELF);
+        break;
+    case SPECIES_LATIOS:
+    case SPECIES_LATIAS:
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_LEGEND);
         break;
     }
 
@@ -552,6 +599,12 @@ void StartRegiBattle(void)
     case SPECIES_REGISTEEL:
         transitionId = B_TRANSITION_REGISTEEL;
         break;
+    case SPECIES_REGIELEKI:
+        transitionId = B_TRANSITION_SHRED_SPLIT;
+        break;
+    case SPECIES_REGIDRAGO:
+        transitionId = B_TRANSITION_SHRED_SPLIT;
+        break;
     default:
         transitionId = B_TRANSITION_GRID_SQUARES;
         break;
@@ -597,6 +650,41 @@ static void CB2_EndWildBattle(void)
     }
     else
     {
+        //if caught roamer, setflag caught
+        if (gBattleOutcome == B_OUTCOME_CAUGHT)
+        {
+            switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+            {
+            case SPECIES_ENTEI:
+                FlagSet(FLAG_CAUGHT_ENTEI);
+                break;
+            case SPECIES_RAIKOU:
+                FlagSet(FLAG_CAUGHT_RAIKOU);
+                break;
+            }
+        }
+
+        //if won or beat roamer, if not already caught other roamer, create them
+        if (gBattleOutcome == B_OUTCOME_CAUGHT || gBattleOutcome == B_OUTCOME_WON)
+        {
+            switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+            {
+            case SPECIES_ENTEI:
+                if(!(FlagGet(FLAG_CAUGHT_RAIKOU)))
+                {
+                    gSpecialVar_0x8004 = 0;
+                    InitRoamer();
+                    break;
+                }
+            case SPECIES_RAIKOU:
+                if(!(FlagGet(FLAG_CAUGHT_ENTEI)))
+                {
+                    gSpecialVar_0x8004 = 1;
+                    InitRoamer();
+                    break;
+                }
+            }
+        }
         SetMainCallback2(CB2_ReturnToField);
         DowngradeBadPoison();
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
@@ -647,6 +735,8 @@ u8 BattleSetup_GetEnvironmentId(void)
     case MAP_TYPE_CITY:
     case MAP_TYPE_ROUTE:
         break;
+    case MAP_TYPE_FOREST:
+        return BATTLE_ENVIRONMENT_LONG_GRASS;
     case MAP_TYPE_UNDERGROUND:
         if (MetatileBehavior_IsIndoorEncounter(tileBehavior))
             return BATTLE_ENVIRONMENT_BUILDING;
@@ -1471,6 +1561,8 @@ void PlayTrainerEncounterMusic(void)
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_ENCOUNTER_RICH;
             break;
+        case TRAINER_ENCOUNTER_MUSIC_CHAMPION:
+            music = MUS_HG_VS_CHAMPION;
         default:
             music = MUS_ENCOUNTER_SUSPICIOUS;
         }

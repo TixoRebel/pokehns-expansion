@@ -396,6 +396,7 @@
 #define TRAINER_ENCOUNTER_MUSIC_HIKER       11 // used for other trainer classes too
 #define TRAINER_ENCOUNTER_MUSIC_SILVER      12
 #define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
+#define TRAINER_ENCOUNTER_MUSIC_CHAMPION    14 // Lance and Red
 
 #define F_TRAINER_FEMALE (1 << 7)
 

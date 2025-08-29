@@ -973,9 +973,15 @@ void DrawMainBattleBackground(void)
         {
         default:
         case MAP_BATTLE_SCENE_NORMAL:
-            LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tileset, (void *)(BG_CHAR_ADDR(2)));
-            LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tilemap, (void *)(BG_SCREEN_ADDR(26)));
-            LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette[td], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            if ((gBattleEnvironment == BATTLE_ENVIRONMENT_POND) && (gMapHeader.mapType == MAP_TYPE_UNDERGROUND)) {
+                LZDecompressVram(sBattleEnvironmentTable[BATTLE_ENVIRONMENT_CAVE].tileset, (void *)(BG_CHAR_ADDR(2)));
+                LZDecompressVram(sBattleEnvironmentTable[BATTLE_ENVIRONMENT_CAVE].tilemap, (void *)(BG_SCREEN_ADDR(26)));
+                LoadPalette(sBattleEnvironmentTable[BATTLE_ENVIRONMENT_CAVE].palette[td], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            } else {
+                LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tileset, (void *)(BG_CHAR_ADDR(2)));
+                LZDecompressVram(sBattleEnvironmentTable[gBattleEnvironment].tilemap, (void *)(BG_SCREEN_ADDR(26)));
+                LoadPalette(sBattleEnvironmentTable[gBattleEnvironment].palette[td], BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            }
             break;
         case MAP_BATTLE_SCENE_GYM:
             LZDecompressVram(gBattleEnvironmentTiles_Building, (void *)(BG_CHAR_ADDR(2)));
