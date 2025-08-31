@@ -226,7 +226,7 @@ if __name__ == "__main__":
                         help='Path to the tilesets directory in your pokeemerald project, e.g. /path/to/pokeemerald/data/tilesets')
     parser.add_argument('-m', '--loroot', default='data/layouts',
                         help='Path to the layouts directory in your pokeemerald project, e.g. /path/to/pokeemerald/data/layouts')
-    parser.add_argument('-l', '--layers', default=2, choices=[2,3],
+    parser.add_argument('-l', '--layers', default='2', choices=['2','3'],
                         help='Whether or not to attempt to Convert from Double to Triple Layer Metatiles. Cannot be used to Convert from Triple back to Double.')
     parser.add_argument('-c', '--colbits', default=True, choices=[True,False],
                         help='Whether or not to attempt to Expand the number of available Metatiles by recycling an unused Collisions bit.')
@@ -234,6 +234,8 @@ if __name__ == "__main__":
                         help='Whether or not to attempt to Expand the number of available Metatiles by repurposing an Elevations bit, halving available elevation values.')
 
     args = parser.parse_args()
+
+    args.layers = int(args.layers, 10)
 
     # Validate the CWD or given Root
     if not args.root == '':
@@ -299,6 +301,7 @@ if __name__ == "__main__":
     metatiles_path         = 'src/data/tilesets/metatiles.h'
 
     if args.layers == 3:
+        print(f"[INFO] Attempting to convert from double layer metatile format to triple layer")
         tileset_dirs = []
 
         _, dirs, _ = next(os.walk(primary_path))
@@ -308,17 +311,17 @@ if __name__ == "__main__":
 
         convert_tilesets_to_triple(tileset_dirs)
 
+        with open(fieldmap_path, 'r+') as fieldmap_file:
+            fieldmap = fieldmap_file.read()
+            find = r"#define NUM_TILES_PER_METATILE\s*([0-9]+)"
+            replace = r"#define NUM_TILES_PER_METATILE 12"
+            new_fieldmap = re.sub(find, replace, fieldmap)
+            fieldmap_file.seek(0)
+            fieldmap_file.write(new_fieldmap)
+            fieldmap_file.truncate()
+
         {
             # WIP code to modify source
-
-            # with open(fieldmap_path, 'r+') as fieldmap_file:
-            #     fieldmap = fieldmap_file.read()
-            #     find = r"#define NUM_TILES_PER_METATILE ([0-9]+)"
-            #     replace = r"#define NUM_TILES_PER_METATILE 12"
-            #     new_fieldmap = re.sub(find, replace, fieldmap)
-            #     fieldmap_file.seek(0)
-            #     fieldmap_file.write(new_fieldmap)
-            #     fieldmap_file.truncate()
 
             # with open(global_fieldmap_path, 'r+') as global_fieldmap_file:
             #     global_fieldmap = global_fieldmap_file.read()
@@ -351,26 +354,26 @@ if __name__ == "__main__":
 
         with open(fieldmap_path) as fieldmap_file:
             fieldmap = fieldmap_file.read()
-            regex = r"#define NUM_TILES_PER_METATILE ([0-9]+)"
-            num_tiles_per_metatile = int(re.search(regex, fieldmap_file)[1], 10) # assumes NUM_TILES_PER_METATILE will be decimal
+            regex = r"#define NUM_TILES_PER_METATILE\s*([0-9]+)"
+            num_tiles_per_metatile = int(re.search(regex, fieldmap)[1], 10) # assumes NUM_TILES_PER_METATILE will be decimal
 
         with open(global_fieldmap_path) as global_fieldmap_file:
             global_fieldmap = global_fieldmap_file.read()
             
-            regex = r"#define MAPGRID_METATILE_ID_MASK (0x[0-9A-Fa-f]+)"
-            old_metatile_id_mask = int(re.search(regex, global_fieldmap_file)[1], 16) # assumes MAPGRID_METATILE_ID_MASK will be hexadecimal
+            regex = r"#define MAPGRID_METATILE_ID_MASK\s*(0x[0-9A-Fa-f]+)"
+            old_metatile_id_mask = int(re.search(regex, global_fieldmap)[1], 16) # assumes MAPGRID_METATILE_ID_MASK will be hexadecimal
 
-            regex = r"#define MAPGRID_COLLISION_MASK (0x[0-9A-Fa-f]+)"
-            old_collision_mask = int(re.search(regex, global_fieldmap_file)[1], 16) # assumes MAPGRID_COLLISION_MASK will be hexadecimal
+            regex = r"#define MAPGRID_COLLISION_MASK\s*(0x[0-9A-Fa-f]+)"
+            old_collision_mask = int(re.search(regex, global_fieldmap)[1], 16) # assumes MAPGRID_COLLISION_MASK will be hexadecimal
 
-            regex = r"#define MAPGRID_ELEVATION_MASK (0x[0-9A-Fa-f]+)"
-            old_elevation_mask = int(re.search(regex, global_fieldmap_file)[1], 16) # assumes MAPGRID_ELEVATION_MASK will be hexadecimal
+            regex = r"#define MAPGRID_ELEVATION_MASK\s*(0x[0-9A-Fa-f]+)"
+            old_elevation_mask = int(re.search(regex, global_fieldmap)[1], 16) # assumes MAPGRID_ELEVATION_MASK will be hexadecimal
 
-            regex = r"#define MAPGRID_COLLISION_SHIFT ([0-9]+)"
-            old_num_metatile_id_bits = int(re.search(regex, global_fieldmap_file)[1], 10) # assumes MAPGRID_COLLISION_SHIFT will be decimal
+            regex = r"#define MAPGRID_COLLISION_SHIFT\s*([0-9]+)"
+            old_num_metatile_id_bits = int(re.search(regex, global_fieldmap)[1], 10) # assumes MAPGRID_COLLISION_SHIFT will be decimal
 
-            regex = r"#define MAPGRID_ELEVATION_SHIFT ([0-9]+)"
-            old_num_collision_bits = int(re.search(regex, global_fieldmap_file)[1], 10) - old_num_metatile_id_bits  # assumes MAPGRID_ELEVATION_SHIFT will be decimal
+            regex = r"#define MAPGRID_ELEVATION_SHIFT\s*([0-9]+)"
+            old_num_collision_bits = int(re.search(regex, global_fieldmap)[1], 10) - old_num_metatile_id_bits  # assumes MAPGRID_ELEVATION_SHIFT will be decimal
 
             old_num_elevation_bits = 16 - (old_num_metatile_id_bits + old_num_collision_bits)
 

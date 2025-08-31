@@ -4,6 +4,7 @@
 #include "field_camera.h"
 #include "field_player_avatar.h"
 #include "fieldmap.h"
+// #include "global.fieldmap.h"
 #include "event_object_movement.h"
 #include "gpu_regs.h"
 #include "menu.h"
@@ -218,7 +219,7 @@ void DrawDoorMetatileAt(int x, int y, u16 *tiles)
 
     if (offset >= 0)
     {
-        DrawMetatile(0xFF, tiles, offset);
+        DrawMetatile(METATILE_LAYER_TYPE_DOOR, tiles, offset);
         sFieldCameraOffset.copyBGToVRAM = TRUE;
     }
 }
@@ -244,7 +245,7 @@ static void DrawMetatileAt(const struct MapLayout *mapLayout, u16 offset, int x,
 
 static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
 {
-    if (metatileLayerType == 0xFF)
+    if (metatileLayerType == METATILE_LAYER_TYPE_DOOR)
     {
         // A door metatile shall be drawn, we use covered behavior
         // Draw metatile's bottom layer to the bottom background layer.
@@ -264,7 +265,6 @@ static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
         gOverworldTilemapBuffer_Bg1[offset + 1] = tiles[5];
         gOverworldTilemapBuffer_Bg1[offset + 0x20] = tiles[6];
         gOverworldTilemapBuffer_Bg1[offset + 0x21] = tiles[7];
-
     }
     else
     {
@@ -285,8 +285,6 @@ static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
         gOverworldTilemapBuffer_Bg1[offset + 1] = tiles[9];
         gOverworldTilemapBuffer_Bg1[offset + 0x20] = tiles[10];
         gOverworldTilemapBuffer_Bg1[offset + 0x21] = tiles[11];
-
-
     }
     
     ScheduleBgCopyTilemapToVram(1);

@@ -41,6 +41,7 @@ enum {
     METATILE_LAYER_TYPE_NORMAL,  // Metatile uses middle and top bg layers
     METATILE_LAYER_TYPE_COVERED, // Metatile uses bottom and middle bg layers
     METATILE_LAYER_TYPE_SPLIT,   // Metatile uses bottom and top bg layers
+    METATILE_LAYER_TYPE_DOOR = 0xFF,
 };
 
 #define METATILE_ID(tileset, name) (METATILE_##tileset##_##name)

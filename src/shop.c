@@ -827,7 +827,7 @@ static bool8 IsMetatileLayerEmpty(const u16 *src)
     u32 i = 0;
     for (i = 0; i < 4; ++i)
     {
-        if ((src[i] & 0x3FF) != 0)
+        if ((src[i] & MAPGRID_METATILE_ID_MASK) != 0)
             return FALSE;
     }
     return TRUE;
