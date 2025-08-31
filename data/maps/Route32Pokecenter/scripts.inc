@@ -2,6 +2,7 @@
 
 Route32Pokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route32Pokecenter_OnTransition	
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 Route32Pokecenter_OnTransition::

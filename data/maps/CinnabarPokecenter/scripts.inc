@@ -2,6 +2,7 @@
 
 CinnabarPokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarPokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 CinnabarPokecenter_OnTransition::

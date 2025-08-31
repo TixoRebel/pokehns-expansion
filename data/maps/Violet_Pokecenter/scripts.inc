@@ -2,6 +2,7 @@
 
 Violet_Pokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VioletCity_Pokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 VioletCity_Pokecenter_OnTransition::

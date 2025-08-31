@@ -2,6 +2,7 @@
 
 CeladonPokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeladonPokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 CeladonPokecenter_OnTransition::

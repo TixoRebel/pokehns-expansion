@@ -4,6 +4,7 @@
 
 FuchsiaPokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FuchsiaPokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 FuchsiaPokecenter_OnTransition::

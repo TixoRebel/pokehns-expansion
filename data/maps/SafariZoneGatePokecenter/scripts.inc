@@ -2,6 +2,7 @@
 
 SafariZoneGatePokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SafariZoneGatePokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 SafariZoneGatePokecenter_OnTransition::

@@ -2,6 +2,7 @@
 
 VermilionPokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VermilionPokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 VermilionPokecenter_OnTransition::

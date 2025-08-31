@@ -2,8 +2,8 @@
 .set LOCALID_INDIGOPLATEAU_ABRA, 6
 
 IndigoPlateauPokeCenter_MapScripts::
-	@map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, IndigoPlateauPokeCenter_OnFrame 
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 IndigoPlateauPokeCenter_OnFrame::
