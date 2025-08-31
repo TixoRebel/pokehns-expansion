@@ -314,7 +314,6 @@ static const u16 sBirchSpeechBgPals[][16] = {
 static const u32 sBirchSpeechShadowGfx[]        = INCBIN_U32("graphics/birch_speech/shadow.4bpp.lz");
 static const u32 sBirchSpeechBgMap[]            = INCBIN_U32("graphics/birch_speech/map.bin.lz");
 static const u16 sBirchSpeechBgGradientPal[]    = INCBIN_U16("graphics/birch_speech/bg2.gbapal");
-static const u16 sBirchSpeechPlatformBlackPal[] = {RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK, RGB_BLACK};
 
 static const u8 gText_SaveFileCorrupted[]       = _("The save file is corrupted. The\nprevious save file will be loaded.");
 static const u8 gText_SaveFileErased[]          = _("The save file has been erased\ndue to corruption or damage.");
@@ -1350,7 +1349,6 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     // PlatformBlackPal makes the platform hidden and fade in w/ Oak
     LoadPalette(&sBirchSpeechBgGradientPal[8], BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
-    LoadPalette(sBirchSpeechPlatformBlackPal, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
 
     // LZ77UnCompVram(sBirchSpeechShadowGfx, (u8*)VRAM);
     // LZ77UnCompVram(sBirchSpeechBgMap, (u8*)(BG_SCREEN_ADDR(7)));
