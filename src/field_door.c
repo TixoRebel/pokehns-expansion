@@ -384,8 +384,10 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
 // NOTE: The tiles of a door's animation must be copied to VRAM because they are not already part of any given tileset.
 //       This means that if there are any pre-existing tiles in this copied region that are visible when the door
 //       animation is played they will be overwritten.
-#define DOOR_TILE_START_SIZE1 (NUM_TILES_TOTAL - 8)
-#define DOOR_TILE_START_SIZE2 (NUM_TILES_TOTAL - 16)
+// #define DOOR_TILE_START_SIZE1 (NUM_TILES_TOTAL - 8)
+// #define DOOR_TILE_START_SIZE2 (NUM_TILES_TOTAL - 16)
+#define DOOR_TILE_START_SIZE1 (434)
+#define DOOR_TILE_START_SIZE2 (426)
 
 static void CopyDoorTilesToVram(const struct DoorGraphics *gfx, const struct DoorAnimFrame *frame)
 {
