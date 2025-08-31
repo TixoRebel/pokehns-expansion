@@ -773,7 +773,7 @@ u8 BattleSetup_GetEnvironmentId(void)
     if (GetSavedWeather() == WEATHER_SANDSTORM)
         return BATTLE_ENVIRONMENT_SAND;
 
-    return BATTLE_ENVIRONMENT_PLAIN;
+    return BATTLE_ENVIRONMENT_GRASS;
 }
 
 static u8 GetBattleTransitionTypeByMap(void)

@@ -68,8 +68,8 @@ const u32 gBattleEnvironmentTilemap_Cave[] = INCBIN_U32("graphics/battle_environ
 
 const u16 gBattleEnvironmentPalette_Plain_Morning[] = INCBIN_U16("graphics/battle_environment/plain_2/palette.gbapal");
 const u16 gBattleEnvironmentPalette_Plain_Day[]     = INCBIN_U16("graphics/battle_environment/plain_2/palette.gbapal");
-const u16 gBattleEnvironmentPalette_Plain_Evening[] = INCBIN_U16("graphics/battle_environment/plain_2/palette_night.gbapal");
-const u16 gBattleEnvironmentPalette_Plain_Night[]   = INCBIN_U16("graphics/battle_environment/plain_2/palette_night.gbapal");
+const u16 gBattleEnvironmentPalette_Plain_Evening[] = INCBIN_U16("graphics/battle_environment/plain_2/palette.gbapal");
+const u16 gBattleEnvironmentPalette_Plain_Night[]   = INCBIN_U16("graphics/battle_environment/plain_2/palette.gbapal");
 
 const u32 gBattleEnvironmentTiles_Building[] = INCBIN_U32("graphics/battle_environment/building_2/tiles.4bpp.lz");
  // also used for link battles
@@ -261,8 +261,8 @@ const u32 gBattleEnvironmentTilemap_Cave[] = INCBIN_U32("graphics/battle_environ
 
 const u16 gBattleEnvironmentPalette_Plain_Morning[] = INCBIN_U16("graphics/battle_environment/plain/palette.gbapal");
 const u16 gBattleEnvironmentPalette_Plain_Day[]     = INCBIN_U16("graphics/battle_environment/plain/palette.gbapal");
-const u16 gBattleEnvironmentPalette_Plain_Evening[] = INCBIN_U16("graphics/battle_environment/plain/palette_night.gbapal");
-const u16 gBattleEnvironmentPalette_Plain_Night[]   = INCBIN_U16("graphics/battle_environment/plain/palette_night.gbapal");
+const u16 gBattleEnvironmentPalette_Plain_Evening[] = INCBIN_U16("graphics/battle_environment/plain/palette.gbapal");
+const u16 gBattleEnvironmentPalette_Plain_Night[]   = INCBIN_U16("graphics/battle_environment/plain/palette.gbapal");
 
 
 const u32 gBattleEnvironmentTiles_Building[] = INCBIN_U32("graphics/battle_environment/building/tiles.4bpp.lz");
