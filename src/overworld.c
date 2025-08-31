@@ -1696,7 +1696,7 @@ void UpdateTimeOfDay(void)
     }
 
     // HnS port - Set Encounters
-    if (gTimeOfDay == TIME_MORNING || gTimeOfDay == TIME_NIGHT)
+    if (gTimeOfDay == TIME_MORNING || gTimeOfDay == TIME_DAY)
     {
         FlagSet(FLAG_NIGHT_POKEMON); // Hide night pokemon
         FlagClear(FLAG_DAY_POKEMON); //Show day pokemon
