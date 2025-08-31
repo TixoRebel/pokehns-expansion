@@ -138,7 +138,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 21,
       "y": 3,
       "elevation": 0,
@@ -151,7 +151,7 @@
       "flag": "FLAG_ITEM_LAKEOFRAGE_FULL_RESTORE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 37,
       "y": 1,
       "elevation": 0,
@@ -164,7 +164,7 @@
       "flag": "FLAG_ITEM_LAKEOFRAGE_MAX_REVIVE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 54,
       "y": 9,
       "elevation": 0,
