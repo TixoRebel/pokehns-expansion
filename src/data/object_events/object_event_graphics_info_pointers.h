@@ -266,10 +266,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GIRL_1] =                   &gObjectEventGraphicsInfo_Girl1,
     [OBJ_EVENT_GFX_BOY] =                    &gObjectEventGraphicsInfo_Boy2,
     [OBJ_EVENT_GFX_CAPTAIN] =                   &gObjectEventGraphicsInfo_Girl2,
-    [OBJ_EVENT_GFX_LITTLE_BOY] =               &gObjectEventGraphicsInfo_LittleBoy,
+    [OBJ_EVENT_GFX_LITTLE_BOY] =               &gObjectEventGraphicsInfo_SchoolKidM,
     [OBJ_EVENT_GFX_LITTLE_GIRL] =              &gObjectEventGraphicsInfo_LittleGirl,
     [OBJ_EVENT_GFX_WORKER_M] =                    &gObjectEventGraphicsInfo_Boy3,
-    [OBJ_EVENT_GFX_PICNICKER] =                   &gObjectEventGraphicsInfo_Girl3,
+    [OBJ_EVENT_GFX_PICNICKER] =                   &gObjectEventGraphicsInfo_Picnicker,
     [OBJ_EVENT_GFX_POLICEMAN] =                 &gObjectEventGraphicsInfo_RichBoy, //leader_liza, //aroma_lady
     [OBJ_EVENT_GFX_WOMAN_3] =                  &gObjectEventGraphicsInfo_Woman1,
     [OBJ_EVENT_GFX_FAT_MAN] =                  &gObjectEventGraphicsInfo_FatMan,
