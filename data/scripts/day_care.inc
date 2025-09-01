@@ -23,6 +23,7 @@ Route117_EventScript_DaycareEggWaiting::
 
 @ HnS PORT TODO - re-add GetMaxPartySize for if/when party size is limited
 Route117_EventScript_DaycareAcceptEgg::
+	@ specialvar VAR_0x8004, GetMaxPartySize @ tx_randomizer_and_challenges
 	specialvar VAR_RESULT, CalculatePlayerPartyCount
 	goto_if_ne VAR_RESULT, PARTY_SIZE, Route117_EventScript_DaycareReceiveEgg
 	msgbox Route117_Text_YouHaveNoRoomForIt, MSGBOX_DEFAULT
@@ -162,6 +163,7 @@ Route117_PokemonDayCare_EventScript_OneMonInDaycare::
 
 @ HnS PORT TODO - see above
 Route117_PokemonDayCare_EventScript_TryRetrieveMon::
+	@ specialvar VAR_0x8004, GetMaxPartySize @ tx_randomizer_and_challenges
 	specialvar VAR_RESULT, CalculatePlayerPartyCount
 	goto_if_eq VAR_RESULT, PARTY_SIZE, Route117_PokemonDayCare_EventScript_NoRoom
 	specialvar VAR_RESULT, GetDaycareState

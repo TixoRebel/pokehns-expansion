@@ -10,6 +10,9 @@ void GetBg0TilesDst(u16 **tilemap, u16 **tileset);
 
 extern const struct SpritePalette gSpritePalette_Pokeball;
 
+// HnS PORT NOTE - listing individual trainer mugshots isn't necessary in Expansion
+//                  instead, the color is defined in trainers.party or whatever
+
 enum {
     MUGSHOT_COLOR_NONE,
     MUGSHOT_COLOR_PURPLE,

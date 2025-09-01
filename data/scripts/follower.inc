@@ -30,13 +30,12 @@ EventScript_Follower::
 	lock
 	bufferlivemonnickname 0
 	playfirstmoncry
-	getfolloweraction @ HnS PORT NOTE - why not "ScrFunc_"?
+	getfolloweraction @ HnS PORT NOTE - why not "ScrFunc_getfolloweraction"?
 EventScript_FollowerEnd::
 	waitfieldeffect FLDEFF_EMOTE
 	release
 	end
 
-@ HnS PORT TODO - OBJ_EVENT_ID_PLAYER was replaced with LOCALID_PLAYER... same for other constants?
 EventScript_FollowerLovesYou::
 	applymovement OBJ_EVENT_ID_FOLLOWER, ContestHall_Movement_Heart
 	waitmovement OBJ_EVENT_ID_FOLLOWER

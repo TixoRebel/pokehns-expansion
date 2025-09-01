@@ -665,6 +665,7 @@ static void UsePokeblockMenu(void)
             sInfo->mainState = STATE_HANDLE_INPUT;
             break;
         case 0: // YES
+            // HnS PORT NOTE - HnS removed this check?
             if (IsSheenMaxed())
             {
                 PrintWontEatAnymore();
@@ -999,6 +1000,7 @@ static void AddPokeblockToConditions(struct Pokeblock *pokeblock, struct Pokemon
     s16 stat;
     u8 data;
 
+    // HnS PORT NOTE - again, removed check in HnS
     if (GetMonData(mon, MON_DATA_SHEEN) != MAX_SHEEN)
     {
         CalculatePokeblockEffectiveness(pokeblock, mon);

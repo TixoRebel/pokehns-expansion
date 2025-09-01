@@ -10,11 +10,15 @@ void SpriteCB_TrainerSpawn(struct Sprite *sprite);
 void InitAndLaunchChosenStatusAnimation(u32 battler, bool32 isStatus2, u32 status);
 bool8 TryHandleLaunchBattleTableAnimation(u8 activeBattlerId, u8 attacker, u8 target, u8 tableId, u16 argument);
 void InitAndLaunchSpecialAnimation(u8 activeBattlerId, u8 attacker, u8 target, u8 tableId);
+// bool8 IsMoveWithoutAnimation(u16 moveId, u8 animationTurn); // HnS PORT
 bool8 IsBattleSEPlaying(u8 battler);
 void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler);
+// void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId); // HnS PORT
+// void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId); // HnS PORT
 void BattleGfxSfxDummy2(u16 species);
 void DecompressTrainerFrontPic(u16 frontPicId, u8 battler);
 void DecompressTrainerBackPic(u16 backPicId, u8 battler);
+// void BattleGfxSfxDummy3(u8 gender); // HnS PORT
 void FreeTrainerFrontPicPalette(u16 frontPicId);
 bool8 BattleLoadAllHealthBoxesGfx(u8 state);
 void LoadBattleBarGfx(u8 unused);

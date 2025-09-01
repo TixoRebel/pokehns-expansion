@@ -954,6 +954,7 @@ void GabbyAndTyBeforeInterview(void)
     else
         gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
 
+    // HnS PORT NOTE - HnS had something about the player using a Master Ball here?
     for (i = 0; i < POKEBALL_COUNT; i++)
     {
         if (gBattleResults.catchAttempts[i])

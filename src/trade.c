@@ -150,7 +150,7 @@ enum {
 struct InGameTrade {
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     u16 species;
-    // u8 ivs31[NUM_STATS];
+    // u8 ivs31[NUM_STATS]; // HnS PORT - don't know what this was for
     u8 ivs[NUM_STATS];
     u8 abilityNum;
     u32 otId;
@@ -2782,6 +2782,7 @@ static void LoadTradeMonPic(u8 whichParty, u8 state)
         mon = &gEnemyParty[gSelectedTradeMonPositions[TRADE_PARTNER] % PARTY_SIZE];
         pos = B_POSITION_OPPONENT_RIGHT;
     }
+    
     species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
 
     switch (state)
@@ -2960,7 +2961,8 @@ static void TradeAnimInit_LoadGfx(void)
     SetBgTilemapBuffer(1, Alloc(BG_SCREEN_SIZE));
     SetBgTilemapBuffer(3, Alloc(BG_SCREEN_SIZE));
     DeactivateAllTextPrinters();
-    // Doing the graphics load.
+    // HnS PORT NOTE - seems this was condensed into DecompressAndCopyToBgTilemapBuffer
+    // Doing the graphics load...
     DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
     DecompressAndCopyToBgTilemapBuffer(0, gBattleTextboxTilemap, BG_SCREEN_SIZE, 0);
     LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
@@ -4542,6 +4544,7 @@ static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTr
 
     CreateMon(pokemon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, OT_ID_PRESET, inGameTrade->otId);
 
+    // HnS PORT TODO - add "max party IVs" challenge logic
     SetMonData(pokemon, MON_DATA_HP_IV, &inGameTrade->ivs[0]);
     SetMonData(pokemon, MON_DATA_ATK_IV, &inGameTrade->ivs[1]);
     SetMonData(pokemon, MON_DATA_DEF_IV, &inGameTrade->ivs[2]);

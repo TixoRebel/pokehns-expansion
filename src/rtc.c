@@ -22,6 +22,8 @@ COMMON_DATA struct Time gLocalTime = {0};
 
 static const struct SiiRtcInfo sRtcDummy = {0, MONTH_JAN, 1}; // 2000 Jan 1
 
+// HnS PORT TODO - ensure feature parity of Fake RTC, determine build flag or game option
+
 const s32 sNumDaysInMonths[MONTH_COUNT] =
 {
     [MONTH_JAN - 1] = 31,

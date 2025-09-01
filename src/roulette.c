@@ -3517,6 +3517,7 @@ static u8 CreateWheelIconSprite(const struct SpriteTemplate *template, u8 r1, u1
     return spriteId;
 }
 
+// HnS PORT NOTE - Using Expansion code
 static void CreateGridSprites(void)
 {
     u8 i, j;
@@ -3645,6 +3646,7 @@ static void ShowHideWinSlotCursor(u8 selectionId)
     }
 }
 
+// HnS PORT NOTE - Using Expansion code
 static void CreateWheelIconSprites(void)
 {
     u8 i, j;
@@ -3685,6 +3687,7 @@ static void SpriteCB_WheelIcon(struct Sprite *sprite)
     gOamMatrices[matrixNum].c = -sin;
 }
 
+// HnS PORT NOTE - Using Expansion code
 static void CreateInterfaceSprites(void)
 {
     u8 i;
@@ -3830,6 +3833,7 @@ static void SpriteCB_GridSquare(struct Sprite *sprite)
     sprite->x2 = sRoulette->gridX;
 }
 
+// HnS PORT NOTE - Using Expansion code
 static void CreateWheelCenterSprite(void)
 {
     u8 spriteId;

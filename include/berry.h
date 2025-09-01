@@ -1,6 +1,7 @@
 #ifndef GUARD_BERRY_H
 #define GUARD_BERRY_H
 
+// void ClearEnigmaBerries(void); // HnS PORT
 void SetEnigmaBerry(u8 *src);
 bool32 IsEnigmaBerryValid(void);
 const struct Berry *GetBerryInfo(u8 berry);
@@ -10,12 +11,13 @@ bool8 IsPlayerFacingEmptyBerryTreePatch(void);
 bool8 TryToWaterBerryTree(void);
 void ClearBerryTrees(void);
 void BerryTreeTimeUpdate(s32 minutes);
-void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth);
+void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth); // HnS PORT - allowGrowth in Expansion, "sparkle" in HnS
 void RemoveBerryTree(u8 id);
 u8 GetBerryTypeByBerryTreeId(u8 id);
 u8 GetStageByBerryTreeId(u8 id);
 u8 ItemIdToBerryType(u16 item);
 void GetBerryNameByBerryType(u8 berry, u8 *string);
+// void ResetBerryTreeSparkleFlag(u8 id); // HnS PORT
 void Bag_ChooseBerry(void);
 void Bag_ChooseMulch(void);
 void ObjectEventInteractionGetBerryTreeData(void);
@@ -33,6 +35,8 @@ struct BerryCrushBerryData {
     u8 difficulty; // The number of A presses required to crush it
     u16 powder;
 };
+//extern const u8 sBerryDescriptionPart1_WatmelMetric[]; // HnS PORT
+//extern const u8 sBerryDescriptionPart2_WatmelMetric[]; // HnS PORT
 
 extern const struct BerryCrushBerryData gBerryCrush_BerryData[];
 

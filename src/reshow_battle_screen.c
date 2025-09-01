@@ -20,6 +20,7 @@
 static void CB2_ReshowBattleScreenAfterMenu(void);
 static void CB2_ReshowBlankBattleScreenAfterMenu(void);
 static bool8 LoadBattlerSpriteGfx(u32 battler);
+// static void CreateBattlerSprite(u8 battler); // HnS PORT - appears to be global now
 static void CreateHealthboxSprite(u32 battler);
 static void ClearBattleBgCntBaseBlocks(void);
 static void CreateCaughtMonSprite(void);
@@ -289,6 +290,7 @@ static bool8 LoadBattlerSpriteGfx(u32 battler)
     return TRUE;
 }
 
+// HnS PORT NOTE - global in Expansion
 void CreateBattlerSprite(u32 battler)
 {
     if (battler < gBattlersCount)

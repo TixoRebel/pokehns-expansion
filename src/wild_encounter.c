@@ -24,6 +24,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+// #include "tx_randomizer_and_challenges.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -60,6 +61,7 @@ EWRAM_DATA static u32 sFeebasRngValue = 0;
 EWRAM_DATA bool8 gIsFishingEncounter = 0;
 EWRAM_DATA bool8 gIsSurfingEncounter = 0;
 EWRAM_DATA u8 gChainFishingDexNavStreak = 0;
+EWRAM_DATA static u16 sLastFishingSpecies = 0;
 
 #include "data/wild_encounters.h"
 
@@ -120,6 +122,13 @@ static bool8 CheckFeebas(void)
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE119)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE119))
     {
+        // if (gSaveBlock1Ptr->tx_Features_EasierFeebas == 1)
+        // {
+        //     if (Random() % 100 > 94)
+        //         return TRUE;
+        //     else
+        //         return FALSE;
+        // }
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
         x -= MAP_OFFSET;
         y -= MAP_OFFSET;
@@ -359,6 +368,10 @@ u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
+            // HnS - appears to skip invalid time-based encounters?
+            // if (VarGet(VAR_TIME_BASED_ENCOUNTER) >= 1 && VarGet(VAR_TIME_BASED_ENCOUNTER) <= 4)
+            //    i += (VarGet(VAR_TIME_BASED_ENCOUNTER) - 1);
+            
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ALTERING_CAVE))
             {
@@ -430,6 +443,8 @@ u8 PickWildMonNature(void)
         {
             for (i = 0; i < NUM_NATURES; i++)
                 natures[i] = i;
+            
+            // HnS PORT NOTE - Expansion replaces manual shuffle w/ a function
             Shuffle(natures, NUM_NATURES, sizeof(natures[0]));
             for (i = 0; i < NUM_NATURES; i++)
             {
@@ -438,6 +453,9 @@ u8 PickWildMonNature(void)
             }
         }
     }
+
+    // HnS TODO? - switch from build flag to tx mode?
+
     // check synchronize for a Pokémon with the same ability
     if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
         && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE
@@ -455,6 +473,14 @@ void CreateWildMon(u16 species, u8 level)
     bool32 checkCuteCharm = TRUE;
 
     ZeroEnemyPartyMons();
+
+    // if (gSaveBlock1Ptr->tx_Random_WildPokemon) //tx_randomizer_and_challenges
+    // {
+    //     #ifndef NDEBUG
+    //     MgbaPrintf(MGBA_LOG_DEBUG, "******** CreateWildMon ********");
+    //     #endif
+    //     species = GetSpeciesRandomSeeded(species, TX_RANDOM_T_WILD_POKEMON, 0);
+    // }
 
     switch (gSpeciesInfo[species].genderRatio)
     {
@@ -716,6 +742,7 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
             else if (WildEncounterCheck(gWildMonHeaders[headerId].encounterTypes[timeOfDay].landMonsInfo->encounterRate, FALSE) != TRUE)
                 return FALSE;
 
+            // HnS TODO - multiple roamers at once
             if (TryStartRoamerEncounter())
             {
                 roamer = &gSaveBlock1Ptr->roamer[gEncounteredRoamerIndex];
@@ -803,6 +830,7 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     return FALSE;
 }
 
+// HnS TODO - create seperate Headbutt logic
 void RockSmashWildEncounter(void)
 {
     u32 headerId = GetCurrentMapWildMonHeaderId();
@@ -954,13 +982,14 @@ static void UpdateChainFishingStreak()
     gChainFishingDexNavStreak++;
 }
 
+// HnS TODO - how is chain fishing working right now? is it?
 void FishingWildEncounter(u8 rod)
 {
     u16 species;
     u32 headerId;
     enum TimeOfDay timeOfDay;
 
-    gIsFishingEncounter = TRUE;
+    gIsFishingEncounter = TRUE; // must be set before mon is created
     if (CheckFeebas() == TRUE)
     {
         u8 level = ChooseWildMonLevel(&sWildFeebas, 0, WILD_AREA_FISHING);

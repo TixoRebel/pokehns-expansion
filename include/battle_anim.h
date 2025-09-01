@@ -165,6 +165,9 @@ void Trade_MoveSelectedMonToTarget(struct Sprite *sprite);
 void DestroyAnimVisualTaskAndDisableBlend(u8 taskId);
 void DestroySpriteAndFreeResources_(struct Sprite *sprite);
 void SetBattlerSpriteYOffsetFromOtherYScale(u8 spriteId, u8 otherSpriteId);
+// u8 GetBattlerSide(u8 battler); // HnS PORT
+// u8 GetBattlerPosition(u8 battler);
+// u8 GetBattlerAtPosition(u8 position);
 void ConvertPosDataToTranslateLinearData(struct Sprite *sprite);
 void InitAnimFastLinearTranslationWithSpeedAndPos(struct Sprite *sprite);
 
@@ -193,6 +196,7 @@ u8 GetBattlerSpriteCoord(u8 battler, u8 coordType);
 bool8 IsBattlerSpritePresent(u8 battler);
 void ClearBattleAnimBg(u32 bgId);
 u8 GetAnimBattlerSpriteId(u8 wantedBattler);
+// bool8 IsDoubleBattle(void); // HnS PORT
 u8 GetBattleBgPaletteNum(void);
 u8 GetBattlerSpriteBGPriorityRank(u8 battler);
 void StoreSpriteCallbackInData6(struct Sprite *sprite, void (*callback)(struct Sprite *));
@@ -234,9 +238,11 @@ extern const union AffineAnimCmd *const gAffineAnims_SpinningBone[];
 
 // battle_anim_throw.c
 void TryShinyAnimation(u8 battler, struct Pokemon *mon);
+// u8 ItemIdToBallId(u16 itemId); // HnS PORT
 u8 AnimateBallOpenParticles(u8 x, u8 y, u8 priority, u8 subpriority, u8 ballId);
 u8 LaunchBallFadeMonTask(bool8 unfadeLater, u8 spritePalNum, u32 selectedPalettes, u8 ballId);
 bool32 IsCriticalCapture(void);
+
 // battle_anim_utility_funcs.c
 void InitStatsChangeAnimation(u8 taskId);
 void StartMonScrollingBgMask(u8 taskId, int UNUSED unused, u16 scrollSpeed, u8 battler, bool8 includePartner, u8 numFadeSteps, u8 fadeStepDelay, u8 duration, const u32 *gfx, const u32 *tilemap, const u16 *palette);

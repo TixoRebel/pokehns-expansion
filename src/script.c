@@ -413,6 +413,7 @@ void TryRunOnWarpIntoMapScript(void)
         RunScriptImmediately(ptr);
 }
 
+// HnS PORT NOTE - make sure FREE_MYSTERY_EVENT_BUFFERS is always TRUE
 u32 CalculateRamScriptChecksum(void)
 {
 #if FREE_MYSTERY_EVENT_BUFFERS == FALSE
@@ -651,7 +652,7 @@ void Script_RequestWriteVar_Internal(u32 varId)
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 }
 
-// HnS
+// HnS PORT NOTE - what did we do?
 void SetTimeBasedEncounters(void)
 {
 	RtcCalcLocalTime();

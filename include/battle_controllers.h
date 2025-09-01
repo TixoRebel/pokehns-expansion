@@ -132,6 +132,7 @@ static inline bool32 IsBattleControllerActiveOrPendingSyncAnywhere(u32 battler)
 
 // Special arguments for Battle Controller functions.
 
+// HnS PORT
 enum {
    // For commands sent from the core battle engine to a controller.
    B_COMM_TO_CONTROLLER, // gBattleBufferA
@@ -385,6 +386,11 @@ void HandleInputShowEntireFieldTargets(u32 battler);
 void HandleInputShowTargets(u32 battler);
 void HandleMoveSwitching(u32 battler);
 void HandleChooseMoveAfterDma3(u32 battler);
+
+// HnS PORT - static now?
+// void BattleControllerDummy(void);
+// void PlayerHandleGetRawMonData(void);
+// void SpriteCB_FreePlayerSpriteLoadMonSprite(struct Sprite *sprite);
 
 // recorded player controller
 void SetControllerToRecordedPlayer(u32 battler);

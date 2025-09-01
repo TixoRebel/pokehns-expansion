@@ -6,5 +6,6 @@
 void InitTimeBasedEvents(void);
 void DoTimeBasedEvents(void);
 void FormChangeTimeUpdate();
+// void FastForwardTime(s16, s16); // HnS PORT
 
 #endif // GUARD_CLOCK_H

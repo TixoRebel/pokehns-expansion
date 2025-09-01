@@ -1,6 +1,11 @@
 	.set ALLOCATE_SCRIPT_CMD_TABLE, 0
 	.include "data/script_cmd_table.inc"
 
+	@ HnS PORT - where did these come from?
+	@ HnS PORT - are these defined elsewhere now?
+	NULL = 0
+	LOCALID_NONE = 0 @ previously OBJECT_ID_NONE
+
 	@ Does nothing.
 	.macro nop
 	.byte SCR_OP_NOP
@@ -629,66 +634,6 @@
 		.endif
 	.endm
 
-	@ HnS PORT - seems to keep follower loaded between transitions?
-	@ crystal applymovement but doesnt remove follower. 
-	.macro applymovement2 localId:req, movements:req, map
-		.ifb \map
-			.byte SCR_OP_APPLYMOVEMENT2
-			.2byte \localId
-			.4byte \movements
-		.else
-			@ Really only useful if the object has followed from one map to another (e.g. Wally during the catching event).
-			.byte SCR_OP_APPLYMOVEMENTAT
-			.2byte \localId
-			.4byte \movements
-			map \map
-		.endif
-	.endm
-
-	@ HnS - Scripts for Gen II side quests
-	@ Gives the player a Pokémon. 1 = KENYA, 2 = SHUCKIE, 3 = EEVEE
-	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
-	.macro givenamedmon number:req
-	.byte SCR_OP_GIVENAMEDMON
-	.2byte \number
-	.endm
-
-	@ HnS - Scripts for Gen II side quests
-	@ HnS TODO - maybe switch to "MON_TAKEN_FROM_PARTY" or "MON_CANT_TAKE"?
-	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
-	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
-	.macro removenamedmon number:req
-	.byte SCR_OP_REMOVENAMEDMON
-	.2byte \number
-	.endm
-
-	@ HnS - Scripts for Gen II side quests
-	@ Removes Pokémon from player's party.
-	@ If species in VAR_0x8004 matches the species passed in as number, it will remove the mon.
-	@ VAR_RESULT will be set to TRUE if it works. FALSE if it doesn't.
-	.macro removegenericmon number:req
-	.byte SCR_OP_REMOVEGENERICMON
-	.2byte \number
-	.endm
-
-	@ HnS - Scripts for Gen II side quests
-	@ New: Check Baoba target species in party slot VAR_0x8004.
-	@ Usage (script): baobacheckmon <1|2|3|4>
-	@ Result: gSpecialVar_Result = TRUE if the mon at VAR_0x8004 matches
-	@ the allowed species list for the given case; FALSE otherwise.
-	.macro baobacheckmon number:req
-	.byte SCR_OP_BAOBACHECKMON
-	.2byte \number
-	.endm
-
-	@ HNS NOTE - I don't understand the name/actual function of this? why 5mons?
-	@ HnS - Scripts for Gen II side quests
-	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
-	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
-	.macro remove5mons 
-	.byte SCR_OP_REMOVE5MONS
-	.endm
-
 	@ Blocks script execution until the movements being applied to the specified (localId) object finish.
 	@ If localId is LOCALID_NONE (0), then the id of the last-moved object will be used instead.
 	@ If the specified object is not currently being manipulated with applymovement, then this command does nothing.
@@ -766,9 +711,6 @@
 	.byte \direction
 	.endm
 
-	@ HnS PORT - where did these come from?
-	NULL = 0
-	OBJ_ID_NONE = 0
 
 	@ HnS PORT - Major Rework of trainerbattle. Should be more usable across the board.
 	@ HnS USEFUL - Can be called by any of the trainerbattle_XXX macros below.
@@ -1881,8 +1823,8 @@
 	.4byte \text
 	.endm
 
-	@ Equivalent to fadescreen but uses a hardware fade and darken/lighten blend modes,
-	@ to avoid modifying palettes at all.
+	@ Equivalent to fadescreen but uses a hardware fade and darken/lighten blend modes to avoid modifying palettes at all.
+	@ MODERN VERSION: "but copies gPlttBufferUnfaded to gPaletteDecompressionBuffer on the fade out and the reverse on the fade in, in effect saving gPlttBufferUnfaded to restore it."
 	@ Useful for fade-out/fade-in without leaving the overworld or entering a new scene.
 	@ If nowait set, doesn't wait for the fade to complete
 	.macro fadescreenswapbuffers mode:req, nowait=0
@@ -2244,6 +2186,77 @@
 	.macro setdynamicaifunc func:req
 	callnative ScriptSetDynamicAiFunc, requests_effects=1
 	.4byte \func
+	.endm
+
+	@ HnS macros ========================================================================================================================
+
+	@ HnS PORT - seems to keep follower loaded between transitions?
+	@ HnS applymovement but doesnt remove follower.
+	.macro applymovement2 localId:req, movements:req, map
+		.ifb \map
+			.byte SCR_OP_APPLYMOVEMENT2
+			.2byte \localId
+			.4byte \movements
+		.else
+			@ Really only useful if the object has followed from one map to another (e.g. Wally during the catching event).
+			.byte SCR_OP_APPLYMOVEMENTAT
+			.2byte \localId
+			.4byte \movements
+			map \map
+		.endif
+	.endm
+
+	@ HnS - Scripts for Gen II side quests
+	
+	@ HNS NOTE - I don't understand the name/actual function of this? why 5mons?
+	@ HnS - Scripts for Gen II side quests
+	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
+	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
+	.macro remove5mons
+	.byte SCR_OP_REMOVE5MONS
+	.endm
+
+	@ Gives the player a Pokémon. 1 = KENYA, 2 = SHUCKIE, 3 = EEVEE
+	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
+	.macro givenamedmon number:req
+	.byte SCR_OP_GIVENAMEDMON
+	.2byte \number
+	.endm
+
+	@ HnS - Scripts for Gen II side quests
+	@ HnS TODO - maybe switch to "MON_TAKEN_FROM_PARTY" or "MON_CANT_TAKE"?
+	@ Removes Pokémon from player's party. 1 = KENYA, 2 = SHUCKIE
+	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_CANT_GIVE depending on the outcome.
+	.macro removenamedmon number:req
+	.byte SCR_OP_REMOVENAMEDMON
+	.2byte \number
+	.endm
+
+	@ HnS - Scripts for Gen II side quests
+	@ Removes Pokémon from player's party.
+	@ If species in VAR_0x8004 matches the species passed in as number, it will remove the mon.
+	@ VAR_RESULT will be set to TRUE if it works. FALSE if it doesn't.
+	.macro removegenericmon number:req
+	.byte SCR_OP_REMOVEGENERICMON
+	.2byte \number
+	.endm
+
+	@ HnS - Scripts for Gen II side quests
+	@ New: Check Baoba target species in party slot VAR_0x8004.
+	@ Usage (script): baobacheckmon <1|2|3|4>
+	@ Result: gSpecialVar_Result = TRUE if the mon at VAR_0x8004 matches
+	@ the allowed species list for the given case; FALSE otherwise.
+	.macro baobacheckmon number:req
+	.byte SCR_OP_BAOBACHECKMON
+	.2byte \number
+	.endm
+
+	@ SCR_OP_GIVEODDEGG = 0xef
+	@ Gives the player the odd egg. If name matches, 100% shiny. If not, 14% shiny. Input parameter 1-7
+	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, or MON_CANT_GIVE depending on the outcome.
+	.macro giveoddegg number:req
+	.byte SCR_OP_GIVEODDEGG
+	.2byte \number
 	.endm
 
 	@ Set up a totem boost for the next battle.

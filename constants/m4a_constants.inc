@@ -3,8 +3,9 @@
 
 	.equiv ID_NUMBER, 0x68736d53
 
-	.equiv PCM_DMA_BUF_SIZE, 2128 @ 1568 or 2128
-	.equiv MAX_DIRECTSOUND_CHANNELS, 15	@ 5, 12, or 15?
+	@ HnS NOTE - these values relate to the audio engine's frequency set XXX, and impact the amount of RAM necessary for the audio engine
+	.equiv PCM_DMA_BUF_SIZE, 2128		@ HnS PORT NOTE - was 1584, could be 1568, but increased to 2128
+	.equiv MAX_DIRECTSOUND_CHANNELS, 15	@ HnS PORT NOTE - HnS had 15, Expansion had 5. Could also have been 12
 
 	.equiv C_V, 0x40
 

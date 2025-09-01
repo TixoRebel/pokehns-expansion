@@ -49,6 +49,12 @@ extern u16 gPartnerTrainerId;
 
 #define TRAINER_BATTLE_PARAM gTrainerBattleParameter.params
 
+// HnS PORT TODO
+//tx_randomizer_and_challenges
+// extern u8 NuzlockeIsCaptureBlocked;
+// extern u8 NuzlockeIsSpeciesClauseActive;
+// extern u8 OneTypeChallengeCaptureBlocked;
+
 void BattleSetup_StartWildBattle(void);
 void BattleSetup_StartDoubleWildBattle(void);
 void BattleSetup_StartBattlePikeWildBattle(void);
@@ -82,6 +88,7 @@ void ClearTrainerFlag(u16 trainerId);
 void BattleSetup_StartTrainerBattle(void);
 void BattleSetup_StartRematchBattle(void);
 void ShowTrainerIntroSpeech(void);
+// u8 GetScaledLevel(u8 lvl); // HnS PORT
 const u8 *BattleSetup_GetScriptAddrAfterBattle(void);
 const u8 *BattleSetup_GetTrainerPostBattleScript(void);
 void ShowTrainerCantBattleSpeech(void);
@@ -104,6 +111,11 @@ void TrainerBattleLoadArgs(const u8 *data);
 void TrainerBattleLoadArgsTrainerA(const u8 *data);
 void TrainerBattleLoadArgsTrainerB(const u8 *data);
 void TrainerBattleLoadArgsSecondTrainer(const u8 *data);
+
+// HnS PORT TODO
+//tx_randomizer_and_challenges
+// u8 NuzlockeIsCaptureBlockedBySpeciesClause(u16 species);
+// void SetNuzlockeChecks(void);
 
 void DoStandardWildBattle_Debug(void);
 void BattleSetup_StartTrainerBattle_Debug(void);

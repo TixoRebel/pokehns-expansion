@@ -112,9 +112,9 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
+    SPECIES_CHIKORITA,
+    SPECIES_CYNDAQUIL,
+    SPECIES_TOTODILE,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -347,6 +347,7 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
     .callback = SpriteCB_StarterPokemon
 };
 
+// HnS PORT TODO - Randomizer Stuff
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
@@ -576,6 +577,8 @@ static void CreateStarterPokemonLabel(u8 selection)
     u8 labelLeft, labelRight, labelTop, labelBottom;
 
     u16 species = GetStarterPokemon(selection);
+    // HnS PORT DEBUG - might be necessary?
+    // CopyMonCategoryText(SpeciesToNationalPokedexNum(species), categoryText);
     CopyMonCategoryText(species, categoryText);
     speciesName = GetSpeciesName(species);
 
@@ -630,6 +633,7 @@ static u8 CreatePokemonFrontSprite(u16 species, u8 x, u8 y)
 {
     u8 spriteId;
 
+    // HnS PORT TODO - show shiny in selection screen
     spriteId = CreateMonPicSprite_Affine(species, FALSE, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
     gSprites[spriteId].oam.priority = 0;
     return spriteId;

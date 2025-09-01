@@ -379,7 +379,7 @@ static void BuildSafariZoneStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
     AddStartMenuAction(MENU_ACTION_POKEDEX);
-    AddStartMenuAction(MENU_ACTION_POKEMON);
+    AddStartMenuAction(MENU_ACTION_POKEMON); // HnS PORT NOTE - undid removing menu option
     AddStartMenuAction(MENU_ACTION_BAG);
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -811,6 +811,7 @@ static bool8 StartMenuDebugCallback(void)
     RemoveExtraStartMenuWindows();
     HideStartMenuDebug(); // Hide start menu without enabling movement
 
+    // HnS PORT - build flag in Expansion
     if (DEBUG_OVERWORLD_MENU)
     {
         FreezeObjectEvents();
@@ -1456,7 +1457,7 @@ static void ShowSaveInfoWindow(void)
 
     // Print region name
     yOffset = 1;
-    BufferSaveMenuText(SAVE_MENU_LOCATION, gStringVar4, TEXT_COLOR_GREEN);
+    BufferSaveMenuText(SAVE_MENU_LOCATION, gStringVar4, TEXT_COLOR_DARK_GRAY);
     AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, 0, yOffset, TEXT_SKIP_DRAW, NULL);
 
     // Print player name

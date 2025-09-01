@@ -116,11 +116,35 @@ Debug_EventScript_Text_DefensiveIVs:
 
 @ HnS PORT NOTE - Expansion adds "_EventScript" to the name, and a release to each script
 Debug_EventScript_Script_1::
+	@ msgbox Debug_EventScript_Script_1_Text, MSGBOX_YESNO
+	@ switch VAR_RESULT
+	@ case NO, Debug_EventScript_Script_1_Closemessage
+	@ case MULTI_B_PRESSED, Debug_EventScript_Script_1_Closemessage
+	@ msgbox Debug_EventScript_Script_1_Text2, MSGBOX_DEFAULT
+	@ closemessage
+	@ callnative Task_ChooseChallenge_NoNewGame
 	release
 	end
 
+@ Debug_EventScript_Script_1_Closemessage::
+@ 	closemessage
+@ 	end
+@ 
+@ Debug_EventScript_Script_1_Text:
+@ 	.string "WARNING! ENTERING THE CHALLENGES\n"
+@ 	.string "MENU COULD MESS YOUR SAVE DATA.\p"
+@ 	.string "SOME OPTIONS MAY NOT WORK UNLESS A\n"
+@ 	.string "NEW GAME IS STARTED. PLEASE BACKUP\p"
+@ 	.string "YOUR DATA BEFORE PRESSING YES.$"
+@ 
+@ Debug_EventScript_Script_1_Text2:
+@ 	.string "ALL OPTIONS YOU CHOSE AT THE START\n"
+@ 	.string "OF THE GAME WILL RESET AND YOU\l"
+@ 	.string "WILL HAVE TO ENABLE THEM AGAIN.$"
+
 Debug_EventScript_Script_2::
 	callnative Berry_Ready
+	release
 	end
 
 Debug_EventScript_Script_3::

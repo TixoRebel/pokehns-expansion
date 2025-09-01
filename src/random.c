@@ -4,6 +4,8 @@
 #include <alloca.h>
 #endif
 
+// HnS PORT TODO - make sure we have feature parity with HnS
+
 // IWRAM common
 COMMON_DATA rng_value_t gRngValue = {0};
 COMMON_DATA rng_value_t gRng2Value = {0};
@@ -212,10 +214,13 @@ u8 RandomWeightedIndex(u8 *weights, u8 length)
     u32 i;
     u16 randomValue;
     u16 weightSum = 0;
+
     for (i = 0; i < length; i++)
         weightSum += weights[i];
+    
     randomValue = weightSum > 0 ? Random() % weightSum : 0;
     weightSum = 0;
+
     for (i = 0; i < length; i++)
     {
         weightSum += weights[i];

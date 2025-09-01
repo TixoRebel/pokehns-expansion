@@ -57,6 +57,7 @@ bool16 ResetAllPicSprites(void)
     return FALSE;
 }
 
+// HnS PORT TODO - notably different implementation, including deoxys nonsense?
 static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *dest, bool8 isTrainer)
 {
     if (!isTrainer)

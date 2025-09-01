@@ -32,7 +32,7 @@
 #define B_TXT_ATK_NAME_WITH_PREFIX 0xF
 #define B_TXT_DEF_NAME_WITH_PREFIX 0x10
 #define B_TXT_EFF_NAME_WITH_PREFIX 0x11 // EFF = short for gEffectBank
-// #define B_TXT_ACTIVE_NAME_WITH_PREFIX 0x12 - removed
+// #define B_TXT_ACTIVE_NAME_WITH_PREFIX 0x12 // HnS PORT - removed
 #define B_TXT_SCR_ACTIVE_NAME_WITH_PREFIX 0x13
 #define B_TXT_CURRENT_MOVE 0x14
 #define B_TXT_LAST_MOVE 0x15
@@ -334,5 +334,6 @@ extern const u8 gText_BattleTourney[];
 
 extern const u16 gMissStringIds[];
 extern const u16 gStatUpStringIds[];
+// extern const u16 gTrappingMoves[]; // HnS PORT
 
 #endif // GUARD_BATTLE_MESSAGE_H

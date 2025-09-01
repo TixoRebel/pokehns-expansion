@@ -63,10 +63,10 @@ struct ResetRtcInputMap
     /*0x0*/ u8 dataIndex;
     /*0x2*/ u16 minVal;
     /*0x4*/ u16 maxVal;
-            u16 increment;
-    /*0x6*/ u8 left;
-    /*0x7*/ u8 right;
-    /*0x8*/ u8 unk; // never read
+    /*0x6*/ u16 increment;
+    /*0x8*/ u8 left;
+    /*0x9*/ u8 right;
+    /*0xA*/ u8 unk; // never read
 };
 
 static void CB2_ResetRtcScreen(void);

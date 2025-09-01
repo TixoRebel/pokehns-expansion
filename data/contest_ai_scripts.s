@@ -1,4 +1,4 @@
-#include "config/general.h"
+#include "config/general.h" @ HnS PORT NOTE - Expansion specified a general config header
 #include "constants/global.h"
 #include "constants/contest.h"
 	.include "asm/macros.inc"

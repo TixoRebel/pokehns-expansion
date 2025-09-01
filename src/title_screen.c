@@ -504,8 +504,8 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite)
              || sprite->x == DISPLAY_WIDTH / 2 + (4 * SHINE_SPEED)
              || sprite->x == DISPLAY_WIDTH / 2 + (5 * SHINE_SPEED)
              || sprite->x == DISPLAY_WIDTH / 2 + (6 * SHINE_SPEED))
-                // HnS - previously gPlttBufferFaded[0] = RGB(24, 31, 12);
-                gPlttBufferFaded[0] = RGB(1, 1, 1);
+                // HnS PORT TODO - still flash legends!! previously gPlttBufferFaded[0] = RGB(24, 31, 12);
+                gPlttBufferFaded[0] = RGB(115, 80, 50); // 1, 1, 1
             else
                 gPlttBufferFaded[0] = backgroundColor;
         }
@@ -609,8 +609,9 @@ void CB2_InitTitleScreen(void)
         LZ77UnCompVram(sTitleScreenHnSGfx, (void *)(BG_CHAR_ADDR(2)));
         LZ77UnCompVram(sTitleScreenHnSTilemap, (void *)(BG_SCREEN_ADDR(26)));
         // bg1
-        LZ77UnCompVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
-        LZ77UnCompVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
+        // HnS PORT - Apparently clouds were not wanted
+        // LZ77UnCompVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
+        // LZ77UnCompVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
         ScanlineEffect_Stop();
         ResetTasks();
         ResetSpriteData();
@@ -802,7 +803,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         SetMainCallback2(CB2_GoToResetRtcScreen);
     }
-    // HnS
+    // HnS PORT NOTE - debug menus
     else if (JOY_HELD(SOUND_TEST_BUTTON_COMBO) == SOUND_TEST_BUTTON_COMBO)
     {
         FadeOutBGM(4);

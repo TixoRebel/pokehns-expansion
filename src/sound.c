@@ -32,6 +32,7 @@ extern struct ToneData gCryTable_Reverse[];
 
 static void Task_Fanfare(u8 taskId);
 static void CreateFanfareTask(void);
+// static void Task_DuckBGMForPokemonCry(u8 taskId); // HnS PORT NOTE - global, not static
 static void RestoreBGMVolumeAfterPokemonCry(void);
 
 static const struct Fanfare sFanfares[] = {

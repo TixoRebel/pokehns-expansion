@@ -4072,6 +4072,7 @@ static s32 UnionRoomGetPlayerInteractionResponse(struct RfuPlayerList *list, boo
         CopyAndTranslatePlayerName(gStringVar1, player);
         if (overrideGender)
         {
+            // HnS PORT NOTE - why is it +1 in HnS but -1 here?
             playerGender = (player->rfu.data.compatibility.playerTrainerId[overrideGender - 1] >> 3) & 1;
         }
         switch (player->rfu.data.activity & 0x3F)

@@ -79,6 +79,15 @@
 #define ABILITY_SHELL_ARMOR 75
 #define ABILITY_AIR_LOCK 76
 
+// HnS Minimal Pokedex Abilities
+// #define ABILITY_CACOPHONY 77
+// #define ABILITY_TRANSISTOR 78
+// #define ABILITY_DRAGONS_MAW 79
+// #define ABILITY_MULTITYPE 80
+// #define ABILITY_PIXILATE 81
+
+// #define ABILITIES_COUNT 82
+
 #define ABILITIES_COUNT_GEN3 77
 
 // Gen 4

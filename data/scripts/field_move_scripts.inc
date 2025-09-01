@@ -2,6 +2,12 @@
 @ HnS PORT TODO - Is party learnset being checked at all??
 
 @ HnS PORT TODO - make HM use logic depend on a flag (build or user option?)
+
+@ .macro IsFollowerFieldMoveUser var:req
+@ callfunc ScrFunc_IsFollowerFieldMoveUser
+@ .2byte \var
+@ .endm
+
 @ Interact with cuttable tree
 EventScript_CutTree::
 	lockall
@@ -105,7 +111,6 @@ EventScript_SmashRock:: @ fallthrough
 	releaseall
 	end
 
-@ HnS TODO - rename FLAG_GET_HEADBUTT to "FLAG_LEARNED_HEADBUTT"
 @ Interact with headbutt tree
 EventScript_Headbutt::
 	lockall

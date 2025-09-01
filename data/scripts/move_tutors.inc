@@ -1,6 +1,9 @@
 @ appears to be modified from pokeemerald to account for the infinite TM option
 @ expansion does not appear to have modified this file
 
+@ HnS PORT NOTE USEFUL TODO - All scripts in this file are used in Expansion's build process to auto-generate
+@                       a list of tutor moves, and add them to species learnsets
+
 SlateportCity_PokemonFanClub_EventScript_SwaggerTutor::
 	lock
 	faceplayer

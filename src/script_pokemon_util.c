@@ -158,7 +158,7 @@ void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, u16 species
     }
 }
 
-// HnS - crystal
+// HnS PORT NOTE - no longer used? Expansion has a way to just say "this mon is shiny"
 u32 GenerateShinyPersonalityForOtId(u32 otId)
 {
     u32 personality;
@@ -391,6 +391,7 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
     else
         CreateMonWithNature(&mon, species, level, 32, nature);
 
+    // HnS PORT TODO - figure out how to use this?
     // shininess
     if (P_FLAG_FORCE_SHINY != 0 && FlagGet(P_FLAG_FORCE_SHINY))
         isShiny = TRUE;
