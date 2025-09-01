@@ -1026,6 +1026,8 @@ static const struct MatchCallText *const sMatchCallGeneralTopics[] =
 extern const u8 gBirchDexRatingText_AreYouCurious[];
 extern const u8 gBirchDexRatingText_SoYouveSeenAndCaught[];
 extern const u8 gBirchDexRatingText_OnANationwideBasis[];
+extern const u8 gBirchDexRatingText_GoFindMrPokemon[];
+extern const u8 gBirchDexRatingText_Robbery[];
 
 void InitMatchCallCounters(void)
 {
