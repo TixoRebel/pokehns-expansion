@@ -141,7 +141,7 @@ static const struct SpritePalette sCityZoomTilesSpritePalette[] =
 static const struct WindowTemplate sMapSecInfoWindowTemplate =
 {
     .bg = 1,
-    .tilemapLeft = 17,
+    .tilemapLeft = 1,
     .tilemapTop = 4,
     .width = 12,
     .height = 13,
@@ -215,10 +215,10 @@ static u32 HandleRegionMapInput(struct Pokenav_RegionMapMenu *state)
     {
     case MAP_INPUT_MOVE_END:
         return POKENAV_MAP_FUNC_CURSOR_MOVED;
-    case MAP_INPUT_A_BUTTON:
-        if (!IsRegionMapZoomed())
-            return POKENAV_MAP_FUNC_ZOOM_IN;
-        return POKENAV_MAP_FUNC_ZOOM_OUT;
+    // case MAP_INPUT_A_BUTTON:
+    //     if (!IsRegionMapZoomed())
+    //         return POKENAV_MAP_FUNC_ZOOM_IN;
+    //     return POKENAV_MAP_FUNC_ZOOM_OUT;
     case MAP_INPUT_B_BUTTON:
         state->callback = GetExitRegionMapMenuId;
         return POKENAV_MAP_FUNC_EXIT;
@@ -591,7 +591,7 @@ static void UpdateMapSecInfoWindow(struct Pokenav_RegionMapGfx *state)
         SetCityZoomTextInvisibility(TRUE);
         break;
     case MAPSECTYPE_NONE:
-        FillBgTilemapBufferRect(1, 0x1041, 17, 4, 12, 13, 17);
+        FillBgTilemapBufferRect(1, 0x1041, 1, 4, 12, 13, 17);
         CopyBgTilemapBufferToVram(1);
         SetCityZoomTextInvisibility(TRUE);
         break;
