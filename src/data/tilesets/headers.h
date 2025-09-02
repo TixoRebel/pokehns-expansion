@@ -931,10 +931,10 @@ const struct Tileset gTileset_Cave_Default =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_Default,
-    .palettes = gTilesetPalettes_Default,
-    .metatiles = gMetatiles_Default,
-    .metatileAttributes = gMetatileAttributes_Default,
+    .tiles = gTilesetTiles_Cave_Default,
+    .palettes = gTilesetPalettes_Cave_Default,
+    .metatiles = gMetatiles_Cave_Default,
+    .metatileAttributes = gMetatileAttributes_Cave_Default,
     .callback = NULL,
 };
 
@@ -1081,17 +1081,6 @@ const struct Tileset gTileset_Gate_Standard =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_SaffronCity =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_SaffronCity,
-    .palettes = gTilesetPalettes_SaffronCity,
-    .metatiles = gMetatiles_SaffronCity,
-    .metatileAttributes = gMetatileAttributes_SaffronCity,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_Ecruteak_62 =
 {
     .isCompressed = TRUE,
@@ -1144,7 +1133,7 @@ const struct Tileset gTileset_EcruteakTheater =
     .palettes = gTilesetPalettes_EcruteakTheater,
     .metatiles = gMetatiles_EcruteakTheater,
     .metatileAttributes = gMetatileAttributes_EcruteakTheater,
-    .callback = InitTilesetAnim_EcruteakTheater,
+    .callback = InitTilesetAnim_Theater_26,
 };
 
 const struct Tileset gTileset_PortIndoor =
@@ -1353,7 +1342,7 @@ const struct Tileset gTileset_AzaleaTown_Gym =
     .palettes = gTilesetPalettes_AzaleaTown_Gym,
     .metatiles = gMetatiles_AzaleaTown_Gym,
     .metatileAttributes = gMetatileAttributes_AzaleaTown_Gym,
-    .callback = InitTilesetAnim_AzaleaTown_Gym,
+    .callback = InitTilesetAnim_AzaleaGym_29,
 };
 
 const struct Tileset gTileset_Goldenrod =

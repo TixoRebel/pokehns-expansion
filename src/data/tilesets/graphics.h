@@ -2034,25 +2034,6 @@ const u16 gTilesetPalettes_Gate_Standard[][16] =
 
 const u32 gTilesetTiles_Gate_Standard[] = INCBIN_U32("data/tilesets/secondary/gates_42/tiles.4bpp.lz");
 
-const u16 gTilesetPalettes_SaffronCity[][16] =
-{
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/00.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/01.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/02.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/03.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/04.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/05.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/06.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/07.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/08.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/09.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/10.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/11.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/route_34_11/palettes/12.gbapal"),
-};
-
-const u32 gTilesetTiles_SaffronCity[] = INCBIN_U32("data/tilesets/secondary/route_34_11/tiles.4bpp.lz");
-
 const u16 gTilesetPalettes_Ecruteak_62[][16] =
 {
     INCBIN_U16("data/tilesets/secondary/ecruteak_62/palettes/00.gbapal"),

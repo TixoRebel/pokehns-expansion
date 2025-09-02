@@ -296,7 +296,7 @@ NewBarkTownLab_EventScript_HideChikorita::
 
 NewBarkTownLab_EventScript_PoliceEpisode::
 	lock
-	setmetatile 7, 1, METATILE_R26_21_Broken_Window, TRUE
+	setmetatile 7, 1, METATILE_House_Lab_Broken_Window, TRUE
 	call_if_eq VAR_STARTER_MON, 0 NewBarkTownLab_EventScript_HideCyndaquil
 	call_if_eq VAR_STARTER_MON, 1 NewBarkTownLab_EventScript_HideTotodile
 	call_if_eq VAR_STARTER_MON, 2 NewBarkTownLab_EventScript_HideChikorita

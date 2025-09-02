@@ -921,9 +921,6 @@
 // gTileset_ViridianCity
 #define METATILE_ViridianCity_Viridian  0x299
 
-// gTileset_SaffronCity
-#define METATILE_SaffronCity_Saffron  0x35C
-
 // gTileset_ssaqua
 #define METATILE_ssaqua_Door  0x281
 

@@ -8487,7 +8487,7 @@
       "width": 45,
       "height": 43,
       "primary_tileset": "gTileset_Johto_Building",
-      "secondary_tileset": "gTileset_SaffronCityDojoVIP",
+      "secondary_tileset": "gTileset_SaffronCity_FightingDojoVIP",
       "border_filepath": "data/layouts/SaffronCityDojoVIP/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCityDojoVIP/map.bin"
     },

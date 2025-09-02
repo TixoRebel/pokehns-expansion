@@ -271,9 +271,6 @@ const u16 gMetatileAttributes_PokemonCenter_White[] = INCBIN_U16("data/tilesets/
 const u16 gMetatiles_Gate_Standard[] = INCBIN_U16("data/tilesets/secondary/gates_42/metatiles.bin");
 const u16 gMetatileAttributes_Gate_Standard[] = INCBIN_U16("data/tilesets/secondary/gates_42/metatile_attributes.bin");
 
-const u16 gMetatiles_SaffronCity[] = INCBIN_U16("data/tilesets/secondary/route_34_11/metatiles.bin");
-const u16 gMetatileAttributes_SaffronCity[] = INCBIN_U16("data/tilesets/secondary/route_34_11/metatile_attributes.bin");
-
 const u16 gMetatiles_Ecruteak_62[] = INCBIN_U16("data/tilesets/secondary/ecruteak_62/metatiles.bin");
 const u16 gMetatileAttributes_Ecruteak_62[] = INCBIN_U16("data/tilesets/secondary/ecruteak_62/metatile_attributes.bin");
 
