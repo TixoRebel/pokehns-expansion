@@ -1,6 +1,6 @@
 .set LOCALID_BELLCHIME_MORTY, 52
 
-Ecruteak_Dummy_MapScripts::
+Bellchime_Trail_MapScripts::
 	.byte 0
 
 

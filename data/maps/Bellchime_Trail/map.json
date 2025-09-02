@@ -1,7 +1,7 @@
 {
-  "id": "MAP_ECRUTEAK_DUMMY",
-  "name": "Ecruteak_Dummy",
-  "layout": "LAYOUT_ECRUTEAK_DUMMY",
+  "id": "MAP_BELLCHIME_TRAIL",
+  "name": "Bellchime_Trail",
+  "layout": "LAYOUT_BELLCHIME_TRAIL",
   "music": "MUS_HG_BELL_TOWER",
   "region_map_section": "MAPSEC_ECRUTEAK_CITY",
   "requires_flash": false,

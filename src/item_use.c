@@ -215,18 +215,14 @@ static void DisplayCannotDismountBikeMessage(u8 taskId, bool8 isUsingRegisteredK
 // HnS
 static void DisplayRadioMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField) //crystal radio logic
 {
-    if (!Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
-        if (gMapHeader.regionMapSectionId == MAPSEC_RUINS_OF_ALPH) 
-        {
-        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_UnownMessage);
-        PlayBGM(MUS_HG_RADIO_UNOWN);
-        }
-        else 
-        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RadioNoSignal);
-    else if (gMapHeader.regionMapSectionId == MAPSEC_RUINS_OF_ALPH) 
+    if (gMapHeader.regionMapSectionId == MAPSEC_RUINS_OF_ALPH)
     {
         DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_UnownMessage);
         PlayBGM(MUS_HG_RADIO_UNOWN);
+    }
+    else if (!Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
+    {
+        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RadioNoSignal);
     }
     else
     {

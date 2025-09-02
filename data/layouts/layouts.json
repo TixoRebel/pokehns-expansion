@@ -7152,14 +7152,14 @@
       "blockdata_filepath": "data/layouts/CianwoodGym/map.bin"
     },
     {
-      "id": "LAYOUT_ECRUTEAK_DUMMY",
-      "name": "Ecruteak_Dummy_Layout",
+      "id": "LAYOUT_BELLCHIME_TRAIL",
+      "name": "Bellchime_Trail_Layout",
       "width": 70,
       "height": 69,
       "primary_tileset": "gTileset_Johto_NorthWest",
       "secondary_tileset": "gTileset_BellchimeTrail",
-      "border_filepath": "data/layouts/Ecruteak_Dummy/border.bin",
-      "blockdata_filepath": "data/layouts/Ecruteak_Dummy/map.bin"
+      "border_filepath": "data/layouts/Bellchime_Trail/border.bin",
+      "blockdata_filepath": "data/layouts/Bellchime_Trail/map.bin"
     },
     {
       "id": "LAYOUT_MAHOGANY_GYM",
@@ -8640,36 +8640,6 @@
       "secondary_tileset": "gTileset_Theater_26",
       "border_filepath": "data/layouts/VioletCityGym2/border.bin",
       "blockdata_filepath": "data/layouts/VioletCityGym2/map.bin"
-    },
-    {
-      "id": "LAYOUT_LIGHTHOUSE_TOP_TEST",
-      "name": "LighthouseTopTest_Layout",
-      "width": 16,
-      "height": 14,
-      "primary_tileset": "gTileset_Johto_Building",
-      "secondary_tileset": "gTileset_Observatory",
-      "border_filepath": "data/layouts/LighthouseTopTest/border.bin",
-      "blockdata_filepath": "data/layouts/LighthouseTopTest/map.bin"
-    },
-    {
-      "id": "LAYOUT_CIANWOOD_GYM_TEST",
-      "name": "CianwoodGymTest_Layout",
-      "width": 21,
-      "height": 17,
-      "primary_tileset": "gTileset_Johto_Building",
-      "secondary_tileset": "gTileset_CianwoodGymNew",
-      "border_filepath": "data/layouts/CianwoodGymTest/border.bin",
-      "blockdata_filepath": "data/layouts/CianwoodGymTest/map.bin"
-    },
-    {
-      "id": "LAYOUT_ECRUTEAK_GYM_TEST",
-      "name": "EcruteakGymTest_Layout",
-      "width": 17,
-      "height": 48,
-      "primary_tileset": "gTileset_Johto_Building",
-      "secondary_tileset": "gTileset_EcruteakGymNew",
-      "border_filepath": "data/layouts/EcruteakGymTest/border.bin",
-      "blockdata_filepath": "data/layouts/EcruteakGymTest/map.bin"
     },
     {
       "id": "LAYOUT_MT_MOON_TEST",
