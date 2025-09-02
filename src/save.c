@@ -917,35 +917,36 @@ u8 LoadGameSave(u8 saveType)
 
     // HnS PORT INFO - not porting over save compatability changes
 
+    // oh wait this really needs to be only once and only if there's save compatability stuff to account for
     // HnS PORT NOTE - Adds flags for future content ??
-    if (TRUE /*gSaveBlock1Ptr->versionId <2*/){ 
-        FlagSet(FLAG_HIDE_OLIVINE_PORT_OAK);
-        // FlagSet(FLAG_UNUSED_SET2);
-        FlagSet(FLAG_UNUSED_SET3);
-        FlagSet(FLAG_UNUSED_SET4);
-        FlagSet(FLAG_UNUSED_SET5);
-        FlagSet(FLAG_UNUSED_SET6);
-        FlagSet(FLAG_UNUSED_SET7);
-        FlagSet(FLAG_UNUSED_SET8);
-        FlagSet(FLAG_UNUSED_SET9);
-        FlagClear(FLAG_RECEIVED_ODD_EGG);
-        // FlagClear(FLAG_UNUSED_UNSET2);
-        FlagClear(FLAG_UNUSED_UNSET3);
-        FlagClear(FLAG_UNUSED_UNSET4);
-        FlagClear(FLAG_UNUSED_UNSET5);
-        FlagClear(FLAG_UNUSED_UNSET6);
-        FlagClear(FLAG_UNUSED_UNSET7);
-        FlagClear(FLAG_UNUSED_UNSET8);
-        FlagClear(FLAG_UNUSED_UNSET9);
-        VarSet(VAR_UNUSED_HNS_VAR1, 0);
-        VarSet(VAR_UNUSED_HNS_VAR2, 0);
-        VarSet(VAR_UNUSED_HNS_VAR3, 0);
-        VarSet(VAR_UNUSED_HNS_VAR4, 0);
-        VarSet(VAR_UNUSED_HNS_VAR5, 0);
-        VarSet(VAR_UNUSED_HNS_VAR6, 0);
-        VarSet(VAR_UNUSED_HNS_VAR7, 0);
-        // gSaveBlock1Ptr->versionId = 2;
-    }
+    // if (TRUE /*gSaveBlock1Ptr->versionId <2*/){ 
+    //     FlagSet(FLAG_HIDE_OLIVINE_PORT_OAK);
+    //     // FlagSet(FLAG_UNUSED_SET2);
+    //     FlagSet(FLAG_UNUSED_SET3);
+    //     FlagSet(FLAG_UNUSED_SET4);
+    //     FlagSet(FLAG_UNUSED_SET5);
+    //     FlagSet(FLAG_UNUSED_SET6);
+    //     FlagSet(FLAG_UNUSED_SET7);
+    //     FlagSet(FLAG_UNUSED_SET8);
+    //     FlagSet(FLAG_UNUSED_SET9);
+    //     FlagClear(FLAG_RECEIVED_ODD_EGG);
+    //     // FlagClear(FLAG_UNUSED_UNSET2);
+    //     FlagClear(FLAG_UNUSED_UNSET3);
+    //     FlagClear(FLAG_UNUSED_UNSET4);
+    //     FlagClear(FLAG_UNUSED_UNSET5);
+    //     FlagClear(FLAG_UNUSED_UNSET6);
+    //     FlagClear(FLAG_UNUSED_UNSET7);
+    //     FlagClear(FLAG_UNUSED_UNSET8);
+    //     FlagClear(FLAG_UNUSED_UNSET9);
+    //     VarSet(VAR_UNUSED_HNS_VAR1, 0);
+    //     VarSet(VAR_UNUSED_HNS_VAR2, 0);
+    //     VarSet(VAR_UNUSED_HNS_VAR3, 0);
+    //     VarSet(VAR_UNUSED_HNS_VAR4, 0);
+    //     VarSet(VAR_UNUSED_HNS_VAR5, 0);
+    //     VarSet(VAR_UNUSED_HNS_VAR6, 0);
+    //     VarSet(VAR_UNUSED_HNS_VAR7, 0);
+    //     // gSaveBlock1Ptr->versionId = 2;
+    // }
     return status;
 }
 
