@@ -54,7 +54,7 @@ SSAqua1_EventScript_Sailor3::
 
 SSAqua1_Trigger_Grandpa::
 	lock
-	clearflag FLAG_HIDE_SSAQUA1_GRANDPA
+	clearflag FLAG_HIDE_SSAQUA_1F_GRANDPA
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_eq VAR_TEMP_0, 28, SSAqua1_EventScript_GrandpaEnterLeft
 	call_if_eq VAR_TEMP_0, 29, SSAqua1_EventScript_GrandpaEnterRight
@@ -69,11 +69,11 @@ SSAqua1_Trigger_Grandpa::
 	playse SE_DOOR
 	removeobject LOCALID_SSAQUA1_GRANDPA
 	
-	setflag FLAG_HIDE_SSAQUA1_GRANDPA		@flagheap
-	setflag FLAG_HIDE_SSAQUA8_GRANDDAUGHTER
+	setflag FLAG_HIDE_SSAQUA_1F_GRANDPA		@flagheap
+	setflag FLAG_HIDE_SSAQUA_ROOM_SSE_GRANDDAUGHTER
 
 	clearflag FLAG_HIDE_SSAQUA_SAILOR
-	clearflag FLAG_HIDE_SSAQUA3_GRANDDAUGHTER
+	clearflag FLAG_HIDE_SSAQUA_CAPTAINS_ROOM_GRANDDAUGHTER
 
 	setvar VAR_SSAQUA_STATE, 2
 	release

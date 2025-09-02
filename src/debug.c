@@ -1355,7 +1355,7 @@ static const u16 sLocationFlags[] =
     FLAG_VISITED_FUCHSIA_CITY,
     FLAG_VISITED_CINNABAR_ISLAND,
     FLAG_VISITED_MT_SILVER,
-    FLAG_VISITED_INDIGO_JUNCTION,
+    FLAG_VISITED_RECEPTION_GATE,
 };
 
 static u8 Debug_CheckToggleFlags(u8 id)

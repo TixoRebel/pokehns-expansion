@@ -45,7 +45,7 @@ GoldenrodGym_EventScript_Whitney::
 	faceplayer
 	goto_if_eq VAR_GOLDENROD_CITY_STATE, 3, GoldenrodGym_EventScript_WhitneyCrying
 	goto_if_eq VAR_GOLDENROD_CITY_STATE, 4, GoldenrodGym_EventScript_WhitneyBadge
-	goto_if_set FLAG_DEFEATED_GOLDENROD_GYM, GoldenrodGym_EventScript_WhitneyDefeated
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, GoldenrodGym_EventScript_WhitneyDefeated
 	msgbox GoldenrodGym_Text_WhitneyBefore, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_WHITNEY_1, GoldenrodGym_Text_WhitneyShouldntBeSoSerious
 	msgbox GoldenrodGym_Text_WhitneyYouMeanie, MSGBOX_DEFAULT
@@ -72,7 +72,7 @@ GoldenrodGym_EventScript_WhitneyBadge::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox GoldenrodGym_Text_WhitneyPlainBadge, MSGBOX_DEFAULT
 	setflag FLAG_BADGE03_GET
-	setflag FLAG_DEFEATED_GOLDENROD_GYM
+	setflag FLAG_DEFEATED_GOLDENROD_CITY_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers
@@ -104,7 +104,7 @@ GoldenrodGym_EventScript_Trigger::
 
 GoldenrodGym_EventScript_Statue::
 	lock
-	goto_if_set FLAG_DEFEATED_GOLDENROD_GYM, GoldenrodGym_EventScript_Statue2
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, GoldenrodGym_EventScript_Statue2
 	msgbox GoldenrodGym_Text_GymStatue, MSGBOX_DEFAULT
 	closemessage
 	release

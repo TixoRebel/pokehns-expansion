@@ -162,7 +162,7 @@ LakeOfRage_EventScript_EndScene::
 	removeobject LOCALID_LAKEOFRAGE_LANCE
 	removeobject LOCALID_LAKEOFRAGE_DRAGONITE
 	setvar VAR_MAHOGANY_TOWN_STATE, 4
-	clearflag FLAG_HIDE_MAHOGANY_SHOP_NPCS
+	clearflag FLAG_HIDE_MAHOGANY_TOWN_SHOP_NPCS
 	release
 	end
 

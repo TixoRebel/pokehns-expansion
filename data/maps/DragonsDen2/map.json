@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_DRAGONS_DEN2_CLAIR"
+      "flag": "FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -441,7 +441,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_DRAGONS_DEN2_SILVER"
+      "flag": "FLAG_HIDE_DRAGONS_DEN_CAVERN_SILVER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LANCE",
@@ -454,7 +454,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_DRAGONS_DEN2_LANCE"
+      "flag": "FLAG_HIDE_DRAGONS_DEN_CAVERN_LANCE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CLAIR",

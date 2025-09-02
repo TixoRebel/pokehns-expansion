@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TinTower4_EventScript_Item_MaxPotion",
-      "flag": "FLAG_ITEM_TIN_TOWER4_MAX_POTION"
+      "flag": "FLAG_ITEM_TIN_TOWER_4F_MAX_POTION"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TinTower4_EventScript_Item_EscapeRope",
-      "flag": "FLAG_ITEM_TIN_TOWER4_ESCAPE_ROPE"
+      "flag": "FLAG_ITEM_TIN_TOWER_4F_ESCAPE_ROPE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TinTower4_EventScript_Item_UltraBall",
-      "flag": "FLAG_ITEM_TIN_TOWER4_ULTRA_BALL"
+      "flag": "FLAG_ITEM_TIN_TOWER_4F_ULTRA_BALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA",

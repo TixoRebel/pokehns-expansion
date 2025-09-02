@@ -226,7 +226,7 @@ DragonsDen3_Text_PassedTest:
     .string "POKéMON LEAGUE.$"
 
 DragonsDen3_EventScript_ClairEnter::
-	clearflag FLAG_HIDE_DRAGONS_DEN3_CLAIR
+	clearflag FLAG_HIDE_DRAGONS_DEN_SHRINE_CLAIR
 	addobject LOCALID_DRAGONSDEN3_CLAIR
 	playse SE_DOOR
 	delay 40
@@ -280,9 +280,9 @@ DragonsDen3_EventScript_ClairEnter::
 	applymovement2 LOCALID_DRAGONSDEN3_CLAIR, DragonsDen3_Movement_ClairLeave
 	waitmovement 0
 	playse SE_EXIT
-	setflag FLAG_HIDE_DRAGONS_DEN3_CLAIR
+	setflag FLAG_HIDE_DRAGONS_DEN_SHRINE_CLAIR
 	removeobject LOCALID_DRAGONSDEN3_CLAIR
-	clearflag FLAG_HIDE_DRAGONS_DEN2_CLAIR
+	clearflag FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR
 	setvar VAR_BLACKTHORN_CITY_STATE, 3
 	release
 	end

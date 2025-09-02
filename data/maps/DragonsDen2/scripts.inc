@@ -36,7 +36,7 @@ DragonsDen2_Trigger_ClairLeft::
 	call DragonsDen2_EventScript_Clair
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, DragonsDen2_Movement_ClairLeaveLeft
 	waitmovement 0
-	setflag FLAG_HIDE_DRAGONS_DEN2_CLAIR
+	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR
 	removeobject LOCALID_DRAGONSDEN2_CLAIR
 	playse SE_EXIT
 	setvar VAR_BLACKTHORN_CITY_STATE, 4
@@ -52,7 +52,7 @@ DragonsDen2_Trigger_ClairMid::
 	call DragonsDen2_EventScript_Clair
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, DragonsDen2_Movement_ClairLeaveMid
 	waitmovement 0
-	setflag FLAG_HIDE_DRAGONS_DEN2_CLAIR
+	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR
 	removeobject LOCALID_DRAGONSDEN2_CLAIR
 	playse SE_EXIT
 	setvar VAR_BLACKTHORN_CITY_STATE, 4
@@ -70,7 +70,7 @@ DragonsDen2_Trigger_ClairRight::
 	call DragonsDen2_EventScript_Clair
 	applymovement2 LOCALID_DRAGONSDEN2_CLAIR, DragonsDen2_Movement_ClairLeaveRight
 	waitmovement 0
-	setflag FLAG_HIDE_DRAGONS_DEN2_CLAIR
+	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR
 	removeobject LOCALID_DRAGONSDEN2_CLAIR
 	playse SE_EXIT
 	setvar VAR_BLACKTHORN_CITY_STATE, 4

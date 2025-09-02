@@ -123,7 +123,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE"
+      "flag": "FLAG_GARBAGEFLAG"
     }
   ],
   "warp_events": [

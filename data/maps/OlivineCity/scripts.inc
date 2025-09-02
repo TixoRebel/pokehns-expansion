@@ -44,7 +44,7 @@ OlivineCity_Text_Baoba:
 	.string "please come visit!$"
 
 OlivineCity_EventScript_CityTrigger:: @FLAGHEAP
-	setflag FLAG_HIDE_OLIVINE_GYM_JASMINE
+	setflag FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE
 	setflag FLAG_HIDE_OLIVINE_SILVER
 	setflag FLAG_VISITED_OLIVINE_CITY
 	clearflag FLAG_HIDE_BATTLEFRONTIER_ENGINEER

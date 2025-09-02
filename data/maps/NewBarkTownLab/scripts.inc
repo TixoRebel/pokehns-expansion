@@ -370,8 +370,8 @@ NewBarkTownLab_EventScript_ElmMasterBall::
 	setvar VAR_NEWBARKTOWN_LABSTATE, 8
 	setvar VAR_ECRUTEAK_CITY_THEATER, 4
 	setflag FLAG_HIDE_ECRUTEAK_SILVER
-	setflag FLAG_HIDE_ECRUTEAK_THEATER_NPCS
-	clearflag FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS
+	setflag FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS
+	clearflag FLAG_HIDE_ECRUTEAK_CITY_THEATER_KIMONOS
 	release
 	end
 
@@ -396,7 +396,7 @@ NewBarkTownLab_EventScript_ElmSSTicket::
 	giveitem ITEM_SS_TICKET
 	msgbox NewBarkTownLab_Text_ElmGiveTicket2, MSGBOX_DEFAULT
 	closemessage
-	clearflag FLAG_HIDE_SSAQUA1_GRANDPA
+	clearflag FLAG_HIDE_SSAQUA_1F_GRANDPA
 	setvar VAR_NEWBARKTOWN_LABSTATE, 11
 	release
 	end

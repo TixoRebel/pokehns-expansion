@@ -183,7 +183,7 @@ PetalburgCity_Gym_EventScript_BeginWallyTutorial::
 	setvar VAR_GARBAGEVAR, 1
 	setvar VAR_GARBAGEVAR, 2
 	clearflag FLAG_HIDE_PETALBURG_CITY_WALLY
-	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	clearflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	special InitBirchState
 	warp MAP_PETALBURG_CITY, 15, 8

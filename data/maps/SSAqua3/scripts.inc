@@ -27,9 +27,9 @@ SSAqua3_EventScript_Granddaughter::
 	msgbox SSAqua3_Text_GranddaughterHasToFindGrandpa, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
-	setflag FLAG_HIDE_SSAQUA3_GRANDDAUGHTER
+	setflag FLAG_HIDE_SSAQUA_CAPTAINS_ROOM_GRANDDAUGHTER
 	setvar VAR_SSAQUA_STATE, 4
-	clearflag FLAG_HIDE_SSAQUA8_GRANDDAUGHTER
+	clearflag FLAG_HIDE_SSAQUA_ROOM_SSE_GRANDDAUGHTER
 	warp MAP_SSAQUA8, 0
 	release
 	end

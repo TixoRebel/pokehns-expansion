@@ -331,7 +331,7 @@ OlivineLighthouse_EventScript_JasmineDeliverPotion::
 	setvar VAR_SAFARI_ZONE_GATE_STATE, 1
 	setvar VAR_OLIVINE_CITY_STATE, 5
 	setflag FLAG_AMPHAROS_HEALED
-	clearflag FLAG_HIDE_OLIVINE_GYM_JASMINE
+	clearflag FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE
 	release
 	end
 

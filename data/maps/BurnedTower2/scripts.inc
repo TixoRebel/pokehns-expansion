@@ -70,7 +70,7 @@ BurnedTower2_EventScript_ReleaseBeasts::
 	applymovement LOCALID_BURNEDTOWER2_EUSINE, BurnedTower2_Movement_EusineLeave
 	waitmovement 0
 	playse SE_EXIT
-	setflag FLAG_HIDE_BURNED_TOWER2_EUSINE
+	setflag FLAG_HIDE_BURNED_TOWER_B1F_EUSINE
 	removeobject LOCALID_BURNEDTOWER2_EUSINE
 	setflag FLAG_HIDE_BURNED_TOWER_NPCS
 	setflag FLAG_HIDE_ECRUTEAK_CITY_SAGE

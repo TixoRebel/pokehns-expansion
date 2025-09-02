@@ -5,7 +5,7 @@ OlivineMarina_0_MapScripts::
 	.byte 0
 
 OlivinePort_Test::
-	clearflag FLAG_HIDE_SSAQUA1_GRANDPA
+	clearflag FLAG_HIDE_SSAQUA_1F_GRANDPA
 	end
 
 OlivinePort_EventScript_CooltrainerF::

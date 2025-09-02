@@ -54,7 +54,7 @@ CaveOfOrigin_B1F_EventScript_AtSkyPillar::
 	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
 	setvar VAR_GARBAGEVAR, 3
 	removeobject LOCALID_CAVE_OF_ORIGIN_WALLACE
-	clearflag FLAG_HIDE_SKY_PILLAR_WALLACE
+	clearflag FLAG_GARBAGEFLAG
 	fadescreen FADE_FROM_BLACK
 	release
 	end

@@ -21,9 +21,9 @@
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "pokedex.h"
+#include "pokemon.h"
 #include "pokemon_icon.h"
 #include "graphics.h"
-#include "pokemon_icon.h"
 #include "trainer_pokemon_sprites.h"
 #include "contest_util.h"
 #include "constants/songs.h"
@@ -32,6 +32,24 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
+#include "constants/flags.h"
+
+// --- extra badges on the trainer card (local to this file) ---
+#define NUM_BADGES_FRONT 8                // keep front page at 8
+#define NUM_BADGES_EXTRA 8                // badges 9–16
+#define NUM_BADGES_TOTAL (NUM_BADGES + NUM_BADGES_EXTRA)
+
+// Kanto (badges 9–16) flags (order is shown left-to-right on card back)
+static const u16 sKantoGymFlags[NUM_BADGES_EXTRA] = {
+    FLAG_DEFEATED_JOHTO_PEWTER_GYM,
+    FLAG_DEFEATED_JOHTO_CERULEAN_GYM,
+    FLAG_DEFEATED_JOHTO_VERMILION_GYM,
+    FLAG_DEFEATED_JOHTO_CELADON_GYM,
+    FLAG_DEFEATED_JOHTO_SAFFRON_GYM,
+    FLAG_DEFEATED_JOHTO_FUCHSIA_GYM,
+    FLAG_DEFEATED_JOHTO_CINNABAR_ISLAND_GYM,
+    FLAG_DEFEATED_JOHTO_VIRIDIAN_GYM,
+};
 
 enum {
     WIN_MSG,
@@ -58,7 +76,7 @@ struct TrainerCardData
     bool8 unused_E;
     bool8 unused_F;
     bool8 hasTrades;
-    u8 badgeCount[NUM_BADGES];
+    u8 badgeCount[NUM_BADGES_TOTAL];
     u8 easyChatProfile[TRAINER_CARD_PROFILE_LENGTH][13];
     u8 textPlayersCard[70];
     u8 textHofTime[70];
@@ -82,7 +100,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 badgeTiles[0x80 * NUM_BADGES_TOTAL];
     u8 stickerTiles[0x200];
     u8 cardTiles[0x2300];
     u16 cardTilemapBuffer[0x1000];
@@ -94,6 +112,8 @@ struct TrainerCardData
 // EWRAM
 EWRAM_DATA struct TrainerCard gTrainerCards[4] = {0};
 EWRAM_DATA static struct TrainerCardData *sData = NULL;
+EWRAM_DATA static u8 spriteIdData[PARTY_SIZE] = {};
+EWRAM_DATA static u16 spriteIdPalette[PARTY_SIZE] = {};
 
 //this file's functions
 static void VblankCb_TrainerCard(void);
@@ -158,6 +178,7 @@ static void PrintStatOnBackOfCard(u8 top, const u8 *str1, u8 *str2, const u8 *co
 static void LoadStickerGfx(void);
 static u8 SetCardBgsAndPals(void);
 static void DrawCardBackStats(void);
+static void DrawExtraBadgesOnBack(void);
 static void Task_DoCardFlipTask(u8);
 static bool8 Task_BeginCardFlip(struct Task *task);
 static bool8 Task_AnimateCardFlipDown(struct Task *task);
@@ -167,6 +188,8 @@ static bool8 Task_AnimateCardFlipUp(struct Task *task);
 static bool8 Task_EndCardFlip(struct Task *task);
 static void UpdateCardFlipRegs(u16);
 static void LoadMonIconGfx(void);
+static void UpdateTrainerCardMonIcons(void);
+static void DestroyTrainerCardMonIcons(void);
 
 static const u32 sTrainerCardStickers_Gfx[]      = INCBIN_U32("graphics/trainer_card/frlg/stickers.4bpp.lz");
 static const u16 sUnused_Pal[]                   = INCBIN_U16("graphics/trainer_card/unused.gbapal");
@@ -187,6 +210,7 @@ static const u16 sTrainerCardSticker1_Pal[]      = INCBIN_U16("graphics/trainer_
 static const u16 sTrainerCardSticker2_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers2.gbapal");
 static const u16 sTrainerCardSticker3_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers3.gbapal");
 static const u16 sTrainerCardSticker4_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers4.gbapal");
+static const u32 sHoennTrainerCardBadgesCombined_Gfx[]   = INCBIN_U32("graphics/trainer_card/combined_badges.4bpp.lz");
 static const u32 sHoennTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
 static const u32 sKantoTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/frlg/badges.4bpp.lz");
 
@@ -465,6 +489,7 @@ static void Task_TrainerCard(u8 taskId)
     case STATE_WAIT_FLIP_TO_BACK:
         if (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE)
         {
+            UpdateTrainerCardMonIcons();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK;
         }
@@ -483,6 +508,7 @@ static void Task_TrainerCard(u8 taskId)
             }
             else
             {
+                DestroyTrainerCardMonIcons();
                 FlipTrainerCard();
                 sData->mainState = STATE_WAIT_FLIP_TO_FRONT;
                 PlaySE(SE_RG_CARD_FLIP);
@@ -562,10 +588,12 @@ static bool8 LoadCardGfx(void)
         }
         break;
     case 3:
-        if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
-        else
-            LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
+        // HnS PORT NOTE - may have overwritten FRLG option?
+        LZ77UnCompWram(sHoennTrainerCardBadgesCombined_Gfx, sData->badgeTiles);
+        // if (sData->cardType != CARD_TYPE_FRLG)
+        //     LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
+        // else
+        //     LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
         break;
     case 4:
         if (sData->cardType != CARD_TYPE_FRLG)
@@ -839,10 +867,18 @@ static void SetDataFromTrainerCard(void)
     if (sData->trainerCard.battleTowerWins || sData->trainerCard.battleTowerStraightWins)
         sData->hasBattleTowerWins++;
 
+    // HnS PORT
+    // Hoenn badges (1–8): contiguous from FLAG_BADGE01_GET
     for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++, i++)
     {
         if (FlagGet(badgeFlag))
             sData->badgeCount[i]++;
+    }
+    // Kanto badges (9–16): explicit list above
+    for (i = 0; i < NUM_BADGES_EXTRA; i++)
+    {
+        if (FlagGet(sKantoGymFlags[i]))
+            sData->badgeCount[NUM_BADGES_FRONT + i]++;
     }
 }
 
@@ -973,8 +1009,9 @@ static bool8 PrintAllOnCardBack(void)
         PrintContestStringOnCard();
         break;
     case 6:
-        PrintPokemonIconsOnCard();
-        PrintBattleFacilityStringOnCard();
+// HnS PORT - removed on purpose?
+//      PrintPokemonIconsOnCard();
+//      PrintBattleFacilityStringOnCard();
         break;
     case 7:
         PrintStickersOnCard();
@@ -1431,17 +1468,25 @@ static u8 SetCardBgsAndPals(void)
     case 2:
         if (sData->cardType != CARD_TYPE_FRLG)
         {
+            // existing loads
             LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
             LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
             if (sData->trainerCard.gender != MALE)
                 LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+
+            // HnS PORT NEW: also load Kanto badges palette for the back-row badges
+            LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(6), PLTT_SIZE_4BPP);
         }
         else
         {
+            // existing loads
             LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
             LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
             if (sData->trainerCard.gender != MALE)
                 LoadPalette(sKantoTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+
+            // HnS PORT NEW: also load Hoenn badges palette for the back-row badges
+            LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(6), PLTT_SIZE_4BPP);
         }
         LoadPalette(sTrainerCardStar_Pal, BG_PLTT_ID(4), PLTT_SIZE_4BPP);
         break;
@@ -1508,7 +1553,8 @@ static void DrawStarsAndBadgesOnCard(void)
     if (!sData->isLink)
     {
         x = 4;
-        for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        //for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        for (i = 0; i < NUM_BADGES_FRONT; i++, tileNum += 2, x += 3)
         {
             if (sData->badgeCount[i])
             {
@@ -1562,6 +1608,29 @@ static void DrawCardBackStats(void)
             FillBgTilemapBufferRect(3, 156, 27, 16, 1, 1, 0);
         }
     }
+    CopyBgTilemapBufferToVram(3);
+}
+
+// HnS PORT - Draw badges 9–16 in a single row on the back page, bottom margin.
+static void DrawExtraBadgesOnBack(void)
+{
+    u8 i, x = 4;
+    u8 palNum = (sData->cardType != CARD_TYPE_FRLG) ? 6 : 3;
+    u16 tileNum = 192 + 32;          // <-- second row of the combined sheet
+
+    for (i = 0; i < NUM_BADGES_EXTRA; i++, tileNum += 2, x += 3)
+    {
+        if (sData->badgeCount[NUM_BADGES_FRONT + i])
+        {
+            // top halves (row y=14)
+            FillBgTilemapBufferRect(3, tileNum,     x,     11, 1, 1, palNum);
+            FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 11, 1, 1, palNum);
+            // bottom halves (row y=15)
+            FillBgTilemapBufferRect(3, tileNum + 16,     x, 12, 1, 1, palNum);
+            FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 12, 1, 1, palNum);
+        }
+    }
+
     CopyBgTilemapBufferToVram(3);
 }
 
@@ -1701,7 +1770,10 @@ static bool8 Task_DrawFlippedCardSide(struct Task *task)
             break;
         case 3:
             if (!sData->onBack)
+            {
                 DrawCardBackStats();
+                DrawExtraBadgesOnBack();  // <-- badges 9–16 on the back
+            }
             else
                 FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
             break;
@@ -1898,5 +1970,33 @@ static void CreateTrainerCardTrainerPic(void)
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
                     8,
                     WIN_TRAINER_PIC);
+    }
+}
+
+static void UpdateTrainerCardMonIcons(void)
+{
+    u16 species;
+    u8 i;
+    u8 x;
+    LoadMonIconPalettes();
+    x = 40;
+    for (i = 0; i < gPlayerPartyCount; i++, x += 32)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        spriteIdData[i] = CreateMonIcon(species, SpriteCB_MonIcon, x, 124, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY), TRUE);
+        gSprites[spriteIdData[i]].oam.priority = 0;
+        StartSpriteAnim(&gSprites[spriteIdData[i]], 4);
+        spriteIdPalette[i] = gMonIconPaletteIndices[species];
+        gSprites[spriteIdData[i]].oam.paletteNum = spriteIdPalette[i];
+    }
+}
+
+static void DestroyTrainerCardMonIcons(void)
+{
+    u8 i;
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        FreeAndDestroyMonIconSprite(&gSprites[spriteIdData[i]]);
+        FreeMonIconPalettes;
     }
 }

@@ -102,7 +102,7 @@ MahoganyShop_EventScript_Raid::
 	waitmovement 0
 	removeobject LOCALID_MAHOGANYSHOP_ROCKET
 	playse SE_EXIT
-	setflag FLAG_HIDE_MAHOGANY_SHOP_NPCS
+	setflag FLAG_HIDE_MAHOGANY_TOWN_SHOP_NPCS
 
 
 	setvar VAR_MAHOGANY_TOWN_STATE, 5

@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_KimonoGirl",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_KIMONOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KIMONO_GIRL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_KimonoGirl",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_KIMONOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KIMONO_GIRL",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_KimonoGirl",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_KIMONOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KIMONO_GIRL",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_KimonoGirl",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_KIMONOS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_KIMONOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KIMONO_GIRL",
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_Zuki",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_ZUKI"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_ZUKI"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_Granny",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_NPCS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_SurfGuy",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_NPCS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
@@ -116,7 +116,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_Boy",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_NPCS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PSYDUCK)",
@@ -129,7 +129,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_Psyduck",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_NPCS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_Gramps",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_NPCS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakTheater_EventScript_Girl",
-      "flag": "FLAG_HIDE_ECRUTEAK_THEATER_NPCS"
+      "flag": "FLAG_HIDE_ECRUTEAK_CITY_THEATER_NPCS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",

@@ -4,7 +4,7 @@ EcruteakGym_MapScripts::
 EcruteakGym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_ECRUTEAK_GYM, EcruteakGym_EventScript_GymGuy2
+	goto_if_set FLAG_DEFEATED_ECRUTEAK_CITY_GYM, EcruteakGym_EventScript_GymGuy2
 	msgbox EcruteakGymGuideText, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -37,7 +37,7 @@ EcruteakGym_EventScript_Grace::
 EcruteakGym_EventScript_Morty::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_ECRUTEAK_GYM, EcruteakGym_EventScript_Morty_Defeated
+	goto_if_set FLAG_DEFEATED_ECRUTEAK_CITY_GYM, EcruteakGym_EventScript_Morty_Defeated
 	msgbox MortyIntroText, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_MORTY_1, MortyWinLossText
 	message Text_ReceivedFogBadge
@@ -45,7 +45,7 @@ EcruteakGym_EventScript_Morty::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox MortyText_FogBadgeSpeech, MSGBOX_DEFAULT
 	setflag FLAG_BADGE04_GET
-	setflag FLAG_DEFEATED_ECRUTEAK_GYM
+	setflag FLAG_DEFEATED_ECRUTEAK_CITY_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers
@@ -64,7 +64,7 @@ EcruteakGym_EventScript_Morty_Defeated::
 
 EcruteakGym_EventScript_Statue::
 	lock
-	goto_if_set FLAG_DEFEATED_ECRUTEAK_GYM, EcruteakGym_EventScript_Statue2
+	goto_if_set FLAG_DEFEATED_ECRUTEAK_CITY_GYM, EcruteakGym_EventScript_Statue2
 	msgbox EcruteakGym_Text_GymStatue, MSGBOX_DEFAULT
 	closemessage
 	release

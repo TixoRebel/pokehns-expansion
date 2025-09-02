@@ -498,7 +498,7 @@ AzaleaGym_EventScript_May::
 AzaleaGym_EventScript_Bugsy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_AZALEA_GYM, AzaleaGym_EventScript_Bugsy_Defeated
+	goto_if_set FLAG_DEFEATED_AZALEA_TOWN_GYM, AzaleaGym_EventScript_Bugsy_Defeated
 	msgbox AzaleaGym_Text_BugsyIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BUGSY_1, AzaleaGym_Text_BugsyBeaten
 	message AzaleaGym_Text_ReceivedHiveBadge
@@ -506,7 +506,7 @@ AzaleaGym_EventScript_Bugsy::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox AzaleaGym_Text_HiveBadgeSpeech, MSGBOX_DEFAULT
 	setflag FLAG_BADGE02_GET
-	setflag FLAG_DEFEATED_AZALEA_GYM
+	setflag FLAG_DEFEATED_AZALEA_TOWN_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
@@ -619,7 +619,7 @@ AzaleaGym_Movement_Player_Left:
 
 AzaleaGym_EventScript_Statue::
 	lock
-	goto_if_set FLAG_DEFEATED_AZALEA_GYM, AzaleaGym_EventScript_Statue2
+	goto_if_set FLAG_DEFEATED_AZALEA_TOWN_GYM, AzaleaGym_EventScript_Statue2
 	msgbox AzaleaGym_Text_GymStatue, MSGBOX_DEFAULT
 	closemessage
 	release

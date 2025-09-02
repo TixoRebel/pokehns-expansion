@@ -10,7 +10,7 @@ SlateportCity_Harbor_OnTransition:
 	end
 
 SlateportCity_Harbor_EventScript_ShowSSTidal::
-	clearflag FLAG_HIDE_SLATEPORT_CITY_HARBOR_SS_TIDAL
+	clearflag FLAG_GARBAGEFLAG
 	return
 
 SlateportCity_Harbor_EventScript_ReadyAquaEscapeScene::

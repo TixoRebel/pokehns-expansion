@@ -590,7 +590,7 @@ SlateportCity_EventScript_CaptStern::
 	waitmovement 0
 	removeobject LOCALID_SLATEPORT_CAPT_STERN
 	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_HIDE_SLATEPORT_CITY_HARBOR_SUBMARINE_SHADOW
+	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
 	setvar VAR_GARBAGEVAR, 2

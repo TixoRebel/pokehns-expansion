@@ -52,8 +52,8 @@ CianwoodGym_EventScript_Chuck::
 	waitmessage
 	turnobject LOCALID_CIANWOOD_CHUCK, DIR_SOUTH
 	msgbox CianwoodGym_Text_ChuckIntro3, MSGBOX_DEFAULT
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, CianwoodGym_EventScript_OlivineCheckMahog
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, CianwoodGym_EventScript_MahogCheckOlivine
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, CianwoodGym_EventScript_OlivineCheckMahog
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, CianwoodGym_EventScript_MahogCheckOlivine
 	goto CianwoodGym_EventScript_Chuck_Battle1
 
 CianwoodGym_EventScript_ChuckVictory::
@@ -97,11 +97,11 @@ CianwoodGym_Text_ChuckAtDojo:
 	.string "WAHAHAHAHAHA$"
 
 CianwoodGym_EventScript_OlivineCheckMahog::
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, CianwoodGym_EventScript_Chuck_Battle3
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, CianwoodGym_EventScript_Chuck_Battle3
 	goto CianwoodGym_EventScript_Chuck_Battle2
 
 CianwoodGym_EventScript_MahogCheckOlivine::
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, CianwoodGym_EventScript_Chuck_Battle3
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, CianwoodGym_EventScript_Chuck_Battle3
 	goto CianwoodGym_EventScript_Chuck_Battle2
 	
 CianwoodGym_EventScript_Chuck_Battle1::

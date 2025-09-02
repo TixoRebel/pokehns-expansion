@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands3_EventScript_Item_Big_Nugget",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS3_BIG_NUGGET"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B2F_BIG_NUGGET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands3_EventScript_Item_Full_Restore",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS3_FULL_RESTORE"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B2F_FULL_RESTORE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands3_EventScript_Item_Carbos",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS3_CARBOS"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B2F_CARBOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands3_EventScript_Item_Calcium",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS3_CALCIUM"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B2F_CALCIUM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands3_EventScript_Item_Escape_Rope",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS3_ESCAPE_ROPE"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B2F_ESCAPE_ROPE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",

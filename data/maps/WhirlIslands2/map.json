@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands2_EventScript_Item_PP_Max",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS2_PP_MAX"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B1F_PP_MAX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands2_EventScript_Item_Max_Revive",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS2_MAX_REVIVE"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B1F_MAX_REVIVE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "WhirlIslands2_EventScript_Item_Full_Restore",
-      "flag": "FLAG_ITEM_WHIRL_ISLANDS2_FULL_RESTORE"
+      "flag": "FLAG_ITEM_WHIRL_ISLANDS_B1F_FULL_RESTORE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SEEL)",

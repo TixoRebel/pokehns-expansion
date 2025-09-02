@@ -272,7 +272,7 @@ MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha::
 	fadescreen FADE_TO_BLACK
 	setvar VAR_GARBAGEVAR, 3
 	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_2F_TEAM_MAGMA
+	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	removeobject LOCALID_SPACE_CENTER_GRUNT_6
 	removeobject LOCALID_SPACE_CENTER_GRUNT_7

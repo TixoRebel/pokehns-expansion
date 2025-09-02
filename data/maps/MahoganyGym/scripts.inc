@@ -4,7 +4,7 @@ MahoganyGym_MapScripts::
 
 MahoganyGym_EventScript_Statue::
 	lock
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, CianwoodGym_EventScript_Statue2
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, CianwoodGym_EventScript_Statue2
 	msgbox MahoganyGym_Text_GymStatue, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -28,7 +28,7 @@ MahoganyGym_Text_GymStatueCertified:
 MahoganyGymEventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, MahoganyGym_EventScript_GymGuy2
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, MahoganyGym_EventScript_GymGuy2
 	msgbox MahoganyGym_Text_Guide, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -67,9 +67,9 @@ MahoganyGym_EventScript_Clarissa::
 MahoganyGym_EventScript_Pryce::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, MahoganyGym_EventScript_Pryce_Defeated
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, MahoganyGym_EventScript_Pryce_Defeated
 	msgbox MahoganyGym_Text_PryceIntro, MSGBOX_DEFAULT
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, MahoganyGym_EventScript_OlivineCheckCianwood
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, MahoganyGym_EventScript_OlivineCheckCianwood
 	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, MahoganyGym_EventScript_CianwoodCheckOlivine
 	goto MahoganyGym_EventScript_Pryce_Battle1
 
@@ -79,7 +79,7 @@ MahoganyGym_EventScript_PryceVictory::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox MahoganyGym_Text_GlacierBadgeSpeech, MSGBOX_DEFAULT
 	setflag FLAG_BADGE07_GET
-	setflag FLAG_DEFEATED_MAHOGANY_GYM
+	setflag FLAG_DEFEATED_MAHOGANY_TOWN_GYM
     addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 7
 	call Common_EventScript_SetGymTrainers
@@ -95,7 +95,7 @@ MahoganyGym_EventScript_OlivineCheckCianwood::
 	goto MahoganyGym_EventScript_Pryce_Battle2
 
 MahoganyGym_EventScript_CianwoodCheckOlivine::
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, MahoganyGym_EventScript_Pryce_Battle3
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, MahoganyGym_EventScript_Pryce_Battle3
 	goto MahoganyGym_EventScript_Pryce_Battle2
 	
 MahoganyGym_EventScript_Pryce_Battle1::

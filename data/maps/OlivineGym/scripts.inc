@@ -7,7 +7,7 @@ OlivineGym_MapScripts::
 OlivineGym_EventScript_Gent::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, OlivineGym_EventScript_Gent2
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineGym_EventScript_Gent2
 	msgbox OlivineGym_Text_Gent, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -90,7 +90,7 @@ OlivineGym_Text_Gent2:
 OlivineGym_EventScript_Lass::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, OlivineGym_EventScript_Lass2
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineGym_EventScript_Lass2
 	msgbox OlivineGym_Text_Lass, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -174,7 +174,7 @@ OlivineGym_EventScript_GymGuide::
 	lock
 	faceplayer
 	goto_if_lt VAR_OLIVINE_CITY_STATE, 5, OlivineGym_EventScript_GymGuideSick
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, OlivineGym_EventScript_GymGuideAfter
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineGym_EventScript_GymGuideAfter
 	msgbox OlivineGym_Text_GymGuideText, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -224,10 +224,10 @@ OlivineGym_Text_GymGuidePreText:
 OlivineGym_EventScript_Jasmine::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, OlivineGym_EventScript_Jasmine_Defeated
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineGym_EventScript_Jasmine_Defeated
 	msgbox OlivineGym_Text_JasmineSteelTypeIntro, MSGBOX_DEFAULT
 	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, OlivineGym_EventScript_CianwoodCheckMahog
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, OlivineGym_EventScript_MahogCheckCianwood
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, OlivineGym_EventScript_MahogCheckCianwood
 	goto OlivineGym_EventScript_Jasmine_Battle1
 
 OlivineGym_EventScript_JasmineVictory::
@@ -236,7 +236,7 @@ OlivineGym_EventScript_JasmineVictory::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox OlivineGym_Text_JasmineBadgeSpeech, MSGBOX_DEFAULT
 	setflag FLAG_BADGE06_GET
-	setflag FLAG_DEFEATED_OLIVINE_GYM
+	setflag FLAG_DEFEATED_OLIVINE_CITY_GYM
 	addvar VAR_NUM_BADGES, 1
 	setvar VAR_0x8008, 6
 	call Common_EventScript_SetGymTrainers
@@ -248,7 +248,7 @@ OlivineGym_EventScript_JasmineVictory::
 	end
 
 OlivineGym_EventScript_CianwoodCheckMahog::
-	goto_if_set FLAG_DEFEATED_MAHOGANY_GYM, OlivineGym_EventScript_Jasmine_Battle3
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, OlivineGym_EventScript_Jasmine_Battle3
 	goto OlivineGym_EventScript_Jasmine_Battle2
 
 OlivineGym_EventScript_MahogCheckCianwood::
@@ -320,7 +320,7 @@ OlivineGym_Text_JasmineRematchDefeatText:
 
 OlivineGym_EventScript_Statue::
 	lock
-	goto_if_set FLAG_DEFEATED_OLIVINE_GYM, OlivineGym_EventScript_Statue2
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineGym_EventScript_Statue2
 	msgbox OlivineGym_Text_GymStatue, MSGBOX_DEFAULT
 	closemessage
 	release
