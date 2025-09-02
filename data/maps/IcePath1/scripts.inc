@@ -33,7 +33,7 @@ IcePath1_Trigger_KimonoGirl::
 	lock
 	msgbox IcePath1_Text_Leave, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	release
 	end

@@ -4,7 +4,7 @@
 	@ HnS PORT - where did these come from?
 	@ HnS PORT - are these defined elsewhere now?
 	NULL = 0
-	LOCALID_NONE = 0 @ previously OBJECT_ID_NONE
+	OBJ_ID_NONE = 0
 
 	@ Does nothing.
 	.macro nop

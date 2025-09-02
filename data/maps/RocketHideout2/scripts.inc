@@ -307,8 +307,8 @@ RocketHideout2_EventScript_ChoosePartyForMultiBattle::
 	goto RocketHideout2_EventScript_ReadyForBattlePrompt
 
 RocketHideout2_EventScript_DoLanceMultiBattle::
-	applymovement LOCALID_ROCKETHIDEOUT2_ARIANA, Common_Movement_WalkUp1
-	applymovement LOCALID_ROCKETHIDEOUT2_GRUNT, Common_Movement_WalkUp1
+	applymovement LOCALID_ROCKETHIDEOUT2_ARIANA, Common_Movement_WalkUp
+	applymovement LOCALID_ROCKETHIDEOUT2_GRUNT, Common_Movement_WalkUp
 	waitmovement 0
 	turnobject LOCALID_ROCKETHIDEOUT2_GRUNT, DIR_WEST
 	multi_2_vs_2 TRAINER_ARIANA_1, RocketHideout2_Text_ArianaLoss, TRAINER_GRUNT_23, RocketHideout2_Text_GruntLoss, PARTNER_LANCE
@@ -325,8 +325,8 @@ RocketHideout2_EventScript_DefeatedAriana::
 	msgbox RocketHideout_Text_ArianaRetreat, MSGBOX_DEFAULT
 	closemessage
 	fadescreenswapbuffers FADE_TO_BLACK
-	applymovement LOCALID_ROCKETHIDEOUT2_LANCE, Common_Movement_WalkUp1
-	applymovement LOCALID_ROCKETHIDEOUT2_DRAGONITE, Common_Movement_WalkUp1
+	applymovement LOCALID_ROCKETHIDEOUT2_LANCE, Common_Movement_WalkUp
+	applymovement LOCALID_ROCKETHIDEOUT2_DRAGONITE, Common_Movement_WalkUp
 	waitmovement 0
 	applymovement LOCALID_ROCKETHIDEOUT2_LANCE, Common_Movement_WalkRight
 	applymovement LOCALID_ROCKETHIDEOUT2_DRAGONITE, Common_Movement_WalkRight
@@ -530,7 +530,7 @@ RocketHideout2_Movement_PlayerMeetLanceTop:
 	return
 
 RocketHideout2_Movement_PlayerMeetLanceBot:
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	return
 
@@ -692,7 +692,7 @@ RocketHideout2_EventScript_LanceTriggerRight::
 
 RocketHideout2_EventScript_Lance::
 	lock
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	msgbox RocketHideout2_Text_LanceHeals1, MSGBOX_DEFAULT
 	closemessage

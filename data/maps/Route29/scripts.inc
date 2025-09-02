@@ -9,13 +9,13 @@ Route29_OnTransition:
 
 Route29_Trigger_Monview::
 	special SpawnCameraObject
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp1 
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp 
 	waitmovement 0
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp
 	waitmovement 0
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp
 	waitmovement 0
-	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp1
+	applymovement2 OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp
 	waitmovement 0
 	message Route29_Text_PressAorB
 	waitbuttonpress

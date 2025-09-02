@@ -20,7 +20,7 @@ GoldenrodUnderground2_EventScript_KimonoTriggerBot::
 	delay 60
 	msgbox GoldenrodUnderground2_Text_Kimono2, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_GOLDENROD_UNDERGROUND_KIMONO, Common_Movement_WalkUp1
+	applymovement LOCALID_GOLDENROD_UNDERGROUND_KIMONO, Common_Movement_WalkUp
 	waitmovement 0
 	applymovement LOCALID_GOLDENROD_UNDERGROUND_KIMONO, GoldenrodUnderground2_Movement_Kimono_Leave1
 	waitmovement 0

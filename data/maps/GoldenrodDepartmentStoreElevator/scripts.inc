@@ -33,9 +33,9 @@ GoldenrodDeptElevator_EventScript_Elevator::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	closedoor 9, 4
 	closedoor 10, 6
@@ -167,9 +167,9 @@ CeladonDeptElevator_EventScript_Elevator::
 	opendoor 10, 6
 	waitdooranim
 	waitdooranim
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	closedoor 6, 1
 	closedoor 10, 6

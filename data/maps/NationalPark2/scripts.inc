@@ -119,7 +119,7 @@ NationalPark2_EventScript_Enter::
 	lock
 	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	setvar VAR_BUG_CONTEST_STATE, 2
 	release
@@ -160,7 +160,7 @@ NationalPark2_EventScript_RetireChoice::
 	goto_if_eq VAR_RESULT, TRUE, BugContest_EventScript_TimesUp
 	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	release
 	end

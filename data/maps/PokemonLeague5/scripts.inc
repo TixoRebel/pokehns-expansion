@@ -37,7 +37,7 @@ ChamionRoom_Movement_Enter:
 
 ChampionRoom_Trigger::
 	lock
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	release
 	end

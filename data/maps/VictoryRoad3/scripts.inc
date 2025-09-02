@@ -42,21 +42,21 @@ VictoryRoad3_Trigger::
 VictoryRoad3_EventScript_SilverEnterLeft::
 	applymovement2 LOCALID_VICTORYROAD_SILVER, VictoryRoad3_Movement_SilverEnterLeft
 	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
-	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp1
+	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp
 	waitmovement LOCALID_VICTORYROAD_SILVER
 	return
 
 VictoryRoad3_EventScript_SilverEnterMid::
 	applymovement2 LOCALID_VICTORYROAD_SILVER, VictoryRoad3_Movement_SilverEnterMid
 	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
-	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp1
+	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp
 	waitmovement LOCALID_VICTORYROAD_SILVER
 	return
 
 VictoryRoad3_EventScript_SilverEnterRight::
 	applymovement2 LOCALID_VICTORYROAD_SILVER, VictoryRoad3_Movement_SilverEnterRight
 	applymovement2 LOCALID_PLAYER, Common_Movement_WalkDown
-	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp1
+	applymovement2 OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkUp
 	waitmovement LOCALID_VICTORYROAD_SILVER
 	return
 

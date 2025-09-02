@@ -101,7 +101,7 @@ OlivineCity_EventScript_SilverLeaveAdjust1::
 	return
 
 OlivineCity_EventScript_SilverLeaveAdjust2::
-	applymovement LOCALID_OLIVINE_SILVER Common_Movement_WalkUp1
+	applymovement LOCALID_OLIVINE_SILVER Common_Movement_WalkUp
 	waitmovement 0
 	return
 

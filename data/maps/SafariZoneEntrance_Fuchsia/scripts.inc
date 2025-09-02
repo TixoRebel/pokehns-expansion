@@ -49,7 +49,7 @@ SafariZoneEntranceFuchsia_MeetSteven::
 	applymovement LOCALID_SAFARIZONEFUCHSIA_STEVEN, Common_Movement_ExclamationMark
 	delay 60
 	applymovement LOCALID_SAFARIZONEFUCHSIA_STEVEN, SafariZoneEntranceFuchsia_Movement_WalkToPlayer
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement LOCALID_SAFARIZONEFUCHSIA_STEVEN
 
 	msgbox SafariZoneEntranceFuchsia_Text_StevenWelcome, MSGBOX_DEFAULT

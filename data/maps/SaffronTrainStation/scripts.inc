@@ -56,7 +56,7 @@ SaffronStation_EventScript_BoardTrain::
 	applymovement LOCALID_PLAYER, SaffronStation_Movement_WalktoTrain
 	waitmovement 0
 	special SpawnCameraObject
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	playse SE_EXIT
 	waitse

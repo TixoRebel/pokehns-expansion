@@ -38,7 +38,7 @@ SafariZoneEntrance_MeetBaoba::
 	applymovement LOCALID_SAFARIZONEGATE_BAOBA, Common_Movement_ExclamationMark
 	delay 60
 	applymovement LOCALID_SAFARIZONEGATE_BAOBA, SafariZoneEntrance_Movement_WalkToPlayer
-	applymovement LOCALID_PLAYER, Common_Movement_WalkUp1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement LOCALID_SAFARIZONEGATE_BAOBA
 	msgbox SafariZoneEntrance_Text_BaobaWelcome, MSGBOX_DEFAULT
 	closemessage
