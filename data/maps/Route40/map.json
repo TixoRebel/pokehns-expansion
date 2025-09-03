@@ -24,7 +24,7 @@
       "direction": "down"
     },
     {
-      "map": "MAP_BATTLE_TOWER_OUTER",
+      "map": "MAP_BATTLE_TOWER_OUTSIDE",
       "offset": -1,
       "direction": "up"
     }
@@ -287,7 +287,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleTowerOuter_EventScript_Engineer",
+      "script": "BattleTower_Outside_EventScript_Engineer",
       "flag": "FLAG_HIDE_BATTLEFRONTIER_ENGINEER"
     },
     {
@@ -372,28 +372,28 @@
       "x": 11,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE40_BATTLE_TOWER_GATE",
+      "dest_map": "MAP_GATE_ROUTE40_BATTLE_TOWER_OUTSIDE",
       "dest_warp_id": "0"
     },
     {
       "x": 11,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE40_BATTLE_TOWER_GATE",
+      "dest_map": "MAP_GATE_ROUTE40_BATTLE_TOWER_OUTSIDE",
       "dest_warp_id": "1"
     },
     {
       "x": 12,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE40_BATTLE_TOWER_GATE",
+      "dest_map": "MAP_GATE_ROUTE40_BATTLE_TOWER_OUTSIDE",
       "dest_warp_id": "1"
     },
     {
       "x": 10,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE40_BATTLE_TOWER_GATE",
+      "dest_map": "MAP_GATE_ROUTE40_BATTLE_TOWER_OUTSIDE",
       "dest_warp_id": "1"
     }
   ],

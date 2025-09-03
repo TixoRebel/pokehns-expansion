@@ -29,7 +29,7 @@
       "direction": "up"
     },
     {
-      "map": "MAP_RUINS_OF_ALPH",
+      "map": "MAP_RUINS_OF_ALPH_OUTSIDE",
       "offset": 36,
       "direction": "down"
     }
@@ -314,28 +314,28 @@
       "x": 56,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE36_RUINS_GATE",
+      "dest_map": "MAP_GATE_RUINS_OF_ALPH_ROUTE36",
       "dest_warp_id": "0"
     },
     {
       "x": 55,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE36_RUINS_GATE",
+      "dest_map": "MAP_GATE_RUINS_OF_ALPH_ROUTE36",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_NATIONAL_PARK_GATES",
+      "dest_map": "MAP_GATE_NATIONAL_PARK",
       "dest_warp_id": "3"
     },
     {
       "x": 57,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE36_RUINS_GATE",
+      "dest_map": "MAP_GATE_RUINS_OF_ALPH_ROUTE36",
       "dest_warp_id": "0"
     }
   ],

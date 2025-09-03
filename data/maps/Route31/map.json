@@ -317,14 +317,14 @@
       "x": 48,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_DARK_CAVE_1",
+      "dest_map": "MAP_DARK_CAVE_SOUTH_SIDE",
       "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE31_VIOLET_GATE",
+      "dest_map": "MAP_GATE_ROUTE31_VIOLET_CITY",
       "dest_warp_id": "0"
     }
   ],

@@ -122,14 +122,14 @@
       "x": 36,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_POKEMART",
+      "dest_map": "MAP_VIRIDIAN_CITY_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 26,
       "y": 26,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_POKECENTER",
+      "dest_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     }
   ],

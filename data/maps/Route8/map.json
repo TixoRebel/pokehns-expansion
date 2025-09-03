@@ -192,14 +192,14 @@
       "x": 3,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_SAFFRON_ROUTE8GATE",
+      "dest_map": "MAP_GATE_SAFFRON_CITY_ROUTE8",
       "dest_warp_id": "1"
     },
     {
       "x": 9,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE8TUNNEL_ENTER",
+      "dest_map": "MAP_ROUTE8_TUNNEL_ENTRANCE",
       "dest_warp_id": "0"
     }
   ],

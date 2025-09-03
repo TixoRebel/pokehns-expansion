@@ -148,14 +148,14 @@
       "x": 19,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY_MUSEUM1",
+      "dest_map": "MAP_PEWTER_CITY_MUSEUM_1F",
       "dest_warp_id": "1"
     },
     {
       "x": 27,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY_MUSEUM1",
+      "dest_map": "MAP_PEWTER_CITY_MUSEUM_1F",
       "dest_warp_id": "2"
     },
     {
@@ -169,7 +169,7 @@
       "x": 30,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_POKEMART",
+      "dest_map": "MAP_PEWTER_CITY_MART",
       "dest_warp_id": "0"
     },
     {
@@ -190,7 +190,7 @@
       "x": 19,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_POKECENTER",
+      "dest_map": "MAP_PEWTER_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     }
   ],

@@ -205,14 +205,14 @@
       "x": 4,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_LAVENDER_POKEMART",
+      "dest_map": "MAP_LAVENDER_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_LAVENDER_POKECENTER",
+      "dest_map": "MAP_LAVENDER_TOWN_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
@@ -233,7 +233,7 @@
       "x": 23,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_LAVENDER_TOWN_SOUL_HOUSE1",
+      "dest_map": "MAP_LAVENDER_TOWN_SOUL_HOUSE",
       "dest_warp_id": "0"
     },
     {

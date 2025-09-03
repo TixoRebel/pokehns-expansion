@@ -70,14 +70,14 @@
       "x": 15,
       "y": 30,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE7_SAFFRON_GATE",
+      "dest_map": "MAP_GATE_SAFFRON_CITY_ROUTE7",
       "dest_warp_id": "1"
     },
     {
       "x": 7,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE7TUNNEL_ENTER",
+      "dest_map": "MAP_ROUTE7_TUNNEL_ENTRANCE",
       "dest_warp_id": "0"
     }
   ],

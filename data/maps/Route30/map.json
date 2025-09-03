@@ -343,14 +343,14 @@
       "x": 26,
       "y": 39,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE30HOUSE",
+      "dest_map": "MAP_ROUTE30_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 35,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE30MR_POKEMON_HOUSE",
+      "dest_map": "MAP_ROUTE30_MR_POKEMONS_HOUSE",
       "dest_warp_id": "0"
     }
   ],

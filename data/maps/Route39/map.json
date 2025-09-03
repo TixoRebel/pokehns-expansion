@@ -291,21 +291,21 @@
       "x": 21,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE39_FARMHOUSE",
+      "dest_map": "MAP_ROUTE39_FARM_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 15,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE39BARN",
+      "dest_map": "MAP_ROUTE39_BARN",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE39BARN",
+      "dest_map": "MAP_ROUTE39_BARN",
       "dest_warp_id": "0"
     }
   ],

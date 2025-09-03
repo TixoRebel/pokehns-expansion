@@ -416,7 +416,7 @@
       "x": 37,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_ROUTE121_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "2"
     }
   ],

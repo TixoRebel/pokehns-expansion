@@ -192,7 +192,7 @@
       "x": 12,
       "y": 85,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE12HOUSE",
+      "dest_map": "MAP_ROUTE12_HOUSE",
       "dest_warp_id": "0"
     }
   ],

@@ -343,7 +343,7 @@
       "x": 14,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_DARK_CAVE_2",
+      "dest_map": "MAP_DARK_CAVE_NORTH_SIDE",
       "dest_warp_id": "0"
     }
   ],

@@ -126,7 +126,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_NEUTRAL,
         .conditions =
         {
-            MATCH_MAP(MAP_ROUTE34DAY_CARE)
+            MATCH_MAP(MAP_ROUTE34_DAY_CARE)
         },
     },
     [COND_MSG_MART] =
@@ -155,7 +155,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_PENSIVE,
         .conditions =
         {
-            MATCH_MAP(MAP_GOLDENROD_BIKE_SHOP),
+            MATCH_MAP(MAP_GOLDENROD_CITY_BIKE_SHOP),
             MATCH_MAP(MAP_CERULEAN_CITY_BIKE_SHOP)
         },
     },
@@ -225,7 +225,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_SURPRISE,
         .conditions =
         {
-            MATCH_MAP(MAP_GOLDENROD_DEPARTMENT_STORE_ELEVATOR),
+            MATCH_MAP(MAP_GOLDENROD_CITY_DEPARTMENT_STORE_ELEVATOR),
         },
     },
     [COND_MSG_ICE_ROOM] =
@@ -244,7 +244,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .emotion = FOLLOWER_EMOTION_SURPRISE,
         .conditions =
         {
-            MATCH_MAP(MAP_GOLDENROD_FLOWER_SHOP),
+            MATCH_MAP(MAP_GOLDENROD_CITY_FLOWER_SHOP),
         },
     },
     [COND_MSG_DRAGON_GROWL] =

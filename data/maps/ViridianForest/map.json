@@ -267,49 +267,49 @@
       "x": 39,
       "y": 62,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE2_VIRIDIAN_FOREST_GATE",
+      "dest_map": "MAP_GATE_ROUTE2_VIRIDIAN_FOREST",
       "dest_warp_id": "1"
     },
     {
       "x": 40,
       "y": 62,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE2_VIRIDIAN_FOREST_GATE",
+      "dest_map": "MAP_GATE_ROUTE2_VIRIDIAN_FOREST",
       "dest_warp_id": "1"
     },
     {
       "x": 14,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_FOREST_ROUTE2GATE",
+      "dest_map": "MAP_GATE_VIRIDIAN_FOREST_ROUTE2",
       "dest_warp_id": "0"
     },
     {
       "x": 15,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_FOREST_ROUTE2GATE",
+      "dest_map": "MAP_GATE_VIRIDIAN_FOREST_ROUTE2",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_FOREST_ROUTE2GATE",
+      "dest_map": "MAP_GATE_VIRIDIAN_FOREST_ROUTE2",
       "dest_warp_id": "0"
     },
     {
       "x": 38,
       "y": 62,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE2_VIRIDIAN_FOREST_GATE",
+      "dest_map": "MAP_GATE_ROUTE2_VIRIDIAN_FOREST",
       "dest_warp_id": "1"
     },
     {
       "x": 41,
       "y": 62,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE2_VIRIDIAN_FOREST_GATE",
+      "dest_map": "MAP_GATE_ROUTE2_VIRIDIAN_FOREST",
       "dest_warp_id": "1"
     }
   ],

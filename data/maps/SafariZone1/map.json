@@ -19,36 +19,16 @@
       "direction": "right"
     }
   ],
-  "object_events": [
-
-  ],
+  "object_events": [],
   "warp_events": [
     {
       "x": 25,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_SAFARI_ZONE_GATE",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 26,
-      "y": 29,
-      "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_SAFARI_ZONE_GATE",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 24,
-      "y": 29,
-      "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_SAFARI_ZONE_GATE",
+      "dest_map": "MAP_FUCHSIA_CITY_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

@@ -850,28 +850,28 @@
       "x": 13,
       "y": 37,
       "elevation": 0,
-      "dest_map": "MAP_WHIRL_ISLANDS1",
+      "dest_map": "MAP_WHIRL_ISLANDS_1F",
       "dest_warp_id": "6"
     },
     {
       "x": 48,
       "y": 38,
       "elevation": 0,
-      "dest_map": "MAP_WHIRL_ISLANDS1",
+      "dest_map": "MAP_WHIRL_ISLANDS_1F",
       "dest_warp_id": "1"
     },
     {
       "x": 21,
       "y": 64,
       "elevation": 0,
-      "dest_map": "MAP_WHIRL_ISLANDS1",
+      "dest_map": "MAP_WHIRL_ISLANDS_1F",
       "dest_warp_id": "3"
     },
     {
       "x": 56,
       "y": 76,
       "elevation": 0,
-      "dest_map": "MAP_WHIRL_ISLANDS2",
+      "dest_map": "MAP_WHIRL_ISLANDS_B1F",
       "dest_warp_id": "2"
     },
     {

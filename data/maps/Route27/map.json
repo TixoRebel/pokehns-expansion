@@ -291,21 +291,21 @@
       "x": 31,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_TOHJO_FALLS",
+      "dest_map": "MAP_TOHJO_FALLS_CAVERN",
       "dest_warp_id": "0"
     },
     {
       "x": 45,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_TOHJO_FALLS",
+      "dest_map": "MAP_TOHJO_FALLS_CAVERN",
       "dest_warp_id": "1"
     },
     {
       "x": 40,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE27HOUSE",
+      "dest_map": "MAP_ROUTE27_HOUSE",
       "dest_warp_id": "0"
     }
   ],

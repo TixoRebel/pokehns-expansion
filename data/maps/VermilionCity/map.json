@@ -24,7 +24,7 @@
       "direction": "up"
     },
     {
-      "map": "MAP_VERMILION_CITY_PORT1",
+      "map": "MAP_VERMILION_CITY_PORT_OUTSIDE",
       "offset": 23,
       "direction": "down"
     },
@@ -353,7 +353,7 @@
       "x": 61,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_DIGLETTS_CAVE2",
+      "dest_map": "MAP_DIGLETTS_CAVE_ENTRANCE_SOUTH",
       "dest_warp_id": "1"
     },
     {
@@ -367,7 +367,7 @@
       "x": 22,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_VERMILION_POKECENTER",
+      "dest_map": "MAP_VERMILION_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
@@ -388,7 +388,7 @@
       "x": 38,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_VERMILION_POKEMART",
+      "dest_map": "MAP_VERMILION_CITY_MART",
       "dest_warp_id": "0"
     },
     {

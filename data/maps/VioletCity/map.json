@@ -439,28 +439,28 @@
       "x": 49,
       "y": 46,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE31_VIOLET_GATE",
+      "dest_map": "MAP_GATE_ROUTE31_VIOLET_CITY",
       "dest_warp_id": "1"
     },
     {
       "x": 30,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_SPROUT_TOWER1",
+      "dest_map": "MAP_SPROUT_TOWER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 39,
       "y": 45,
       "elevation": 0,
-      "dest_map": "MAP_VIOLET_POKECENTER",
+      "dest_map": "MAP_VIOLET_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
       "y": 35,
       "elevation": 0,
-      "dest_map": "MAP_VIOLET_POKEMART",
+      "dest_map": "MAP_VIOLET_CITY_MART",
       "dest_warp_id": "0"
     },
     {

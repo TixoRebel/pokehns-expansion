@@ -109,14 +109,14 @@
       "x": 48,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE16_ROUTE18GATE",
+      "dest_map": "MAP_GATE_FUCHSIA_CITY_ROUTE18",
       "dest_warp_id": "1"
     },
     {
       "x": 41,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE16_ROUTE18GATE",
+      "dest_map": "MAP_GATE_FUCHSIA_CITY_ROUTE18",
       "dest_warp_id": "0"
     }
   ],

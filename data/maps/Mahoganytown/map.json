@@ -153,35 +153,35 @@
       "x": 14,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_MAHOGANY_43GATE",
+      "dest_map": "MAP_GATE_MAHOGANY_TOWN_ROUTE43",
       "dest_warp_id": "0"
     },
     {
       "x": 15,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_MAHOGANY_SHOP",
+      "dest_map": "MAP_MAHOGANY_TOWN_SHOP",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_MAHOGANY_HOUSE1",
+      "dest_map": "MAP_MAHOGANY_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_MAHOGANY_GYM",
+      "dest_map": "MAP_MAHOGANY_TOWN_GYM",
       "dest_warp_id": "0"
     },
     {
       "x": 21,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_MAHOGANY_POKECENTER",
+      "dest_map": "MAP_MAHOGANY_TOWN_POKEMON_CENTER",
       "dest_warp_id": "0"
     }
   ],

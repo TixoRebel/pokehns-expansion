@@ -29,7 +29,7 @@ BugContest_EventScript_TimesUp::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, BugContest_EventScript_WrongChoiceMon
 	goto_if_eq VAR_0x8004, 0, BugContest_EventScript_WrongChoiceMon
 	fadescreen FADE_TO_BLACK
-	warp MAP_NATIONAL_PARK2, 5	@ HnS PORT NOTE - Apparently 2 versions of the map?
+	warp MAP_NATIONAL_PARK_BUG_CONTEST, 5	@ HnS PORT NOTE - Apparently 2 versions of the map?
 	delay 90
 	end
 
@@ -110,12 +110,12 @@ BugContest_EventScript_End::
 	setvar VAR_BUG_CONTEST_STATE, 0
 	special RemoveSafariBalls
 	goto_if_eq VAR_TEMP_1, 1, BugContest_EventScript_SideEnd
-	warp MAP_NATIONAL_PARK_GATES, 7, 2
+	warp MAP_GATE_NATIONAL_PARK, 7, 2
 	releaseall
 	end
 
 BugContest_EventScript_SideEnd::
-	warp MAP_NATIONAL_PARK_GATES, 35, 7
+	warp MAP_GATE_NATIONAL_PARK, 35, 7
 	releaseall
 	end
 

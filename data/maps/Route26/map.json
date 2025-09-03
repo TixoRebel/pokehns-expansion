@@ -239,21 +239,21 @@
       "x": 12,
       "y": -24,
       "elevation": 0,
-      "dest_map": "MAP_INDIGO_JUNCTION",
+      "dest_map": "MAP_RECEPTION_GATE",
       "dest_warp_id": "0"
     },
     {
       "x": 24,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE26HOUSE1",
+      "dest_map": "MAP_ROUTE26_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 9,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE26HOUSE2",
+      "dest_map": "MAP_ROUTE26_HOUSE2",
       "dest_warp_id": "0"
     }
   ],

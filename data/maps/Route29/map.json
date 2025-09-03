@@ -257,14 +257,14 @@
       "x": 34,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE29_46GATE",
+      "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
       "dest_warp_id": "1"
     },
     {
       "x": 35,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE29_46GATE",
+      "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
       "dest_warp_id": "1"
     }
   ],

@@ -231,21 +231,14 @@
       "x": 26,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_ENTRANCE_FUCHSIA",
+      "dest_map": "MAP_FUCHSIA_CITY_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
       "x": 11,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_POKEMART",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 19,
-      "y": 30,
-      "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_CITY_CAFE",
+      "dest_map": "MAP_FUCHSIA_CITY_MART",
       "dest_warp_id": "0"
     },
     {
@@ -266,27 +259,25 @@
       "x": 25,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_POKECENTER",
+      "dest_map": "MAP_FUCHSIA_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
       "x": 38,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_CITY_HOUSE3",
+      "dest_map": "MAP_FUCHSIA_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 39,
       "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_CITY_HOUSE3",
+      "dest_map": "MAP_FUCHSIA_CITY_HOUSE2",
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

@@ -507,21 +507,21 @@
       "x": 22,
       "y": 63,
       "elevation": 0,
-      "dest_map": "MAP_AZALEA_ILEX_GATE",
+      "dest_map": "MAP_GATE_AZALEA_TOWN_ILEX_FOREST",
       "dest_warp_id": "1"
     },
     {
       "x": 19,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ILEX_34GATE",
+      "dest_map": "MAP_GATE_ILEX_FOREST_ROUTE34",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ILEX_34GATE",
+      "dest_map": "MAP_GATE_ILEX_FOREST_ROUTE34",
       "dest_warp_id": "0"
     }
   ],

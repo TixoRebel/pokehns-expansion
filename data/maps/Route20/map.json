@@ -213,14 +213,14 @@
       "x": 60,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SEAFOAM_ISLANDS1",
+      "dest_map": "MAP_SEAFOAM_ISLANDS_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 72,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_SEAFOAM_ISLANDS1",
+      "dest_map": "MAP_SEAFOAM_ISLANDS_1F",
       "dest_warp_id": "3"
     }
   ],

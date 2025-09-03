@@ -226,28 +226,28 @@
       "x": 11,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE1",
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "1"
     },
     {
       "x": 15,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE1",
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "2"
     },
     {
       "x": 30,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_APARTMENTS1",
+      "dest_map": "MAP_CELADON_CITY_APARTMENTS_1F",
       "dest_warp_id": "3"
     },
     {
       "x": 48,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_POKECENTER",
+      "dest_map": "MAP_CELADON_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
@@ -268,21 +268,21 @@
       "x": 37,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_HOUSE1",
+      "dest_map": "MAP_CELADON_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 41,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_HOUSE2",
+      "dest_map": "MAP_CELADON_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 30,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_APARTMENTS1",
+      "dest_map": "MAP_CELADON_CITY_APARTMENTS_1F",
       "dest_warp_id": "2"
     }
   ],

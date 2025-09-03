@@ -473,112 +473,112 @@
       "x": 33,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_35GATE",
+      "dest_map": "MAP_GATE_GOLDENROD_CITY_ROUTE35",
       "dest_warp_id": "0"
     },
     {
       "x": 34,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_35GATE",
+      "dest_map": "MAP_GATE_GOLDENROD_CITY_ROUTE35",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_GOLDEN_ROD_UNDERGROUND1",
+      "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE",
       "dest_warp_id": "2"
     },
     {
       "x": 29,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_HOUSE1",
+      "dest_map": "MAP_GOLDENROD_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 39,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_GYM",
+      "dest_map": "MAP_GOLDENROD_CITY_GYM",
       "dest_warp_id": "0"
     },
     {
       "x": 44,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_FLOWER_SHOP",
+      "dest_map": "MAP_GOLDENROD_CITY_FLOWER_SHOP",
       "dest_warp_id": "0"
     },
     {
       "x": 48,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_HOUSE2",
+      "dest_map": "MAP_GOLDENROD_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_RADIO_TOWER1",
+      "dest_map": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 24,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_STATION",
+      "dest_map": "MAP_GOLDENROD_CITY_TRAIN_STATION",
       "dest_warp_id": "0"
     },
     {
       "x": 46,
       "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_HOUSE3",
+      "dest_map": "MAP_GOLDENROD_CITY_HOUSE3",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_GAME_CORNER",
+      "dest_map": "MAP_GOLDENROD_CITY_GAME_CORNER",
       "dest_warp_id": "0"
     },
     {
       "x": 14,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_BILLS_HOUSE",
+      "dest_map": "MAP_GOLDENROD_CITY_BILLS_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
       "y": 36,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_POKECENTER",
+      "dest_map": "MAP_GOLDENROD_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
       "x": 39,
       "y": 36,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_DEPARTMENT_STORE1",
+      "dest_map": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 44,
       "y": 38,
       "elevation": 0,
-      "dest_map": "MAP_GOLDENROD_BIKE_SHOP",
+      "dest_map": "MAP_GOLDENROD_CITY_BIKE_SHOP",
       "dest_warp_id": "0"
     },
     {
       "x": 21,
       "y": 38,
       "elevation": 0,
-      "dest_map": "MAP_GOLDEN_ROD_UNDERGROUND1",
+      "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE",
       "dest_warp_id": "3"
     }
   ],

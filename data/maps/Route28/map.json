@@ -14,7 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_MT_SILVER",
+      "map": "MAP_MT_SILVER_OUTSIDE",
       "offset": -6,
       "direction": "left"
     },
@@ -226,14 +226,14 @@
       "x": 53,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_INDIGO_JUNCTION",
+      "dest_map": "MAP_RECEPTION_GATE",
       "dest_warp_id": "3"
     },
     {
       "x": 20,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_MT_SILVER_HOUSE",
+      "dest_map": "MAP_ROUTE28_HOUSE",
       "dest_warp_id": "0"
     }
   ],

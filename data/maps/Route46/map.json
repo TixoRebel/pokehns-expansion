@@ -200,21 +200,21 @@
       "x": 10,
       "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE29_46GATE",
+      "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
       "dest_warp_id": "0"
     },
     {
       "x": 11,
       "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE29_46GATE",
+      "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_DARK_CAVE_1",
+      "dest_map": "MAP_DARK_CAVE_SOUTH_SIDE",
       "dest_warp_id": "2"
     }
   ],

@@ -56,7 +56,7 @@ Route10_EventScript_Zapdos::
 	lock
 	faceplayer
 	playmoncry SPECIES_ZAPDOS, CRY_MODE_ENCOUNTER
-	msgbox SeafoamIslands3_Text_ArticunoBattle
+	msgbox SeafoamIslands_B1F_Text_ArticunoBattle
 	delay 40
 	waitmoncry
 	seteventmon SPECIES_ZAPDOS, 50

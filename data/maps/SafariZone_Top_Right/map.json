@@ -126,7 +126,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EcruteakTheater_EventScript_Psyduck",
+      "script": "EcruteakCity_Theater_EventScript_Psyduck",
       "flag": "0"
     }
   ],

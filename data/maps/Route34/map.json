@@ -369,35 +369,35 @@
       "x": 31,
       "y": 67,
       "elevation": 0,
-      "dest_map": "MAP_ILEX_34GATE",
+      "dest_map": "MAP_GATE_ILEX_FOREST_ROUTE34",
       "dest_warp_id": "1"
     },
     {
       "x": 32,
       "y": 67,
       "elevation": 0,
-      "dest_map": "MAP_ILEX_34GATE",
+      "dest_map": "MAP_GATE_ILEX_FOREST_ROUTE34",
       "dest_warp_id": "1"
     },
     {
       "x": 30,
       "y": 67,
       "elevation": 0,
-      "dest_map": "MAP_ILEX_34GATE",
+      "dest_map": "MAP_GATE_ILEX_FOREST_ROUTE34",
       "dest_warp_id": "1"
     },
     {
       "x": 33,
       "y": 67,
       "elevation": 0,
-      "dest_map": "MAP_ILEX_34GATE",
+      "dest_map": "MAP_GATE_ILEX_FOREST_ROUTE34",
       "dest_warp_id": "1"
     },
     {
       "x": 31,
       "y": 30,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE34DAY_CARE",
+      "dest_map": "MAP_ROUTE34_DAY_CARE",
       "dest_warp_id": "0"
     }
   ],

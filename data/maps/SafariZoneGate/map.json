@@ -160,7 +160,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GoldenrodRadioTower2_EventScript_Jigglypuff",
+      "script": "GoldenrodCity_RadioTower_2F_EventScript_Jigglypuff",
       "flag": "0"
     }
   ],
@@ -169,14 +169,14 @@
       "x": 16,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "1"
     },
     {
       "x": 11,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_GATE_POKECENTER",
+      "dest_map": "MAP_SAFARI_ZONE_GATE_POKEMON_CENTER",
       "dest_warp_id": "0"
     }
   ],

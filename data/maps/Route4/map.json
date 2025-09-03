@@ -24,7 +24,7 @@
       "direction": "down"
     },
     {
-      "map": "MAP_MT_MOON_TEST",
+      "map": "MAP_MT_MOON_OUTSIDE",
       "offset": 18,
       "direction": "up"
     }
@@ -179,21 +179,21 @@
       "x": 32,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_MT_MOON1",
+      "dest_map": "MAP_MT_MOON_CAVE",
       "dest_warp_id": "0"
     },
     {
       "x": 19,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_MT_MOON1",
+      "dest_map": "MAP_MT_MOON_CAVE",
       "dest_warp_id": "1"
     },
     {
       "x": 12,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE4POKECENTER",
+      "dest_map": "MAP_ROUTE4_POKEMON_CENTER",
       "dest_warp_id": "0"
     }
   ],

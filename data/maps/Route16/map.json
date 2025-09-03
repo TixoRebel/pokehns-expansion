@@ -96,21 +96,21 @@
       "x": 10,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE16HOUSE",
+      "dest_map": "MAP_ROUTE16_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_ROUTE16GATE",
+      "dest_map": "MAP_GATE_CELADON_CITY_ROUTE16",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_ROUTE16GATE",
+      "dest_map": "MAP_GATE_CELADON_CITY_ROUTE16",
       "dest_warp_id": "1"
     }
   ],

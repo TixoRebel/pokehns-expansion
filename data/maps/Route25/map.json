@@ -286,7 +286,7 @@
       "x": 51,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE25BILLS_HOUSE",
+      "dest_map": "MAP_ROUTE25_BILLS_HOUSE",
       "dest_warp_id": "0"
     }
   ],

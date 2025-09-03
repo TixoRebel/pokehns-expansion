@@ -248,7 +248,7 @@
     },
     {
       "id": "HEAL_LOCATION_MT_SILVER",
-      "map": "MAP_MT_SILVER",
+      "map": "MAP_MT_SILVER_OUTSIDE",
       "x": 25,
       "y": 15
     },
@@ -283,8 +283,8 @@
       "y": 8
     },
     {
-      "id": "HEAL_LOCATION_PLAYERS_HOUSE2",
-      "map": "MAP_PLAYERS_HOUSE2",
+      "id": "HEAL_LOCATION_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+      "map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
       "x": 4,
       "y": 4
     },

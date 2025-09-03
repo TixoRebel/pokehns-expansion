@@ -98,7 +98,7 @@ Route14_EventScript_Suicune::
 	removeobject LOCALID_ROUTE14_SUICUNE
 	removeobject LOCALID_ROUTE14_EUSINE
 	setvar VAR_SUICUNE_ENCOUNTERS, 5
-	call_if_ge VAR_CERULEAN_CITY_STATE, 3, CeruleanCityGym_SetSuicuneScene
+	call_if_ge VAR_CERULEAN_CITY_STATE, 3, CeruleanCity_Gym_SetSuicuneScene
 	closemessage
 	release
 	end
