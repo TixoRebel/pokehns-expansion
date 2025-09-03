@@ -184,6 +184,13 @@
   ],
   "warp_events": [
     {
+      "x": 41,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_TOWN",
+      "dest_warp_id": "0"
+    },
+    {
       "x": 45,
       "y": 29,
       "elevation": 0,
