@@ -577,6 +577,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_ROUTE_23",
+      "name": "ROUTE 23",
+      "x": 17,
+      "y": 7,
+      "width": 2,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_ROUTE_24",
       "name": "ROUTE 24",
       "x": 24,
@@ -911,6 +919,198 @@
       "y": 17,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GRANITE_CAVE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_MT_CHIMNEY",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_ABANDONED_SHIP",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_EMBEDDED_TOWER2",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_MT_PYRE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_AQUA_HIDEOUT_OLD",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_SEAFLOOR_CAVERN",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_UNDERWATER_SEAFLOOR_CAVERN",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_SHOAL_CAVE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_DYNAMIC",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_NAVEL_ROCK",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_SCORCHED_SLAB",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_ALTERING_CAVE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_MAGMA_HIDEOUT",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_TERRA_CAVE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_ARTISAN_CAVE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_CAVE_OF_SHOCK2",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_DRACO_CHAMBER2",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_DESERT_RUINS",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_CAVE_OF_SHOCK",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_DRACO_CHAMBER",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_SEALED_CHAMBER",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_ISLAND_CAVE",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "map_section": "MAPSEC_ANCIENT_TOMB",
+      "name": "",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
     }
   ]
 }

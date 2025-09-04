@@ -4,7 +4,7 @@
 
 enum {
 ## for map_section in map_sections
-    {{ map_section.id }},
+    {{ map_section.map_section }},
 ## endfor
     MAPSEC_NONE,
     MAPSEC_COUNT
