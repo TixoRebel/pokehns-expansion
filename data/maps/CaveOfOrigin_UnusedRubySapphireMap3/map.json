@@ -2,32 +2,58 @@
   "id": "MAP_CAVE_OF_ORIGIN_UNUSED_RUBY_SAPPHIRE_MAP3",
   "name": "CaveOfOrigin_UnusedRubySapphireMap3",
   "layout": "LAYOUT_CAVE_OF_ORIGIN_UNUSED_RUBY_SAPPHIRE_MAP3",
-  "music": "MUS_CAVE_OF_ORIGIN",
-  "region_map_section": "MAPSEC_NONE",
-  "requires_flash": true,
-  "weather": "WEATHER_FOG_HORIZONTAL",
-  "map_type": "MAP_TYPE_UNDERGROUND",
+  "music": "MUS_ROUTE119",
+  "region_map_section": "MAPSEC_DRACO_CHAMBER",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
-  "warp_events": [
+  "connections": [
     {
-      "x": 7,
-      "y": 14,
-      "elevation": 3,
-      "dest_map": "MAP_CAVE_OF_ORIGIN_UNUSED_RUBY_SAPPHIRE_MAP2",
-      "dest_warp_id": "1"
+      "map": "MAP_ROUTE132",
+      "offset": -5,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 5,
+      "movement_range_y": 5,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CaveOfOrigin_UnusedRubySapphireMap3_Hiker",
+      "flag": "0"
     },
     {
-      "x": 12,
-      "y": 6,
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BerryTreeScript",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_CAVE_OF_ORIGIN_B1F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP1",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],

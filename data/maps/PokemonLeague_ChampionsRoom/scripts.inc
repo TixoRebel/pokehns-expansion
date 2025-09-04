@@ -42,27 +42,27 @@ ChampionRoom_Trigger::
 	release
 	end
 
-PokemonLeague1_EventScript_Lance::
+PokemonLeague_WillsRoom_EventScript_Lance::
 	lockall
 	call_if_eq VAR_FACING, DIR_EAST, PokemonLeague_ChampionsRoom_EventScript_AdjustPlayerFacingEast
 	call_if_eq VAR_FACING, DIR_SOUTH, PokemonLeague_ChampionsRoom_EventScript_AdjustPlayerFacingSouth
 	call_if_eq VAR_FACING, DIR_WEST, PokemonLeague_ChampionsRoom_EventScript_AdjustPlayerFacingWest
 	faceplayer
-	goto_if_set FLAG_IS_CHAMPION, PokemonLeague1_EventScript_LanceRematch
+	goto_if_set FLAG_IS_CHAMPION, PokemonLeague_WillsRoom_EventScript_LanceRematch
 	msgbox PokemonLeague_ChampionsRoom_Text_BattleIntro, MSGBOX_DEFAULT
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	trainerbattle_no_intro TRAINER_LANCE_1, PokemonLeague_ChampionsRoom_Text_BattleWin
-	goto PokemonLeague1_EventScript_LanceOnDefeatJohto
+	goto PokemonLeague_WillsRoom_EventScript_LanceOnDefeatJohto
 
-PokemonLeague1_EventScript_LanceRematch::
+PokemonLeague_WillsRoom_EventScript_LanceRematch::
 	msgbox PokemonLeague_ChampionsRoom_Text_RematchBattleIntro, MSGBOX_DEFAULT
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	trainerbattle_no_intro TRAINER_LANCE_2, PokemonLeague_ChampionsRoom_Text_BattleWin
-	goto PokemonLeague1_EventScript_LanceOnDefeatKanto
+	goto PokemonLeague_WillsRoom_EventScript_LanceOnDefeatKanto
 
-PokemonLeague1_EventScript_LanceOnDefeatJohto::
+PokemonLeague_WillsRoom_EventScript_LanceOnDefeatJohto::
 	clearflag FLAG_TEMP_5
 	msgbox PokemonLeague_ChampionsRoom_Text_BattleAfter, MSGBOX_DEFAULT
 	closemessage
@@ -129,7 +129,7 @@ PokemonLeague1_EventScript_LanceOnDefeatJohto::
 	releaseall
 	end
 
-PokemonLeague1_EventScript_LanceOnDefeatKanto::
+PokemonLeague_WillsRoom_EventScript_LanceOnDefeatKanto::
 	clearflag FLAG_TEMP_5
 	msgbox PokemonLeague_ChampionsRoom_Text_BattleAfter, MSGBOX_DEFAULT
 	closemessage

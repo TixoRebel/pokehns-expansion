@@ -3,8 +3,8 @@
   "name": "AlteringCave",
   "layout": "LAYOUT_ALTERING_CAVE",
   "music": "MUS_RG_SEVII_CAVE",
-  "region_map_section": "MAPSEC_NONE",
-  "requires_flash": false,
+  "region_map_section": "MAPSEC_ALTERING_CAVE",
+  "requires_flash": true,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
@@ -20,6 +20,13 @@
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROUTE103",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_CERULEAN_CAVE1",
       "dest_warp_id": "0"
     }
   ],

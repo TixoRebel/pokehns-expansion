@@ -57,6 +57,7 @@ PokemonLeague_HallOfFame_EventScript_CutsceneKantoChamp::
 PokemonLeague_HallOfFame_EventScript_SetFirstGameClearFlags::
 	clearflag FLAG_HIDE_LEAGUE_BLACKBELT
 	setflag FLAG_IS_CHAMPION
+	setflag FLAG_HIDE_BATTLEFRONTIER_ENGINEER
 	setvar VAR_SHUCKIE, 2
 	setvar VAR_LEAGUE_STATE, 1
 	setvar VAR_NEWBARK_TOWN_STATE, 6
@@ -66,25 +67,45 @@ PokemonLeague_HallOfFame_EventScript_SetFirstGameClearFlags::
 PokemonLeague_HallOfFame_EventScript_SetGameClearFlags::
 	clearflag FLAG_HIDE_LATIOS
 	clearflag FLAG_HIDE_LATIAS
-	clearflag FLAG_DEFEATED_MEW
-	clearflag FLAG_DEFEATED_DEOXYS
 	clearflag FLAG_HIDE_RAYQUAZA
 	clearflag FLAG_HIDE_GROUDON
 	clearflag FLAG_HIDE_KYOGRE
 	clearflag FLAG_HIDE_MEWTWO
 	clearflag FLAG_HIDE_VERMILION_SNORLAX
+	clearflag FLAG_HIDE_UNION_CAVE_LAPRAS
 	clearflag FLAG_HIDE_SUDOWOODO
 	clearflag FLAG_HIDE_ZAPDOS
+	clearflag FLAG_HIDE_ARTICUNO
+	clearflag FLAG_HIDE_MOLTRES
 	clearflag FLAG_ITEM_GS_BALL
+	setflag FLAG_HIDE_BATTLEFRONTIER_ENGINEER
 	setflag FLAG_IS_KANTO_CHAMPION
 	setvar VAR_COMPLETED_LUGIA, 4
+	clearflag FLAG_HIDE_LUGIA
 	setvar VAR_COMPLETED_HO_OH, 4
-	call_if_ge VAR_SUICUNE_ENCOUNTERS, 8, PokemonLeague_HallOfFame_EventScript_SpawnSuicuneCheck
+	clearflag FLAG_HIDE_HO_OH
+	call_if_set FLAG_CAUGHT_RAIKOU, PokemonLeague_HallOfFame_EventScript_SpawnRoamers
+	call_if_ge VAR_SUICUNE_ENCOUNTERS, 8, PokemonLeague_HallOfFame_EventScript_SpawnSuicune
+	call_if_set FLAG_CAUGHT_CELEBI, PokemonLeague_HallOfFame_EventScript_SpawnSecondCelebi
+	clearflag FLAG_DEFEATED_MEW
+	clearflag FLAG_CAUGHT_MEW
+	clearflag FLAG_BATTLED_DEOXYS
+	clearflag FLAG_DEFEATED_DEOXYS
 	setvar VAR_LEAGUE_STATE, 1
 	return
 
-PokemonLeague_HallOfFame_EventScript_SpawnSuicuneCheck::
+@ HnS TODO - fix roamers
+PokemonLeague_HallOfFame_EventScript_SpawnRoamers::
+	setvar VAR_0x8004, 1
+	special InitRoamer
+	return
+
+PokemonLeague_HallOfFame_EventScript_SpawnSuicune::
 	clearflag FLAG_HIDE_ROUTE25_SUICUNE
+	return
+
+PokemonLeague_HallOfFame_EventScript_SpawnSecondCelebi::
+	clearflag FLAG_HIDE_ILEX_FOREST_SECOND_CELEBI
 	return
 
 PokemonLeague_HallOfFame_Movement_LanceEnter:

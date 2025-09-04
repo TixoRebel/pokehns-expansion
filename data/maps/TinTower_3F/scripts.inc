@@ -44,4 +44,3 @@ TinTower_8F_EventScript_Item_MaxElixir::
 TinTower_8F_EventScript_Item_BigNugget::
     finditem ITEM_BIG_NUGGET
     end
-

@@ -1,20 +1,20 @@
 SaffronCity_CopyCatsHouse_1F_MapScripts::
 	.byte 0
 
-SaffronCity_House1_EventScript_Mom::
-	goto_if_set FLAG_RETURNED_MACHINE_PART, SaffronCity_House1_EventScript_MomAfter
+SaffronCity_CopyCatsHouse_1F_EventScript_Mom::
+	goto_if_set FLAG_RETURNED_MACHINE_PART, SaffronCity_CopyCatsHouse_1F_EventScript_MomAfter
 	msgbox CopycatsHouse1F_Text_PokefanF, MSGBOX_NPC
 	end
 
-SaffronCity_House1_EventScript_MomAfter::
+SaffronCity_CopyCatsHouse_1F_EventScript_MomAfter::
 	msgbox CopycatsHouse1F_Text_PokefanF_ReturnedPart, MSGBOX_NPC
 	end
 
-SaffronCity_House1_EventScript_Dad::
+SaffronCity_CopyCatsHouse_1F_EventScript_Dad::
 	msgbox CopycatsHouse1F_Text_PokefanM, MSGBOX_NPC
 	end
 
-SaffronCity_House1_EventScript_Blissey::
+SaffronCity_CopyCatsHouse_1F_EventScript_Blissey::
 	lock
 	faceplayer
 	waitse

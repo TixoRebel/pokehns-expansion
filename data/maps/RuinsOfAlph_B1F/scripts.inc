@@ -36,19 +36,19 @@ RuinsOfAlph_B1F_EventScript_Gramps::
 	release
 	end
 
-RuinsOfAlph2_EventScript_HelixFossil::
+RuinsOfAlph_PuzzleAndRewardChambers_EventScript_HelixFossil::
 	finditem ITEM_HELIX_FOSSIL
 	end
 
-RuinsOfAlph2_EventScript_DomeFossil::
+RuinsOfAlph_PuzzleAndRewardChambers_EventScript_DomeFossil::
 	finditem ITEM_DOME_FOSSIL
 	end
 
-RuinsOfAlph2_EventScript_OldAmber::
+RuinsOfAlph_PuzzleAndRewardChambers_EventScript_OldAmber::
 	finditem ITEM_OLD_AMBER
 	end
 
-RuinsOfAlph2_EventScript_GSBALL::
+RuinsOfAlph_PuzzleAndRewardChambers_EventScript_GSBALL::
 	finditem ITEM_GS_BALL
 	end
 

@@ -1,4 +1,4 @@
-.set LOCALID_GOLDENROD_GYM_BRIDGET, 6
+.set LOCALID_GOLDENROD_CITY_GYM_BRIDGET, 6
 
 GoldenrodCity_Gym_MapScripts::
 	.byte 0
@@ -92,7 +92,7 @@ GoldenrodCity_Gym_EventScript_WhitneyDefeated::
 	end
 
 GoldenrodCity_Gym_EventScript_Trigger::	
-	turnobject LOCALID_GOLDENROD_GYM_BRIDGET DIR_WEST
+	turnobject LOCALID_GOLDENROD_CITY_GYM_BRIDGET DIR_WEST
 	msgbox GoldenrodCity_Gym_Text_BridgetWhitneyCries, MSGBOX_DEFAULT
 	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
@@ -155,7 +155,8 @@ GoldenrodCity_Gym_Text_PlayerReceivedPlainBadge:
 GoldenrodCity_Gym_Text_WhitneyPlainBadge:
     .string "PLAINBADGE lets your POKéMON use\n"
     .string "STRENGTH outside of battle.\p"
-    .string "It also boosts your POKéMON's SPEED.\p"
+    .string "It also boosts your POKéMON's\n"
+	.string "DEFENSE.\p"
     .string "Oh, you can have this too!$"
 
 GoldenrodCity_Gym_Text_WhitneyAttract:

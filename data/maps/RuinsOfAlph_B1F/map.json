@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RuinsOfAlph2_EventScript_DomeFossil",
+      "script": "RuinsOfAlph_PuzzleAndRewardChambers_EventScript_DomeFossil",
       "flag": "FLAG_ITEM_DOME_FOSSIL"
     },
     {
@@ -180,7 +180,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RuinsOfAlph2_EventScript_OldAmber",
+      "script": "RuinsOfAlph_PuzzleAndRewardChambers_EventScript_OldAmber",
       "flag": "FLAG_ITEM_OLD_AMBER"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RuinsOfAlph2_EventScript_HelixFossil",
+      "script": "RuinsOfAlph_PuzzleAndRewardChambers_EventScript_HelixFossil",
       "flag": "FLAG_ITEM_HELIX_FOSSIL"
     },
     {
@@ -206,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RuinsOfAlph2_EventScript_GSBALL",
+      "script": "RuinsOfAlph_PuzzleAndRewardChambers_EventScript_GSBALL",
       "flag": "FLAG_ITEM_GS_BALL"
     }
   ],
@@ -247,9 +247,7 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

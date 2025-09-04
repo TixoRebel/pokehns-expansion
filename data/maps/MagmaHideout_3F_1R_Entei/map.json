@@ -3,7 +3,7 @@
   "name": "MagmaHideout_3F_1R_Entei",
   "layout": "LAYOUT_MAGMA_HIDEOUT_3F_1R_ENTEI",
   "music": "MUS_DP_MT_CORONET",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_MAGMA_HIDEOUT",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ENTEI)",
@@ -114,7 +114,5 @@
       "script": "MagmaHideout_3F_1R_EntranceTrigger"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }

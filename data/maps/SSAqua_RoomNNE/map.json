@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
@@ -24,7 +24,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "SSAquaRoomNNE_EventScript_Carol",
+      "script": "SSAqua_RoomNNE_EventScript_Carol",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "SSAquaRoomNNE_EventScript_Sean",
+      "script": "SSAqua_RoomNNE_EventScript_Sean",
       "flag": "0"
     }
   ],
@@ -50,10 +50,6 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

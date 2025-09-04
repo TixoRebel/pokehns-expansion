@@ -1083,7 +1083,7 @@
 #define FLAG_ITEM_MTMORTAR2_MAX_POTION                              0x3F1
 #define FLAG_ITEM_MTMORTAR2_NUGGET                                  0x3F2
 #define FLAG_ITEM_MTMORTAR2_ULTRA_BALL                              0x3F3
-#define FLAG_ITEM_MTMORTAR2_REVIVE                                  0x3F4
+#define FLAG_ITEM_MTMORTAR2_REVIVE_FULL_INCENSE                                  0x3F4
 #define FLAG_ITEM_MTMORTAR2_KINGS_ROCK                              0x3F5
 #define FLAG_ITEM_MTMORTAR3_IRON                                    0x3F6
 #define FLAG_ITEM_MTMORTAR3_MAX_REVIVE                              0x3F7

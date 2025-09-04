@@ -1,5 +1,5 @@
-.set LOCALID_GOLDENROD_STATION_ATTENDANT, 1
-.set LOCALID_GOLDENROD_STATION_TRAIN, 7
+.set LOCALID_GOLDENROD_CITY_TRAIN_STATION_ATTENDANT, 1
+.set LOCALID_GOLDENROD_CITY_TRAIN_STATION_TRAIN, 7
 
 GoldenrodCity_TrainStation_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, GoldenrodCity_TrainStation_OnFrame
@@ -30,7 +30,7 @@ GoldenrodCity_TrainStation_EventScript_Attendant2::
 GoldenrodCity_TrainStation_EventScript_BoardTrain::
 	msgbox GoldenrodMagnetTrainStation_Text_OfficerRightThisWay, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_GOLDENROD_STATION_ATTENDANT, GoldenrodCity_TrainStation_Movement_Attendant_Move_Up
+	applymovement LOCALID_GOLDENROD_CITY_TRAIN_STATION_ATTENDANT, GoldenrodCity_TrainStation_Movement_Attendant_Move_Up
 	waitmovement 0
 	applymovement LOCALID_PLAYER, GoldenrodCity_TrainStation_Movement_WalktoTrain
 	waitmovement 0
@@ -47,13 +47,13 @@ GoldenrodCity_TrainStation_EventScript_BoardTrain::
 	waitmovement 0
 	delay 60
 
-	applymovement LOCALID_GOLDENROD_STATION_TRAIN GoldenrodCity_TrainStation_Movement_SlideRight
+	applymovement LOCALID_GOLDENROD_CITY_TRAIN_STATION_TRAIN GoldenrodCity_TrainStation_Movement_SlideRight
 	applymovement OBJ_EVENT_ID_CAMERA, GoldenrodCity_TrainStation_Movement_SlideRight
 	fadescreen FADE_FROM_BLACK
 	playse SE_TRUCK_MOVE
 	delay 220
 	playse SE_TRUCK_STOP
-	applymovement LOCALID_GOLDENROD_STATION_TRAIN GoldenrodCity_TrainStation_Movement_SlideRight
+	applymovement LOCALID_GOLDENROD_CITY_TRAIN_STATION_TRAIN GoldenrodCity_TrainStation_Movement_SlideRight
 	applymovement OBJ_EVENT_ID_CAMERA, GoldenrodCity_TrainStation_Movement_SlideRight
 	fadescreen FADE_TO_BLACK
 	waitse
@@ -66,12 +66,12 @@ GoldenrodCity_TrainStation_EventScript_BoardTrain::
 
 GoldenrodCity_TrainStation_EventScript_ExitTrain::
 	lock
-	applymovement LOCALID_GOLDENROD_STATION_ATTENDANT, GoldenrodCity_TrainStation_Movement_Attendant_Move_Up
+	applymovement LOCALID_GOLDENROD_CITY_TRAIN_STATION_ATTENDANT, GoldenrodCity_TrainStation_Movement_Attendant_Move_Up
 	applymovement LOCALID_PLAYER, GoldenrodCity_TrainStation_Movement_ExitTrain
 	waitmovement 0
 	waitmovement 0
 	setvar VAR_TRAIN, 0
-	applymovement LOCALID_GOLDENROD_STATION_ATTENDANT, GoldenrodCity_TrainStation_Movement_Attendant_Move_Down
+	applymovement LOCALID_GOLDENROD_CITY_TRAIN_STATION_ATTENDANT, GoldenrodCity_TrainStation_Movement_Attendant_Move_Down
 	waitmovement 0
 	release
 	end

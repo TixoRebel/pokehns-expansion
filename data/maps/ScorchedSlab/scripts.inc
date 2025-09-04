@@ -4,5 +4,9 @@ ScorchedSlab_MapScripts::
 
 ScorchedSlab_OnTransition:
 	setflag FLAG_LANDMARK_SCORCHED_SLAB
+	goto_if_set FLAG_UNLOCK_BIRDS, ScorchedSlab_SwitchToModern
 	end
 
+ScorchedSlab_SwitchToModern::
+	setmaplayoutindex LAYOUT_SCORCHED_SLAB_MODERN
+	end

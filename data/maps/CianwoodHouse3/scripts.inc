@@ -10,7 +10,7 @@ CianwoodCity_EventScript_Kirk::
 	msgbox CianwoodCity_Text_ManiacAskShuckle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, CianwoodCity_EventScript_KirkDeclined
 
-	@crystal named gift pokemon setup
+	@HnS named gift pokemon setup
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SHUCKLE
 	bufferspeciesname STR_VAR_1, SPECIES_SHUCKLE
 	givenamedmon 2

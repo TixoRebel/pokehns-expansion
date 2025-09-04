@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -23,8 +23,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_1F_EventScript_Item_Rare_Candy",
+      "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_1F_RARE_CANDY"
     },
     {
@@ -36,8 +36,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_1F_EventScript_Item_Guard_Spec",
+      "trainer_sight_or_berry_tree_id": "ITEM_GUARD_SPEC",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_1F_GUARD_SPEC"
     },
     {
@@ -251,7 +251,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
       "x": 35,
-      "y": 47,
+      "y": 50,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -264,7 +264,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
       "x": 28,
-      "y": 47,
+      "y": 50,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -276,8 +276,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
-      "x": 35,
-      "y": 51,
+      "x": 61,
+      "y": 57,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -289,8 +289,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
-      "x": 28,
-      "y": 51,
+      "x": -2,
+      "y": 57,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -302,8 +302,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
-      "x": 44,
-      "y": 41,
+      "x": 61,
+      "y": 53,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -315,8 +315,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
-      "x": 44,
-      "y": 32,
+      "x": 61,
+      "y": 55,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -328,8 +328,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
-      "x": 19,
-      "y": 32,
+      "x": -2,
+      "y": 52,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -341,8 +341,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
-      "x": 19,
-      "y": 41,
+      "x": -2,
+      "y": 55,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TOWER_BEAM",
       "movement_range_x": 0,
@@ -361,8 +361,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_1F_EventScript_Item_Ultra_Ball",
+      "trainer_sight_or_berry_tree_id": "ITEM_ULTRA_BALL",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_1F_ULTRA_BALL"
     },
     {
@@ -374,8 +374,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_1F_EventScript_Item_Full_Restore",
+      "trainer_sight_or_berry_tree_id": "ITEM_FULL_RESTORE",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_1F_FULL_RESTORE"
     }
   ],
@@ -483,7 +483,5 @@
       "script": "WhirlIslands_1F_EventScript_TalkToKimono"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }

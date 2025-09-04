@@ -1,9 +1,13 @@
+.set LOCALID_MAUVILLE_WALLY, 6
+.set LOCALID_MAUVILLE_WALLYS_UNCLE, 7
+.set LOCALID_MAUVILLE_SCOTT, 11
+
 MauvilleCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_OnTransition
 	.byte 0
 
 MauvilleCity_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_BLACKTHORN_CITY
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	clearflag FLAG_GARBAGEFLAG
 	setflag FLAG_SYS_TV_START
@@ -17,6 +21,20 @@ MauvilleCity_EventScript_MoveWattsonBackToGym::
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_WATTSON_REMATCH_AVAILABLE
 	return
+
+MauvilleCity_EventScript_MagnezoneEvo::
+	msgbox MauvilleCity_EventScript_MagnezoneEvo_Text, MSGBOX_NPC
+	end
+
+MauvilleCity_EventScript_MagnezoneEvo_Text:
+	.string "Did you know that MAGNETON can evolve?\n"
+	.string "Do you know how?\p"
+	.string "Because… I would like to know.\p"
+	.string "I know it was something related to a\n"
+	.string "STONE. A THUNDER STONE, to be exact!\p"
+	.string "But it was not using it.\n"
+	.string "Was it battling? HOLDING IT?\l"
+	.string "I seriously don't know…$"
 
 MauvilleCity_EventScript_Boy::
 	msgbox MauvilleCity_Text_NurseHurtMonBackToHealth, MSGBOX_NPC

@@ -989,7 +989,7 @@ EcruteakCity_Theater_Text_ZukiSeen:
 EcruteakCity_Theater_Text_ZukiSeenAgain:
 	.string "I will test you to see if you are\n"
 	.string "a good Trainer.\p"
-	.string "Are you ready? {PLAYER}$"
+	.string "Are you ready, {PLAYER}?$"
 
 EcruteakCity_Theater_Text_ZukiNo:
 	.string "That is fine...\n"
@@ -1050,23 +1050,23 @@ EcruteakCity_Theater_Text_ZukiDone:
 EcruteakCity_Theater_Text_GirlHooh:
 	.string "Big sisters! I just saw the\n"
 	.string "big shadow of a POKéMON over\l"
-	.string "the Bell Tower!\p"
+	.string "the TIN TOWER!\p"
 	.string "It could be...$"
 
 EcruteakCity_Theater_Text_GirlLugia:
 	.string "Big sisters! I just saw the\n"
 	.string "big shadow of a POKéMON in the\l"
-	.string "Whirl Islands' waters!\p"
+	.string "WHIRL ISLANDS' waters!\p"
 	.string "It could be...$"
 
 EcruteakCity_Theater_Text_ZukiHooh:
 	.string "ZUKI: {PLAYER}!\n"
-	.string "We'll be at the Bell Tower.\n"
+	.string "We'll be at the TIN TOWER.\n"
 	.string "See you there!$"
 
 EcruteakCity_Theater_Text_ZukiLugia:
 	.string "ZUKI: {PLAYER}!\n"
-	.string "We'll be at the Whirl Islands.\l"
+	.string "We'll be at the WHIRL ISLANDS.\l"
 	.string "See you there!$"
 
 EcruteakCity_Theater_Text_KimonoDone:

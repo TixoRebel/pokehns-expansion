@@ -8,11 +8,11 @@
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
-  "allow_escaping": false,
+  "allow_escaping": true,
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
@@ -88,8 +88,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B1F_EventScript_Item_HyperPotion",
+      "trainer_sight_or_berry_tree_id": "ITEM_HYPER_POTION",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROCKETHIDEOUT1_HYPER_POTION"
     },
     {
@@ -101,8 +101,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B1F_EventScript_Item_Revive",
+      "trainer_sight_or_berry_tree_id": "ITEM_REVIVE",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROCKETHIDEOUT1_REVIVE"
     },
     {
@@ -114,8 +114,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B1F_EventScript_Item_BigNugget",
+      "trainer_sight_or_berry_tree_id": "ITEM_BIG_NUGGET",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROCKETHIDEOUT1_BIG_NUGGET"
     },
     {

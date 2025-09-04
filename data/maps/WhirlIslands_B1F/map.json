@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -23,8 +23,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_B1F_EventScript_Item_PP_Max",
+      "trainer_sight_or_berry_tree_id": "ITEM_PP_MAX",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_B1F_PP_MAX"
     },
     {
@@ -36,8 +36,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_B1F_EventScript_Item_Max_Revive",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_B1F_MAX_REVIVE"
     },
     {
@@ -49,8 +49,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "WhirlIslands_B1F_EventScript_Item_Full_Restore",
+      "trainer_sight_or_berry_tree_id": "ITEM_FULL_RESTORE",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WHIRL_ISLANDS_B1F_FULL_RESTORE"
     },
     {
@@ -195,6 +195,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TENTACRUEL)",
+      "x": 53,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route41_EventScript_Tentacruel1",
+      "flag": "FLAG_HIDE_WHIRL_ISLANDS_TENTACRUEL"
     }
   ],
   "warp_events": [
@@ -255,10 +268,6 @@
       "dest_warp_id": "12"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

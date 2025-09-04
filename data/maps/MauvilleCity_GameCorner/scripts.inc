@@ -8,9 +8,10 @@ MauvilleCity_GameCorner_MapScripts::
 	.set TM_THUNDERBOLT_COINS, 4000
 	.set TM_ICE_BEAM_COINS, 4000
 	.set DOLL_COINS, 1000
+	.set DOLL2_COINS,  9000
 
-	.set COINS_PRICE_50,  1000
-	.set COINS_PRICE_500, 10000
+	.set COINS_PRICE_50,  500
+	.set COINS_PRICE_500, 5000
 
 MauvilleCity_GameCorner_EventScript_CoinsClerk::
 	lock
@@ -108,6 +109,15 @@ MauvilleCity_GameCorner_EventScript_PrizeCornerDolls::
 	release
 	end
 
+MauvilleCity_GameCorner_EventScript_PrizeCornerDolls2::
+	lock
+	faceplayer
+	msgbox MauvilleCity_GameCorner_Text_ExchangeCoinsForPrizes, MSGBOX_DEFAULT
+	checkitem ITEM_COIN_CASE
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage2
+	release
+	end
+
 MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage::
 	message MauvilleCity_GameCorner_Text_WhichPrize
 	waitmessage
@@ -115,10 +125,22 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage::
 	showcoinsbox 1, 1
 	goto MauvilleCity_GameCorner_EventScript_ChooseDollPrize
 
+MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage2::
+	message MauvilleCity_GameCorner_Text_WhichPrize
+	waitmessage
+	setvar VAR_TEMP_1, 0
+	showcoinsbox 1, 1
+	goto MauvilleCity_GameCorner_EventScript_ChooseDollPrize2
+
 MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize::
 	message MauvilleCity_GameCorner_Text_WhichPrize
 	waitmessage
 	goto MauvilleCity_GameCorner_EventScript_ChooseDollPrize
+
+MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize2::
+	message MauvilleCity_GameCorner_Text_WhichPrize
+	waitmessage
+	goto MauvilleCity_GameCorner_EventScript_ChooseDollPrize2
 
 MauvilleCity_GameCorner_EventScript_ChooseDollPrize::
 	multichoice 12, 0, MULTI_GAME_CORNER_DOLLS, FALSE
@@ -126,6 +148,16 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrize::
 	case 0, MauvilleCity_GameCorner_EventScript_TreeckoDoll
 	case 1, MauvilleCity_GameCorner_EventScript_TorchicDoll
 	case 2, MauvilleCity_GameCorner_EventScript_MudkipDoll
+	case 3, MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	end
+
+MauvilleCity_GameCorner_EventScript_ChooseDollPrize2::
+	multichoice 12, 0, MULTI_GAME_CORNER_DOLLS2, FALSE
+	switch VAR_RESULT
+	case 0, MauvilleCity_GameCorner_EventScript_RegirockDoll
+	case 1, MauvilleCity_GameCorner_EventScript_RegiceDoll
+	case 2, MauvilleCity_GameCorner_EventScript_RegisteelDoll
 	case 3, MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	end
@@ -145,6 +177,21 @@ MauvilleCity_GameCorner_EventScript_MudkipDoll::
 	bufferdecorationname STR_VAR_1, DECOR_MUDKIP_DOLL
 	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
 
+MauvilleCity_GameCorner_EventScript_RegirockDoll::
+	setvar VAR_TEMP_1, 1
+	bufferdecorationname STR_VAR_1, DECOR_REGIROCK_DOLL
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize2
+
+MauvilleCity_GameCorner_EventScript_RegiceDoll::
+	setvar VAR_TEMP_1, 2
+	bufferdecorationname STR_VAR_1, DECOR_REGIROCK_DOLL
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize2
+
+MauvilleCity_GameCorner_EventScript_RegisteelDoll::
+	setvar VAR_TEMP_1, 3
+	bufferdecorationname STR_VAR_1, DECOR_REGIROCK_DOLL
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize2
+
 MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CancelDollSelect
@@ -152,6 +199,15 @@ MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 	case 1, MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll
 	case 2, MauvilleCity_GameCorner_EventScript_BuyTorchicDoll
 	case 3, MauvilleCity_GameCorner_EventScript_BuyMudkipDoll
+	end
+
+MauvilleCity_GameCorner_EventScript_ConfirmDollPrize2::
+	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	switch VAR_TEMP_1
+	case 1, MauvilleCity_GameCorner_EventScript_BuyRegirockDoll
+	case 2, MauvilleCity_GameCorner_EventScript_BuyRegiceDoll
+	case 3, MauvilleCity_GameCorner_EventScript_BuyRegisteelDoll
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll::
@@ -196,14 +252,66 @@ MauvilleCity_GameCorner_EventScript_BuyMudkipDoll::
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
 	end
 
+MauvilleCity_GameCorner_EventScript_BuyRegirockDoll::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, DOLL2_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll2
+	bufferdecorationname STR_VAR_2, DECOR_REGIROCK_DOLL
+	checkdecorspace DECOR_REGIROCK_DOLL
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll2
+	removecoins DOLL2_COINS
+	adddecoration DECOR_REGIROCK_DOLL
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyRegiceDoll::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, DOLL2_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll2
+	bufferdecorationname STR_VAR_2, DECOR_REGICE_DOLL
+	checkdecorspace DECOR_REGICE_DOLL
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll2
+	removecoins DOLL2_COINS
+	adddecoration DECOR_REGICE_DOLL
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyRegisteelDoll::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, DOLL2_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll2
+	bufferdecorationname STR_VAR_2, DECOR_REGISTEEL_DOLL
+	checkdecorspace DECOR_REGISTEEL_DOLL
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll2
+	removecoins DOLL2_COINS
+	adddecoration DECOR_REGISTEEL_DOLL
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize2
+	end
+
 MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll::
 	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
 	end
 
+MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll2::
+	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize2
+	end
+
 MauvilleCity_GameCorner_EventScript_NoRoomForDoll::
 	call Common_EventScript_NoRoomForDecor
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_NoRoomForDoll2::
+	call Common_EventScript_NoRoomForDecor
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize2
 	end
 
 MauvilleCity_GameCorner_EventScript_CancelDollSelect::
@@ -279,12 +387,87 @@ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
 	special BufferTMHMMoveName
 	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsTheTMX, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CancelTMSelect
+	goto_if_unset FLAG_FINITE_TMS, MauvilleCity_GameCorner_EventScript_ConfirmTMPrizeInfinite
 	switch VAR_TEMP_1
 	case 1, MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam
 	case 2, MauvilleCity_GameCorner_EventScript_BuyTMPsychic
 	case 3, MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower
 	case 4, MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt
 	case 5, MauvilleCity_GameCorner_EventScript_BuyTMIceBeam
+	end
+
+MauvilleCity_GameCorner_EventScript_ConfirmTMPrizeInfinite::
+	switch VAR_TEMP_1
+	case 1, MauvilleCity_GameCorner_EventScript_BuyTM32InfiniteDoubleTeam
+	case 2, MauvilleCity_GameCorner_EventScript_BuyTM29InfinitePsychic
+	case 3, MauvilleCity_GameCorner_EventScript_BuyTM35InfiniteFlamethrower
+	case 4, MauvilleCity_GameCorner_EventScript_BuyTM24InfiniteThunderbolt
+	case 5, MauvilleCity_GameCorner_EventScript_BuyTM13InfiniteIceBeam
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyTM32InfiniteDoubleTeam::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, TM_DOUBLE_TEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+	checkitem ITEM_TM_DOUBLE_TEAM, 1
+    goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
+	removecoins TM_DOUBLE_TEAM_COINS
+	additem ITEM_TM_DOUBLE_TEAM
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyTM29InfinitePsychic::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, TM_PSYCHIC_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+	checkitem ITEM_TM_PSYCHIC, 1
+    goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
+	removecoins TM_PSYCHIC_COINS
+	additem ITEM_TM_PSYCHIC
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyTM35InfiniteFlamethrower::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, TM_FLAMETHROWER_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+	checkitem ITEM_TM_FLAMETHROWER, 1
+    goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
+	removecoins TM_FLAMETHROWER_COINS
+	additem ITEM_TM_FLAMETHROWER
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyTM24InfiniteThunderbolt::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, TM_THUNDERBOLT_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+	checkitem ITEM_TM_THUNDERBOLT, 1
+    goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
+	removecoins TM_THUNDERBOLT_COINS
+	additem ITEM_TM_THUNDERBOLT
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyTM13InfiniteIceBeam::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, TM_ICE_BEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+	checkitem ITEM_TM_ICE_BEAM, 1
+    goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
+	removecoins  TM_ICE_BEAM_COINS
+	additem ITEM_TM_ICE_BEAM
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
@@ -359,6 +542,11 @@ MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM::
 
 MauvilleCity_GameCorner_EventScript_NoRoomForTM::
 	call Common_EventScript_BagIsFull
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis::
+    msgbox gText_YouAlreadyHaveThis, MSGBOX_AUTOCLOSE
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
 	end
 
@@ -627,7 +815,7 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase::
 	end
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner:
-	.string "This is MAUVILLE GAME CORNER.$"
+	.string "This is THE GAME CORNER.$"
 
 MauvilleCity_GameCorner_Text_NeedCoinCaseForCoins:
 	.string "Okay, you wanted some COINS for\n"
@@ -637,7 +825,7 @@ MauvilleCity_GameCorner_Text_NeedCoinCaseForCoins:
 
 MauvilleCity_GameCorner_Text_WereYouLookingForCoins:
 	.string "Were you looking for COINS?\p"
-	.string "It's ¥1000 for 50 COINS.\n"
+	.string "It's ¥500 for 50 COINS.\n"
 	.string "Would you like some?$"
 
 MauvilleCity_GameCorner_Text_ThankYouHereAreYourCoins:

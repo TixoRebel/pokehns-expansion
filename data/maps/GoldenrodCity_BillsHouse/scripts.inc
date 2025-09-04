@@ -38,7 +38,7 @@ GoldenrodCity_BillsHouse_EventScript_Bill_Eevee::
 	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_BillsHouse_EventScript_Bill_Refused
 	msgbox BillHouse_Text_CountingOnYou, MSGBOX_DEFAULT
 
-	@crystal named gift pokemon setup
+	@HnS named gift pokemon setup
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EEVEE
 	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
 	givenamedmon 3

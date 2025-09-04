@@ -55,6 +55,7 @@ AncientTomb_EventScript_CaveEntranceSide::
 	end
 
 AncientTomb_EventScript_Registeel::
+	bufferspeciesname 0, SPECIES_REGISTEEL
 	lock
 	faceplayer
 	waitse
@@ -63,9 +64,11 @@ AncientTomb_EventScript_Registeel::
 	waitmoncry
 	setwildbattle SPECIES_REGISTEEL, 40
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	call_if_set FLAG_DIFFICULTY_HARD, AncientTomb_EventScript_Registeel_Stats
 	special StartRegiBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	calculatemonstats
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DefeatedRegisteel
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, AncientTomb_EventScript_RanFromRegisteel
@@ -73,6 +76,13 @@ AncientTomb_EventScript_Registeel::
 	setflag FLAG_DEFEATED_REGISTEEL
 	release
 	end
+
+AncientTomb_EventScript_Registeel_Stats::
+	setvar VAR_0x8002, 350 @DEF
+	setvar VAR_0x8006, 350 @SP.DEF
+	special SetDefStat
+	special SetSpDefStat
+	return
 
 AncientTomb_EventScript_DefeatedRegisteel::
 	setflag FLAG_DEFEATED_REGISTEEL

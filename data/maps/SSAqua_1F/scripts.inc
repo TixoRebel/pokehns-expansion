@@ -1,5 +1,5 @@
-.set LOCALID_SSAQUA1_DOORSAILOR, 4
-.set LOCALID_SSAQUA1_GRANDPA, 2
+.set LOCALID_SSAQUA_1F_DOORSAILOR, 4
+.set LOCALID_SSAQUA_1F_GRANDPA, 2
 
 SSAqua_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SSAqua_1F_OnFrame
@@ -60,14 +60,14 @@ SSAqua_1F_Trigger_Grandpa::
 	call_if_eq VAR_TEMP_0, 29, SSAqua_1F_EventScript_GrandpaEnterRight
 	applymovement LOCALID_PLAYER, SSAqua_1F_Movement_PlayerSlideRight
 	waitmovement 0
-	applymovement LOCALID_SSAQUA1_GRANDPA, Common_Movement_WalkRight
+	applymovement LOCALID_SSAQUA_1F_GRANDPA, Common_Movement_WalkRight
 	waitmovement 0
 	msgbox SSAqua_1F_Text_Grandpa, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SSAQUA1_GRANDPA, SSAqua_1F_Movement_GrandpaLeave
+	applymovement LOCALID_SSAQUA_1F_GRANDPA, SSAqua_1F_Movement_GrandpaLeave
 	waitmovement 0
 	playse SE_DOOR
-	removeobject LOCALID_SSAQUA1_GRANDPA
+	removeobject LOCALID_SSAQUA_1F_GRANDPA
 	
 	setflag FLAG_HIDE_SSAQUA_1F_GRANDPA		@flagheap
 	setflag FLAG_HIDE_SSAQUA_ROOM_SSE_GRANDDAUGHTER
@@ -80,12 +80,12 @@ SSAqua_1F_Trigger_Grandpa::
 	end
 
 SSAqua_1F_EventScript_GrandpaEnterLeft::
-	applymovement LOCALID_SSAQUA1_GRANDPA, SSAqua_1F_Movement_GrandpaEnterLeft
+	applymovement LOCALID_SSAQUA_1F_GRANDPA, SSAqua_1F_Movement_GrandpaEnterLeft
 	waitmovement 0
 	return
 
 SSAqua_1F_EventScript_GrandpaEnterRight::
-	applymovement LOCALID_SSAQUA1_GRANDPA, SSAqua_1F_Movement_GrandpaEnterRight
+	applymovement LOCALID_SSAQUA_1F_GRANDPA, SSAqua_1F_Movement_GrandpaEnterRight
 	waitmovement 0
 	return
 

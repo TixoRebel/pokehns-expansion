@@ -3,7 +3,7 @@
   "name": "GraniteCave_B2F",
   "layout": "LAYOUT_GRANITE_CAVE_B2F",
   "music": "MUS_PETALBURG_WOODS",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_GRANITE_CAVE",
   "requires_flash": true,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -167,6 +167,13 @@
       "elevation": 3,
       "dest_map": "MAP_GRANITE_CAVE_B1F",
       "dest_warp_id": "6"
+    },
+    {
+      "x": 21,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_CAVE_OF_ORIGIN_UNUSED_RUBY_SAPPHIRE_MAP2",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -182,10 +189,34 @@
     {
       "type": "hidden_item",
       "x": 15,
-      "y": 11,
+      "y": 10,
       "elevation": 3,
       "item": "ITEM_EVERSTONE",
       "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_2"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GraniteCave_B2F_RegigigasStart"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GraniteCave_B2F_RegigigasStart"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GraniteCave_B2F_RegigigasStart"
     }
   ]
 }

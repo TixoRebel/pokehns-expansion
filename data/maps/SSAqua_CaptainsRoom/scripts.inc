@@ -1,5 +1,5 @@
-.set LOCALID_SSAQUA3_GRANDDAUGHTER, 2
-.set LOCALID_SSAQUA3_CAPTAIN, 1
+.set LOCALID_SSAQUA_CAPTAINS_ROOM_GRANDDAUGHTER, 2
+.set LOCALID_SSAQUA_CAPTAINS_ROOM_CAPTAIN, 1
 
 SSAqua_CaptainsRoom_MapScripts::
 	.byte 0
@@ -15,12 +15,12 @@ SSAqua_CaptainsRoom_EventScrip_CaptainAfter::
 
 SSAqua_CaptainsRoom_EventScript_Granddaughter::
 	lock
-	applymovement LOCALID_SSAQUA3_GRANDDAUGHTER, SSAqua_CaptainsRoom_Movement_Jump
+	applymovement LOCALID_SSAQUA_CAPTAINS_ROOM_GRANDDAUGHTER, SSAqua_CaptainsRoom_Movement_Jump
 	waitmovement 0
 	msgbox SSAqua_CaptainsRoom_Text_GranddaughterCaptainPlayWithMe, MSGBOX_DEFAULT
-	turnobject LOCALID_SSAQUA3_CAPTAIN, DIR_WEST
+	turnobject LOCALID_SSAQUA_CAPTAINS_ROOM_CAPTAIN, DIR_WEST
 	playse SE_PIN
-	applymovement LOCALID_SSAQUA3_CAPTAIN, Common_Movement_QuestionMark
+	applymovement LOCALID_SSAQUA_CAPTAINS_ROOM_CAPTAIN, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 60
 	faceplayer

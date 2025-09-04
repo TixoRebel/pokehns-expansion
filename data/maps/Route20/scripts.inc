@@ -27,7 +27,7 @@ Route20_EventScript_SeafoamSign::
 	end
 
 Route20_EventScript_GymSign::
-	msgbox Route20_Text_CinnabarGymSign, MSGBOX_SIGN
+	msgbox Route20_Text_CinnabarIsland_GymUnusedSign, MSGBOX_SIGN
 	end
 
 Route20_EventScript_Seel::
@@ -91,7 +91,7 @@ Route20_Text_SwimmermCameronAfterBattle:
 	.string "Besides the sea, I can also swim\n"
 	.string "in ponds and rivers.$"
 
-Route20_Text_CinnabarGymSign:
+Route20_Text_CinnabarIsland_GymUnusedSign:
 	.string "What does this sign say?\p"
 	.string "CINNABAR GYM LEADER: BLAINE$"
 

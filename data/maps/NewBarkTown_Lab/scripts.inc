@@ -82,8 +82,8 @@ NewBarkTown_Lab_EventScript_Elm::
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 5, NewBarkTown_Lab_EventScript_ElmState5
 
 	goto_if_ge VAR_NEWBARKTOWN_LABSTATE, 6, NewBarkTown_Lab_EventScript_ElmState5
-	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 2, CopNewBarkTownLab_EventScript_ElmState2
-	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 3, CopNewBarkTownLab_EventScript_ElmState2
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 2, CopNewBarkTown_Lab_EventScript_ElmState2
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 3, CopNewBarkTown_Lab_EventScript_ElmState2
 	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_MrPokemon
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_ElmChoosePokemon
 	end
@@ -235,6 +235,7 @@ NewBarkTown_Lab_EventScript_MrPokemon::
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
 	msgbox NewBarkTown_Lab_Text_ElmDirections2, MSGBOX_DEFAULT
 	closemessage
+	goto_if_eq VAR_FACING, DIR_EAST, NewBarkTown_Lab_EventScript_MrPokemonMovementSafe
 	applymovement LOCALID_ELM, NewBarkTown_Lab_Movement_CheckEmailSlow
 	waitmovement 0
 	clearflag FLAG_RECEIVED_FIRST_BALLS
@@ -243,7 +244,16 @@ NewBarkTown_Lab_EventScript_MrPokemon::
 	release
 	end
 
-CopNewBarkTownLab_EventScript_ElmState2::
+NewBarkTown_Lab_EventScript_MrPokemonMovementSafe::
+	applymovement LOCALID_ELM, NewBarkTown_Lab_Movement_GotoComputerSafe
+	waitmovement 0
+	clearflag FLAG_RECEIVED_FIRST_BALLS
+	clearflag FLAG_RECEIVED_FIRST_POTION
+	setvar VAR_NEWBARK_TOWN_STATE, 3
+	release
+	end
+
+CopNewBarkTown_Lab_EventScript_ElmState2::
 	msgbox NewBarkTown_Lab_Text_ElmDirections1, MSGBOX_DEFAULT
 	msgbox NewBarkTown_Lab_Text_ElmDirections2, MSGBOX_DEFAULT
 	applymovement LOCALID_ELM, Common_Movement_WalkInPlaceFasterUp
@@ -398,6 +408,7 @@ NewBarkTown_Lab_EventScript_ElmSSTicket::
 	closemessage
 	clearflag FLAG_HIDE_SSAQUA_1F_GRANDPA
 	setvar VAR_NEWBARKTOWN_LABSTATE, 11
+	clearflag FLAG_HIDE_OLIVINE_PORT_OAK
 	release
 	end
 
@@ -482,6 +493,14 @@ NewBarkTown_Lab_Movement_CheckEmailSlow:
 	walk_left
 	walk_left
 	walk_up
+	step_end
+
+NewBarkTown_Lab_Movement_GotoComputerSafe:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	face_up
 	step_end
 
 NewBarkTown_Lab_Movement_ReturnFromEmail:

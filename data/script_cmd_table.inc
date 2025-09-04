@@ -262,6 +262,7 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_SETWILDBATTLESHINY			ScrCmd_setwildbattleshiny           requests_effects=1  @ 0xed
 	script_cmd_table_entry SCR_OP_REMOVEGENERICMON				ScrCmd_removegenericmon				requests_effects=1	@ 0xee
 	script_cmd_table_entry SCR_OP_BAOBACHECKMON					ScrCmd_baobacheckmon				requests_effects=1	@ 0xef
+	script_cmd_table_entry SCR_OP_GIVEODDEGG					ScrCmd_giveoddegg					requests_effects=1	@ 0xf0
 
 	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::

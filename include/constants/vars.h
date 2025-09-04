@@ -97,7 +97,7 @@
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_REPEL_LAST_USED                              0x404E
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
-#define VAR_NEWBARK_TOWN_STATE                           0x4050 //START VARS FOR CRYSTAL HERE. 0 = havent set clock, 1 = convo with mom, 2 = talk to elm, 3 = go to mr pokemon, 4 = go to mom again, 5 = done. 6 = First time beating league, 7 = done.
+#define VAR_NEWBARK_TOWN_STATE                           0x4050 // Hns Vars start here. 0 = havent set clock, 1 = convo with mom, 2 = talk to elm, 3 = go to mr pokemon, 4 = go to mom again, 5 = done. 6 = First time beating league, 7 = done.
 #define VAR_STARTER_SPECIES                              0x4051 //152 = CHIKO, 155 = CYNDA, 158 = TOTOD
 #define VAR_NEWBARKTOWN_LABSTATE                         0x4052 // 0 = talk to elm first time, 1 = choose starter, 2 = chosen starter, 3=received potion 4 = police! 5 = receive balls, 6 = get masterball, 7 = gotokimono, 8 = goto league, 9 = get SS ticket, 10 = done
 #define VAR_CHERRYGROVE_CITY_STATE                       0x4053 //0 = guidegent, 1= goto mrpokemon, 2= phonecall, 3=silver, 4=done
@@ -169,9 +169,9 @@
 #define VAR_LILYCOVE_FAN_CLUB_STATE                      0x4095
 #define VAR_EMBEDDED_TOWER                               0x4096 
 #define VAR_INIT_SECRET_BASE                             0x4097 //Not used in HnS
-#define VAR_UNUSED_HNS_VAR1                              0x4098
+#define VAR_TOHJO_FALLS_GIOVANNI_STATE                   0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099 //Not used in HnS but may be later
-#define VAR_UNUSED_HNS_VAR2                              0x409A
+#define VAR_ROUTE22_GIOVANNI_STATE                       0x409A
 #define VAR_UNUSED_HNS_VAR3                              0x409B 
 #define VAR_UNUSED_HNS_VAR4                              0x409C
 #define VAR_UNUSED_HNS_VAR5                              0x409D 

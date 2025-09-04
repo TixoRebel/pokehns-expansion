@@ -2,7 +2,7 @@ MagmaHideout_3F_2R_MapScripts::
 	.byte 0
 
 MagmaHideout_3F_2R_EventScript_Grunt10::
-	trainerbattle_single TRAINER_NONE, MagmaHideout_3F_2R_Text_Grunt10Intro, MagmaHideout_3F_2R_Text_Grunt10Defeat
+	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_10, MagmaHideout_3F_2R_Text_Grunt10Intro, MagmaHideout_3F_2R_Text_Grunt10Defeat
 	msgbox MagmaHideout_3F_2R_Text_Grunt10PostBattle, MSGBOX_AUTOCLOSE
 	end
 

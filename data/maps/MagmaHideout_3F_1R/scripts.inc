@@ -1,13 +1,29 @@
 MagmaHideout_3F_1R_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MagmaHideout_3F_1R_OnTransition
 	.byte 0
 
+MagmaHideout_3F_1R_OnTransition:
+	goto_if_set FLAG_UNLOCK_DOGS, MagmaHideout_3F_1R_SwitchToModern
+	end
+
+MagmaHideout_3F_1R_SwitchToModern::
+	setmaplayoutindex LAYOUT_MAGMA_HIDEOUT_3F_1R_MODERN
+	goto_if_set FLAG_DEFEATED_ENTEI, MagmaHideout_End
+	goto MagmaHideout_Entei_CryStrong
+	end
+
+MagmaHideout_Entei_CryStrong::
+	playmoncry SPECIES_ENTEI, CRY_MODE_ENCOUNTER
+	release
+	end
+
 MagmaHideout_3F_1R_EventScript_Grunt9::
-	trainerbattle_single TRAINER_NONE, MagmaHideout_3F_1R_Text_Grunt9Intro, MagmaHideout_3F_1R_Text_Grunt9Defeat
+	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_9, MagmaHideout_3F_1R_Text_Grunt9Intro, MagmaHideout_3F_1R_Text_Grunt9Defeat
 	msgbox MagmaHideout_3F_1R_Text_Grunt9PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MagmaHideout_3F_1R_EventScript_Grunt16::
-	trainerbattle_single TRAINER_NONE, MagmaHideout_3F_1R_Text_Grunt16Intro, MagmaHideout_3F_1R_Text_Grunt16Defeat
+	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_16, MagmaHideout_3F_1R_Text_Grunt16Intro, MagmaHideout_3F_1R_Text_Grunt16Defeat
 	msgbox MagmaHideout_3F_1R_Text_Grunt16PostBattle, MSGBOX_AUTOCLOSE
 	end
 

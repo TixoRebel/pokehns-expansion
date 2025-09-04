@@ -398,7 +398,7 @@ SaffronCity_FightingDojoVIP_EventScript_Machamp::
 SaffronCity_FightingDojoVIP_Text_Machamp:
 	.string "MACHAMP: Maa-champ!$"
 
-SaffronCityDojo_EventScript_Chased::
+SaffronCity_FightingDojo_EventScript_Chased::
 	msgbox SaffronCity_FightingDojoVIP_Text_Chased, MSGBOX_NPC
 	end
 

@@ -165,19 +165,40 @@ CianwoodCity_EventScript_SuicuneTrigger::
 	lock
 	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
 	applymovement LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Movement_Suicune1
+	playse SE_LEDGE
+	waitse
+	playse SE_LEDGE
+	waitse
 	waitmovement 0
 	waitmoncry
 	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 60
 	applymovement LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Movement_Suicune2
+	playse SE_LEDGE
+	delay 30
+	playse SE_LEDGE
+	delay 30
+	playse SE_LEDGE
+	delay 30
 	waitmovement 0
 	turnobject LOCALID_PLAYER, DIR_SOUTH
 	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
 	waitmoncry
 	applymovement LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Movement_Suicune3
+	playse SE_LEDGE
+	delay 30
+	playse SE_LEDGE
+	delay 30
+	playse SE_LEDGE
+	delay 30
+	playse SE_LEDGE
+	delay 30
+	playse SE_LEDGE
+	delay 30
 	waitmovement 0
 	delay 30
+	playbgm MUS_HG_EUSINE, TRUE
 	clearflag FLAG_HIDE_CIANWOOD_EUSINE
 	addobject LOCALID_CIANWOOD_EUSINE
 	applymovement LOCALID_CIANWOOD_EUSINE, CianwoodCity_Movement_Eusine1
@@ -187,6 +208,7 @@ CianwoodCity_EventScript_SuicuneTrigger::
 	waitmovement 0 
 	msgbox CianwoodCity_Text_EusineSuicune, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_EUSINE, CianwoodCity_Text_EusineBeaten
+	playbgm MUS_HG_EUSINE, TRUE
 	msgbox CianwoodCity_Text_EusineAfter, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_CIANWOOD_EUSINE, CianwoodCity_Movement_Eusine3
@@ -197,6 +219,7 @@ CianwoodCity_EventScript_SuicuneTrigger::
 	removeobject LOCALID_CIANWOOD_EUSINE
 	setvar VAR_SUICUNE_ENCOUNTERS, 2
 	setvar VAR_CIANWOOD_CITY_STATE, 2
+	fadedefaultbgm
 	call_if_set FLAG_HIDE_ROUTE42_SUICUNE, CianwoodCity_EventScript_DoneJohtoSuicune
 	release
 	end

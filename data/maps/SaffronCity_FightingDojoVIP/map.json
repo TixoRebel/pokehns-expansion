@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MISTY",
@@ -302,10 +302,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(STARMIE)",
-      "x": 38,
-      "y": 34,
+      "x": 39,
+      "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -440,7 +440,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCityDojo_EventScript_Chased",
+      "script": "SaffronCity_FightingDojo_EventScript_Chased",
       "flag": "FLAG_HIDE_DOJO_BLAINE"
     },
     {
@@ -458,10 +458,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DEWGONG)",
-      "x": 39,
-      "y": 34,
+      "x": 42,
+      "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 3,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -479,9 +479,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

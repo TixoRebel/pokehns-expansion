@@ -13,7 +13,7 @@ Gate_GoldenrodCity_Route35_EventScript_Randy::
 
 	msgbox Route35GoldenrodGate_Text_RandyThanks, MSGBOX_DEFAULT
 
-	@crystal named gift pokemon setup
+	@HnS named gift pokemon setup
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SPEAROW
 	bufferspeciesname STR_VAR_1, SPECIES_SPEAROW
 	givenamedmon 1

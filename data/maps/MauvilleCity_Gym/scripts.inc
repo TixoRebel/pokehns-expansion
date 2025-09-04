@@ -3,7 +3,7 @@ MauvilleCity_Gym_MapScripts::
 	.byte 0
 
 MauvilleCity_Gym_OnLoad:
-	goto_if_set FLAG_GARBAGEFLAG, MauvilleCity_Gym_EventScript_DeactivatePuzzle
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, MauvilleCity_Gym_EventScript_DeactivatePuzzle
 	switch VAR_GARBAGEVAR
 	case 0, MauvilleCity_Gym_EventScript_UpdateBarriers
 	case 1, MauvilleCity_Gym_EventScript_Switch1Pressed
@@ -74,7 +74,7 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	end
 
 MauvilleCity_Gym_EventScript_Wattson::
-	trainerbattle_single TRAINER_NONE, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
 	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
@@ -90,10 +90,10 @@ MauvilleCity_Gym_EventScript_WattsonDefeated::
 	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
 	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
 	clearflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_DEFEATED_GOLDENROD_CITY_GYM
 	setflag FLAG_BADGE03_GET
 	addvar VAR_GARBAGEVAR, 1
-@	call_if_eq VAR_GARBAGEVAR, 6, Common_EventScript_ReadyPetalburgGymForBattle
+	@ call_if_eq VAR_GARBAGEVAR, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers
 	special MauvilleGymDeactivatePuzzle
@@ -132,13 +132,13 @@ MauvilleCity_Gym_EventScript_CompletedNewMauville::
 	end
 
 MauvilleCity_Gym_EventScript_WattsonRematch::
-	trainerbattle_rematch_double TRAINER_NONE, MauvilleCity_Gym_Text_WattsonPreRematch, MauvilleCity_Gym_Text_WattsonRematchDefeat, MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonPreRematch, MauvilleCity_Gym_Text_WattsonRematchDefeat, MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons
 	msgbox MauvilleCity_Gym_Text_WattsonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 MauvilleCity_Gym_EventScript_Switch1::
 	lockall
-	goto_if_set FLAG_GARBAGEFLAG, MauvilleCity_Gym_EventScript_SwitchDoNothing
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	goto_if_eq VAR_GARBAGEVAR, 1, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	setvar VAR_GARBAGEVAR, 1
 	setvar VAR_0x8004, 0
@@ -147,7 +147,7 @@ MauvilleCity_Gym_EventScript_Switch1::
 
 MauvilleCity_Gym_EventScript_Switch2::
 	lockall
-	goto_if_set FLAG_GARBAGEFLAG, MauvilleCity_Gym_EventScript_SwitchDoNothing
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	goto_if_eq VAR_GARBAGEVAR, 2, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	setvar VAR_GARBAGEVAR, 2
 	setvar VAR_0x8004, 1
@@ -156,7 +156,7 @@ MauvilleCity_Gym_EventScript_Switch2::
 
 MauvilleCity_Gym_EventScript_Switch3::
 	lockall
-	goto_if_set FLAG_GARBAGEFLAG, MauvilleCity_Gym_EventScript_SwitchDoNothing
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	goto_if_eq VAR_GARBAGEVAR, 3, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	setvar VAR_GARBAGEVAR, 3
 	setvar VAR_0x8004, 2
@@ -165,7 +165,7 @@ MauvilleCity_Gym_EventScript_Switch3::
 
 MauvilleCity_Gym_EventScript_Switch4::
 	lockall
-	goto_if_set FLAG_GARBAGEFLAG, MauvilleCity_Gym_EventScript_SwitchDoNothing
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	goto_if_eq VAR_GARBAGEVAR, 4, MauvilleCity_Gym_EventScript_SwitchDoNothing
 	setvar VAR_GARBAGEVAR, 4
 	setvar VAR_0x8004, 3
@@ -212,19 +212,19 @@ MauvilleCity_Gym_EventScript_Ben::
 	end
 
 MauvilleCity_Gym_EventScript_Vivian::
-	trainerbattle_single TRAINER_NONE, MauvilleCity_Gym_Text_VivianIntro, MauvilleCity_Gym_Text_VivianDefeat
+	trainerbattle_single TRAINER_VIVIAN, MauvilleCity_Gym_Text_VivianIntro, MauvilleCity_Gym_Text_VivianDefeat
 	msgbox MauvilleCity_Gym_Text_VivianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MauvilleCity_Gym_EventScript_Angelo::
-	trainerbattle_single TRAINER_NONE, MauvilleCity_Gym_Text_AngeloIntro, MauvilleCity_Gym_Text_AngeloDefeat
+	trainerbattle_single TRAINER_CARLENE, MauvilleCity_Gym_Text_AngeloIntro, MauvilleCity_Gym_Text_AngeloDefeat
 	msgbox MauvilleCity_Gym_Text_AngeloPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MauvilleCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, MauvilleCity_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, MauvilleCity_Gym_EventScript_GymGuidePostVictory
 	msgbox MauvilleCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end

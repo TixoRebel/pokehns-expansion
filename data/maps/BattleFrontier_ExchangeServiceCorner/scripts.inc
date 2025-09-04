@@ -254,61 +254,75 @@ BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin::
 	waitstate
 	special CloseFrontierExchangeCornerItemIconWindow
 	switch VAR_RESULT
-	case 0, BattleFrontier_ExchangeServiceCorner_EventScript_Protein
-	case 1, BattleFrontier_ExchangeServiceCorner_EventScript_Calcium
-	case 2, BattleFrontier_ExchangeServiceCorner_EventScript_Iron
-	case 3, BattleFrontier_ExchangeServiceCorner_EventScript_Zinc
-	case 4, BattleFrontier_ExchangeServiceCorner_EventScript_Carbos
-	case 5, BattleFrontier_ExchangeServiceCorner_EventScript_HPUp
+	case 0, BattleFrontier_ExchangeServiceCorner_EventScript_EonTicket
+	case 1, BattleFrontier_ExchangeServiceCorner_EventScript_MysticTicket
+	case 2, BattleFrontier_ExchangeServiceCorner_EventScript_AuroraTicket
+	case 3, BattleFrontier_ExchangeServiceCorner_EventScript_OldMap
+	case 4, BattleFrontier_ExchangeServiceCorner_EventScript_Brace
+	case 5, BattleFrontier_ExchangeServiceCorner_EventScript_Upgrade
 	case 6, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
 	case MULTI_B_PRESSED, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
 	end
 
-BattleFrontier_ExchangeServiceCorner_EventScript_Protein::
-	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmProtein, MSGBOX_YESNO
+BattleFrontier_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_YouAlreadyHaveThis, MSGBOX_DEFAULT
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
+	release
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_EonTicket::
+	checkitem ITEM_EON_TICKET, 1
+	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmEonTicket, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, ITEM_PROTEIN
+	setvar VAR_0x8008, 48
+	setvar VAR_0x8009, ITEM_EON_TICKET
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleFrontier_ExchangeServiceCorner_EventScript_Calcium::
-	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmCalcium, MSGBOX_YESNO
+BattleFrontier_ExchangeServiceCorner_EventScript_MysticTicket::
+	checkitem ITEM_MYSTIC_TICKET, 1
+	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmMysticTicket, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, ITEM_CALCIUM
+	setvar VAR_0x8008, 96
+	setvar VAR_0x8009, ITEM_MYSTIC_TICKET
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleFrontier_ExchangeServiceCorner_EventScript_Iron::
-	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmIron, MSGBOX_YESNO
+BattleFrontier_ExchangeServiceCorner_EventScript_AuroraTicket::
+	checkitem ITEM_AURORA_TICKET, 1
+	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmAuroraTicket, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, ITEM_IRON
+	setvar VAR_0x8008, 96
+	setvar VAR_0x8009, ITEM_AURORA_TICKET
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleFrontier_ExchangeServiceCorner_EventScript_Zinc::
-	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmZinc, MSGBOX_YESNO
+BattleFrontier_ExchangeServiceCorner_EventScript_OldMap::
+	checkitem ITEM_OLD_SEA_MAP, 1
+	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmOldMap, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, ITEM_ZINC
+	setvar VAR_0x8008, 96
+	setvar VAR_0x8009, ITEM_OLD_SEA_MAP
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleFrontier_ExchangeServiceCorner_EventScript_Carbos::
-	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmCarbos, MSGBOX_YESNO
+BattleFrontier_ExchangeServiceCorner_EventScript_Brace::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmBrace, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, ITEM_CARBOS
+	setvar VAR_0x8008, 4
+	setvar VAR_0x8009, ITEM_MACHO_BRACE
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleFrontier_ExchangeServiceCorner_EventScript_HPUp::
-	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmHPUp, MSGBOX_YESNO
+BattleFrontier_ExchangeServiceCorner_EventScript_Upgrade::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmUpgrade, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, ITEM_HP_UP
+	setvar VAR_0x8008, 16
+	setvar VAR_0x8009, ITEM_UP_GRADE
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
@@ -434,6 +448,18 @@ BattleFrontier_ExchangeServiceCorner_EventScript_Girl::
 	msgbox BattleFrontier_ExchangeServiceCorner_Text_MoreBattlePointsForRecord, MSGBOX_NPC
 	end
 
+BattleFrontier_ExchangeServiceCorner_EventScript_OldWTMan::
+	msgbox BattleFrontier_ExchangeServiceCorner_EventScript_OldWTMan_Text, MSGBOX_NPC
+	end
+
+BattleFrontier_ExchangeServiceCorner_Text_YouAlreadyHaveThis:
+	.string "You already have this item.$"
+
+BattleFrontier_ExchangeServiceCorner_EventScript_OldWTMan_Text:
+	.string "Hi! If you are looking for the\n"
+	.string "WONDERTRADE, they're now located in\l"
+	.string "every POKéMON CENTER. Have fun!$"
+
 BattleFrontier_ExchangeServiceCorner_Text_WelcomePleaseChoosePrize:
 	.string "Hello, this is the EXCHANGE SERVICE\n"
 	.string "CORNER.\p"
@@ -505,28 +531,28 @@ BattleFrontier_ExchangeServiceCorner_Text_ConfirmBlastoiseDoll:
 	.string "You've chosen the BLASTOISE DOLL.\n"
 	.string "Is that correct?$"
 
-BattleFrontier_ExchangeServiceCorner_Text_ConfirmProtein:
-	.string "You've chosen the PROTEIN.\n"
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmEonTicket:
+	.string "You've chosen the EON TICKET.\n"
 	.string "Is that correct?$"
 
-BattleFrontier_ExchangeServiceCorner_Text_ConfirmCalcium:
-	.string "You've chosen the CALCIUM.\n"
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmMysticTicket:
+	.string "You've chosen the MYSTIC\n"
+	.string "TICKET. Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmAuroraTicket:
+	.string "You've chosen the AURORA\n"
+	.string "TICKET Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmOldMap:
+	.string "You've chosen the OLD MAP.\n"
 	.string "Is that correct?$"
 
-BattleFrontier_ExchangeServiceCorner_Text_ConfirmIron:
-	.string "You've chosen the IRON.\n"
-	.string "Is that correct?$"
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmBrace:
+	.string "You've chosen the MACHO\n"
+	.string "BRACE. Is that correct?$"
 
-BattleFrontier_ExchangeServiceCorner_Text_ConfirmZinc:
-	.string "You've chosen the ZINC.\n"
-	.string "Is that correct?$"
-
-BattleFrontier_ExchangeServiceCorner_Text_ConfirmCarbos:
-	.string "You've chosen the CARBOS.\n"
-	.string "Is that correct?$"
-
-BattleFrontier_ExchangeServiceCorner_Text_ConfirmHPUp:
-	.string "You've chosen the HP UP.\n"
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmUpgrade:
+	.string "You've chosen the UP GRADE.\n"
 	.string "Is that correct?$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ConfirmBrightpowder:
@@ -666,27 +692,27 @@ BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc::
 	.string "Place it on a mat or a desk.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ProteinDesc::
-	.string "Raises the stat ATTACK of one\n"
-	.string "POKéMON.$"
+	.string "A strange ticket that will get\n"
+	.string "you to an abandoned island.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_CalciumDesc::
-	.string "Raises the stat SP. ATK of one\n"
-	.string "POKéMON.$"
+	.string "A strange ticket that will get\n"
+	.string "you to an abandoned island.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_IronDesc::
-	.string "Raises the stat DEFENSE of one\n"
-	.string "POKéMON.$"
+	.string "A strange ticket that will get\n"
+	.string "you to an abandoned island.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ZincDesc::
-	.string "Raises the stat SP. DEF of one\n"
-	.string "POKéMON.$"
+	.string "An… old map? Maybe\n"
+	.string "it will get you somewhere.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_CarbosDesc::
-	.string "Raises the stat SPEED of one\n"
-	.string "POKéMON.$"
+	.string "x10 EV gain, but halves speed.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_HPUpDesc::
-	.string "Raises the HP of one POKéMON.$"
+	.string "A peculiar box made\n"
+	.string "by SILPH CO.$"  
 
 BattleFrontier_ExchangeServiceCorner_Text_LeftoversDesc::
 	.string "A hold item that gradually restores\n"
@@ -723,3 +749,194 @@ BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc::
 BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc::
 	.string "A hold item that raises the\n"
 	.string "critical-hit rate.$"
+
+@ EventScript_DoWonderTrade::
+@ 	goto_if_set FLAG_UNLIMITED_WONDERTRADE, EventScript_DoWonderTradeStartNoLimit
+@ 	goto_if_unset FLAG_WONDERTRADE_FIRSTIME, EventScript_FirstTimeWonderRandomizer
+@ 	special CheckIfRandomizerIsActive
+@ 	goto_if_unset FLAG_WT_ENABLED_RANDOMIZER, EventScript_DoWonderTradeStart
+@ 	special CheckIfChallengesAreActive
+@ 	goto_if_set FLAG_WONDERTRADE3, EventScript_NoMoreForToday
+@ 	goto_if_set FLAG_NO_WT_BECAUSE_CHALLENGE, EventScript_WTChallenges
+@ 	goto_if_unset FLAG_WONDERTRADE1, EventScript_DoWonderTradeFirstTrade	
+@ 	goto_if_unset FLAG_WONDERTRADE2, EventScript_DoWonderTradeSecondTrade
+@ 	goto_if_unset FLAG_WONDERTRADE3, EventScript_DoWonderTradeThirdTrade
+@ 	end
+
+@ EventScript_DoWonderTradeStart:
+@ 	goto_if_unset FLAG_BADGE05_GET, EventScript_WTNotActiveYet
+@ 	msgbox EventScript_DoWonderTrade_Text_Welcome, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	special CheckIfChallengesAreActive
+@ 	goto_if_set FLAG_WONDERTRADE3, EventScript_NoMoreForToday
+@ 	goto_if_set FLAG_NO_WT_BECAUSE_CHALLENGE, EventScript_WTChallenges
+@ 	goto_if_unset FLAG_WONDERTRADE1, EventScript_DoWonderTradeFirstTrade	
+@ 	goto_if_unset FLAG_WONDERTRADE2, EventScript_DoWonderTradeSecondTrade
+@ 	goto_if_unset FLAG_WONDERTRADE3, EventScript_DoWonderTradeThirdTrade
+@ 	end
+
+@ EventScript_WTChallenges::
+@ 	goto_if_unset FLAG_SYS_GAME_CLEAR, EventScript_WTChallengesCancel
+@ 	goto_if_unset FLAG_WONDERTRADE1, EventScript_DoWonderTradeFirstTrade	
+@ 	goto_if_unset FLAG_WONDERTRADE2, EventScript_DoWonderTradeSecondTrade
+@ 	goto_if_unset FLAG_WONDERTRADE3, EventScript_DoWonderTradeThirdTrade
+@ 	end
+
+@ EventScript_WTChallengesCancel::
+@ 	msgbox EventScript_DoWonderTrade_Text_Challenges, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_WTNotActiveYet::
+@ 	msgbox EventScript_DoWonderTrade_Text_FiveBadges, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_DoWonderTradeFirstTrade::
+@ 	setflag FLAG_WONDERTRADE1
+@ 	call Common_EventScript_SaveGame
+@ 	goto_if_eq VAR_RESULT, 0, EventScript_DoWonderTradeCancelSaveFirstTrade
+@ 	special ChoosePartyMon
+@ 	waitstate
+@ 	goto EventScript_DoWonderTradeTrade
+
+@ EventScript_DoWonderTradeCancelSaveFirstTrade::
+@ 	clearflag FLAG_WONDERTRADE1
+@ 	msgbox EventScript_DoWonderTrade_Text_Done, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_DoWonderTradeSecondTrade::
+@ 	setflag FLAG_WONDERTRADE2
+@ 	call Common_EventScript_SaveGame
+@ 	goto_if_eq VAR_RESULT, 0, EventScript_DoWonderTradeCancelSaveSecondTrade
+@ 	special ChoosePartyMon
+@ 	waitstate
+@ 	goto EventScript_DoWonderTradeTrade
+
+@ EventScript_DoWonderTradeCancelSaveSecondTrade::
+@ 	clearflag FLAG_WONDERTRADE2
+@ 	msgbox EventScript_DoWonderTrade_Text_Done, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_DoWonderTradeThirdTrade::
+@ 	setflag FLAG_WONDERTRADE3
+@ 	call Common_EventScript_SaveGame
+@ 	goto_if_eq VAR_RESULT, 0, EventScript_DoWonderTradeCancelSaveThirdTrade
+@ 	special ChoosePartyMon
+@ 	waitstate
+@ 	goto EventScript_DoWonderTradeTrade
+
+@ EventScript_DoWonderTradeCancelSaveThirdTrade::
+@ 	clearflag FLAG_WONDERTRADE3
+@ 	msgbox EventScript_DoWonderTrade_Text_Done, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_DoWonderTradeStartNoLimit::
+@ 	goto_if_unset FLAG_WONDERTRADE_FIRSTIME, EventScript_FirstTimeWonderUnlimited
+@ 	goto_if_unset FLAG_BADGE05_GET, EventScript_WTNotActiveYet
+@ 	special CheckIfChallengesAreActive
+@ 	goto_if_set FLAG_NO_WT_BECAUSE_CHALLENGE, EventScript_WTChallengesUnlimited
+@ 	call Common_EventScript_SaveGame
+@ 	goto_if_eq VAR_RESULT, 0, EventScript_DoWonderTradeCancelSaveThirdTrade
+@ 	special ChoosePartyMon
+@ 	waitstate
+@ 	goto EventScript_DoWonderTradeTrade
+
+@ EventScript_WTChallengesUnlimited::
+@ 	goto_if_unset FLAG_SYS_GAME_CLEAR, EventScript_WTChallengesCancel
+@ 	return
+
+@ EventScript_DoWonderTradeTrade::
+@ 	compare VAR_0x8004, PARTY_SIZE
+@ 	goto_if_ge EventScript_End
+@ 	copyvar VAR_0x8005, VAR_0x8004
+@ 	special CreateWonderTradePokemon
+@ 	special DoInGameTradeScene
+@ 	waitstate
+@ 	special ForceSaveGame
+@ 	waitstate
+@ 	msgbox EventScript_DoWonderTrade_Text_Done, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_NoMoreForToday::
+@ 	msgbox EventScript_NoMoreForToday_Text, MSGBOX_DEFAULT
+@ 	closemessage
+@ 	end
+
+@ EventScript_FirstTimeWonderRandomizer::
+@ 	msgbox EventScript_FirstTimeWonder_Text, MSGBOX_DEFAULT
+@ 	setflag FLAG_WONDERTRADE_FIRSTIME
+@ 	closemessage
+@ 	end
+
+@ EventScript_FirstTimeWonderUnlimited::
+@ 	msgbox EventScript_FirstTimeWonder_Text_Unlimited, MSGBOX_DEFAULT
+@ 	setflag FLAG_WONDERTRADE_FIRSTIME
+@ 	closemessage
+@ 	end
+
+@ EventScript_End::
+@ 	end
+
+@ EventScript_DoWonderTrade_Text_Welcome:
+@ 	.string "Welcome to the WONDERTRADE\n"
+@ 	.string "STATION of the POKéCENTER!\p"
+@ 	.string "Please select the POKéMON that\n"
+@ 	.string "is going to get WONDERTRADED.$"
+
+@ EventScript_NoMoreForToday_Text:
+@ 	.string "Oh! Seems that you have\n"
+@ 	.string "used all 3 DAILY TRADES.\p"
+@ 	.string "Come back tomorrow!$"
+
+@ EventScript_FirstTimeWonder_Text:
+@ 	.string "Hello trainer!\p"
+@ 	.string "Oh, is this your first time\n"
+@ 	.string "using the WONDERTRADE SYSTEM?\p"
+@ 	.string "WONDERTRADE is a techonology developed\n"
+@ 	.string "by DEVON CORP. to TRADE anonimously.\p"
+@ 	.string "You basically send a selected\n"
+@ 	.string "POKéMON to someone, and they send\p"
+@ 	.string "you another one in exchange.\n"
+@ 	.string "Neither you nor the other trainer\p"
+@ 	.string "know which POKéMON is going to\n"
+@ 	.string "show up. And that is the fun of\p"
+@ 	.string "WONDERTRADE! Oh, also, to not\n"
+@ 	.string "overload the server, there is a\p"
+@ 	.string "maximum of 3 DAILY WONDERTRADES.\p"
+@ 	.string "We hope you have a great\n"
+@ 	.string "WONDERTRADE experience!$"
+
+@ EventScript_FirstTimeWonder_Text_Unlimited:
+@ 	.string "Hello trainer!\p"
+@ 	.string "Oh, is this your first time\n"
+@ 	.string "using the WONDERTRADE SYSTEM?\p"
+@ 	.string "WONDERTRADE is a techonology developed\n"
+@ 	.string "by DEVON CORP. to TRADE anonimously.\p"
+@ 	.string "You basically send a selected\n"
+@ 	.string "POKéMON to someone, and they send\p"
+@ 	.string "you another one in exchange.\n"
+@ 	.string "Neither you nor the other trainer\p"
+@ 	.string "know which POKéMON is going to\n"
+@ 	.string "show up. And that is the fun of\l"
+@ 	.string "WONDERTRADE!\p"
+@ 	.string "We hope you have a great\n"
+@ 	.string "WONDERTRADE experience!$"
+
+@ EventScript_DoWonderTrade_Text_Done:
+@ 	.string "We hope you had a good\n"
+@ 	.string "WONDERTRADE!$"
+
+@ EventScript_DoWonderTrade_Text_Challenges:
+@ 	.string "Looks like you have challenges\n"
+@ 	.string "activated. Please come back\l"
+@ 	.string "again after the POKéMON LEAGUE.$"
+
+@ EventScript_DoWonderTrade_Text_FiveBadges:
+@ 	.string "Sadly, the WONDERTRADE SYSTEM is\n"
+@ 	.string "not active yet. Please do come\l"
+@ 	.string "back later.$"

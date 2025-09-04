@@ -37,7 +37,7 @@ MountMortar4_EventScript_Kiyo::
 	setflag FLAG_BEAT_KIYO
 MountMortar4_EventScript_KiyoTryGiveTyrogue::
 	msgbox MountMortar4_Text_KiyoTyrogueReward, MSGBOX_DEFAULT
-	@crystal gift pokemon setup
+	@HnS gift pokemon setup
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYROGUE
 	bufferspeciesname STR_VAR_1, SPECIES_TYROGUE
 	givemon SPECIES_TYROGUE, 25

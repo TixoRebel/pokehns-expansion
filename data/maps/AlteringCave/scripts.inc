@@ -6,5 +6,9 @@ AlteringCave_MapScripts::
 
 AlteringCave_OnTransition:
 	setflag FLAG_LANDMARK_ALTERING_CAVE
+	call_if_set FLAG_UNLOCK_MEWTWO, AlteringCave_EventScript_OpenCave
 	end
 
+AlteringCave_EventScript_OpenCave::
+	setmaplayoutindex LAYOUT_ALTERING_CAVE_MEWTWO
+	end

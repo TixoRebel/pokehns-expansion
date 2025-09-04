@@ -151,9 +151,9 @@ gSpecials::
 	def_special SwapRegisteredBike
 	def_special CalculatePlayerPartyCount
 	def_special GetMaxPartySize 				@ tx_randomizer_and_challenges
-	@def_special IsPokecenterChallengeActivated 	@ tx_randomizer_and_challenges
+	@def_special IsPokecenterChallengeActivated @ tx_randomizer_and_challenges
 	@def_special IsNuzlockeNicknamingActive		@ tx_randomizer_and_challenges
-	@def_special IsRandomItemsActivated 			@ tx_randomizer_and_challenges
+	@def_special IsRandomItemsActivated 		@ tx_randomizer_and_challenges
 	@def_special RandomItem						@ tx_randomizer_and_challenges
 	@def_special RandomItemHidden				@ tx_randomizer_and_challenges
 	def_special CountPartyNonEggMons
@@ -580,6 +580,7 @@ gSpecials::
 	def_special CheckKabuto
 	def_special CheckOmanyte
 	def_special CheckTogepi
+	def_special CheckCelebi
 	def_special HaircutBrother1
 	def_special HaircutBrother2
 	def_special EnterBugContestMode

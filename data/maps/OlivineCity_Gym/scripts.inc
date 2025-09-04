@@ -1,5 +1,5 @@
-.set LOCALID_OLIVINE_GYM_NPC1, 3
-.set LOCALID_OLIVINE_GYM_NPC2, 2
+.set LOCALID_OLIVINE_CITY_GYM_NPC1, 3
+.set LOCALID_OLIVINE_CITY_GYM_NPC2, 2
 
 OlivineCity_Gym_MapScripts::
 	.byte 0
@@ -21,7 +21,7 @@ OlivineCity_Gym_EventScript_Gent2::
 
 OlivineCity_Gym_TriggerRow1::
 	lock
-	setvar VAR_TEMP_0, LOCALID_OLIVINE_GYM_NPC1
+	setvar VAR_TEMP_0, LOCALID_OLIVINE_CITY_GYM_NPC1
 	playse SE_PIN
 	applymovement VAR_TEMP_0, Common_Movement_ExclamationMark
 	delay 60
@@ -104,7 +104,7 @@ OlivineCity_Gym_EventScript_Lass2::
 
 OlivineCity_Gym_TriggerRow2::
 	lock
-	setvar VAR_TEMP_0, LOCALID_OLIVINE_GYM_NPC2
+	setvar VAR_TEMP_0, LOCALID_OLIVINE_CITY_GYM_NPC2
 	playse SE_PIN
 	applymovement VAR_TEMP_0, Common_Movement_ExclamationMark
 	delay 60
@@ -296,7 +296,8 @@ OlivineCity_Gym_Text_ReceivedMineralBadge:
 	.string "{PLAYER} received MINERALBADGE.$"
 
 OlivineCity_Gym_Text_JasmineBadgeSpeech:
-	.string "MINERALBADGE raises POKéMON's DEFENSE.\p"
+	.string "MINERALBADGE raises POKéMON's \n"
+	.string "SPECIAL DEFESNE.\p"
 	.string "…Um… Please take this too…$"
 
 OlivineCity_Gym_Text_JasmineIronTailSpeech:

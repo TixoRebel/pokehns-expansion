@@ -12,9 +12,10 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_MOVE_DELETER",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 4,
       "y": 4,
@@ -24,10 +25,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LilycoveCity_MoveDeletersHouse_EventScript_MoveDeleter",
+      "script": "BlackthornCity_MoveDeletersHouse_EventScript_MoveDeleter",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_MOVE_RELEARNER",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 7,
       "y": 4,
@@ -37,7 +39,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner",
+      "script": "BlackthornCity_MoveRelearnersHouse_EventScript_MoveRelearner",
       "flag": "0"
     }
   ],
@@ -50,10 +52,6 @@
       "dest_warp_id": "7"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }
