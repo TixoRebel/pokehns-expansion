@@ -7,3 +7,6 @@ sRegionMap_SpecialPlaceLocations needs updating
 vs seeker helper
 gTrainerClasses needs updating with money and item_balls
 Trainer sprite locations in gTrainerSprites
+Battle backgrounds (especially gray cave) need looking over
+Debug menu
+Set clock in house

@@ -40,10 +40,6 @@
 #include "constants/event_objects.h"
 #include "constants/moves.h"
 
-extern const u8 RocketHideout2_EventScript_ArianaTrainer[];
-extern const u8 RocketHideout2_EventScript_GruntTrainer[];
-
-
 // EWRAM vars.
 EWRAM_DATA const struct BattleFrontierTrainer *gFacilityTrainers = NULL;
 EWRAM_DATA const struct TrainerMon *gFacilityTrainerMons = NULL;

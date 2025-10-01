@@ -1250,8 +1250,8 @@ const struct Tileset gTileset_EcruteakGym_54 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_EcruteakGym_54,
-    .palettes = gTilesetPalettes_EcruteakGym_54,
+    .tiles = gTilesetTiles_EcruteakCity_Gym_54,
+    .palettes = gTilesetPalettes_EcruteakCity_Gym_54,
     .metatiles = gMetatiles_EcruteakGym_54,
     .metatileAttributes = gMetatileAttributes_EcruteakGym_54,
     .callback = NULL,
@@ -1342,7 +1342,7 @@ const struct Tileset gTileset_AzaleaTown_Gym =
     .palettes = gTilesetPalettes_AzaleaTown_Gym,
     .metatiles = gMetatiles_AzaleaTown_Gym,
     .metatileAttributes = gMetatileAttributes_AzaleaTown_Gym,
-    .callback = InitTilesetAnim_AzaleaGym_29,
+    .callback = InitTilesetAnim_AzaleaTown_Gym_29,
 };
 
 const struct Tileset gTileset_Goldenrod =
@@ -1680,7 +1680,7 @@ const struct Tileset gTileset_CinnabarGym_31 =
     .isCompressed = TRUE,
     .isSecondary = TRUE,
     .tiles = gTilesetTiles_CinnabarGym_31,
-    .palettes = gTilesetPalettes_CinnabarGym_31,
+    .palettes = gTilesetPalettes_CinnabarIsland_GymUnused_31,
     .metatiles = gMetatiles_CinnabarGym_31,
     .metatileAttributes = gMetatileAttributes_CinnabarGym_31,
     .callback = NULL,

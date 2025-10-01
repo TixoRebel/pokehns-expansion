@@ -80,8 +80,8 @@ static void QueueAnimTiles_NationalPark_RedFlower(u16);
 static void QueueAnimTiles_NationalPark_YellowFlower(u16);
 static void TilesetAnim_Theater_26(u16);
 static void QueueAnimTiles_OlivineCity_Gym_Flower(u16);
-static void TilesetAnim_AzaleaGym_29(u16);
-static void QueueAnimTiles_AzaleaGym_Flower(u16);
+static void TilesetAnim_AzaleaTown_Gym_29(u16);
+static void QueueAnimTiles_AzaleaTown_Gym_Flower(u16);
 
 
 static const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/johto_general/anim/flower/0.4bpp");
@@ -256,15 +256,15 @@ static const u16 *const gTilesetAnims_OlivineCity_Gym_Flower[] = {
     sTilesetAnims_OlivineCity_Gym_Flower_Frame4
 };
 
-const u16 gTilesetAnims_AzaleaGym_Flower_Frame0[] = INCBIN_U16("data/tilesets/secondary/azalea_gym_29/anim/yellow_flower/0.4bpp");
-const u16 gTilesetAnims_AzaleaGym_Flower_Frame1[] = INCBIN_U16("data/tilesets/secondary/azalea_gym_29/anim/yellow_flower/1.4bpp");
-const u16 gTilesetAnims_AzaleaGym_Flower_Frame2[] = INCBIN_U16("data/tilesets/secondary/azalea_gym_29/anim/yellow_flower/2.4bpp");
+const u16 gTilesetAnims_AzaleaTown_Gym_Flower_Frame0[] = INCBIN_U16("data/tilesets/secondary/azalea_gym_29/anim/yellow_flower/0.4bpp");
+const u16 gTilesetAnims_AzaleaTown_Gym_Flower_Frame1[] = INCBIN_U16("data/tilesets/secondary/azalea_gym_29/anim/yellow_flower/1.4bpp");
+const u16 gTilesetAnims_AzaleaTown_Gym_Flower_Frame2[] = INCBIN_U16("data/tilesets/secondary/azalea_gym_29/anim/yellow_flower/2.4bpp");
 
-const u16 *const gTilesetAnims_AzaleaGym_Flower[] = {
-    gTilesetAnims_AzaleaGym_Flower_Frame0,
-    gTilesetAnims_AzaleaGym_Flower_Frame1,
-    gTilesetAnims_AzaleaGym_Flower_Frame2,
-    gTilesetAnims_AzaleaGym_Flower_Frame1
+const u16 *const gTilesetAnims_AzaleaTown_Gym_Flower[] = {
+    gTilesetAnims_AzaleaTown_Gym_Flower_Frame0,
+    gTilesetAnims_AzaleaTown_Gym_Flower_Frame1,
+    gTilesetAnims_AzaleaTown_Gym_Flower_Frame2,
+    gTilesetAnims_AzaleaTown_Gym_Flower_Frame1
 };
 
 const u16 gTilesetAnims_Lavaridge_Steam_Frame0[] = INCBIN_U16("data/tilesets/secondary/lavaridge/anim/steam/0.4bpp");
@@ -897,20 +897,20 @@ static void QueueAnimTiles_OlivineCity_Gym_Flower(u16 timer)
 }
 
 
-void InitTilesetAnim_AzaleaGym_29(void)
+void InitTilesetAnim_AzaleaTown_Gym_29(void)
 {
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = 960;
-    sSecondaryTilesetAnimCallback = TilesetAnim_AzaleaGym_29;
+    sSecondaryTilesetAnimCallback = TilesetAnim_AzaleaTown_Gym_29;
 }
-static void TilesetAnim_AzaleaGym_29(u16 timer)
+static void TilesetAnim_AzaleaTown_Gym_29(u16 timer)
 {
     if (timer % 10 == 0)
-        QueueAnimTiles_AzaleaGym_Flower(timer / 10);
+        QueueAnimTiles_AzaleaTown_Gym_Flower(timer / 10);
 }
-static void QueueAnimTiles_AzaleaGym_Flower(u16 timer)
+static void QueueAnimTiles_AzaleaTown_Gym_Flower(u16 timer)
 {
-    AppendTilesetAnimToBuffer(gTilesetAnims_AzaleaGym_Flower[timer % ARRAY_COUNT(gTilesetAnims_AzaleaGym_Flower)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 99)), 0x80);
+    AppendTilesetAnimToBuffer(gTilesetAnims_AzaleaTown_Gym_Flower[timer % ARRAY_COUNT(gTilesetAnims_AzaleaTown_Gym_Flower)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 99)), 0x80);
 }
 
 
