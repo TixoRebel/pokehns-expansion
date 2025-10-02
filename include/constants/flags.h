@@ -997,7 +997,7 @@
 #define FLAG_COMPLETED_SWITCHES                                     0x39D
 #define FLAG_HIDE_GOLDENROD_BEAUTY                                  0x39E
 #define FLAG_ENABLE_RADIO                                           0x39F
-#define FLAG_KANTO_RADIO_GOT                                        0x3A0
+#define FLAG_KANTO_RADIO_GOT                                        0x3A0 // HnS PORT NOTE - may be duplicate flag w/ FLAG_GOT_KANTO_RADIO
 #define FLAG_HIDE_RADIOTOWER_GATE                                   0x3A1
 #define FLAG_HIDE_ROCKET_GOLDENROD_RADIOTOWER_1                     0x3A2
 #define FLAG_HIDE_GOLDENROD_RADIOTOWER_DIRECTOR                     0x3A3

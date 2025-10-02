@@ -19,6 +19,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/region_map_sections.h"
+#include "constants/flags.h"
 
 #define GFXTAG_CITY_ZOOM 6
 #define PALTAG_CITY_ZOOM 11
@@ -86,6 +87,12 @@ static const u32 sRegionMapCityZoomTiles_Gfx[] = INCBIN_U32("graphics/pokenav/re
 
 #include "data/region_map/city_map_tilemaps.h"
 
+// Johto-only map when the Kanto flag is UNSET
+static inline bool32 IsJohtoOnlyMap(void)
+{
+    return !FlagGet(FLAG_VISITED_KANTO);
+}
+
 static const struct BgTemplate sRegionMapBgTemplates[3] =
 {
     {
@@ -148,6 +155,20 @@ static const struct WindowTemplate sMapSecInfoWindowTemplate =
     .paletteNum = 1,
     .baseBlock = 0x4C
 };
+
+// Same size, mirrored to the right side (32 tiles wide screen)
+// 32 - width (12) - left margin (1) = 19
+static const struct WindowTemplate sMapSecInfoWindowTemplate_Right =
+{
+    .bg = 1,
+    .tilemapLeft = 19,
+    .tilemapTop = 4,
+    .width = 12,
+    .height = 13,
+    .paletteNum = 1,
+    .baseBlock = 0x4C
+};
+
 
 #include "data/region_map/city_map_entries.h"
 
@@ -215,10 +236,10 @@ static u32 HandleRegionMapInput(struct Pokenav_RegionMapMenu *state)
     {
     case MAP_INPUT_MOVE_END:
         return POKENAV_MAP_FUNC_CURSOR_MOVED;
-    // case MAP_INPUT_A_BUTTON:
-    //     if (!IsRegionMapZoomed())
-    //         return POKENAV_MAP_FUNC_ZOOM_IN;
-    //     return POKENAV_MAP_FUNC_ZOOM_OUT;
+    case MAP_INPUT_A_BUTTON:
+        if (!IsRegionMapZoomed())
+            return POKENAV_MAP_FUNC_ZOOM_IN;
+        return POKENAV_MAP_FUNC_ZOOM_OUT;
     case MAP_INPUT_B_BUTTON:
         state->callback = GetExitRegionMapMenuId;
         return POKENAV_MAP_FUNC_EXIT;
@@ -233,7 +254,7 @@ static u32 HandleRegionMapInput(struct Pokenav_RegionMapMenu *state)
 
 static u32 HandleRegionMapInputZoomDisabled(struct Pokenav_RegionMapMenu *state)
 {
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW(MAP_INPUT_B_BUTTON))
     {
         state->callback = GetExitRegionMapMenuId;
         return POKENAV_MAP_FUNC_EXIT;
@@ -305,6 +326,8 @@ static bool32 GetCurrentLoopedTaskActive(void)
 
 static bool8 ShouldOpenRegionMapZoomed(void)
 {
+    return FALSE;
+    
     if (GetZoomDisabled())
         return FALSE;
 
@@ -538,7 +561,13 @@ static void LoadPokenavRegionMapGfx(struct Pokenav_RegionMapGfx *state)
     BgDmaFill(1, PIXEL_FILL(1), 0x41, 1);
     CpuFill16(0x1040, state->tilemapBuffer, 0x800);
     SetBgTilemapBuffer(1, state->tilemapBuffer);
-    state->infoWindowId = AddWindow(&sMapSecInfoWindowTemplate);
+    // choose left vs right window based on active region variant
+    const struct WindowTemplate *tpl = IsJohtoOnlyMap()
+        ? &sMapSecInfoWindowTemplate_Right
+        : &sMapSecInfoWindowTemplate;
+
+    state->infoWindowId = AddWindow(tpl);
+
     LoadUserWindowBorderGfx_(state->infoWindowId, 0x42, BG_PLTT_ID(4));
     DrawTextBorderOuter(state->infoWindowId, 0x42, 4);
     DecompressAndCopyTileDataToVram(1, sRegionMapCityZoomTiles_Gfx, 0, 0, 0);
@@ -591,7 +620,7 @@ static void UpdateMapSecInfoWindow(struct Pokenav_RegionMapGfx *state)
         SetCityZoomTextInvisibility(TRUE);
         break;
     case MAPSECTYPE_NONE:
-        FillBgTilemapBufferRect(1, 0x1041, 1, 4, 12, 13, 17);
+        FillBgTilemapBufferRect(1, 0x1041, 19, 4, 12, 13, 17);
         CopyBgTilemapBufferToVram(1);
         SetCityZoomTextInvisibility(TRUE);
         break;
@@ -673,8 +702,8 @@ static void DrawCityMap(struct Pokenav_RegionMapGfx *state, int mapSecId, int po
     if (i == NUM_CITY_MAPS)
         return;
 
-    FillBgTilemapBufferRect_Palette0(1, 0x1041, 17, 6, 12, 11);
-    CopyToBgTilemapBufferRect(1, state->cityZoomPics[i], 18, 6, 10, 10);
+    FillBgTilemapBufferRect_Palette0(1, 0x1041, 19, 6, 12, 11);
+    CopyToBgTilemapBufferRect(1, state->cityZoomPics[i], 19, 6, 10, 10);
 }
 
 static void PrintLandmarkNames(struct Pokenav_RegionMapGfx *state, int mapSecId, int pos)

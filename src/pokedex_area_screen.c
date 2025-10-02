@@ -25,7 +25,18 @@
 #include "constants/region_map_sections.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
-#include "config/pokedex_plus_hgss.h"
+#include "constants/flags.h"
+
+#define MAP_WIDTH 28
+#define MAP_HEIGHT 15
+#define MAPCURSOR_X_MIN 1
+#define MAPCURSOR_Y_MIN 2
+#define MAPCURSOR_X_MAX (MAPCURSOR_X_MIN + MAP_WIDTH - 1)
+#define MAPCURSOR_Y_MAX (MAPCURSOR_Y_MIN + MAP_HEIGHT - 1)
+
+// HnS PORT - why not layout_jk.h ??
+#include "data/region_map/region_map_layout.h"         // combined JK layout: sRegionMap_MapSectionLayout
+#include "data/region_map/region_map_layout_johto.h"   // johto-only layout: sRegionMap_MapSectionLayout_Johto
 
 // There are two types of indicators for the area screen to show where a Pokémon can occur:
 // - Area glows, which highlight any of the maps in MAP_GROUP_TOWNS_AND_ROUTES that have the species.
@@ -36,9 +47,9 @@
 //   determined by the data for the corresponding MAPSEC in gRegionMapEntries.
 
 // Only maps in the following map groups have their encounters considered for the area screen
-#define MAP_GROUP_TOWNS_AND_ROUTES MAP_GROUP(MAP_PETALBURG_CITY)
-#define MAP_GROUP_DUNGEONS MAP_GROUP(MAP_METEOR_FALLS_1F_1R)
-#define MAP_GROUP_SPECIAL_AREA MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST)
+#define MAP_GROUP_TOWNS_AND_ROUTES MAP_GROUP(MAP_NEW_BARK_TOWN)
+#define MAP_GROUP_DUNGEONS MAP_GROUP(MAP_DARK_CAVE_SOUTH_SIDE)
+#define MAP_GROUP_SPECIAL_AREA MAP_GROUP(MAP_SAFARI_ZONE_TOP_LEFT)
 
 #define AREA_SCREEN_WIDTH 32
 #define AREA_SCREEN_HEIGHT 20
@@ -143,11 +154,470 @@ static void LoadHGSSScreenSelectBarSubmenu(void);
 
 static const u16 sSpeciesHiddenFromAreaScreen[] = { SPECIES_WYNAUT };
 
-static const u16 sMovingRegionMapSections[0] =
+// Return the region-map section at (x,y) tiles on the Pokédex area screen.
+// Uses the same layout as the Pokédex art: flag set => combined; unset => johto.
+static inline u16 DexGetMapSecAt(u16 x, u16 y)
 {
-    // MAPSEC_NONE,
-    // MAPSEC_NONE,
-    // MAPSEC_NONE
+    const bool32 isCombined = FlagGet(FLAG_VISITED_KANTO);
+    const u8 (*grid)[MAP_WIDTH] = isCombined
+        ? sRegionMap_MapSectionLayout
+        : sRegionMap_MapSectionLayout_Johto;
+
+    // Use a different X-origin for Johto (+1 tile), Y-origin is the same.
+    const u16 originX = isCombined ? MAPCURSOR_X_MIN : (MAPCURSOR_X_MIN);
+    const u16 originY = MAPCURSOR_Y_MIN;
+
+    if (x < originX || x >= originX + MAP_WIDTH
+     || y < originY || y >= originY + MAP_HEIGHT)
+        return MAPSEC_NONE;
+
+    return grid[y - originY][x - originX];
+}
+
+// Find the bounding box of a region-map section on the *active* Pokédex layout.
+// Returns TRUE if the section exists on this layout.
+static bool8 Dex_FindLayoutRect(u16 mapSecId, u16 *outX, u16 *outY, u16 *outW, u16 *outH)
+{
+    const bool32 isCombined = FlagGet(FLAG_VISITED_KANTO);
+    const u8 (*grid)[MAP_WIDTH] = isCombined
+        ? sRegionMap_MapSectionLayout          // combined JK layout
+        : sRegionMap_MapSectionLayout_Johto;   // Johto-only layout
+
+    u16 minx = MAP_WIDTH, miny = MAP_HEIGHT, maxx = 0, maxy = 0;
+    bool8 found = FALSE;
+
+    for (u16 y = 0; y < MAP_HEIGHT; y++)
+        for (u16 x = 0; x < MAP_WIDTH; x++)
+            if (grid[y][x] == mapSecId) {
+                found = TRUE;
+                if (x < minx) minx = x;
+                if (y < miny) miny = y;
+                if (x > maxx) maxx = x;
+                if (y > maxy) maxy = y;
+            }
+
+    if (!found) return FALSE;
+
+    *outX = minx;
+    *outY = miny;
+    *outW = (maxx - minx) + 1;
+    *outH = (maxy - miny) + 1;
+    return TRUE;
+}
+
+static const u16 sSpeciesHiddenFromAreaScreenModern[] = { 
+   //SPECIES_BULBASAUR, 
+   //SPECIES_IVYSAUR, 
+   //SPECIES_VENUSAUR, 
+   //SPECIES_CHARMANDER, 
+   //SPECIES_CHARMELEON, 
+   //SPECIES_CHARIZARD, 
+   //SPECIES_SQUIRTLE, 
+   //SPECIES_WARTORTLE, 
+   //SPECIES_BLASTOISE, 
+   //SPECIES_CATERPIE, 
+   //SPECIES_METAPOD, 
+   //SPECIES_BUTTERFREE, 
+   //SPECIES_WEEDLE, 
+   //SPECIES_KAKUNA, 
+   //SPECIES_BEEDRILL, 
+   //SPECIES_PIDGEY, 
+   //SPECIES_PIDGEOTTO, 
+   //SPECIES_PIDGEOT, 
+   //SPECIES_RATTATA, 
+   //SPECIES_RATICATE, 
+   //SPECIES_SPEAROW, 
+   //SPECIES_FEAROW, 
+   //SPECIES_EKANS, 
+   //SPECIES_ARBOK, 
+    //SPECIES_PIKACHU, 
+   //SPECIES_RAICHU, 
+    //SPECIES_SANDSHREW, 
+    //SPECIES_SANDSLASH, 
+   //SPECIES_NIDORAN_F, 
+   //SPECIES_NIDORINA, 
+   //SPECIES_NIDOQUEEN, 
+   //SPECIES_NIDORAN_M, 
+   //SPECIES_NIDORINO, 
+   //SPECIES_NIDOKING, 
+   //SPECIES_CLEFAIRY, 
+   //SPECIES_CLEFABLE, 
+    //SPECIES_VULPIX, 
+   //SPECIES_NINETALES, 
+    //SPECIES_JIGGLYPUFF, 
+   //SPECIES_WIGGLYTUFF, 
+    //SPECIES_ZUBAT, 
+    //SPECIES_GOLBAT, 
+    //SPECIES_ODDISH, 
+    //SPECIES_GLOOM, 
+   //SPECIES_VILEPLUME, 
+   //SPECIES_PARAS, 
+   //SPECIES_PARASECT, 
+   //SPECIES_VENONAT, 
+   //SPECIES_VENOMOTH, 
+   //SPECIES_DIGLETT, 
+   //SPECIES_DUGTRIO, 
+   //SPECIES_MEOWTH, 
+   //SPECIES_PERSIAN, 
+    //SPECIES_PSYDUCK, 
+    //SPECIES_GOLDUCK, 
+   //SPECIES_MANKEY, 
+   //SPECIES_PRIMEAPE, 
+   //SPECIES_GROWLITHE, 
+   //SPECIES_ARCANINE, 
+   //SPECIES_POLIWAG, 
+   //SPECIES_POLIWHIRL, 
+   //SPECIES_POLIWRATH, 
+    //SPECIES_ABRA, 
+    //SPECIES_KADABRA, 
+   //SPECIES_ALAKAZAM, 
+    //SPECIES_MACHOP, 
+    //SPECIES_MACHOKE, 
+    //SPECIES_MACHAMP, 
+   //SPECIES_BELLSPROUT, 
+   //SPECIES_WEEPINBELL, 
+   //SPECIES_VICTREEBEL, 
+    //SPECIES_TENTACOOL, 
+    //SPECIES_TENTACRUEL, 
+    //SPECIES_GEODUDE, 
+    //SPECIES_GRAVELER, 
+   //SPECIES_GOLEM, 
+   //SPECIES_PONYTA, 
+   //SPECIES_RAPIDASH, 
+   //SPECIES_SLOWPOKE, 
+   //SPECIES_SLOWBRO, 
+    //SPECIES_MAGNEMITE, 
+    //SPECIES_MAGNETON, 
+   //SPECIES_FARFETCHD, 
+    //SPECIES_DODUO, 
+    //SPECIES_DODRIO, 
+   //SPECIES_SEEL, 
+   //SPECIES_DEWGONG, 
+    //SPECIES_GRIMER, 
+   //SPECIES_MUK, 
+   //SPECIES_SHELLDER, 
+   //SPECIES_CLOYSTER, 
+   //SPECIES_GASTLY, 
+   //SPECIES_HAUNTER, 
+   //SPECIES_GENGAR, 
+   //SPECIES_ONIX, 
+   //SPECIES_DROWZEE, 
+   //SPECIES_HYPNO, 
+   //SPECIES_KRABBY, 
+   //SPECIES_KINGLER, 
+    //SPECIES_VOLTORB, 
+    //SPECIES_ELECTRODE, 
+   //SPECIES_EXEGGCUTE, 
+   //SPECIES_EXEGGUTOR, 
+   //SPECIES_CUBONE, 
+   //SPECIES_MAROWAK, 
+   //SPECIES_HITMONLEE, 
+   //SPECIES_HITMONCHAN, 
+   //SPECIES_LICKITUNG, 
+    //SPECIES_KOFFING, 
+   //SPECIES_WEEZING, 
+    //SPECIES_RHYHORN, 
+   //SPECIES_RHYDON, 
+   //SPECIES_CHANSEY, 
+   //SPECIES_TANGELA, 
+   //SPECIES_KANGASKHAN, 
+    //SPECIES_HORSEA, 
+   //SPECIES_SEADRA, 
+    //SPECIES_GOLDEEN, 
+    //SPECIES_SEAKING, 
+    //SPECIES_STARYU, 
+   //SPECIES_STARMIE, 
+   //SPECIES_MR_MIME, 
+   //SPECIES_SCYTHER, 
+   //SPECIES_JYNX, 
+   //SPECIES_ELECTABUZZ, 
+   //SPECIES_MAGMAR, 
+    //SPECIES_PINSIR, 
+   //SPECIES_TAUROS, 
+    //SPECIES_MAGIKARP, 
+    //SPECIES_GYARADOS, 
+   //SPECIES_LAPRAS, 
+    //SPECIES_DITTO, 
+   //SPECIES_EEVEE, 
+   //SPECIES_VAPOREON, 
+   //SPECIES_JOLTEON, 
+   //SPECIES_FLAREON, 
+   //SPECIES_PORYGON, 
+   //SPECIES_OMANYTE, 
+   //SPECIES_OMASTAR, 
+   //SPECIES_KABUTO, 
+   //SPECIES_KABUTOPS, 
+   //SPECIES_AERODACTYL, 
+   //SPECIES_SNORLAX, 
+   //SPECIES_ARTICUNO, 
+   //SPECIES_ZAPDOS, 
+   //SPECIES_MOLTRES, 
+   //SPECIES_DRATINI, 
+   //SPECIES_DRAGONAIR, 
+   //SPECIES_DRAGONITE, 
+   //SPECIES_CHIKORITA, 
+   //SPECIES_BAYLEEF, 
+   //SPECIES_MEGANIUM, 
+   //SPECIES_CYNDAQUIL, 
+   //SPECIES_QUILAVA, 
+   //SPECIES_TYPHLOSION, 
+   //SPECIES_TOTODILE, 
+   //SPECIES_CROCONAW, 
+   //SPECIES_FERALIGATR, 
+   //SPECIES_SENTRET, 
+   //SPECIES_FURRET, 
+    //SPECIES_HOOTHOOT, 
+   //SPECIES_NOCTOWL, 
+    //SPECIES_LEDYBA, 
+   //SPECIES_LEDIAN, 
+    //SPECIES_SPINARAK, 
+   //SPECIES_ARIADOS, 
+   //SPECIES_CROBAT, 
+    //SPECIES_CHINCHOU, 
+   //SPECIES_LANTURN, 
+   //SPECIES_PICHU, 
+   //SPECIES_CLEFFA, 
+   //SPECIES_IGGLYBUFF, 
+   //SPECIES_TOGEPI, 
+   //SPECIES_TOGETIC, 
+    //SPECIES_NATU, 
+    //SPECIES_XATU, 
+    //SPECIES_MAREEP, 
+   //SPECIES_FLAAFFY, 
+   //SPECIES_AMPHAROS, 
+   //SPECIES_BELLOSSOM, 
+    //SPECIES_MARILL, 
+   //SPECIES_AZUMARILL, 
+   //SPECIES_SUDOWOODO, 
+   //SPECIES_POLITOED, 
+   //SPECIES_HOPPIP, 
+   //SPECIES_SKIPLOOM, 
+   //SPECIES_JUMPLUFF, 
+    //SPECIES_AIPOM, 
+    //SPECIES_SUNKERN, 
+   //SPECIES_SUNFLORA, 
+   //SPECIES_YANMA, 
+    //SPECIES_WOOPER, 
+    //SPECIES_QUAGSIRE, 
+   //SPECIES_ESPEON, 
+   //SPECIES_UMBREON, 
+   //SPECIES_MURKROW, 
+   //SPECIES_SLOWKING, 
+   //SPECIES_MISDREAVUS, 
+    //SPECIES_UNOWN, 
+    //SPECIES_WOBBUFFET, 
+    //SPECIES_GIRAFARIG, 
+    //SPECIES_PINECO, 
+   //SPECIES_FORRETRESS, 
+   //SPECIES_DUNSPARCE, 
+    //SPECIES_GLIGAR, 
+   //SPECIES_STEELIX, 
+    //SPECIES_SNUBBULL, 
+   //SPECIES_GRANBULL, 
+   //SPECIES_QWILFISH, 
+   //SPECIES_SCIZOR, 
+    //SPECIES_SHUCKLE, 
+    //SPECIES_HERACROSS, 
+   //SPECIES_SNEASEL, 
+    //SPECIES_TEDDIURSA, 
+   //SPECIES_URSARING, 
+    //SPECIES_SLUGMA, 
+   //SPECIES_MAGCARGO, 
+   //SPECIES_SWINUB, 
+   //SPECIES_PILOSWINE, 
+    //SPECIES_CORSOLA, 
+    //SPECIES_REMORAID, 
+    //SPECIES_OCTILLERY, 
+   //SPECIES_DELIBIRD, 
+   //SPECIES_MANTINE, 
+    //SPECIES_SKARMORY, 
+    //SPECIES_HOUNDOUR, 
+   //SPECIES_HOUNDOOM, 
+    //SPECIES_KINGDRA, 
+    //SPECIES_PHANPY, 
+   //SPECIES_DONPHAN, 
+   //SPECIES_PORYGON2, 
+    //SPECIES_STANTLER, 
+    //SPECIES_SMEARGLE, 
+   //SPECIES_TYROGUE, 
+   //SPECIES_HITMONTOP, 
+   //SPECIES_SMOOCHUM, 
+   //SPECIES_ELEKID, 
+   //SPECIES_MAGBY, 
+    //SPECIES_MILTANK, 
+    /*SPECIES_BLISSEY, 
+    SPECIES_LARVITAR, 
+    SPECIES_PUPITAR, 
+    SPECIES_TYRANITAR, 
+    //SPECIES_TREECKO, 
+    SPECIES_GROVYLE, 
+    SPECIES_SCEPTILE, 
+    //SPECIES_TORCHIC, 
+    SPECIES_COMBUSKEN, 
+    SPECIES_BLAZIKEN, 
+    //SPECIES_MUDKIP, 
+    SPECIES_MARSHTOMP, 
+    SPECIES_SWAMPERT, */
+    /*SPECIES_POOCHYENA, 
+    SPECIES_MIGHTYENA, 
+    SPECIES_ZIGZAGOON, 
+    SPECIES_LINOONE, 
+    SPECIES_WURMPLE, 
+    SPECIES_SILCOON, 
+    SPECIES_BEAUTIFLY, 
+    SPECIES_CASCOON, 
+    SPECIES_DUSTOX, 
+    SPECIES_LOTAD, 
+    SPECIES_LOMBRE, 
+    SPECIES_LUDICOLO, 
+    SPECIES_SEEDOT, 
+    SPECIES_NUZLEAF, 
+    SPECIES_SHIFTRY, 
+    SPECIES_NINCADA, 
+    SPECIES_NINJASK, 
+    SPECIES_SHEDINJA, 
+    SPECIES_TAILLOW, 
+    SPECIES_SWELLOW, 
+    SPECIES_SHROOMISH, 
+    SPECIES_BRELOOM, 
+    SPECIES_SPINDA, 
+    SPECIES_WINGULL, 
+    SPECIES_PELIPPER, 
+    SPECIES_SURSKIT, 
+    SPECIES_MASQUERAIN, 
+    SPECIES_WAILMER, 
+    SPECIES_WAILORD, 
+    SPECIES_SKITTY, 
+    SPECIES_DELCATTY, 
+    SPECIES_KECLEON, 
+    SPECIES_BALTOY, 
+    SPECIES_CLAYDOL, 
+    SPECIES_NOSEPASS, 
+    SPECIES_TORKOAL, 
+    SPECIES_SABLEYE, 
+    SPECIES_BARBOACH, 
+    SPECIES_WHISCASH, 
+    SPECIES_LUVDISC, 
+    SPECIES_CORPHISH, 
+    SPECIES_CRAWDAUNT, 
+    SPECIES_FEEBAS, 
+    SPECIES_MILOTIC, 
+    SPECIES_CARVANHA, 
+    SPECIES_SHARPEDO, 
+    SPECIES_TRAPINCH, 
+    SPECIES_VIBRAVA, 
+    SPECIES_FLYGON, 
+    SPECIES_MAKUHITA, 
+    SPECIES_HARIYAMA, 
+    SPECIES_ELECTRIKE, 
+    SPECIES_MANECTRIC, 
+    SPECIES_NUMEL, 
+    SPECIES_CAMERUPT, 
+    SPECIES_SPHEAL, 
+    SPECIES_SEALEO, 
+    SPECIES_WALREIN, 
+    SPECIES_CACNEA, 
+    SPECIES_CACTURNE, 
+    SPECIES_SNORUNT, 
+    SPECIES_GLALIE, 
+    SPECIES_LUNATONE, 
+    SPECIES_SOLROCK, 
+    SPECIES_AZURILL, 
+    SPECIES_SPOINK, 
+    SPECIES_GRUMPIG, 
+    SPECIES_PLUSLE, 
+    SPECIES_MINUN, 
+    SPECIES_MAWILE, 
+    SPECIES_MEDITITE, 
+    SPECIES_MEDICHAM, 
+    SPECIES_SWABLU, 
+    SPECIES_ALTARIA, 
+    SPECIES_WYNAUT, 
+    SPECIES_DUSKULL, 
+    SPECIES_DUSCLOPS, 
+    SPECIES_ROSELIA, 
+    SPECIES_SLAKOTH, 
+    SPECIES_VIGOROTH, 
+    SPECIES_SLAKING, 
+    SPECIES_GULPIN, 
+    SPECIES_SWALOT, 
+    SPECIES_TROPIUS, 
+    SPECIES_WHISMUR, 
+    SPECIES_LOUDRED, 
+    SPECIES_EXPLOUD, 
+    SPECIES_CLAMPERL, 
+    SPECIES_HUNTAIL, 
+    SPECIES_GOREBYSS, 
+    SPECIES_ABSOL, 
+    SPECIES_SHUPPET, 
+    SPECIES_BANETTE, 
+    SPECIES_SEVIPER, 
+    SPECIES_ZANGOOSE, 
+    SPECIES_RELICANTH, 
+    SPECIES_ARON, 
+    SPECIES_LAIRON, 
+    SPECIES_AGGRON, 
+    SPECIES_CASTFORM, 
+    SPECIES_VOLBEAT, 
+    SPECIES_ILLUMISE, 
+    SPECIES_LILEEP, 
+    SPECIES_CRADILY, 
+    SPECIES_ANORITH, 
+    SPECIES_ARMALDO, 
+    SPECIES_RALTS, 
+    SPECIES_KIRLIA, 
+    SPECIES_GARDEVOIR, 
+    SPECIES_BAGON, 
+    SPECIES_SHELGON, 
+    SPECIES_SALAMENCE, 
+    SPECIES_BELDUM, 
+    SPECIES_METANG, 
+    SPECIES_METAGROSS, 
+    SPECIES_CHIMECHO,  
+    SPECIES_MIME_JR, 
+    SPECIES_MUNCHLAX, 
+    SPECIES_BONSLY, 
+    SPECIES_MANTYKE, 
+    SPECIES_HAPPINY, 
+    SPECIES_CHINGLING, 
+    //SPECIES_BUDEW, 
+    //SPECIES_ROSERADE, 
+    SPECIES_DUSKNOIR, 
+    SPECIES_AMBIPOM, 
+    SPECIES_ELECTIVIRE, 
+    SPECIES_FROSLASS, 
+    SPECIES_GALLADE, 
+    //SPECIES_GLISCOR, 
+    SPECIES_HONCHKROW, 
+    SPECIES_LICKILICKY, 
+    SPECIES_MAGMORTAR, 
+    SPECIES_MAGNEZONE, 
+    SPECIES_MAMOSWINE, 
+    SPECIES_MISMAGIUS, 
+    SPECIES_PORYGON_Z, 
+    SPECIES_PROBOPASS, 
+    SPECIES_RHYPERIOR, 
+    SPECIES_TANGROWTH, 
+    SPECIES_TOGEKISS, 
+    SPECIES_WEAVILE, 
+    SPECIES_YANMEGA, 
+    SPECIES_LEAFEON, 
+    SPECIES_GLACEON, 
+    SPECIES_SYLVEON, 
+    SPECIES_ANNIHILAPE, 
+    //SPECIES_FARIGIRAF, 
+    SPECIES_DUDUNSPARCE,
+    SPECIES_WYRDEER,
+    SPECIES_URSALUNA,
+    SPECIES_URSALUNA_BLOODMOON,
+    SPECIES_KLEAVOR*/
+};
+
+static const u16 sMovingRegionMapSections[3] =
+{
+    MAPSEC_MARINE_CAVE,
+    MAPSEC_UNDERWATER_MARINE_CAVE,
+    MAPSEC_TERRA_CAVE
 };
 
 static const u16 sFeebasData[][3] =
@@ -156,14 +626,25 @@ static const u16 sFeebasData[][3] =
     {NUM_SPECIES}
 };
 
+static const u16 sHiddenPokemon[][3] =
+{
+    {SPECIES_HOUNDOUR, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
+    {SPECIES_HOOTHOOT, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
+    {SPECIES_LEDYBA,   MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
+    {SPECIES_SPINARAK, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
+    {SPECIES_SUNKERN,  MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
+    {SPECIES_SNUBBULL, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
+    {NUM_SPECIES}
+};
+
 static const u16 sLandmarkData[][2] =
 {
-    // {MAPSEC_NONE,       FLAG_LANDMARK_SKY_PILLAR},
-    // {MAPSEC_NONE,  FLAG_LANDMARK_SEAFLOOR_CAVERN},
-    // {MAPSEC_NONE,    FLAG_LANDMARK_ALTERING_CAVE},
-    // {MAPSEC_NONE,     FLAG_LANDMARK_MIRAGE_TOWER},
-    // {MAPSEC_NONE, FLAG_LANDMARK_DESERT_UNDERPASS},
-    // {MAPSEC_NONE,     FLAG_LANDMARK_ARTISAN_CAVE},
+    {MAPSEC_SKY_PILLAR,       FLAG_LANDMARK_SKY_PILLAR},
+    {MAPSEC_SEAFLOOR_CAVERN,  FLAG_LANDMARK_SEAFLOOR_CAVERN},
+    {MAPSEC_ALTERING_CAVE,    FLAG_LANDMARK_ALTERING_CAVE},
+    {MAPSEC_MIRAGE_TOWER,     FLAG_LANDMARK_MIRAGE_TOWER},
+    {MAPSEC_DESERT_UNDERPASS, FLAG_LANDMARK_DESERT_UNDERPASS},
+    {MAPSEC_ARTISAN_CAVE,     FLAG_LANDMARK_ARTISAN_CAVE},
     {MAPSEC_NONE}
 };
 
@@ -309,6 +790,33 @@ static void FindMapsWithMon(u16 species)
     sPokedexAreaScreen->numOverworldAreas = 0;
     sPokedexAreaScreen->numSpecialAreas = 0;
 
+    // hides the pkmn that are part from the list from above. Certain pkmn will still overlap, but it's a solution for now
+    if (TRUE) // gSaveBlock1Ptr->tx_Mode_AlternateSpawns == 0) // HnS PORT TODO
+    {
+        for (i = 0; i < ARRAY_COUNT(sSpeciesHiddenFromAreaScreenModern); i++)
+        {
+            if (VarGet(VAR_TIME_BASED_ENCOUNTER) >= 0 && VarGet(VAR_TIME_BASED_ENCOUNTER) <= 2)
+                if (sSpeciesHiddenFromAreaScreenModern[i] == species)
+                    return;
+        }
+        for (i = 0; sHiddenPokemon[i][0] != NUM_SPECIES; i++)
+        {
+            if (species == sHiddenPokemon[i][0])
+            {
+                switch (sHiddenPokemon[i][1])
+                {
+                case MAP_GROUP_TOWNS_AND_ROUTES:
+                    SetAreaHasMon(sHiddenPokemon[i][1], sHiddenPokemon[i][2]);
+                    return;
+                case MAP_GROUP_DUNGEONS:
+                case MAP_GROUP_SPECIAL_AREA:
+                    SetSpecialMapHasMon(sHiddenPokemon[i][1], sHiddenPokemon[i][2]);
+                    return;
+                }
+            }
+        }
+    }
+
     // Check if this species should be hidden from the area map.
     // This only applies to Wynaut, to hide the encounters on Mirage Island.
     for (i = 0; i < ARRAY_COUNT(sSpeciesHiddenFromAreaScreen); i++)
@@ -433,12 +941,12 @@ static bool8 MapHasSpecies(const struct WildEncounterTypes *info, u16 species)
     u8 currentMapGroup = gWildMonHeaders[headerId].mapGroup;
     u8 currentMapNum = gWildMonHeaders[headerId].mapNum;
     // If this is a header for Altering Cave, skip it if it's not the current Altering Cave encounter set
-    // if (GetRegionMapSectionId(currentMapGroup, currentMapNum) == MAPSEC_NONE)
-    // {
-    //     sPokedexAreaScreen->alteringCaveCounter++;
-    //     if (sPokedexAreaScreen->alteringCaveCounter != sPokedexAreaScreen->alteringCaveId + 1)
-    //         return FALSE;
-    // }
+    if (GetRegionMapSectionId(currentMapGroup, currentMapNum) == MAPSEC_ALTERING_CAVE)
+    {
+        sPokedexAreaScreen->alteringCaveCounter++;
+        if (sPokedexAreaScreen->alteringCaveCounter != sPokedexAreaScreen->alteringCaveId + 1)
+            return FALSE;
+    }
 
     if (MonListHasSpecies(info->landMonsInfo, species, LAND_WILD_COUNT))
         return TRUE;
@@ -488,7 +996,7 @@ static void BuildAreaGlowTilemap(void)
         {
             for (x = 0; x < AREA_SCREEN_WIDTH; x++)
             {
-                if (GetRegionMapSecIdAt(x, y) == sPokedexAreaScreen->overworldAreasWithMons[i].regionMapSectionId)
+                if (DexGetMapSecAt(x, y) == sPokedexAreaScreen->overworldAreasWithMons[i].regionMapSectionId)
                     sPokedexAreaScreen->areaGlowTilemap[j] = GLOW_FULL;
                 j++;
             }
@@ -776,6 +1284,7 @@ static void Task_ShowPokedexAreaScreen(u8 taskId)
         BeginNormalPaletteFade(PALETTES_ALL & ~(0x14), 0, 16, 0, RGB_BLACK);
         break;
     case 10:
+        LoadHGSSScreenSelectBarSubmenu();
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG0 | BLDCNT_TGT2_ALL);
         StartAreaGlow();
         if (OW_TIME_OF_DAY_ENCOUNTERS)
@@ -786,8 +1295,6 @@ static void Task_ShowPokedexAreaScreen(u8 taskId)
                 ShowAreaUnknownLabel();
             DoScheduledBgTilemapCopiesToVram();
         }
-        if (POKEDEX_PLUS_HGSS)
-            LoadHGSSScreenSelectBarSubmenu();
         ShowBg(2);
         ShowBg(3); // TryShowPokedexAreaMap will have done this already
         SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON);
@@ -943,26 +1450,41 @@ static void ResetPokedexAreaMapBg(void)
 static void CreateAreaMarkerSprites(void)
 {
     u8 spriteId;
-    s16 x;
-    s16 y;
-    s16 i;
+    s16 x, y;
+    u16 rx, ry, rw, rh;
     s16 mapSecId;
-    s16 numSprites;
+    s16 numSprites = 0;
 
     LoadSpriteSheet(&sAreaMarkerSpriteSheet);
     LoadSpritePalette(&sAreaMarkerSpritePalette);
-    numSprites = 0;
-    for (i = 0; i < sPokedexAreaScreen->numSpecialAreas; i++)
+
+    // Screen origin for the 28x15 grid on this screen
+    const u16 originX = MAPCURSOR_X_MIN;      // tile coords
+    const u16 originY = MAPCURSOR_Y_MIN;      // tile coords
+    // Y has an extra +8px shift on this screen (matches existing 28px base)
+    const u16 extraYPixels = 8;
+
+    for (s16 i = 0; i < sPokedexAreaScreen->numSpecialAreas; i++)
     {
         mapSecId = sPokedexAreaScreen->specialAreaRegionMapSectionIds[i];
-        x = 8 * (gRegionMapEntries[mapSecId].x + 1) + 4;
-        y = 8 * (gRegionMapEntries[mapSecId].y) + 28;
-        x += 4 * (gRegionMapEntries[mapSecId].width - 1);
-        y += 4 * (gRegionMapEntries[mapSecId].height - 1);
+
+        // Get this section's rect from the *active* layout.
+        if (!Dex_FindLayoutRect(mapSecId, &rx, &ry, &rw, &rh))
+            continue; // not on this layout (e.g., Kanto dungeon while viewing Johto) → skip
+
+        // HnS PORT NOTE - x,y are the coords, in pixels, of the center of whatever rect is defined
+        // each tile is 8x8 px, so the top-left corner of the rect is 8px per non-map tile and rx/ry
+        // the center of the rect, from there, is 4px per rw/rh (rect width/height)
+
+        // Convert rect center to screen pixels.
+        // Center = (origin + rect) in tiles → pixels; add half-size to center multi-tile sections.
+        x = (8*(originX + rx)) + (4*(rw));
+        y = (8*(originY + ry)) + extraYPixels + (4*(rh));
+
         spriteId = CreateSprite(&sAreaMarkerSpriteTemplate, x, y, 0);
         if (spriteId != MAX_SPRITES)
         {
-            gSprites[spriteId].invisible = TRUE;
+            gSprites[spriteId].invisible = TRUE; // visibility is handled by the flash logic
             sPokedexAreaScreen->areaMarkerSprites[numSprites++] = &gSprites[spriteId];
         }
     }

@@ -237,7 +237,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_PC::
 	lockall
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC
-	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_BrendansHouse_2F_EventScript_CheckRivalsPC
+	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC
 	end
 
 LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC::
@@ -272,7 +272,8 @@ PlayersHouse_2F_EventScript_GameCube::
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"
-	.string "Better set it and start it!$"
+	.string "Better set it and start it before\n"
+	.string "heading downstairs!$"
 
 PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 	.string "MOM: {PLAYER}, how do you like your\n"
@@ -294,7 +295,7 @@ PlayersHouse_2F_Text_Notebook:
 
 Common_Text_LookCloserAtMap:
 	.string "{PLAYER} took a closer look at the\n"
-	.string "HOENN region map.$"
+	.string "Region Map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube:
 	.string "It's a Nintendo GameCube.\p"
