@@ -43,7 +43,7 @@ VioletCity_Gym_EventScript_Falkner::
 	giveitem ITEM_TM_DOUBLE_TEAM
 	msgbox VioletGym_Text_Falkner_TMExplain, MSGBOX_DEFAULT
 	setvar VAR_VIOLET_CITY_STATE, 3
-	clearflag FLAG_HIDE_VIOLET_CITY_AIDE
+	setrespawn HEAL_LOCATION_VIOLET_CITY
 	closemessage
 	release
 	end
@@ -60,9 +60,9 @@ VioletGym_Text_Falkner_Intro:
 	.string "People say you can clip\n"
 	.string "FLYING-type POKéMON's wings\p"
 	.string "with a jolt of electricity…\n"
-	.string "I won't allow such insults to bird\p"
-	.string "POKéMON!\n"
-	.string "I'll show you the real power\p"
+	.string "I won't allow such insults to bird\l"
+	.string "POKéMON!\p"
+	.string "I'll show you the real power\n"
 	.string "of the magnificent bird POKéMON!$"
 
 VioletGym_Text_Falkner_WinLoss:
@@ -76,7 +76,7 @@ VioletGym_Text_ReceivedZephyrBadge:
 	.string "{PLAYER} received ZEPHYRBADGE.$"
 
 VioletGym_Text_Falkner_BadgeExplain:
-	.string "ZEPHYRBADGE raises the attack\n"
+	.string "ZEPHYRBADGE raises the ATTACK\n"
 	.string "power of POKéMON.\p"
 	.string "It also enables POKéMON to use\n"
 	.string "FLASH, if they have it, anytime.\p"
@@ -146,8 +146,8 @@ VioletGym_Text_GymGuide_Intro:
 	.string "that loves to eat BERRIES.\p"
 	.string "While it's not the strongest,\n"
 	.string "it can take a lot of hits.\p"
-	.string "You can hurt it with ELECTRIC-\n"
-	.string "and ROCK-type moves, but watch out\p"
+	.string "You can hurt it with ELECTRIC \n"
+	.string "and ROCK-type moves, but watch out\l"
 	.string "for MUD-SLAP!\p"
 	.string "If you want more help, go visit the\n"
 	.string "POKéMON ACADEMY.\p"
@@ -156,7 +156,7 @@ VioletGym_Text_GymGuide_Intro:
 
 VioletGym_Text_GymGuide_Win:
 	.string "Nice battle! Keep it up,\n"
-	.string "and you'll be the CHAMP in no\p"
+	.string "and you'll be the CHAMP in no\l"
 	.string "time at all!$"
 
 VioletCity_Gym_EventScript_Statue::

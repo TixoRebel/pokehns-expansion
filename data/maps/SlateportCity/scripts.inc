@@ -11,7 +11,7 @@ SlateportCity_OnTransition:
 	end
 
 SlateportCity_EventScript_EnterSlateport::
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_MAHOGANY_TOWN
 	setvar VAR_GARBAGEVAR, 0
 	setflag FLAG_GARBAGEFLAG
 	return
@@ -537,6 +537,8 @@ SlateportCity_EventScript_PowerTMClerk::
 
 	.align 2
 SlateportCity_Pokemart_PowerTMs:
+	.2byte ITEM_SEA_INCENSE
+	.2byte ITEM_LAX_INCENSE
 	.2byte ITEM_TM_HIDDEN_POWER
 	.2byte ITEM_TM_SECRET_POWER
 	pokemartlistend

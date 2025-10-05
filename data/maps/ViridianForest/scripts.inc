@@ -24,7 +24,6 @@ ViridianForest_Text_Bugsy:
     .string "If you're ready for another match,\n"
     .string "I'll be at the DOJO in SAFFRON!$"
 
-
 ViridianForest_EventScript_MaxPotion::
     finditem ITEM_MAX_POTION
     end

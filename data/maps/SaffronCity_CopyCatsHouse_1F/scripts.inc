@@ -35,7 +35,7 @@ CopycatsHouse1F_Text_PokefanF:
 
 CopycatsHouse1F_Text_PokefanF_ReturnedPart:
 	.string "She recently lost the POKé DOLL\n"
-	.string "that a boy gave her three years\n"
+	.string "that a boy gave her three years\l"
 	.string "ago.\p"
 	.string "Ever since then, she's gotten even\n"
 	.string "better at mimicry…$"

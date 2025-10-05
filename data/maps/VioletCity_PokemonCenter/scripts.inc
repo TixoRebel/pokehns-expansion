@@ -50,6 +50,7 @@ VioletCity_PokemonCenter_EventScript_Aide_Accepted::
 	setflag FLAG_HIDE_VIOLET_CITY_AIDE
 	setvar VAR_VIOLET_CITY_KIMONO_GIRL, 1
 	clearflag FLAG_HIDE_VIOLET_CITY_KIMONO_GIRL
+	clearflag FLAG_HIDE_NEWBARKTOWN_LAB_AIDE
 	release
 	end
 
@@ -106,7 +107,7 @@ VioletCity_PokeCenter_Text_ElmsAideGiveEgg:
 	.string "we can rely on.$"
 
 VioletCity_PokeCenter_Text_ElmsAideGiveItem:
-	.string "Oh and this might help when it hatches.$"
+	.string "Oh, and this might help when it hatches.$"
 
 VioletCity_PokeCenter_Text_ElmsAideFullParty:
 	.string "Oh, no. You can't carry any more\n"

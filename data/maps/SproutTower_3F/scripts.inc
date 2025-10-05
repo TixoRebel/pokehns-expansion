@@ -53,6 +53,7 @@ SproutTower_3F_EventScript_TriggerSceneLeft::
 	applymovement LOCALID_SPROUT_TOWER_SILVER, SproutTower_3F_Movement_SilverLeft
 	waitmovement 0
 	msgbox SproutTower_Text_RivalOnlyCaresStrong, MSGBOX_DEFAULT
+	delay 30
 	msgbox SproutTower_Text_RivalUsedEscapeRope, MSGBOX_DEFAULT
 	applymovement LOCALID_SPROUT_TOWER_SILVER SproutTower_3F_Movement_EscapeRope
 	waitmovement 0
@@ -190,7 +191,7 @@ SproutTower_Text_SageLi_Seen:
 	.string "SPROUT TOWER is a place of\n"
 	.string "training.\p"
 	.string "People and POKéMON test their\n"
-	.string "bonds to build a bright future\n"
+	.string "bonds to build a bright future\l"
 	.string "together.\p"
 	.string "I am the final test.\p"
 	.string "Allow me to check the ties\n"

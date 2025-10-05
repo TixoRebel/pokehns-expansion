@@ -23,7 +23,7 @@ VermilionPort_EventScript_Sailor::
 	lock
 	faceplayer
 	goto_if_unset FLAG_RETURNED_MACHINE_PART, VermilionPort_EventScript_SailorCantSail
-	goto_if_ge VAR_SSAQUA_STATE, 5, VermilionPort_EventScript_Sailor_AfterKanto
+	goto_if_ge VAR_SSAQUA_STATE, 7, VermilionPort_EventScript_Sailor_AfterKanto
 	msgbox VermilionPort_Text_AskBoard, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, VermilionPort_EventScript_Sailor_Refused
 	checkitem ITEM_SS_TICKET
@@ -164,7 +164,7 @@ VermilionPort_Text_NoPass:
     .string "{STR_VAR_1}…\p"
     .string "…But no {STR_VAR_1}!\p"
     .string "Sorry!\n"
-    .string "You may board only if you have an\p"
+    .string "You may board only if you have an\l"
     .string "{STR_VAR_1}.$"
 
 VermilionPort_Text_SailorGetOnBoard:
@@ -196,5 +196,5 @@ VermilionPort_Text_NoTicket:
     .string "S.S.TICKET…\p"
     .string "…But no TICKET!\p"
     .string "Sorry!\n"
-    .string "You may board only\p"
+    .string "You may board only\l"
     .string "if you have an S.S.TICKET.$"

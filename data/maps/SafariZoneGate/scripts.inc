@@ -28,7 +28,7 @@ SafariZoneGate_EventScript_Kangaskhan::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_STARYU, CRY_MODE_NORMAL
+	playmoncry SPECIES_KANGASKHAN, CRY_MODE_NORMAL
 	msgbox SafariZone_Text_Kangaskhan, MSGBOX_DEFAULT
 	waitmoncry
 	release

@@ -109,6 +109,7 @@ VictoryRoadKanto_1F_Movement_SilverEnterRight:
 	walk_right
 	walk_right
 	walk_right
+	walk_right
 	walk_up
 	walk_up
 	step_end

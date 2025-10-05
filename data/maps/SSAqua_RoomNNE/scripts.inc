@@ -20,7 +20,7 @@ SSAqua_RoomNNE_Text_CooltrainermSeanBeaten:
 
 SSAqua_RoomNNE_Text_CooltrainermSeanAfterBattle:
     .string "Trainers from JOHTO\n"
-    .string "can battle with KANTO\n"
+    .string "can battle with KANTO\l"
     .string "GYM LEADERS.$"
 
 SSAqua_RoomNNE_Text_CooltrainerfCarolSeen:
@@ -28,8 +28,8 @@ SSAqua_RoomNNE_Text_CooltrainerfCarolSeen:
     .string "become the CHAMP!$"
 
 SSAqua_RoomNNE_Text_CooltrainerfCarolBeaten:
-    .string "What's so differ-\n"
-    .string "ent between us?$"
+    .string "What's so different\n"
+    .string "between us?$"
 
 SSAqua_RoomNNE_Text_CooltrainerfCarolAfterBattle:
     .string "I'm going to beat\n"

@@ -17,6 +17,9 @@ SaffronCity_FightingDojoVIP_EventScript_Falkner::
 	trainerbattle_no_intro TRAINER_FALKNER_2, SaffronCity_FightingDojoVIP_Text_Falkner_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -29,6 +32,9 @@ SaffronCity_FightingDojoVIP_EventScript_Bugsy::
 	trainerbattle_no_intro TRAINER_BUGSY_2, SaffronCity_FightingDojoVIP_Text_Bugsy_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -41,6 +47,9 @@ SaffronCity_FightingDojoVIP_EventScript_Whitney::
 	trainerbattle_no_intro TRAINER_WHITNEY_2, SaffronCity_FightingDojoVIP_Text_Whitney_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -53,6 +62,9 @@ SaffronCity_FightingDojoVIP_EventScript_Morty::
 	trainerbattle_no_intro TRAINER_MORTY_2, SaffronCity_FightingDojoVIP_Text_Morty_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -65,6 +77,9 @@ SaffronCity_FightingDojoVIP_EventScript_Chuck::
 	trainerbattle_no_intro TRAINER_CHUCK_2, SaffronCity_FightingDojoVIP_Text_Chuck_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -77,6 +92,9 @@ SaffronCity_FightingDojoVIP_EventScript_Jasmine::
 	trainerbattle_no_intro TRAINER_JASMINE_2, SaffronCity_FightingDojoVIP_Text_Jasmine_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -89,6 +107,9 @@ SaffronCity_FightingDojoVIP_EventScript_Pryce::
 	trainerbattle_no_intro TRAINER_PRYCE_2, SaffronCity_FightingDojoVIP_Text_Pryce_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -101,6 +122,9 @@ SaffronCity_FightingDojoVIP_EventScript_Clair::
 	trainerbattle_no_intro TRAINER_CLAIR_2, SaffronCity_FightingDojoVIP_Text_Clair_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -113,6 +137,9 @@ SaffronCity_FightingDojoVIP_EventScript_Brock::
 	trainerbattle_no_intro TRAINER_BROCK, SaffronCity_FightingDojoVIP_Text_Brock_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -125,6 +152,9 @@ SaffronCity_FightingDojoVIP_EventScript_Misty::
 	trainerbattle_no_intro TRAINER_MISTY, SaffronCity_FightingDojoVIP_Text_Misty_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -137,6 +167,9 @@ SaffronCity_FightingDojoVIP_EventScript_Surge::
 	trainerbattle_no_intro TRAINER_LTSURGE, SaffronCity_FightingDojoVIP_Text_Surge_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -149,6 +182,9 @@ SaffronCity_FightingDojoVIP_EventScript_Erika::
 	trainerbattle_no_intro TRAINER_ERIKA, SaffronCity_FightingDojoVIP_Text_Erika_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -161,6 +197,9 @@ SaffronCity_FightingDojoVIP_EventScript_Janine::
 	trainerbattle_no_intro TRAINER_JANINE, SaffronCity_FightingDojoVIP_Text_Janine_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -173,6 +212,9 @@ SaffronCity_FightingDojoVIP_EventScript_Sabrina::
 	trainerbattle_no_intro TRAINER_SABRINA, SaffronCity_FightingDojoVIP_Text_Sabrina_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -185,6 +227,9 @@ SaffronCity_FightingDojoVIP_EventScript_Blaine::
 	trainerbattle_no_intro TRAINER_BLAINE, SaffronCity_FightingDojoVIP_Text_Blaine_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -197,6 +242,9 @@ SaffronCity_FightingDojoVIP_EventScript_Blue::
 	trainerbattle_no_intro TRAINER_BLUE, SaffronCity_FightingDojoVIP_Text_Blue_RematchDefeat
 	applymovement2 VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	givebp 10
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 

@@ -3,9 +3,17 @@ VerdanturfTown_MapScripts::
 	.byte 0
 
 VerdanturfTown_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_OLIVINE_CITY
 	setvar VAR_GARBAGEVAR, 0
 	end
+
+VerdanturfTown_LickyEvo::
+	msgbox VerdanturfTown_LickyEvo_Text, MSGBOX_NPC
+	end
+
+VerdanturfTown_LickyEvo_Text:
+	.string "LICKITUNG evolves by rolling around.\n"
+	.string "Try doing that!$"
 
 VerdanturfTown_EventScript_Twin::
 	lock

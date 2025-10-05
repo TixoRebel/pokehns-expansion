@@ -32,7 +32,7 @@ SootopolisCity_EventScript_LockGymDoor::
 	return
 
 SootopolisCity_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_LAVENDER_TOWN
 	call_if_eq VAR_GARBAGEVAR, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call SootopolisCity_EventScript_SetWeather
@@ -907,6 +907,7 @@ SootopolisCity_EventScript_StevenHelpedWallace::
 SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin::
 	msgbox SootopolisCity_Text_InvolvedWithCrisisComeWithMe, MSGBOX_DEFAULT
 	closemessage
+	setflag FLAG_NO_SLOW_STAIR_MOVEMENT
 	call_if_eq VAR_FACING, DIR_WEST, SootopolisCity_EventScript_StartWalkToCaveOfOriginWest
 	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_StartWalkToCaveOfOriginNorth
 	msgbox SootopolisCity_Text_DoesThisMakeYourFearPokemon, MSGBOX_DEFAULT
@@ -923,6 +924,7 @@ SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin::
 	msgbox SootopolisCity_Text_HereWereAreHelpWallace, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_STEVEN_GUIDES_TO_CAVE_OF_ORIGIN
+	clearflag FLAG_NO_SLOW_STAIR_MOVEMENT
 	applymovement LOCALID_PLAYER, SootopolisCity_Movement_PlayerEnterCaveOfOrigin
 	waitmovement 0
 	warp MAP_CAVE_OF_ORIGIN_ENTRANCE, 9, 20

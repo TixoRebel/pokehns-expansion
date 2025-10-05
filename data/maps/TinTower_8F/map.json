@@ -94,40 +94,12 @@
     {
       "x": 6,
       "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_DYNAMIC",
-      "dest_warp_id": "WARP_ID_DYNAMIC"
+      "elevation": 0,
+      "dest_map": "MAP_TIN_TOWER_ROOF_DAY",
+      "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "TinTower_8F_EventScript_SetWarp"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "TinTower_8F_EventScript_SetWarp"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "TinTower_8F_EventScript_SetWarp"
-    }
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

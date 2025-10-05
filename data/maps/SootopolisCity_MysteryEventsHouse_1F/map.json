@@ -46,7 +46,7 @@
     },
     {
       "x": 3,
-      "y": 1,
+      "y": 0,
       "elevation": 3,
       "dest_map": "MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F",
       "dest_warp_id": "0"

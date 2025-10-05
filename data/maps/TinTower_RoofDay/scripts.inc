@@ -10,10 +10,20 @@ TinTower_RoofDay_MapScripts::
 	.byte 0
 
 TinTower_RoofDay_OnTransition:
+	call_if_set FLAG_DAY_POKEMON, TinTower_RoofDay_EventScript_SetNight
+	call_if_unset FLAG_DAY_POKEMON, TinTower_RoofDay_EventScript_SetDay
 	goto_if_eq VAR_COMPLETED_HO_OH, 2, TinTower_RoofDay_MapScript_HoohStory
 	goto_if_eq VAR_COMPLETED_HO_OH, 3, TinTower_RoofDay_MapScript_HoohPostStoryGone
 	goto_if_eq VAR_COMPLETED_HO_OH, 4, TinTower_RoofDay_MapScript_HoohPostStoryEncounter
 	end
+
+TinTower_RoofDay_EventScript_SetNight::
+	setmaplayoutindex LAYOUT_TIN_TOWER_ROOF_NIGHT
+	return
+
+TinTower_RoofDay_EventScript_SetDay::
+	setmaplayoutindex LAYOUT_TIN_TOWER_ROOF_DAY
+	return
 
 TinTower_RoofDay_MapScript_HoohStory::
 	clearflag FLAG_HIDE_HO_OH
@@ -565,7 +575,7 @@ TinTower_RoofDay_Text_Kimono_Opening::
 	.string "When the dance we practiced many\n"
 	.string "days becomes one with the sound of the\p"
 	.string "Clear Bell we entrusted to you, then\n"
-	.string "HO-OH shall come down from the great\p"
+	.string "HO-OH shall come down from the great\l"
 	.string "arch of the sky once again. $"
 
 TinTower_RoofDay_Text_Kimono_Closing1::
