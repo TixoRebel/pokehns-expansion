@@ -243,11 +243,11 @@ ContestHall_EventScript_RandomAudienceCook::
 	return
 
 ContestHall_EventScript_RandomAudienceLass::
-	setvar VAR_TEMP_1, OBJ_EVENT_GFX_LASS
+	setvar VAR_TEMP_1, OBJ_EVENT_GFX_PSYCHIC_M
 	return
 
 ContestHall_EventScript_RandomAudienceOldWoman::
-	setvar VAR_TEMP_1, OBJ_EVENT_GFX_OLD_WOMAN
+	setvar VAR_TEMP_1, OBJ_EVENT_GFX_ATTENDANT
 	return
 
 ContestHall_EventScript_RandomAudienceCamper::
@@ -275,11 +275,11 @@ ContestHall_EventScript_RandomAudienceBugCatcher::
 	return
 
 ContestHall_EventScript_RandomAudiencePsychicM::
-	setvar VAR_TEMP_1, OBJ_EVENT_GFX_PSYCHIC_M
+	setvar VAR_TEMP_1, OBJ_EVENT_GFX_TRAINER_TOWER_DUDE
 	return
 
 ContestHall_EventScript_RandomAudienceSchoolKidM::
-	setvar VAR_TEMP_1, OBJ_EVENT_GFX_LITTLE_BOY2
+	setvar VAR_TEMP_1, OBJ_EVENT_GFX_LITTLE_BOY
 	return
 
 ContestHall_EventScript_RandomAudienceBlackBelt::
@@ -317,9 +317,9 @@ ContestHall_EventScript_CreateSuperContestAudience::
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 3, 2, 8, 3, DIR_EAST
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 10, 12, 3, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 11, 12, 4, 3, DIR_WEST
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 12, 12, 7, 3, DIR_WEST
+	createvobject OBJ_EVENT_GFX_COOLTRAINER_F, 12, 12, 7, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_LITTLE_GIRL, 13, 12, 8, 3, DIR_WEST
-	createvobject OBJ_EVENT_GFX_LASS, 20, 3, 2, 3, DIR_SOUTH
+	createvobject OBJ_EVENT_GFX_PSYCHIC_M, 20, 3, 2, 3, DIR_SOUTH
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 24, 11, 2, 3, DIR_SOUTH
 	return
 
@@ -330,7 +330,7 @@ ContestHall_EventScript_CreateHyperContestAudience::
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 3, 2, 8, 3, DIR_EAST
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 10, 12, 3, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 11, 12, 4, 3, DIR_WEST
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 12, 12, 7, 3, DIR_WEST
+	createvobject OBJ_EVENT_GFX_COOLTRAINER_F, 12, 12, 7, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_BEAUTY, 13, 12, 8, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_OLD_WOMAN, 20, 3, 2, 3, DIR_SOUTH
 	createvobject OBJ_EVENT_GFX_GYM_GUY, 20, 6, 2, 3, DIR_SOUTH
@@ -341,7 +341,7 @@ ContestHall_EventScript_CreateHyperContestAudience::
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 4, 9, 3, DIR_NORTH
 	createvobject OBJ_EVENT_GFX_FAT_MAN, 27, 5, 9, 3, DIR_NORTH
 	createvobject OBJ_EVENT_GFX_CHANNELER, 28, 9, 9, 3, DIR_NORTH
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 10, 9, 3, DIR_NORTH
+	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 29, 10, 9, 3, DIR_NORTH
 	createvobject OBJ_EVENT_GFX_CLERK, 30, 11, 9, 3, DIR_NORTH
 	return
 
@@ -356,7 +356,7 @@ ContestHall_EventScript_CreateMasterContestAudience::
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 9, 1, 8, 3, DIR_EAST
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 10, 12, 3, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 11, 12, 4, 3, DIR_WEST
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 12, 12, 7, 3, DIR_WEST
+	createvobject OBJ_EVENT_GFX_COOLTRAINER_F, 12, 12, 7, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_BEAUTY, 13, 12, 8, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_FISHER, 14, 13, 3, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_BATTLE_GIRL, 15, 13, 4, 3, DIR_WEST
@@ -371,7 +371,7 @@ ContestHall_EventScript_CreateMasterContestAudience::
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 4, 9, 3, DIR_NORTH
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 27, 5, 9, 3, DIR_NORTH
 	createvobject OBJ_EVENT_GFX_CHANNELER, 28, 9, 9, 3, DIR_NORTH
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 10, 9, 3, DIR_NORTH
+	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 29, 10, 9, 3, DIR_NORTH
 	createvobject OBJ_EVENT_GFX_CLERK, 30, 11, 9, 3, DIR_NORTH
 	return
 
@@ -386,7 +386,7 @@ ContestHall_EventScript_CreateWirelessContestAudience::
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 9, 1, 8, 3, DIR_EAST
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 10, 12, 3, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 11, 12, 4, 3, DIR_WEST
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 12, 12, 7, 3, DIR_WEST
+	createvobject OBJ_EVENT_GFX_COOLTRAINER_F, 12, 12, 7, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_BEAUTY, 13, 12, 8, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_FISHER, 14, 13, 3, 3, DIR_WEST
 	createvobject OBJ_EVENT_GFX_BATTLE_GIRL, 15, 13, 4, 3, DIR_WEST

@@ -68,7 +68,7 @@ PalletTown_Lab_Text_OakLabDexCheck:
 
 PalletTown_Lab_Text_OakWelcomeKanto:
 	.string "OAK: Ah, {PLAYER}!\n"
-	.string "It's good of you to come all this\n"
+	.string "It's good of you to come all this\l"
 	.string "way to KANTO.\p"
 	.string "What do you think of the trainers\n"
 	.string "out here? Pretty tough, huh?$"

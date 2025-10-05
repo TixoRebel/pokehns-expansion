@@ -73,8 +73,20 @@ MahoganyTown_EventScript_TownTrigger::
 	setvar VAR_ELECTRODES_FAINTED, 0
 	setvar VAR_LAKE_OF_RAGE_FISHERMAN, 0
 	setvar VAR_ICE_PATH_STATE, 0
+	setvar VAR_ROUTE27_BAOBA_CALL, 0
 
 	setvar VAR_MAHOGANY_TOWN_STATE, 1
+
+	@blackthorn flagheap
+	setvar VAR_BLACKTHORN_CITY_STATE, 1
+    setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_SILVER
+	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR
+	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_LANCE
+	setflag FLAG_HIDE_DRAGONS_DEN_SHRINE_CLAIR
+	clearflag FLAG_GOT_SPELL_TAG
+	clearflag FLAG_GOT_DRATINI
+	setvar VAR_BLACKTHORN_GYM_STATE, 0
+	setvar VAR_DRAGONS_DEN_QUIZ, 0
 	end
 
 MahoganyTown_EventScript_MerchantTrigger::
@@ -258,8 +270,8 @@ MahoganyTown_Text_RageCandyBarMerchantSoldOut:
     .string "kiddo.$"
 
 MahoganyTown_Text_Gramps:
-    .string "Are you off to see the GYARADOS ram-\n"
-    .string "page at the LAKE?$"
+    .string "Are you off to see the GYARADOS\n"
+    .string "rampage at the LAKE?$"
 
 MahoganyTown_Text_GrampsClearedRocketHideout:
     .string "MAGIKARP have returned to LAKE\n"

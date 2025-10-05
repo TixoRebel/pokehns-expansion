@@ -10,6 +10,7 @@ LakeOfRage_MapScripts::
 
 LakeOfRage_OnTransition::
 	setflag FLAG_VISITED_LAKE_OF_RAGE
+	call_if_lt VAR_MAHOGANY_TOWN_STATE, 2, LakeOfRage_EventScript_HideLois
 	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_SetHighTide
 	special UpdateShoalTideFlag
 	goto_if_set FLAG_SYS_LAKE_OF_RAGE_TIDE, LakeOfRage_EventScript_SetHighTide
@@ -26,6 +27,10 @@ LakeOfRage_EventScript_SetHighTide::
 	random 2
 	goto_if_eq VAR_RESULT, 1, LakeOfRage_EventScript_ThunderStorm
 	end
+
+LakeOfRage_EventScript_HideLois::
+	setflag FLAG_TEMP_1
+	return
 
 LakeOfRage_EventScript_ThunderStorm::
 	setweather WEATHER_RAIN_THUNDERSTORM
@@ -102,6 +107,7 @@ LakeOfRage_EventScript_Gyarados::
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, LakeOfRage_EventScript_Ran_Gyarados
 LakeOfRage_EventScript_Defeated_Gyarados::
 	setflag FLAG_HIDE_LAKE_OF_RAGE_GYARADOS
+	clearflag FLAG_TEMP_1
 	removeobject LOCALID_LAKEOFRAGE_GYARADOS
 	clearflag FLAG_HIDE_LAKE_OF_RAGE_LANCE
 	addobject LOCALID_LAKEOFRAGE_LANCE

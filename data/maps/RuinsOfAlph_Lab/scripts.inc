@@ -1,5 +1,3 @@
-@ .set LOCALID_FOSSIL_SCIENTIST, 3
-
 RuinsOfAlph_Lab_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RuinsOfAlph_Lab_OnTransition
 	.byte 0
@@ -271,8 +269,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveLileep::
 
 RuinsOfAlph_Lab_EventScript_ReceiveLileepParty::
 	call RuinsOfAlph_Lab_EventScript_ReceivedLileepFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveLileepParty_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_FinishReceivingLileep
 	call Common_EventScript_GetGiftMonPartySlot
@@ -288,8 +284,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveLileepParty_Nuzlocke::
 
 RuinsOfAlph_Lab_EventScript_ReceiveLileepPC::
 	call RuinsOfAlph_Lab_EventScript_ReceivedLileepFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveLileepPC_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_TransferLileepToPC
 	call Common_EventScript_NameReceivedBoxMon
@@ -376,8 +370,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveOmanyte::
 
 RuinsOfAlph_Lab_EventScript_ReceiveOmanyteParty::
 	call RuinsOfAlph_Lab_EventScript_ReceivedOmanyteFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveOmanyteParty_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_FinishReceivingOmanyte
 	call Common_EventScript_GetGiftMonPartySlot
@@ -393,8 +385,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveOmanyteParty_Nuzlocke::
 
 RuinsOfAlph_Lab_EventScript_ReceiveOmanytePC::
 	call RuinsOfAlph_Lab_EventScript_ReceivedOmanyteFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveOmanytePC_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_TransferOmanyteToPC
 	call Common_EventScript_NameReceivedBoxMon
@@ -428,16 +418,23 @@ RuinsOfAlph_Lab_EventScript_FinishReceivingOmanyte::
 
 RuinsOfAlph_Lab_EventScript_ReceiveKabuto::
 	setvar VAR_TEMP_1, SPECIES_KABUTO
-	givemon SPECIES_KABUTO, 5
+	call_if_unset FLAG_BADGE04_GET, RuinsOfAlph_Lab_EventScript_GiveEarlyKabuto
+	call_if_set FLAG_BADGE04_GET, RuinsOfAlph_Lab_EventScript_GiveLateKabuto
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RuinsOfAlph_Lab_EventScript_ReceiveKabutoParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RuinsOfAlph_Lab_EventScript_ReceiveKabutoPC
 	goto Common_EventScript_NoMoreRoomForPokemon
 	end
 
+RuinsOfAlph_Lab_EventScript_GiveEarlyKabuto::
+	givemon SPECIES_KABUTO, 5
+	return
+
+RuinsOfAlph_Lab_EventScript_GiveLateKabuto::
+	givemon SPECIES_KABUTO, 20
+	return
+
 RuinsOfAlph_Lab_EventScript_ReceiveKabutoParty::
 	call RuinsOfAlph_Lab_EventScript_ReceivedKabutoFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveKabutoParty_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_FinishReceivingKabuto
 	call Common_EventScript_GetGiftMonPartySlot
@@ -453,8 +450,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveKabutoParty_Nuzlocke::
 
 RuinsOfAlph_Lab_EventScript_ReceiveKabutoPC::
 	call RuinsOfAlph_Lab_EventScript_ReceivedKabutoFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveKabutoPC_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_TransferKabutoToPC
 	call Common_EventScript_NameReceivedBoxMon
@@ -496,8 +491,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveAero::
 
 RuinsOfAlph_Lab_EventScript_ReceiveAeroParty::
 	call RuinsOfAlph_Lab_EventScript_ReceivedAeroFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveAeroParty_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_FinishReceivingAero
 	call Common_EventScript_GetGiftMonPartySlot
@@ -513,8 +506,6 @@ RuinsOfAlph_Lab_EventScript_ReceiveAeroParty_Nuzlocke::
 
 RuinsOfAlph_Lab_EventScript_ReceiveAeroPC::
 	call RuinsOfAlph_Lab_EventScript_ReceivedAeroFanfare
-	@specialvar VAR_RESULT, IsNuzlockeNicknamingActive
-	@goto_if_eq VAR_RESULT, TRUE, RuinsOfAlph_Lab_EventScript_ReceiveAeroPC_Nuzlocke
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, RuinsOfAlph_Lab_EventScript_TransferAeroToPC
 	call Common_EventScript_NameReceivedBoxMon

@@ -576,7 +576,7 @@ RocketHideout_B3F_Text_PetrelIntro:
 
 RocketHideout_B3F_Text_PetrelDisbelief:
     .string "...Huh?\n"
-    .string "I don't sound anything like\n"
+    .string "I don't sound anything like\l"
     .string "GIOVANNI?\p"
     .string "I don't even look like GIOVANNI?\n"
     .string "How come? I've worked so hard\l"

@@ -2,7 +2,7 @@ RustboroCity_Gym_MapScripts::
 	.byte 0
 
 RustboroCity_Gym_EventScript_Roxanne::
-	trainerbattle_single TRAINER_NONE, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, RustboroCity_Gym_EventScript_RoxanneRematch
 	goto_if_unset FLAG_RECEIVED_TM_ROCK_TOMB, RustboroCity_Gym_EventScript_GiveRockTomb
@@ -15,7 +15,7 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox RustboroCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_DEFEATED_VIOLET_GYM
 	setflag FLAG_BADGE01_GET
 	setvar VAR_GARBAGEVAR, 1
 	addvar VAR_GARBAGEVAR, 1
@@ -34,7 +34,7 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	end
 
 RustboroCity_Gym_EventScript_RoxanneRematch::
-	trainerbattle_rematch_double TRAINER_NONE, RustboroCity_Gym_Text_RoxannePreRematch, RustboroCity_Gym_Text_RoxanneRematchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxannePreRematch, RustboroCity_Gym_Text_RoxanneRematchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox RustboroCity_Gym_Text_RoxannePostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -56,7 +56,7 @@ RustboroCity_Gym_EventScript_Marc::
 RustboroCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, RustboroCity_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_DEFEATED_VIOLET_GYM, RustboroCity_Gym_EventScript_GymGuidePostVictory
 	msgbox RustboroCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end
@@ -213,7 +213,7 @@ RustboroCity_Gym_Text_ExplainRockTomb:
 	.string "It not only inflicts damage by dropping\n"
 	.string "rocks, it also lowers SPEED.\p"
 	.string "If you use a TM, it instantly teaches\n"
-	.string "the move to a POKéMON.\p"
+	.string "the move to a POKéMON.$"
 	.string "Remember, a TM can be used only once,\n"
 	.string "so think before you use it.$"
 

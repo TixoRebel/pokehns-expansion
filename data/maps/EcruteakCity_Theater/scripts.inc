@@ -121,7 +121,7 @@ EcruteakCity_Theater_Text_Rocket1:
 	.string "a hula dance!$"
 
 EcruteakCity_Theater_Text_KimonoRocket1:
-	.string "KIMONO GIRL:...You mustn't push\n"
+	.string "KIMONO GIRL: ...You mustn't push\n"
 	.string "such a request on me.$"
 
 EcruteakCity_Theater_Text_Rocket2:
@@ -197,7 +197,7 @@ EcruteakCity_Theater_Text_RocketBeaten:
 	.string "villain!$"
 
 EcruteakCity_Theater_Text_RocketAfter:
-	.string "Oops! I have an important mission\n"
+	.string "Oops! I have an important mission!\n"
 	.string "If they find out I was wasting\l"
 	.string "time here, they'll make me start\l"
 	.string "over as the lowest ROCKET GRUNT!\p"
@@ -255,7 +255,7 @@ EcruteakCity_Theater_EventScript_ZukiDuringRocket::
 	end
 
 EcruteakCity_Theater_Text_Kimono:
-	.string "For Kimono Girls like me,\n"
+	.string "For KIMONO GIRLs like me,\n"
 	.string "dancing is everything.\p"
 	.string "I have never gone a day\n"
 	.string "without a dance practice.\p"
@@ -412,7 +412,7 @@ EcruteakCity_Theater_Movement_SurfGuy2:
 EcruteakCity_Theater_Text_SurfGuyRocket:
 	.string "What's the deal with that\n"
 	.string "Team Rocket Grunt, messing\l"
-	.string "with that Kimono Girl?\p"
+	.string "with that KIMONO GIRL?\p"
 	.string "You are a Trainer, right?\n"
 	.string "Please help her!$"
 
@@ -424,12 +424,12 @@ EcruteakCity_Theater_Text_SurfGuyGiveSurf:
 	.string "Don't be shy--take it!$"
 
 EcruteakCity_Theater_Text_SurfGuyGaveSurf:
-	.string "That's Surf.\n"
+	.string "That's SURF.\n"
 	.string "It's a move that lets POKéMON\l"
 	.string "swim across water with ease.$"
 
 EcruteakCity_Theater_Text_SurfGuyAfter:
-	.string "Not only are the Kimono Girls\n"
+	.string "Not only are the KIMONO GIRLs\n"
 	.string "great dancers, they're also\l"
 	.string "skilled at POKéMON.\p"
 	.string "But they battle only for good\n"
@@ -441,18 +441,18 @@ EcruteakCity_Theater_Text_Psyduck:
 	.string "PSYDUCK: Dau dau!$"
 
 EcruteakCity_Theater_Text_BoyBefore:
-	.string "eeeeek!$"
+	.string "Eeeeek!$"
 
 EcruteakCity_Theater_Text_Boy:
 	.string "I was supposed to be the hero...!\n"
 	.string "So much for getting close to\l"
-	.string "a Kimono Girl!$"
+	.string "a KIMONO GIRL!$"
 
 EcruteakCity_Theater_Text_Granny:
 	.string "That man's always with his\n"
 	.string "PSYDUCK.\p"
 	.string "Says he wants a POKéMON that\n"
-	.string "can Surf and dance.\p"
+	.string "can SURF and dance.\p"
 	.string "Is he trying to make a POKéMON\n"
 	.string "that stars in synchronized\l"
 	.string "swimming?$"
@@ -464,7 +464,7 @@ EcruteakCity_Theater_Text_GrannyBefore:
 	.string "that if not for this pain...!$"
 
 EcruteakCity_Theater_Text_Gramps:
-	.string "The Kimono Girls are so\n"
+	.string "The KIMONO GIRLs are so\n"
 	.string "beautiful...\p"
 	.string "But they have to go through\n"
 	.string "rigorous training.\p"
@@ -1015,7 +1015,7 @@ EcruteakCity_Theater_Text_MikiSeen:
 	.string "Though, I'm a Trainer too.\n"
 	.string "She who knows the most speaks\l"
 	.string "the least!\p"
-	.string "I am MIKI--the Kimono Girl!\p"
+	.string "I am MIKI--the KIMONO GIRL!\p"
 	.string "Let me challenge you and your\n"
 	.string "POKéMON!$"
 
@@ -1023,10 +1023,9 @@ EcruteakCity_Theater_Text_SayoSeen:
 	.string "Excellent spirit! You got me\n"
 	.string "off the ice by pushing me.\p"
 	.string "I skate in sandals.\n"
-	.string "I am SAYO--the Kimono Girl!\p"
+	.string "I am SAYO--the KIMONO GIRL!\p"
 	.string "I listened in the Dragon's Den\n"
-	.string "when you passed the Elder's\l"
-	.string "test.\p"
+	.string "when you passed the Elder's test.\p"
 	.string "Let me challenge you and your\n"
 	.string "POKéMON!$"
 
@@ -1035,7 +1034,7 @@ EcruteakCity_Theater_Text_KuniSeen:
 	.string "You were dependable at the\n"
 	.string "GOLDENROD TUNNEL.\p"
 	.string "I'm the one who twirls even\n"
-	.string "underground--Kuni!\p"
+	.string "underground--KUNI!\p"
 	.string "I saw you thwart Rocket's\n"
 	.string "plan to take the Radio Tower.\p"
 	.string "Now show me your strength!\n"

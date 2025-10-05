@@ -46,14 +46,14 @@
       "x": 26,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_CITY_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "1"
     },
     {
       "x": 24,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_FUCHSIA_CITY_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "1"
     }
   ],

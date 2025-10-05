@@ -67,6 +67,7 @@
 // #include "player_pc.h"
 // #include "easy_chat.h"
 // #include "strings.h"
+#include "constants/battle_frontier.h"
 
 #define MON_BOX_FULL 0xFF // HnS
 
@@ -3162,43 +3163,45 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
 
     switch (giftId)
     {
-        case 1: // KENYA
-            species = SPECIES_SPEAROW;
-            level = 20;
-            item = ITEM_RETRO_MAIL;
-            nickname = sKenyaNickname;
-            otName = sKenyaOtName;
-            otId = 61225;
-            break;
-        case 2: // SHUCKIE
-            species = SPECIES_SHUCKLE;
-            level = 20;
-            item = ITEM_BERRY_JUICE;
-            nickname = sShuckieNickname;
-            otName = sShuckieOtName;
-            otId = 4336;
-            break;
-        case 3: // EEVEE
-            species = SPECIES_EEVEE;
-            level = 20;
-            item = ITEM_NONE;
-            nickname = NULL;
-            otName = sEeveeOtName;
-            otId = 5231;
-            personality = 0x00000000;
-            break;
-        case 4: // DRATINI
-            species = SPECIES_DRATINI;
-            level = 15;
-            item = ITEM_NONE;
-            nickname = NULL;
-            otName = gSaveBlock2Ptr->playerName;
-            otId = gSaveBlock2Ptr->playerTrainerId[0];
-            personality = 0x00000003;
-            break;
-        default:
-            gSpecialVar_Result = MON_CANT_GIVE;
-            return FALSE;
+    case 1: // KENYA
+        species = SPECIES_SPEAROW;
+        level = 20;
+        item = ITEM_RETRO_MAIL;
+        nickname = sKenyaNickname;
+        otName = sKenyaOtName;
+        otId = 61225;
+        personality = Random32();
+        break;
+    case 2: // SHUCKIE
+        species = SPECIES_SHUCKLE;
+        level = 20;
+        item = ITEM_BERRY_JUICE;
+        nickname = sShuckieNickname;
+        otName = sShuckieOtName;
+        otId = 4336;
+        personality = Random32();
+        break;
+    case 3: // EEVEE
+        species = SPECIES_EEVEE;
+        level = 20;
+        item = ITEM_NONE;
+        nickname = NULL;
+        otName = sEeveeOtName;
+        otId = 5231;
+        personality = Random32();
+        break;
+    case 4: // DRATINI
+        species = SPECIES_DRATINI;
+        level = 15;
+        item = ITEM_NONE;
+        nickname = NULL;
+        otName = gSaveBlock2Ptr->playerName;
+        otId = gSaveBlock2Ptr->playerTrainerId[0];
+        personality = 0x00000003; 
+        break;
+    default:
+        gSpecialVar_Result = MON_CANT_GIVE;
+        return FALSE;
     }
 
     heldItem[0] = item & 0xFF;
@@ -3270,15 +3273,15 @@ bool8 ScrCmd_removenamedmon(struct ScriptContext *ctx)
 
     switch (giftId)
     {
-        case 1:
-            targetNickname = sKenyaNickname;
-            break;
-        case 2:
-            targetNickname = sShuckieNickname;
-            break;
-        default:
-            gSpecialVar_Result = MON_CANT_GIVE;
-            return FALSE;
+    case 1:
+        targetNickname = sKenyaNickname;
+        break;
+    case 2:
+        targetNickname = sShuckieNickname;
+        break;
+    default:
+        gSpecialVar_Result = MON_CANT_GIVE;
+        return FALSE;
     }
 
     u8 partyCount = 0;
@@ -3397,49 +3400,49 @@ bool8 ScrCmd_baobacheckmon(struct ScriptContext *ctx)
 
     switch (checkId)
     {
-        case 1:
-            gSpecialVar_Result =
-                (species == SPECIES_CACNEA ||
-                species == SPECIES_LOTAD ||
-                species == SPECIES_MAKUHITA ||
-                species == SPECIES_LOMBRE ||
-                species == SPECIES_TRAPINCH ||
-                species == SPECIES_BELDUM ||
-                species == SPECIES_VIBRAVA);
-            break;
+    case 1:
+        gSpecialVar_Result =
+            (species == SPECIES_CACNEA ||
+             species == SPECIES_LOTAD ||
+             species == SPECIES_MAKUHITA ||
+             species == SPECIES_LOMBRE ||
+             species == SPECIES_TRAPINCH ||
+             species == SPECIES_BELDUM ||
+             species == SPECIES_VIBRAVA);
+        break;
 
-        case 2:
-            gSpecialVar_Result =
-                (species == SPECIES_TROPIUS ||
-                species == SPECIES_CHIMECHO ||
-                species == SPECIES_ABSOL ||
-                species == SPECIES_CASTFORM);
-            break;
+    case 2:
+        gSpecialVar_Result =
+            (species == SPECIES_TROPIUS ||
+             species == SPECIES_CHIMECHO ||
+             species == SPECIES_ABSOL ||
+             species == SPECIES_CASTFORM);
+        break;
 
-        case 3:
-            gSpecialVar_Result =
-                (species == SPECIES_BARBOACH ||
-                species == SPECIES_WHISCASH ||
-                species == SPECIES_MEDITITE ||
-                species == SPECIES_NUMEL ||
-                species == SPECIES_BALTOY ||
-                species == SPECIES_ABSOL ||
-                species == SPECIES_MEDICHAM ||
-                species == SPECIES_CAMERUPT);
-            break;
+    case 3:
+        gSpecialVar_Result =
+            (species == SPECIES_BARBOACH ||
+             species == SPECIES_WHISCASH ||
+             species == SPECIES_MEDITITE ||
+             species == SPECIES_NUMEL ||
+             species == SPECIES_BALTOY ||
+             species == SPECIES_ABSOL ||
+             species == SPECIES_MEDICHAM ||
+             species == SPECIES_CAMERUPT);
+        break;
 
-        case 4:
-            gSpecialVar_Result =
-                (species == SPECIES_WHISMUR ||
-                species == SPECIES_NOSEPASS ||
-                species == SPECIES_BAGON ||
-                species == SPECIES_RELICANTH ||
-                species == SPECIES_FEEBAS);
-            break;
+    case 4:
+        gSpecialVar_Result =
+            (species == SPECIES_WHISMUR ||
+             species == SPECIES_NOSEPASS ||
+             species == SPECIES_BAGON ||
+             species == SPECIES_RELICANTH ||
+             species == SPECIES_FEEBAS);
+        break;
 
-        default:
-            gSpecialVar_Result = FALSE;
-            break;
+    default:
+        gSpecialVar_Result = FALSE;
+        break;
     }
 
     return FALSE;
@@ -3519,10 +3522,39 @@ static const u16 sOddEggSpecies[8] = {
 // EDIT THIS LIST: exact-match names that force 100% shiny eggs
 static const u8 sOddEggShinyNameList[][PLAYER_NAME_LENGTH + 1] = {
     _("DYLAN"),
-    _("RED"),
-    _("LEAF"),
-    _("GOLD"),
-    _("KRIS"),
+    _("Zee"),
+    _("Meara"),
+    _("Anthony"),
+    _("RAINBOW"),
+    _("FERRO"),
+    _("Kris"),
+    _("Chad"),
+    _("Bacon"),
+    _("Excl"),
+    _("Liquid"),
+    _("Dyn"),
+    _("Fabian"),
+    _("peepy"),
+    _("Cameron"),
+    _("Joe"),
+    _("Andrew"),
+    _("Nova"),
+    _("Cromlnt"),
+    _("Phant"),
+    _("Papito"),
+    _("Casper"),
+    _("ELLI"),
+    _("Grey"),
+    _("Necro"),
+    _("Penka"),
+    _("Emmam"),
+    _("Casper"),
+    _("MARZ"),
+    _("leob050"),
+    _("Sayu"),
+    _("Brick"),
+    _("Kino"),
+    _("JIRAIYA"),
 };
 
 static bool8 IsPlayerNameInShinyList(void)
@@ -3604,7 +3636,7 @@ static bool8 GiveOddEgg_Internal(u16 species, bool8 forceShiny, bool8 allow14Per
             }
 
             // You can set met location/ball/etc. here if you want.
-
+            SetMonMoveSlot(mon, MOVE_DIZZY_PUNCH, 1);
             CalculateMonStats(mon);
             gSpecialVar_Result = MON_GIVEN_TO_PARTY;
             return TRUE;
@@ -3634,10 +3666,38 @@ bool8 ScrCmd_giveoddegg(struct ScriptContext *ctx)
     (void)GiveOddEgg_Internal(species, forceShiny, TRUE);
     return FALSE;
 }
-// ====================== /HnS: giveoddegg ======================
+// ====================== /END HnS: giveoddegg ======================
 
 
 // end HnS stuff
+
+bool8 ScrCmd_givebp(struct ScriptContext *ctx)
+{
+    u16 add = VarGet(ScriptReadHalfword(ctx));   // supports immediates or VARs
+    u32 total;
+
+    // Update total BP
+    total = gSaveBlock2Ptr->frontier.battlePoints;
+    if (total + add > MAX_BATTLE_FRONTIER_POINTS)
+        total = MAX_BATTLE_FRONTIER_POINTS;
+    else
+        total += add;
+    gSaveBlock2Ptr->frontier.battlePoints = total;
+
+    // Store the awarded amount into gStringVar1 (for use in msgboxes)
+    ConvertIntToDecimalStringN(gStringVar1, add, STR_CONV_MODE_LEFT_ALIGN, 3);
+
+    // Update the card BP (16-bit) and daily counter
+    {
+        u32 card = gSaveBlock2Ptr->frontier.cardBattlePoints + add;
+        if (card > 0xFFFF)
+            card = 0xFFFF;
+        gSaveBlock2Ptr->frontier.cardBattlePoints = card;
+    }
+    IncrementDailyBattlePoints(add);
+
+    return FALSE;
+}
 
 void ScriptSetDoubleBattleFlag(struct ScriptContext *ctx)
 {

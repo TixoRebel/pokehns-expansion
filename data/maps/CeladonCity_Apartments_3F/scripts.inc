@@ -1,28 +1,6 @@
 CeladonCity_Apartments_3F_MapScripts::
 	.byte 0
 
-CeladonCity_Apartments_3F_EventScript_SetWarpDayLeft::
-	setdynamicwarp MAP_CELADON_CITY_APARTMENTS_ROOF_DAY, 0
-	release
-	end
-
-CeladonCity_Apartments_3F_EventScript_SetWarpDayRight::
-	setdynamicwarp MAP_CELADON_CITY_APARTMENTS_ROOF_DAY, 1
-	release
-	end
-
-CeladonCity_Apartments_3F_EventScript_Trigger_Left::
-	goto_if_set FLAG_NIGHT_POKEMON, CeladonCity_Apartments_3F_EventScript_SetWarpDayLeft
-	setdynamicwarp MAP_CELADON_CITY_APARTMENTS_ROOF_NIGHT, 1
-	release
-	end
-
-CeladonCity_Apartments_3F_EventScript_Trigger_Right::
-	goto_if_set FLAG_NIGHT_POKEMON, CeladonCity_Apartments_3F_EventScript_SetWarpDayRight
-	setdynamicwarp MAP_CELADON_CITY_APARTMENTS_ROOF_NIGHT, 0
-	release
-	end
-
 CeladonCity_Apartments_3F_EventScript_Sign::
 	msgbox CeladonMansion3F_Text_DevRoomSign, MSGBOX_SIGN
 	end

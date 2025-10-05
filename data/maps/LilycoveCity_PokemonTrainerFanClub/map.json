@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_TRAINER_FAN_CLUB_LASS",
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 3,
       "y": 11,
       "elevation": 3,
@@ -100,7 +100,7 @@
     },
     {
       "local_id": "LOCALID_TRAINER_FAN_CLUB_WOMAN",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
       "x": 3,
       "y": 10,
       "elevation": 3,

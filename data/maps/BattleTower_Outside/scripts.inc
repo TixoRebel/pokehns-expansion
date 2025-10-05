@@ -61,8 +61,8 @@ BattleTowerOutsideSignText:
 	.string "Challenge!$"
 
 BattleTowerOutsideText_Closed:
-	.string "The BATTLE TOWER's is currently\n"
-	.string "closed for repairs$"
+	.string "The BATTLE TOWER is currently\n"
+	.string "closed for repairs.$"
 
 
 BattleTower_Outside_EventScript_LeftMoveTutor::
@@ -879,12 +879,12 @@ BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin::
 	waitstate
 	special CloseFrontierExchangeCornerItemIconWindow
 	switch VAR_RESULT
-	case 0, BattleTower_Outside_ExchangeServiceCorner_EventScript_EonTicket
-	case 1, BattleTower_Outside_ExchangeServiceCorner_EventScript_MysticTicket
-	case 2, BattleTower_Outside_ExchangeServiceCorner_EventScript_AuroraTicket
-	case 3, BattleTower_Outside_ExchangeServiceCorner_EventScript_OldMap
-	case 4, BattleTower_Outside_ExchangeServiceCorner_EventScript_Brace
-	case 5, BattleTower_Outside_ExchangeServiceCorner_EventScript_Upgrade
+	case 0, BattleTower_Outside_ExchangeServiceCorner_EventScript_Protein
+	case 1, BattleTower_Outside_ExchangeServiceCorner_EventScript_Calcium
+	case 2, BattleTower_Outside_ExchangeServiceCorner_EventScript_Iron
+	case 3, BattleTower_Outside_ExchangeServiceCorner_EventScript_Zinc
+	case 4, BattleTower_Outside_ExchangeServiceCorner_EventScript_Carbos
+	case 5, BattleTower_Outside_ExchangeServiceCorner_EventScript_HpUp
 	case 6, BattleTower_Outside_ExchangeServiceCorner_EventScript_ClerkGoodbye
 	case MULTI_B_PRESSED, BattleTower_Outside_ExchangeServiceCorner_EventScript_ClerkGoodbye
 	end
@@ -895,59 +895,51 @@ BattleTower_Outside_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis::
 	release
 	end
 
-BattleTower_Outside_ExchangeServiceCorner_EventScript_EonTicket::
-	checkitem ITEM_EON_TICKET, 1
-	goto_if_eq VAR_RESULT, TRUE, BattleTower_Outside_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
-	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmEonTicket, MSGBOX_YESNO
+BattleTower_Outside_ExchangeServiceCorner_EventScript_Protein::
+	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmProtein, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 48
-	setvar VAR_0x8009, ITEM_EON_TICKET
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, ITEM_PROTEIN
 	goto BattleTower_Outside_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleTower_Outside_ExchangeServiceCorner_EventScript_MysticTicket::
-	checkitem ITEM_MYSTIC_TICKET, 1
-	goto_if_eq VAR_RESULT, TRUE, BattleTower_Outside_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
-	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmMysticTicket, MSGBOX_YESNO
+BattleTower_Outside_ExchangeServiceCorner_EventScript_Calcium::
+	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmCalcium, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 96
-	setvar VAR_0x8009, ITEM_MYSTIC_TICKET
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, ITEM_CALCIUM
 	goto BattleTower_Outside_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleTower_Outside_ExchangeServiceCorner_EventScript_AuroraTicket::
-	checkitem ITEM_AURORA_TICKET, 1
-	goto_if_eq VAR_RESULT, TRUE, BattleTower_Outside_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
-	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmAuroraTicket, MSGBOX_YESNO
+BattleTower_Outside_ExchangeServiceCorner_EventScript_Iron::
+	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmIron, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 96
-	setvar VAR_0x8009, ITEM_AURORA_TICKET
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, ITEM_IRON
 	goto BattleTower_Outside_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleTower_Outside_ExchangeServiceCorner_EventScript_OldMap::
-	checkitem ITEM_OLD_SEA_MAP, 1
-	goto_if_eq VAR_RESULT, TRUE, BattleTower_Outside_ExchangeServiceCorner_EventScript_YouAlreadyHaveThis
-	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmOldMap, MSGBOX_YESNO
+BattleTower_Outside_ExchangeServiceCorner_EventScript_Zinc::
+	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmZinc, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 96
-	setvar VAR_0x8009, ITEM_OLD_SEA_MAP
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, ITEM_ZINC
 	goto BattleTower_Outside_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleTower_Outside_ExchangeServiceCorner_EventScript_Brace::
-	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmBrace, MSGBOX_YESNO
+BattleTower_Outside_ExchangeServiceCorner_EventScript_Carbos::
+	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmCarbos, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 4
-	setvar VAR_0x8009, ITEM_MACHO_BRACE
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, ITEM_CARBOS
 	goto BattleTower_Outside_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
-BattleTower_Outside_ExchangeServiceCorner_EventScript_Upgrade::
-	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmUpgrade, MSGBOX_YESNO
+BattleTower_Outside_ExchangeServiceCorner_EventScript_HpUp::
+	msgbox BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmHpUp, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleTower_Outside_ExchangeServiceCorner_EventScript_ChooseVitamin
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_UP_GRADE
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, ITEM_HP_UP
 	goto BattleTower_Outside_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
@@ -1156,28 +1148,28 @@ BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmBlastoiseDoll:
 	.string "You've chosen the BLASTOISE DOLL.\n"
 	.string "Is that correct?$"
 
-BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmEonTicket:
-	.string "You've chosen the EON TICKET.\n"
+BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmProtein:
+	.string "You've chosen the PROTEIN.\n"
 	.string "Is that correct?$"
 
-BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmMysticTicket:
-	.string "You've chosen the MYSTIC\n"
-	.string "TICKET. Is that correct?$"
-
-BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmAuroraTicket:
-	.string "You've chosen the AURORA\n"
-	.string "TICKET Is that correct?$"
-
-BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmOldMap:
-	.string "You've chosen the OLD MAP.\n"
+BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmCalcium:
+	.string "You've chosen the CALCIUM.\n"
 	.string "Is that correct?$"
 
-BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmBrace:
-	.string "You've chosen the MACHO\n"
-	.string "BRACE. Is that correct?$"
+BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmIron:
+	.string "You've chosen the IRON.\n"
+	.string "Is that correct?$"
 
-BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmUpgrade:
-	.string "You've chosen the UP GRADE.\n"
+BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmZinc:
+	.string "You've chosen the ZINC.\n"
+	.string "Is that correct?$"
+
+BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmCarbos:
+	.string "You've chosen the CARBOS.\n"
+	.string "Is that correct?$"
+
+BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmHpUp:
+	.string "You've chosen the HP UP.\n"
 	.string "Is that correct?$"
 
 BattleTower_Outside_ExchangeServiceCorner_Text_ConfirmBrightpowder:

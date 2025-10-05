@@ -3,5 +3,5 @@ CaveOfOrigin_1F_MapScripts::
 	.byte 0
 
 CaveOfOrigin_1F_OnTransition:
-	call_if_set FLAG_GARBAGEFLAG, CaveOfOrigin_EventScript_DisableTriggers
+	call_if_set FLAG_FINITE_TMS, CaveOfOrigin_EventScript_DisableTriggers
 	end

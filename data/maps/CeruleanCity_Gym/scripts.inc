@@ -12,8 +12,10 @@ CeruleanCity_Gym_OnFrame::
 CeruleanCity_Gym_EventScript_RocketGrunt::
 	lock
 	applymovement LOCALID_CERULEAN_GYM_ROCKET, CeruleanCity_Gym_Movement_GruntBumpPlayer
-	waitmovement 0
+	delay 20
 	playse SE_BANG
+	waitmovement 0
+	
 	msgbox CeruleanGym_Text_GruntIntro, MSGBOX_DEFAULT
 	closemessage
 	playse SE_PIN

@@ -35,7 +35,8 @@ LittlerootTown_MapScripts::
 
 
 LittlerootTown_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	call_if_unset FLAG_MINTS_ENABLED, LittlerootTown_Disable_Pokeball_Mints
+	setflag FLAG_VISITED_NEWBARK_TOWN
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_GARBAGEVAR, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
@@ -47,6 +48,13 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	end
+
+LittlerootTown_Disable_Pokeball_Mints::
+	setflag FLAG_MODEST_MINT_LILYCOVE
+	setflag FLAG_TIMID_MINT_MAUVILLE
+	setflag FLAG_CALM_MINT_SANDTOWER
+	setflag FLAG_RASH_MINT_METEOR_FALLS
+	return
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
@@ -159,7 +167,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	hideobjectat LOCALID_PLAYER, 0
 	closedoor VAR_0x8004, VAR_0x8005
 	waitdooranim
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_MOMS_FRIEND
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	return
 
@@ -208,7 +216,20 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 	applymovement LOCALID_LITTLEROOT_BIRCH, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 80
+	goto_if_ge VAR_TIME_BASED_ENCOUNTER, 3, LittlerootTown_EventScript_BeginDexUpgradeSceneSkip
 	msgbox LittlerootTown_Text_BirchSomethingToShowYouAtLab, MSGBOX_DEFAULT
+	closemessage
+	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_GARBAGEFLAG
+	delay 20
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
+	waitstate
+	releaseall
+	end
+
+LittlerootTown_EventScript_BeginDexUpgradeSceneSkip::
+	msgbox LittlerootTown_Text_BirchSomethingToShowYouAtLab2, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
@@ -955,7 +976,27 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "If you use a PC, you can store items\n"
 	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
+	.string "The power of science is staggering!\p"
+	.string "In fact, do you know you can change\n"
+	.string "the order of your PARTY by\p"
+	.string "pressing the SELECT Button?\p"
+	.string "Or the fact that you can press\n"
+	.string "the L or R Button at the STAT\p"
+	.string "SCREEN of a POKéMON to see EV\n"
+	.string "and IV values?\p"
+	.string "And . . . \p"
+	.string "Did you know that the BLUE and\n"
+	.string "RED color of a STAT comes from\p"
+	.string "the NATURE of your POKéMON?\n"
+	.string "RED is a boosted stat, and BLUE\p"
+	.string "is the opposite.\p"
+	.string "AND I HAVEN'T FINISHED YET!\p"
+	.string "If you hold the L and R Button…\p"
+	.string "While encountering a wild POKéMON…\p"
+	.string "You will instantly run away!\p"
+	.string "I'm… I'm out of breath…\p"
+	.string ". . . . . . \p"
+	.string "You don't know what EV or IV are??$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
 	.string "PROF. BIRCH spends days in his LAB\n"
@@ -1014,3 +1055,10 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_Text_BirchSomethingToShowYouAtLab2:
+	.string "PROF. BIRCH: Well, well, {PLAYER}{KUN}!\n"
+	.string "That was good work out there!\p"
+	.string "I knew there was something special\n"
+	.string "about you when I first saw you,\l"
+	.string "but I never expected this.\p"
+	.string "Let's go to my LAB.$"

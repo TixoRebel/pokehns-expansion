@@ -404,7 +404,7 @@ PokemonLeague_ChampionsRoom_Text_MaryInterview:
     .string "JOHTO CHAMPION!$"
 
 PokemonLeague_ChampionsRoom_Text_RematchMaryInterview:
-    .string "MARY: Let's inter-view the brand new\n"
+    .string "MARY: Let's interview the brand new\n"
     .string "KANTO CHAMPION!$"
 
 PokemonLeague_ChampionsRoom_Text_Noisy:

@@ -692,27 +692,27 @@ BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc::
 	.string "Place it on a mat or a desk.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ProteinDesc::
-	.string "A strange ticket that will get\n"
-	.string "you to an abandoned island.$"
+	.string "Raises the stat ATTACK of one\n"
+	.string "POKéMON.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_CalciumDesc::
-	.string "A strange ticket that will get\n"
-	.string "you to an abandoned island.$"
+	.string "Raises the stat SP. ATK of one\n"
+	.string "POKéMON.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_IronDesc::
-	.string "A strange ticket that will get\n"
-	.string "you to an abandoned island.$"
+	.string "Raises the stat DEFENSE of one\n"
+	.string "POKéMON.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ZincDesc::
-	.string "An… old map? Maybe\n"
-	.string "it will get you somewhere.$"
+	.string "Raises the stat SP. DEF of one\n"
+	.string "POKéMON.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_CarbosDesc::
-	.string "x10 EV gain, but halves speed.$"
+	.string "Raises the stat SPEED of one\n"
+	.string "POKéMON.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_HPUpDesc::
-	.string "A peculiar box made\n"
-	.string "by SILPH CO.$"  
+	.string "Raises the HP of one POKéMON.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_LeftoversDesc::
 	.string "A hold item that gradually restores\n"

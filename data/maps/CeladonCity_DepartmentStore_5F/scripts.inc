@@ -2,17 +2,7 @@
 
 CeladonCity_DepartmentStore_5F_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CeladonDeptElevator_OnFrame
-	map_script MAP_SCRIPT_ON_TRANSITION, CeladonDept5_EventScript_SetWarp
 	.byte 0
-
-CeladonDept5_EventScript_SetWarp::
-	goto_if_set FLAG_NIGHT_POKEMON, CeladonDept5_EventScript_SetWarpDay
-	setdynamicwarp MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF_NIGHT, 15, 6
-	end
-
-CeladonDept5_EventScript_SetWarpDay::
-	setdynamicwarp MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF_DAY, 15, 6
-	end
 
 CeladonDept5_EventScript_Gent::
 	msgbox CeladonDeptStore5F_Text_Gentleman, MSGBOX_NPC
@@ -50,7 +40,7 @@ CeladonDeptStore5_Text_Falkner:
 
 CeladonDeptStore5F_Text_Gentleman:
 	.string "I want to buy some items that\n"
-	.string "raise POKéMON stats, but I don't\n"
+	.string "raise POKéMON stats, but I don't\l"
 	.string "have enough money…$"
 
 CeladonDeptStore5F_Text_Sailor:

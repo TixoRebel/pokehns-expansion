@@ -3,7 +3,7 @@
   "name": "Route125",
   "layout": "LAYOUT_ROUTE125",
   "music": "MUS_ROUTE120",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_UNION_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_OCEAN_ROUTE",
@@ -96,7 +96,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 17,
       "y": 19,
       "elevation": 3,
@@ -109,7 +109,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 18,
       "y": 19,
       "elevation": 3,

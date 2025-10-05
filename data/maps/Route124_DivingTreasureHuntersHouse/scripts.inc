@@ -6,6 +6,16 @@ Route124_DivingTreasureHuntersHouse_OnTransition:
 	setflag FLAG_LANDMARK_HUNTERS_HOUSE
 	end
 
+Route124_DivingTreasureHuntersHouse_TogekissEvo::
+	msgbox Route124_DivingTreasureHuntersHouse_TogekissEvo_Text, MSGBOX_NPC
+	end
+
+Route124_DivingTreasureHuntersHouse_TogekissEvo_Text:
+	.string "There's one POKéMON that evolves\n"
+	.string "HOLDING a HEART SCALE during the day.\p"
+	.string "That POKéMON is TOGETIC!\n" 
+	.string "I wish I had one…$"
+
 Route124_DivingTreasureHuntersHouse_EventScript_TreasureHunter::
 	lock
 	faceplayer
@@ -219,17 +229,17 @@ Route124_DivingTreasureHuntersHouse_EventScript_ShardOptionsRYBG::
 
 Route124_DivingTreasureHuntersHouse_EventScript_TradeRedShard::
 	setvar VAR_0x8008, ITEM_RED_SHARD
-	setvar VAR_0x8009, ITEM_FIRE_STONE
+	setvar VAR_0x8009, ITEM_SUN_STONE
 	goto Route124_DivingTreasureHuntersHouse_EventScript_TryTradeShard
 
 Route124_DivingTreasureHuntersHouse_EventScript_TradeYellowShard::
 	setvar VAR_0x8008, ITEM_YELLOW_SHARD
-	setvar VAR_0x8009, ITEM_THUNDER_STONE
+	setvar VAR_0x8009, ITEM_DEEP_SEA_TOOTH
 	goto Route124_DivingTreasureHuntersHouse_EventScript_TryTradeShard
 
 Route124_DivingTreasureHuntersHouse_EventScript_TradeBlueShard::
 	setvar VAR_0x8008, ITEM_BLUE_SHARD
-	setvar VAR_0x8009, ITEM_WATER_STONE
+	setvar VAR_0x8009, ITEM_DEEP_SEA_SCALE
 	goto Route124_DivingTreasureHuntersHouse_EventScript_TryTradeShard
 
 Route124_DivingTreasureHuntersHouse_EventScript_TradeGreenShard::

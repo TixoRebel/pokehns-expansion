@@ -3,12 +3,17 @@
 Route30_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route30_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, SetTimeEncounters
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route30_OnFrame
 	.byte 0
 
 Route30_OnTransition: 
 	callnative SetTimeBasedEncounters
 	end
 
+Route30_OnFrame::
+	map_script_2 VAR_CHERRYGROVE_CITY_STATE, 2, Route30_EventScript_ElmCall_Trigger
+	.2byte 0
+	
 Route30_EventScript_Boy::
 	lock
 	faceplayer

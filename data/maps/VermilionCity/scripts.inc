@@ -40,7 +40,7 @@ VermilionCity_TriggerCity:: @flagheap
 	clearflag FLAG_BADGE15_GET
 	clearflag FLAG_BADGE16_GET
 	clearflag FLAG_GOT_VERMILION_HP_UP
-	clearflag FLAG_GOT_KANTO_RADIO
+	clearflag FLAG_KANTO_RADIO_GOT
 	clearflag FLAG_HIDE_VERMILION_SNORLAX
 	clearflag FLAG_HIDE_FAN_CLUB_CLEFAIRY_DOLL
 	clearflag FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES
@@ -231,7 +231,7 @@ VermilionCity_EventScript_Nerd::
 
 VermilionCity_EventScript_Snorlax::
 	lock
-	goto_if_set FLAG_GOT_KANTO_RADIO, VermilionCity_EventScript_SnorlaxWakeUp
+	goto_if_set FLAG_KANTO_RADIO_GOT, VermilionCity_EventScript_SnorlaxWakeUp
 	msgbox VermilionCity_Text_SnorlaxSleeping, MSGBOX_DEFAULT
 	closemessage
 	release

@@ -122,6 +122,9 @@ RocketHideout_B2F_Movement_MurkrowStairs2:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	step_end
 
 RocketHideout_B2F_Trigger_MurkrowGate::
@@ -718,6 +721,11 @@ RocketHideout_B2F_Movement_LanceGoDeeper:
 	walk_right
 	walk_right
 	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -735,6 +743,11 @@ RocketHideout_B2F_Movement_DragoniteGoDeeper:
 	walk_right
 	walk_right
 	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -779,9 +792,9 @@ RocketHideout_B2F_Text_GruntM18Beaten:
 RocketHideout_B2F_Text_GruntM18After:
     .string "I got wiped out on the last\n"
     .string "mission by a kid too.\p"
-    .string "When we were abducting POKéMON,\l"
+    .string "When we were abducting POKéMON,\n"
     .string "this kid with long red hair and\l"
-    .string "mean-looking eyes just\n"
+    .string "mean-looking eyes just\l"
     .string "creamed me…$"
 
 RocketHideout_B2F_EventScript_Grunt15::

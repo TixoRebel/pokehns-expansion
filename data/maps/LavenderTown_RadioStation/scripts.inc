@@ -16,7 +16,7 @@ LavenderTown_RadioStation_EventScript_SuperNerd::
 LavenderTown_RadioStation_EventScript_Director::
 	lock
 	faceplayer
-	goto_if_set FLAG_GOT_KANTO_RADIO, LavenderTown_RadioStation_EventScript_DirectorGotRadio
+	goto_if_set FLAG_KANTO_RADIO_GOT, LavenderTown_RadioStation_EventScript_DirectorGotRadio
 	goto_if_set FLAG_RETURNED_MACHINE_PART, LavenderTown_RadioStation_EventScript_DirectorReturnedMachinePart
 	msgbox LavenderTown_RadioStation_Text_Gentleman, MSGBOX_NPC
 	end
@@ -27,7 +27,7 @@ LavenderTown_RadioStation_EventScript_DirectorReturnedMachinePart::
 	waitfanfare
 	msgbox LavenderTown_RadioStation_Text_Gentleman_GotExpnCard, MSGBOX_DEFAULT
 	closemessage
-	setflag FLAG_GOT_KANTO_RADIO
+	setflag FLAG_KANTO_RADIO_GOT
 	release
 	end
 LavenderTown_RadioStation_EventScript_DirectorGotRadio::	
@@ -35,7 +35,7 @@ LavenderTown_RadioStation_EventScript_DirectorGotRadio::
 	end
 
 LavenderTown_RadioStation_EventScript_Host::
-	goto_if_set FLAG_GOT_KANTO_RADIO, LavenderTown_RadioStation_EventScript_Host2
+	goto_if_set FLAG_KANTO_RADIO_GOT, LavenderTown_RadioStation_EventScript_Host2
 	msgbox LavenderTown_RadioStation_Text_SuperNerd2, MSGBOX_NPC
 	end
 LavenderTown_RadioStation_EventScript_Host2::

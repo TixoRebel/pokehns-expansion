@@ -18,7 +18,7 @@ FortreeCity_Gym_EventScript_InitRotatingGates::
 	end
 
 FortreeCity_Gym_EventScript_Winona::
-	trainerbattle_single TRAINER_NONE, FortreeCity_Gym_Text_WinonaIntro, FortreeCity_Gym_Text_WinonaDefeat, FortreeCity_Gym_EventScript_WinonaDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaIntro, FortreeCity_Gym_Text_WinonaDefeat, FortreeCity_Gym_EventScript_WinonaDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, FortreeCity_Gym_EventScript_WinonaRematch
 	goto_if_unset FLAG_RECEIVED_TM_AERIAL_ACE, FortreeCity_Gym_EventScript_GiveAerialAce2
@@ -31,7 +31,7 @@ FortreeCity_Gym_EventScript_WinonaDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_DEFEATED_OLIVINE_CITY_GYM
 	setflag FLAG_BADGE06_GET
 	setvar VAR_0x8008, 6
 	call Common_EventScript_SetGymTrainers
@@ -65,7 +65,7 @@ FortreeCity_Gym_EventScript_GiveAerialAce::
 	return
 
 FortreeCity_Gym_EventScript_WinonaRematch::
-	trainerbattle_rematch_double TRAINER_NONE, FortreeCity_Gym_Text_WinonaPreRematch, FortreeCity_Gym_Text_WinonaRematchDefeat, FortreeCity_Gym_Text_WinonaRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaPreRematch, FortreeCity_Gym_Text_WinonaRematchDefeat, FortreeCity_Gym_Text_WinonaRematchNeedTwoMons
 	msgbox FortreeCity_Gym_Text_WinonaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -75,34 +75,34 @@ FortreeCity_Gym_EventScript_Jared::
 	end
 
 FortreeCity_Gym_EventScript_Edwardo::
-	trainerbattle_single TRAINER_NONE, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
+	trainerbattle_single TRAINER_LOIS, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
 	msgbox FortreeCity_Gym_Text_EdwardoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Flint::
-	trainerbattle_single TRAINER_NONE, FortreeCity_Gym_Text_FlintIntro, FortreeCity_Gym_Text_FlintDefeat
+	trainerbattle_single TRAINER_RAY, FortreeCity_Gym_Text_FlintIntro, FortreeCity_Gym_Text_FlintDefeat
 	msgbox FortreeCity_Gym_Text_FlintPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Ashley::
-	trainerbattle_single TRAINER_NONE, FortreeCity_Gym_Text_AshleyIntro, FortreeCity_Gym_Text_AshleyDefeat
+	trainerbattle_single TRAINER_CHARLES, FortreeCity_Gym_Text_AshleyIntro, FortreeCity_Gym_Text_AshleyDefeat
 	msgbox FortreeCity_Gym_Text_AshleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Humberto::
-	trainerbattle_single TRAINER_NONE, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
+	trainerbattle_single TRAINER_CHUCK_2, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
 	msgbox FortreeCity_Gym_Text_HumbertoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Darius::
-	trainerbattle_single TRAINER_NONE, FortreeCity_Gym_Text_DariusIntro, FortreeCity_Gym_Text_DariusDefeat
+	trainerbattle_single TRAINER_JIN, FortreeCity_Gym_Text_DariusIntro, FortreeCity_Gym_Text_DariusDefeat
 	msgbox FortreeCity_Gym_Text_DariusPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, FortreeCity_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, FortreeCity_Gym_EventScript_GymGuidePostVictory
 	msgbox FortreeCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end
@@ -258,7 +258,10 @@ FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis:
 	.string "to LV 70, even those received through\l"
 	.string "trades, will obey your every command.\p"
 	.string "You will also be able to use\n"
-	.string "the HM move FLY outside of battle.\p"
+	.string "the HM move FLY outside of battle,\p"
+	.string "even if the POKéMON does not know it.\p"
+	.string "The only requirement is that the\n"
+	.string "POKéMON has to be a FLYING TYPE.\p"
 	.string "And this…\n"
 	.string "This is a gift from me.$"
 

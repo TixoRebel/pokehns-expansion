@@ -510,7 +510,7 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddRound2Audience::
 	createvobject OBJ_EVENT_GFX_WORKER_F, 22, 11, 1
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 5, 1
+	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 29, 5, 1
 	return
 
 BattleFrontier_BattleDomeBattleRoom_EventScript_AddSemifinalAudience::
@@ -519,7 +519,7 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddSemifinalAudience::
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 6, 8, 0
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 7, 9, 0
 	createvobject OBJ_EVENT_GFX_LITTLE_GIRL, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_LASS, 10, 12, 0
+	createvobject OBJ_EVENT_GFX_PSYCHIC_M, 10, 12, 0
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 11, 13, 0
 	createvobject OBJ_EVENT_GFX_ROCKER, 13, 15, 0
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 15, 2, 1
@@ -532,7 +532,7 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddSemifinalAudience::
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
 	createvobject OBJ_EVENT_GFX_CHANNELER, 28, 5, 2
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 5, 1
+	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 29, 5, 1
 	createvobject OBJ_EVENT_GFX_CLERK, 30, 6, 2
 	createvobject OBJ_EVENT_GFX_WORKER_F, 31, 8, 2
 	return
@@ -546,9 +546,9 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 5, 7, 0
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 6, 8, 0
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 7, 9, 0
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 8, 10, 0
+	createvobject OBJ_EVENT_GFX_COOLTRAINER_F, 8, 10, 0
 	createvobject OBJ_EVENT_GFX_LITTLE_GIRL, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_LASS, 10, 12, 0
+	createvobject OBJ_EVENT_GFX_PSYCHIC_M, 10, 12, 0
 	createvobject OBJ_EVENT_GFX_SCIENTIST_M, 11, 13, 0
 	createvobject OBJ_EVENT_GFX_BEAUTY, 12, 14, 0
 	createvobject OBJ_EVENT_GFX_ROCKER, 13, 15, 2
@@ -556,7 +556,7 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_GENTLEMAN, 15, 2, 1
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 16, 3, 1
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 17, 4, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 18, 6, 1
+	createvobject OBJ_EVENT_GFX_COOLTRAINER_F, 18, 6, 1
 	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
 	createvobject OBJ_EVENT_GFX_OLD_WOMAN, 20, 9, 1
 	createvobject OBJ_EVENT_GFX_GYM_GUY, 21, 10, 1
@@ -567,7 +567,7 @@ BattleFrontier_BattleDomeBattleRoom_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
 	createvobject OBJ_EVENT_GFX_FAT_MAN, 27, 3, 2
 	createvobject OBJ_EVENT_GFX_CHANNELER, 28, 5, 2
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY2, 29, 5, 1
+	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 29, 5, 1
 	createvobject OBJ_EVENT_GFX_CLERK, 30, 6, 2
 	createvobject OBJ_EVENT_GFX_WORKER_F, 31, 8, 2
 	return
@@ -943,12 +943,12 @@ BattleFrontier_BattleDomeBattleRoom_Text_TrainerIsWinner:
 	.string "Congratulations!$"
 
 BattleFrontier_BattleDomeBattleRoom_Text_PlayerIsLv50Champ:
-	.string "{PLAYER} is the Level 50\n"
+	.string "{PLAYER} is the NORMAL Level\n"
 	.string "Battle Tournament Champion!\p"
 	.string "Congratulations!$"
 
 BattleFrontier_BattleDomeBattleRoom_Text_PlayerIsLvOpenChamp:
-	.string "{PLAYER} is the Open Level\n"
+	.string "{PLAYER} is the HARD Level\n"
 	.string "Battle Tournament Champion!\p"
 	.string "Congratulations!$"
 
@@ -1160,7 +1160,7 @@ BattleFrontier_BattleDomeBattleRoom_Text_PlayerIsLv50Champ2:
 
 @ Unused
 BattleFrontier_BattleDomeBattleRoom_Text_PlayerIsLvOpenChamp2:
-	.string "{PLAYER} is the Open Level\n"
+	.string "{PLAYER} is the HARD Level\n"
 	.string "Battle Tournament Champion!\p"
 	.string "Congratulations!$"
 

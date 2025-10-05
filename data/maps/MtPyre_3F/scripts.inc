@@ -7,12 +7,12 @@ MtPyre_3F_EventScript_William::
 	end
 
 MtPyre_3F_EventScript_Kayla::
-	trainerbattle_single TRAINER_NONE, MtPyre_3F_Text_KaylaIntro, MtPyre_3F_Text_KaylaDefeat
+	trainerbattle_single TRAINER_KAYLA, MtPyre_3F_Text_KaylaIntro, MtPyre_3F_Text_KaylaDefeat
 	msgbox MtPyre_3F_Text_KaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_3F_EventScript_Gabrielle::
-	trainerbattle_single TRAINER_NONE, MtPyre_3F_Text_GabrielleIntro, MtPyre_3F_Text_GabrielleDefeat, MtPyre_3F_EventScript_RegisterGabrielle
+	trainerbattle_single TRAINER_ROD, MtPyre_3F_Text_GabrielleIntro, MtPyre_3F_Text_GabrielleDefeat, MtPyre_3F_EventScript_RegisterGabrielle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MtPyre_3F_EventScript_RematchGabrielle
 	msgbox MtPyre_3F_Text_GabriellePostBattle, MSGBOX_DEFAULT
@@ -23,12 +23,12 @@ MtPyre_3F_EventScript_RegisterGabrielle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox MtPyre_3F_Text_GabrielleRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_ROD
 	release
 	end
 
 MtPyre_3F_EventScript_RematchGabrielle::
-	trainerbattle_rematch TRAINER_NONE, MtPyre_3F_Text_GabrielleRematchIntro, MtPyre_3F_Text_GabrielleRematchDefeat
+	trainerbattle_rematch TRAINER_ROD, MtPyre_3F_Text_GabrielleRematchIntro, MtPyre_3F_Text_GabrielleRematchDefeat
 	msgbox MtPyre_3F_Text_GabriellePostRematch, MSGBOX_AUTOCLOSE
 	end
 

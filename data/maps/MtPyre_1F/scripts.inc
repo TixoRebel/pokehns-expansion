@@ -1,6 +1,17 @@
 MtPyre_1F_MapScripts::
 	.byte 0
 
+MtPyre_1F_DusknoirMisdreavusEvo::
+	msgbox MtPyre_1F_DusknoirMisdreavusEvo_Text, MSGBOX_NPC
+	end
+
+MtPyre_1F_DusknoirMisdreavusEvo_Text:
+	.string "Wild DUSKULL sometimes hold a SPELL TAG.\n"
+	.string "I wonder why? What do they do with it?\l"
+	.string "Maybe they use it to evolve?\p"
+	.string "What I do know is that MISDREAVUS\n"
+	.string "evolves if it holds it during the night.$"
+
 MtPyre_1F_EventScript_CleanseTagWoman::
 	lock
 	faceplayer

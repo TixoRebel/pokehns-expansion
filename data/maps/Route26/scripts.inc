@@ -60,21 +60,21 @@ Route26_Text_CooltrainermGavenAfter:
     .string "Practically nobody goes there!$"
 
 Route26_Text_CooltrainerfJoyceSeen:
-    .string "Since you've come this far, you must\n"
-    .string "be good.\p"
-    .string "I'm going to give this battle every-\n"
-    .string "thing I've got!$"
+    .string "Since you've come this far,\n"
+    .string "you must be good.\p"
+    .string "I'm going to give this battle\n"
+    .string "everything I've got!$"
 
 Route26_Text_CooltrainerfJoyceBeaten:
     .string "No! I don't believe this!$"
 
 Route26_Text_CooltrainerfJoyceAfter:
-    .string "I've defeated eight GYM LEADERS,\p"
+    .string "I've defeated eight GYM LEADERS,\n"
     .string "so I was feeling confident.\p"
     .string "I'll have to try harder next time.$"
 
 Route26_Text_CooltrainerfBethSeen:
-    .string "I lost to a train-er named SILVER.\p"
+    .string "I lost to a trainer named SILVER.\p"
     .string "He was really strong, but…\p"
     .string "It was as if he absolutely had to\n"
     .string "win at any cost.\p"

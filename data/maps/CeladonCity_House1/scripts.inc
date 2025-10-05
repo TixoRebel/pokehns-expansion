@@ -78,7 +78,7 @@ CeladonCity_House1_Text_Fisher3MunchMunch:
 
 CeladonCity_House1_Text_Fisher3GoldenrodIsBest:
 	.string "The food is good here, but\n"
-	.string "GOLDENROD has the best food\n"
+	.string "GOLDENROD has the best food\l"
 	.string "anywhere.$"
 
 CeladonCity_House1_Text_TeacherCrunchCrunch:

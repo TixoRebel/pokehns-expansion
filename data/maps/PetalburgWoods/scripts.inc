@@ -1,5 +1,279 @@
+.set LOCALID_CELEBI, 17
+.set LOCALID_OLD_MAN, 15
+.set LOCALID_DUSCLOPS, 16
+
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
+
+PetalburgWoods_OnTransition::
+	goto_if_unset FLAG_EXTRA_LEGENDARIES, PetalburgWoods_SwitchToOld
+	call_if_unset FLAG_SYS_GAME_CLEAR, PetalburgWoods_NoCelebiEvent
+	call_if_set FLAG_SYS_GAME_CLEAR, PetalburgWoods_YesCelebiEvent
+	end
+
+PetalburgWoods_SwitchToOld::
+	setmaplayoutindex LAYOUT_PETALBURG_WOODS_OLD
+	setflag FLAG_OLD_MAN_AND_DUSCLOPS
+	removeobject LOCALID_OLD_MAN
+	removeobject LOCALID_DUSCLOPS
+	return
+	end
+
+PetalburgWoods_NoCelebiEvent::
+	checkflag FLAG_GARBAGEFLAG
+	call_if_unset FLAG_GARBAGEFLAG, PetalburgWoods_CelebiEvent_End
+	end
+
+PetalburgWoods_YesCelebiEvent::
+	checkflag FLAG_DEFEATEDCELEBI
+	call_if_set FLAG_DEFEATEDCELEBI, PetalburgWoods_CelebiEvent_End
+	call_if_unset FLAG_DEFEATEDCELEBI, PetalburgWoods_YesCelebiEvent2
+	end
+
+PetalburgWoods_YesCelebiEvent2::
+	setflag FLAG_GARBAGEFLAG
+	end
+
+PetalburgWoods_CelebiEvent::
+	lock
+	playse SE_SUDOWOODO_SHAKE
+	waitse
+	msgbox Text_PetalburgWoods_Celebi0, MSGBOX_SIGN
+	closemessage
+	checkflag FLAG_GARBAGEFLAG
+	call_if_unset FLAG_GARBAGEFLAG, PetalburgWoods_CelebiEvent_End
+	call_if_set FLAG_GARBAGEFLAG, PetalburgWoods_CelebiEventGo
+	end
+
+PetalburgWoods_CelebiEventGo::
+	applymovement LOCALID_PLAYER, Movement_PetalburgWoods_Celebi1
+	waitmovement 0
+	msgbox Text_PetalburgWoods_Celebi1, MSGBOX_SIGN
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_CelebiEvent_End
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_RAIKOU, PetalburgWoods_CelebiEvent_Continue1
+	msgbox Text_PetalburgWoods_Celebi_Donthave, MSGBOX_SIGN
+	end
+
+PetalburgWoods_CelebiEvent_Continue1::
+	msgbox Text_PetalburgWoods_Celebi2, MSGBOX_SIGN
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_CelebiEvent_End
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_ENTEI, PetalburgWoods_CelebiEvent_Continue2
+	msgbox Text_PetalburgWoods_Celebi_Donthave, MSGBOX_SIGN
+	end
+
+PetalburgWoods_CelebiEvent_Continue2::
+	msgbox Text_PetalburgWoods_Celebi3, MSGBOX_SIGN
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_CelebiEvent_End
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_SUICUNE, PetalburgWoods_CelebiBattle
+	msgbox Text_PetalburgWoods_Celebi_Donthave, MSGBOX_SIGN
+	end
+
+PetalburgWoods_CelebiEvent_End::
+	releaseall
+	end
+
+PetalburgWoods_CelebiBattle::
+	faceplayer
+	playse SE_PIN
+	applymovement LOCALID_PLAYER, Movement_PetalburgWoods_Celebi1
+	waitmovement 0
+	msgbox Text_PetalburgWoods_Celebi4, MSGBOX_DEFAULT
+	setwildbattle SPECIES_CELEBI, 50
+	waitse
+	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	applymovement LOCALID_CELEBI, PetalburgWoods_EventScript_CelebiMoves
+	waitmovement 0
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, PetalburgWoods_CelebiEvent_Won
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PetalburgWoods_CelebiEvent_Won
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, PetalburgWoods_CelebiEvent_Ran
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PetalburgWoods_CelebiEvent_Ran
+	releaseall
+	end
+
+PetalburgWoods_CelebiEvent_Won::
+	applymovement LOCALID_CELEBI, PetalburgWoods_EventScript_CelebiMoves2
+	waitmovement 0
+	setflag FLAG_DEFEATEDCELEBI
+	clearflag FLAG_GARBAGEFLAG
+	end
+
+PetalburgWoods_CelebiEvent_Ran::
+	applymovement LOCALID_CELEBI, PetalburgWoods_EventScript_CelebiMoves2
+	waitmovement 0
+	end
+
+PetalburgWoods_EventScript_CelebiMoves:
+	delay_16
+	delay_16
+	delay_16
+	walk_down
+	set_visible
+	step_end
+
+PetalburgWoods_EventScript_CelebiMoves2:
+	set_invisible
+	walk_up
+	step_end
+
+Text_PetalburgWoods_Celebi0:
+	.string "The tree is rattling.\p"
+	.string "You also feel that someone or\n"
+	.string "something is observing you…\p"
+	.string "But… you cannot see any POKéMON…$"
+
+Text_PetalburgWoods_Celebi1:
+	.string ". . . \p"
+	.string ". . . \p"
+	.string "You can hear a dim voice.\p"
+	.string "S..w .. ..e . . .ER . K. ON\p"
+	.string ". . . \p"
+	.string "S..w me the THUND.R PO..MON…$"
+
+Text_PetalburgWoods_Celebi2:
+	.string ". . . \p"
+	.string ". . . \p"
+	.string "Sh.. me .he .OLCANO . ..MON$"
+
+Text_PetalburgWoods_Celebi3:
+	.string ". . . \p"
+	.string ". . . \p"
+	.string "Sho.. me t.. AU.ORA …éMON.$"
+
+Text_PetalburgWoods_Celebi4:
+	.string ". . . \p"
+	.string "Something is approaching…\p"
+	.string ". . . $"
+
+Text_PetalburgWoods_Celebi_Donthave:
+	.string ". . . \p"
+	.string "..u d..'t h… i….\p"
+	.string "You don't have it…$"
+
+Movement_PetalburgWoods_Celebi1:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+PetalburgWoods_Dusclops::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_DUSCLOPS, CRY_MODE_NORMAL
+	msgbox PetalburgWoods_Text_Dusclops, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+PetalburgWoods_Text_Dusclops:
+	.string "DUSKY: Dusk, dusk!$"
+
+PetalburgWoods_Celebi_Sign::
+	faceplayer
+	goto_if_unset FLAG_ROBERTO1, PetalburgWoods_Celebi_SignFirstTime
+	goto_if_set FLAG_DEFEATEDCELEBI, PetalburgWoods_Celebi_SignEventFinished
+	goto_if_set FLAG_SYS_GAME_CLEAR, PetalburgWoods_Celebi_SignChampion
+	msgbox Text_PetalburgWoods_Celebi_Sign, MSGBOX_NPC
+	end
+
+PetalburgWoods_Celebi_SignFirstTime::
+	faceplayer
+	msgbox Text_PetalburgWoods_Celebi_SignFirstTime, MSGBOX_NPC
+	setflag FLAG_ROBERTO1
+	end
+
+PetalburgWoods_Celebi_SignEventFinished::
+	faceplayer
+	msgbox Text_PetalburgWoods_Celebi_SignEventFinished, MSGBOX_NPC
+	end
+
+PetalburgWoods_Celebi_SignChampion::
+	faceplayer
+	msgbox Text_PetalburgWoods_Celebi_SignEventChampion, MSGBOX_NPC
+	end
+
+Text_PetalburgWoods_Celebi_Sign:
+	.string "Hi trainer.\p"
+	.string "Dangerous? No, no. Do not worry.\l"
+	.string "DUSKY is patrolling around.\p"
+	.string "And you? How is your adventure\n"
+	.string "going?$"
+
+Text_PetalburgWoods_Celebi_SignFirstTime:
+	.string "Oh, a youngster…\p"
+	.string "What are you doing here in these\n"
+	.string "dark, shady woods?\p"
+	.string ". . .\p"
+	.string "Oh, I see. You are just passing by.\p"
+	.string "What? Ah, me?\p"
+	.string "I am just watering the tree shrine\n"
+	.string "like I have always done.\p"
+	.string "Ah, you are wondering why I am watering\n"
+	.string "an innocent looking tree in the middle\l"
+	.string "of some woods, right?\p"
+	.string "But you see, this tree is special.\n"
+	.string "In these woods, a MYTHICAL POKéMON\l"
+	.string "lives. It is the FOREST GUARDIAN.\p"
+	.string "I have been watering this tree for\n"
+	.string "over twenty years of my life.\p"
+	.string "And I can assure you that this story\n"
+	.string "is as real as the air we breath.\l"
+	.string "The FOREST GUARDIAN is small, GREEN,\l"
+	.string "and just gazing at it feels…\p"
+	.string "Like I am watching a spirit from the\n"
+	.string "forest. Sadly, last time I saw it\l" 
+	.string "was many, many years ago…\p"
+	.string "Where could the GUARDIAN be?\p"
+	.string "Maybe I need to be STRONGER to make\n"
+	.string "it appear…\p"
+	.string "It really makes me unhappy how weak\n"
+	.string "I have become with the years.\p"
+	.string "Anyway, I will continue my deeds.\n"
+	.string "See you soon, young one.$"
+
+Text_PetalburgWoods_Celebi_SignEventFinished:
+	.string ". . . \p"
+	.string "I truly cannot believe my eyes!\n"
+	.string "You battled with the GUARDIAN!?\p"
+	.string "I will never forget this moment.\n"
+	.string "I will keep watering this shrine\l"
+	.string "until it comes back in the future.$"
+
+Text_PetalburgWoods_Celebi_SignEventChampion:
+	.string "Hi again, young one.\p"
+	.string "Something has been going on with the\n"
+	.string "GUARDIAN tree.\p"
+	.string "I have been hearing a small muttering\n"
+	.string "around it for many hours.\p"
+	.string "Something about a THUNDER, VOLCANO\n"
+	.string "and AURORA POKéMON…\p"
+	.string "Wait… I know those descriptions…\n"
+	.string "Something about three beasts? But…\p"
+	.string "Not from this region…? Where were\n"
+	.string "they from? GIOTO? HOJO? JONO? JOHTO?\p"
+	.string "And if they are here, in HOENN…\n"
+	.string "Maybe they are hiding in places related\l"
+	.string "to their descriptions?\p"
+	.string "If you have time, maybe you could have\n"
+	.string "a look. What do you think?$"
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
@@ -26,7 +300,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaApproachPlayer
 	waitmovement 0
 	msgbox PetalburgWoods_Text_NoOneCrossesTeamAqua, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, PetalburgWoods_Text_YoureKiddingMe
+	trainerbattle_no_intro TRAINER_TONY, PetalburgWoods_Text_YoureKiddingMe
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaBackOff
 	waitmovement 0
 	call PetalburgWoods_EventScript_DevonResearcherPostBattle
@@ -62,7 +336,7 @@ PetalburgWoods_EventScript_DevonResearcherRight::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox PetalburgWoods_Text_NoOneCrossesTeamAqua, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, PetalburgWoods_Text_YoureKiddingMe
+	trainerbattle_no_intro TRAINER_TONY, PetalburgWoods_Text_YoureKiddingMe
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaBackOff
 	waitmovement 0
 	call PetalburgWoods_EventScript_DevonResearcherPostBattle
@@ -275,10 +549,10 @@ PetalburgWoods_EventScript_Lyle::
 	end
 
 PetalburgWoods_EventScript_James::
-	trainerbattle_single TRAINER_NONE, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
+	trainerbattle_single TRAINER_RIVAL_CYNDAQUIL_4, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, PetalburgWoods_EventScript_JamesRematch
-	setvar VAR_0x8004, TRAINER_NONE
+	setvar VAR_0x8004, TRAINER_RIVAL_CYNDAQUIL_4
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, PetalburgWoods_EventScript_TryRegisterJames2
 	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
@@ -294,7 +568,7 @@ PetalburgWoods_EventScript_TryRegisterJames::
 
 PetalburgWoods_EventScript_RegisterJames::
 	msgbox PetalburgWoods_Text_IWantRematch1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_RIVAL_CYNDAQUIL_4
 	release
 	end
 
@@ -306,12 +580,12 @@ PetalburgWoods_EventScript_TryRegisterJames2::
 
 PetalburgWoods_EventScript_RegisterJames2::
 	msgbox PetalburgWoods_Text_IWantRematch2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_RIVAL_CYNDAQUIL_4
 	release
 	end
 
 PetalburgWoods_EventScript_JamesRematch::
-	trainerbattle_rematch TRAINER_NONE, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
+	trainerbattle_rematch TRAINER_RIVAL_CYNDAQUIL_4, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 

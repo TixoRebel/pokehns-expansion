@@ -21,7 +21,7 @@ CeruleanCity_House2_EventScript_Diglett::
 
 CeruleanPolice_Text_FishingGuru:
 	.string "I heard that some shady character\n"
-	.string "is skulking about.\l"
+	.string "is skulking about.\p"
 	.string "I won't stand for it if he turns out\n"
 	.string "to be a thief.$"
 

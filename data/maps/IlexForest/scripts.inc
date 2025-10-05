@@ -14,8 +14,20 @@ IlexForest_MapScripts::
 	.byte 0
 
 IlexForest_OnTransition: 
+	call_if_eq VAR_ILEX_FOREST_FARFETCHD, 1, IlexForest_EventScript_ReenterWhenFarfetchdLeaving
+	call_if_eq VAR_ILEX_FOREST_FARFETCHD, 2, IlexForest_EventScript_ReenterDuringCutScene
 	callnative SetTimeBasedEncounters
 	end	
+
+IlexForest_EventScript_ReenterWhenFarfetchdLeaving::
+	setobjectxyperm LOCALID_ILEX_FOREST_FARFETCHD_1, 33, 51
+	return
+
+IlexForest_EventScript_ReenterDuringCutScene::
+	clearflag FLAG_HIDE_ILEX_FOREST_MASTER
+	clearflag FLAG_HIDE_ILEX_FOREST_APPRENTICE
+	setobjectxyperm LOCALID_ILEX_FOREST_FARFETCHD_1, 28, 42
+	return
 
 IlexForest_EventScript_Apprentice::
 	lock
@@ -65,6 +77,7 @@ IlexForest_EventScript_Farfetchd_1B::
 	applymovement LOCALID_ILEX_FOREST_FARFETCHD_1, IlexForest_Movement_Farfetchd_1B
 	waitmovement 0
 	setvar VAR_ILEX_FOREST_FARFETCHD, 1
+	setobjectxyperm LOCALID_ILEX_FOREST_FARFETCHD_1, 33, 51
 	release
 	end
 
@@ -157,10 +170,11 @@ IlexForest_EventScript_Farfetchd_Leave::
 	goto_if_eq VAR_FACING, DIR_EAST, IlexForest_EventScript_Farfetchd_Return
 	applymovement LOCALID_ILEX_FOREST_FARFETCHD_1, IlexForest_Movement_Farfetchd_Leave
 	waitmovement 0
+	setobjectxyperm LOCALID_ILEX_FOREST_FARFETCHD_1, 28, 42
 	setvar VAR_ILEX_FOREST_FARFETCHD, 2
 	clearflag FLAG_HIDE_ILEX_FOREST_KIMONO
-	clearflag FLAG_HIDE_AZALEA_TOWN_FARFETCHD
 	clearflag FLAG_HIDE_ILEX_FOREST_MASTER
+	setflag FLAG_HIDE_AZALEA_TOWN_CUT_MASTER
 	addobject 1
 	release
 	end
@@ -192,6 +206,8 @@ IlexForest_EventScript_Trigger::
 	setflag FLAG_HIDE_ILEX_FOREST_FARFETCHD_1
 	setvar VAR_ILEX_FOREST_FARFETCHD, 3
 	setvar VAR_AZALEA_TOWN_STATE, 7
+	clearflag FLAG_HIDE_AZALEA_TOWN_FARFETCHD
+	clearflag FLAG_HIDE_AZALEA_TOWN_CUT_MASTER
 	closemessage
 	release
 	end
@@ -239,8 +255,8 @@ IlexForest_EventScript_Celebi_Event::
 	waitmoncry
 	seteventmon SPECIES_CELEBI, 40
 	special BattleSetup_StartLegendaryBattle
-	specialvar VAR_RESULT, GetBattleOutcome
 	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_Shrine_Caught
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ILEX_FOREST_CELEBI
@@ -280,8 +296,8 @@ IlexForest_EventScript_SecondCelebi::
 	waitmoncry
 	seteventmon SPECIES_CELEBI, 40
 	special BattleSetup_StartLegendaryBattle
-	specialvar VAR_RESULT, GetBattleOutcome
 	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IlexForest_EventScript_SecondCelebiRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ILEX_FOREST_SECOND_CELEBI
@@ -746,15 +762,15 @@ IlexForest_Text_BugCatcherWayneBeaten:
 
 IlexForest_Text_BugCatcherWayneAfter:
 	.string "A POKéMON I've never seen before\n"
-	.string "fell out of the tree when I used\p"
+	.string "fell out of the tree when I used\l"
 	.string "HEADBUTT.\p"
 	.string "I ought to use HEADBUTT in other\n"
 	.string "places too.$"
 
 IlexForest_Text_Kimono_Girl1:
-	.string "Kimono Girl, Kimono Girl, and all\n"
-	.string "alone. Poor girl lost in the dark\l"
-	.string "ILEX FOREST.$"
+	.string "KIMONO GIRL, KIMONO GIRL, lost and\n"
+	.string "all alone. Poor girl lost in the\l"
+	.string "dark ILEX FOREST.$"
 
 IlexForest_Text_Kimono_Girl2:
 	.string "You remember me from VIOLET CITY?\n"

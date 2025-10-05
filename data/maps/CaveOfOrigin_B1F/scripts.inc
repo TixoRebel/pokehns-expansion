@@ -6,16 +6,16 @@ CaveOfOrigin_B1F_EventScript_Wallace::
 	faceplayer
 	msgbox CaveOfOrigin_B1F_Text_WallaceStory, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_CAVE_OF_ORIGIN_WALLACE, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_CAVE_OF_ORIGIN_LANCE, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 60
 	playse SE_PIN
-	applymovement LOCALID_CAVE_OF_ORIGIN_WALLACE, Common_Movement_ExclamationMark
+	applymovement LOCALID_CAVE_OF_ORIGIN_LANCE, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_CAVE_OF_ORIGIN_WALLACE, Common_Movement_Delay48
+	applymovement LOCALID_CAVE_OF_ORIGIN_LANCE, Common_Movement_Delay48
 	waitmovement 0
 	delay 30
-	applymovement LOCALID_CAVE_OF_ORIGIN_WALLACE, Common_Movement_FacePlayer
+	applymovement LOCALID_CAVE_OF_ORIGIN_LANCE, Common_Movement_FacePlayer
 	waitmovement 0
 	message CaveOfOrigin_B1F_Text_WhereIsRayquaza
 	waitmessage
@@ -53,7 +53,7 @@ CaveOfOrigin_B1F_EventScript_AtSkyPillar::
 	fadescreenspeed FADE_TO_BLACK, 4
 	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
 	setvar VAR_GARBAGEVAR, 3
-	removeobject LOCALID_CAVE_OF_ORIGIN_WALLACE
+	removeobject LOCALID_CAVE_OF_ORIGIN_LANCE
 	clearflag FLAG_GARBAGEFLAG
 	fadescreen FADE_FROM_BLACK
 	release
@@ -115,4 +115,3 @@ CaveOfOrigin_B1F_Text_WellHeadToSkyPillar:
 	.string "It must be the SKY PILLAR!\p"
 	.string "{PLAYER}{KUN}, there's not a moment to lose!\n"
 	.string "We'll head to the SKY PILLAR right away!$"
-

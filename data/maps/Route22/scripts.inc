@@ -68,7 +68,7 @@ Route22_EventScript_Scene::
 	waitse
 	playse SE_LEDGE
 	waitmovement 0
-	fadescreen FADE_TO_WHITE
+	fadescreenswapbuffers FADE_TO_WHITE
 	playse SE_M_TELEPORT
 	waitse
 	delay 60
@@ -79,7 +79,7 @@ Route22_EventScript_Scene::
 	addobject LOCALID_ROUTE22_SILVER
 	waitse
 	playbgm MUS_RG_ROUTE3, TRUE
-	fadescreen FADE_FROM_WHITE
+	fadescreenswapbuffers FADE_FROM_WHITE
 	delay 50
 	turnobject LOCALID_PLAYER, DIR_NORTH
 	special SpawnCameraObject
@@ -177,14 +177,14 @@ Route22_EventScript_Scene::
 	waitse
 	playse SE_LEDGE
 	waitmovement 0
-	fadescreen FADE_TO_WHITE
+	fadescreenswapbuffers FADE_TO_WHITE
 	playse SE_M_TELEPORT
 	waitse
 	delay 60
 	playse SE_M_TELEPORT
 	waitse
 	fadedefaultbgm
-	fadescreen FADE_FROM_WHITE
+	fadescreenswapbuffers FADE_FROM_WHITE
 	setvar VAR_ROUTE22_GIOVANNI_STATE, 2
 	setvar VAR_TEMP_0, 2
 	release
@@ -324,7 +324,7 @@ Route22_Text_Silver3:
 Route22_Text_Giovanni3:
 	.string ".......................\p"
 	.string "GIOVANNI: One day you will\n"
-	.string "understand.\p"
+	.string "understand.$"
 
 Route22_Text_Silver4:
 	.string "SILVER: I don't want to\n"

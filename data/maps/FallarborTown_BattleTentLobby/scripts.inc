@@ -126,6 +126,7 @@ FallarborTown_BattleTentLobby_EventScript_TryEnterChallenge::
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_TENT
 	msgbox FallarborTown_BattleTentLobby_Text_SelectThreeMons, MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
+	callnative RemoveFollowingPokemon @ HnS PORT TODO - confirm valid methodology
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, FRONTIER_PARTY_SIZE
 	special ChoosePartyForBattleFrontier

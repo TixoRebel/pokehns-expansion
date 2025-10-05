@@ -133,6 +133,7 @@ Route25_EventScript_Misty::
 	removeobject LOCALID_ROUTE25_MAN
 	setflag FLAG_HIDE_ROUTE25_MISTY
 	clearflag FLAG_HIDE_CERULEAN_GYM_TRAINERS
+	setflag FLAG_HIDE_CERULEAN_GYM_POKEMON
 	setvar VAR_CERULEAN_CITY_STATE, 3
 	release
 	end

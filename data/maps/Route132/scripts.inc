@@ -22,22 +22,22 @@ Route132_EventScript_Kiyo::
 	end
 
 Route132_EventScript_Paxton::
-	trainerbattle_single TRAINER_NONE, Route132_Text_PaxtonIntro, Route132_Text_PaxtonDefeat
+	trainerbattle_single TRAINER_PAXTON, Route132_Text_PaxtonIntro, Route132_Text_PaxtonDefeat
 	msgbox Route132_Text_PaxtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route132_EventScript_Darcy::
-	trainerbattle_single TRAINER_NONE, Route132_Text_DarcyIntro, Route132_Text_DarcyDefeat
+	trainerbattle_single TRAINER_JIM, Route132_Text_DarcyIntro, Route132_Text_DarcyDefeat
 	msgbox Route132_Text_DarcyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route132_EventScript_Jonathan::
-	trainerbattle_single TRAINER_NONE, Route132_Text_JonathanIntro, Route132_Text_JonathanDefeat
+	trainerbattle_single TRAINER_JONATHAN, Route132_Text_JonathanIntro, Route132_Text_JonathanDefeat
 	msgbox Route132_Text_JonathanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route132_EventScript_Makayla::
-	trainerbattle_single TRAINER_NONE, Route132_Text_MakaylaIntro, Route132_Text_MakaylaDefeat
+	trainerbattle_single TRAINER_MAKAYLA, Route132_Text_MakaylaIntro, Route132_Text_MakaylaDefeat
 	msgbox Route132_Text_MakaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

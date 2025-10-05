@@ -304,7 +304,7 @@ BattleFrontier_BattlePikeLobby_Text_LookForwardToSeeingYou:
 
 BattleFrontier_BattlePikeLobby_Text_WhichChallengeMode:
 	.string "You have the choice of two courses,\n"
-	.string "Level 50 and Open Level.\l"
+	.string "NORMAL and HARD.\l"
 	.string "Which will you challenge?$"
 
 BattleFrontier_BattlePikeLobby_Text_NotEnoughValidMonsLv50:
@@ -432,4 +432,3 @@ BattleFrontier_BattlePikeLobby_Text_ExplainMonOrderRules:
 	.string "changed.\p"
 	.string "The sequence must be set before\n"
 	.string "starting your challenge.$"
-

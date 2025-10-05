@@ -3,7 +3,7 @@ FallarborTown_MapScripts::
 	.byte 0
 
 FallarborTown_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_ECRUTEAK_CITY
 	setvar VAR_GARBAGEVAR, 0
 	clearflag FLAG_CONTEST_SKETCH_CREATED
 	end

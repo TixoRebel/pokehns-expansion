@@ -17,5 +17,5 @@ CeruleanMart_Text_CooltrainerM:
 
 CeruleanMart_Text_CooltrainerF:
 	.string "MISTY is about the only person in\n"
-	.string "town who can beat the trainers at\n"
+	.string "town who can beat the trainers at\l"
 	.string "CERULEAN's CAPE.$"

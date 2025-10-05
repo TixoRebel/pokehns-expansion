@@ -45,7 +45,7 @@ Route111_OnTransition:
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
 	call Route111_EventScript_CheckSetSandstorm
 	call GabbyAndTy_EventScript_UpdateLocation
-	goto_if_not_defeated TRAINER_NONE, Route111_EventScript_SetWinstratesNotDefeated
+	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
 	end
 
 Route111_EventScript_SetFallingPlayerGfx::
@@ -79,9 +79,9 @@ Route111_EventScript_SetWinstratesNotDefeated::
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
 	setflag FLAG_GARBAGEFLAG
-	cleartrainerflag TRAINER_NONE
+	cleartrainerflag TRAINER_VICTOR
 	cleartrainerflag TRAINER_VICTORIA
-	cleartrainerflag TRAINER_NONE
+	cleartrainerflag TRAINER_VIVI
 	end
 
 Route111_EventScript_SetLayoutNoMirageTower::
@@ -268,7 +268,7 @@ Route111_EventScript_Victor::
 
 Route111_EventScript_BattleWinstrates::
 	msgbox Route111_Text_VictorIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, Route111_Text_VictorDefeat
+	trainerbattle_no_intro TRAINER_VICTOR, Route111_Text_VictorDefeat
 	applymovement LOCALID_ROUTE111_VICTOR, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -304,7 +304,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	call Route111_EventScript_CloseWinstrateDoor
 	msgbox Route111_Text_ViviIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, Route111_Text_ViviDefeat
+	trainerbattle_no_intro TRAINER_VIVI, Route111_Text_ViviDefeat
 	applymovement LOCALID_ROUTE111_VIVI, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -322,7 +322,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	call Route111_EventScript_CloseWinstrateDoor
 	msgbox Route111_Text_VickyIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, Route111_Text_VickyDefeat
+	trainerbattle_no_intro TRAINER_VICKY, Route111_Text_VickyDefeat
 	msgbox Route111_Text_VickyPostBattle, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ROUTE111_VICKY, Common_Movement_WalkInPlaceFasterUp
@@ -429,7 +429,7 @@ Route111_EventScript_RockSmashTipFatMan::
 	end
 
 Route111_EventScript_Drew::
-	trainerbattle_single TRAINER_NONE, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
+	trainerbattle_single TRAINER_KOJI, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
 	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -439,17 +439,17 @@ Route111_EventScript_Heidi::
 	end
 
 Route111_EventScript_Beau::
-	trainerbattle_single TRAINER_NONE, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
+	trainerbattle_single TRAINER_DANIEL, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
 	msgbox Route111_Text_BeauPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Becky::
-	trainerbattle_single TRAINER_NONE, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
+	trainerbattle_single TRAINER_DARIN, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
 	msgbox Route111_Text_BeckyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Dusty::
-	trainerbattle_single TRAINER_NONE, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
+	trainerbattle_single TRAINER_KRISE, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchDusty
 	msgbox Route111_Text_DustyPostBattle, MSGBOX_DEFAULT
@@ -460,17 +460,17 @@ Route111_EventScript_RegisterDusty::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_DustyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_KRISE
 	release
 	end
 
 Route111_EventScript_RematchDusty::
-	trainerbattle_rematch TRAINER_NONE, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
+	trainerbattle_rematch TRAINER_KRISE, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
 	msgbox Route111_Text_DustyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Travis::
-	trainerbattle_single TRAINER_NONE, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
+	trainerbattle_single TRAINER_TRAVIS, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
 	msgbox Route111_Text_TravisPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -480,12 +480,12 @@ Route111_EventScript_Irene::
 	end
 
 Route111_EventScript_Daisuke::
-	trainerbattle_single TRAINER_NONE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
+	trainerbattle_single TRAINER_JED, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
 	msgbox Route111_Text_DaisukePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Wilton::
-	trainerbattle_single TRAINER_NONE, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat, Route111_EventScript_RegisterWilton
+	trainerbattle_single TRAINER_WILTON_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat, Route111_EventScript_RegisterWilton
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchWilton
 	msgbox Route111_Text_WiltonPostBattle, MSGBOX_DEFAULT
@@ -496,17 +496,17 @@ Route111_EventScript_RegisterWilton::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_WiltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_WILTON_1
 	release
 	end
 
 Route111_EventScript_RematchWilton::
-	trainerbattle_rematch TRAINER_NONE, Route111_Text_WiltonRematchIntro, Route111_Text_WiltonRematchDefeat
+	trainerbattle_rematch TRAINER_WILTON_1, Route111_Text_WiltonRematchIntro, Route111_Text_WiltonRematchDefeat
 	msgbox Route111_Text_WiltonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Brooke::
-	trainerbattle_single TRAINER_NONE, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
+	trainerbattle_single TRAINER_EMMA, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchBrooke
 	msgbox Route111_Text_BrookePostBattle, MSGBOX_DEFAULT
@@ -517,37 +517,37 @@ Route111_EventScript_RegisterBrooke::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_BrookeRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_EMMA
 	release
 	end
 
 Route111_EventScript_RematchBrooke::
-	trainerbattle_rematch TRAINER_NONE, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
+	trainerbattle_rematch TRAINER_EMMA, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
 	msgbox Route111_Text_BrookePostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Hayden::
-	trainerbattle_single TRAINER_NONE, Route111_Text_HaydenIntro, Route111_Text_HaydenDefeat
+	trainerbattle_single TRAINER_PRYCE_1_3, Route111_Text_HaydenIntro, Route111_Text_HaydenDefeat
 	msgbox Route111_Text_HaydenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Bianca::
-	trainerbattle_single TRAINER_NONE, Route111_Text_BiancaIntro, Route111_Text_BiancaDefeat
+	trainerbattle_single TRAINER_BIANCA, Route111_Text_BiancaIntro, Route111_Text_BiancaDefeat
 	msgbox Route111_Text_BiancaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Tyron::
-	trainerbattle_single TRAINER_NONE, Route111_Text_TyronIntro, Route111_Text_TyronDefeat
+	trainerbattle_single TRAINER_TYRON, Route111_Text_TyronIntro, Route111_Text_TyronDefeat
 	msgbox Route111_Text_TyronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Celina::
-	trainerbattle_single TRAINER_NONE, Route111_Text_CelinaIntro, Route111_Text_CelinaDefeat
+	trainerbattle_single TRAINER_GRUNT_10, Route111_Text_CelinaIntro, Route111_Text_CelinaDefeat
 	msgbox Route111_Text_CelinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Celia::
-	trainerbattle_single TRAINER_NONE, Route111_Text_CeliaIntro, Route111_Text_CeliaDefeat
+	trainerbattle_single TRAINER_GRUNT_9, Route111_Text_CeliaIntro, Route111_Text_CeliaDefeat
 	msgbox Route111_Text_CeliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -557,7 +557,7 @@ Route111_EventScript_Bryan::
 	end
 
 Route111_EventScript_Branden::
-	trainerbattle_single TRAINER_NONE, Route111_Text_BrandenIntro, Route111_Text_BrandenDefeat
+	trainerbattle_single TRAINER_BRANDEN, Route111_Text_BrandenIntro, Route111_Text_BrandenDefeat
 	msgbox Route111_Text_BrandenPostBattle, MSGBOX_AUTOCLOSE
 	end
 

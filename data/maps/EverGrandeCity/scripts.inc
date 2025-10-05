@@ -19,7 +19,7 @@ EverGrandeCity_EventScript_PokemonLeagueSign::
 	end
 
 EverGrandeCity_EventScript_SetVisitedEverGrande::
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_INDIGO_PLATEAU
 	setvar VAR_TEMP_1, 1
 	end
 

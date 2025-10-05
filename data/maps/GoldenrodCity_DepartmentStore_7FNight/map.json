@@ -3,7 +3,7 @@
   "name": "GoldenrodCity_DepartmentStore_7FNight",
   "layout": "LAYOUT_GOLDENROD_CITY_DEPARTMENT_STORE_7FNIGHT",
   "music": "MUS_HG_GOLDENROD",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_GOLDENROD_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

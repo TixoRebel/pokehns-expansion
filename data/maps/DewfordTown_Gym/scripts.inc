@@ -7,7 +7,7 @@ DewfordTown_Gym_OnTransition:
 	end
 
 DewfordTown_Gym_EventScript_SetFlashLevel::
-	goto_if_defeated TRAINER_NONE, DewfordTown_Gym_EventScript_SetLightsOn
+	goto_if_defeated TRAINER_DICK, DewfordTown_Gym_EventScript_SetLightsOn
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
 	copyvar VAR_0x8001, VAR_0x8000
 	goto_if_eq VAR_0x8000, 0, DewfordTown_Gym_EventScript_SetFlashLevel7
@@ -112,28 +112,28 @@ DewfordTown_Gym_EventScript_AnimateFlashFullBrightness::
 
 DewfordTown_Gym_EventScript_CountTrainersDefeated::
 	setvar VAR_0x8000, 0
-	goto_if_not_defeated TRAINER_NONE, DewfordTown_Gym_EventScript_CheckJocelyn
+	goto_if_not_defeated TRAINER_TAKAO, DewfordTown_Gym_EventScript_CheckJocelyn
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckJocelyn::
-	goto_if_not_defeated TRAINER_NONE, DewfordTown_Gym_EventScript_CheckLaura
+	goto_if_not_defeated TRAINER_JOCELYN, DewfordTown_Gym_EventScript_CheckLaura
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckLaura::
 	goto_if_not_defeated TRAINER_LAURA, DewfordTown_Gym_EventScript_CheckBrenden
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckBrenden::
-	goto_if_not_defeated TRAINER_NONE, DewfordTown_Gym_EventScript_CheckCristian
+	goto_if_not_defeated TRAINER_BRENDEN, DewfordTown_Gym_EventScript_CheckCristian
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckCristian::
-	goto_if_not_defeated TRAINER_NONE, DewfordTown_Gym_EventScript_CheckLilith
+	goto_if_not_defeated TRAINER_HARVEY, DewfordTown_Gym_EventScript_CheckLilith
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckLilith::
-	goto_if_not_defeated TRAINER_NONE, DewfordTown_Gym_EventScript_StopCountingTrainers
+	goto_if_not_defeated TRAINER_LILITH, DewfordTown_Gym_EventScript_StopCountingTrainers
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
 DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_NONE, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_DICK, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
 	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
@@ -147,10 +147,10 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_DEFEATED_AZALEA_TOWN_GYM
 	setflag FLAG_BADGE02_GET
 	addvar VAR_GARBAGEVAR, 1
-@	call_if_eq VAR_GARBAGEVAR, 6, Common_EventScript_ReadyPetalburgGymForBattle
+	@ call_if_eq VAR_GARBAGEVAR, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	call DewfordTown_Gym_EventScript_GiveBulkUp
@@ -183,12 +183,12 @@ DewfordTown_Gym_EventScript_GiveBulkUp2:
 	end
 
 DewfordTown_Gym_EventScript_BrawlyRematch::
-	trainerbattle_rematch_double TRAINER_NONE, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_DICK, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
 	msgbox DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 DewfordTown_Gym_EventScript_Takao::
-	trainerbattle_single TRAINER_NONE, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
+	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
 	msgbox DewfordTown_Gym_Text_TakaoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -198,7 +198,7 @@ DewfordTown_Gym_EventScript_TakaoBrightenRoom::
 	end
 
 DewfordTown_Gym_EventScript_Jocelyn::
-	trainerbattle_single TRAINER_NONE, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat, DewfordTown_Gym_EventScript_JocelynBrightenRoom
+	trainerbattle_single TRAINER_JOCELYN, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat, DewfordTown_Gym_EventScript_JocelynBrightenRoom
 	msgbox DewfordTown_Gym_Text_JocelynPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -218,7 +218,7 @@ DewfordTown_Gym_EventScript_LauraBrightenRoom::
 	end
 
 DewfordTown_Gym_EventScript_Brenden::
-	trainerbattle_single TRAINER_NONE, DewfordTown_Gym_Text_BrendenIntro, DewfordTown_Gym_Text_BrendenDefeat, DewfordTown_Gym_EventScript_BrendenBrightenRoom
+	trainerbattle_single TRAINER_BRENDEN, DewfordTown_Gym_Text_BrendenIntro, DewfordTown_Gym_Text_BrendenDefeat, DewfordTown_Gym_EventScript_BrendenBrightenRoom
 	msgbox DewfordTown_Gym_Text_BrendenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -228,7 +228,7 @@ DewfordTown_Gym_EventScript_BrendenBrightenRoom::
 	end
 
 DewfordTown_Gym_EventScript_Cristian::
-	trainerbattle_single TRAINER_NONE, DewfordTown_Gym_Text_CristianIntro, DewfordTown_Gym_Text_CristianDefeat, DewfordTown_Gym_EventScript_CristianBrightenRoom
+	trainerbattle_single TRAINER_HARVEY, DewfordTown_Gym_Text_CristianIntro, DewfordTown_Gym_Text_CristianDefeat, DewfordTown_Gym_EventScript_CristianBrightenRoom
 	msgbox DewfordTown_Gym_Text_CristianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -238,7 +238,7 @@ DewfordTown_Gym_EventScript_CristianBrightenRoom::
 	end
 
 DewfordTown_Gym_EventScript_Lilith::
-	trainerbattle_single TRAINER_NONE, DewfordTown_Gym_Text_LilithIntro, DewfordTown_Gym_Text_LilithDefeat, DewfordTown_Gym_EventScript_LilithBrightenRoom
+	trainerbattle_single TRAINER_LILITH, DewfordTown_Gym_Text_LilithIntro, DewfordTown_Gym_Text_LilithDefeat, DewfordTown_Gym_EventScript_LilithBrightenRoom
 	msgbox DewfordTown_Gym_Text_LilithPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -250,7 +250,7 @@ DewfordTown_Gym_EventScript_LilithBrightenRoom::
 DewfordTown_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, DewfordTown_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_DEFEATED_AZALEA_TOWN_GYM, DewfordTown_Gym_EventScript_GymGuidePostVictory
 	msgbox DewfordTown_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end

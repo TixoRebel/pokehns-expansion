@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE21",
   "name": "Route21",
   "layout": "LAYOUT_ROUTE21",
-  "music": "MUS_RG_ROUTE11",
+  "music": "MUS_HG_ROUTE11",
   "region_map_section": "MAPSEC_ROUTE_21",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

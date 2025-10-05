@@ -1270,7 +1270,7 @@ static void Task_OrbEffect(u8 taskId)
         SetGpuReg(REG_OFFSET_DISPCNT, tDispCnt);
         SetGpuReg(REG_OFFSET_BLDCNT, tBldCnt);
         SetGpuReg(REG_OFFSET_BLDALPHA, tBldAlpha);
-        UpdateShadowColor(RGB_BLACK);
+        UpdateShadowColor(RGB_BLACK); // force shadows to gray
         SetGpuReg(REG_OFFSET_WININ, tWinIn);
         SetGpuReg(REG_OFFSET_WINOUT, tWinOut);
         ScriptContext_Enable();

@@ -11,20 +11,20 @@ gText_WantsToFly::
 	.string "{STR_VAR_1} looks up at the\nsky restlessly.\pWould you like to use FLY?$"
 
 @ HnS PORT NOTE - following macros unnecessary, not in expansion?
-@ .macro playfirstmoncry
-@ callfunc ScrFunc_playfirstmoncry
-@ .endm
-@ 
-@ .macro bufferlivemonnickname out:req
-@ callfunc ScrFunc_bufferlivemonnickname
-@ .byte \out
-@ .endm
-@ 
-@ .macro emote obj:req id:req
-@ callfunc ScrFunc_emote
-@ .byte \obj
-@ .byte \id
-@ .endm
+@.macro playfirstmoncry
+@callfunc ScrFunc_playfirstmoncry
+@.endm
+
+@.macro bufferlivemonnickname out:req
+@callfunc ScrFunc_bufferlivemonnickname
+@.byte \out
+@.endm
+
+.macro emote obj:req id:req
+callfunc ScrFunc_emote
+.byte \obj
+.byte \id
+.endm
 
 EventScript_Follower::
 	lock

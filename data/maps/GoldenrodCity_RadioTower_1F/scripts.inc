@@ -446,5 +446,3 @@ GoldenrodCity_RadioTower_1F_Text_PrizeWeveBeenHolding:
 
 GoldenrodCity_RadioTower_1F_Text_PleaseVisitAgain2:
 	.string "Please do visit again.$"
-
-

@@ -108,7 +108,6 @@ NewBarkTown_EventScript_LeaveTriggersState2::
 	closemessage
 	return
 
-	return
 NewBarkTown_EventScript_LeaveTriggersState4::
 	playse SE_PIN
 	applymovement LOCALID_LASS, Common_Movement_ExclamationMark
@@ -161,12 +160,8 @@ NewBarkTown_EventScript_Door::
 	end
 
 NewBarkTown_EventScript_TestMan1::
-	setflag FLAG_GET_HEADBUTT
-	setflag FLAG_IS_KANTO_CHAMPION
-	setflag FLAG_RETURNED_MACHINE_PART
-	giveitem ITEM_OLD_SEA_MAP
-	giveitem ITEM_AURORA_TICKET
-	giveitem ITEM_EON_TICKET
+	givebp 4
+	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_GETPOINTS
 	end
 
 NewBarkTown_EventScript_TestMan2::
@@ -216,11 +211,14 @@ NewBarkTown_Movement_FaceDown:
 	face_down
 	step_end
 
+NewBarkTown_Text_LabSign:
+	.string "PROF.ELM's LAB$"
+
 NewBarkTown_Text_Door:
 	.string "The door is locked.$"
 
 NewBarkTown_Text_Wooper:
-	.string "WOOPER: Woooooop$"
+	.string "WOOPER: Woooooop.$"
 
 NewBarkTown_Text_FatManState2:
 	.string "Wow, your POKéGEAR is impressive!\n"

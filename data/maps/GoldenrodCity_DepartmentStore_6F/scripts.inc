@@ -2,17 +2,7 @@
 
 GoldenrodCity_DepartmentStore_6F_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, GoldenrodDeptElevator_OnFrame
-	map_script MAP_SCRIPT_ON_TRANSITION, GoldenrodDeptStore6_EventScript_SetWarp
 	.byte 0
-
-GoldenrodDeptStore6_EventScript_SetWarp::
-	goto_if_set FLAG_NIGHT_POKEMON, GoldenrodDeptStore6_EventScript_SetWarpDay
-	setdynamicwarp MAP_GOLDENROD_CITY_DEPARTMENT_STORE_7FNIGHT, 22, 5
-	end
-
-GoldenrodDeptStore6_EventScript_SetWarpDay::
-	setdynamicwarp MAP_GOLDENROD_CITY_DEPARTMENT_STORE_7F, 22, 5
-	end
 
 GoldenrodDeptStore6_EventScript_Whitney::
 	lock

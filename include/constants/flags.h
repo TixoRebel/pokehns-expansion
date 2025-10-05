@@ -867,7 +867,7 @@
 #define FLAG_INDIGOJUNCTION_HIDE_SILVER_GUARD                       0x31B
 #define FLAG_HIDE_VERMILION_EUSINE_SUICUNE                          0x31C // HnS NormalFlags Block 3
 #define FLAG_GOT_VERMILION_HP_UP                                    0x31D
-#define FLAG_GOT_KANTO_RADIO                                        0x31E
+#define FLAG_UNUSED_FLAG_999                                        0x31E
 #define FLAG_HIDE_VERMILION_SNORLAX                                 0x31F
 #define FLAG_HIDE_LUGIA                                             0x320
 #define FLAG_HIDE_HO_OH                                             0x321
@@ -928,9 +928,9 @@
 #define FLAG_UNUSED_SET9                                            0x358
 #define FLAG_VISITED_KANTO                                          0x359
 #define FLAG_RECEIVED_ODD_EGG                                       0x35A
-#define FLAG_UNUSED_UNSET3                                          0x35B
-#define FLAG_UNUSED_UNSET4                                          0x35C
-#define FLAG_UNUSED_UNSET5                                          0x35D
+#define FLAG_HIDE_CERULEAN_GYM_POKEMON                              0x35B
+#define FLAG_HIDE_NEWBARKTOWN_LAB_AIDE                              0x35C
+#define FLAG_HIDE_AZALEA_TOWN_CUT_MASTER                            0x35D
 #define FLAG_UNUSED_UNSET6                                          0x35E
 #define FLAG_UNUSED_UNSET7                                          0x35F
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_ALT_1           0x360
@@ -1083,7 +1083,7 @@
 #define FLAG_ITEM_MTMORTAR2_MAX_POTION                              0x3F1
 #define FLAG_ITEM_MTMORTAR2_NUGGET                                  0x3F2
 #define FLAG_ITEM_MTMORTAR2_ULTRA_BALL                              0x3F3
-#define FLAG_ITEM_MTMORTAR2_REVIVE_FULL_INCENSE                                  0x3F4
+#define FLAG_ITEM_MTMORTAR2_REVIVE                                  0x3F4
 #define FLAG_ITEM_MTMORTAR2_KINGS_ROCK                              0x3F5
 #define FLAG_ITEM_MTMORTAR3_IRON                                    0x3F6
 #define FLAG_ITEM_MTMORTAR3_MAX_REVIVE                              0x3F7
@@ -1174,7 +1174,7 @@
 #define FLAG_ITEM_DARKCAVE1_MAX_REVIVE                              0x44A
 #define FLAG_ITEM_DARKCAVE2_BLACK_FLUTE                             0x44B
 #define FLAG_ITEM_DARKCAVE2_STAR_PIECE                              0x44C
-#define FLAG_ITEM_OLIVINE_TM_SHOCKWAVE                              0x44D
+#define FLAG_ITEM_OLIVINE_TM_SHOCK_WAVE                              0x44D
 #define FLAG_ITEM_ROUTE27_MOONSTONE                                 0x44E
 #define FLAG_ITEM_ROUTE27_SOLARBEAM                                 0x44F
 #define FLAG_ITEM_ROUTE27_RARECANDY                                 0x450

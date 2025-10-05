@@ -1233,7 +1233,7 @@
     },
     {
       "id": "LAYOUT_ROUTE121_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
-      "name": "Route121_SafariZoneGate_SafariZoneGate_SafariZoneEntrance_Layout",
+      "name": "Route121_SafariZoneGate_SafariZoneEntrance_Layout",
       "width": 18,
       "height": 14,
       "primary_tileset": "gTileset_Building",
@@ -4606,7 +4606,7 @@
       "name": "WorldHub_Layout",
       "width": 20,
       "height": 50,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Johto_General",
       "secondary_tileset": "gTileset_Cave_Ice",
       "border_filepath": "data/layouts/WorldHub/border.bin",
       "blockdata_filepath": "data/layouts/WorldHub/map.bin"
@@ -4864,8 +4864,8 @@
     {
       "id": "LAYOUT_ROUTE23",
       "name": "Route23_Layout",
-      "width": 23,
-      "height": 12,
+      "width": 24,
+      "height": 160,
       "primary_tileset": "gTileset_Johto_General",
       "secondary_tileset": "gTileset_IndigoPlateau",
       "border_filepath": "data/layouts/Route23/border.bin",
@@ -5576,7 +5576,7 @@
       "name": "MtMortar_1F_South_Layout",
       "width": 72,
       "height": 54,
-      "primary_tileset": "gTileset_Johto_General",
+      "primary_tileset": "gTileset_Johto_NorthEast",
       "secondary_tileset": "gTileset_Cave_Gray",
       "border_filepath": "data/layouts/MtMortar_1F_South/border.bin",
       "blockdata_filepath": "data/layouts/MtMortar_1F_South/map.bin"
@@ -7664,7 +7664,7 @@
     {
       "id": "LAYOUT_SAFFRON_CITY_FIGHTING_DOJO",
       "name": "SaffronCity_FightingDojo_Layout",
-      "width": 23,
+      "width": 29,
       "height": 16,
       "primary_tileset": "gTileset_Johto_Building",
       "secondary_tileset": "gTileset_EcruteakTheater",
@@ -8073,7 +8073,7 @@
     },
     {
       "id": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
-      "name": "SafariZoneGate_SafariZoneGate_SafariZoneEntrance_Layout",
+      "name": "SafariZoneGate_SafariZoneEntrance_Layout",
       "width": 19,
       "height": 15,
       "primary_tileset": "gTileset_Johto_Building",
@@ -8372,14 +8372,14 @@
       "blockdata_filepath": "data/layouts/CeladonCity_Apartments_RoofHouse/map.bin"
     },
     {
-      "id": "LAYOUT_FUCHSIA_CITY_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
-      "name": "FuchsiaCity_SafariZoneGate_SafariZoneGate_SafariZoneEntrance_Layout",
+      "id": "LAYOUT_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE",
+      "name": "FuchsiaCity_SafariZoneEntrance_Layout",
       "width": 15,
       "height": 15,
       "primary_tileset": "gTileset_Kanto_Building",
       "secondary_tileset": "gTileset_SafariZone_Entrance",
-      "border_filepath": "data/layouts/FuchsiaCity_SafariZoneGate_SafariZoneEntrance/border.bin",
-      "blockdata_filepath": "data/layouts/FuchsiaCity_SafariZoneGate_SafariZoneEntrance/map.bin"
+      "border_filepath": "data/layouts/FuchsiaCity_SafariZoneEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/FuchsiaCity_SafariZoneEntrance/map.bin"
     },
     {
       "id": "LAYOUT_MT_SILVER_1F_MOLTRES_ROOM",

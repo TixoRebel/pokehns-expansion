@@ -1,16 +1,11 @@
 .set LOCALID_CELADON_ERIKA, 15
 
 CeladonCity_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CeladonCity_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, CeladonCity_EventScript_CityEnter
 	.byte 0
-
-CeladonCity_OnFrame::
-	map_script_2 VAR_CELADON_CITY_STATE, 0,  CeladonCity_EventScript_CityEnter
-	.2byte 0
 
 CeladonCity_EventScript_CityEnter::
 	setflag FLAG_VISITED_CELADON_CITY
-	setvar VAR_CELADON_CITY_STATE, 1
 	end
 
 CeladonCity_EventScript_Erika::

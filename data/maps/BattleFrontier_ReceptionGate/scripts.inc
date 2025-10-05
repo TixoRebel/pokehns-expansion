@@ -4,7 +4,7 @@ BattleFrontier_ReceptionGate_MapScripts::
 	.byte 0
 
 BattleFrontier_ReceptionGate_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_FUCHSIA_CITY
 	end
 
 BattleFrontier_ReceptionGate_OnFrame:
@@ -424,10 +424,10 @@ BattleFrontier_ReceptionGate_Text_LearnAboutWhat:
 BattleFrontier_ReceptionGate_Text_LevelModeInfo:
 	.string "All the challenges at the BATTLE\n"
 	.string "FRONTIER's facilities come in\l"
-	.string "two courses--Level 50 and Open Level.$"
+	.string "two courses--NORMAL and HARD.$"
 
 BattleFrontier_ReceptionGate_Text_Level50Info:
-	.string "The Level 50 course is open to POKéMON\n"
+	.string "The NORMAL course is open to POKéMON\n"
 	.string "up to and including Level 50.\p"
 	.string "Please keep in mind, however, that\n"
 	.string "no TRAINER you face will have any\l"
@@ -438,7 +438,7 @@ BattleFrontier_ReceptionGate_Text_Level50Info:
 	.string "this course.$"
 
 BattleFrontier_ReceptionGate_Text_OpenLevelInfo:
-	.string "The Open Level course places no limit\n"
+	.string "The HARD course places no limit\n"
 	.string "on the levels of POKéMON entering\l"
 	.string "challenges.\p"
 	.string "The levels of your opponents will\n"

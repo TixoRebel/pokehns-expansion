@@ -594,7 +594,7 @@ gStdScripts_End::
 
 @ HnS PORT TODO - Disabled Briney Scripts for port, re-add them alongside functional maps
 EventScript_WhiteOut::
-	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
+	call HallOfFame_EventScript_ResetEliteFour
 	@ goto EventScript_ResetMrBriney
 	end
 
@@ -671,9 +671,8 @@ EventScript_MoveMrBrineyToRoute109::
 	clearflag FLAG_GARBAGEFLAG
 	end
 
-@ HnS PORT TODO - maybe rename to IndigoPlateau_HallOfFame_EventScript_ResetEliteFour ??
-@ Alternatively, make generic for use in multiple versions
-EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
+@ HnS NOTE - made generic for use in multiple versions
+HallOfFame_EventScript_ResetEliteFour::
 	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_WILL	@ SIDNEY
 	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_KOGA	@ PHOEBE
 	clearflag FLAG_DEFEATED_JOHTO_ELITE_4_BRUNO	@ GLACIA
@@ -867,12 +866,6 @@ Common_EventScript_FerryDepartIsland::
 
 	.include "data/scripts/cave_of_origin.inc"
 	.include "data/scripts/kecleon.inc"
-
-Common_EventScript_NameReceivedPartyMon::
-	fadescreen FADE_TO_BLACK
-	special ChangePokemonNickname
-	waitstate
-	return
 
 Common_EventScript_PlayerHandedOverTheItem::
 	bufferitemname STR_VAR_1, VAR_0x8004
@@ -1097,6 +1090,7 @@ Common_EventScript_RecieveMonParty::
 	waitfanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, TRUE, Common_EventScript_NameReceivedPartyMonFull
+	@ setvar VAR_RESULT, 0 @ HnS PORT - ?
 	return
 
 Common_EventScript_ReceiveMonPC::
@@ -1112,6 +1106,12 @@ Common_EventScript_ReceiveMonPC::
 Common_EventScript_NameReceivedPartyMonFull::
 	call Common_EventScript_GetGiftMonPartySlot
 	call Common_EventScript_NameReceivedPartyMon
+	return
+
+Common_EventScript_NameReceivedPartyMon::
+	fadescreen FADE_TO_BLACK
+	special ChangePokemonNickname
+	waitstate
 	return
 
 Common_EventScript_GiftMonNamed::
@@ -1512,7 +1512,6 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/LakeOfRage_House1/scripts.inc"
 	.include "data/maps/LakeOfRage_House2/scripts.inc"
 	.include "data/maps/BlackthornCity_Gym/scripts.inc"
-	
 	.include "data/maps/BlackthornCity_House1/scripts.inc"
 	.include "data/maps/BlackthornCity_House2/scripts.inc"
 	.include "data/maps/BlackthornCity_House3/scripts.inc"
@@ -1632,7 +1631,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SaffronCity_FightingDojoVIP/scripts.inc"
 	.include "data/maps/SafariZone_Top_Left/scripts.inc"
 	.include "data/maps/CeladonCity_Apartments_RoofHouse/scripts.inc"
-	.include "data/maps/FuchsiaCity_SafariZoneGate_SafariZoneEntrance/scripts.inc"
+	.include "data/maps/FuchsiaCity_SafariZoneEntrance/scripts.inc"
 	.include "data/maps/MtSilver_1F_MoltresRoom/scripts.inc"
 	.include "data/maps/MtSilver_MountainSide/scripts.inc"
 	.include "data/maps/SafariZone_Low_Mid/scripts.inc"

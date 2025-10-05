@@ -72,14 +72,14 @@
       "x": 4,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_DYNAMIC",
+      "dest_map": "MAP_CELADON_CITY_APARTMENTS_ROOF_DAY",
       "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_DYNAMIC",
+      "dest_map": "MAP_CELADON_CITY_APARTMENTS_ROOF_DAY",
       "dest_warp_id": "1"
     },
     {
@@ -97,44 +97,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeladonCity_Apartments_3F_EventScript_Trigger_Left"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeladonCity_Apartments_3F_EventScript_Trigger_Left"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeladonCity_Apartments_3F_EventScript_Trigger_Right"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeladonCity_Apartments_3F_EventScript_Trigger_Right"
-    }
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

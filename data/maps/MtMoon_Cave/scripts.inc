@@ -12,6 +12,7 @@ MtMoon_Cave_OnTransition:
 
 
 MtMoon_Cave_MapScript_OnFrame::
+	map_script_2 VAR_PEWTER_CITY_STATE, 0, MtMoon_Cave_EventScript_Silver
 	map_script_2 VAR_PEWTER_CITY_STATE, 1, MtMoon_Cave_EventScript_Silver
 	.2byte 0
 

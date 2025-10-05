@@ -381,6 +381,12 @@
 	.byte 0x3f
 	.endm
 
+	@ HnS PORT NOTE - re-added even if unused (since gap in byte numbering)
+	.macro jumpifaffectedbyprotect ptr:req
+	.byte 0x40
+	.4byte \ptr
+	.endm
+
 	.macro call instr:req
 	.byte 0x41
 	.4byte \instr
@@ -482,7 +488,7 @@
 	.byte \battler
 	.endm
 
-	@ HnS PORT - was only for substitute? now transform (the move, or any forms?)
+	@ HnS PORT - seems to have special baton pass cases for substitute and, in expansion, transform as well?
 	.macro switchinanim battler:req, dontClearTransform:req, dontClearSubstitute:req
 	.byte 0x4e
 	.byte \battler

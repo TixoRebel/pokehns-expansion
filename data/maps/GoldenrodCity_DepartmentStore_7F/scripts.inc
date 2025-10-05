@@ -1,7 +1,22 @@
 .set LOCALID_GOLDENROD_ROOF_NERD, 1
 
 GoldenrodCity_DepartmentStore_7F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GoldenrodCity_DepartmentStore_7F_OnTransition
 	.byte 0
+
+GoldenrodCity_DepartmentStore_7F_OnTransition:
+	call_if_set FLAG_DAY_POKEMON, GoldenrodCity_DepartmentStore_7F_EventScript_SetNight
+	call_if_unset FLAG_DAY_POKEMON, GoldenrodCity_DepartmentStore_7F_EventScript_SetDay
+	end
+
+GoldenrodCity_DepartmentStore_7F_EventScript_SetNight::
+	setmaplayoutindex LAYOUT_GOLDENROD_CITY_DEPARTMENT_STORE_7FNIGHT
+	return
+
+GoldenrodCity_DepartmentStore_7F_EventScript_SetDay::
+	setmaplayoutindex LAYOUT_GOLDENROD_CITY_DEPARTMENT_STORE_7F
+	return
+
 
 GoldenrodDeptStore7_EventScript_PokefanF::
 	lock

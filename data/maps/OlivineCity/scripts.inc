@@ -53,6 +53,12 @@ OlivineCity_EventScript_CityTrigger:: @FLAGHEAP
 	setvar VAR_GETFLY, 0
 
 	setvar VAR_OLIVINE_CITY_STATE, 1
+
+	@cianwood flags
+	setvar VAR_SUICUNE_ENCOUNTERS, 1
+	clearflag FLAG_HIDE_CIANWOOD_SUICUNE
+	setflag FLAG_HIDE_CIANWOOD_EUSINE
+	setvar VAR_CIANWOOD_CITY_STATE, 1
 	end
 
 OlivineCity_EventScript_SilverTrigger::
@@ -76,6 +82,7 @@ OlivineCity_EventScript_SilverTrigger::
 	waitmovement 0
 	setvar VAR_OLIVINE_CITY_STATE, 2
 	setflag FLAG_HIDE_OLIVINE_SILVER
+	removeobject LOCALID_OLIVINE_SILVER
 	fadedefaultbgm
 	release
 	end
@@ -206,6 +213,10 @@ OlivineCity_EventScript_PortSign::
 	msgbox OlivineCity_Text_PortSign, MSGBOX_SIGN
 	end
 
+OlivineCity_EventScript_CafeSign::
+	msgbox OlivineCity_Text_CafeSign, MSGBOX_SIGN
+	end
+
 OlivineCity_EventScript_GymSign::
 	lock
 	msgbox OlivineCity_Text_GymSign, MSGBOX_SIGN
@@ -244,6 +255,11 @@ OlivineCity_EventScript_EonTicketWomanAfter::
 	release
 	end
 
+OlivineCity_Text_CafeSign:
+	.string "OLIVINE CAFE\n"
+	.string "WHERE STRONG SAILORS ENJOY\l"
+	.string "HEARTY MEALS OF STRENGTH$"
+
 OlivineCity_Text_EonTicketWoman1:
 	.string "My name is MARY!\p"
 	.string "Just kidding, but I love MARY's\n"
@@ -267,8 +283,8 @@ OlivineCity_Text_Sailor1:
 	.string "night, the sea is even more\l"
 	.string "treacherous!\p"
 	.string "Without the beacon of the\n"
-	.string "LIGHTHOUSE to guide it, no\l"
-	.string "ship can sail.$"
+	.string "LIGHTHOUSE to guide it,\l"
+	.string "no ship can sail.$"
 
 OlivineCity_Text_YoungsterPokegear:
 	.string "That thing you have--\n"

@@ -9,6 +9,18 @@ EverGrandeCity_PokemonLeague_1F_OnTransition:
 	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
 	end
 
+EverGrandeCity_PokemonLeague_1F_AncientPower::
+	msgbox EverGrandeCity_PokemonLeague_1F_AncientPower_Text, MSGBOX_NPC
+	end
+
+EverGrandeCity_PokemonLeague_1F_AncientPower_Text:
+	.string "There are three POKéMON that\n"
+	.string "evolve using a certain MOVE.\p"
+	.string "They are YANMA, PILOSWINE and TANGELA.\p"
+	.string "Now… the move… I don't remember\n"
+	.string "exactly… Something about an\l"
+	.string "ANCIENT MOVE…$"
+
 EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor::
 	setobjectxyperm LOCALID_LEAGUE_GUARD_1, 9, 2
 	setobjectxyperm LOCALID_LEAGUE_GUARD_2, 10, 2
@@ -27,21 +39,23 @@ EverGrandeCity_PokemonLeague_1F_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart EverGrandeCity_PokemonLeague_1F_Pokemart
+	pokemart 0
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-	.align 2
-EverGrandeCity_PokemonLeague_1F_Pokemart:
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_FULL_RESTORE
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_REVIVE
-	.2byte ITEM_MAX_REPEL
-	pokemartlistend
+@	.align 2
+@EverGrandeCity_PokemonLeague_1F_Pokemart:
+@	.2byte ITEM_ULTRA_BALL
+@	.2byte ITEM_HYPER_POTION
+@	.2byte ITEM_MAX_POTION
+@	.2byte ITEM_FULL_RESTORE
+@	.2byte ITEM_FULL_HEAL
+@	.2byte ITEM_REVIVE
+@	.2byte ITEM_MAX_REPEL
+@	.2byte ITEM_NONE
+@	release
+@	end
 
 @ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped
 @ Its assumed the player has the remaining badges

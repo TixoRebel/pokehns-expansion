@@ -69,12 +69,12 @@ ReceptionGate_EventScript_KantoGuard::
     end
 
 VictoryRoadGate_Text_Officer:
-    .string "Only trainers who have proven them-\n"
-    .string "selves may pass.$"
+    .string "Only trainers who have proven\n"
+    .string "themselves may pass.$"
 
 VictoryRoadGate_Text_Kimono:
     .string "Sorry kid, this way is closed until\n"
-    .string "someone deals with that LEGENDARY\p"
+    .string "someone deals with that LEGENDARY\l"
     .string "POKéMON...$"
 
 VictoryRoadGate_Text_NotEnoughBadges:

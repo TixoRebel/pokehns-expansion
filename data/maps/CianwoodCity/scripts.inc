@@ -3,7 +3,7 @@
 .set LOCALID_CIANWOOD_CHUCKSWIFE, 6
 
 CianwoodCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, OlivineCity_MapScript_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, CianwoodCity_EventScript_CityEnter
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CianwoodCity_OnFrame
 	map_script MAP_SCRIPT_ON_LOAD, CianwoodCity_EventScript_InitializeSuicune
 	.byte 0
@@ -13,16 +13,12 @@ CianwoodCity_RemoveEusine::
 	end
 
 CianwoodCity_OnFrame::
-	map_script_2 VAR_CIANWOOD_CITY_STATE, 0, CianwoodCity_EventScript_CityEnter
 	map_script_2 VAR_GETFLY, 1, CianwoodCity_EventScript_Flytrigger
 	.2byte 0
 
 CianwoodCity_EventScript_CityEnter::
-	setvar VAR_SUICUNE_ENCOUNTERS, 1
-	clearflag FLAG_HIDE_CIANWOOD_SUICUNE
-	setflag FLAG_HIDE_CIANWOOD_EUSINE
 	setflag FLAG_VISITED_CIANWOOD_CITY
-	setvar VAR_CIANWOOD_CITY_STATE, 1
+	goto_if_ge VAR_OLIVINE_CITY_STATE, 5, OlivineCity_MapScript_ClearWeather
 	end
 
 CianwoodCity_EventScript_InitializeSuicune::

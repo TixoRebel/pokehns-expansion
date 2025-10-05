@@ -23,22 +23,22 @@ MtPyre_2F_EventScript_Mark::
 	end
 
 MtPyre_2F_EventScript_Luke::
-	trainerbattle_double TRAINER_NONE, MtPyre_2F_Text_LukeIntro, MtPyre_2F_Text_LukeDefeat, MtPyre_2F_Text_LukeNotEnoughMons
+	trainerbattle_double TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_LukeIntro, MtPyre_2F_Text_LukeDefeat, MtPyre_2F_Text_LukeNotEnoughMons
 	msgbox MtPyre_2F_Text_LukePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_2F_EventScript_Dez::
-	trainerbattle_double TRAINER_NONE, MtPyre_2F_Text_DezIntro, MtPyre_2F_Text_DezDefeat, MtPyre_2F_Text_DezNotEnoughMons
+	trainerbattle_double TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_DezIntro, MtPyre_2F_Text_DezDefeat, MtPyre_2F_Text_DezNotEnoughMons
 	msgbox MtPyre_2F_Text_DezPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_2F_EventScript_Leah::
-	trainerbattle_single TRAINER_NONE, MtPyre_2F_Text_LeahIntro, MtPyre_2F_Text_LeahDefeat
+	trainerbattle_single TRAINER_LEAH, MtPyre_2F_Text_LeahIntro, MtPyre_2F_Text_LeahDefeat
 	msgbox MtPyre_2F_Text_LeahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_2F_EventScript_Zander::
-	trainerbattle_single TRAINER_NONE, MtPyre_2F_Text_ZanderIntro, MtPyre_2F_Text_ZanderDefeat
+	trainerbattle_single TRAINER_ZANDER, MtPyre_2F_Text_ZanderIntro, MtPyre_2F_Text_ZanderDefeat
 	msgbox MtPyre_2F_Text_ZanderPostBattle, MSGBOX_AUTOCLOSE
 	end
 

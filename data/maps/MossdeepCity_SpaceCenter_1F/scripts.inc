@@ -4,6 +4,7 @@ MossdeepCity_SpaceCenter_1F_MapScripts::
 	.byte 0
 
 MossdeepCity_SpaceCenter_1F_OnTransition:
+	clearflag FLAG_ROCKETHIDEOUT2_BATTLE
 	goto_if_eq VAR_GARBAGEVAR, 2, MossdeepCity_SpaceCenter_1F_EventScript_MoveObjectsForTeamMagma
 	end
 
@@ -198,17 +199,17 @@ MossdeepCity_SpaceCenter_1F_EventScript_MagmaNote::
 	end
 
 MossdeepCity_SpaceCenter_1F_EventScript_Grunt3::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_SpaceCenter_1F_Text_Grunt3Intro, MossdeepCity_SpaceCenter_1F_Text_Grunt3Defeat
+	trainerbattle_single TRAINER_WALT, MossdeepCity_SpaceCenter_1F_Text_Grunt3Intro, MossdeepCity_SpaceCenter_1F_Text_Grunt3Defeat
 	msgbox MossdeepCity_SpaceCenter_1F_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_SpaceCenter_1F_EventScript_Grunt1::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_SpaceCenter_1F_Text_Grunt1Intro, MossdeepCity_SpaceCenter_1F_Text_Grunt1Defeat
+	trainerbattle_single TRAINER_VERONICA, MossdeepCity_SpaceCenter_1F_Text_Grunt1Intro, MossdeepCity_SpaceCenter_1F_Text_Grunt1Defeat
 	msgbox MossdeepCity_SpaceCenter_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_SpaceCenter_1F_EventScript_Grunt4::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_SpaceCenter_1F_Text_Grunt4Intro, MossdeepCity_SpaceCenter_1F_Text_Grunt4Defeat
+	trainerbattle_single TRAINER_WALTER, MossdeepCity_SpaceCenter_1F_Text_Grunt4Intro, MossdeepCity_SpaceCenter_1F_Text_Grunt4Defeat
 	msgbox MossdeepCity_SpaceCenter_1F_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -217,7 +218,7 @@ MossdeepCity_SpaceCenter_1F_EventScript_Grunt2::
 	faceplayer
 	goto_if_set FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F, MossdeepCity_SpaceCenter_1F_EventScript_Grunt2Defeated
 	msgbox MossdeepCity_SpaceCenter_1F_Text_Grunt2Intro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, MossdeepCity_SpaceCenter_1F_Text_Grunt2Defeat
+	trainerbattle_no_intro TRAINER_WAI, MossdeepCity_SpaceCenter_1F_Text_Grunt2Defeat
 	setflag FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F
 	copyobjectxytoperm LOCALID_SPACE_CENTER_1F_STAIR_GRUNT
 	switch VAR_FACING

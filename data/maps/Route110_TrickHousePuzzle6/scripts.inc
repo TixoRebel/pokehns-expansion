@@ -28,7 +28,7 @@ Route110_TrickHousePuzzle6_EventScript_FoundScroll::
 	end
 
 Route110_TrickHousePuzzle6_EventScript_Sophia::
-	trainerbattle_single TRAINER_NONE, Route110_TrickHousePuzzle6_Text_SophiaIntro, Route110_TrickHousePuzzle6_Text_SophiaDefeat
+	trainerbattle_single TRAINER_SOPHIA, Route110_TrickHousePuzzle6_Text_SophiaIntro, Route110_TrickHousePuzzle6_Text_SophiaDefeat
 	msgbox Route110_TrickHousePuzzle6_Text_SophiaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -38,7 +38,7 @@ Route110_TrickHousePuzzle6_EventScript_Benny::
 	end
 
 Route110_TrickHousePuzzle6_EventScript_Sebastian::
-	trainerbattle_single TRAINER_NONE, Route110_TrickHousePuzzle6_Text_SebastianIntro, Route110_TrickHousePuzzle6_Text_SebastianDefeat
+	trainerbattle_single TRAINER_SEBASTIAN, Route110_TrickHousePuzzle6_Text_SebastianIntro, Route110_TrickHousePuzzle6_Text_SebastianDefeat
 	msgbox Route110_TrickHousePuzzle6_Text_SebastianPostBattle, MSGBOX_AUTOCLOSE
 	end
 

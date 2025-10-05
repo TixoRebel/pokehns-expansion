@@ -9,7 +9,7 @@ MossdeepCity_Gym_OnTransition:
 	setflag FLAG_TEMP_HIDE_FOLLOWER @ Hide follower since it can collide with moving statues
 	end
 
-@ All the below checks are leftover from RS. FLAG_GARBAGEFLAG is never set
+@ All the below checks are leftover from RS. FLAG_MOSSDEEP_GYM_SWITCH_X is never set
 MossdeepCity_Gym_OnLoad:
 	goto_if_set FLAG_MOSSDEEP_GYM_SWITCH_1, MossdeepCity_Gym_EventScript_SetSwitch1Metatiles
 	goto MossdeepCity_Gym_EventScript_CheckSwitch2
@@ -54,7 +54,7 @@ MossdeepCity_Gym_EventScript_SetSwitch4Metatiles::
 	end
 
 MossdeepCity_Gym_EventScript_TateAndLiza::
-	trainerbattle_double TRAINER_NONE, MossdeepCity_Gym_Text_TateAndLizaIntro, MossdeepCity_Gym_Text_TateAndLizaDefeat, MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons, MossdeepCity_Gym_EventScript_TateAndLizaDefeated, NO_MUSIC
+	trainerbattle_double TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaIntro, MossdeepCity_Gym_Text_TateAndLizaDefeat, MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons, MossdeepCity_Gym_EventScript_TateAndLizaDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MossdeepCity_Gym_EventScript_TateAndLizaRematch
 	goto_if_unset FLAG_RECEIVED_TM_CALM_MIND, MossdeepCity_Gym_EventScript_GiveCalmMind2
@@ -67,7 +67,7 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox MossdeepCity_Gym_Text_ExplainMindBadgeTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_DEFEATED_MAHOGANY_TOWN_GYM
 	setflag FLAG_BADGE07_GET
 	setflag FLAG_GARBAGEFLAG
 	clearflag FLAG_GARBAGEFLAG
@@ -110,7 +110,7 @@ MossdeepCity_Gym_EventScript_GiveCalmMind::
 	return
 
 MossdeepCity_Gym_EventScript_TateAndLizaRematch::
-	trainerbattle_rematch_double TRAINER_NONE, MossdeepCity_Gym_Text_TateAndLizaPreRematch, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat, MossdeepCity_Gym_Text_TateAndLizaRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaPreRematch, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat, MossdeepCity_Gym_Text_TateAndLizaRematchNeedTwoMons
 	msgbox MossdeepCity_Gym_Text_TateAndLizaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -224,7 +224,7 @@ MossdeepCity_Gym_EventScript_Blake::
 	end
 
 MossdeepCity_Gym_EventScript_Hannah::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_HannahIntro, MossdeepCity_Gym_Text_HannahDefeat
+	trainerbattle_single TRAINER_PRYCE_2, MossdeepCity_Gym_Text_HannahIntro, MossdeepCity_Gym_Text_HannahDefeat
 	msgbox MossdeepCity_Gym_Text_HannahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -234,12 +234,12 @@ MossdeepCity_Gym_EventScript_Samantha::
 	end
 
 MossdeepCity_Gym_EventScript_Maura::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_MauraIntro, MossdeepCity_Gym_Text_MauraDefeat
+	trainerbattle_single TRAINER_MAURA, MossdeepCity_Gym_Text_MauraIntro, MossdeepCity_Gym_Text_MauraDefeat
 	msgbox MossdeepCity_Gym_Text_MauraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_Gym_EventScript_Sylvia::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_SylviaIntro, MossdeepCity_Gym_Text_SylviaDefeat
+	trainerbattle_single TRAINER_SYLVIA, MossdeepCity_Gym_Text_SylviaIntro, MossdeepCity_Gym_Text_SylviaDefeat
 	msgbox MossdeepCity_Gym_Text_SylviaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -249,29 +249,29 @@ MossdeepCity_Gym_EventScript_Nate::
 	end
 
 MossdeepCity_Gym_EventScript_Macey::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_MaceyIntro, MossdeepCity_Gym_Text_MaceyDefeat
+	trainerbattle_single TRAINER_MACEY, MossdeepCity_Gym_Text_MaceyIntro, MossdeepCity_Gym_Text_MaceyDefeat
 	msgbox MossdeepCity_Gym_Text_MaceyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_Gym_EventScript_Clifford::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_CliffordIntro, MossdeepCity_Gym_Text_CliffordDefeat
+	trainerbattle_single TRAINER_CLIFFORD, MossdeepCity_Gym_Text_CliffordIntro, MossdeepCity_Gym_Text_CliffordDefeat
 	msgbox MossdeepCity_Gym_Text_CliffordPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_Gym_EventScript_Nicholas::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_NicholasIntro, MossdeepCity_Gym_Text_NicholasDefeat
+	trainerbattle_single TRAINER_NICHOLAS, MossdeepCity_Gym_Text_NicholasIntro, MossdeepCity_Gym_Text_NicholasDefeat
 	msgbox MossdeepCity_Gym_Text_NicholasPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_Gym_EventScript_Kathleen::
-	trainerbattle_single TRAINER_NONE, MossdeepCity_Gym_Text_KathleenIntro, MossdeepCity_Gym_Text_KathleenDefeat
+	trainerbattle_single TRAINER_KATHLEEN, MossdeepCity_Gym_Text_KathleenIntro, MossdeepCity_Gym_Text_KathleenDefeat
 	msgbox MossdeepCity_Gym_Text_KathleenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MossdeepCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, MossdeepCity_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, MossdeepCity_Gym_EventScript_GymGuidePostVictory
 	msgbox MossdeepCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end

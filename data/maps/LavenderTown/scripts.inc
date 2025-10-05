@@ -1,16 +1,10 @@
 LavenderTown_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LavenderTown_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, LavenderTown_EventScript_CityEnter
 	.byte 0
-
-LavenderTown_OnFrame::
-	map_script_2 VAR_LAVENDER_TOWN_STATE, 0,  LavenderTown_EventScript_CityEnter
-	.2byte 0
 
 LavenderTown_EventScript_CityEnter::
 	setflag FLAG_VISITED_LAVENDER_TOWN
-	setvar VAR_LAVENDER_TOWN_STATE, 1
 	end
-
 
 LavenderTown_EventScript_PokefanM::
 	msgbox LavenderTown_Text_PokefanM, MSGBOX_NPC
@@ -53,7 +47,7 @@ LavenderTown_Text_Teacher:
 
 LavenderTown_Text_Gramps:
 	.string "People come from all over to pay\n"
-	.string "their respects to the departed\n"
+	.string "their respects to the departed\l"
 	.string "souls of POKéMON.$"
 
 LavenderTown_Text_Youngster:

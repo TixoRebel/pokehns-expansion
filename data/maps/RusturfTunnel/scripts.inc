@@ -68,7 +68,7 @@ RusturfTunnel_EventScript_ClearTunnelScene::
 	call_if_eq VAR_TEMP_1, 1, RusturfTunnel_EventScript_WandaAndBoyfriendExit1
 	call_if_eq VAR_TEMP_1, 2, RusturfTunnel_EventScript_WandaAndBoyfriendExit
 	call_if_eq VAR_TEMP_1, 3, RusturfTunnel_EventScript_WandaAndBoyfriendExit
-@	call RusturfTunnel_EventScript_SetRusturfTunnelOpen
+	call RusturfTunnel_EventScript_SetRusturfTunnelOpen
 	releaseall
 	end
 
@@ -299,9 +299,10 @@ RusturfTunnel_EventScript_Peeko::
 RusturfTunnel_EventScript_Grunt::
 	lock
 	faceplayer
+	callnative RemoveFollowingPokemon
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	msgbox RusturfTunnel_Text_GruntIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, RusturfTunnel_Text_GruntDefeat
+	trainerbattle_no_intro TRAINER_TREVOR, RusturfTunnel_Text_GruntDefeat
 	msgbox RusturfTunnel_Text_GruntTakePackage, MSGBOX_DEFAULT
 	giveitem ITEM_DEVON_PARTS
 	closemessage
@@ -337,6 +338,7 @@ RusturfTunnel_EventScript_Grunt::
 	setvar VAR_GARBAGEVAR, 4
 	setvar VAR_GARBAGEVAR, 1
 	setflag FLAG_GARBAGEFLAG
+	callnative UpdateFollowingPokemon
 	release
 	end
 
@@ -414,7 +416,7 @@ RusturfTunnel_Movement_PeekoExit:
 	step_end
 
 RusturfTunnel_EventScript_Mike::
-	trainerbattle_single TRAINER_NONE, RusturfTunnel_Text_MikeIntro, RusturfTunnel_Text_MikeDefeat
+	trainerbattle_single TRAINER_MIKE_2, RusturfTunnel_Text_MikeIntro, RusturfTunnel_Text_MikeDefeat
 	msgbox RusturfTunnel_Text_MikePostBattle, MSGBOX_AUTOCLOSE
 	end
 

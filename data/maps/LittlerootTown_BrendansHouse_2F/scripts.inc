@@ -6,7 +6,7 @@ LittlerootTown_BrendansHouse_2F_MapScripts::
 LittlerootTown_BrendansHouse_2F_OnTransition:
 	call_if_lt VAR_GARBAGEVAR, 2, LittlerootTown_BrendansHouse_2F_EventScript_CheckSetReadyToMeetBrendan
 	call_if_ge VAR_GARBAGEVAR, 3, LittlerootTown_BrendansHouse_2F_EventScript_CheckShouldUpdateBrendanPos
-@	call_if_eq VAR_GARBAGEVAR, 4, PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
+	@ call_if_eq VAR_GARBAGEVAR, 4, PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
 	call SecretBase_EventScript_SetDecorationFlags
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
 	end

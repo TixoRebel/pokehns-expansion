@@ -1,4 +1,5 @@
 Gate_SaffronCity_Route7_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SaffronCity_OnFrame
 	.byte 0
 
 Gate_SaffronCity_Route7_EventScript_Guard::

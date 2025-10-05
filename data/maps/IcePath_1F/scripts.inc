@@ -95,7 +95,7 @@ IcePath_1F_Text_Leave:
 IcePath_1F_Text_Stuck1:
     .string "Me oh my... Is that you, {PLAYER}?\n"
     .string "Fancy meeting you here!\p"
-    .string "To tell the truth...my sandals are\n"
+    .string "To tell the truth... my sandals are\n"
     .string "frozen on the ice, and I am stuck.\p"
     .string "In other words, my flip-flops are\n"
     .string "quick-frozen to the ground.\p"
@@ -107,7 +107,7 @@ IcePath_1F_Text_Stuck1:
 IcePath_1F_Text_Stuck2:
     .string "Me oh my... Is that you, {PLAYER}?\n"
     .string "Fancy meeting you here!\p"
-    .string "To tell the truth...my sandals are\n"
+    .string "To tell the truth... my sandals are\n"
     .string "frozen on the ice, and I am stuck.\p"
     .string "In other words, my flip-flops are\n"
     .string "quick-frozen with the ground.\p"

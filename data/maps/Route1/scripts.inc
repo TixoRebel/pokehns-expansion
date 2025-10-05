@@ -29,7 +29,7 @@ Route1_Text_SchoolboyDanny_Beaten:
 	.string "Awww… I've got a losing record…$"
 
 Route1_Text_SchoolboyDanny_AfterBattle:
-	.string "For trainers, it's a given that\p"
+	.string "For trainers, it's a given that\n"
 	.string "we'll battle whenever we meet.$"
 
 Route1_Text_CooltrainerFQuinn_Seen:

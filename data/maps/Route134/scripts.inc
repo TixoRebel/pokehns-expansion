@@ -12,7 +12,7 @@ Route134_EventScript_Jack::
 	end
 
 Route134_EventScript_Laurel::
-	trainerbattle_single TRAINER_NONE, Route134_Text_LaurelIntro, Route134_Text_LaurelDefeat
+	trainerbattle_single TRAINER_LAUREL, Route134_Text_LaurelIntro, Route134_Text_LaurelDefeat
 	msgbox Route134_Text_LaurelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -27,27 +27,27 @@ Route134_EventScript_Aaron::
 	end
 
 Route134_EventScript_Hitoshi::
-	trainerbattle_single TRAINER_NONE, Route134_Text_HitoshiIntro, Route134_Text_HitoshiDefeat
+	trainerbattle_single TRAINER_JASMINE_1_3, Route134_Text_HitoshiIntro, Route134_Text_HitoshiDefeat
 	msgbox Route134_Text_HitoshiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route134_EventScript_Hudson::
-	trainerbattle_single TRAINER_NONE, Route134_Text_HudsonIntro, Route134_Text_HudsonDefeat
+	trainerbattle_single TRAINER_CHUCK_1, Route134_Text_HudsonIntro, Route134_Text_HudsonDefeat
 	msgbox Route134_Text_HudsonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route134_EventScript_Reyna::
-	trainerbattle_single TRAINER_NONE, Route134_Text_ReynaIntro, Route134_Text_ReynaDefeat
+	trainerbattle_single TRAINER_REYNA, Route134_Text_ReynaIntro, Route134_Text_ReynaDefeat
 	msgbox Route134_Text_ReynaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route134_EventScript_Marley::
-	trainerbattle_single TRAINER_NONE, Route134_Text_MarleyIntro, Route134_Text_MarleyDefeat
+	trainerbattle_single TRAINER_MARLEY, Route134_Text_MarleyIntro, Route134_Text_MarleyDefeat
 	msgbox Route134_Text_MarleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route134_EventScript_Kelvin::
-	trainerbattle_single TRAINER_NONE, Route134_Text_KelvinIntro, Route134_Text_KelvinDefeat
+	trainerbattle_single TRAINER_KELVIN, Route134_Text_KelvinIntro, Route134_Text_KelvinDefeat
 	msgbox Route134_Text_KelvinPostBattle, MSGBOX_AUTOCLOSE
 	end
 

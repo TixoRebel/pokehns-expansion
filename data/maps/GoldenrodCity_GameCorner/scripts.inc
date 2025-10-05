@@ -6,6 +6,7 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons::
 	faceplayer
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NeedCoinCase
+	msgbox MauvilleCity_GameCorner_Text_ExchangeCoinsForPrizes, MSGBOX_DEFAULT
 	goto GoldenrodCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon
 	end
 

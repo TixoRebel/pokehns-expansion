@@ -17,7 +17,7 @@ BattleFrontier_Lounge9_Heal::
 	end
 
 BattleFrontier_Lounge9_Heal_TEXT:
-	.string "Hi! Welcome to the HYPER TRAINING GYM!\n"
+	.string "Hi! Welcome to the FIGHTING DOJO!\n"
 	.string "I will heal your POKéMON.$"
 
 BattleFrontier_Lounge9_Heal_TEXT2:
@@ -482,7 +482,7 @@ BattleFrontier_Lounge9_EV_SetZeroTextSure:
 	.string "This process can't be undone.$"
 
 BattleFrontier_Lounge9_EV_Column_Text:
-	.string "Welcome to the HYPER TRAINING GYM!\p"
+	.string "Welcome to the FIGHTING DOJO GYM!\p"
 	.string "Here you can train your POKéMON\n"
 	.string "to improve their STATS.\p"
 	.string "How does this work?\p"
@@ -559,7 +559,7 @@ BattleFrontier_Lounge9_Chansey5::
 	case MULTI_B_PRESSED, BattleFrontier_Lounge9_Chansey1End
 
 BattleFrontier_Lounge9_Chansey5Battle::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_CHANSEY5, 0, BattleFrontier_Lounge9_Chansey5Intro, BattleFrontier_Lounge9_Chansey5Defeat, 	BattleFrontier_Lounge9_ChanseyBattleAgain,	LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_CHANSEY5, 0, BattleFrontier_Lounge9_Chansey5Intro, BattleFrontier_Lounge9_Chansey5Defeat, BattleFrontier_Lounge9_ChanseyBattleAgain, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
 	end
 
 BattleFrontier_Lounge9_Chansey1End::

@@ -22,7 +22,7 @@ CeladonDeptStore2F_Text_PokefanM:
 
 CeladonDeptStore2F_Text_Youngster:
 	.string "My dad's having a hard time\n"
-	.string "learning the names of items and\n"
+	.string "learning the names of items and\l"
 	.string "how they are supposed to be used…$"
 
 CeladonDeptStore2F_Text_Directory:

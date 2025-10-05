@@ -23,14 +23,14 @@ AquaHideout_B2F_EventScript_MattNoticePlayer::
 	end
 
 AquaHideout_B2F_EventScript_Matt::
-	trainerbattle_single TRAINER_NONE, AquaHideout_B2F_Text_MattIntro, AquaHideout_B2F_Text_MattDefeat, AquaHideout_B2F_EventScript_SubmarineEscape
+	trainerbattle_single TRAINER_MATT, AquaHideout_B2F_Text_MattIntro, AquaHideout_B2F_Text_MattDefeat, AquaHideout_B2F_EventScript_SubmarineEscape
 	msgbox AquaHideout_B2F_Text_MattPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 AquaHideout_B2F_EventScript_SubmarineEscape::
 	setvar VAR_0x8008, LOCALID_AQUA_HIDEOUT_MATT
-	setvar VAR_0x8009, LOCALID_AQUA_HIDEOUT_SUBMARINE
+	setvar VAR_0x8009, LOCALID_AQUA_HIDEOUT_LEGENDARY
 	applymovement VAR_0x8008, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	delay 20
@@ -67,7 +67,7 @@ AquaHideout_B2F_Movement_SumbarineDepartRight:
 	step_end
 
 AquaHideout_B2F_EventScript_Grunt4::
-	trainerbattle_single TRAINER_NONE, AquaHideout_B2F_Text_Grunt4Intro, AquaHideout_B2F_Text_Grunt4Defeat, AquaHideout_B2F_EventScript_Grunt4Defeated
+	trainerbattle_single TRAINER_SETH, AquaHideout_B2F_Text_Grunt4Intro, AquaHideout_B2F_Text_Grunt4Defeat, AquaHideout_B2F_EventScript_Grunt4Defeated
 	msgbox AquaHideout_B2F_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -77,12 +77,12 @@ AquaHideout_B2F_EventScript_Grunt4Defeated::
 	end
 
 AquaHideout_B2F_EventScript_Grunt6::
-	trainerbattle_single TRAINER_NONE, AquaHideout_B2F_Text_Grunt6Intro, AquaHideout_B2F_Text_Grunt6Defeat
+	trainerbattle_single TRAINER_STANLY, AquaHideout_B2F_Text_Grunt6Intro, AquaHideout_B2F_Text_Grunt6Defeat
 	msgbox AquaHideout_B2F_Text_Grunt6PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 AquaHideout_B2F_EventScript_Grunt8::
-	trainerbattle_single TRAINER_NONE, AquaHideout_B2F_Text_Grunt8Intro, AquaHideout_B2F_Text_Grunt8Defeat
+	trainerbattle_single TRAINER_STEVE, AquaHideout_B2F_Text_Grunt8Intro, AquaHideout_B2F_Text_Grunt8Defeat
 	msgbox AquaHideout_B2F_Text_Grunt8PostBattle, MSGBOX_AUTOCLOSE
 	end
 

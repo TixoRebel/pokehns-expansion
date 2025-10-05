@@ -9,6 +9,14 @@ Route27_OnTransition:
 	callnative SetTimeBasedEncounters
 	end
 
+Route27_EventScript_BaobaCall::
+	pokenavcall BlackthornCity_Text_BaobaCall
+	waitmessage
+	delay 30
+	setflag FLAG_SAFARI_ZONE_WEST_EXPANSION
+    setvar VAR_ROUTE27_BAOBA_CALL, 1
+	end
+
 Route27_EventScript_FirstSteps::
     lock
     playse SE_PIN

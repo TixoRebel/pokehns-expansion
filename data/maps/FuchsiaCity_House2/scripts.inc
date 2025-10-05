@@ -16,8 +16,8 @@ FuchsiaCity_House2_EventScript_Photo::
 	end
 
 FuchsiaCity_House2_Text_WardensGranddaughter1:
-	.string "My grandpa is the SAFARI ZONE WAR-\n"
-	.string "DEN.\p"
+	.string "My grandpa is the SAFARI ZONE\n"
+	.string "WARDEN.\p"
 	.string "At least he was…\p"
 	.string "He decided to go on a vacation and\n"
 	.string "took off overseas all by himself.\p"

@@ -4,6 +4,7 @@ MossdeepCity_SpaceCenter_2F_MapScripts::
 	.byte 0
 
 MossdeepCity_SpaceCenter_2F_OnTransition:
+	setflag FLAG_ROCKETHIDEOUT2_BATTLE
 	call_if_eq VAR_GARBAGEVAR, 2, MossdeepCity_SpaceCenter_2F_EventScript_MoveCivilians
 	call_if_eq VAR_GARBAGEVAR, 2, MossdeepCity_SpaceCenter_2F_EventScript_MoveDefeatedGrunts
 	end
@@ -51,19 +52,19 @@ MossdeepCity_SpaceCenter_2F_Movement_PlayerExit:
 
 MossdeepCity_SpaceCenter_2F_EventScript_BattleThreeMagmaGrunts::
 	msgbox MossdeepCity_SpaceCenter_2F_Text_Grunt5Intro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, MossdeepCity_SpaceCenter_2F_Text_Grunt5Defeat
+	trainerbattle_no_intro TRAINER_WILTON, MossdeepCity_SpaceCenter_2F_Text_Grunt5Defeat
 	applymovement LOCALID_SPACE_CENTER_GRUNT_5, MossdeepCity_SpaceCenter_2F_Movement_Grunt5Defeated
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	msgbox MossdeepCity_SpaceCenter_2F_Text_Grunt6Intro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, MossdeepCity_SpaceCenter_2F_Text_Grunt6Defeat
+	trainerbattle_no_intro TRAINER_YOSHI, MossdeepCity_SpaceCenter_2F_Text_Grunt6Defeat
 	applymovement LOCALID_SPACE_CENTER_GRUNT_6, MossdeepCity_SpaceCenter_2F_Movement_Grunt6Defeated
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox MossdeepCity_SpaceCenter_2F_Text_Grunt7Intro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, MossdeepCity_SpaceCenter_2F_Text_Grunt7Defeat
+	trainerbattle_no_intro TRAINER_ZACH, MossdeepCity_SpaceCenter_2F_Text_Grunt7Defeat
 	applymovement LOCALID_SPACE_CENTER_GRUNT_7, MossdeepCity_SpaceCenter_2F_Movement_Grunt7Defeated
 	waitmovement 0
 	setvar VAR_GARBAGEVAR, 2

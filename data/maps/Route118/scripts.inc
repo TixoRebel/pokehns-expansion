@@ -177,7 +177,7 @@ Route118_Movement_StevenExit2:
 	step_end
 
 Route118_EventScript_Rose::
-	trainerbattle_single TRAINER_NONE, Route118_Text_RoseIntro, Route118_Text_RoseDefeat, Route118_EventScript_RegisterRose
+	trainerbattle_single TRAINER_GRUNT_33, Route118_Text_RoseIntro, Route118_Text_RoseDefeat, Route118_EventScript_RegisterRose
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchRose
 	msgbox Route118_Text_RosePostBattle, MSGBOX_DEFAULT
@@ -188,17 +188,17 @@ Route118_EventScript_RegisterRose::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route118_Text_RoseRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_GRUNT_33
 	release
 	end
 
 Route118_EventScript_RematchRose::
-	trainerbattle_rematch TRAINER_NONE, Route118_Text_RoseRematchIntro, Route118_Text_RoseRematchDefeat
+	trainerbattle_rematch TRAINER_GRUNT_33, Route118_Text_RoseRematchIntro, Route118_Text_RoseRematchDefeat
 	msgbox Route118_Text_RosePostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Barny::
-	trainerbattle_single TRAINER_NONE, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
+	trainerbattle_single TRAINER_CYBIL, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
 	msgbox Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -208,7 +208,7 @@ Route118_EventScript_Wade::
 	end
 
 Route118_EventScript_Dalton::
-	trainerbattle_single TRAINER_NONE, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
+	trainerbattle_single TRAINER_JENN, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchDalton
 	msgbox Route118_Text_DaltonPostBattle, MSGBOX_DEFAULT
@@ -219,12 +219,12 @@ Route118_EventScript_RegisterDalton::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route118_Text_DaltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_JENN
 	release
 	end
 
 Route118_EventScript_RematchDalton::
-	trainerbattle_rematch TRAINER_NONE, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
+	trainerbattle_rematch TRAINER_JENN, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
 	msgbox Route118_Text_DaltonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -234,12 +234,12 @@ Route118_EventScript_Perry::
 	end
 
 Route118_EventScript_Chester::
-	trainerbattle_single TRAINER_NONE, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
+	trainerbattle_single TRAINER_GRUNT_15, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
 	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Deandre::
-	trainerbattle_single TRAINER_NONE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
+	trainerbattle_single TRAINER_JOHNNY, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
 	msgbox Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -74,7 +74,7 @@ Route117_EventScript_DayCareSign::
 	end
 
 Route117_EventScript_Isaac::
-	trainerbattle_single TRAINER_NONE, Route117_Text_IsaacIntro, Route117_Text_IsaacDefeat, Route117_EventScript_RegisterIsaac
+	trainerbattle_single TRAINER_CHUCK_1_3, Route117_Text_IsaacIntro, Route117_Text_IsaacDefeat, Route117_EventScript_RegisterIsaac
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchIsaac
 	msgbox Route117_Text_IsaacPostBattle, MSGBOX_DEFAULT
@@ -85,17 +85,17 @@ Route117_EventScript_RegisterIsaac::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_IsaacRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_CHUCK_1_3
 	release
 	end
 
 Route117_EventScript_RematchIsaac::
-	trainerbattle_rematch TRAINER_NONE, Route117_Text_IsaacRematchIntro, Route117_Text_IsaacRematchDefeat
+	trainerbattle_rematch TRAINER_CHUCK_1_3, Route117_Text_IsaacRematchIntro, Route117_Text_IsaacRematchDefeat
 	msgbox Route117_Text_IsaacPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Lydia::
-	trainerbattle_single TRAINER_NONE, Route117_Text_LydiaIntro, Route117_Text_LydiaDefeat, Route117_EventScript_RegisterLydia
+	trainerbattle_single TRAINER_LYDIA_1, Route117_Text_LydiaIntro, Route117_Text_LydiaDefeat, Route117_EventScript_RegisterLydia
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchLydia
 	msgbox Route117_Text_LydiaPostBattle, MSGBOX_DEFAULT
@@ -106,17 +106,17 @@ Route117_EventScript_RegisterLydia::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_LydiaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_LYDIA_1
 	release
 	end
 
 Route117_EventScript_RematchLydia::
-	trainerbattle_rematch TRAINER_NONE, Route117_Text_LydiaRematchIntro, Route117_Text_LydiaRematchDefeat
+	trainerbattle_rematch TRAINER_LYDIA_1, Route117_Text_LydiaRematchIntro, Route117_Text_LydiaRematchDefeat
 	msgbox Route117_Text_LydiaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Dylan::
-	trainerbattle_single TRAINER_NONE, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
+	trainerbattle_single TRAINER_LEWIS, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchDylan
 	msgbox Route117_Text_DylanPostBattle, MSGBOX_DEFAULT
@@ -127,17 +127,17 @@ Route117_EventScript_RegisterDylan::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_DylanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_LEWIS
 	release
 	end
 
 Route117_EventScript_RematchDylan::
-	trainerbattle_rematch TRAINER_NONE, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
+	trainerbattle_rematch TRAINER_LEWIS, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
 	msgbox Route117_Text_DylanPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Maria::
-	trainerbattle_single TRAINER_NONE, Route117_Text_MariaIntro, Route117_Text_MariaDefeat, Route117_EventScript_RegisterMaria
+	trainerbattle_single TRAINER_MARIA_1, Route117_Text_MariaIntro, Route117_Text_MariaDefeat, Route117_EventScript_RegisterMaria
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchMaria
 	msgbox Route117_Text_MariaPostBattle, MSGBOX_DEFAULT
@@ -148,12 +148,12 @@ Route117_EventScript_RegisterMaria::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_MariaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_MARIA_1
 	release
 	end
 
 Route117_EventScript_RematchMaria::
-	trainerbattle_rematch TRAINER_NONE, Route117_Text_MariaRematchIntro, Route117_Text_MariaRematchDefeat
+	trainerbattle_rematch TRAINER_MARIA_1, Route117_Text_MariaRematchIntro, Route117_Text_MariaRematchDefeat
 	msgbox Route117_Text_MariaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -163,7 +163,7 @@ Route117_EventScript_Derek::
 	end
 
 Route117_EventScript_Anna::
-	trainerbattle_double TRAINER_NONE, Route117_Text_AnnaIntro, Route117_Text_AnnaDefeat, Route117_Text_AnnaNotEnoughMons, Route117_EventScript_RegisterAnna
+	trainerbattle_double TRAINER_ANNA_AND_MEG_1, Route117_Text_AnnaIntro, Route117_Text_AnnaDefeat, Route117_Text_AnnaNotEnoughMons, Route117_EventScript_RegisterAnna
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchAnna
 	msgbox Route117_Text_AnnaPostBattle, MSGBOX_DEFAULT
@@ -172,17 +172,17 @@ Route117_EventScript_Anna::
 
 Route117_EventScript_RegisterAnna::
 	msgbox Route117_Text_AnnaAndMegRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_ANNA_AND_MEG_1
 	release
 	end
 
 Route117_EventScript_RematchAnna::
-	trainerbattle_rematch_double TRAINER_NONE, Route117_Text_AnnaRematchIntro, Route117_Text_AnnaRematchDefeat, Route117_Text_AnnaRematchNotEnoughMons
+	trainerbattle_rematch_double TRAINER_ANNA_AND_MEG_1, Route117_Text_AnnaRematchIntro, Route117_Text_AnnaRematchDefeat, Route117_Text_AnnaRematchNotEnoughMons
 	msgbox Route117_Text_AnnaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Meg::
-	trainerbattle_double TRAINER_NONE, Route117_Text_MegIntro, Route117_Text_MegDefeat, Route117_Text_MegNotEnoughMons, Route117_EventScript_RegisterMeg
+	trainerbattle_double TRAINER_ANNA_AND_MEG_1, Route117_Text_MegIntro, Route117_Text_MegDefeat, Route117_Text_MegNotEnoughMons, Route117_EventScript_RegisterMeg
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchMeg
 	msgbox Route117_Text_MegPostBattle, MSGBOX_DEFAULT
@@ -191,27 +191,27 @@ Route117_EventScript_Meg::
 
 Route117_EventScript_RegisterMeg::
 	msgbox Route117_Text_AnnaAndMegRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_ANNA_AND_MEG_1
 	release
 	end
 
 Route117_EventScript_RematchMeg::
-	trainerbattle_rematch_double TRAINER_NONE, Route117_Text_MegRematchIntro, Route117_Text_MegRematchDefeat, Route117_Text_MegRematchNotEnoughMons
+	trainerbattle_rematch_double TRAINER_ANNA_AND_MEG_1, Route117_Text_MegRematchIntro, Route117_Text_MegRematchDefeat, Route117_Text_MegRematchNotEnoughMons
 	msgbox Route117_Text_MegPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Melina::
-	trainerbattle_single TRAINER_NONE, Route117_Text_MelinaIntro, Route117_Text_MelinaDefeat
+	trainerbattle_single TRAINER_MELINA, Route117_Text_MelinaIntro, Route117_Text_MelinaDefeat
 	msgbox Route117_Text_MelinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Brandi::
-	trainerbattle_single TRAINER_NONE, Route117_Text_BrandiIntro, Route117_Text_BrandiDefeat
+	trainerbattle_single TRAINER_BRANDI, Route117_Text_BrandiIntro, Route117_Text_BrandiDefeat
 	msgbox Route117_Text_BrandiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Aisha::
-	trainerbattle_single TRAINER_NONE, Route117_Text_AishaIntro, Route117_Text_AishaDefeat
+	trainerbattle_single TRAINER_ARNIE, Route117_Text_AishaIntro, Route117_Text_AishaDefeat
 	msgbox Route117_Text_AishaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

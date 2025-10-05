@@ -65,8 +65,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route32_EventScript_SuperPotion",
+      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_POTION",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_32_SUPERPOTION"
     },
     {
@@ -78,8 +78,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route32_EventScript_GreatBall",
+      "trainer_sight_or_berry_tree_id": "ITEM_GREAT_BALL",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_32_GREATBALL"
     },
     {
@@ -91,8 +91,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route32_EventScript_Potion",
+      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_32_POTION"
     },
     {
@@ -221,8 +221,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route32_EventScript_GreatBallII",
+      "trainer_sight_or_berry_tree_id": "ITEM_GREAT_BALL",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_32_GREATBALL2"
     },
     {
@@ -471,6 +471,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_NIGHT_POKEMON"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "x": 8,
+      "y": 58,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VioletCity_EventScript_LiquidJustice",
+      "flag": "0"
     }
   ],
   "warp_events": [

@@ -4,7 +4,7 @@ LavaridgeTown_MapScripts::
 	.byte 0
 
 LavaridgeTown_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_GOLDENROD_CITY
 	call_if_set FLAG_WHITEOUT_TO_LAVARIDGE, LavaridgeTown_EventScript_ClearLavaridgeWhiteOut
 	call_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, LavaridgeTown_EventScript_ShowMtChimneyTrainers
 	call Common_EventScript_SetupRivalGfxId
@@ -293,6 +293,8 @@ LavaridgeTown_Text_MayExplainGoGogglesChallengeDad:
 	.string "want to lose to me, I bet!\p"
 	.string "{PLAYER}{KUN}, I think I should challenge\n"
 	.string "your dad in PETALBURG GYM.\p"
+	.string "Oh yeah, and you should check the\n"
+	.string "NATURE MINTS in the FLOWERSHOP!\p"
 	.string "See you again!$"
 
 LavaridgeTown_Text_BrendanNiceBadgesTakeThis:
@@ -315,6 +317,8 @@ LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
 	.string "the GYM LEADER of PETALBURG.\p"
 	.string "Unlike you, {PLAYER}, your dad looks like\n"
 	.string "he really is tough.\p"
+	.string "Oh, and go check the NATURE\n"
+	.string "MINTS in the FLOWERSHOP!\p"
 	.string "See you around!$"
 
 LavaridgeTown_Text_HaveEggWillYouTakeIt:

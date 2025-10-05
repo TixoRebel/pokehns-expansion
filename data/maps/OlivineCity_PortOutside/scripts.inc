@@ -1,6 +1,7 @@
 .set LOCALID_OLIVINE_SABRINA, 3
 
 OlivineCity_PortOutside_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OlivineCity_MapScript_OnTransition
 	.byte 0
 
 OlivineCity_PortOutside_EventScript_Sabrina::
@@ -44,4 +45,4 @@ OlivineCity_PortOutside_Text_PortFisherman1:
 	.string "now, it sails almost constantly!$"
 
 OlivineCity_PortOutside_Text_Fisherman2:
-	.string "Aw yeah, I'm fishin'$"
+	.string "Aw yeah, I'm fishin'.$"

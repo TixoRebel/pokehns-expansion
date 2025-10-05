@@ -4,7 +4,7 @@ LilycoveCity_MapScripts::
 	.byte 0
 
 LilycoveCity_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_SAFFRON_CITY
 	setvar VAR_GARBAGEVAR, 0
 	setflag FLAG_GARBAGEFLAG
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
@@ -145,6 +145,15 @@ LilycoveCity_EventScript_Woman1::
 LilycoveCity_EventScript_CitySign::
 	msgbox LilycoveCity_Text_CitySign, MSGBOX_SIGN
 	end
+
+LilycoveCity_EventScript_GymSign::
+	msgbox LilycoveCity_Text_GymSign, MSGBOX_SIGN
+	end
+
+LilycoveCity_Text_GymSign:
+	.string "HYPER TRAINING GYM.\p"
+	.string "Maximize the potential of your\n"
+	.string "POKéMON easily!$"
 
 LilycoveCity_EventScript_ContestHallSign::
 	msgbox LilycoveCity_Text_ContestHallSign, MSGBOX_SIGN
@@ -291,32 +300,32 @@ LilycoveCity_EventScript_DeclineBrendanBattle::
 	end
 
 LilycoveCity_EventScript_BattleMayTreecko::
-	trainerbattle_no_intro TRAINER_NONE, LilycoveCity_Text_MayDefeat
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TREECKO, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleMayTorchic::
-	trainerbattle_no_intro TRAINER_NONE, LilycoveCity_Text_MayDefeat
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TORCHIC, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleMayMudkip::
-	trainerbattle_no_intro TRAINER_NONE, LilycoveCity_Text_MayDefeat
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_MUDKIP, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleBrendanTreecko::
-	trainerbattle_no_intro TRAINER_NONE, LilycoveCity_Text_BrendanDefeat
+	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TREECKO, LilycoveCity_Text_BrendanDefeat
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
 LilycoveCity_EventScript_BattleBrendanTorchic::
-	trainerbattle_no_intro TRAINER_NONE, LilycoveCity_Text_BrendanDefeat
+	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TORCHIC, LilycoveCity_Text_BrendanDefeat
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
 LilycoveCity_EventScript_BattleBrendanMudkip::
-	trainerbattle_no_intro TRAINER_NONE, LilycoveCity_Text_BrendanDefeat
+	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_MUDKIP, LilycoveCity_Text_BrendanDefeat
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
@@ -755,4 +764,3 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "So we were delighted to see a rare\n"
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
-

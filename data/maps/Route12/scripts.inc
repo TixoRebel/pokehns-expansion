@@ -65,7 +65,7 @@ Route12_Text_FisherMartinAfterBattle:
 
 Route12_Text_FisherStephenSeen:
 	.string "I feel so content, fishing while\n"
-	.string "listening to some tunes on my\n"
+	.string "listening to some tunes on my\l"
 	.string "radio.$"
 
 Route12_Text_FisherStephenBeaten:
@@ -73,7 +73,7 @@ Route12_Text_FisherStephenBeaten:
 
 Route12_Text_FisherStephenAfterBattle:
 	.string "Have you checked out KANTO's radio\n"
-	.string "programs? We get a good variety\n"
+	.string "programs? We get a good variety\l"
 	.string "here.$"
 
 Route12_Text_FisherBarneySeen:
@@ -85,11 +85,11 @@ Route12_Text_FisherBarneyBeaten:
 
 Route12_Text_FisherBarneyAfterBattle:
 	.string "I think electricity is the most\n"
-	.string "important thing in our daily\n"
+	.string "important thing in our daily\l"
 	.string "lives.\p"
 	.string "If it weren't, people wouldn't\n"
-	.string "have made such a fuss when the\n"
-	.string "POWER PLANT went out of\n"
+	.string "have made such a fuss when the\l"
+	.string "POWER PLANT went out of\l"
 	.string "commission.$"
 
 Route12_Text_FisherKyleSeen:

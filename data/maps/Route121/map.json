@@ -3,7 +3,7 @@
   "name": "Route121",
   "layout": "LAYOUT_ROUTE121",
   "music": "MUS_ROUTE120",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_ROUTE_46",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -31,7 +31,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
       "x": 29,
       "y": 14,
       "elevation": 3,
@@ -148,7 +148,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 39,
       "y": 9,
       "elevation": 3,
@@ -161,7 +161,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 40,
       "y": 9,
       "elevation": 3,
@@ -409,6 +409,19 @@
       "trainer_sight_or_berry_tree_id": "ITEM_ZINC",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_GARBAGEFLAG"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 67,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_FAIRY_GEM",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_121_FAIRY_GEM"
     }
   ],
   "warp_events": [

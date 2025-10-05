@@ -5,7 +5,7 @@ Route109_MapScripts::
 	.byte 0
 
 Route109_EventScript_StartDepartForDewford::
-@	call EventScript_BackupMrBrineyLocation
+	call EventScript_BackupMrBrineyLocation
 	setobjectsubpriority LOCALID_ROUTE109_BRINEY, MAP_ROUTE109, 0
 	setobjectsubpriority LOCALID_PLAYER, MAP_ROUTE109, 0
 	applymovement LOCALID_ROUTE109_BRINEY, Route109_Movement_BrineyEnterBoat
@@ -395,7 +395,7 @@ Route109_EventScript_Edmond::
 	end
 
 Route109_EventScript_Ricky::
-	trainerbattle_single TRAINER_NONE, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RickyRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_RICKY_1, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RickyRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_RickyRematch
 	msgbox Route109_Text_RickyPostBattle, MSGBOX_DEFAULT
@@ -406,17 +406,17 @@ Route109_EventScript_RickyRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route109_Text_RickyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_RICKY_1
 	release
 	end
 
 Route109_EventScript_RickyRematch::
-	trainerbattle_rematch TRAINER_NONE, Route109_Text_RickyRematchIntro, Route109_Text_RickyRematchDefeated
+	trainerbattle_rematch TRAINER_RICKY_1, Route109_Text_RickyRematchIntro, Route109_Text_RickyRematchDefeated
 	msgbox Route109_Text_RickyRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Lola::
-	trainerbattle_single TRAINER_NONE, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LolaRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_LOLA_1, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LolaRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_LolaRematch
 	msgbox Route109_Text_LolaPostBattle, MSGBOX_DEFAULT
@@ -427,17 +427,17 @@ Route109_EventScript_LolaRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route109_Text_LolaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_LOLA_1
 	release
 	end
 
 Route109_EventScript_LolaRematch::
-	trainerbattle_rematch TRAINER_NONE, Route109_Text_LolaRematchIntro, Route109_Text_LolaRematchDefeated
+	trainerbattle_rematch TRAINER_LOLA_1, Route109_Text_LolaRematchIntro, Route109_Text_LolaRematchDefeated
 	msgbox Route109_Text_LolaRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Austina::
-	trainerbattle_single TRAINER_NONE, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
+	trainerbattle_single TRAINER_CODY, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -452,27 +452,27 @@ Route109_EventScript_Carter::
 	end
 
 Route109_EventScript_Paul::
-	trainerbattle_double TRAINER_NONE, Route109_Text_PaulIntro, Route109_Text_PaulDefeated, Route109_Text_PaulNotEnoughPokemon
+	trainerbattle_double TRAINER_MEL_AND_PAUL, Route109_Text_PaulIntro, Route109_Text_PaulDefeated, Route109_Text_PaulNotEnoughPokemon
 	msgbox Route109_Text_PaulPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Mel::
-	trainerbattle_double TRAINER_NONE, Route109_Text_MelIntro, Route109_Text_MelDefeated, Route109_Text_MelNotEnoughPokemon
+	trainerbattle_double TRAINER_MEL_AND_PAUL, Route109_Text_MelIntro, Route109_Text_MelDefeated, Route109_Text_MelNotEnoughPokemon
 	msgbox Route109_Text_MelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Chandler::
-	trainerbattle_single TRAINER_NONE, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
+	trainerbattle_single TRAINER_GRUNT_11, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
 	msgbox Route109_Text_ChandlerPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Hailey::
-	trainerbattle_single TRAINER_NONE, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
+	trainerbattle_single TRAINER_BUGSY_2, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
 	msgbox Route109_Text_HaileyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Elijah::
-	trainerbattle_single TRAINER_NONE, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
+	trainerbattle_single TRAINER_MARVIN, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
 	msgbox Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE
 	end
 

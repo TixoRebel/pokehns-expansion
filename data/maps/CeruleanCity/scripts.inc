@@ -2,16 +2,11 @@
 .set LOCALID_CERULEAN_SLOWBRO, 3
 
 CeruleanCity_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CeruleanCity_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, CeruleanCity_EventScript_CityEnter
 	.byte 0
-
-CeruleanCity_OnFrame::
-	map_script_2 VAR_CERULEAN_CITY_STATE, 0,  CeruleanCity_EventScript_CityEnter
-	.2byte 0
 
 CeruleanCity_EventScript_CityEnter::
 	setflag FLAG_VISITED_CERULEAN_CITY
-	setvar VAR_CERULEAN_CITY_STATE, 1
 	end
 
 CeruleanCity_EventScript_CooltrainerM1::
@@ -167,7 +162,7 @@ CeruleanCity_Text_BikeShopSign:
 CeruleanCity_Text_PoliceSign:
 	.string "There's a notice here…\p"
 	.string "Stamp out thievery and make the\n"
-	.string "city a friendlier, more cheerful\n"
+	.string "city a friendlier, more cheerful\l"
 	.string "place!\p"
 	.string "CERULEAN POLICE$"
 

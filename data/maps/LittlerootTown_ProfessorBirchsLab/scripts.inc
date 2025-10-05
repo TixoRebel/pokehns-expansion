@@ -160,6 +160,7 @@ LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForPokedex:
 
 LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	lockall
+	goto_if_ge VAR_TIME_BASED_ENCOUNTER, 3, LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNationalSkip
 	delay 30
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational, MSGBOX_DEFAULT
 	closemessage
@@ -194,7 +195,27 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	waitmessage
 	waitfanfare
 	setflag FLAG_SYS_NATIONAL_DEX
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	special EnableNationalPokedex
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_GARBAGEFLAG
+	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
+	setvar VAR_SCOTT_BF_CALL_STEP_COUNTER, 0
+	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNationalSkip::
+	delay 30
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_GARBAGEFLAG
@@ -545,8 +566,16 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex::
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
+	goto_if_ge VAR_TIME_BASED_ENCOUNTER, 3, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedexAltered
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedexAltered::
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
+	setflag FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS
+	clearflag FLAG_GARBAGEFLAG
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait::
@@ -700,6 +729,10 @@ LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon:
 	.string "PROF. BIRCH: While you're at it, why not\n"
 	.string "give a nickname to that {STR_VAR_1}?$"
 
+LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon_Nuzlocke:
+	.string "PROF. BIRCH: While you're at it, why not\n"
+	.string "give a nickname to that {STR_VAR_1}?\p$"
+	
 LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "PROF. BIRCH: If you work at POKéMON\n"
 	.string "and gain experience, I think you'll make\l"
@@ -771,7 +804,13 @@ LittlerootTown_ProfessorBirchsLab_Text_CatchCutePokemonWithPokeBalls:
 	.string "I'm going to look all over the place\n"
 	.string "because I want different POKéMON.\p"
 	.string "If I find any cute POKéMON, I'll catch\n"
-	.string "them with POKé BALLS!$"
+	.string "them with POKé BALLS!\p"
+	.string "Oh, and did you know that if you\n"
+	.string "select and use a BALL from the BAG,\p"
+	.string "you can change the POKé BALL\n"
+	.string "a POKéMON uses?\p"
+	.string "Maybe I'll put my POKéMON in a\n"
+	.string "PREMIER BALL. They are so neat!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_OhYourBagsFull:
 	.string "Oh? Your BAG's full.$"
@@ -848,6 +887,12 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe:
 
 LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone:
 	.string "PROF. BIRCH: Okay, all done!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_IHadDoneThat:
+	.string "PROF. BIRCH: Wait, what do you mean\n"
+	.string "you have the NATIONAL POKéDEX?\p"
+	.string "I had already upgraded it?\n"
+	.string "Oh well… Doesn't matter.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational:
 	.string "{PLAYER}'s POKéDEX was upgraded\n"

@@ -100,7 +100,7 @@ BurnedTower_B1F_EventScript_ReleaseBeasts::
 	playse SE_LEDGE
 	delay 30
 	playse SE_LEDGE
-	delay 30
+	@ delay 30
 	waitmovement 0
 	
 	setflag FLAG_HIDE_BURNED_TOWER_BEASTS
@@ -216,4 +216,3 @@ BurnedTower_B1F_EventScript_Item_Taunt::
 BurnedTower_B1F_EventScript_Item_UltraBall::
 	finditem ITEM_ULTRA_BALL
 	end
-

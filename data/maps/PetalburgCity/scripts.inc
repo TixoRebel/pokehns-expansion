@@ -4,12 +4,55 @@ PetalburgCity_MapScripts::
 	.byte 0
 
 PetalburgCity_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_SAFARI_ZONE_GATE
 	@ call_if_eq VAR_GARBAGEVAR, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	@ call_if_eq VAR_GARBAGEVAR, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	@ call_if_eq VAR_GARBAGEVAR, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
 	@ call_if_eq VAR_GARBAGEVAR, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
 	end
+
+PetalburgCity_GalladeEvo::
+	faceplayer
+	msgbox PetalburgCity_GalladeEvo_Text, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PetalburgCity_GalladeEvo2
+	goto_if_eq VAR_RESULT, NO, PetalburgCity_GalladeEvo3
+	end
+
+PetalburgCity_GalladeEvo2:
+	msgbox PetalburgCity_GalladeEvo_Text2, MSGBOX_DEFAULT
+	closemessage
+	end
+
+PetalburgCity_GalladeEvo3:
+	msgbox PetalburgCity_GalladeEvo_Text3, MSGBOX_DEFAULT
+	closemessage
+	end
+
+PetalburgCity_GalladeEvo_Text:
+	.string "PROF. BIRCH might be the most famous\n"
+	.string "PROFESSOR of HOENN, but I am also a\l"
+	.string "reliable PROFESSOR.\p"
+	.string "To prove it, I can give you a piece of\n"
+	.string "information that he might not know\l"
+	.string "about. Do you want to listen to it?$"
+
+PetalburgCity_GalladeEvo_Text2:
+	.string "Choosing between a MALE or FEMALE RALTS\n"
+	.string "is quite important.\p"
+	.string "Depending on what you capture, the last\n"
+	.string "evolution of RALTS will be different.\p"
+	.string "If RALTS is MALE, he will naturally\n"
+	.string "evolve into GALLADE but only if it\l"
+	.string "happens during the morning, which is\l"
+	.string "from 6AM to 9AM.\p"
+	.string "RALTS will evolve into GARDEVOIR if he\n"
+	.string "doesn't evolve during morning, or if\l"
+	.string "said RALTS is FEMALE.\p"
+	.string "I believe this information might be\n"
+	.string "useful for a new trainer like you.$"
+
+PetalburgCity_GalladeEvo_Text3:
+	.string "Oh… Okay…$"
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
 	setobjectxyperm LOCALID_GYM_BOY, 5, 11

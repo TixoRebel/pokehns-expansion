@@ -3,18 +3,18 @@ Route114_LanettesHouse_MapScripts::
 	.byte 0
 
 Route114_LanettesHouse_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_LANDMARK_BILLS_HOUSE
 	end
 
-Route114_LanettesHouse_EventScript_Lanette::
+Route114_LanettesHouse_EventScript_Bill::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, Route114_LanettesHouse_EventScript_OfferAdvice
-	setflag FLAG_GARBAGEFLAG
+	goto_if_set FLAG_RECEIVED_DOLL_BILL, Route114_LanettesHouse_EventScript_OfferAdvice
+	setflag FLAG_SYS_PC_BILL
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
 	givedecoration DECOR_LOTAD_DOLL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_RECEIVED_DOLL_BILL
 	release
 	end
 
@@ -46,7 +46,7 @@ Route114_LanettesHouse_EventScript_PC::
 	end
 
 Route114_LanettesHouse_Text_EverythingClutteredKeepThis:
-	.string "LANETTE: Oh! {PLAYER}{KUN}!\p"
+	.string "BILL: Oh! {PLAYER}{KUN}!\p"
 	.string "I'm sorry everything is so cluttered…\n"
 	.string "When I get engrossed in research,\l"
 	.string "things end up this way…\p"
@@ -60,11 +60,11 @@ Route114_LanettesHouse_Text_OrganizeYourBoxes:
 	.string "can tell which POKéMON are in them.$"
 
 Route114_LanettesHouse_Text_ResearchNotesPage1:
-	.string "It's LANETTE's research notes.\n"
+	.string "It's BILL'S research notes.\n"
 	.string "There's information about BOXES.\p"
 	.string "Design BOXES to hold 30 POKéMON each.\p"
 	.string "Each TRAINER should be able to store\n"
-	.string "420 POKéMON on the PC system.\p"
+	.string "450 POKéMON on the PC system.\p"
 	.string "Keep reading?$"
 
 Route114_LanettesHouse_Text_ResearchNotesPage2:

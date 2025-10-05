@@ -7,6 +7,7 @@ VioletCity_MapScripts::
 
 VioletCity_OnFrame::
 	map_script_2 VAR_VIOLET_CITY_KIMONO_GIRL, 1, VioletCity_EventScript_Kimono_Girl
+	map_script_2 VAR_VIOLET_CITY_STATE, 3, VioletCity_EventScript_ElmCall_Trigger
 	.2byte 0
 
 VioletCity_EventScript_Trigger::
@@ -176,6 +177,8 @@ VioletCity_EventScript_ElmCall_Trigger::
 	pokenavcall VioletCity_Text_Elm_Call
 	waitmessage
 	delay 30
+	clearflag FLAG_HIDE_VIOLET_CITY_AIDE
+	setflag FLAG_HIDE_NEWBARKTOWN_LAB_AIDE
 	setvar VAR_VIOLET_CITY_STATE, 4
 	release
 	end
@@ -374,6 +377,20 @@ VioletCity_Movement_Kimono_Girl_5:
 	walk_up
 	step_end	
 
+VioletCity_EventScript_LiquidJustice::
+	msgbox VioletCity_Text_LiquidJustice, MSGBOX_NPC
+	end
+
+VioletCity_EventScript_GymSign::
+	msgbox VioletCity_Text_GymSign, MSGBOX_SIGN
+	end
+
+VioletCity_Text_LiquidJustice:
+	.string "Look around!\p"
+	.string "It's easy to see what POKéMON\n"
+	.string "you can catch in an area without\l"
+	.string "having to run around in tall\l"
+	.string "grass all day!$"
 
 VioletCity_Text_EarlAsksIfYouBeatFalkner:
 	.string "Hello!\n"
@@ -457,7 +474,7 @@ VioletCity_Text_Kimono_Girl1:
 VioletCity_Text_Kimono_Girl2:
 .string "I see...\p"
 .string "So it was handed from MR. POKéMON\n"
-.string "to PROF. ELM, then from \p"
+.string "to PROF. ELM, then from \l"
 .string "PROF. ELM to you.\p"
 .string "Now I get it...$"
 

@@ -1,3 +1,6 @@
+.set LOCALID_WOMAN, 8
+.set LOCALID_JIRACHI, 18
+
 MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
@@ -9,6 +12,37 @@ MossdeepCity_OnTransition:
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
+
+MossdeepCity_EventScript_Evo::
+	msgbox MossdeepCity_EventScript_Evo_Text, MSGBOX_NPC
+	end
+
+MossdeepCity_EventScript_Evo_Text:
+	.string "The POKéMON EEVEEE evolves\n"
+	.string "in many different ways.\p"
+	.string "Using a THUNDER STONE, FIRE STONE,\n"
+	.string "WATER STONE… Just like, for\l"
+	.string "example, ELECTABUZZ and MAGMAR.\p"
+	.string "They also evolve with STONES.$"
+
+MossdeepCity_EventScript_Evo2::
+	msgbox MossdeepCity_EventScript_Evo2_Text, MSGBOX_NPC
+	end
+
+MossdeepCity_EventScript_Evo2_Text:
+	.string "My wife loves the POKéMON EEVEE.\p"
+	.string "She knows all the ways they can\n"
+	.string "evolve. Like, when HOLDING a WATER\l"
+	.string "STONE, or a LEAF STONE.\p"
+	.string "Yes, HOLDING, not using!\n"
+	.string "Did you know about it? I didn't.\p"
+	.string "Or being HAPPY during day or night.\p"
+	.string "Or being cute whilst using a\n"
+	.string "FAIRY TYPE move!\p"
+	.string "…\p"
+	.string "Do you know where EEVEE are?\n"
+	.string "Maybe I should capture one for her.\p"
+	.string "She's gonna love it!$"
 
 MossdeepCity_EventScript_PokefanF::
 	lock
@@ -49,12 +83,115 @@ MossdeepCity_EventScript_Girl::
 	end
 
 MossdeepCity_EventScript_Woman::
+	goto_if_set FLAG_JIRACHI, MossdeepCity_EventScript_Woman2
 	msgbox MossdeepCity_Text_SpecialSpaceCenterRock, MSGBOX_NPC
+	end
+
+MossdeepCity_EventScript_Woman2::
+	msgbox MossdeepCity_Text_SpecialSpaceCenterRock2, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_WhiteRock::
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
+	closemessage
+	goto_if_set FLAG_JIRACHI, MossdeepCity_EventScript_WhiteRockEnd
+	goto_if_unset FLAG_EXTRA_LEGENDARIES, MossdeepCity_EventScript_WhiteRockEnd
+	goto_if_set FLAG_SYS_GAME_CLEAR, MossdeepCity_EventScript_Jirachi
 	end
+
+MossdeepCity_EventScript_WhiteRockEnd::
+	end
+
+MossdeepCity_EventScript_Jirachi::
+	lockall
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_EventScript_JirachiMoves
+	applymovement LOCALID_WOMAN, MossdeepCity_EventScript_JirachiMoves2
+	waitmovement 0
+	msgbox MossdeepCity_Text_ItsAWhiteRock2, MSGBOX_DEFAULT
+	waitmessage
+	waitse
+	playmoncry SPECIES_JIRACHI, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_JIRACHI, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	applymovement LOCALID_JIRACHI, MossdeepCity_EventScript_JirachiMoves3
+	waitmovement 0
+	msgbox MossdeepCity_Text_ItsAWhiteRock3, MSGBOX_DEFAULT
+	closemessage
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MossdeepCity_EventScript_JirachiWon
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MossdeepCity_EventScript_JirachiWon
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MossdeepCity_EventScript_JirachiRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MossdeepCity_EventScript_JirachiRan
+	release
+	end
+
+MossdeepCity_EventScript_JirachiWon::
+	setflag FLAG_JIRACHI
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	callnative UpdateFollowingPokemon
+	goto Common_EventScript_RemoveStaticPokemon
+	releaseall
+	end
+
+MossdeepCity_EventScript_JirachiRan::
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	applymovement LOCALID_JIRACHI, MossdeepCity_EventScript_JirachiMoves4
+	waitmovement 0
+	releaseall
+	end
+
+MossdeepCity_EventScript_JirachiMoves:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	jump_in_place_up
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+MossdeepCity_EventScript_JirachiMoves2:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	jump_in_place_right
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+MossdeepCity_EventScript_JirachiMoves3:
+	delay_16
+	delay_16
+	delay_16
+	set_visible
+	walk_down
+	step_end
+
+MossdeepCity_EventScript_JirachiMoves4:
+	set_invisible
+	walk_up
+	step_end
+
+MossdeepCity_Text_ItsAWhiteRock2:
+	.string "Something…\p"
+	.string "…\p"
+	.string "Something is moving…\n"
+	.string "…$"
+
+MossdeepCity_Text_ItsAWhiteRock3:
+	.string "Something jumped you from\n"
+	.string "behind the white rock!$"
 
 MossdeepCity_EventScript_GymSign::
 	msgbox MossdeepCity_Text_GymSign, MSGBOX_SIGN
@@ -69,7 +206,7 @@ MossdeepCity_EventScript_SpaceCenterSign::
 	end
 
 MossdeepCity_EventScript_VisitedMossdeep::
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_CELADON_CITY
 	setvar VAR_TEMP_1, 1
 	end
 
@@ -387,8 +524,12 @@ MossdeepCity_Text_SpecialSpaceCenterRock:
 	.string "I use a wish tag to make it happen.\n"
 	.string "That's what I do.$"
 
+MossdeepCity_Text_SpecialSpaceCenterRock2:
+	.string "What was that? That wasn't my wish!$"
+
 MossdeepCity_Text_ItsAWhiteRock:
-	.string "It's a white rock.$"
+	.string "It's a white rock.\p"
+	.string "It emanates a mysterious energy…$"
 
 MossdeepCity_Text_GymSign:
 	.string "MOSSDEEP CITY POKéMON GYM\n"
@@ -425,4 +566,3 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "LEADER come in.\p"
 	.string "People tell me the new LEADER once\n"
 	.string "mentored WALLACE.$"
-

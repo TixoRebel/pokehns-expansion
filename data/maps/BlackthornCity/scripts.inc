@@ -4,6 +4,7 @@
 BlackthornCity_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, BlackthornCity_OnFrame
 	map_script MAP_SCRIPT_ON_LOAD, BlackthornCity_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, BlackthornCity_EventScript_CityEnter
 	.byte 0
 
 BlackthornCity_OnLoad::
@@ -17,29 +18,11 @@ BlackThornCity_EventScript_MoveGymBoy::
 	end
 
 BlackthornCity_OnFrame::
-	map_script_2 VAR_BLACKTHORN_CITY_STATE, 0, BlackthornCity_EventScript_CityEnter
 	map_script_2 VAR_BLACKTHORN_CITY_STATE, 4, BlackthornCity_EventScript_Call
 	.2byte 0
 
-BlackthornCity_EventScript_CityEnter:: @flagheap
+BlackthornCity_EventScript_CityEnter::
 	setflag FLAG_VISITED_BLACKTHORN_CITY
-	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_SILVER
-	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_CLAIR
-	setflag FLAG_HIDE_DRAGONS_DEN_CAVERN_LANCE
-	setflag FLAG_HIDE_DRAGONS_DEN_SHRINE_CLAIR
-
-	clearflag FLAG_GOT_SPELL_TAG
-	clearflag FLAG_GOT_DRATINI
-
-	setvar VAR_BLACKTHORN_GYM_STATE, 0
-	setvar VAR_DRAGONS_DEN_QUIZ, 0
-
-
-	pokenavcall BlackthornCity_Text_BaobaCall
-	waitmessage
-	delay 30
-	setflag FLAG_SAFARI_ZONE_WEST_EXPANSION
-	setvar VAR_BLACKTHORN_CITY_STATE, 1
 	end
 
 BlackthornCity_EventScript_Call::

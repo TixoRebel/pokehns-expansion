@@ -173,13 +173,13 @@ Route34_Text_Sign_IlexForest:
 
 Route34_Text_Sign_Route34:
 	.string "ROUTE 34\n"
-	.string "GOLDENROD CITY AZALEA TOWN\p"
+	.string "GOLDENROD CITY - AZALEA TOWN\p"
 	.string "ILEX FOREST SOMEWHERE BETWEEN$"
 
 Route34_Text_TrainerTips:
 	.string "TRAINER TIPS\p"
 	.string "BERRY trees grow new BERRIES\n"
-	.string "every day.\p"
+	.string "several times a day.\p"
 	.string "Note which trees bear which\n"
 	.string "BERRIES.$"
 

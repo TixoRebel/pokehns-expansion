@@ -402,22 +402,22 @@ MtPyre_Summit_Movement_MaxieApproachArchie2:
 	step_end
 
 MtPyre_Summit_EventScript_Grunt1::
-	trainerbattle_single TRAINER_NONE, MtPyre_Summit_Text_Grunt1Intro, MtPyre_Summit_Text_Grunt1Defeat
+	trainerbattle_single TRAINER_THERESA, MtPyre_Summit_Text_Grunt1Intro, MtPyre_Summit_Text_Grunt1Defeat
 	msgbox MtPyre_Summit_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_Summit_EventScript_Grunt2::
-	trainerbattle_single TRAINER_NONE, MtPyre_Summit_Text_Grunt2Intro, MtPyre_Summit_Text_Grunt2Defeat
+	trainerbattle_single TRAINER_TIM, MtPyre_Summit_Text_Grunt2Intro, MtPyre_Summit_Text_Grunt2Defeat
 	msgbox MtPyre_Summit_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_Summit_EventScript_Grunt3::
-	trainerbattle_single TRAINER_NONE, MtPyre_Summit_Text_Grunt3Intro, MtPyre_Summit_Text_Grunt3Defeat
+	trainerbattle_single TRAINER_TIMOTHY, MtPyre_Summit_Text_Grunt3Intro, MtPyre_Summit_Text_Grunt3Defeat
 	msgbox MtPyre_Summit_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_Summit_EventScript_Grunt4::
-	trainerbattle_single TRAINER_NONE, MtPyre_Summit_Text_Grunt4Intro, MtPyre_Summit_Text_Grunt4Defeat
+	trainerbattle_single TRAINER_TOBY, MtPyre_Summit_Text_Grunt4Intro, MtPyre_Summit_Text_Grunt4Defeat
 	msgbox MtPyre_Summit_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -614,4 +614,3 @@ MtPyre_Summit_Text_HoennTrioTale:
 	.string "becalmed the two enraged POKéMON.\p"
 	.string "Then, its duty done, the green POKéMON\n"
 	.string "flew off into the wild blue yonder…$"
-

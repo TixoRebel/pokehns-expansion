@@ -86,8 +86,8 @@
       "x": 17,
       "y": 5,
       "elevation": 3,
-      "dest_map": "MAP_DYNAMIC",
-      "dest_warp_id": "WARP_ID_DYNAMIC"
+      "dest_map": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_7F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -99,24 +99,6 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "GoldenrodDeptElevator_EventScript_Elevator"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "GoldenrodDeptStore6_EventScript_SetWarp"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "GoldenrodDeptStore6_EventScript_SetWarp"
     }
   ],
   "bg_events": [

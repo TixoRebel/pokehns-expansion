@@ -162,7 +162,7 @@ PokemonLeague_HallOfFame_Rematch_LanceText:
     .string "besting even my strongest team.\p"
     .string "You've shown remarkable compassion\n"
     .string "and trust in your POKéMON,\l"
-    .string "a bond that has carried you to\n"
+    .string "a bond that has carried you to\l"
     .string "victory time and again.\p"
     .string "Your journey, marked by\n"
     .string "perseverance and unwavering\l"

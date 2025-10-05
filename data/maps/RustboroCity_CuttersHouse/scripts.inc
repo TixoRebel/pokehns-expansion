@@ -38,11 +38,11 @@ RustboroCity_CuttersHouse_Text_ExplainCut:
 	.string "short, is CUT.\p"
 	.string "An HM move is one that can be used\n"
 	.string "by POKéMON outside of battle.\p"
-	.string "Any POKéMON that's learned CUT can\n"
+	.string "Any POKéMON that can learn CUT can\n"
 	.string "chop down thin trees if the TRAINER\l"
 	.string "has earned the STONE BADGE.\p"
-	.string "And, unlike a TM, an HM can be used\n"
-	.string "more than once.$"
+	.string "And the best thing is that you don't\n"
+	.string "have to teach the move. It just works.$"
 
 RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees:
 	.string "When they were expanding the city of\n"

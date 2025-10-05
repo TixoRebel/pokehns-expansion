@@ -396,7 +396,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_FISHING] =              &gObjectEventGraphicsInfo_MayFishing,
     [OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN] =    &gObjectEventGraphicsInfo_HotSpringsOldWoman,
     [OBJ_EVENT_GFX_SS_TIDAL] =                 &gObjectEventGraphicsInfo_SSTidal,
-    [OBJ_EVENT_GFX_SUBMARINE_SHADOW] =         &gObjectEventGraphicsInfo_SubmarineShadow,
+    [OBJ_EVENT_GFX_LEGENDARY_SHADOW] =         &gObjectEventGraphicsInfo_SubmarineShadow,
     [OBJ_EVENT_GFX_PICHU_DOLL] =               &gObjectEventGraphicsInfo_PichuDoll,
     [OBJ_EVENT_GFX_PIKACHU_DOLL] =             &gObjectEventGraphicsInfo_PikachuDoll,
     [OBJ_EVENT_GFX_MARILL_DOLL] =              &gObjectEventGraphicsInfo_MarillDoll,

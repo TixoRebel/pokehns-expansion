@@ -61,8 +61,8 @@ GoldenrodCity_FlowerShop_EventScript_Floria3::
 	end
 
 GoldenrodCity_FlowerShop_Text_Floria:
-	.string "When I told my sis about the jigg-\n"
-	.string "-ly tree, she said it's dangerous.\p"
+	.string "When I told my sis about the jiggly\n"
+	.string "tree, she said it's dangerous.\p"
 	.string "If I beat WHITNEY, I wonder if\n"
 	.string "she'll lend me her water bottle…$"
 
@@ -71,7 +71,7 @@ GoldenrodCity_FlowerShop_Text_Owner1:
 .string "on Route 36.\p"
 .string "They say it dances when you water\n"
 .string "it...\p"
-.string "Oh of course not!\p"
+.string "Oh, of course not!\p"
 .string "This is a flower shop, so we do\n"
 .string "have watering cans...\p"
 .string "But I cannot let you have one!\n"
@@ -85,14 +85,15 @@ GoldenrodCity_FlowerShop_Text_Owner2:
 .string "on Route 36.\p"
 .string "They say it dances when you water\n"
 .string "it...\p"
-.string "Oh that's a Plain Badge from\p"
-.string "The GOLDENROD GYM!\n"
+.string "Oh, that's a PLAINBADGE from\n"
+.string "The GOLDENROD GYM!\p"
 .string "Did you defeat WHITNEY?!\p"
 .string "Well, then there's nothing to worry\n"
 .string "about, is there?\p"
 .string "I'll let you use this SQUIRTBOTTLE\n"
-.string "for a while then.. Oh never mind,\l"
-.string "Keep it!$"
+.string "for a while then.\l"
+.string "...\p"
+.string "Oh, never mind. Keep it!$"
 
 GoldenrodCity_FlowerShop_Text_Owner3:
 .string "The odd tree is on ROUTE 36.\n"

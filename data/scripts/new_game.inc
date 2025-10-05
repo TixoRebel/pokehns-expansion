@@ -159,6 +159,8 @@ EventScript_ResetAllBerries::
 
 @ HnS PORT NOTE - Should now be 1:1 w/ HnS Modern, but maybe could be handled better?
 EventScript_ResetAllMapFlags::
+	@HnS FLAGHEAP1
+
 	setflag FLAG_HIDE_BATTLE_TOWER_OPPONENT
 	setflag FLAG_HIDE_DEOXYS @???
 	setflag FLAG_HIDE_CONTEST_POKE_BALL @???
@@ -201,13 +203,13 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_ILEX_FOREST_SECOND_CELEBI
 	setflag FLAG_HIDE_OLIVINE_PORT_OAK
 	setflag FLAG_HIDE_ROUTE22_GIOVANNI_SILVER
-	@ setflag FLAG_UNUSED_SET3
-	@ setflag FLAG_UNUSED_SET4
-	@ setflag FLAG_UNUSED_SET5
-	@ setflag FLAG_UNUSED_SET6
-	@ setflag FLAG_UNUSED_SET7
-	@ setflag FLAG_UNUSED_SET8
-	@ setflag FLAG_UNUSED_SET9
+	setflag FLAG_UNUSED_SET3
+	setflag FLAG_UNUSED_SET4
+	setflag FLAG_UNUSED_SET5
+	setflag FLAG_UNUSED_SET6
+	setflag FLAG_UNUSED_SET7
+	setflag FLAG_UNUSED_SET8
+	setflag FLAG_UNUSED_SET9
 	
 	clearflag FLAG_COMPLETED_AERODACTYL_PUZZLE
 	clearflag FLAG_COMPLETED_HOOH_PUZZLE
@@ -229,13 +231,13 @@ EventScript_ResetAllMapFlags::
 	clearflag FLAG_DEFEATED_RED
 	clearflag FLAG_RECEIVED_ODD_EGG
 	clearflag FLAG_VISITED_KANTO
-	@ clearflag FLAG_UNUSED_UNSET3
-	@ clearflag FLAG_UNUSED_UNSET4
-	@ clearflag FLAG_UNUSED_UNSET5
-	@ clearflag FLAG_UNUSED_UNSET6
-	@ clearflag FLAG_UNUSED_UNSET7
-	@ clearflag FLAG_UNUSED_UNSET8
-	@ clearflag FLAG_UNUSED_UNSET9
+	clearflag FLAG_HIDE_CERULEAN_GYM_POKEMON
+	clearflag FLAG_HIDE_NEWBARKTOWN_LAB_AIDE
+	clearflag FLAG_HIDE_AZALEA_TOWN_CUT_MASTER
+	clearflag FLAG_UNUSED_UNSET6
+	clearflag FLAG_UNUSED_UNSET7
+	clearflag FLAG_UNUSED_UNSET8
+	clearflag FLAG_UNUSED_UNSET9
 	clearflag FLAG_BADGE09_GET
 	clearflag FLAG_BADGE10_GET
 	clearflag FLAG_BADGE11_GET
@@ -276,7 +278,7 @@ EventScript_ResetAllMapFlags::
 	setvar VAR_PALLETTOWN_LABSTATE, 0	
 	setvar VAR_TOHJO_FALLS_GIOVANNI_STATE, 0
 	setvar VAR_ROUTE22_GIOVANNI_STATE, 0
-	setvar VAR_UNUSED_HNS_VAR3, 0
+	setvar VAR_ROUTE27_BAOBA_CALL, 0
 	setvar VAR_UNUSED_HNS_VAR4, 0
 	setvar VAR_UNUSED_HNS_VAR5, 0
 	setvar VAR_UNUSED_HNS_VAR6, 0

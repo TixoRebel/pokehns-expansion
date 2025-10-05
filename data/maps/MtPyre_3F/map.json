@@ -3,7 +3,7 @@
   "name": "MtPyre_3F",
   "layout": "LAYOUT_MT_PYRE_3F",
   "music": "MUS_MT_PYRE",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_MT_PYRE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TOWER_DUDE",
       "x": 1,
       "y": 4,
       "elevation": 3,
@@ -28,7 +28,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 11,
       "y": 4,
       "elevation": 3,

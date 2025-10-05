@@ -61,12 +61,12 @@ Route112_EventScript_Hiker::
 	end
 
 Route112_EventScript_Brice::
-	trainerbattle_single TRAINER_NONE, Route112_Text_BriceIntro, Route112_Text_BriceDefeat
+	trainerbattle_single TRAINER_ELLIOT, Route112_Text_BriceIntro, Route112_Text_BriceDefeat
 	msgbox Route112_Text_BricePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route112_EventScript_Trent::
-	trainerbattle_single TRAINER_NONE, Route112_Text_TrentIntro, Route112_Text_TrentDefeat, Route112_EventScript_RegisterTrent
+	trainerbattle_single TRAINER_TRENT_1, Route112_Text_TrentIntro, Route112_Text_TrentDefeat, Route112_EventScript_RegisterTrent
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route112_EventScript_RematchTrent
 	msgbox Route112_Text_TrentPostBattle, MSGBOX_DEFAULT
@@ -77,12 +77,12 @@ Route112_EventScript_RegisterTrent::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route112_Text_TrentRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_TRENT_1
 	release
 	end
 
 Route112_EventScript_RematchTrent::
-	trainerbattle_rematch TRAINER_NONE, Route112_Text_TrentRematchIntro, Route112_Text_TrentRematchDefeat
+	trainerbattle_rematch TRAINER_TRENT_1, Route112_Text_TrentRematchIntro, Route112_Text_TrentRematchDefeat
 	msgbox Route112_Text_TrentRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -97,12 +97,12 @@ Route112_EventScript_Carol::
 	end
 
 Route112_EventScript_Bryant::
-	trainerbattle_single TRAINER_NONE, Route112_Text_BryantIntro, Route112_Text_BryantDefeat
+	trainerbattle_single TRAINER_ETHAN, Route112_Text_BryantIntro, Route112_Text_BryantDefeat
 	msgbox Route112_Text_BryantPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route112_EventScript_Shayla::
-	trainerbattle_single TRAINER_NONE, Route112_Text_ShaylaIntro, Route112_Text_ShaylaDefeat
+	trainerbattle_single TRAINER_SHAYLA, Route112_Text_ShaylaIntro, Route112_Text_ShaylaDefeat
 	msgbox Route112_Text_ShaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

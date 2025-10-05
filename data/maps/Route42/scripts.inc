@@ -210,10 +210,9 @@ Route42_Text_FisherTullyBeaten:
 
 Route42_Text_FisherTullyAfter:
 	.string "I want to become the trainer\n"
-	.string "CHAMP using the POKéMON I\n"
+	.string "CHAMP using the POKéMON I\l"
 	.string "caught myself.\p"
-	.string "That's the best part of\n"
-	.string "fishing!$"
+	.string "That's the best part of fishing!$"
 
 Route42_Text_HikerBenjaminSeen:
 	.string "Ah, it's good to be outside!\n"

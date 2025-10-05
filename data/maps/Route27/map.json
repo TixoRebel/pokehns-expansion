@@ -268,7 +268,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SHARP_BEAK",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_SOLAR_BEAM",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE27_SOLARBEAM"
     },
@@ -327,6 +327,24 @@
       "var": "VAR_ROUTE27_STATE",
       "var_value": "0",
       "script": "Route27_EventScript_FirstSteps"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_ROUTE27_BAOBA_CALL",
+      "var_value": "0",
+      "script": "Route27_EventScript_BaobaCall"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_ROUTE27_BAOBA_CALL",
+      "var_value": "0",
+      "script": "Route27_EventScript_BaobaCall"
     }
   ],
   "bg_events": [

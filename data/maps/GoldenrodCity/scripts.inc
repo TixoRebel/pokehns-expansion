@@ -290,17 +290,17 @@ GoldenrodCity_Text_Woman:
 	.string "headache.$"
 
 GoldenrodCity_Text_HikerDay:
-	.string "When I went into the game corner\n"
+	.string "When I went into the GAME CORNER\n"
 	.string "it was night time... How long was I\l"
 	.string "in there?!$"
 
 GoldenrodCity_Text_HikerNight:
-	.string "When I went into the game corner\n"
+	.string "When I went into the GAME CORNER\n"
 	.string "it was day time... How long was I\l"
 	.string "in there?!$"
 
 GoldenrodCity_Text_Snubbull:
-	.string "SNUBBULL: SNUUUBUUUULL$"
+	.string "SNUBBULL: SNUUUBUUUULL!$"
 
 GoldenrodCity_Text_MrMime:
 	.string "............................$"

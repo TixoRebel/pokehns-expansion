@@ -1,17 +1,5 @@
 CeladonCity_Apartments_RoofHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, CeladonCity_Apartments_RoofHouse_OnTransition
 	.byte 0
-
-CeladonCity_Apartments_RoofHouse_OnTransition::
-	goto_if_set FLAG_NIGHT_POKEMON, CeladonCity_Apartments_RoofHouse_EventScript_SetWarpDay
-	setdynamicwarp MAP_CELADON_CITY_APARTMENTS_ROOF_NIGHT, 2, 13
-	release
-	end
-
-CeladonCity_Apartments_RoofHouse_EventScript_SetWarpDay::
-	setdynamicwarp MAP_CELADON_CITY_APARTMENTS_ROOF_DAY, 2, 13
-	release
-	end
 
 CeladonCity_Apartments_RoofHouse_EventScript_BlackBelt::
 	lock 

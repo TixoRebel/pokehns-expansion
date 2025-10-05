@@ -14,7 +14,8 @@ CeladonDept_EventScript_Directory::
 
 CeladonDeptStore4F_Text_SuperNerd:
 	.string "I'm here to buy SURF MAIL to send\n"
-	.string "to my girlfriend.$"
+	.string "to my girlfriend.\p"
+	.string "Wait, they're out of stock?$"
 
 CeladonDeptStore4F_Text_Youngster:
 	.string "This is the only place where you\n"

@@ -3,7 +3,7 @@
   "name": "FallarborTown_PokemonCenter_1F",
   "layout": "LAYOUT_POKEMON_CENTER_1F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_ECRUTEAK_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -55,7 +55,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_FALLARBOR_LANETTE",
+      "local_id": "LOCALID_FALLARBOR_BILL",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 10,
       "y": 2,
@@ -65,7 +65,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FallarborTown_PokemonCenter_1F_EventScript_Lanette",
+      "script": "FallarborTown_PokemonCenter_1F_EventScript_Bill",
       "flag": "FLAG_GARBAGEFLAG"
     }
   ],

@@ -42,6 +42,8 @@ LilycoveCity_DepartmentStoreRooftop_PokemartDecor_ClearOutSale:
 	.2byte DECOR_CUTE_TV
 	.2byte DECOR_WAILMER_DOLL
 	.2byte DECOR_RHYDON_DOLL
+	.2byte DECOR_RED_TENT
+	.2byte DECOR_BLUE_TENT
 	.2byte 0
 	release
 	end
@@ -84,17 +86,17 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_ChooseDrink::
 	end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_FreshWater::
-	setvar VAR_TEMP_0, ITEM_FRESH_WATER
+	setvar VAR_TEMP_2, ITEM_FRESH_WATER
 	goto LilycoveCity_DepartmentStoreRooftop_EventScript_TryBuyDrink
 	end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_SodaPop::
-	setvar VAR_TEMP_0, ITEM_SODA_POP
+	setvar VAR_TEMP_2, ITEM_SODA_POP
 	goto LilycoveCity_DepartmentStoreRooftop_EventScript_TryBuyDrink
 	end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_Lemonade::
-	setvar VAR_TEMP_0, ITEM_LEMONADE
+	setvar VAR_TEMP_2, ITEM_LEMONADE
 	goto LilycoveCity_DepartmentStoreRooftop_EventScript_TryBuyDrink
 	end
 
@@ -127,37 +129,37 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_TryBuyDrink::
 	call_if_eq VAR_TEMP_1, 1, LilycoveCity_DepartmentStoreRooftop_EventScript_CheckMoneySodaPop
 	call_if_eq VAR_TEMP_1, 2, LilycoveCity_DepartmentStoreRooftop_EventScript_CheckMoneyLemonade
 	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStoreRooftop_EventScript_NotEnoughMoneyForDrink
-	checkitemspace VAR_TEMP_0
+	checkitemspace VAR_TEMP_2
 	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStoreRooftop_EventScript_NoRoomForDrink
 	call_if_eq VAR_TEMP_1, 0, LilycoveCity_DepartmentStoreRooftop_EventScript_RemoveMoneyFreshWater
 	call_if_eq VAR_TEMP_1, 1, LilycoveCity_DepartmentStoreRooftop_EventScript_RemoveMoneySodaPop
 	call_if_eq VAR_TEMP_1, 2, LilycoveCity_DepartmentStoreRooftop_EventScript_RemoveMoneyLemonade
 	updatemoneybox
-	bufferitemname STR_VAR_1, VAR_TEMP_0
+	bufferitemname STR_VAR_1, VAR_TEMP_2
 	playse SE_VEND
 	msgbox LilycoveCity_DepartmentStoreRooftop_Text_CanOfDrinkDroppedDown, MSGBOX_DEFAULT
-	additem VAR_TEMP_0
-	bufferitemname STR_VAR_2, VAR_TEMP_0
+	additem VAR_TEMP_2
+	bufferitemname STR_VAR_2, VAR_TEMP_2
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	random 64  @ 1/64 chance of an additional drink dropping
 	goto_if_ne VAR_RESULT, 0, LilycoveCity_DepartmentStoreRooftop_EventScript_ChooseNewDrink
-	checkitemspace VAR_TEMP_0
+	checkitemspace VAR_TEMP_2
 	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStoreRooftop_EventScript_NoRoomForDrink
 	playse SE_VEND
 	msgbox LilycoveCity_DepartmentStoreRooftop_Text_ExtraCanOfDrinkDroppedDown, MSGBOX_DEFAULT
-	additem VAR_TEMP_0
-	bufferitemname STR_VAR_2, VAR_TEMP_0
+	additem VAR_TEMP_2
+	bufferitemname STR_VAR_2, VAR_TEMP_2
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	random 64  @ 1/64 * the prev 1/64 chance of a third additional drink dropping, ~ 0.02% chance
 	goto_if_ne VAR_RESULT, 0, LilycoveCity_DepartmentStoreRooftop_EventScript_ChooseNewDrink
-	checkitemspace VAR_TEMP_0
+	checkitemspace VAR_TEMP_2
 	goto_if_eq VAR_RESULT, 0, LilycoveCity_DepartmentStoreRooftop_EventScript_NoRoomForDrink
 	playse SE_VEND
 	msgbox LilycoveCity_DepartmentStoreRooftop_Text_ExtraCanOfDrinkDroppedDown, MSGBOX_DEFAULT
-	additem VAR_TEMP_0
-	bufferitemname STR_VAR_2, VAR_TEMP_0
+	additem VAR_TEMP_2
+	bufferitemname STR_VAR_2, VAR_TEMP_2
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStoreRooftop_EventScript_ChooseNewDrink

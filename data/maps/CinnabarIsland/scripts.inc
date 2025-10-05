@@ -3,21 +3,10 @@
 
 CinnabarIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarIsland_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, SetTimeEncounters
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CinnabarIsland_OnFrame
 	.byte 0
-
-CinnabarIsland_OnFrame::
-	map_script_2 VAR_CINNABAR_ISLAND_STATE, 0,  CinnabarIsland_EventScript_CityEnter
-	.2byte 0
-
-CinnabarIsland_EventScript_CityEnter::
-	setflag FLAG_VISITED_CINNABAR_ISLAND
-	setvar VAR_CINNABAR_ISLAND_STATE, 1
-	end
-
+	
 CinnabarIsland_OnTransition:
-	callnative SetTimeBasedEncounters
+	setflag FLAG_VISITED_CINNABAR_ISLAND
 	end
 
 CinnabarIsland_EventScript_Blaine::

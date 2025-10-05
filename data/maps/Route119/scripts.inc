@@ -26,6 +26,70 @@ Route119_EventScript_MoveInstituteWorkersDownstairs::
 	setvar VAR_WEATHER_INSTITUTE_STATE, 2
 	return
 
+Route119_EventScript_SapphireKecleon::
+	lock
+	faceplayer
+	setvar VAR_0x8009, 7
+	checkitem ITEM_DEVON_SCOPE
+	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_SapphireKecleon2
+	msgbox Kecleon_Text_SomethingUnseeable, MSGBOX_DEFAULT
+	release
+	end
+
+Route119_EventScript_SapphireKecleon2::
+	msgbox Kecleon_Text_WantToUseDevonScope, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route119_EventScript_SapphireKecleon3
+	release
+	end
+
+Route119_EventScript_SapphireKecleon3::
+	msgbox Kecleon_Text_UseDevonScopeMonAttacked, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement VAR_LAST_TALKED, Movement_KecleonAppears
+	waitmovement 0
+	waitse
+	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_KECLEON, 29
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route119_EventScript_SapphireKecleon4
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Route119_EventScript_SapphireKecleon4
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route119_EventScript_SapphireKecleon5
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route119_EventScript_SapphireKecleon5
+	release
+	end
+
+Route119_EventScript_SapphireKecleon4::
+	msgbox Route119_EventScript_SapphireKecleon_Text1, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_SAPPHIRE
+	closemessage
+	setflag FLAG_SAPPHIRE_KECLEON
+	goto Common_EventScript_RemoveStaticPokemon
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	releaseall
+	end
+
+Route119_EventScript_SapphireKecleon5::
+	msgbox Route119_EventScript_SapphireKecleon_Text2, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+Route119_EventScript_SapphireKecleon_Text1:
+	.string "The KECLEON dropped a\n"
+	.string "SHINY object!$"
+
+Route119_EventScript_SapphireKecleon_Text2:
+	.string "The invisible KECLEON\n"
+	.string "is still here…$"
+
 Route119_EventScript_RivalTrigger1::
 	setvar VAR_TEMP_1, 1
 	goto Route119_EventScript_RivalEncounter
@@ -76,17 +140,17 @@ Route119_EventScript_BattleMay::
 	end
 
 Route119_EventScript_BattleMayTreecko::
-	trainerbattle_no_intro TRAINER_NONE, Route119_Text_MayDefeat
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TREECKO, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
 Route119_EventScript_BattleMayTorchic::
-	trainerbattle_no_intro TRAINER_NONE, Route119_Text_MayDefeat
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TORCHIC, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
 Route119_EventScript_BattleMayMudkip::
-	trainerbattle_no_intro TRAINER_NONE, Route119_Text_MayDefeat
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_MUDKIP, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
@@ -106,17 +170,17 @@ Route119_EventScript_BattleBrendan::
 	end
 
 Route119_EventScript_BattleBrendanTreecko::
-	trainerbattle_no_intro TRAINER_NONE, Route119_Text_BrendanDefeat
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TREECKO, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
 Route119_EventScript_BattleBrendanTorchic::
-	trainerbattle_no_intro TRAINER_NONE, Route119_Text_BrendanDefeat
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
 Route119_EventScript_BattleBrendanMudkip::
-	trainerbattle_no_intro TRAINER_NONE, Route119_Text_BrendanDefeat
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_MUDKIP, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
@@ -328,7 +392,7 @@ Route119_EventScript_Donald::
 	end
 
 Route119_EventScript_Taylor::
-	trainerbattle_single TRAINER_NONE, Route119_Text_TaylorIntro, Route119_Text_TaylorDefeat
+	trainerbattle_single TRAINER_TAYLOR, Route119_Text_TaylorIntro, Route119_Text_TaylorDefeat
 	msgbox Route119_Text_TaylorPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -348,7 +412,7 @@ Route119_EventScript_Kent::
 	end
 
 Route119_EventScript_Jackson::
-	trainerbattle_single TRAINER_NONE, Route119_Text_JacksonIntro, Route119_Text_JacksonDefeat, Route119_EventScript_RegisterJackson
+	trainerbattle_single TRAINER_RIVAL_CHIKORITA_4, Route119_Text_JacksonIntro, Route119_Text_JacksonDefeat, Route119_EventScript_RegisterJackson
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_RematchJackson
 	msgbox Route119_Text_JacksonPostBattle, MSGBOX_DEFAULT
@@ -359,17 +423,17 @@ Route119_EventScript_RegisterJackson::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route119_Text_JacksonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_RIVAL_CHIKORITA_4
 	release
 	end
 
 Route119_EventScript_RematchJackson::
-	trainerbattle_rematch TRAINER_NONE, Route119_Text_JacksonRematchIntro, Route119_Text_JacksonRematchDefeat
+	trainerbattle_rematch TRAINER_RIVAL_CHIKORITA_4, Route119_Text_JacksonRematchIntro, Route119_Text_JacksonRematchDefeat
 	msgbox Route119_Text_JacksonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Catherine::
-	trainerbattle_single TRAINER_NONE, Route119_Text_CatherineIntro, Route119_Text_CatherineDefeat, Route119_EventScript_RegisterCatherine
+	trainerbattle_single TRAINER_GRUNT_3, Route119_Text_CatherineIntro, Route119_Text_CatherineDefeat, Route119_EventScript_RegisterCatherine
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_RematchCatherine
 	msgbox Route119_Text_CatherinePostBattle, MSGBOX_DEFAULT
@@ -380,12 +444,12 @@ Route119_EventScript_RegisterCatherine::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route119_Text_CatherineRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NONE
+	register_matchcall TRAINER_GRUNT_3
 	release
 	end
 
 Route119_EventScript_RematchCatherine::
-	trainerbattle_rematch TRAINER_NONE, Route119_Text_CatherineRematchIntro, Route119_Text_CatherineRematchDefeat
+	trainerbattle_rematch TRAINER_GRUNT_3, Route119_Text_CatherineRematchIntro, Route119_Text_CatherineRematchDefeat
 	msgbox Route119_Text_CatherinePostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -400,37 +464,37 @@ Route119_EventScript_Phil::
 	end
 
 Route119_EventScript_Yasu::
-	trainerbattle_single TRAINER_NONE, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
+	trainerbattle_single TRAINER_YASU, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
 	msgbox Route119_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Takashi::
-	trainerbattle_single TRAINER_NONE, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
+	trainerbattle_single TRAINER_TAKASHI, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
 	msgbox Route119_Text_TakashiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Hideo::
-	trainerbattle_single TRAINER_NONE, Route119_Text_HideoIntro, Route119_Text_HideoDefeat
+	trainerbattle_single TRAINER_JASMINE_1_2, Route119_Text_HideoIntro, Route119_Text_HideoDefeat
 	msgbox Route119_Text_HideoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Chris::
-	trainerbattle_single TRAINER_NONE, Route119_Text_ChrisIntro, Route119_Text_ChrisDefeat
+	trainerbattle_single TRAINER_GRUNT_17, Route119_Text_ChrisIntro, Route119_Text_ChrisDefeat
 	msgbox Route119_Text_ChrisPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Fabian::
-	trainerbattle_single TRAINER_NONE, Route119_Text_FabianIntro, Route119_Text_FabianDefeat
+	trainerbattle_single TRAINER_NOB, Route119_Text_FabianIntro, Route119_Text_FabianDefeat
 	msgbox Route119_Text_FabianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Dayton::
-	trainerbattle_single TRAINER_NONE, Route119_Text_DaytonIntro, Route119_Text_DaytonDefeat
+	trainerbattle_single TRAINER_JOHN, Route119_Text_DaytonIntro, Route119_Text_DaytonDefeat
 	msgbox Route119_Text_DaytonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Rachel::
-	trainerbattle_single TRAINER_NONE, Route119_Text_RachelIntro, Route119_Text_RachelDefeat
+	trainerbattle_single TRAINER_RACHEL, Route119_Text_RachelIntro, Route119_Text_RachelDefeat
 	msgbox Route119_Text_RachelPostBattle, MSGBOX_AUTOCLOSE
 	end
 

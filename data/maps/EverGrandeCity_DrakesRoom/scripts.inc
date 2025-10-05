@@ -25,7 +25,7 @@ EverGrandeCity_DrakesRoom_EventScript_WalkInCloseDoor::
 	end
 
 EverGrandeCity_DrakesRoom_OnLoad:
-	call_if_set FLAG_GARBAGEFLAG, EverGrandeCity_DrakesRoom_EventScript_ResetAdvanceToNextRoom
+	call_if_set FLAG_DEFEATED_JOHTO_ELITE_4_KAREN, EverGrandeCity_DrakesRoom_EventScript_ResetAdvanceToNextRoom
 	call_if_eq VAR_GARBAGEVAR, 4, EverGrandeCity_DrakesRoom_EventScript_CloseDoor
 	end
 
@@ -40,10 +40,18 @@ EverGrandeCity_DrakesRoom_EventScript_CloseDoor::
 EverGrandeCity_DrakesRoom_EventScript_Drake::
 	lock
 	faceplayer
-	goto_if_set FLAG_GARBAGEFLAG, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
+	goto_if_set FLAG_DEFEATED_JOHTO_ELITE_4_KAREN, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
+	goto_if_set FLAG_DRAKE_REMATCH, EverGrandeCity_DrakesRoom_EventScript_DrakeRematch
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NONE, EverGrandeCity_DrakesRoom_Text_Defeat
+	trainerbattle_no_intro TRAINER_KIP, EverGrandeCity_DrakesRoom_Text_Defeat
+	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
+	end
+
+EverGrandeCity_DrakesRoom_EventScript_DrakeRematch::
+	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
+	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeech2, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_KIP2, EverGrandeCity_DrakesRoom_Text_Defeat2
 	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
 	end
 
@@ -55,7 +63,7 @@ EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech::
 EverGrandeCity_DrakesRoom_EventScript_Defeated::
 	setvar VAR_0x8004, FANCOUNTER_DEFEATED_DRAKE
 	special Script_TryGainNewFanFromCounter
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_DEFEATED_JOHTO_ELITE_4_KAREN
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	msgbox EverGrandeCity_DrakesRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
@@ -74,8 +82,25 @@ EverGrandeCity_DrakesRoom_Text_IntroSpeech:
 	.string "If you don't, then you will never\n"
 	.string "prevail over me!$"
 
+EverGrandeCity_DrakesRoom_Text_IntroSpeech2:
+	.string "I am the last of the POKéMON LEAGUE\n"
+	.string "ELITE FOUR, DRAKE the DRAGON master!\p"
+	.string "How are your POKéMON partners?\n"
+	.string "Did they help you get stronger?\p"
+	.string "I'm sure they did!\p"
+	.string "You seem already fired up. Did the\n"
+	.string "other ELITE FOUR members took a\p"
+	.string "toll on you? Don't falter me now!\p"
+	.string "Prevail over me! Let's dance!$"
+
 EverGrandeCity_DrakesRoom_Text_Defeat:
 	.string "Superb, it should be said.$"
+
+EverGrandeCity_DrakesRoom_Text_Defeat2:
+	.string "Ha, ha, ha!\n"
+	.string "I can't help but laugh!\p"
+	.string "Amazing. Superb.\n"
+	.string "You really are the best.$"
 
 EverGrandeCity_DrakesRoom_Text_PostBattleSpeech:
 	.string "You deserve every credit for coming\n"

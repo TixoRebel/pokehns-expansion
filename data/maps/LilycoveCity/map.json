@@ -170,8 +170,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 43,
-      "y": 18,
+      "x": 54,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -183,8 +183,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 46,
-      "y": 12,
+      "x": 52,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -196,8 +196,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 45,
-      "y": 12,
+      "x": 51,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -222,8 +222,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 50,
-      "y": 7,
+      "x": 46,
+      "y": 9,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -247,7 +247,7 @@
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY2",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 16,
       "y": 23,
       "elevation": 3,
@@ -261,7 +261,7 @@
     },
     {
       "local_id": "LOCALID_LILYCOVE_WOMAN_1",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
       "x": 41,
       "y": 25,
       "elevation": 3,
@@ -311,6 +311,58 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LilycoveCity_EventScript_FatMan",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 57,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MODEST_MINT",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_MODEST_MINT_LILYCOVE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+      "x": 26,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+      "x": 61,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+      "x": 27,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -412,6 +464,13 @@
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 45,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE9",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -514,11 +573,19 @@
     },
     {
       "type": "hidden_item",
-      "x": 64,
-      "y": 31,
+      "x": 45,
+      "y": 12,
       "elevation": 0,
       "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_LILYCOVE_CITY_POKE_BALL"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_EventScript_GymSign"
     }
   ]
 }

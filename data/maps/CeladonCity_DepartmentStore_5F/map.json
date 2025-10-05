@@ -85,7 +85,7 @@
       "x": 3,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_DYNAMIC",
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF_DAY",
       "dest_warp_id": "0"
     },
     {
@@ -96,26 +96,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeladonDept5_EventScript_SetWarp"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeladonDept5_EventScript_SetWarp"
-    }
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

@@ -19,4 +19,3 @@ EventScript_CantUseSurf::
 	@closemessage
 	releaseall
 	end
-

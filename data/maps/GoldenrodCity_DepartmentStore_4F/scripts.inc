@@ -46,15 +46,15 @@ GoldenrodDeptStore_Text_4FBugCatcher:
 GoldenrodDeptStore_Text_4FGameboyKid:
     .string "There were rumours that some\n"
     .string "POKéMON evolve only by\l"
-    .string "being traded via a Game Link\n"
+    .string "being traded via a Game Link\l"
     .string "cable.\p"
     .string "Pfft...\p"
     .string "Such misinformation.\p"
     .string "I know some of the rumoured\n"
-    .string "POKéMON:\p"
-    .string "MACHOKE, KADABRA, HAUNTER and,\n"
-    .string "um, GRAVELER,\p"
-    .string "but they all evolve through\n"
+    .string "POKéMON:\l"
+    .string "MACHOKE, KADABRA, HAUNTER and,\l"
+    .string "um, GRAVELER,\l"
+    .string "but they all evolve through\l"
     .string "level up.$"
 
 GoldenrodDeptStore_Text_4FDirectory:

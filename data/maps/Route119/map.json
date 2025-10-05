@@ -3,7 +3,7 @@
   "name": "Route119",
   "layout": "LAYOUT_ROUTE119",
   "music": "MUS_ROUTE119",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_ROUTE_44",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -586,6 +586,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_GARBAGEFLAG"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 38,
+      "y": 62,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route119_EventScript_SapphireKecleon",
+      "flag": "FLAG_SAPPHIRE_KECLEON"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+      "x": 47,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+      "x": 46,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -854,8 +893,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 38,
-      "y": 63,
+      "x": 36,
+      "y": 50,
       "elevation": 3,
       "item": "ITEM_ULTRA_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_119_ULTRA_BALL"

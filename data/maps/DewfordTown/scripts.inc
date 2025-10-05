@@ -3,7 +3,7 @@ DewfordTown_MapScripts::
 	.byte 0
 
 DewfordTown_OnTransition:
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_VISITED_AZALEA_TOWN
 	end
 
 DewfordTown_EventScript_Briney::
@@ -143,7 +143,7 @@ DewfordTown_EventScript_SailToPetalburg::
 	end
 
 DewfordTown_EventScript_SailToSlateport::
-@	call EventScript_BackupMrBrineyLocation
+	call EventScript_BackupMrBrineyLocation
 	setobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN, 0
 	setobjectsubpriority LOCALID_PLAYER, MAP_DEWFORD_TOWN, 1
 	applymovement LOCALID_DEWFORD_BRINEY, DewfordTown_Movement_BrineyBoardBoat
@@ -710,7 +710,15 @@ DewfordTown_Text_ThrowInFishingAdvice:
 	.string "Sometimes you can snag something\n"
 	.string "immediately, but with bigger catches,\l"
 	.string "you need to time the pulls on your ROD\l"
-	.string "to haul them in.$"
+	.string "to haul them in.\p"
+	.string "Also, if you chain your fishing strikes\n"
+	.string "you may encounter different colored\l"
+	.string "POKéMON.\p"
+	.string "Fishing strikes means defeating the\n"
+	.string "wild POKéMON and starting a new\l"
+	.string "fishing encounter.\p"
+	.string "If you run away or whiteout, you\n"
+	.string "will lose your fishing strike!$"
 
 DewfordTown_Text_ThatsTooBadThen:
 	.string "Oh, is that so?\n"
@@ -734,7 +742,15 @@ DewfordTown_Text_FishingAdvice:
 	.string "Sometimes you can snag something\n"
 	.string "immediately, but with bigger catches,\l"
 	.string "you need to time the pulls on your ROD\l"
-	.string "to haul them in.$"
+	.string "to haul them in.\p"
+	.string "Also, if you chain your fishing strikes\n"
+	.string "you may encounter different colored\l"
+	.string "POKéMON.\p"
+	.string "Fishing strikes means defeating the\n"
+	.string "wild POKéMON and starting a new\l"
+	.string "fishing encounter.\p"
+	.string "If you run away or whiteout, you\n"
+	.string "will lose your fishing strike!$"
 
 DewfordTown_Text_XIsTheBiggestHappeningThingRight:
 	.string "I like what's hip, happening, and trendy.\n"

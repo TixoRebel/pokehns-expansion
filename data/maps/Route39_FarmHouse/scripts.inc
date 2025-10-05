@@ -79,12 +79,10 @@ Route39_FarmHouse_EventScript_FarmerM_NotEnough::
 	release
 	end
 
-
-
 Route39_Text_FarmerMSickCow:
 	.string "My MILTANK ain't givin' me\n"
 	.string "milk no more.\p"
-	.string "This here FARM's got famous milk\p"
+	.string "This here FARM's got famous milk.\p"
 	.string "Most everyone wants a drink.\p"
 	.string "It'll give me lots o' milk if'n\n"
 	.string "I feed it lots o' BERRIES,\l"
@@ -116,7 +114,7 @@ Route39FarmHouse_Text_WouldYouLikeAnother:
 	.string "How bout another?$"
 
 Route39_Text_GotMilk:
-	.string "{PLAYER} got MOOMOO MILK$"
+	.string "{PLAYER} got MOOMOO MILK.$"
 
 Route39_Text_FarmerMMilking:
 	.string "I best go do my milkin'.$"
