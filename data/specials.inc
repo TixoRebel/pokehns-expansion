@@ -591,6 +591,7 @@ gSpecials::
 	def_special ShowBugContestChosenMon
 	def_special DoPokemonLeagueLightingEffect
 	def_special SetVermilionTrashCans
+	def_special SwitchMonAbility
 	def_special TrySpecialOverworldEvo
 	def_special GetNumberSprayStrength
 	def_special GetSprayId

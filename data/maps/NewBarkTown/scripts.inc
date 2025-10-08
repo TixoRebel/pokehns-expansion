@@ -34,6 +34,10 @@ NewBarkTown_Set_TalkToMom::
 	setobjectxyperm LOCALID_LASS, 0, 11
 	end
 
+NewBarkTown_EventScript_LabSign::
+	msgbox NewBarkTown_Text_LabSign, MSGBOX_SIGN
+	end
+
 NewBarkTown_EventScript_TownSign::
 	msgbox NewBarkTown_Text_Sign, MSGBOX_SIGN
 	closemessage
@@ -271,7 +275,7 @@ NewBarkTown_EventScript_ElmsHouseMailbox::
 	end
 
 NewBarkTown_Text_PlayersHouse:
-	.string "{PLAYER}'s house.$"
+	.string "{PLAYER}'s House$"
 
 NewBarkTown_Text_ElmsHouse:
-	.string "PROF.ELM's house.$"
+	.string "PROF.ELM's House$"

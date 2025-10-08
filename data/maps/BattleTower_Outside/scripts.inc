@@ -322,7 +322,7 @@ BattleTower_Outside_EventScript_ChooseElementalTutorMove::
 	case 0, BattleTower_Outside_EventScript_FrenzyPlant
 	case 1, BattleTower_Outside_EventScript_BlastBurn
 	case 2, BattleTower_Outside_EventScript_HydroCannon
-	case 4, BattleTower_Outside_EventScript_ExitTutorMoveSelect
+	case 3, BattleTower_Outside_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleTower_Outside_EventScript_ExitTutorMoveSelect
 	end
 
@@ -339,7 +339,7 @@ BattleTower_Outside_EventScript_ChooseNewElementalTutorMove::
 	case 0, BattleTower_Outside_EventScript_FrenzyPlant
 	case 1, BattleTower_Outside_EventScript_BlastBurn
 	case 2, BattleTower_Outside_EventScript_HydroCannon
-	case 4, BattleTower_Outside_EventScript_ExitTutorMoveSelect
+	case 3, BattleTower_Outside_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleTower_Outside_EventScript_ExitTutorMoveSelect
 	end
 

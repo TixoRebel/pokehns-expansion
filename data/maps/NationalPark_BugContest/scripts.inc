@@ -116,19 +116,18 @@ NationalPark_BugContest_EventScript_JudgeSceneActivate::
 
 
 NationalPark_BugContest_EventScript_Enter::
-	lock
-	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
-	closemessage
+	lockall
 	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	setvar VAR_BUG_CONTEST_STATE, 2
-	release
+	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 
 NationalPark_BugContest_EventScript_EnterSide::
-	lock
-	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
-	closemessage
+	lockall
+	turnobject LOCALID_PLAYER, DIR_WEST
 	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
@@ -138,7 +137,9 @@ NationalPark_BugContest_EventScript_EnterSide::
 	addobject LOCALID_BUGCONTEST_ATTENDANT_SIDE
 	setvar VAR_TEMP_1, 1
 	setvar VAR_BUG_CONTEST_STATE, 2
-	release
+	msgbox NationlParkBugContest_Text_EnjoyTheContest, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 
 NationalPark_BugContest_EventScript_Trigger::

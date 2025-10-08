@@ -4,7 +4,7 @@ VioletCity_House2_MapScripts::
 VioletCity_House2_EventScript_Lass::
 	lock
 	faceplayer
-	msgbox VioletCity_NicknameHouse_Text_Teacher, MSGBOX_DEFAULT
+	msgbox VioletCity_NicknameHouse_Text_Lass, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
@@ -12,7 +12,7 @@ VioletCity_House2_EventScript_Lass::
 VioletCity_House2_EventScript_Teacher::
 	lock
 	faceplayer
-	msgbox VioletCity_NicknameHouse_Text_Lass, MSGBOX_DEFAULT
+	msgbox VioletCity_NicknameHouse_Text_Teacher, MSGBOX_DEFAULT
 	closemessage
 	release
 	end

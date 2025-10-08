@@ -40,7 +40,7 @@ FuchsiaCity_SafariZoneEntrance_EventScript_ReenterSafari::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	warp MAP_FUCHSIA_CITY_SAFARI_ZONE_BEACH, 0
-	delay 120
+	waitstate
 	end
 
 FuchsiaCity_SafariZoneEntrance_EventScript_MeetSteven::

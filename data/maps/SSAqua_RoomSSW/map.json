@@ -3,7 +3,7 @@
   "name": "SSAqua_RoomSSW",
   "layout": "LAYOUT_SSAQUA_ROOM_SSW",
   "music": "MUS_HG_SS_AQUA",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_SS_AQUA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

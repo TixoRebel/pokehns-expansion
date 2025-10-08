@@ -297,7 +297,7 @@ OlivineCity_Gym_Text_ReceivedMineralBadge:
 
 OlivineCity_Gym_Text_JasmineBadgeSpeech:
 	.string "MINERALBADGE raises POKéMON's \n"
-	.string "SPECIAL DEFESNE.\p"
+	.string "SPECIAL DEFENSE.\p"
 	.string "…Um… Please take this too…$"
 
 OlivineCity_Gym_Text_JasmineIronTailSpeech:

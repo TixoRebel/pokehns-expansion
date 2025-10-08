@@ -425,7 +425,7 @@ AzaleaTown_Text_Kurt3:
 
 AzaleaTown_Text_Sign:
 	.string "AZALEA TOWN\n"
-	.string "Where People and POKéMON Live in\p"
+	.string "Where People and POKéMON Live in\l"
 	.string "Happy Harmony.$"
 
 AzaleaTown_Text_KurtsHouseSign:
