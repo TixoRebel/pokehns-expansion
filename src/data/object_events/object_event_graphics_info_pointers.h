@@ -5,55 +5,55 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFiel
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QuintyPlump;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NinjaBoy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Twin;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boy1;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MrFuji;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Girl1;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boy2;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Girl2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boy;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Captain;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LittleBoy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LittleGirl;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boy3;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkerM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Girl3;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RichBoy;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Policeman;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FatMan;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokefanF;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man1;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bill;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BaldingMan;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman2;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ExpertM;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ExpertF;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man2;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman3;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokefanM;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman4;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cook;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkReceptionist;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldMan;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldWoman;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GymGuy;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CooltrainerF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AttendantM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lass;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cook;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkReceptionist;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldMan2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AttendantF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Camper;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Picnicker;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man3;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman5;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkerF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Youngster;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BugCatcher;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PsychicM;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SchoolKidM;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Maniac;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HexManiac;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BattleTowerTrainerDude;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SuperNerd;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Channeler;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RayquazaStill;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SwimmerM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SwimmerF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BlackBelt;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Beauty;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist1;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lass;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScientistM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PsychicM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gentleman;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sailor;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Fisherman;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RunningTriathleteM;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RunningTriathleteF;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TuberF;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TuberM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BattleGirl;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Engineer;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Burglar;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hiker;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Biker;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTriathleteM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTriathleteF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nurse;
@@ -62,8 +62,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTreeEa
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTreeLateStages;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfElm;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man4;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man5;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CooltrainerM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rocker;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Firebreather;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sage;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blaine;
@@ -112,7 +112,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanUnde
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwater;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MovingBox;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CableCar;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScientistF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KimonoGirl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketMemberM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketMemberF;
@@ -138,7 +138,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFish
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HotSpringsOldWoman;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSTidal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SubmarineShadow;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LegendaryShadow;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PichuDoll;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PikachuDoll;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MarillDoll;
@@ -237,6 +237,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphir
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Swimmer_Land_F;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Swimmer_Land_M;
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -262,56 +264,54 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     // [OBJ_EVENT_GFX_QUINTY_PLUMP] =             &gObjectEventGraphicsInfo_QuintyPlump,
     [OBJ_EVENT_GFX_NINJA_BOY] =                &gObjectEventGraphicsInfo_NinjaBoy,
     [OBJ_EVENT_GFX_TWIN] =                     &gObjectEventGraphicsInfo_Twin,
-    [OBJ_EVENT_GFX_MR_FUJI] =                    &gObjectEventGraphicsInfo_Boy1, //aqua_admin_f
+    [OBJ_EVENT_GFX_MR_FUJI] =                    &gObjectEventGraphicsInfo_MrFuji, 
     [OBJ_EVENT_GFX_GIRL_1] =                   &gObjectEventGraphicsInfo_Girl1,
-    [OBJ_EVENT_GFX_BOY] =                    &gObjectEventGraphicsInfo_Boy2,
-    [OBJ_EVENT_GFX_CAPTAIN] =                   &gObjectEventGraphicsInfo_Girl2,
-    [OBJ_EVENT_GFX_LITTLE_BOY] =               &gObjectEventGraphicsInfo_SchoolKidM,
+    [OBJ_EVENT_GFX_BOY] =                    &gObjectEventGraphicsInfo_Boy,
+    [OBJ_EVENT_GFX_CAPTAIN] =                   &gObjectEventGraphicsInfo_Captain,
+    [OBJ_EVENT_GFX_LITTLE_BOY] =             &gObjectEventGraphicsInfo_LittleBoy,
     [OBJ_EVENT_GFX_LITTLE_GIRL] =              &gObjectEventGraphicsInfo_LittleGirl,
-    [OBJ_EVENT_GFX_WORKER_M] =                    &gObjectEventGraphicsInfo_Boy3,
-    [OBJ_EVENT_GFX_PICNICKER] =                   &gObjectEventGraphicsInfo_Picnicker,
-    [OBJ_EVENT_GFX_POLICEMAN] =                 &gObjectEventGraphicsInfo_RichBoy, //leader_liza, //aroma_lady
+    [OBJ_EVENT_GFX_WORKER_M] =                    &gObjectEventGraphicsInfo_WorkerM,
+    [OBJ_EVENT_GFX_POLICEMAN] =                 &gObjectEventGraphicsInfo_Policeman, //leader_liza, //aroma_lady
     [OBJ_EVENT_GFX_WOMAN_3] =                  &gObjectEventGraphicsInfo_Woman1,
     [OBJ_EVENT_GFX_FAT_MAN] =                  &gObjectEventGraphicsInfo_FatMan,
-    [OBJ_EVENT_GFX_BILL] =                &gObjectEventGraphicsInfo_PokefanF,
-    [OBJ_EVENT_GFX_BALDING_MAN] =                    &gObjectEventGraphicsInfo_Man1,
+    [OBJ_EVENT_GFX_BILL] =                &gObjectEventGraphicsInfo_Bill,
+    [OBJ_EVENT_GFX_BALDING_MAN] =                    &gObjectEventGraphicsInfo_BaldingMan,
     [OBJ_EVENT_GFX_WOMAN_2] =                  &gObjectEventGraphicsInfo_Woman2,
-    [OBJ_EVENT_GFX_OLD_MAN_1] =                 &gObjectEventGraphicsInfo_ExpertM,
-    [OBJ_EVENT_GFX_OLD_WOMAN] =                 &gObjectEventGraphicsInfo_ExpertF,
-    [OBJ_EVENT_GFX_GYM_GUY] =                    &gObjectEventGraphicsInfo_Man2,
-    [OBJ_EVENT_GFX_COOLTRAINER_F] =                  &gObjectEventGraphicsInfo_Woman3,
-    [OBJ_EVENT_GFX_ATTENDANT_M] =                &gObjectEventGraphicsInfo_PokefanM,
-    [OBJ_EVENT_GFX_LASS] =                  &gObjectEventGraphicsInfo_Woman4,
+    [OBJ_EVENT_GFX_OLD_MAN_1] =                 &gObjectEventGraphicsInfo_OldMan,
+    [OBJ_EVENT_GFX_OLD_WOMAN] =                 &gObjectEventGraphicsInfo_OldWoman,
+    [OBJ_EVENT_GFX_GYM_GUY] =                    &gObjectEventGraphicsInfo_GymGuy,
+    [OBJ_EVENT_GFX_COOLTRAINER_F] =                  &gObjectEventGraphicsInfo_CooltrainerF,
+    [OBJ_EVENT_GFX_ATTENDANT_M] =                &gObjectEventGraphicsInfo_AttendantM,
+    [OBJ_EVENT_GFX_LASS] =                  &gObjectEventGraphicsInfo_Lass,
     [OBJ_EVENT_GFX_CHEF] =                     &gObjectEventGraphicsInfo_Cook,
     [OBJ_EVENT_GFX_LINK_RECEPTIONIST] =        &gObjectEventGraphicsInfo_LinkReceptionist,
-    [OBJ_EVENT_GFX_OLD_MAN_2] =                  &gObjectEventGraphicsInfo_OldMan,
-    [OBJ_EVENT_GFX_ATTENDANT] =                &gObjectEventGraphicsInfo_OldWoman,
+    [OBJ_EVENT_GFX_OLD_MAN_2] =                  &gObjectEventGraphicsInfo_OldMan2,
+    [OBJ_EVENT_GFX_ATTENDANT] =                &gObjectEventGraphicsInfo_AttendantF,
     [OBJ_EVENT_GFX_CAMPER] =                   &gObjectEventGraphicsInfo_Camper,
-    [OBJ_EVENT_GFX_PICNICKER2] =                &gObjectEventGraphicsInfo_Picnicker,
-    [OBJ_EVENT_GFX_MAN] =                    &gObjectEventGraphicsInfo_Man3,
-    [OBJ_EVENT_GFX_WORKER_F] =                  &gObjectEventGraphicsInfo_Woman5,
+    [OBJ_EVENT_GFX_PICNICKER] =                &gObjectEventGraphicsInfo_Picnicker,
+    [OBJ_EVENT_GFX_MAN] =                    &gObjectEventGraphicsInfo_Man,
+    [OBJ_EVENT_GFX_WORKER_F] =                  &gObjectEventGraphicsInfo_WorkerF,
     [OBJ_EVENT_GFX_YOUNGSTER] =                &gObjectEventGraphicsInfo_Youngster,
     [OBJ_EVENT_GFX_BUG_CATCHER] =              &gObjectEventGraphicsInfo_BugCatcher,
-    [OBJ_EVENT_GFX_TRAINER_TOWER_DUDE] =                &gObjectEventGraphicsInfo_PsychicM,
-    [OBJ_EVENT_GFX_LITTLE_BOY2] =             &gObjectEventGraphicsInfo_SchoolKidM,
-    [OBJ_EVENT_GFX_SUPER_NERD] =                   &gObjectEventGraphicsInfo_Maniac,
-    [OBJ_EVENT_GFX_CHANNELER] =               &gObjectEventGraphicsInfo_HexManiac,
+    [OBJ_EVENT_GFX_TRAINER_TOWER_DUDE] =                &gObjectEventGraphicsInfo_BattleTowerTrainerDude,
+    [OBJ_EVENT_GFX_SUPER_NERD] =                   &gObjectEventGraphicsInfo_SuperNerd,
+    [OBJ_EVENT_GFX_CHANNELER] =               &gObjectEventGraphicsInfo_Channeler,
     [OBJ_EVENT_GFX_RAYQUAZA_STILL] =           &gObjectEventGraphicsInfo_RayquazaStill,
     [OBJ_EVENT_GFX_SWIMMER_M_WATER] =                &gObjectEventGraphicsInfo_SwimmerM,
     [OBJ_EVENT_GFX_SWIMMER_F_WATER] =                &gObjectEventGraphicsInfo_SwimmerF,
     [OBJ_EVENT_GFX_BLACK_BELT] =               &gObjectEventGraphicsInfo_BlackBelt,
     [OBJ_EVENT_GFX_BEAUTY] =                   &gObjectEventGraphicsInfo_Beauty,
-    [OBJ_EVENT_GFX_SCIENTIST_M] =              &gObjectEventGraphicsInfo_Scientist1,
-    [OBJ_EVENT_GFX_PSYCHIC_M] =                     &gObjectEventGraphicsInfo_Lass,
+    [OBJ_EVENT_GFX_SCIENTIST_M] =              &gObjectEventGraphicsInfo_ScientistM,
+    [OBJ_EVENT_GFX_PSYCHIC_M] =                     &gObjectEventGraphicsInfo_PsychicM,
     [OBJ_EVENT_GFX_GENTLEMAN] =                &gObjectEventGraphicsInfo_Gentleman,
     [OBJ_EVENT_GFX_SAILOR] =                   &gObjectEventGraphicsInfo_Sailor,
     [OBJ_EVENT_GFX_FISHER] =                &gObjectEventGraphicsInfo_Fisherman,
     [OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M] =     &gObjectEventGraphicsInfo_RunningTriathleteM,
-    [OBJ_EVENT_GFX_BATTLE_GIRL] =     &gObjectEventGraphicsInfo_RunningTriathleteF,
-    [OBJ_EVENT_GFX_ENGINEER] =                  &gObjectEventGraphicsInfo_TuberF,
-    [OBJ_EVENT_GFX_BURGLAR] =                  &gObjectEventGraphicsInfo_TuberM,
+    [OBJ_EVENT_GFX_BATTLE_GIRL] =     &gObjectEventGraphicsInfo_BattleGirl,
+    [OBJ_EVENT_GFX_ENGINEER] =                  &gObjectEventGraphicsInfo_Engineer,
+    [OBJ_EVENT_GFX_BURGLAR] =                  &gObjectEventGraphicsInfo_Burglar,
     [OBJ_EVENT_GFX_HIKER] =                    &gObjectEventGraphicsInfo_Hiker,
-    [OBJ_EVENT_GFX_BIKER] =     &gObjectEventGraphicsInfo_CyclingTriathleteM, //running_triathlete_f.png
+    [OBJ_EVENT_GFX_BIKER] =     &gObjectEventGraphicsInfo_Biker, //running_triathlete_f.png
     [OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F] =     &gObjectEventGraphicsInfo_CyclingTriathleteF,
     [OBJ_EVENT_GFX_NURSE] =                    &gObjectEventGraphicsInfo_Nurse,
     [OBJ_EVENT_GFX_ITEM_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
@@ -320,8 +320,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BERRY_TREE_LATE_STAGES] =   &gObjectEventGraphicsInfo_BerryTreeLateStages,
     [OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE] =        &gObjectEventGraphicsInfo_BrendanAcroBike,
     [OBJ_EVENT_GFX_PROF_ELM] =               &gObjectEventGraphicsInfo_ProfElm,
-    [OBJ_EVENT_GFX_COOLTRAINER_M] =                    &gObjectEventGraphicsInfo_Man4,
-    [OBJ_EVENT_GFX_ROCKER] =                    &gObjectEventGraphicsInfo_Man5,
+    [OBJ_EVENT_GFX_COOLTRAINER_M] =                    &gObjectEventGraphicsInfo_CooltrainerM,
+    [OBJ_EVENT_GFX_ROCKER] =                    &gObjectEventGraphicsInfo_Rocker,
     [OBJ_EVENT_GFX_FIREBREATHER] =               &gObjectEventGraphicsInfo_Firebreather, 
     [OBJ_EVENT_GFX_SAGE] =               &gObjectEventGraphicsInfo_Sage, 
     [OBJ_EVENT_GFX_BLAINE] =                     &gObjectEventGraphicsInfo_Blaine, 
@@ -334,7 +334,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SHINY_GYARADOS] =         &gObjectEventGraphicsInfo_ShinyGyarados,
     [OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL] =    &gObjectEventGraphicsInfo_UnusedMagnemiteDoll,
     [OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL] =     &gObjectEventGraphicsInfo_UnusedSquirtleDoll,
-    [OBJ_EVENT_GFX_UNUSED_WOOPER_DOLL] =       &gObjectEventGraphicsInfo_UnusedWooperDoll,
+    //[OBJ_EVENT_GFX_UNUSED_WOOPER_DOLL] =       &gObjectEventGraphicsInfo_UnusedWooperDoll,
     [OBJ_EVENT_GFX_UNUSED_PIKACHU_DOLL] =      &gObjectEventGraphicsInfo_UnusedPikachuDoll,
     [OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL] =     &gObjectEventGraphicsInfo_UnusedPorygon2Doll,
     [OBJ_EVENT_GFX_CUTTABLE_TREE] =            &gObjectEventGraphicsInfo_CuttableTree,
@@ -370,7 +370,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_UNDERWATER] =           &gObjectEventGraphicsInfo_MayUnderwater,
     [OBJ_EVENT_GFX_MOVING_BOX] =               &gObjectEventGraphicsInfo_MovingBox,
     [OBJ_EVENT_GFX_TRAIN_FRONT] =                &gObjectEventGraphicsInfo_TrainFront,
-    [OBJ_EVENT_GFX_SCIENTIST_F] =              &gObjectEventGraphicsInfo_Scientist2,
+    [OBJ_EVENT_GFX_SCIENTIST_F] =              &gObjectEventGraphicsInfo_ScientistF,
     [OBJ_EVENT_GFX_KIMONO_GIRL] =           &gObjectEventGraphicsInfo_KimonoGirl, 
     [OBJ_EVENT_GFX_ROCKET_M] =            &gObjectEventGraphicsInfo_RocketMemberM,
     [OBJ_EVENT_GFX_ROCKET_F] =            &gObjectEventGraphicsInfo_RocketMemberF,
@@ -396,7 +396,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_FISHING] =              &gObjectEventGraphicsInfo_MayFishing,
     [OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN] =    &gObjectEventGraphicsInfo_HotSpringsOldWoman,
     [OBJ_EVENT_GFX_SS_TIDAL] =                 &gObjectEventGraphicsInfo_SSTidal,
-    [OBJ_EVENT_GFX_LEGENDARY_SHADOW] =         &gObjectEventGraphicsInfo_SubmarineShadow,
+    [OBJ_EVENT_GFX_LEGENDARY_SHADOW] =         &gObjectEventGraphicsInfo_LegendaryShadow,
     [OBJ_EVENT_GFX_PICHU_DOLL] =               &gObjectEventGraphicsInfo_PichuDoll,
     [OBJ_EVENT_GFX_PIKACHU_DOLL] =             &gObjectEventGraphicsInfo_PikachuDoll,
     [OBJ_EVENT_GFX_MARILL_DOLL] =              &gObjectEventGraphicsInfo_MarillDoll,
@@ -434,7 +434,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_WATER_CUSHION] =            &gObjectEventGraphicsInfo_WaterCushion,
     [OBJ_EVENT_GFX_BIG_SNORLAX] =         &gObjectEventGraphicsInfo_BigSnorlaxDoll,
     [OBJ_EVENT_GFX_BIG_RHYDON_DOLL] =          &gObjectEventGraphicsInfo_BigRhydonDoll,
-    [OBJ_EVENT_GFX_BIG_LAPRAS_DOLL] =          &gObjectEventGraphicsInfo_BigLaprasDoll,
+    [OBJ_EVENT_GFX_LAPRAS] =          &gObjectEventGraphicsInfo_BigLaprasDoll,
     [OBJ_EVENT_GFX_BIG_VENUSAUR_DOLL] =        &gObjectEventGraphicsInfo_BigVenusaurDoll,
     [OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL] =       &gObjectEventGraphicsInfo_BigCharizardDoll,
     [OBJ_EVENT_GFX_BIG_BLASTOISE_DOLL] =       &gObjectEventGraphicsInfo_BigBlastoiseDoll,
@@ -498,6 +498,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
     [OBJ_EVENT_GFX_LIGHT_SPRITE] =             &gObjectEventGraphicsInfo_BallLight,
+    [OBJ_EVENT_GFX_SWIMMER_LAND_F] =          &gObjectEventGraphicsInfo_Swimmer_Land_F,
+    [OBJ_EVENT_GFX_SWIMMER_LAND_M] =           &gObjectEventGraphicsInfo_Swimmer_Land_M,
+    [OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M] =     &gObjectEventGraphicsInfo_CyclingTriathleteM,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

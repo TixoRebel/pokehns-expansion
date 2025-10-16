@@ -611,7 +611,7 @@ const u16 DecorGfx_RHYDON_DOLL[] = {
 };
 
 const u16 DecorGfx_LAPRAS_DOLL[] = {
-    OBJ_EVENT_GFX_BIG_LAPRAS_DOLL
+    OBJ_EVENT_GFX_LAPRAS
 };
 
 const u16 DecorGfx_VENUSAUR_DOLL[] = {

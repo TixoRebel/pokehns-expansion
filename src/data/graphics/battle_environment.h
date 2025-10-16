@@ -79,6 +79,13 @@ const u16 gBattleEnvironmentPalette_Frontier_Evening[] = INCBIN_U16("graphics/ba
 const u16 gBattleEnvironmentPalette_Frontier_Night[]   = INCBIN_U16("graphics/battle_environment/stadium_2/battle_frontier.gbapal");
 const u32 gBattleEnvironmentTilemap_Building[] = INCBIN_U32("graphics/battle_environment/building_2/map.bin.lz");
 
+const u32 gBattleEnvironmentTiles_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building_2/tiles.4bpp.lz");
+const u16 gBattleEnvironmentPalette_Blue_Building_Morning[] = INCBIN_U16("graphics/battle_environment/blue_building/palette.gbapal");
+const u16 gBattleEnvironmentPalette_Blue_Building_Day[]     = INCBIN_U16("graphics/battle_environment/blue_building/palette.gbapal");
+const u16 gBattleEnvironmentPalette_Blue_Building_Evening[] = INCBIN_U16("graphics/battle_environment/blue_building/palette.gbapal");
+const u16 gBattleEnvironmentPalette_Blue_Building_Night[]   = INCBIN_U16("graphics/battle_environment/blue_building/palette.gbapal");
+const u32 gBattleEnvironmentTilemap_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building_2/map.bin.lz");
+
 const u32 gBattleEnvironmentTiles_Stadium[] = INCBIN_U32("graphics/battle_environment/stadium_2/tiles.4bpp.lz");
 const u32 gBattleEnvironmentTilemap_Stadium[] = INCBIN_U32("graphics/battle_environment/stadium_2/map.bin.lz");
 
@@ -190,6 +197,9 @@ const u32 gBattleEnvironmentAnimTilemap_Cave[] = INCBIN_U32("graphics/battle_env
 const u32 gBattleEnvironmentAnimTiles_Building[] = INCBIN_U32("graphics/battle_environment/building_2/anim_tiles.4bpp.lz");
 const u32 gBattleEnvironmentAnimTilemap_Building[] = INCBIN_U32("graphics/battle_environment/building_2/anim_map.bin.lz");
 
+const u32 gBattleEnvironmentAnimTiles_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building_2/anim_tiles.4bpp.lz");
+const u32 gBattleEnvironmentAnimTilemap_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building_2/anim_map.bin.lz");
+
 const u32 gBattleEnvironmentAnimTiles_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky_2/anim_tiles.4bpp.lz");
 const u32 gBattleEnvironmentAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky_2/anim_map.bin.lz");
 
@@ -272,6 +282,9 @@ const u16 gBattleEnvironmentPalette_Frontier_Day[]     = INCBIN_U16("graphics/ba
 const u16 gBattleEnvironmentPalette_Frontier_Evening[] = INCBIN_U16("graphics/battle_environment/stadium/battle_frontier.gbapal");
 const u16 gBattleEnvironmentPalette_Frontier_Night[]   = INCBIN_U16("graphics/battle_environment/stadium/battle_frontier.gbapal");
 const u32 gBattleEnvironmentTilemap_Building[] = INCBIN_U32("graphics/battle_environment/building/map.bin.lz");
+
+const u32 gBattleEnvironmentTiles_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building/tiles.4bpp.lz");
+const u32 gBattleEnvironmentTilemap_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building/map.bin.lz");
 
 const u32 gBattleEnvironmentTiles_Stadium[] = INCBIN_U32("graphics/battle_environment/stadium/tiles.4bpp.lz");
 const u32 gBattleEnvironmentTilemap_Stadium[] = INCBIN_U32("graphics/battle_environment/stadium/map.bin.lz");
@@ -383,6 +396,9 @@ const u32 gBattleEnvironmentAnimTilemap_Cave[] = INCBIN_U32("graphics/battle_env
 
 const u32 gBattleEnvironmentAnimTiles_Building[] = INCBIN_U32("graphics/battle_environment/building/anim_tiles.4bpp.lz");
 const u32 gBattleEnvironmentAnimTilemap_Building[] = INCBIN_U32("graphics/battle_environment/building/anim_map.bin.lz");
+
+const u32 gBattleEnvironmentAnimTiles_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building/anim_tiles.4bpp.lz");
+const u32 gBattleEnvironmentAnimTilemap_Blue_Building[] = INCBIN_U32("graphics/battle_environment/blue_building/anim_map.bin.lz");
 
 const u32 gBattleEnvironmentAnimTiles_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/anim_tiles.4bpp.lz");
 const u32 gBattleEnvironmentAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/anim_map.bin.lz");

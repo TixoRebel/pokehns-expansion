@@ -36,13 +36,13 @@
 #define OBJ_EVENT_GFX_OLD_MAN_2                     29
 #define OBJ_EVENT_GFX_ATTENDANT                   30
 #define OBJ_EVENT_GFX_CAMPER                      31
-#define OBJ_EVENT_GFX_PICNICKER2                   32
+#define OBJ_EVENT_GFX_SWIMMER_LAND_F                   32
 #define OBJ_EVENT_GFX_MAN                       33
 #define OBJ_EVENT_GFX_WORKER_F                     34
 #define OBJ_EVENT_GFX_YOUNGSTER                   35
 #define OBJ_EVENT_GFX_BUG_CATCHER                 36
 #define OBJ_EVENT_GFX_TRAINER_TOWER_DUDE                   37
-#define OBJ_EVENT_GFX_LITTLE_BOY2                38
+#define OBJ_EVENT_GFX_SWIMMER_LAND_M                38
 #define OBJ_EVENT_GFX_SUPER_NERD                      39
 #define OBJ_EVENT_GFX_CHANNELER                  40
 #define OBJ_EVENT_GFX_RAYQUAZA_STILL              41
@@ -83,7 +83,7 @@
 #define OBJ_EVENT_GFX_SHINY_GYARADOS            76
 #define OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL       77
 #define OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL        78
-#define OBJ_EVENT_GFX_UNUSED_WOOPER_DOLL          79
+#define OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M          79
 #define OBJ_EVENT_GFX_UNUSED_PIKACHU_DOLL         80
 #define OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL        81
 #define OBJ_EVENT_GFX_CUTTABLE_TREE               82
@@ -181,9 +181,9 @@
 #define OBJ_EVENT_GFX_GRASS_CUSHION              174
 #define OBJ_EVENT_GFX_FIRE_CUSHION               175
 #define OBJ_EVENT_GFX_WATER_CUSHION              176
-#define OBJ_EVENT_GFX_BIG_SNORLAX           177
+#define OBJ_EVENT_GFX_BIG_SNORLAX                177
 #define OBJ_EVENT_GFX_BIG_RHYDON_DOLL            178
-#define OBJ_EVENT_GFX_BIG_LAPRAS_DOLL            179
+#define OBJ_EVENT_GFX_LAPRAS                     179
 #define OBJ_EVENT_GFX_BIG_VENUSAUR_DOLL          180
 #define OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL         181
 #define OBJ_EVENT_GFX_BIG_BLASTOISE_DOLL         182
@@ -446,6 +446,7 @@
 #define OBJ_EVENT_PAL_TAG_SNORLAX                 0x1147
 #define OBJ_EVENT_PAL_TAG_SLOWPOKE                0x1148
 #define OBJ_EVENT_PAL_TAG_WHIRLPOOL               0x1149
+#define OBJ_EVENT_PAL_TAG_LAPRAS                  0x114a
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

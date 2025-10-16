@@ -674,6 +674,13 @@ const void * const gBattleEnvironmentPalette_Plain[TIMES_OF_DAY_COUNT] = {
     [TIME_NIGHT]   = gBattleEnvironmentPalette_Plain_Night,
 };
 
+const void * const gBattleEnvironmentPalette_Blue_Building[TIMES_OF_DAY_COUNT] = {
+    [TIME_MORNING] = gBattleEnvironmentPalette_Blue_Building_Morning,
+    [TIME_DAY]     = gBattleEnvironmentPalette_Blue_Building_Day,
+    [TIME_EVENING] = gBattleEnvironmentPalette_Blue_Building_Evening,
+    [TIME_NIGHT]   = gBattleEnvironmentPalette_Blue_Building_Night,
+};
+
 const void * const gBattleEnvironmentPalette_Building[TIMES_OF_DAY_COUNT] = {
     [TIME_MORNING] = gBattleEnvironmentPalette_Building_Morning,
     [TIME_DAY]     = gBattleEnvironmentPalette_Building_Day,
@@ -853,6 +860,15 @@ const struct BattleBackground sBattleEnvironmentTable[] =
         .entryTileset = gBattleEnvironmentAnimTiles_Building,
         .entryTilemap = gBattleEnvironmentAnimTilemap_Building,
         .palette = gBattleEnvironmentPalette_Building,
+    },
+
+    [BATTLE_ENVIRONMENT_BLUE_BUILDING] =
+    {
+        .tileset = gBattleEnvironmentTiles_Blue_Building,
+        .tilemap = gBattleEnvironmentTilemap_Blue_Building,
+        .entryTileset = gBattleEnvironmentAnimTiles_Blue_Building,
+        .entryTilemap = gBattleEnvironmentAnimTilemap_Blue_Building,
+        .palette = gBattleEnvironmentPalette_Blue_Building,
     },
 
     [BATTLE_ENVIRONMENT_PLAIN] =

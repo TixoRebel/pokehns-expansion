@@ -7,6 +7,12 @@ sRegionMap_SpecialPlaceLocations needs updating
 vs seeker helper
 gTrainerClasses needs updating with money and item_balls
 Trainer sprite locations in gTrainerSprites
-Battle backgrounds (especially gray cave) need looking over
+Battle backgrounds (especially gray cave) need looking over and battle_setup
 Debug menu
 Set clock in house
+Team balls
+Easychat new moves
+Easychat new pokemon
+Evo methods from HnS?
+They gave pikachu the light ball as a common item?
+Kurt balls

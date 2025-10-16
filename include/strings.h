@@ -2833,6 +2833,7 @@ extern const u8 gText_OakTalk_TentacruelWhirl[];
 
 extern const u8 gText_RocketRadio[];
 extern const u8 gText_RadioNoSignal[];
+extern const u8 gText_RadioKantoPokeFlute[];
 extern const u8 gText_UnownMessage[];
 
 extern const u8 gText_CantDismountBike[];
@@ -2859,6 +2860,7 @@ extern const u8 gText_SoldOut2[];
 // extern const u8 gText_PokenavMatchCall_SelfIntroduction[];
 extern const u8 gText_Pokenav_ClearButtonList[];
 extern const u8 gText_PokenavMap_ZoomedOutButtons[];
+extern const u8 gText_PokenavMap_CancelOnly[];
 extern const u8 gText_PokenavMap_ZoomedInButtons[];
 extern const u8 gText_PokenavCondition_MonListButtons[];
 extern const u8 gText_PokenavCondition_MonStatusButtons[];

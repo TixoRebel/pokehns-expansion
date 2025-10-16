@@ -111,8 +111,16 @@
 #define TRAINER_PIC_RS_MAY                92
 #define TRAINER_PIC_NURSE                 93
 #define TRAINER_PIC_LEADER_TATE           94 
-#define TRAINER_PIC_LEADER_LIZA           95 
-#define TRAINER_PIC_COUNT                 96
+#define TRAINER_PIC_LEADER_LIZA           95  
+#define TRAINER_PIC_AROMA_LADY            96
+#define TRAINER_PIC_TUBER_M               97
+#define TRAINER_PIC_TUBER_F               98
+#define TRAINER_PIC_CYCLING_TRIATHLETE_F  99
+#define TRAINER_PIC_CYCLING_TRIATHLETE_M  100
+#define TRAINER_PIC_RUNNING_TRIATHLETE_F  101
+#define TRAINER_PIC_RUNNING_TRIATHLETE_M  102
+#define TRAINER_PIC_SWIMMING_TRIATHLETE_M 103
+#define TRAINER_PIC_COUNT                 104
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -136,7 +144,7 @@
 #define FACILITY_CLASS_MAGMA_GRUNT_M         0x8
 #define FACILITY_CLASS_EXPERT_M              0x9
 #define FACILITY_CLASS_BLACK_BELT            0xa
-#define FACILITY_CLASS_AQUA_LEADER_ARCHIE    0xb
+#define FACILITY_CLASS_LEADER_JASMINE        0xb //New HnS
 #define FACILITY_CLASS_HEX_MANIAC            0xc
 #define FACILITY_CLASS_AROMA_LADY            0xd
 #define FACILITY_CLASS_RUIN_MANIAC           0xe
@@ -151,25 +159,25 @@
 #define FACILITY_CLASS_POKEMANIAC            0x17
 #define FACILITY_CLASS_MAGMA_GRUNT_F         0x18
 #define FACILITY_CLASS_GUITARIST             0x19
-#define FACILITY_CLASS_KINDLER               0x1a
+#define FACILITY_CLASS_SUPER_NERD            0x1a
 #define FACILITY_CLASS_CAMPER                0x1b
 #define FACILITY_CLASS_PICNICKER             0x1c
 #define FACILITY_CLASS_BUG_MANIAC            0x1d
 #define FACILITY_CLASS_PSYCHIC_M             0x1e
 #define FACILITY_CLASS_PSYCHIC_F             0x1f
 #define FACILITY_CLASS_GENTLEMAN             0x20
-#define FACILITY_CLASS_ELITE_FOUR_SIDNEY     0x21
-#define FACILITY_CLASS_ELITE_FOUR_PHOEBE     0x22
-#define FACILITY_CLASS_LEADER_ROXANNE        0x23
-#define FACILITY_CLASS_LEADER_BRAWLY         0x24
-#define FACILITY_CLASS_LEADER_TATE           0x25
+#define FACILITY_CLASS_LEADER_ERIKA          0x21 //New HnS
+#define FACILITY_CLASS_LEADER_PRYCE          0x22 //New HnS
+#define FACILITY_CLASS_LEADER_BROCK          0x23 //New HnS
+#define FACILITY_CLASS_LEADER_CHUCK          0x24 //New HnS
+#define FACILITY_CLASS_LEADER_SABRINA        0x25 //new HnS
 #define FACILITY_CLASS_SCHOOL_KID_M          0x26
 #define FACILITY_CLASS_SCHOOL_KID_F          0x27
 #define FACILITY_CLASS_SR_AND_JR             0x28
 #define FACILITY_CLASS_POKEFAN_M             0x29
 #define FACILITY_CLASS_POKEFAN_F             0x2a
 #define FACILITY_CLASS_YOUNGSTER             0x2b
-#define FACILITY_CLASS_CHAMPION_WALLACE      0x2c
+#define FACILITY_CLASS_CHAMPION_LANCE        0x2c //New HnS
 #define FACILITY_CLASS_FISHERMAN             0x2d
 #define FACILITY_CLASS_CYCLING_TRIATHLETE_M  0x2e
 #define FACILITY_CLASS_CYCLING_TRIATHLETE_F  0x2f
@@ -184,7 +192,7 @@
 #define FACILITY_CLASS_SWIMMER_F             0x38
 #define FACILITY_CLASS_TWINS                 0x39
 #define FACILITY_CLASS_SAILOR                0x3a
-#define FACILITY_CLASS_WALLY                 0x3b
+#define FACILITY_CLASS_LEADER_BLUE           0x3b //new HnS
 #define FACILITY_CLASS_BRENDAN               0x3c
 #define FACILITY_CLASS_BRENDAN_2             0x3d
 #define FACILITY_CLASS_BRENDAN_3             0x3e
@@ -195,7 +203,7 @@
 #define FACILITY_CLASS_BUG_CATCHER           0x43
 #define FACILITY_CLASS_PKMN_RANGER_M         0x44
 #define FACILITY_CLASS_PKMN_RANGER_F         0x45
-#define FACILITY_CLASS_MAGMA_LEADER_MAXIE    0x46
+#define FACILITY_CLASS_LEADER_BUGSY          0x46 //new HnS
 #define FACILITY_CLASS_LASS                  0x47
 #define FACILITY_CLASS_YOUNG_COUPLE          0x48
 #define FACILITY_CLASS_OLD_COUPLE            0x49
@@ -207,14 +215,14 @@
 #define FACILITY_CLASS_LEAF                  0x4f
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
-#define FACILITY_CLASS_LEADER_WATTSON        0x52
-#define FACILITY_CLASS_LEADER_FLANNERY       0x53
-#define FACILITY_CLASS_LEADER_NORMAN         0x54
-#define FACILITY_CLASS_LEADER_WINONA         0x55
-#define FACILITY_CLASS_LEADER_LIZA           0x56
-#define FACILITY_CLASS_LEADER_JUAN           0x57
-#define FACILITY_CLASS_ELITE_FOUR_GLACIA     0x58
-#define FACILITY_CLASS_ELITE_FOUR_DRAKE      0x59
+#define FACILITY_CLASS_LEADER_LT_SURGE       0x52 //new HnS
+#define FACILITY_CLASS_LEADER_BLAINE         0x53 //new HnS
+#define FACILITY_CLASS_LEADER_WHITNEY        0x54 //new HnS
+#define FACILITY_CLASS_LEADER_FALKNER        0x55 //new HnS
+#define FACILITY_CLASS_LEADER_JANINE         0x56 //new HnS
+#define FACILITY_CLASS_LEADER_MISTY          0x57 //new HnS
+#define FACILITY_CLASS_LEADER_MORTY          0x58 //new HnS
+#define FACILITY_CLASS_LEADER_CLAIR          0x59 //new HnS
 
 #define FACILITY_CLASSES_COUNT               0x5a
 
@@ -275,7 +283,7 @@
 #define RS_FACILITY_CLASS_BOARDER_1             0x36
 #define RS_FACILITY_CLASS_BOARDER_2             0x37
 #define RS_FACILITY_CLASS_COLLECTOR             0x38
-#define RS_FACILITY_CLASS_WALLY                 0x39
+#define RS_FACILITY_CLASS_LEADER_BLUE           0x39
 #define RS_FACILITY_CLASS_BRENDAN_1             0x3A
 #define RS_FACILITY_CLASS_BRENDAN_2             0x3B
 #define RS_FACILITY_CLASS_BRENDAN_3             0x3C
@@ -382,21 +390,28 @@
 #define TRAINER_CLASS_PSYCHIC_M 0x4F
 #define TRAINER_CLASS_COUNT     0x50
 
-#define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
-#define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music
-#define TRAINER_ENCOUNTER_MUSIC_GIRL         2 // used for male Tubers and Young Couples too
-#define TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS   3
-#define TRAINER_ENCOUNTER_MUSIC_INTENSE      4
-#define TRAINER_ENCOUNTER_MUSIC_COOL         5
-#define TRAINER_ENCOUNTER_MUSIC_ROCKET       6
-#define TRAINER_ENCOUNTER_MUSIC_MAGMA        7
-#define TRAINER_ENCOUNTER_MUSIC_SWIMMER      8
-#define TRAINER_ENCOUNTER_MUSIC_TWINS        9 // used for other trainer classes too
-#define TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR  10
-#define TRAINER_ENCOUNTER_MUSIC_HIKER       11 // used for other trainer classes too
-#define TRAINER_ENCOUNTER_MUSIC_SILVER      12
-#define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
-#define TRAINER_ENCOUNTER_MUSIC_CHAMPION    14 // Lance and Red
+#define TRAINER_ENCOUNTER_MUSIC_MALE             0 // standard male encounter music
+#define TRAINER_ENCOUNTER_MUSIC_FEMALE           1 // standard female encounter music
+#define TRAINER_ENCOUNTER_MUSIC_GIRL             2 // used for male Tubers and Young Couples too
+#define TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS       3
+#define TRAINER_ENCOUNTER_MUSIC_INTENSE          4
+#define TRAINER_ENCOUNTER_MUSIC_COOL             5
+#define TRAINER_ENCOUNTER_MUSIC_ROCKET           6
+#define TRAINER_ENCOUNTER_MUSIC_MAGMA            7
+#define TRAINER_ENCOUNTER_MUSIC_SWIMMER          8
+#define TRAINER_ENCOUNTER_MUSIC_TWINS            9 // used for other trainer classes too
+#define TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR      10
+#define TRAINER_ENCOUNTER_MUSIC_HIKER           11 // used for other trainer classes too
+#define TRAINER_ENCOUNTER_MUSIC_SILVER          12
+#define TRAINER_ENCOUNTER_MUSIC_RICH            13 // Rich Boys and Gentlemen
+#define TRAINER_ENCOUNTER_MUSIC_HG_CHAMPION     14 // Lance and Red
+#define TRAINER_ENCOUNTER_MUSIC_HG_BOY_1        15 //boy
+#define TRAINER_ENCOUNTER_MUSIC_HG_BOY_2        16 //???
+#define TRAINER_ENCOUNTER_MUSIC_HG_GIRL_1       17 //Girl
+#define TRAINER_ENCOUNTER_MUSIC_HG_GIRL_2       18 //????
+#define TRAINER_ENCOUNTER_MUSIC_HG_SUSPICIOUS_1 19 //???
+#define TRAINER_ENCOUNTER_MUSIC_HG_SUSPICIOUS_2 20 //????
+#define TRAINER_ENCOUNTER_MUSIC_HG_SAGE         21 //Sage
 
 #define F_TRAINER_FEMALE (1 << 7)
 

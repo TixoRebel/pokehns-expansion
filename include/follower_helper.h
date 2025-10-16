@@ -63,8 +63,12 @@ enum MessageCondition
     MSG_COND_WEATHER,
     MSG_COND_MUSIC,
     MSG_COND_TIME_OF_DAY,
-    MSG_COND_NEAR_MB
+    MSG_COND_NEAR_MB,
+    MSG_COND_OUTDOORS,
 };
+
+// Convenience macro: no payload needed; we just check the current map type.
+#define MATCH_OUTDOORS()       MATCH_U24(MSG_COND_OUTDOORS, 0)
 
 #define MATCH_U24(type, value) {type, {.raw = value}}
 #define MATCH_U16(type, value1, value2) {type, {.split = {.hw = value1, .b = value2}}}
