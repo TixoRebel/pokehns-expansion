@@ -2429,6 +2429,11 @@ bool32 CheckMsgCondition(const struct MsgCondition *cond, struct Pokemon *mon, u
         if (multi)
             gSpecialVar_Result = multi;
         return multi;
+    case MSG_COND_OUTDOORS:
+    {
+        u8 t = gMapHeader.mapType;
+        return (t == MAP_TYPE_ROUTE || t == MAP_TYPE_TOWN || t == MAP_TYPE_CITY);
+    }
     case MSG_COND_NONE:
     // fallthrough
     default:

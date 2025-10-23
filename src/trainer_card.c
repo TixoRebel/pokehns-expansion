@@ -39,18 +39,6 @@
 #define NUM_BADGES_EXTRA 8                // badges 9–16
 #define NUM_BADGES_TOTAL (NUM_BADGES + NUM_BADGES_EXTRA)
 
-// Kanto (badges 9–16) flags (order is shown left-to-right on card back)
-static const u16 sKantoGymFlags[NUM_BADGES_EXTRA] = {
-    FLAG_DEFEATED_JOHTO_PEWTER_GYM,
-    FLAG_DEFEATED_JOHTO_CERULEAN_GYM,
-    FLAG_DEFEATED_JOHTO_VERMILION_GYM,
-    FLAG_DEFEATED_JOHTO_CELADON_GYM,
-    FLAG_DEFEATED_JOHTO_SAFFRON_GYM,
-    FLAG_DEFEATED_JOHTO_FUCHSIA_GYM,
-    FLAG_DEFEATED_JOHTO_CINNABAR_ISLAND_GYM,
-    FLAG_DEFEATED_JOHTO_VIRIDIAN_GYM,
-};
-
 enum {
     WIN_MSG,
     WIN_CARD_TEXT,
@@ -134,7 +122,7 @@ static bool8 LoadCardGfx(void);
 static void CB2_InitTrainerCard(void);
 static u32 GetCappedGameStat(u8 statId, u32 maxValue);
 static bool8 HasAllFrontierSymbols(void);
-static u8 GetRubyTrainerStars(struct TrainerCard *);
+static u8 GetHnSTrainerStars(struct TrainerCard *);
 static u16 GetCaughtMonsCount(void);
 static void SetPlayerCardData(struct TrainerCard *, u8);
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *);
@@ -704,17 +692,17 @@ u32 CountPlayerTrainerStars(void)
     return stars;
 }
 
-static u8 GetRubyTrainerStars(struct TrainerCard *trainerCard)
+static u8 GetHnSTrainerStars(struct TrainerCard *trainerCard)
 {
     u8 stars = 0;
 
-    if (trainerCard->hofDebutHours || trainerCard->hofDebutMinutes || trainerCard->hofDebutSeconds)
+    if (FlagGet(FLAG_IS_CHAMPION))
         stars++;
     if (trainerCard->caughtAllHoenn)
         stars++;
-    if (trainerCard->battleTowerStraightWins > 49)
+    if (FlagGet(TRAINER_FLAGS_START + TRAINER_RED_2))
         stars++;
-    if (trainerCard->hasAllPaintings)
+    if (FlagGet(FLAG_IS_KANTO_CHAMPION))
         stars++;
 
     return stars;
@@ -772,7 +760,7 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
         trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
         if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
             trainerCard->hasAllPaintings = TRUE;
-        trainerCard->stars = GetRubyTrainerStars(trainerCard);
+        trainerCard->stars = GetHnSTrainerStars(trainerCard);
         break;
     case CARD_TYPE_RS:
         trainerCard->battleTowerWins = 0;
@@ -792,8 +780,9 @@ static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)
     SetPlayerCardData(trainerCard, CARD_TYPE_EMERALD);
     trainerCard->hasAllFrontierSymbols = HasAllFrontierSymbols();
     trainerCard->frontierBP = gSaveBlock2Ptr->frontier.cardBattlePoints;
-    if (trainerCard->hasAllFrontierSymbols)
-        trainerCard->stars++;
+    // HnS: Undo this?
+    // if (trainerCard->hasAllFrontierSymbols)
+    //     trainerCard->stars++;
 
     if (trainerCard->gender == FEMALE)
         trainerCard->unionRoomClass = gUnionRoomFacilityClasses[(trainerCard->trainerId % NUM_UNION_ROOM_CLASSES) + NUM_UNION_ROOM_CLASSES];
@@ -874,10 +863,10 @@ static void SetDataFromTrainerCard(void)
         if (FlagGet(badgeFlag))
             sData->badgeCount[i]++;
     }
-    // Kanto badges (9–16): explicit list above
-    for (i = 0; i < NUM_BADGES_EXTRA; i++)
+    // Kanto badges (9–16): contiguous from FLAG_BADGE09_GET
+    for (i = 0, badgeFlag = FLAG_BADGE09_GET; badgeFlag < FLAG_BADGE09_GET + NUM_KANTO_BADGES; badgeFlag++, i++)
     {
-        if (FlagGet(sKantoGymFlags[i]))
+        if (FlagGet(badgeFlag))
             sData->badgeCount[NUM_BADGES_FRONT + i]++;
     }
 }
@@ -1553,7 +1542,6 @@ static void DrawStarsAndBadgesOnCard(void)
     if (!sData->isLink)
     {
         x = 4;
-        //for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
         for (i = 0; i < NUM_BADGES_FRONT; i++, tileNum += 2, x += 3)
         {
             if (sData->badgeCount[i])

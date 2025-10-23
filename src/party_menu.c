@@ -2386,6 +2386,21 @@ static u8 CanTeachMove(struct Pokemon *mon, u16 move)
         return CAN_LEARN_MOVE;
 }
 
+// TODO: Is this necissary?
+// HnS Gpt function for headbutt
+// Returns the tutor index for a battle move id, or -1 if not a tutor move.
+// Lives in party_menu.c so it can see gTutorMoves/TUTOR_MOVE_COUNT safely.
+s8 MoveIdToTutorIndex(u16 moveId)
+{
+    u8 i;
+    for (i = 0; i < TUTOR_MOVE_COUNT; i++)
+    {
+        if (gTutorMoves[i] == moveId)
+            return (s8)i;
+    }
+    return -1;
+}
+
 static void InitPartyMenuWindows(u8 layout)
 {
     switch (layout)

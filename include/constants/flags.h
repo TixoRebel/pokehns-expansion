@@ -1600,6 +1600,8 @@
 #define FLAG_BADGE14_GET                            (SYSTEM_FLAGS + 0x8A)  
 #define FLAG_BADGE15_GET                            (SYSTEM_FLAGS + 0x8B)  
 #define FLAG_BADGE16_GET                            (SYSTEM_FLAGS + 0x8C)  
+#define NUM_KANTO_BADGES                            (1 + FLAG_BADGE16_GET - FLAG_BADGE09_GET)
+
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag

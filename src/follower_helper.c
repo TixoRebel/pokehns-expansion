@@ -365,6 +365,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .conditions =
         {
             MATCH_TIME_OF_DAY(TIME_DAY),
+            MATCH_OUTDOORS(),
         },
     },
     [COND_MSG_NIGHT] =
@@ -375,6 +376,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .conditions =
         {
             MATCH_TIME_OF_DAY(TIME_NIGHT),
+            MATCH_OUTDOORS(),
         },
     },
     [COND_MSG_ABNORMAL_WEATHER] =

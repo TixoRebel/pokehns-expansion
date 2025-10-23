@@ -207,48 +207,106 @@ void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKey
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_DadsAdvice);
 }
 
+// TODO: Is there a better way to do this?
+// Detect Kanto outdoor areas (cities, towns, routes, forest, Indigo Plateau)
+static bool8 IsKantoOutdoorMapsec(u16 mapsec)
+{
+    switch (mapsec)
+    {
+    // Routes
+    case MAPSEC_ROUTE_1: case MAPSEC_ROUTE_2: case MAPSEC_ROUTE_3: case MAPSEC_ROUTE_4:
+    case MAPSEC_ROUTE_5: case MAPSEC_ROUTE_6: case MAPSEC_ROUTE_7: case MAPSEC_ROUTE_8:
+    case MAPSEC_ROUTE_9: case MAPSEC_ROUTE_10: case MAPSEC_ROUTE_11: case MAPSEC_ROUTE_12:
+    case MAPSEC_ROUTE_13: case MAPSEC_ROUTE_14: case MAPSEC_ROUTE_15: case MAPSEC_ROUTE_16:
+    case MAPSEC_ROUTE_17: case MAPSEC_ROUTE_18: case MAPSEC_ROUTE_19: case MAPSEC_ROUTE_20:
+    case MAPSEC_ROUTE_21: case MAPSEC_ROUTE_22: case MAPSEC_ROUTE_23: case MAPSEC_ROUTE_24:
+    case MAPSEC_ROUTE_25:
+    // Johto–Kanto connectors that are still Kanto side / outdoor
+    case MAPSEC_ROUTE_26: case MAPSEC_ROUTE_27:
+    // Forest / Plateau
+    case MAPSEC_VIRIDIAN_FOREST:
+    case MAPSEC_INDIGO_PLATEAU:
+    // Cities / Towns / Island
+    case MAPSEC_PALLET_TOWN:
+    case MAPSEC_VIRIDIAN_CITY:
+    case MAPSEC_PEWTER_CITY:
+    case MAPSEC_CERULEAN_CITY:
+    case MAPSEC_VERMILION_CITY:
+    case MAPSEC_LAVENDER_TOWN:
+    case MAPSEC_CELADON_CITY:
+    case MAPSEC_SAFFRON_CITY:
+    case MAPSEC_FUCHSIA_CITY:
+    case MAPSEC_CINNABAR_ISLAND:
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static void DisplayCannotDismountBikeMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
 {
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, sText_CantDismountBike);
 }
 
 // HnS
-static void DisplayRadioMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField) //crystal radio logic
+static void DisplayRadioMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField) // HnS radio logic
 {
+    // RUINS OF ALPH always overrides (indoors or outdoors)
     if (gMapHeader.regionMapSectionId == MAPSEC_RUINS_OF_ALPH)
     {
         DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_UnownMessage);
         PlayBGM(MUS_HG_RADIO_UNOWN);
+        return;
     }
-    else if (!Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
+
+    // Indoors / maps where radio shouldn't work at all
+    if (!Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
     {
         DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RadioNoSignal);
+        return;
+    }
+
+    // --- KANTO RADIO GATE ---
+    if (IsKantoOutdoorMapsec(gMapHeader.regionMapSectionId))
+    {
+        if (!FlagGet(FLAG_KANTO_RADIO_GOT))
+        {
+            // No Kanto radio card yet: show "no signal" and play nothing
+            DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RadioNoSignal);
+        }
+        else
+        {
+            // Has Kanto radio: play Poké Flute program with placeholder text
+            DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RadioKantoPokeFlute); // <-- add your final text string later
+            PlayBGM(MUS_HG_RADIO_POKE_FLUTE);
+        }
+        return;
+    }
+
+    // --- JOHTO (original behavior) ---
+    if (FlagGet(FLAG_HIDE_GOLDENROD_ROCKETS) == FALSE)
+    {
+        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RocketRadio);
+        PlayBGM(MUS_HG_RADIO_ROCKET);
     }
     else
     {
-        if(FlagGet(FLAG_HIDE_GOLDENROD_ROCKETS) == FALSE){
-            DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_RocketRadio);
-            PlayBGM(MUS_HG_RADIO_ROCKET);}
-        else
+        static const u8 *const sOakRadioMessages[] =
         {
-            static const u8 *const sOakRadioMessages[] =
-            {
-                gText_OakTalk_Clefairy,
-                gText_OakTalk_Lapras,
-                gText_OakTalk_Ampharos,
-                gText_OakTalk_Sudowoodo,
-                gText_OakTalk_RedGyarados,
-                gText_OakTalk_Unown,
-                gText_OakTalk_Snubbull,
-                gText_OakTalk_Slowpoke,
-                gText_OakTalk_LavenderTower,
-                gText_OakTalk_TentacruelWhirl,
-            };
-            SeedRng(gMain.vblankCounter1);  
-            const u8 *selectedMsg = sOakRadioMessages[Random() % ARRAY_COUNT(sOakRadioMessages)];
-            DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, selectedMsg);
-            PlayBGM(MUS_HG_RADIO_OAK);
-        }
+            gText_OakTalk_Clefairy,
+            gText_OakTalk_Lapras,
+            gText_OakTalk_Ampharos,
+            gText_OakTalk_Sudowoodo,
+            gText_OakTalk_RedGyarados,
+            gText_OakTalk_Unown,
+            gText_OakTalk_Snubbull,
+            gText_OakTalk_Slowpoke,
+            gText_OakTalk_LavenderTower,
+            gText_OakTalk_TentacruelWhirl,
+        };
+        SeedRng(gMain.vblankCounter1);
+        const u8 *selectedMsg = sOakRadioMessages[Random() % ARRAY_COUNT(sOakRadioMessages)];
+        DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, selectedMsg);
+        PlayBGM(MUS_HG_RADIO_OAK);
     }
 }
 

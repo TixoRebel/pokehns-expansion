@@ -44,6 +44,10 @@ static void SpriteCB_Cursor(struct Sprite *);
 
 static EWRAM_DATA struct SlidingPuzzle *sSlidingPuzzle = NULL;
 
+// Keep the player's original Button Mode (e.g., Normal / L=R / L=A)
+static u8 sSavedButtonMode = 0;
+static bool8 sSavedButtonModeValid = FALSE;
+
 static const u32 sSlidingPuzzle_Gfx[]     = INCBIN_U32("graphics/sliding_puzzle/bg.4bpp.lz");
 static const u32 sSlidingPuzzle_Tilemap[] = INCBIN_U32("graphics/sliding_puzzle/map.bin.lz");
 static const u16 sSlidingPuzzle_Pal[]     = INCBIN_U16("graphics/sliding_puzzle/bg.gbapal");
@@ -465,7 +469,12 @@ static void CB2_LoadSlidingPuzzle(void)
         sSlidingPuzzle = AllocZeroed(sizeof(*sSlidingPuzzle));
         sSlidingPuzzle->heldTile = __;
         sSlidingPuzzle->puzzleId = gSpecialVar_0x8004;
-        sSlidingPuzzle->solved = gSpecialVar_0x8005;
+        sSlidingPuzzle->solved   = gSpecialVar_0x8005;
+
+        // Disable L=A during the sliding puzzle
+        sSavedButtonMode = gSaveBlock2Ptr->optionsButtonMode;    // current setting from options menu
+        sSavedButtonModeValid = TRUE;
+        gSaveBlock2Ptr->optionsButtonMode = 0;                   // force "Normal" button mode
         break;
     case 4:
         LoadPalette(GetTextWindowPalette(2), 0xD0, 32);
@@ -675,6 +684,13 @@ static void Task_SlidingPuzzle_Exit(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        // Restore original Button Mode
+        if (sSavedButtonModeValid)
+        {
+            gSaveBlock2Ptr->optionsButtonMode = sSavedButtonMode;
+            sSavedButtonModeValid = FALSE;
+        }
+
         gSpecialVar_Result = sSlidingPuzzle->solved;
         Free(sSlidingPuzzle);
         FreeAllWindowBuffers();

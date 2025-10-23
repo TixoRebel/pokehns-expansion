@@ -943,6 +943,8 @@ static const s8 sFriendshipEventModifiers[][3] =
     [FRIENDSHIP_EVENT_FAINT_SMALL]     = {-1, -1, -1},
     [FRIENDSHIP_EVENT_FAINT_FIELD_PSN] = {-5, -5, -10},
     [FRIENDSHIP_EVENT_FAINT_LARGE]     = {-5, -5, -10},
+    [FRIENDSHIP_EVENT_HAIRCUT1]        = {99,  99,  99},
+    [FRIENDSHIP_EVENT_HAIRCUT2]        = {66,  66,  66},
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -5261,7 +5263,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 {
     u16 species, heldItem;
     u8 holdEffect;
-    s8 mod;
+    s16 mod;
 
     if (ShouldSkipFriendshipChange())
         return;
@@ -5847,6 +5849,18 @@ u16 GetBattleBGM(void)
             return MUS_RG_VS_LEGEND;
         }
     }
+    else if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
+    {
+        switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+        {
+        case SPECIES_RAIKOU:
+             return MUS_HG_VS_RAIKOU;   // Raikou theme
+         case SPECIES_ENTEI:
+             return MUS_HG_VS_ENTEI;    // Entei theme
+         default:
+             return MUS_RG_VS_LEGEND;
+        }
+    }
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {
         return MUS_VS_TRAINER;
@@ -5882,6 +5896,8 @@ u16 GetBattleBGM(void)
             if (!StringCompare(GetTrainerNameFromId(TRAINER_BATTLE_PARAM.opponentA), gText_BattleWallyName))
                 return MUS_VS_TRAINER;
             return MUS_VS_RIVAL;
+        case TRAINER_CLASS_PKMN_TRAINER_1:
+            return MUS_HG_VS_CHAMPION;
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_ELITE_FOUR;
         case TRAINER_CLASS_SALON_MAIDEN:

@@ -620,7 +620,14 @@ static void UpdateMapSecInfoWindow(struct Pokenav_RegionMapGfx *state)
         SetCityZoomTextInvisibility(TRUE);
         break;
     case MAPSECTYPE_NONE:
-        FillBgTilemapBufferRect(1, 0x1041, 19, 4, 12, 13, 17);
+        // Clear the info window contents (removes the lingering name)
+        FillWindowPixelBuffer(state->infoWindowId, PIXEL_FILL(1));
+        PutWindowTilemap(state->infoWindowId);
+        CopyWindowToVram(state->infoWindowId, COPYWIN_FULL);
+
+        // Also wipe the city-zoom picture area (matches CITY_CANTFLY behavior)
+        FillBgTilemapBufferRect(1, 0x1041, 17, 6, 12, 11, 17);
+        
         CopyBgTilemapBufferToVram(1);
         SetCityZoomTextInvisibility(TRUE);
         break;

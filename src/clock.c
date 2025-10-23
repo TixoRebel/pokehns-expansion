@@ -59,6 +59,7 @@ static void UpdatePerDay(struct Time *localTime)
     }
 }
 
+//HnS Updated
 static void UpdatePerMinute(struct Time *localTime)
 {
     struct Time difference;
@@ -66,14 +67,19 @@ static void UpdatePerMinute(struct Time *localTime)
 
     CalcTimeDifference(&difference, &gSaveBlock2Ptr->lastBerryTreeUpdate, localTime);
     minutes = 24 * 60 * difference.days + 60 * difference.hours + difference.minutes;
-    if (minutes != 0)
+
+    if (minutes > 0)
     {
-        if (minutes >= 0)
-        {
-            BerryTreeTimeUpdate(minutes);
-            gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
-        }
+        BerryTreeTimeUpdate(minutes);
+        gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
     }
+    else if (minutes < 0)
+    {
+        // Clock moved backward (fake RTC or manual change):
+        // avoid long stalls by snapping the baseline to the new time.
+        gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
+    }
+    // minutes == 0: nothing to do
 }
 
 void FormChangeTimeUpdate()
