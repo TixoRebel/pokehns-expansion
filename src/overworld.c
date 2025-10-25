@@ -123,8 +123,9 @@ static void CB2_LoadMap2(void);
 static void VBlankCB_Field(void);
 static void SpriteCB_LinkPlayer(struct Sprite *);
 static void ChooseAmbientCrySpecies(void);
-void DoMapLoadLoop(u8 *);
-bool32 LoadMapInStepsLocal(u8 *, bool32);
+static void DoMapLoadLoop(u8 *);
+static bool16 SetTimeOfDay(u16 hours);
+static bool32 LoadMapInStepsLocal(u8 *, bool32);
 static bool32 LoadMapInStepsLink(u8 *);
 static bool32 ReturnToFieldLocal(u8 *);
 static bool32 ReturnToFieldLink(u8 *);
@@ -185,7 +186,7 @@ static u16 GetDirectionForDpadKey(u16);
 static void CB1_OverworldLink(void);
 static void SetKeyInterceptCallback(u16 (*func)(u32));
 static void SetFieldVBlankCallback(void);
-void FieldClearVBlankHBlankCallbacks(void);
+static void FieldClearVBlankHBlankCallbacks(void);
 static void TransitionMapMusic(void);
 static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u8, u16, u8);
@@ -2151,7 +2152,7 @@ void CB2_ContinueSavedGame(void)
     }
 }
 
-void FieldClearVBlankHBlankCallbacks(void)
+static void FieldClearVBlankHBlankCallbacks(void)
 {
     if (UsedPokemonCenterWarp() == TRUE)
         CloseLink();
@@ -2285,7 +2286,7 @@ static bool32 LoadMapInStepsLink(u8 *state)
     return FALSE;
 }
 
-bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
+static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
 {
     switch (*state)
     {
@@ -3839,7 +3840,7 @@ void ScriptHideItemDescription(struct ScriptContext *ctx)
 
 
 // returns old sHoursOverride
-u16 SetTimeOfDay(u16 hours)
+static u16 SetTimeOfDay(u16 hours)
 {
     u16 oldHours = sHoursOverride;
     sHoursOverride = hours;

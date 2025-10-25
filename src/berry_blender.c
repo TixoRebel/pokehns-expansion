@@ -1536,11 +1536,11 @@ static u8 GetArrowProximity(u16 arrowPos, u8 playerId)
 }
 
 // EMERALD
-static void UNUSED SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry *playerBerry)
+static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry *playerBerry)
 {
     u16 opponentSetId = 0;
     u16 opponentBerryId;
-    u16 berryMasterDiff;
+    u16 UNUSED berryMasterDiff;
     u16 i;
 
     if (playerBerryItemId == ITEM_ENIGMA_BERRY_E_READER)
