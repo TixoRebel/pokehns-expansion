@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
             if (dirEntry.is_regular_file())
             {
                 fileName = dirEntry.path().string();
-                if (fileName.find(".bin.smolTM") == std::string::npos)
+                if (fileName.find(".bin.lz") == std::string::npos)
                     continue;
             }
             else

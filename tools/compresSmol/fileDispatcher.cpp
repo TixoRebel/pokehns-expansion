@@ -18,7 +18,7 @@ bool FileDispatcher::initFileList()
         if (dirEntry.is_regular_file())
         {
             fileName = dirEntry.path().string();
-            if (fileName.find(".4bpp.smol") == std::string::npos)
+            if (fileName.find(".4bpp.lz") == std::string::npos)
                 continue;
         }
         else
