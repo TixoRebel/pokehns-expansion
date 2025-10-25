@@ -189,6 +189,7 @@ bool32 Overworld_SendKeysToLinkIsRunning(void);
 bool32 IsSendingKeysOverCable(void);
 void ClearLinkPlayerObjectEvents(void);
 u8 NuzlockeGetCurrentRegionMapSectionId(void); // HnS - tx_randomizer_and_challenges
+bool16 SetTimeOfDay(u16 hours);
 
 // Item Description Headers
 enum ItemObtainFlags

@@ -124,7 +124,6 @@ static void VBlankCB_Field(void);
 static void SpriteCB_LinkPlayer(struct Sprite *);
 static void ChooseAmbientCrySpecies(void);
 static void DoMapLoadLoop(u8 *);
-static bool16 SetTimeOfDay(u16 hours);
 static bool32 LoadMapInStepsLocal(u8 *, bool32);
 static bool32 LoadMapInStepsLink(u8 *);
 static bool32 ReturnToFieldLocal(u8 *);
@@ -3840,7 +3839,7 @@ void ScriptHideItemDescription(struct ScriptContext *ctx)
 
 
 // returns old sHoursOverride
-static u16 SetTimeOfDay(u16 hours)
+u16 SetTimeOfDay(u16 hours)
 {
     u16 oldHours = sHoursOverride;
     sHoursOverride = hours;
