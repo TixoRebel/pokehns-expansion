@@ -2,7 +2,7 @@
   "id": "MAP_VICTORY_ROAD_MOLTRES2",
   "name": "VictoryRoad_Moltres2",
   "layout": "LAYOUT_VICTORY_ROAD_MOLTRES2",
-  "music": "MUS_DP_OREBURGH_MINE",
+  "music": "MUS_MT_PYRE",
   "region_map_section": "MAPSEC_VICTORY_ROAD",
   "requires_flash": true,
   "weather": "WEATHER_NONE",

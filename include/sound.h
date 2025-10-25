@@ -13,7 +13,7 @@ void FadeOutMapMusic(u8 speed);
 void FadeOutAndPlayNewMapMusic(u16 songNum, u8 speed);
 void FadeOutAndFadeInNewMapMusic(u16 songNum, u8 fadeOutSpeed, u8 fadeInSpeed);
 bool8 IsNotWaitingForBGMStop(void);
-void PlayFanfareByFanfareNum(u8 fanfareNum);
+void PlayFanfareByFanfareNum(enum FanfareId);
 bool8 WaitFanfare(bool8 stop);
 void StopFanfareByFanfareNum(u8 fanfareNum);
 void PlayFanfare(u16 songNum);

@@ -2,7 +2,7 @@
   "id": "MAP_METEOR_FALLS_ARTICUNO",
   "name": "MeteorFalls_Articuno",
   "layout": "LAYOUT_METEOR_FALLS_ARTICUNO",
-  "music": "MUS_DP_OREBURGH_MINE",
+  "music": "MUS_MT_PYRE",
   "region_map_section": "MAPSEC_EMBEDDED_TOWER",
   "requires_flash": true,
   "weather": "WEATHER_NONE",

@@ -58,24 +58,6 @@ static const struct Fanfare sFanfares[] = {
     [FANFARE_OBTAIN_B_POINTS]          = { MUS_OBTAIN_B_POINTS         , 313 },
     [FANFARE_REGISTER_MATCH_CALL]      = { MUS_REGISTER_MATCH_CALL     , 135 },
     [FANFARE_OBTAIN_SYMBOL]            = { MUS_OBTAIN_SYMBOL           , 318 },
-    [FANFARE_DP_TV_END]                = { MUS_DP_TV_END               , 244 },
-    [FANFARE_DP_OBTAIN_ITEM]           = { MUS_DP_OBTAIN_ITEM          , 160 },
-    [FANFARE_DP_HEAL]                  = { MUS_DP_HEAL                 , 160 },
-    [FANFARE_DP_OBTAIN_KEY_ITEM]       = { MUS_DP_OBTAIN_KEY_ITEM      , 170 },
-    [FANFARE_DP_OBTAIN_TMHM]           = { MUS_DP_OBTAIN_TMHM          , 220 },
-    [FANFARE_DP_OBTAIN_BADGE]          = { MUS_DP_OBTAIN_BADGE         , 340 },
-    [FANFARE_DP_LEVEL_UP]              = { MUS_DP_LEVEL_UP             ,  80 },
-    [FANFARE_DP_OBTAIN_BERRY]          = { MUS_DP_OBTAIN_BERRY         , 120 },
-    [FANFARE_DP_PARTNER]               = { MUS_DP_LETS_GO_TOGETHER     , 180 },
-    [FANFARE_DP_EVOLVED]               = { MUS_DP_EVOLVED              , 252 },
-    [FANFARE_DP_POKETCH]               = { MUS_DP_POKETCH              , 120 },
-    [FANFARE_DP_MOVE_DELETED]          = { MUS_DP_MOVE_DELETED         , 180 },
-    [FANFARE_DP_ACCESSORY]             = { MUS_DP_OBTAIN_ACCESSORY     , 160 },
-    [FANFARE_PL_TV_END]                = { MUS_PL_TV_END               , 230 },
-    [FANFARE_PL_CLEAR_MINIGAME]        = { MUS_PL_WIN_MINIGAME         , 230 },
-    [FANFARE_PL_OBTAIN_ARCADE_POINTS]  = { MUS_PL_OBTAIN_ARCADE_POINTS , 175 },
-    [FANFARE_PL_OBTAIN_CASTLE_POINTS]  = { MUS_PL_OBTAIN_CASTLE_POINTS , 200 },
-    [FANFARE_PL_OBTAIN_B_POINTS]       = { MUS_PL_OBTAIN_B_POINTS      , 264 },
     [FANFARE_HG_OBTAIN_KEY_ITEM]       = { MUS_HG_OBTAIN_KEY_ITEM      , 170 },
     [FANFARE_HG_LEVEL_UP]              = { MUS_HG_LEVEL_UP             ,  80 },
     [FANFARE_HG_HEAL]                  = { MUS_HG_HEAL                 , 160 },
@@ -231,7 +213,7 @@ bool8 IsNotWaitingForBGMStop(void)
     return TRUE;
 }
 
-void PlayFanfareByFanfareNum(u8 fanfareNum)
+void PlayFanfareByFanfareNum(enum FanfareId fanfareNum)
 {
     u16 songNum;
     m4aMPlayStop(&gMPlayInfo_BGM);
