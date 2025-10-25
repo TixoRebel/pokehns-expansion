@@ -5,9 +5,6 @@
 
 #define BUG_CONTEST_TIME_LIMIT_FRAMES (60 * 60 * 8) // 8 minutes at 60 FPS
 
-static void FieldClearVBlankHBlankCallbacks(void);
-static void DoMapLoadLoop(u8 *);
-static bool32 LoadMapInStepsLocal(u8 *, bool32);
 void EnterBugContestMode(void);
 void ExitBugContestMode(void);
 bool8 BugContestCheckTimeLimit(void);

@@ -190,6 +190,9 @@ bool32 IsSendingKeysOverCable(void);
 void ClearLinkPlayerObjectEvents(void);
 u8 NuzlockeGetCurrentRegionMapSectionId(void); // HnS - tx_randomizer_and_challenges
 bool16 SetTimeOfDay(u16 hours);
+void FieldClearVBlankHBlankCallbacks(void);
+void DoMapLoadLoop(u8 *);
+bool32 LoadMapInStepsLocal(u8 *, bool32);
 
 // Item Description Headers
 enum ItemObtainFlags

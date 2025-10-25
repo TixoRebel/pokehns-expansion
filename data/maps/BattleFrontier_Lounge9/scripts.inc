@@ -559,8 +559,9 @@ BattleFrontier_Lounge9_Chansey5::
 	case MULTI_B_PRESSED, BattleFrontier_Lounge9_Chansey1End
 
 BattleFrontier_Lounge9_Chansey5Battle::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_CHANSEY5, 0, BattleFrontier_Lounge9_Chansey5Intro, BattleFrontier_Lounge9_Chansey5Defeat, BattleFrontier_Lounge9_ChanseyBattleAgain, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
-	end
+	trainerbattle_single TRAINER_CHANSEY5, BattleFrontier_Lounge9_Chansey5Intro, BattleFrontier_Lounge9_Chansey5Defeat
+	msgbox BattleFrontier_Lounge9_ChanseyBattleAgain, MSGBOX_AUTOCLOSE
+	return
 
 BattleFrontier_Lounge9_Chansey1End::
 	end

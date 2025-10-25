@@ -29,7 +29,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_MOVE_RELEARNER",
+      "local_id": "LOCALID_MOVE_RELEARNER_HNS",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 7,
       "y": 4,
