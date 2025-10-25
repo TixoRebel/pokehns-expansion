@@ -539,7 +539,7 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_REGIGIGAS:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_MEW:
     case SPECIES_MEWTWO:
@@ -547,7 +547,7 @@ void BattleSetup_StartLegendaryBattle(void)
         break;
     case SPECIES_CELEBI:
     case SPECIES_JIRACHI:
-        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_DP_VS_UXIE_MESPRIT_AZELF);
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_LATIOS:
     case SPECIES_LATIAS:

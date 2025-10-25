@@ -11,7 +11,7 @@
 // make any adjustments to its length or volume. Very few sounds make any adjustments.
 struct BardSoundTemplate
 {
-    /*0x00*/ u8 songId;
+    /*0x00*/ int songId;
     /*0x01*/ s8 lengthAdjustment;
     /*0x02*/ u16 unused; // Only set on EC_WORD_WAAAH, and never read.
     /*0x04*/ s16 volume;
