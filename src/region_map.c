@@ -245,11 +245,11 @@ static void CB_HandleFlyMapInput(void);
 static void CB_ExitFlyMap(void);
 
 static const u16 sRegionMapCursorPal[] = INCBIN_U16("graphics/pokenav/region_map/cursor.gbapal");
-static const u32 sRegionMapCursorSmallGfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/cursor_small.4bpp.lz");
-static const u32 sRegionMapCursorLargeGfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/cursor_large.4bpp.lz");
+static const u32 sRegionMapCursorSmallGfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/cursor_small.4bpp.smol");
+static const u32 sRegionMapCursorLargeGfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/cursor_large.4bpp.smol");
 static const u16 sRegionMapBg_Pal[] = INCBIN_U16("graphics/pokenav/region_map/map.gbapal");
-static const u32 sRegionMapBg_GfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.8bpp.lz");
-static const u32 sRegionMapBg_TilemapLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.bin.lz");
+static const u32 sRegionMapBg_GfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.8bpp.smol");
+static const u32 sRegionMapBg_TilemapLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.bin.smolTM");
 static const u16 sRegionMapPlayerIcon_BrendanPal[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon.gbapal");
 static const u8 sRegionMapPlayerIcon_BrendanGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon.4bpp");
 static const u16 sRegionMapPlayerIcon_MayPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon.gbapal");
@@ -258,13 +258,13 @@ static const u8 sRegionMapPlayerIcon_MayGfx[] = INCBIN_U8("graphics/pokenav/regi
 //HnS
 // Combined Johto+Kanto (current art)
 static const u16 sRegionMapBg_Pal_JK[]      = INCBIN_U16("graphics/pokenav/region_map/map.gbapal");
-static const u32 sRegionMapBg_GfxLZ_JK[]    = INCBIN_U32("graphics/pokenav/region_map/map.8bpp.lz");
-static const u32 sRegionMapBg_TilemapLZ_JK[] = INCBIN_U32("graphics/pokenav/region_map/map.bin.lz");
+static const u32 sRegionMapBg_GfxLZ_JK[]    = INCBIN_U32("graphics/pokenav/region_map/map.8bpp.smol");
+static const u32 sRegionMapBg_TilemapLZ_JK[] = INCBIN_U32("graphics/pokenav/region_map/map.bin.smolTM");
 
 // Johto-only (TEMP: reuse combined; swap these paths when your solo map is ready)
 static const u16 sRegionMapBg_Pal_Johto[]      = INCBIN_U16("graphics/pokenav/region_map/map.gbapal");
-static const u32 sRegionMapBg_GfxLZ_Johto[]    = INCBIN_U32("graphics/pokenav/region_map/johtomap.8bpp.lz");
-static const u32 sRegionMapBg_TilemapLZ_Johto[] = INCBIN_U32("graphics/pokenav/region_map/johtomap.bin.lz");
+static const u32 sRegionMapBg_GfxLZ_Johto[]    = INCBIN_U32("graphics/pokenav/region_map/johtomap.8bpp.smol");
+static const u32 sRegionMapBg_TilemapLZ_Johto[] = INCBIN_U32("graphics/pokenav/region_map/johtomap.bin.smolTM");
 
 //HnS
 // Variant selection
@@ -557,10 +557,10 @@ static const u8 sMapSecIdsOffMap[] =
 };
 
 static const u16 sRegionMapFramePal[] = INCBIN_U16("graphics/pokenav/region_map/frame.gbapal");
-static const u32 sRegionMapFrameGfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/frame.4bpp.lz");
-static const u32 sRegionMapFrameTilemapLZ[] = INCBIN_U32("graphics/pokenav/region_map/frame.bin.lz");
+static const u32 sRegionMapFrameGfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/frame.4bpp.smol");
+static const u32 sRegionMapFrameTilemapLZ[] = INCBIN_U32("graphics/pokenav/region_map/frame.bin.smolTM");
 static const u16 sFlyTargetIcons_Pal[] = INCBIN_U16("graphics/pokenav/region_map/fly_target_icons.gbapal");
-static const u32 sFlyTargetIcons_Gfx[] = INCBIN_U32("graphics/pokenav/region_map/fly_target_icons.4bpp.lz");
+static const u32 sFlyTargetIcons_Gfx[] = INCBIN_U32("graphics/pokenav/region_map/fly_target_icons.4bpp.smol");
 
 static const u8 sMapHealLocations[][3] =
 {

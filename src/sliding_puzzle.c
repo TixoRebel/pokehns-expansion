@@ -48,8 +48,8 @@ static EWRAM_DATA struct SlidingPuzzle *sSlidingPuzzle = NULL;
 static u8 sSavedButtonMode = 0;
 static bool8 sSavedButtonModeValid = FALSE;
 
-static const u32 sSlidingPuzzle_Gfx[]     = INCBIN_U32("graphics/sliding_puzzle/bg.4bpp.lz");
-static const u32 sSlidingPuzzle_Tilemap[] = INCBIN_U32("graphics/sliding_puzzle/map.bin.lz");
+static const u32 sSlidingPuzzle_Gfx[]     = INCBIN_U32("graphics/sliding_puzzle/bg.4bpp.smol");
+static const u32 sSlidingPuzzle_Tilemap[] = INCBIN_U32("graphics/sliding_puzzle/map.bin.smolTM");
 static const u16 sSlidingPuzzle_Pal[]     = INCBIN_U16("graphics/sliding_puzzle/bg.gbapal");
 
 enum
@@ -102,7 +102,7 @@ static const u16 sRowYCoords[NUM_SLIDING_PUZZLE_ROWS] =
     136,
 };
 
-static const u32 sCursor_Gfx[]      = INCBIN_U32("graphics/sliding_puzzle/cursor.4bpp.lz");
+static const u32 sCursor_Gfx[]      = INCBIN_U32("graphics/sliding_puzzle/cursor.4bpp.smol");
 static const u16 sCursorTiles_Pal[] = INCBIN_U16("graphics/sliding_puzzle/cursor_tiles.gbapal");
 
 #define TAG_CURSOR    244

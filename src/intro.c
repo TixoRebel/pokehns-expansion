@@ -184,24 +184,24 @@ COMMON_DATA struct GcmbStruct gMultibootProgramStruct = {0};
 // Scenes
 static const u16 sIntroDrops_Pal[]            = INCBIN_U16("graphics/intro/scene_1/drops.gbapal");
 static const u16 sIntroLogo_Pal[]             = INCBIN_U16("graphics/intro/scene_1/logo.gbapal");
-static const u32 sIntroDropsLogo_Gfx[]        = INCBIN_U32("graphics/intro/scene_1/drops_logo.4bpp.lz");
+static const u32 sIntroDropsLogo_Gfx[]        = INCBIN_U32("graphics/intro/scene_1/drops_logo.4bpp.smol");
 static const u16 sIntro1Bg_Pal[]              = INCBIN_U16("graphics/intro/scene_1/bg.gbapal"); // 16 x 16
-static const u32 sIntro1Bg0_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg0_map.bin.lz");
-static const u32 sIntro1Bg1_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg1_map.bin.lz");
-static const u32 sIntro1Bg2_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg2_map.bin.lz");
-static const u32 sIntro1Bg3_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg3_map.bin.lz");
-static const u32 sIntro1Bg_Gfx[]              = INCBIN_U32("graphics/intro/scene_1/bg.4bpp.lz");
+static const u32 sIntro1Bg0_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg0_map.bin.smolTM");
+static const u32 sIntro1Bg1_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg1_map.bin.smolTM");
+static const u32 sIntro1Bg2_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg2_map.bin.smolTM");
+static const u32 sIntro1Bg3_Tilemap[]         = INCBIN_U32("graphics/intro/scene_1/bg3_map.bin.smolTM");
+static const u32 sIntro1Bg_Gfx[]              = INCBIN_U32("graphics/intro/scene_1/bg.4bpp.smol");
 static const u16 sIntroPokeball_Pal[]         = INCBIN_U16("graphics/intro/scene_3/pokeball.gbapal");
-static const u32 sIntroPokeball_Tilemap[]     = INCBIN_U32("graphics/intro/scene_3/pokeball_map.bin.lz");
-static const u32 sIntroPokeball_Gfx[]         = INCBIN_U32("graphics/intro/scene_3/pokeball.8bpp.lz");
+static const u32 sIntroPokeball_Tilemap[]     = INCBIN_U32("graphics/intro/scene_3/pokeball_map.bin.smolTM");
+static const u32 sIntroPokeball_Gfx[]         = INCBIN_U32("graphics/intro/scene_3/pokeball.8bpp.smol");
 static const u16 sIntroStreaks_Pal[]          = INCBIN_U16("graphics/intro/scene_3/streaks.gbapal"); // Unused
-static const u32 sIntroStreaks_Gfx[]          = INCBIN_U32("graphics/intro/scene_3/streaks.4bpp.lz"); // Unused
-static const u32 sIntroStreaks_Tilemap[]      = INCBIN_U32("graphics/intro/scene_3/streaks_map.bin.lz"); // Unused
+static const u32 sIntroStreaks_Gfx[]          = INCBIN_U32("graphics/intro/scene_3/streaks.4bpp.smol"); // Unused
+static const u32 sIntroStreaks_Tilemap[]      = INCBIN_U32("graphics/intro/scene_3/streaks_map.bin.smolTM"); // Unused
 static const u16 sIntroRayquzaOrb_Pal[]       = INCBIN_U16("graphics/intro/scene_3/rayquaza_orb.gbapal");
 static const u16 sIntroMisc_Pal[]             = INCBIN_U16("graphics/intro/scene_3/misc.gbapal"); // Unused
-static const u32 sIntroMisc_Gfx[]             = INCBIN_U32("graphics/intro/scene_3/misc.4bpp.lz"); // Rayquza orb, and misc unused gfx
+static const u32 sIntroMisc_Gfx[]             = INCBIN_U32("graphics/intro/scene_3/misc.4bpp.smol"); // Rayquza orb, and misc unused gfx
 static const u16 sIntroFlygonSilhouette_Pal[] = INCBIN_U16("graphics/intro/scene_1/flygon.gbapal");
-static const u32 sIntroLati_Gfx[]             = INCBIN_U32("graphics/intro/scene_1/lati.4bpp.lz"); // Unused
+static const u32 sIntroLati_Gfx[]             = INCBIN_U32("graphics/intro/scene_1/lati.4bpp.smol"); // Unused
 static const u8 sUnusedData[] = {
     0x02, 0x03, 0x04, 0x05, 0x01, 0x01, 0x01, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x02, 0x0D,
     0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x02, 0x0D, 0x0E, 0x0F,
@@ -1801,10 +1801,10 @@ static void Task_Scene3_LoadGroudon(u8 taskId)
         ResetSpriteData();
         FreeAllSpritePalettes();
         gReservedSpritePaletteCount = 8;
-        LZDecompressVram(gIntroGroudon_Gfx, (void *)VRAM);
-        LZDecompressVram(gIntroGroudon_Tilemap, (void *)(BG_CHAR_ADDR(3)));
-        LZDecompressVram(gIntroLegendBg_Gfx, (void *)(BG_CHAR_ADDR(1)));
-        LZDecompressVram(gIntroGroudonBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+        DecompressDataWithHeaderVram(gIntroGroudon_Gfx, (void *)VRAM);
+        DecompressDataWithHeaderVram(gIntroGroudon_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+        DecompressDataWithHeaderVram(gIntroLegendBg_Gfx, (void *)(BG_CHAR_ADDR(1)));
+        DecompressDataWithHeaderVram(gIntroGroudonBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
         LoadCompressedSpriteSheetUsingHeap(&gBattleAnimPicTable[GET_TRUE_SPRITE_INDEX(ANIM_TAG_ROCKS)]);
         LoadSpritePalette(&gBattleAnimPaletteTable[GET_TRUE_SPRITE_INDEX(ANIM_TAG_ROCKS)]);
         CpuCopy16(gIntro3Bg_Pal, gPlttBufferUnfaded, sizeof(gIntro3Bg_Pal));
@@ -2079,9 +2079,9 @@ static void SpriteCB_GroudonRocks(struct Sprite *sprite)
 static void Task_Scene3_LoadKyogre(u8 taskId)
 {
     ResetSpriteData();
-    LZDecompressVram(gIntroKyogre_Gfx, (void *)VRAM);
-    LZDecompressVram(gIntroKyogre_Tilemap, (void *)(BG_CHAR_ADDR(3)));
-    LZDecompressVram(gIntroKyogreBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+    DecompressDataWithHeaderVram(gIntroKyogre_Gfx, (void *)VRAM);
+    DecompressDataWithHeaderVram(gIntroKyogre_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+    DecompressDataWithHeaderVram(gIntroKyogreBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
     LoadCompressedSpriteSheet(sSpriteSheet_Bubbles);
     LoadSpritePalette(sSpritePalette_Bubbles);
     BeginNormalPaletteFade(PALETTES_ALL & ~1, 0, 16, 0, RGB_WHITEALPHA);
@@ -2387,16 +2387,16 @@ static void Task_Scene3_LoadClouds1(u8 taskId)
     SetGpuReg(REG_OFFSET_BG1VOFS, 0);
     SetGpuReg(REG_OFFSET_BG2HOFS, 0);
     SetGpuReg(REG_OFFSET_BG2VOFS, 0);
-    LZDecompressVram(gIntroClouds_Gfx, (void *)VRAM);
-    LZDecompressVram(gIntroClouds_Gfx, (void *)(BG_CHAR_ADDR(1)));
-    LZDecompressVram(gIntroCloudsSun_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+    DecompressDataWithHeaderVram(gIntroClouds_Gfx, (void *)VRAM);
+    DecompressDataWithHeaderVram(gIntroClouds_Gfx, (void *)(BG_CHAR_ADDR(1)));
+    DecompressDataWithHeaderVram(gIntroCloudsSun_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
     gTasks[taskId].func = Task_Scene3_LoadClouds2;
 }
 
 static void Task_Scene3_LoadClouds2(u8 taskId)
 {
-    LZDecompressVram(gIntroCloudsLeft_Tilemap, (void *)(BG_CHAR_ADDR(3)));
-    LZDecompressVram(gIntroCloudsRight_Tilemap, (void *)(BG_SCREEN_ADDR(26)));
+    DecompressDataWithHeaderVram(gIntroCloudsLeft_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+    DecompressDataWithHeaderVram(gIntroCloudsRight_Tilemap, (void *)(BG_SCREEN_ADDR(26)));
     gTasks[taskId].func = Task_Scene3_InitClouds;
 }
 
@@ -2454,10 +2454,10 @@ static void Task_Scene3_Clouds(u8 taskId)
 
 static void Task_Scene3_LoadLightning(u8 taskId)
 {
-    LZDecompressVram(gIntroRayquaza_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
-    LZDecompressVram(gIntroRayquazaClouds_Tilemap, (void *)(BG_CHAR_ADDR(3)));
-    LZDecompressVram(gIntroRayquaza_Gfx, (void *)(BG_CHAR_ADDR(1)));
-    LZDecompressVram(gIntroRayquazaClouds_Gfx, (void *)VRAM);
+    DecompressDataWithHeaderVram(gIntroRayquaza_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+    DecompressDataWithHeaderVram(gIntroRayquazaClouds_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+    DecompressDataWithHeaderVram(gIntroRayquaza_Gfx, (void *)(BG_CHAR_ADDR(1)));
+    DecompressDataWithHeaderVram(gIntroRayquazaClouds_Gfx, (void *)VRAM);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0
                                 | DISPCNT_OBJ_1D_MAP
                                 | DISPCNT_BG0_ON
