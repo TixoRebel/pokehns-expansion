@@ -1544,7 +1544,7 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
         else
         {
             const struct RegionMapLocation *e = &sActiveEntries[mapSecId];
-            ex = e->x; ey = e->y;
+            ex = e->x; ey = e->y; ew = e->width ? e->width : 1; eh = e->height ? e->height : 1;
         }
 
         sRegionMap->cursorPosX = ex + x + MAPCURSOR_X_MIN;
