@@ -583,6 +583,28 @@ struct SaveBlock2
              u16 regionMapZoom:1; // whether the map is zoomed in
              //u16 padding1:4;
              //u16 padding2;
+             u16 optionsfollowerEnable:1;
+             bool8 optionsautoRun;
+             u16 optionsDisableMatchCall:1;
+             u16 optionStyle:1;
+             u16 optionsDifficulty:2;
+             u16 optionTypeEffective:1;
+             u16 optionsFishing:1;
+             u16 optionsFastIntro:1;
+             u16 optionsfollowerLargeEnable:1;
+             u16 optionsFastBattle:1;
+             u16 optionsEvenFasterJoy:1;
+             u16 optionsBikeMusic:1;
+             u16 optionsSurfMusic:1;
+             u16 optionsWildBattleMusic:5;
+             u16 optionsTrainerBattleMusic:5;
+             u16 optionsFrontierTrainerBattleMusic:5;
+             u16 optionsSoundEffects:2;
+             u16 optionsSkipIntro:1;
+             u16 optionsLRtoRun:1;
+             u16 optionsBallPrompt:1;
+             u16 optionsUnitSystem:1;
+             u16 optionsMusicOnOff:1;
     /*0x18*/ struct Pokedex pokedex;
     /*0x90*/ u8 filler_90[0x8];
     /*0x98*/ struct Time localTimeOffset;
@@ -602,6 +624,12 @@ struct SaveBlock2
 #endif //FREE_RECORD_MIXING_HALL_RECORDS
     /*0x624*/ u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
     /*0x64C*/ struct BattleFrontier frontier;
+              struct Time fakeRTC;
+              u16 optionsNewBackgrounds:1;
+              u16 optionsRunType:3;
+              u16 optionsAutorunSurf:1;
+              u16 optionsAutorunDive:1;
+              u16 optionsNewBattleUI:1;
 }; // sizeof=0xF2C
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
@@ -1159,6 +1187,75 @@ struct SaveBlock1
     /*0x3???*/ struct TrainerHillSave trainerHill;
 #endif //FREE_TRAINER_HILL
     /*0x3???*/ struct WaldaPhrase waldaPhrase;
+/*0x3D88*/ u8 unused_NuzlockeEncounterFlags[9]; //Old nuzlocke encounter list that became to small. Should be [12] since HnS adds new encounter zones
+        u8 tx_Random_Chaos:1;
+        u8 tx_Random_WildPokemon:1;
+        u8 tx_Random_Similar:1;
+        u8 tx_Random_MapBased:1;
+        u8 tx_Random_IncludeLegendaries:1;
+        u8 tx_Random_Type:1;
+        u8 tx_Random_TypeEffectiveness:1;
+        u8 tx_Random_Abilities:1;
+        //
+        u8 tx_Random_Moves:1;
+        u8 tx_Random_Trainer:1;
+        u8 tx_Random_Evolutions:1;
+        u8 tx_Random_EvolutionMethods:1;
+        u8 tx_Challenges_EvoLimit:2;
+        u8 tx_Challenges_Nuzlocke:1;
+        u8 tx_Challenges_NuzlockeHardcore:1;
+        //
+        u8 tx_Challenges_OneTypeChallenge:5;
+        u8 tx_Challenges_PartyLimit:3;
+        //
+        u8 tx_Challenges_NoItemPlayer:1;
+        u8 tx_Challenges_NoItemTrainer:1;
+        u8 tx_Challenges_PkmnCenter:2;
+        u8 tx_Challenges_LessEscapes:1;
+        u8 tx_Challenges_BaseStatEqualizer:2;
+        u8 tx_Challenges_LevelCap:2;
+        u8 tx_Challenges_ExpMultiplier:2;
+        u8 tx_Random_Items:1;
+        u8 tx_Nuzlocke_SpeciesClause:1;
+        u8 tx_Nuzlocke_ShinyClause:1;
+        u8 tx_Nuzlocke_Nicknaming:1;
+        u8 tx_Challenges_Mirror:1;
+        u8 tx_Challenges_Mirror_Thief:1;
+        u8 tx_Random_Static:1;
+        u8 tx_Challenges_NoEVs:1;
+        u8 tx_Challenges_TrainerScalingIVs:2;
+        u8 tx_Challenges_TrainerScalingEVs:2;
+        u8 tx_Nuzlocke_Deletion:1;
+        u8 tx_Random_Starter:1;
+        u8 tx_Challenges_MaxPartyIVs:2;
+        u8 tx_Mode_InfiniteTMs:1;
+        u8 tx_Mode_PoisonSurvive:1;
+        u8 tx_Features_ShinyColors:1;
+        u8 tx_Nuzlocke_EasyMode:1;
+        u8 tx_Challenges_PCHeal:1;
+        u8 tx_Features_RTCType:1;
+        u8 tx_Mode_AlternateSpawns:1;
+        u8 tx_Features_LimitDifficulty:1;
+        u8 tx_Features_ShinyChance:4;
+        u8 tx_Features_WildMonDropItems:1;
+        u8 tx_Features_Unlimited_WT:1; //unused in HnS
+        u8 tx_Mode_Synchronize:1;
+        u8 tx_Mode_Mints:1;
+        u8 tx_Mode_New_Citrus:1;
+        u8 tx_Mode_Modern_Types:1; //unused in HnS
+        u8 tx_Mode_Fairy_Types:1;
+        u8 tx_Mode_New_Stats:1; //unused in HnS
+        u8 tx_Mode_Sturdy:1;
+        u8 tx_Mode_Modern_Moves:1;
+        u8 tx_Mode_Legendary_Abilities:1;
+        u8 tx_Mode_New_Legendaries:1; //unused in HnS
+        u8 tx_Challenges_Expensive:3;
+        u8 tx_Difficulty_EscapeRopeDig:1;
+        u8 tx_Mode_Encounters:2; //unused in HnS
+        u8 tx_Features_FrontierBans:1;
+        u8 tx_Difficulty_HardExp:1; //unused in HnS
+        u8 tx_Mode_TypeEffectiveness:1; //unused in HnS
+        u8 NuzlockeEncounterFlags[12]; //tx_randomizer_and_challenges
     // sizeof: 0x3???
 };
 
