@@ -4,6 +4,7 @@ Common_EventScript_PkmnCenterNurse::
 	setvar VAR_0x8004, 0
 	specialvar VAR_RESULT, CountPlayerTrainerStars
 	goto_if_eq VAR_RESULT, 4, EventScript_PkmnCenterNurse_GoldCard
+	goto_if_set FLAG_EVEN_FASTER_JOY, EventScript_PkmnCenterNurse_HealPkmnFast
 	msgbox gText_WouldYouLikeToRestYourPkmn, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, EventScript_PkmnCenterNurse_HealPkmn
 	goto_if_eq VAR_RESULT, NO, EventScript_PkmnCenterNurse_Goodbye
@@ -22,6 +23,14 @@ EventScript_PkmnCenterNurse_HealPkmn::
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	goto_if_unset FLAG_POKERUS_EXPLAINED, EventScript_PkmnCenterNurse_CheckPokerus
 	goto EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom
+	end
+
+EventScript_PkmnCenterNurse_HealPkmnFast::
+	incrementgamestat GAME_STAT_USED_POKECENTER
+	special HealPlayerParty
+	playse SE_M_MORNING_SUN
+	goto EventScript_PkmnCenterNurse_ReturnPkmn
+	release
 	end
 
 EventScript_PkmnCenterNurse_IllTakeYourPkmn::
