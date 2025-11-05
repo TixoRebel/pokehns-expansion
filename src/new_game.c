@@ -95,13 +95,41 @@ static void InitPlayerTrainerId(void)
 // L=A isnt set here for some reason.
 static void SetDefaultOptions(void)
 {
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
+    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
+    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT; //HnS
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
+    gSaveBlock2Ptr->optionsDifficulty = 1;
+    gSaveBlock2Ptr->optionsfollowerEnable = 0;
+    gSaveBlock2Ptr->optionsfollowerLargeEnable = 0;
+    gSaveBlock2Ptr->optionsautoRun = 1;
+    gSaveBlock2Ptr->optionsAutorunDive = 1;
+    gSaveBlock2Ptr->optionsAutorunSurf = 1;
+    gSaveBlock2Ptr->optionsDisableMatchCall = 0;
+    gSaveBlock2Ptr->optionStyle = 0;
+    gSaveBlock2Ptr->optionTypeEffective = 0;
+    gSaveBlock2Ptr->optionsFishing = 1;
+    gSaveBlock2Ptr->optionsFastIntro = 1;
+    gSaveBlock2Ptr->optionsFastBattle = 0; //HnS
+    gSaveBlock2Ptr->optionsBikeMusic = 0;
+    gSaveBlock2Ptr->optionsEvenFasterJoy = 1;
+    gSaveBlock2Ptr->optionsSurfMusic = 0;
+    gSaveBlock2Ptr->optionsWildBattleMusic = 3;
+    gSaveBlock2Ptr->optionsTrainerBattleMusic = 3; //JOHTO ONLY BB
+    gSaveBlock2Ptr->optionsFrontierTrainerBattleMusic = 3; //JOHTO ONLY BB
+    gSaveBlock2Ptr->optionsSoundEffects = 2; //JOHTO ONLY BB
+    gSaveBlock2Ptr->optionsSkipIntro = 1;
+    gSaveBlock2Ptr->optionsLRtoRun = 0;
+    gSaveBlock2Ptr->optionsBallPrompt = 0; //HnS
+    gSaveBlock2Ptr->optionsUnitSystem = 0;
+    gSaveBlock2Ptr->optionsMusicOnOff = 0;
+    gSaveBlock2Ptr->optionsNewBackgrounds = 1; //HnS
+    gSaveBlock2Ptr->optionsRunType = 1;
+    gSaveBlock2Ptr->optionsNewBattleUI= 0;
 }
+
 
 static void ClearPokedexFlags(void)
 {
