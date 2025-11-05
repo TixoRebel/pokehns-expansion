@@ -2594,7 +2594,7 @@ void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, bool32 is
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].x2 = DISPLAY_WIDTH;
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].sSpeedX = -2;
     }
-    if (B_FAST_INTRO_NO_SLIDE || gTestRunnerHeadless)
+    if (B_FAST_INTRO_NO_SLIDE || gTestRunnerHeadless || gSaveBlock2Ptr->optionsFastIntro == 0)
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback = SpriteCB_TrainerSpawn;
     else
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;

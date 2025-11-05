@@ -304,11 +304,22 @@ void FadeInNewBGM(u16 songNum, u8 speed)
         songNum = 0;
     if (songNum == MUS_NONE)
         songNum = 0;
-    m4aSongNumStart(songNum);
-    m4aMPlayImmInit(&gMPlayInfo_BGM);
-    m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0);
-    m4aSongNumStop(songNum);
-    m4aMPlayFadeIn(&gMPlayInfo_BGM, speed);
+    if (gSaveBlock2Ptr->optionsMusicOnOff == 0)
+    {
+        m4aSongNumStart(songNum);
+        m4aMPlayImmInit(&gMPlayInfo_BGM);
+        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0);
+        m4aSongNumStop(songNum);
+        m4aMPlayFadeIn(&gMPlayInfo_BGM, speed);
+    }
+    else
+    {
+        m4aSongNumStart(0);
+        m4aMPlayImmInit(0);
+        m4aMPlayVolumeControl(0, TRACKS_ALL, 0);
+        m4aSongNumStop(0);
+        m4aMPlayFadeIn(0, 0);
+    }
 }
 
 void FadeOutBGMTemporarily(u8 speed)
@@ -583,7 +594,12 @@ void PlayBGM(u16 songNum)
         songNum = 0;
     if (songNum == MUS_NONE)
         songNum = 0;
-    m4aSongNumStart(songNum);
+    if (gSaveBlock2Ptr->optionsMusicOnOff ==0)
+    {
+        m4aSongNumStart(songNum);
+    }
+    else
+        m4aSongNumStart(0);
 }
 
 void PlaySE(u16 songNum)
