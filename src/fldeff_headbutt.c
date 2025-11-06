@@ -21,11 +21,6 @@
 #include "constants/map_types.h"
 #include "constants/songs.h"
 
-static void Task_DoFieldMove_Init(u8 taskId);
-static void Task_DoFieldMove_ShowMonAfterPose(u8 taskId);
-static void Task_DoFieldMove_WaitForMon(u8 taskId);
-static void Task_DoFieldMove_RunFunc(u8 taskId);
-
 static void FieldCallback_Headbutt(void);
 static void FieldMove_Headbutt(void);
 
@@ -39,73 +34,6 @@ bool8 CheckMetatileBehaviorInFrontOfPlayer(u32 metatileBehavior)
         return TRUE;
     }
     return FALSE;
-}
-
-static void Task_DoFieldMove_Init(u8 taskId)
-{
-    u8 objEventId;
-
-    LockPlayerFieldControls();
-    gPlayerAvatar.preventStep = TRUE;
-    objEventId = gPlayerAvatar.objectEventId;
-    if (!ObjectEventIsMovementOverridden(&gObjectEvents[objEventId])
-     || ObjectEventClearHeldMovementIfFinished(&gObjectEvents[objEventId]))
-    {
-        if (gMapHeader.mapType == MAP_TYPE_UNDERWATER || gFieldEffectArguments[3])
-        {
-            // Skip field move pose underwater, or if arg3 is nonzero
-            if (gFieldEffectArguments[3])
-                gFieldEffectArguments[3] = 0;
-            FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
-            gTasks[taskId].func = Task_DoFieldMove_WaitForMon;
-        }
-        else
-        {
-            // Do field move pose
-            SetPlayerAvatarFieldMove();
-            ObjectEventSetHeldMovement(&gObjectEvents[objEventId], MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
-            gTasks[taskId].func = Task_DoFieldMove_ShowMonAfterPose;
-        }
-    }
-}
-
-static void Task_DoFieldMove_ShowMonAfterPose(u8 taskId)
-{
-    if (ObjectEventCheckHeldMovementStatus(&gObjectEvents[gPlayerAvatar.objectEventId]) == TRUE)
-    {
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
-        gTasks[taskId].func = Task_DoFieldMove_WaitForMon;
-    }
-}
-
-static void Task_DoFieldMove_WaitForMon(u8 taskId)
-{
-    if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
-    {
-        gFieldEffectArguments[1] = GetPlayerFacingDirection();
-        if (gFieldEffectArguments[1] == DIR_SOUTH)
-            gFieldEffectArguments[2] = 0;
-        if (gFieldEffectArguments[1] == DIR_NORTH)
-            gFieldEffectArguments[2] = 1;
-        if (gFieldEffectArguments[1] == DIR_WEST)
-            gFieldEffectArguments[2] = 2;
-        if (gFieldEffectArguments[1] == DIR_EAST)
-            gFieldEffectArguments[2] = 3;
-        ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByCurrentState());
-        StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], gFieldEffectArguments[2]);
-        FieldEffectActiveListRemove(FLDEFF_FIELD_MOVE_SHOW_MON);
-        gTasks[taskId].func = Task_DoFieldMove_RunFunc;
-    }
-}
-
-static void Task_DoFieldMove_RunFunc(u8 taskId)
-{
-    // The function for the field move to do is stored in halves across data[8] and data[9]
-    void (*fieldMoveFunc)(void) = (void (*)(void))(((u16)gTasks[taskId].data[8] << 16) | (u16)gTasks[taskId].data[9]);
-
-    fieldMoveFunc();
-    gPlayerAvatar.preventStep = FALSE;
-    DestroyTask(taskId);
 }
 
 // Called when Headbutt is used from the party menu

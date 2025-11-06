@@ -4215,7 +4215,6 @@ static void Task_RunPokemonLeagueLightingEffect(u8 taskId)
 
 static void Task_CancelPokemonLeagueLightingEffect(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
     if (FlagGet(FLAG_TEMP_4) != FALSE)
     {
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM))
@@ -4638,7 +4637,7 @@ bool16 TryChangeDeoxysForm(void)
      || baseSpecies == SPECIES_DEOXYS_DEFENSE
      || baseSpecies == SPECIES_DEOXYS_SPEED)
     {
-        struct MapPosition position;
+        struct MapPosition UNUSED position;
         extern struct MapPosition gPlayerFacingPosition;
         GetXYCoordsOneStepInFrontOfPlayer(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
         metatileBehavior = MapGridGetMetatileBehaviorAt(gPlayerFacingPosition.x, gPlayerFacingPosition.y);

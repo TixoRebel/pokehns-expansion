@@ -1349,7 +1349,7 @@ static void BufferBattleFacilityStats(void)
     }
 }
 
-static void PrintBattleFacilityStringOnCard(void)
+static void UNUSED PrintBattleFacilityStringOnCard(void)
 {
     switch (sData->cardType)
     {
@@ -1366,7 +1366,7 @@ static void PrintBattleFacilityStringOnCard(void)
     }
 }
 
-static void PrintPokemonIconsOnCard(void)
+static void UNUSED PrintPokemonIconsOnCard(void)
 {
     u8 i;
     u8 paletteSlots[PARTY_SIZE] = {5, 6, 7, 8, 9, 10};
@@ -1979,12 +1979,12 @@ static void UpdateTrainerCardMonIcons(void)
     }
 }
 
-static void DestroyTrainerCardMonIcons(void)
+static void UNUSED DestroyTrainerCardMonIcons(void)
 {
     u8 i;
     for (i = 0; i < gPlayerPartyCount; i++)
     {
         FreeAndDestroyMonIconSprite(&gSprites[spriteIdData[i]]);
-        FreeMonIconPalettes;
+        FreeMonIconPalettes();
     }
 }

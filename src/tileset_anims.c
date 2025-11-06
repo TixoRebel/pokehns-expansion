@@ -898,7 +898,8 @@ static void QueueAnimTiles_General_Flower(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(508)), 4 * TILE_SIZE_4BPP);
 }
 
-static void QueueAnimTiles_General_Water(u16 timer)
+// EMERALD
+static void UNUSED QueueAnimTiles_General_Water(u16 timer)
 {
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_General_Water);
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(416)), 30 * TILE_SIZE_4BPP);
@@ -1368,7 +1369,8 @@ static void QueueAnimTiles_General_LandWaterEdge(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_General_LandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(480)), 10 * TILE_SIZE_4BPP);
 }
 
-static void QueueAnimTiles_Lavaridge_Steam(u8 timer)
+// EMERALD
+static void UNUSED QueueAnimTiles_Lavaridge_Steam(u8 timer)
 {/*
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_Lavaridge_Steam);
     AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(896)), 4 * TILE_SIZE_4BPP);
@@ -1478,7 +1480,8 @@ static void TilesetAnim_MauvilleGym(u16 timer)
         QueueAnimTiles_MauvilleGym_ElectricGates(timer / 2);
 }
 
-static void TilesetAnim_SootopolisGym(u16 timer)
+// EMERALD
+static void UNUSED TilesetAnim_SootopolisGym(u16 timer)
 {
     if (timer % 8 == 0)
         QueueAnimTiles_SootopolisGym_Waterfalls(timer / 8);
