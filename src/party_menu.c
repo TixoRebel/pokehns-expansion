@@ -4372,7 +4372,8 @@ static void FieldCallback_Dive(void)
     FieldEffectStart(FLDEFF_USE_DIVE);
 }
 
-static bool8 SetUpFieldMove_Dive(void)
+// EMERALD
+static bool8 UNUSED SetUpFieldMove_Dive(void)
 {
     if (!CheckFollowerNPCFlag(FNPC_DIVE))
         return FALSE;

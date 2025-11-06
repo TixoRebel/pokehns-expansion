@@ -269,7 +269,6 @@ static const u32 sRegionMapBg_TilemapLZ_Johto[] = INCBIN_U32("graphics/pokenav/r
 //HnS
 // Variant selection
 enum MapVariant { MAPVAR_JOHTO, MAPVAR_JOHTO_KANTO };
-static u8 sMapVariant;
 
 
 // Active pointers that all callers use
@@ -1470,7 +1469,7 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
         // Get section rect from active layout (fallback to entries if absent)
         {
-            u16 ex = 0, ey = 0, ew = 1, eh = 1;
+            u16 UNUSED ex = 0, UNUSED ey = 0, ew = 1, eh = 1;
             u16 minx = MAP_WIDTH, miny = MAP_HEIGHT, maxx = 0, maxy = 0;
             bool32 found = FALSE;
 
@@ -1520,7 +1519,7 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
     // Final on-screen placement using the ACTIVE layout rect
     {
-        u16 ex = 0, ey = 0, ew = 1, eh = 1;
+        u16 ex = 0, ey = 0, UNUSED ew = 1, UNUSED eh = 1;
         u16 minx = MAP_WIDTH, miny = MAP_HEIGHT, maxx = 0, maxy = 0;
         bool32 found = FALSE;
 
