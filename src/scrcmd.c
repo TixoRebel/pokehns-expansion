@@ -3098,8 +3098,6 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
 // HnS PORT 
 bool8 ScrCmd_checkpartymonlevel(struct ScriptContext *ctx)
 {
-    u16 speciesLook = VarGet(ScriptReadHalfword(ctx));
-
     gSpecialVar_Result = PARTY_SIZE;
     struct Pokemon *pokemon = &gPlayerParty[gSpecialVar_0x8004];
     if (GetMonData(pokemon, MON_DATA_LEVEL) == 100) 

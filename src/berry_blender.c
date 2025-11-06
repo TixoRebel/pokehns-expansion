@@ -1535,11 +1535,12 @@ static u8 GetArrowProximity(u16 arrowPos, u8 playerId)
     return PROXIMITY_MISS;
 }
 
+// EMERALD
 static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry *playerBerry)
 {
     u16 opponentSetId = 0;
     u16 opponentBerryId;
-    u16 berryMasterDiff;
+    u16 UNUSED berryMasterDiff;
     u16 i;
 
     if (playerBerryItemId == ITEM_ENIGMA_BERRY_E_READER)
@@ -1987,7 +1988,8 @@ static void Task_HandleOpponent3(u8 taskId)
     }
 }
 
-static void Task_HandleBerryMaster(u8 taskId)
+// EMERALD
+static void UNUSED Task_HandleBerryMaster(u8 taskId)
 {
     if (GetArrowProximity(sBerryBlender->arrowPos, 1) == PROXIMITY_BEST)
     {

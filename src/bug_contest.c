@@ -101,7 +101,7 @@ bool8 JudgeBugContestMon(void)
     //paras min hp:33
 
     u16 monIndex = VarGet(VAR_0x8004);
-    u16 species = GetMonData(&gPlayerParty[monIndex], MON_DATA_SPECIES);
+    u16 UNUSED species = GetMonData(&gPlayerParty[monIndex], MON_DATA_SPECIES);
     u8 maxHP = GetMonData(&gPlayerParty[monIndex], MON_DATA_MAX_HP); //change to MON_DATA_HP for a more authentic johto experience
     u16 rand = Random() % 100;
     u16 placement;

@@ -72,5 +72,9 @@ u8 GetLeftSideStairsDirection(u8 direction);
 void UpdateSpinData(void);
 void ResetSpinTimer(void);
 bool32 CanTriggerSpinEvolution();
+void Task_DoFieldMove_Init(u8 taskId);
+void Task_DoFieldMove_ShowMonAfterPose(u8 taskId);
+void Task_DoFieldMove_WaitForMon(u8 taskId);
+void Task_DoFieldMove_RunFunc(u8 taskId);
 
 #endif // GUARD_FIELD_PLAYER_AVATAR_H

@@ -1629,7 +1629,7 @@ static void InterviewAfter_PkmnFanClubOpinions(void)
 
 static void InterviewAfter_Dummy(void)
 {
-    TVShow *show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
+    TVShow UNUSED *show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
 }
 
 static void TryStartRandomMassOutbreak(void)
