@@ -1028,10 +1028,10 @@
 // LEGEND PLATE
 
 // difficulty items
-#define ITEM_INFINITE_REPEL 840
-#define ITEM_INFINITE_RARE_CANDIES 841
+//#define ITEM_INFINITE_REPEL 840
+//#define ITEM_INFINITE_RARE_CANDIES 841
 
-#define ITEMS_COUNT 842
+#define ITEMS_COUNT 840
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
