@@ -7,7 +7,6 @@
 #include "battle_util.h"
 #include "bg.h"
 #include "contest.h"
-#include "decompress.h"
 #include "dma3.h"
 #include "gpu_regs.h"
 #include "graphics.h"
@@ -23,6 +22,7 @@
 #include "test/battle.h"
 #include "constants/battle_anim.h"
 #include "constants/moves.h"
+#include "decompress.h"
 
 /*
     This file handles the commands for the macros defined in

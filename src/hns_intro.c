@@ -459,8 +459,8 @@ static void HnSIntroCB_Init(struct IntroSequenceData * this)
     {
     case 0:
         InitWindows(sWindowTemplate);
-        LZ77UnCompWram(sBlit_GameFreakText, this->gamefreakTextBitmap);
-        LZ77UnCompWram(sSpriteTiles_GameFreakLogo, this->gamefreakLogoArtSpriteTiles);
+        DecompressDataWithHeaderWram(sBlit_GameFreakText, this->gamefreakTextBitmap);
+        DecompressDataWithHeaderWram(sSpriteTiles_GameFreakLogo, this->gamefreakLogoArtSpriteTiles);
         FillBgTilemapBufferRect(2, 0x000, 0, 0, 32, 32, 0x11);
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
         BlitBitmapToWindow(0, this->gamefreakTextBitmap, 0, 40, 144, 16);

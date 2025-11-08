@@ -1357,7 +1357,7 @@ static void CreateShinyStarObj(u16 tileTag, u16 palTag)
     if (gfxBuffer == NULL)
         goto fail;
 
-    LZ77UnCompWram(sStarObjTiles, gfxBuffer);
+    DecompressDataWithHeaderWram(sStarObjTiles, gfxBuffer);
 
     struct SpriteSheet sheet = {
         .data = gfxBuffer,

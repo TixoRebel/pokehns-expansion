@@ -486,8 +486,8 @@ static void CB2_LoadSlidingPuzzle(void)
         break;
     case 5:
         LoadPalette(sSlidingPuzzle_Pal, 0, 32);
-        LZ77UnCompVram(sSlidingPuzzle_Gfx, (void *)(BG_CHAR_ADDR(0)));
-        LZ77UnCompVram(sSlidingPuzzle_Tilemap, (void *)(BG_SCREEN_ADDR(7)));
+        DecompressDataWithHeaderVram(sSlidingPuzzle_Gfx, (void *)(BG_CHAR_ADDR(0)));
+        DecompressDataWithHeaderVram(sSlidingPuzzle_Tilemap, (void *)(BG_SCREEN_ADDR(7)));
         ShowBg(1);
         break;
     case 6:

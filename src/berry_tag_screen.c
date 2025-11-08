@@ -1,7 +1,6 @@
 #include "global.h"
 #include "berry_tag_screen.h"
 #include "berry.h"
-#include "decompress.h"
 #include "event_object_movement.h"
 #include "item_menu.h"
 #include "item.h"
