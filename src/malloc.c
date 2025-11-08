@@ -207,10 +207,6 @@ void InitHeap(void *heapStart, u32 heapSize)
 
 void *Alloc_(u32 size, const char *location)
 {
-    if (!TESTING)
-    {
-        DebugPrintfLevel(MGBA_LOG_WARN, "Allocing %d bytes", size);
-    }
     return AllocInternal(sHeapStart, size, location);
 }
 
