@@ -122,26 +122,26 @@ static void Task_SmoothBlendLayers(u8 taskId);
 // Scenes
 
 // EXPANSION CREDITS - could be worth putting in and adding HnS devs?
-// static const u32 sBgTiles_PoweredBy[] = INCBIN_U32("graphics/expansion_intro/powered_by.4bpp.lz"); // could use
-// static const u32 sBgTiles_RhhCredits[] = INCBIN_U32("graphics/expansion_intro/rhh_credits.8bpp.lz");
-// static const u32 sBgMap_PoweredBy[] = INCBIN_U32("graphics/expansion_intro/powered_by.bin.lz");
-// static const u32 sBgMap_RhhCredits[] = INCBIN_U32("graphics/expansion_intro/rhh_credits.bin.lz");
+// static const u32 sBgTiles_PoweredBy[] = INCBIN_U32("graphics/expansion_intro/powered_by.4bpp.smol"); // could use
+// static const u32 sBgTiles_RhhCredits[] = INCBIN_U32("graphics/expansion_intro/rhh_credits.8bpp.smol");
+// static const u32 sBgMap_PoweredBy[] = INCBIN_U32("graphics/expansion_intro/powered_by.bin.smolTM");
+// static const u32 sBgMap_RhhCredits[] = INCBIN_U32("graphics/expansion_intro/rhh_credits.bin.smolTM");
 // static const u16 sBgPal_Credits[] = INCBIN_U16("graphics/expansion_intro/credits.gbapal");
 
 // OG
 static const u16 sBg3Pal_GameFreakPresents[]                = INCBIN_U16("graphics/intro/GameFreakPresentsBg.gbapal");
-static const u8  sBg3Tiles_GameFreakPresents[]              = INCBIN_U8("graphics/intro/GameFreakPresentsBg.4bpp.lz");
-static const u8  sBg3Map_GameFreakPresents[]                = INCBIN_U8("graphics/intro/GameFreakPresentsBg.bin.lz");
+static const u8  sBg3Tiles_GameFreakPresents[]              = INCBIN_U8("graphics/intro/GameFreakPresentsBg.4bpp.smol");
+static const u8  sBg3Map_GameFreakPresents[]                = INCBIN_U8("graphics/intro/GameFreakPresentsBg.bin.smolTM");
 static const u16 sSpritePals_GameFreakPresents[]            = INCBIN_U16("graphics/intro/GameFreakText.gbapal"); // GameFreakText.pal might be incorrect...
 
-static const u32 sBlit_GameFreakText[]                      = INCBIN_U32("graphics/intro/GameFreakText.4bpp.lz");
-static const u32 sSpriteTiles_GameFreakLogo[]               = INCBIN_U32("graphics/intro/GameFreakLogo.4bpp.lz");
+static const u32 sBlit_GameFreakText[]                      = INCBIN_U32("graphics/intro/GameFreakText.4bpp.smol");
+static const u32 sSpriteTiles_GameFreakLogo[]               = INCBIN_U32("graphics/intro/GameFreakLogo.4bpp.smol");
 static const u16 sSpritePals_LargeStar[]                    = INCBIN_U16("graphics/intro/LargeStar.gbapal");
-static const u32 sSpriteTiles_LargeStar[]                   = INCBIN_U32("graphics/intro/LargeStar.4bpp.lz");
+static const u32 sSpriteTiles_LargeStar[]                   = INCBIN_U32("graphics/intro/LargeStar.4bpp.smol");
 static const u16 sSpritePals_Sparkles[]                     = INCBIN_U16("graphics/intro/TrailingSparkles.gbapal"); // might want to rename .pal to just "sparkles"
-static const u32 sSpriteTiles_TrailingSparkles[]            = INCBIN_U32("graphics/intro/TrailingSparkles.4bpp.lz");
-static const u32 sSpriteTiles_GameFreakTextRevealSparkles[] = INCBIN_U32("graphics/intro/GameFreakTextRevealSparkles.4bpp.lz");
-static const u32 sSpriteTiles_PresentsText[]                = INCBIN_U32("graphics/intro/PresentsText.4bpp.lz");
+static const u32 sSpriteTiles_TrailingSparkles[]            = INCBIN_U32("graphics/intro/TrailingSparkles.4bpp.smol");
+static const u32 sSpriteTiles_GameFreakTextRevealSparkles[] = INCBIN_U32("graphics/intro/GameFreakTextRevealSparkles.4bpp.smol");
+static const u32 sSpriteTiles_PresentsText[]                = INCBIN_U32("graphics/intro/PresentsText.4bpp.smol");
 // OG
 
 // start HnS
@@ -459,8 +459,8 @@ static void HnSIntroCB_Init(struct IntroSequenceData * this)
     {
     case 0:
         InitWindows(sWindowTemplate);
-        LZ77UnCompWram(sBlit_GameFreakText, this->gamefreakTextBitmap);
-        LZ77UnCompWram(sSpriteTiles_GameFreakLogo, this->gamefreakLogoArtSpriteTiles);
+        DecompressDataWithHeaderWram(sBlit_GameFreakText, this->gamefreakTextBitmap);
+        DecompressDataWithHeaderWram(sSpriteTiles_GameFreakLogo, this->gamefreakLogoArtSpriteTiles);
         FillBgTilemapBufferRect(2, 0x000, 0, 0, 32, 32, 0x11);
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
         BlitBitmapToWindow(0, this->gamefreakTextBitmap, 0, 40, 144, 16);

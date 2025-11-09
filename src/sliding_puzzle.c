@@ -48,8 +48,8 @@ static EWRAM_DATA struct SlidingPuzzle *sSlidingPuzzle = NULL;
 static u8 sSavedButtonMode = 0;
 static bool8 sSavedButtonModeValid = FALSE;
 
-static const u32 sSlidingPuzzle_Gfx[]     = INCBIN_U32("graphics/sliding_puzzle/bg.4bpp.lz");
-static const u32 sSlidingPuzzle_Tilemap[] = INCBIN_U32("graphics/sliding_puzzle/map.bin.lz");
+static const u32 sSlidingPuzzle_Gfx[]     = INCBIN_U32("graphics/sliding_puzzle/bg.4bpp.smol");
+static const u32 sSlidingPuzzle_Tilemap[] = INCBIN_U32("graphics/sliding_puzzle/map.bin.smolTM");
 static const u16 sSlidingPuzzle_Pal[]     = INCBIN_U16("graphics/sliding_puzzle/bg.gbapal");
 
 enum
@@ -102,7 +102,7 @@ static const u16 sRowYCoords[NUM_SLIDING_PUZZLE_ROWS] =
     136,
 };
 
-static const u32 sCursor_Gfx[]      = INCBIN_U32("graphics/sliding_puzzle/cursor.4bpp.lz");
+static const u32 sCursor_Gfx[]      = INCBIN_U32("graphics/sliding_puzzle/cursor.4bpp.smol");
 static const u16 sCursorTiles_Pal[] = INCBIN_U16("graphics/sliding_puzzle/cursor_tiles.gbapal");
 
 #define TAG_CURSOR    244
@@ -486,8 +486,8 @@ static void CB2_LoadSlidingPuzzle(void)
         break;
     case 5:
         LoadPalette(sSlidingPuzzle_Pal, 0, 32);
-        LZ77UnCompVram(sSlidingPuzzle_Gfx, (void *)(BG_CHAR_ADDR(0)));
-        LZ77UnCompVram(sSlidingPuzzle_Tilemap, (void *)(BG_SCREEN_ADDR(7)));
+        DecompressDataWithHeaderVram(sSlidingPuzzle_Gfx, (void *)(BG_CHAR_ADDR(0)));
+        DecompressDataWithHeaderVram(sSlidingPuzzle_Tilemap, (void *)(BG_SCREEN_ADDR(7)));
         ShowBg(1);
         break;
     case 6:

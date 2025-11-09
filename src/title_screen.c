@@ -63,12 +63,12 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite);
 // const rom data
 static const u16 sUnusedUnknownPal[]            = INCBIN_U16("graphics/title_screen/unused.gbapal");
 
-static const u32 sTitleScreenHnSGfx[]           = INCBIN_U32("graphics/title_screen/hns_title_screen.4bpp.lz");
-static const u32 sTitleScreenRayquazaGfx[]      = INCBIN_U32("graphics/title_screen/rayquaza.4bpp.lz");
-static const u32 sTitleScreenHnSTilemap[]       = INCBIN_U32("graphics/title_screen/hns_title_screen.bin.lz");
-static const u32 sTitleScreenRayquazaTilemap[]  = INCBIN_U32("graphics/title_screen/rayquaza.bin.lz"); // TODO - return this to using expansion's rayquaza.bin
-static const u32 sTitleScreenLogoShineGfx[]     = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.lz");
-static const u32 sTitleScreenCloudsGfx[]        = INCBIN_U32("graphics/title_screen/clouds.4bpp.lz");
+static const u32 sTitleScreenHnSGfx[]           = INCBIN_U32("graphics/title_screen/hns_title_screen.4bpp.smol");
+static const u32 sTitleScreenRayquazaGfx[]      = INCBIN_U32("graphics/title_screen/rayquaza.4bpp.smol");
+static const u32 sTitleScreenHnSTilemap[]       = INCBIN_U32("graphics/title_screen/hns_title_screen.bin.smolTM");
+static const u32 sTitleScreenRayquazaTilemap[]  = INCBIN_U32("graphics/title_screen/rayquaza.bin.smolTM"); // TODO - return this to using expansion's rayquaza.bin
+static const u32 sTitleScreenLogoShineGfx[]     = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.smol");
+static const u32 sTitleScreenCloudsGfx[]        = INCBIN_U32("graphics/title_screen/clouds.4bpp.smol");
 
 
 
@@ -602,16 +602,16 @@ void CB2_InitTitleScreen(void)
         break;
     case 1:
         // bg2
-        LZ77UnCompVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(0)));
-        LZ77UnCompVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
+        DecompressDataWithHeaderVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(0)));
+        DecompressDataWithHeaderVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
         LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
         // bg3
-        LZ77UnCompVram(sTitleScreenHnSGfx, (void *)(BG_CHAR_ADDR(2)));
-        LZ77UnCompVram(sTitleScreenHnSTilemap, (void *)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(sTitleScreenHnSGfx, (void *)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(sTitleScreenHnSTilemap, (void *)(BG_SCREEN_ADDR(26)));
         // bg1
         // HnS PORT - Apparently clouds were not wanted
-        // LZ77UnCompVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
-        // LZ77UnCompVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
+        // DecompressDataWithHeaderVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
+        // DecompressDataWithHeaderVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
         ScanlineEffect_Stop();
         ResetTasks();
         ResetSpriteData();

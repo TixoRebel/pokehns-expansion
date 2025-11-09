@@ -50,6 +50,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "bug_contest.h"
+#include "malloc.h"
 
 // Menu actions
 enum
@@ -528,6 +529,7 @@ static bool32 PrintStartMenuActions(s8 *pIndex, u32 count)
 
 static bool32 InitStartMenuStep(void)
 {
+    DebugPrintfLevel(MGBA_LOG_WARN, "InitStartMenuStep");
     s8 state = sInitStartMenuData[0];
 
     switch (state)
