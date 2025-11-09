@@ -70,18 +70,18 @@ extern const u8 gContestPaintingTough2[];
 extern const u8 gContestPaintingTough3[];
 
 static const u16 sPictureFramePalettes[]          = INCBIN_U16("graphics/picture_frame/bg.gbapal");
-static const u32 sPictureFrameTiles_Cool[]        = INCBIN_U32("graphics/picture_frame/cool.4bpp.rl");
-static const u32 sPictureFrameTiles_Beauty[]      = INCBIN_U32("graphics/picture_frame/beauty.4bpp.rl");
-static const u32 sPictureFrameTiles_Cute[]        = INCBIN_U32("graphics/picture_frame/cute.4bpp.rl");
-static const u32 sPictureFrameTiles_Smart[]       = INCBIN_U32("graphics/picture_frame/smart.4bpp.rl");
-static const u32 sPictureFrameTiles_Tough[]       = INCBIN_U32("graphics/picture_frame/tough.4bpp.rl");
-static const u32 sPictureFrameTiles_HallLobby[]   = INCBIN_U32("graphics/picture_frame/lobby.4bpp.rl");
-static const u32 sPictureFrameTilemap_Cool[]      = INCBIN_U32("graphics/picture_frame/cool_map.bin.rl");
-static const u32 sPictureFrameTilemap_Beauty[]    = INCBIN_U32("graphics/picture_frame/beauty_map.bin.rl");
-static const u32 sPictureFrameTilemap_Cute[]      = INCBIN_U32("graphics/picture_frame/cute_map.bin.rl");
-static const u32 sPictureFrameTilemap_Smart[]     = INCBIN_U32("graphics/picture_frame/smart_map.bin.rl");
-static const u32 sPictureFrameTilemap_Tough[]     = INCBIN_U32("graphics/picture_frame/tough_map.bin.rl");
-static const u32 sPictureFrameTilemap_HallLobby[] = INCBIN_U32("graphics/picture_frame/lobby_map.bin.rl");
+static const u32 sPictureFrameTiles_Cool[]        = INCBIN_U32("graphics/picture_frame/cool.4bpp.smol");
+static const u32 sPictureFrameTiles_Beauty[]      = INCBIN_U32("graphics/picture_frame/beauty.4bpp.smol");
+static const u32 sPictureFrameTiles_Cute[]        = INCBIN_U32("graphics/picture_frame/cute.4bpp.smol");
+static const u32 sPictureFrameTiles_Smart[]       = INCBIN_U32("graphics/picture_frame/smart.4bpp.smol");
+static const u32 sPictureFrameTiles_Tough[]       = INCBIN_U32("graphics/picture_frame/tough.4bpp.smol");
+static const u32 sPictureFrameTiles_HallLobby[]   = INCBIN_U32("graphics/picture_frame/lobby.4bpp.smol");
+static const u32 sPictureFrameTilemap_Cool[]      = INCBIN_U32("graphics/picture_frame/cool_map.bin.smolTM");
+static const u32 sPictureFrameTilemap_Beauty[]    = INCBIN_U32("graphics/picture_frame/beauty_map.bin.smolTM");
+static const u32 sPictureFrameTilemap_Cute[]      = INCBIN_U32("graphics/picture_frame/cute_map.bin.smolTM");
+static const u32 sPictureFrameTilemap_Smart[]     = INCBIN_U32("graphics/picture_frame/smart_map.bin.smolTM");
+static const u32 sPictureFrameTilemap_Tough[]     = INCBIN_U32("graphics/picture_frame/tough_map.bin.smolTM");
+static const u32 sPictureFrameTilemap_HallLobby[] = INCBIN_U32("graphics/picture_frame/lobby_map.bin.smolTM");
 
 static const u8 *const sContestCategoryNames_Unused[] =
 {
