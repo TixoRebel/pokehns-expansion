@@ -383,7 +383,7 @@ static const u8 *const OptionTextRight(u8 menuItem)
     case MENU_MAIN:     return sOptionMenuItemsNamesMain[menuItem];
     case MENU_CUSTOM:   return sOptionMenuItemsNamesCustom[menuItem];
     case MENU_SOUND:    return sOptionMenuItemsNamesSound[menuItem];
-    default:            return sOptionMenuItemsNamesMain[menuItem];
+    default:            return sOptionMenuItemsNamesMain[menuItem]; 
     }
     
 }
@@ -440,7 +440,8 @@ static bool8 CheckConditions(int selection)
         //case MENUITEM_SOUND_BATTLE_FRONTIER_TRAINER_MUSIC:    return TRUE;
         //case MENUITEM_SOUND_EFFECTS:                          return TRUE;
         }
-    default: return TRUE;
+    default:
+        return TRUE;
     }
 }
 
@@ -639,9 +640,8 @@ static const u8 *const OptionTextDescription(void)
         selection = sOptions->sel_sound[menuItem];
         return sOptionMenuItemDescriptionsSound[menuItem][selection];
     default:
-        return sOptionMenuItemDescriptionsMain[menuItem][0];
+        return sOptionMenuItemDescriptionsDisabledMain[menuItem];
     }
-
 }
 
 static u8 MenuItemCount(void)
@@ -651,7 +651,7 @@ static u8 MenuItemCount(void)
     case MENU_MAIN:     return MENUITEM_MAIN_COUNT;
     case MENU_CUSTOM:   return MENUITEM_BATTLE_COUNT;
     case MENU_SOUND:    return MENUITEM_SOUND_COUNT;
-    default:            return MENUITEM_MAIN_COUNT;      
+    default:            return MENUITEM_MAIN_COUNT;
     }
 }
 
@@ -1309,6 +1309,7 @@ static int ProcessInput_BattleStyle(int selection)
             selection ^= 1;
         }
     }
+
     return selection;
 }
 
@@ -1426,15 +1427,6 @@ static void DrawChoices_BattleScene(int selection, int y)
     bool8 active = CheckConditions(MENUITEM_MAIN_BATTLESCENE);
     u8 styles[2] = {0};
     styles[selection] = 1;
-
-    if (selection == 0)
-    {
-        gSaveBlock2Ptr->optionsBattleSceneOff = 0; //OFF
-    }
-    else
-    {
-        gSaveBlock2Ptr->optionsBattleSceneOff = 1; //ON
-    }
 
     DrawOptionMenuChoice(gText_BattleSceneOn, 104, y, styles[0], active);
     DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleSceneOff, 198), y, styles[1], active);
