@@ -10975,3 +10975,30 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Toxic
 - Faint Attack
 - Fly
+
+/*TEST SYSTEM TRAINERS*/
+=== TRAINER_RED ===
+Name: RED
+Class: Rival
+Pic: Red
+Gender: Male
+Music: Male
+Double Battle: No
+
+Charmander
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_LEAF ===
+Name: LEAF
+Class: Rival
+Pic: Leaf
+Gender: Female
+Music: Male
+Double Battle: No
+
+Bulbasaur
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*END TEST SYSTEM TRAINERS*/
