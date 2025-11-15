@@ -26982,3 +26982,65 @@
             },
         },
     },
+#line 10980
+    [DIFFICULTY_NORMAL][TRAINER_RED] =
+    {
+#line 10981
+        .trainerName = _("RED"),
+#line 10982
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 10983
+        .trainerPic = TRAINER_PIC_RED,
+        .encounterMusic_gender =
+#line 10985
+            TRAINER_ENCOUNTER_MUSIC_MALE,
+#line 10986
+        .battleType = TRAINER_BATTLE_TYPE_SINGLES,
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 10988
+            .species = SPECIES_CHARMANDER,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 10990
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 10989
+            .lvl = 5,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
+    },
+#line 10992
+    [DIFFICULTY_NORMAL][TRAINER_LEAF] =
+    {
+#line 10993
+        .trainerName = _("LEAF"),
+#line 10994
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 10995
+        .trainerPic = TRAINER_PIC_LEAF,
+        .encounterMusic_gender =
+#line 10996
+F_TRAINER_FEMALE | 
+#line 10997
+            TRAINER_ENCOUNTER_MUSIC_MALE,
+#line 10998
+        .battleType = TRAINER_BATTLE_TYPE_SINGLES,
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 11000
+            .species = SPECIES_BULBASAUR,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 11002
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 11001
+            .lvl = 5,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
+    },

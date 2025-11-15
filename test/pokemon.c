@@ -496,7 +496,7 @@ TEST("BoxPokemon encryption works")
     EXPECT_EQ(GetNature(&mon), NATURE_HARDY);
     EXPECT_EQ(GetMonData(&mon, MON_DATA_HIDDEN_NATURE), NATURE_ADAMANT);
     EXPECT_EQ(GetMonData(&mon, MON_DATA_HP_LOST), 10);
-    EXPECT_EQ(GetMonData(&mon, MON_DATA_HELD_ITEM), ITEM_ORAN_BERRY);
+    EXPECT_EQ(GetMonData(&mon, MON_DATA_HELD_ITEM), ITEM_LEPPA_BERRY); // grintoul: changed to Leppa Berry as GS Ball addition de-synched items by 1
     EXPECT_EQ(GetMonData(&mon, MON_DATA_MOVE1), MOVE_TACKLE);
     EXPECT_EQ(GetMonData(&mon, MON_DATA_MOVE2), MOVE_SCRATCH);
     EXPECT_EQ(GetMonData(&mon, MON_DATA_MOVE3), MOVE_POUND);
