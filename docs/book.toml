@@ -1,13 +1,12 @@
 [book]
 language = "en"
-multilingual = false
 src = "."
-title = "pokeemerald-expansion"
+title = "pokehns-expansion"
 
 [output.html]
-git-repository-url = "https://github.com/rh-hideout/pokeemerald-expansion"
-edit-url-template = "https://github.com/rh-hideout/pokeemerald-expansion/edit/master/docs/{path}"
-site-url = "/pokeemerald-expansion/"
+git-repository-url = "https://https://github.com/TixoRebel/pokehns-expansion"
+edit-url-template = "https://https://github.com/TixoRebel/pokehns-expansion/edit/main/docs/{path}"
+site-url = "/pokehns-expansion/"
 
 [preprocessor.fix_links]
 command = "python3 fix_links.py"
