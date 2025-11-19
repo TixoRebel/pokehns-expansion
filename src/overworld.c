@@ -1055,7 +1055,7 @@ bool32 Overworld_IsBikingAllowed(void)
 }
 
 // HnS
-static bool8 CanLearnFlashInParty(void)
+static UNUSED bool8 CanLearnFlashInParty(void)
 {
     u8 i;
     for (i = 0; i < PARTY_SIZE; i++)
