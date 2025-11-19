@@ -17,16 +17,10 @@ jobs:
           mode: minimum
           count: 1
           labels: |
-            General
-            General Merge
-            category: ability
-            category: battle-ai
-            category: battle-mechanic
-            category: battle-tests
-            category: items
-            category: move animation
-            category: move effect
+            dev: merge into main
+            category: battle mechanic
+            category: tests
             category: overworld
-            category: pokemon
-            category: sprite-issue
+            type: bug-fix
             type: documentation
+            type: hns-feature
