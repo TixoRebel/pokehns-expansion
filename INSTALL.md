@@ -4,7 +4,7 @@ Lines to those can be found under each heading.
 This file only contains a short introduction to each supported system.
 If you run into trouble, ask for help on Discord (see [README.md](README.md)).
 
-After completing the install instructions for your OS, proceed to [Building pokeemerald-expansion](#building-pokeemerald-expansion).
+After completing the install instructions for your OS, proceed to [Building pokehns-expansion](#building-pokehns-expansion).
 
 ## Windows
 **Windows needs one of the systems to build the project**
@@ -45,18 +45,18 @@ Only tested on x86_64 based systems.
 
 [Chrome OS instructions](docs/install/chromeos/CHROME_OS.md)
 
-# Building pokeemerald-expansion
-Follow these steps to build `pokeemerald-expansion`.
+# Building pokehns-expansion
+Follow these steps to build `pokehns-expansion`.
 1. Navigate to the directory you want to keep the project in, be aware of any system specific limitations.
-2. Download `pokeemerald-expansion` with `git`
+2. Download `pokehns-expansion` with `git`
 
     ```console
-    git clone https://github.com/rh-hideout/pokeemerald-expansion
+    git clone https://https://github.com/TixoRebel/pokehns-expansion
     ```
 3. Navigate to the newly downloaded project.
 
     ```console
-    cd pokeemerald-expansion
+    cd pokehns-expansion
     ```
 4. Build the project.
 
@@ -66,17 +66,17 @@ Follow these steps to build `pokeemerald-expansion`.
 5. If everything worked correctly, something very similar to this should be seen.
 
     ```console
-    arm-none-eabi-ld: warning: ../../pokeemerald.elf has a LOAD segment with RWX permissions
+    arm-none-eabi-ld: warning: ../../pokehns-expansion.elf has a LOAD segment with RWX permissions
     Memory region         Used Size  Region Size  %age Used
                EWRAM:      243354 B       256 KB     92.83%
                IWRAM:       30492 B        32 KB     93.05%
                  ROM:    26072244 B        32 MB     77.70%
-    cd build/modern && arm-none-eabi-ld  -T ../../ld_script_modern.ld --print-memory-usage -o ../../pokeemerald.elf <objs> <libs> | cat
-    tools/gbafix/gbafix pokeemerald.elf -t"POKEMON EMER" -cBPEE -m01 -r0 --silent
-    arm-none-eabi-objcopy -O binary pokeemerald.elf pokeemerald.gba
-    tools/gbafix/gbafix pokeemerald.gba -p --silent
+    cd build/modern && arm-none-eabi-ld  -T ../../ld_script_modern.ld --print-memory-usage -o ../../pokehns-expansion.elf <objs> <libs> | cat
+    tools/gbafix/gbafix pokehns-expansion.elf -t"POKEMON EMER" -cBPEE -m01 -r0 --silent
+    arm-none-eabi-objcopy -O binary pokehns-expansion.elf pokehns-expansion.gba
+    tools/gbafix/gbafix pokehns-expansion.gba -p --silent
     ```
-    And the build ROM will be in the directory as `pokeemerald.gba`.
+    And the build ROM will be in the directory as `pokehns-expansion.gba`.
 
 # Building guidance
 
@@ -110,53 +110,36 @@ To compile the `modern` target with this toolchain, the subdirectories `lib`, `i
 
 ### Building with debug info
 
-To build **pokeemerald.elf** with debug symbols and debug-compatible optimization under a modern toolchain:
+To build **pokehns-expansion.elf** with debug symbols and debug-compatible optimization under a modern toolchain:
 ```console
 make debug
 ```
 
 # Choosing a branch
-**pokeemerald-expansion** has different branches that users can decide to use.
+**pokehns-expansion** has different branches that users can decide to use.
 
 ## Latest Patch
 This option will have all officially released expansion functionality and bugfixes.
 
-## `master`
-The `master` branch has all of the functionality from "Latest Patch", as well as any bugfixes that have been discovered since that release.
+## `main`
+The `main` branch has all of the functionality from "Latest Patch", as well as any bugfixes that have been discovered and accepted into main since that release.
 
-## `upcoming`
-The `master` branch has all of the functionality from "Latest Patch", as well as any functionality that has been added since that release.
+## `development-bugfix`
+The `development-bugfix` branch has all of the functionality from "Latest Patch", as well as any functionality that has been added since that release, and bugfixes that haven't yet been accepted into main.
 
-The bugfixes on `master` are occasionally merged into `upcoming`, but there is no official cadence.
+Any bugfixes on `main` are occasionally merged into `development-bugfix`, but there is no official cadence.
 
-# Migrating from pokeemerald
+# Updating pokehns-expansion
 
-1. Set RHH as a git remote
+1. Set HNS-EXPANSION as a git remote
 ```console
-git remote add RHH https://github.com/rh-hideout/pokeemerald-expansion
-```
-
-2. Pull your desired branch
-There are three different options to pull from.
-```console
-git pull RHH master # if you've chosen to use the upcoming branch, replace the word master with upcoming. 
-# If you've chosen the latest patch, replace the word master with expansion
-# If you've chosen Latest Patch, replace the word master with expansion/1.11.0 where 1.11.0 is replaced with whatever the latest released version is.
-```
-
-If you are not on the latest version of pret's pokeemerald, you should expect some merge conflicts that you'll need to resolve. Once complete, you'll be using **pokeemerald-expansion**.
-
-# Updating pokeemerald-expansion
-
-1. Set RHH as a git remote
-```console
-git remote add RHH https://github.com/rh-hideout/pokeemerald-expansion
+git remote add HNS-EXPANSION https://github.com/TixoRebel/pokehns-expansion
 ```
 
 2. Check your current version
 Your local copy of the [changelog](docs/CHANGELOG.md) will be updated with the version your repo is on.
 
-3. Select a target version
+3. Select a target version - TO DO: UPDATE TO HNS RELEASES
 We recommend incrementally updating to the next version using the following order below.
 If you are on a version older than 1.6.2, you should target 1.6.2..
     * 1.6.2
@@ -169,12 +152,12 @@ For example, if your version is 1.7.0, you should update to 1.7.4.
 
 4. Pull the target version
 ```console
-git pull RHH expansion/X.Y.Z # Replace X, Y and Z with the target version, such as `1.9.3`, `master`, or `upcoming`.
+git pull HNS-EXPANSION hns-expansion-release-X.Y.Z # Replace X, Y and Z with the target version, such as `hns-expansion-release-1.9.3`, `main`, or `development-bugfix`.
 ```
 
 You may have merge conflicts that you need to resolve. 
 
-If you targeted a specific version that is not the latest version listed on the [tags](https://github.com/rh-hideout/pokeemerald-expansion/tags) page, you should repeat steps 3 and 4 until you are.
+Different releases are stored as branches which may be found on the [branches](https://github.com/TixoRebel/pokehns-expansion/branches) page. You should repeat steps 3 and 4 until you are up to date with the latest release.
 
 # Useful additional tools
 

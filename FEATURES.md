@@ -1,4 +1,7 @@
 # What features are included?
+## PLEASE NOTE
+This feature list is taken from RHH's pokeemerald-expansion and at present is not maintained for pokehns-expansion specifically.
+
 ## Table of Contents
 - [What features are included?](#what-features-are-included)
   - [Table of Contents](#table-of-contents)
