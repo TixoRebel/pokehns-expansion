@@ -194,7 +194,7 @@
     },
     {
       "map_section": "MAPSEC_FORTREE_CITY",
-      "name": "",
+      "name": "FORTREE CITY",
       "x": 1,
       "y": 17,
       "width": 1,
@@ -202,7 +202,7 @@
     },
     {
       "map_section": "MAPSEC_LILYCOVE_CITY",
-      "name": "",
+      "name": "LILYCOVE CITY",
       "x": 2,
       "y": 17,
       "width": 1,
@@ -210,7 +210,7 @@
     },
     {
       "map_section": "MAPSEC_MOSSDEEP_CITY",
-      "name": "",
+      "name": "MOSSDEEP CITY",
       "x": 3,
       "y": 17,
       "width": 1,
@@ -218,7 +218,7 @@
     },
     {
       "map_section": "MAPSEC_SOOTOPOLIS_CITY",
-      "name": "",
+      "name": "SOOTOPOLIS CITY",
       "x": 3,
       "y": 17,
       "width": 1,
@@ -466,7 +466,7 @@
     },
     {
       "map_section": "MAPSEC_BATTLE_FRONTIER",
-      "name": "",
+      "name": "BATTLE FRONTIER",
       "x": 0,
       "y": 17,
       "width": 1,
@@ -778,7 +778,7 @@
     },
     {
       "map_section": "MAPSEC_INDIGO_PLATEAU2",
-      "name": "",
+      "name": "INDIGO PLATEAU",
       "x": 16,
       "y": 2,
       "width": 1,
@@ -1034,7 +1034,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERGROUND_PATH",
-      "name": "",
+      "name": "UNDERGROUND PATH",
       "x": 24,
       "y": 5,
       "width": 1,

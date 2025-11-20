@@ -20,11 +20,11 @@
 #include "field_specials.h"
 #include "fldeff.h"
 #include "region_map.h"
+#include "decompress.h"
 #include "constants/region_map_sections.h"
 #include "heal_location.h"
 #include "constants/field_specials.h"
 #include "constants/heal_locations.h"
-#include "constants/map_types.h"
 #include "constants/rgb.h"
 #include "constants/weather.h"
 #include "constants/flags.h"
@@ -146,8 +146,8 @@ const struct RegionMapLocation gRegionMapEntries_Johto[] = {
     [MAPSEC_CERULEAN_CAVE] = { 23, 1, 1, 1, sMapName_CERULEAN_CAVE},
     [MAPSEC_POWER_PLANT] = { 27, 3, 1, 1, sMapName_POWER_PLANT},
     [MAPSEC_NEW_BARK_TOWN] = { 13, 11, 1, 1, sMapName_NEW_BARK_TOWN},
-    [MAPSEC_INDIGO_PLATEAU2] = { 16, 2, 1, 2, sMapName_},
-    [MAPSEC_UNDERGROUND_PATH] = { 24, 5, 1, 1, sMapName_},
+    [MAPSEC_INDIGO_PLATEAU2] = { 16, 2, 1, 2, sMapName_INDIGO_PLATEAU},
+    [MAPSEC_UNDERGROUND_PATH] = { 24, 5, 1, 1, sMapName_UNDERGROUND_PATH},
     [MAPSEC_DARK_CAVE] = { 10, 5, 1, 1, sMapName_DARK_CAVE},
     [MAPSEC_UNION_CAVE] = { 7, 11, 1, 2, sMapName_UNION_CAVE},
     [MAPSEC_ILEX_FOREST] = { 5, 11, 1, 2, sMapName_ILEX_FOREST},
@@ -168,11 +168,11 @@ const struct RegionMapLocation gRegionMapEntries_Johto[] = {
     [MAPSEC_SS_AQUA] = { 9, 14, 10, 1, sMapName_S_S__AQUA},
     [MAPSEC_EMBEDDED_TOWER] = { 1, 10, 1, 1, sMapName_EMBEDDED_TOWER},
     [MAPSEC_OLIVINE_LIGHTHOUSE] = { 3, 6, 1, 1, sMapName_LIGHTHOUSE},
-    [MAPSEC_BATTLE_FRONTIER] = { 1, 17, 1, 1, sMapName_},
-    [MAPSEC_FORTREE_CITY] = { 1, 17, 1, 1, sMapName_},
-    [MAPSEC_LILYCOVE_CITY] = { 2, 17, 1, 1, sMapName_},
-    [MAPSEC_MOSSDEEP_CITY] = { 3, 17, 1, 1, sMapName_},
-    [MAPSEC_SOOTOPOLIS_CITY] = { 3, 17, 1, 1, sMapName_},
+    [MAPSEC_BATTLE_FRONTIER] = { 1, 17, 1, 1, sMapName_BATTLE_FRONTIER},
+    [MAPSEC_FORTREE_CITY] = { 1, 17, 1, 1, sMapName_FORTREE_CITY},
+    [MAPSEC_LILYCOVE_CITY] = { 2, 17, 1, 1, sMapName_LILYCOVE_CITY},
+    [MAPSEC_MOSSDEEP_CITY] = { 3, 17, 1, 1, sMapName_MOSSDEEP_CITY},
+    [MAPSEC_SOOTOPOLIS_CITY] = { 3, 17, 1, 1, sMapName_SOOTOPOLIS_CITY},
 };
 
 
@@ -846,6 +846,7 @@ bool8 LoadRegionMapGfx(void)
             DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sActiveMapGfxLZ, 0, 0, 0);
         else
             DecompressDataWithHeaderVram(sActiveMapGfxLZ, (u16 *)BG_CHAR_ADDR(2));
+            //DecompressDataWithHeaderVram(sRegionMapBg_GfxLZ, (u16 *)BG_CHAR_ADDR(2)); - Expansion 1.13.0
         break;
     case 1:
         if (sRegionMap->bgManaged)
@@ -856,6 +857,7 @@ bool8 LoadRegionMapGfx(void)
         else
         {
             DecompressDataWithHeaderVram(sActiveMapTilemapLZ, (u16 *)BG_SCREEN_ADDR(28));
+            //DecompressDataWithHeaderVram(sRegionMapBg_TilemapLZ, (u16 *)BG_SCREEN_ADDR(28)); - Expansion 1.13.0
         }
         break;
     case 2:
