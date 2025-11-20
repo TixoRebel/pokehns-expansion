@@ -170,7 +170,7 @@ string generate_map_header_text(Json map_data, Json layouts_data) {
 
     if (version == "ruby")
         text << "\t.byte " << json_to_string(map_data, "show_map_name") << "\n";
-    else if (version == "emerald" || version == "firered")
+    else if (version == "emerald" || version == "hns" || version == "firered")
         text << "\tmap_header_flags "
              << "allow_cycling=" << json_to_string(map_data, "allow_cycling") << ", "
              << "allow_escaping=" << json_to_string(map_data, "allow_escaping") << ", "
@@ -610,6 +610,10 @@ string generate_layout_headers_text(Json layouts_data) {
 
     for (auto &layout : layouts_data["layouts"].array_items()) {
         if (layout == Json::object()) continue;
+        string layout_version = json_to_string(layout, "layout_version");
+        if ((version == "emerald" && layout_version != "emerald")
+         || (version == "hns" && layout_version != "hns"))
+            continue;
         string layoutName = json_to_string(layout, "name");
         string border_label = layoutName + "_Border";
         string blockdata_label = layoutName + "_Blockdata";
@@ -625,6 +629,11 @@ string generate_layout_headers_text(Json layouts_data) {
              << "\t.4byte " << blockdata_label << "\n"
              << "\t.4byte " << json_to_string(layout, "primary_tileset") << "\n"
              << "\t.4byte " << json_to_string(layout, "secondary_tileset") << "\n";
+        if (layout_version == "hns")
+            text << "\t.byte TRUE\n";
+        else
+            text << "\t.byte FALSE\n";
+        
         if (version == "firered") {
             text << "\t.byte " << json_to_string(layout, "border_width") << "\n"
                  << "\t.byte " << json_to_string(layout, "border_height") << "\n"
@@ -645,9 +654,14 @@ string generate_layouts_table_text(Json layouts_data) {
          << json_to_string(layouts_data, "layouts_table_label") << "::\n";
 
     for (auto &layout : layouts_data["layouts"].array_items()) {
-        string layout_name = json_to_string(layout, "name", true);
-        if (layout_name.empty()) layout_name = "NULL";
-        text << "\t.4byte " << layout_name << "\n";
+        string layout_version = json_to_string(layout, "layout_version");
+        if ((version == "emerald" && layout_version != "emerald") || (version == "hns" && layout_version != "hns")) {
+            text << "\t.4byte NULL\n";
+        } else {
+            string layout_name = json_to_string(layout, "name", true);
+            if (layout_name.empty()) layout_name = "NULL";
+            text << "\t.4byte " << layout_name << "\n";
+        }
     }
 
     return text.str();
@@ -695,8 +709,8 @@ int main(int argc, char *argv[]) {
 
     char *version_arg = argv[2];
     version = string(version_arg);
-    if (version != "emerald" && version != "ruby" && version != "firered")
-        FATAL_ERROR("ERROR: <game-version> must be 'emerald', 'firered', or 'ruby'.\n");
+    if (version != "emerald" && version != "ruby" && version != "firered" && version != "hns")
+        FATAL_ERROR("ERROR: <game-version> must be 'emerald', 'firered', 'ruby', or 'hns'.\n");
 
     char *mode_arg = argv[1];
     string mode(mode_arg);
