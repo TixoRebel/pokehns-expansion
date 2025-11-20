@@ -39,6 +39,7 @@
 #include "pokemon_jump.h"
 #include "decoration_inventory.h"
 #include "secret_base.h"
+#include "string_util.h"
 #include "player_pc.h"
 #include "field_specials.h"
 #include "berry_powder.h"
@@ -131,7 +132,11 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
+#if IS_HNS
     SetWarpDestination(MAP_GROUP(MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F), 1, 0, 0);
+#else
+    SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+#endif // IS_HNS
     WarpIntoMap();
 }
 
@@ -153,9 +158,15 @@ void ResetMenuAndMonGlobals(void)
 
 void NewGameInitData(void)
 {
+#if IS_HNS
+    u8 rivalName[PLAYER_NAME_LENGTH + 1];
+#endif // IS_HNS
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
 
+#if IS_HNS
+    StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
+#endif // IS_HNS
     gDifferentSaveFile = TRUE;
     gSaveBlock2Ptr->encryptionKey = 0;
     ZeroPlayerPartyMons();
@@ -199,6 +210,9 @@ void NewGameInitData(void)
     ResetLotteryCorner();
     WarpToTruck();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
+#if IS_HNS
+        StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
+#endif // IS_HNS
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
     InitLilycoveLady();

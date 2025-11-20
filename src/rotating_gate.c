@@ -624,6 +624,7 @@ static EWRAM_DATA u8 sRotatingGate_PuzzleCount = 0;
 
 static s32 GetCurrentMapRotatingGatePuzzleType(void)
 {
+#if !IS_HNS
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FORTREE_CITY_GYM) &&
         gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FORTREE_CITY_GYM))
     {
@@ -636,6 +637,7 @@ static s32 GetCurrentMapRotatingGatePuzzleType(void)
         return PUZZLE_ROUTE110_TRICK_HOUSE_PUZZLE6;
     }
 
+#endif // !IS_HNS
     return PUZZLE_NONE;
 }
 

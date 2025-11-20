@@ -106,6 +106,7 @@ bool8 CheckRelicanthWailord(void)
 // start HnS
 bool8 ShouldDoBrailleSweetScentEffect(void)
 {
+#if !IS_HNS
     if (!FlagGet(FLAG_SYS_BRAILLE_SWEET_SCENT)
      && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SEALED_CHAMBER_OUTER_ROOM)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SEALED_CHAMBER_OUTER_ROOM)))
@@ -117,6 +118,7 @@ bool8 ShouldDoBrailleSweetScentEffect(void)
         if (gSaveBlock1Ptr->pos.x == 11 && gSaveBlock1Ptr->pos.y == 3)
             return TRUE;
     }
+#endif // !IS_HNS
 
     return FALSE;
 }
@@ -289,6 +291,7 @@ static void Task_SealedChamberShakingEffect(u8 taskId)
 
 bool8 ShouldDoBrailleRegirockEffect(void)
 {
+#if !IS_HNS
     if (!FlagGet(FLAG_SYS_REGIROCK_PUZZLE_COMPLETED)
         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_DESERT_RUINS)
         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_DESERT_RUINS))
@@ -309,6 +312,7 @@ bool8 ShouldDoBrailleRegirockEffect(void)
             return TRUE;
         }
     }
+#endif // !IS_HNS
 
     return FALSE;
 }
@@ -342,6 +346,7 @@ static void DoBrailleRegirockEffect(void)
 
 bool8 ShouldDoBrailleRegisteelEffect(void)
 {
+#if !IS_HNS
     if (!FlagGet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ANCIENT_TOMB) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ANCIENT_TOMB)))
     {
         if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 25)
@@ -350,6 +355,7 @@ bool8 ShouldDoBrailleRegisteelEffect(void)
             return TRUE;
         }
     }
+#endif // !IS_HNS
     return FALSE;
 }
 
@@ -407,6 +413,7 @@ bool8 FldEff_UsePuzzleEffect(void)
 // step on every space on the perimeter of the cave (and only those spaces) then return to the back wall.
 bool8 ShouldDoBrailleRegicePuzzle(void)
 {
+#if !IS_HNS
     u8 i;
 
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ISLAND_CAVE)
@@ -463,6 +470,7 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
         FlagSet(FLAG_TEMP_REGICE_PUZZLE_FAILED);
         FlagClear(FLAG_TEMP_REGICE_PUZZLE_STARTED);
     }
+#endif // !IS_HNS
 
     return FALSE;
 }

@@ -113,6 +113,7 @@ static u16 GetFeebasFishingSpotId(s16 targetX, s16 targetY, u8 section)
 
 static bool8 CheckFeebas(void)
 {
+#if !IS_HNS
     u8 i;
     u16 feebasSpots[NUM_FEEBAS_SPOTS];
     s16 x, y;
@@ -172,6 +173,7 @@ static bool8 CheckFeebas(void)
                 return TRUE;
         }
     }
+#endif // !IS_HNS
     return FALSE;
 }
 
@@ -357,8 +359,10 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
 
 u16 GetCurrentMapWildMonHeaderId(void)
 {
+#if IS_HNS
+    return 0; // HnS TODO - put in dummy return to avoid errors
+#else
     u16 i;
-
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
@@ -387,6 +391,7 @@ u16 GetCurrentMapWildMonHeaderId(void)
     }
 
     return HEADER_NONE;
+#endif // IS_HNS
 }
 
 enum TimeOfDay GetTimeOfDayForEncounters(u32 headerId, enum WildPokemonArea area)

@@ -4964,6 +4964,32 @@ u16 NationalPokedexNumToSpecies(u16 nationalNum)
     return GET_BASE_SPECIES_ID(species);
 }
 
+// HnS TODO?
+/*u32 NationalToRegionalOrder(enum NationalDexOrder nationalNum)
+{
+    if (IS_FRLG)
+        return NationalToKantoOrder(nationalNum);
+    return NationalToHoennOrder(nationalNum);
+}
+
+enum KantoDexOrder NationalToKantoOrder(enum NationalDexOrder nationalNum)
+{
+    u16 kantoNum;
+
+    if (!nationalNum)
+        return 0;
+
+    kantoNum = 0;
+
+    while (kantoNum < KANTO_DEX_COUNT && sKantoToNationalOrder[kantoNum] != nationalNum)
+        kantoNum++;
+
+    if (kantoNum >= KANTO_DEX_COUNT)
+        return 0;
+
+    return kantoNum + 1;
+}*/
+
 u16 NationalToHoennOrder(u16 nationalNum)
 {
     u16 hoennNum;
@@ -4991,12 +5017,36 @@ u16 SpeciesToNationalPokedexNum(u16 species)
     return gSpeciesInfo[species].natDexNum;
 }
 
+// HnS TODO?
+/*enum KantoDexOrder SpeciesToKantoPokedexNum(u16 species)
+{
+    if (!species)
+        return 0;
+    return NationalToKantoOrder(gSpeciesInfo[species].natDexNum);
+}*/
+
 u16 SpeciesToHoennPokedexNum(u16 species)
 {
     if (!species)
         return 0;
     return NationalToHoennOrder(gSpeciesInfo[species].natDexNum);
 }
+
+// HnS TODO?
+/*enum NationalDexOrder RegionalToNationalOrder(u32 regionalNum)
+{
+    if (IS_FRLG)
+        return KantoToNationalOrder(regionalNum);
+    return HoennToNationalOrder(regionalNum);
+}
+
+enum NationalDexOrder KantoToNationalOrder(enum KantoDexOrder kantoNum)
+{
+    if (!kantoNum || kantoNum >= (KANTO_DEX_COUNT + 1))
+        return 0;
+
+    return sKantoToNationalOrder[kantoNum - 1];
+}*/
 
 u16 HoennToNationalOrder(u16 hoennNum)
 {
@@ -5746,6 +5796,22 @@ u16 SpeciesToPokedexNum(u16 species)
     }
 }
 
+// HnS TODO?
+/*bool32 IsSpeciesInRegionalDex(u16 species)
+{
+    if (IS_FRLG)
+        return IsSpeciesInKantoDex(species);
+    return IsSpeciesInHoennDex(species);
+}
+
+bool32 IsSpeciesInKantoDex(u16 species)
+{
+    if (SpeciesToKantoPokedexNum(species) > KANTO_DEX_COUNT)
+        return FALSE;
+    else
+        return TRUE;
+}*/
+
 bool32 IsSpeciesInHoennDex(u16 species)
 {
     if (SpeciesToHoennPokedexNum(species) > HOENN_DEX_COUNT)
@@ -6029,6 +6095,7 @@ void SetMonPreventsSwitchingString(void)
     BattleStringExpandPlaceholders(gText_PkmnsXPreventsSwitching, gStringVar4, sizeof(gStringVar4));
 }
 
+#if !IS_HNS
 static s32 GetWildMonTableIdInAlteringCave(u16 species)
 {
     s32 i;
@@ -6038,6 +6105,7 @@ static s32 GetWildMonTableIdInAlteringCave(u16 species)
     return 0;
 }
 
+#endif // !IS_HNS
 static inline bool32 CanFirstMonBoostHeldItemRarity(void)
 {
     u32 ability;
@@ -6071,6 +6139,7 @@ void SetWildMonHeldItem(void)
 
             rnd = Random() % 100;
             species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, 0);
+#if !IS_HNS
             if (gMapHeader.mapLayoutId == LAYOUT_ALTERING_CAVE)
             {
                 s32 alteringCaveId = GetWildMonTableIdInAlteringCave(species);
@@ -6093,6 +6162,7 @@ void SetWildMonHeldItem(void)
                 }
             }
             else
+#endif // !IS_HNS
             {
                 if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
                 {
@@ -6318,9 +6388,9 @@ u16 FacilityClassToPicIndex(u16 facilityClass)
 u16 PlayerGenderToFrontTrainerPicId(u8 playerGender)
 {
     if (playerGender != MALE)
-        return FacilityClassToPicIndex(FACILITY_CLASS_MAY);
+        return FacilityClassToPicIndex(IS_HNS ? FACILITY_CLASS_LEAF : FACILITY_CLASS_MAY);
     else
-        return FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN);
+        return FacilityClassToPicIndex(IS_HNS ? FACILITY_CLASS_RED : FACILITY_CLASS_BRENDAN);
 }
 
 void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)

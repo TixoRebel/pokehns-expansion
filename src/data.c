@@ -230,7 +230,11 @@ const union AnimCmd *const gAnims_Trainer[] ={
 
 const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
 {
+#if IS_HNS
 #include "data/trainers.h"
+#else
+#include "data/trainers.h" // HnS TODO - once trainerrules introduced, change to trainers_emerald.h
+#endif
 };
 
 #include "data/text/follower_messages.h"

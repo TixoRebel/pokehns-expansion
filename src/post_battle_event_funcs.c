@@ -34,12 +34,14 @@ int GameClear(void)
         SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds);
 
     SetContinueGameWarpStatus();
-
+#if IS_HNS
+    SetContinueGameWarpToHealLocation(HEAL_LOCATION_NEW_BARK_TOWN);
+#else
     if (gSaveBlock2Ptr->playerGender == MALE)
         SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
     else
         SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
-
+#endif // IS_HNS
     ribbonGet = FALSE;
 
     for (i = 0; i < PARTY_SIZE; i++)

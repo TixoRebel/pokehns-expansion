@@ -45,7 +45,9 @@
 #define FLAG_TEMP_1E     (TEMP_FLAGS_START + 0x1E)
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
-#define NUM_TEMP_FLAGS   ((TEMP_FLAGS_END - TEMP_FLAGS_START) + 1)     
+#define NUM_TEMP_FLAGS   ((TEMP_FLAGS_END - TEMP_FLAGS_START) + 1)
+
+#if IS_HNS
 
 // HnS PORT NOTE - What is the limit to the number of available flags? How difficult is reordering them?
 #define FLAG_SYS_NO_COLLISION                   0x20 // Unused Flag //DEBUG
@@ -1747,6 +1749,12 @@
 #define FLAG_TEMP_REGICE_PUZZLE_FAILED          FLAG_TEMP_3
 #define FLAG_TEMP_HIDE_FOLLOWER                 FLAG_TEMP_E
 #define FLAG_TEMP_HIDE_MIRAGE_ISLAND_BERRY_TREE FLAG_TEMP_11
+
+#else
+
+#include "constants/flags_emerald.h"
+
+#endif
 
 #if TESTING
 #define TESTING_FLAGS_START                     0x5000

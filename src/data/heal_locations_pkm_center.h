@@ -2,6 +2,7 @@
 
 static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS - 1] =
 {
+#if !IS_HNS
     [HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F - 1] =
     {
         .mapGroup = MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F),
@@ -127,6 +128,7 @@ static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS 
         .x = 3,
         .y = 4,
     },
+#endif // !IS_HNS
     [HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR - 1] =
     {
         .mapGroup = MAP_GROUP(MAP_SOUTHERN_ISLAND_EXTERIOR),
@@ -150,6 +152,7 @@ static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS 
 // In this case the localId is 1.
 static const u8 sHealNpcLocalId[NUM_HEAL_LOCATIONS - 1] =
 {
+#if !IS_HNS
     [HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F - 1] = 1,
     [HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F - 1] = 1,
     [HEAL_LOCATION_PETALBURG_CITY - 1] = 1,
@@ -170,6 +173,7 @@ static const u8 sHealNpcLocalId[NUM_HEAL_LOCATIONS - 1] =
     [HEAL_LOCATION_VERDANTURF_TOWN - 1] = 1,
     [HEAL_LOCATION_PACIFIDLOG_TOWN - 1] = 1,
     [HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE - 1] = 1,
+#endif // !IS_HNS
     [HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR - 1] = 0, // no heal npc
     [HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST - 1] = 1,
 };

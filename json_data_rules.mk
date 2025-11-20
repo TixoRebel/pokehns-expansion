@@ -12,11 +12,11 @@ include/constants/region_map_sections.h: $(DATA_SRC_SUBDIR)/region_map/region_ma
 	$(JSONPROC) $^ $@
 
 AUTO_GEN_TARGETS += $(DATA_SRC_SUBDIR)/heal_locations.h
-$(DATA_SRC_SUBDIR)/heal_locations.h: $(DATA_SRC_SUBDIR)/heal_locations.json $(DATA_SRC_SUBDIR)/heal_locations.json.txt
+$(DATA_SRC_SUBDIR)/heal_locations.h: $(DATA_SRC_SUBDIR)/heal_locations-$(MAP_VERSION).json $(DATA_SRC_SUBDIR)/heal_locations.json.txt
 	$(JSONPROC) $^ $@
 
 $(C_BUILDDIR)/heal_location.o: c_dep += $(DATA_SRC_SUBDIR)/heal_locations.h
 
 AUTO_GEN_TARGETS += include/constants/heal_locations.h
-include/constants/heal_locations.h: $(DATA_SRC_SUBDIR)/heal_locations.json $(DATA_SRC_SUBDIR)/heal_locations.constants.json.txt
+include/constants/heal_locations.h: $(DATA_SRC_SUBDIR)/heal_locations-$(MAP_VERSION).json $(DATA_SRC_SUBDIR)/heal_locations.constants.json.txt
 	$(JSONPROC) $^ $@

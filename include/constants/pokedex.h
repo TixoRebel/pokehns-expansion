@@ -1306,6 +1306,7 @@ enum {
 };
 
 #define HOENN_DEX_COUNT (HOENN_DEX_DEOXYS + 1)
+// HnS TODO - Johto/Kanto dex count?
 
 #define DECAGRAMS_IN_POUND             4536
 #define CM_PER_INCH                    2.54

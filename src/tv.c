@@ -195,6 +195,7 @@ static const struct {
     u8 level;
     u8 location;
 } sPokeOutbreakSpeciesList[] = {
+#if !IS_HNS
     {
         .species = SPECIES_SEEDOT,
         .moves = {MOVE_BIDE, MOVE_HARDEN, MOVE_LEECH_SEED},
@@ -225,6 +226,7 @@ static const struct {
         .level = 8,
         .location = MAP_NUM(MAP_ROUTE116),
     }
+#endif // !IS_HNS
 };
 
 static const u16 sGoldSymbolFlags[NUM_FRONTIER_FACILITIES] = {
@@ -825,6 +827,7 @@ u8 FindAnyTVShowOnTheAir(void)
 
 void UpdateTVScreensOnMap(int width, int height)
 {
+#if !IS_HNS
     FlagSet(FLAG_SYS_TV_WATCH);
     switch (CheckForPlayersHouseNews())
     {
@@ -849,6 +852,7 @@ void UpdateTVScreensOnMap(int width, int height)
         }
         break;
     }
+#endif // !IS_HNS
 }
 
 static void SetTVMetatilesOnMap(int width, int height, u16 metatileId)
@@ -1491,6 +1495,7 @@ static void InterviewAfter_BravoTrainerBattleTowerProfile(void)
 
 void TryPutSmartShopperOnAir(void)
 {
+#if !IS_HNS
     TVShow *show;
     u8 i;
 
@@ -1520,6 +1525,7 @@ void TryPutSmartShopperOnAir(void)
             }
         }
     }
+#endif // !IS_HNS
 }
 
 void PutNameRaterShowOnTheAir(void)
@@ -1634,6 +1640,7 @@ static void InterviewAfter_Dummy(void)
 
 static void TryStartRandomMassOutbreak(void)
 {
+#if !IS_HNS
     u8 i;
     u16 outbreakIdx;
     TVShow *show;
@@ -1674,6 +1681,7 @@ static void TryStartRandomMassOutbreak(void)
             }
         }
     }
+#endif // !IS_HNS
 }
 
 void EndMassOutbreak(void)
@@ -2656,6 +2664,7 @@ bool8 IsPokeNewsActive(u8 newsKind)
 // For any other type of PokeNews this is always TRUE.
 static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
 {
+#if !IS_HNS
     switch (newsKind)
     {
     case POKENEWS_SLATEPORT:
@@ -2670,6 +2679,7 @@ static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
             return TRUE;
         return FALSE;
     }
+#endif // !IS_HNS
     return TRUE;
 }
 
@@ -3335,6 +3345,7 @@ u32 GetPlayerIDAsU32(void)
 
 u8 CheckForPlayersHouseNews(void)
 {
+#if !IS_HNS
     // Check if not in Littleroot house map group
     if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
         return PLAYERS_HOUSE_TV_NONE;
@@ -3358,10 +3369,14 @@ u8 CheckForPlayersHouseNews(void)
         return PLAYERS_HOUSE_TV_MOVIE;
 
     return PLAYERS_HOUSE_TV_LATI;
+#else
+    return PLAYERS_HOUSE_TV_NONE;
+#endif // !IS_HNS
 }
 
 void GetMomOrDadStringForTVMessage(void)
 {
+#if !IS_HNS
     // If the player is checking the TV in their house it will only refer to their Mom.
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
     {
@@ -3414,6 +3429,7 @@ void GetMomOrDadStringForTVMessage(void)
             VarSet(VAR_TEMP_3, 2);
         }
     }
+#endif // !IS_HNS
 }
 
 void HideBattleTowerReporter(void)

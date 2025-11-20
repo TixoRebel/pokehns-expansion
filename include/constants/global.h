@@ -41,8 +41,15 @@
 #define LANGUAGE_SPANISH  7
 #define NUM_LANGUAGES     7
 
-#define GAME_VERSION (VERSION_EMERALD)
+#ifdef HEARTGOLD
+    #define GAME_VERSION (VERSION_HEART_GOLD)
+#else
+    #define GAME_VERSION (VERSION_EMERALD)
+#endif
+
 #define GAME_LANGUAGE (LANGUAGE_ENGLISH)
+
+#define IS_HNS (GAME_VERSION == VERSION_HEART_GOLD)
 
 // party sizes
 #define PARTY_SIZE 6
