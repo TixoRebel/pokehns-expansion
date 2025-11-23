@@ -1169,6 +1169,7 @@ static void InitRouletteTableData(void)
 
 static void CB2_LoadRoulette(void)
 {
+#if !IS_HNS
     u8 taskId;
 
     switch (gMain.state)
@@ -1251,6 +1252,7 @@ static void CB2_LoadRoulette(void)
         return;
     }
     gMain.state++;
+#endif
 }
 
 static void Task_SpinWheel(u8 taskId)
@@ -1292,11 +1294,13 @@ static void Task_StartPlaying(u8 taskId)
 
 static void Task_AskKeepPlaying(u8 taskId)
 {
+#if !IS_HNS
     DisplayYesNoMenuDefaultYes();
     DrawStdWindowFrame(sTextWindowId, FALSE);
     AddTextPrinterParameterized(sTextWindowId, FONT_NORMAL, Roulette_Text_KeepPlaying, 0, 1, TEXT_SKIP_DRAW, 0);
     CopyWindowToVram(sTextWindowId, COPYWIN_FULL);
     DoYesNoFuncWithChoice(taskId, &sYesNoTable_KeepPlaying);
+#endif
 }
 
 static void Task_ContinuePlaying(u8 taskId)
@@ -1798,6 +1802,7 @@ static void Task_TryIncrementWins(u8 taskId)
 
 static void Task_PrintSpinResult(u8 taskId)
 {
+#if !IS_HNS
     switch (gTasks[taskId].tWonBet)
     {
     case TRUE:
@@ -1827,6 +1832,7 @@ static void Task_PrintSpinResult(u8 taskId)
     }
     gTasks[taskId].data[1] = 0;
     gTasks[taskId].func = Task_TryIncrementWins;
+#endif
 }
 
 #define tPayout data[1]
@@ -1863,6 +1869,7 @@ static void Task_GivePayout(u8 taskId)
 
 static void Task_PrintPayout(u8 taskId)
 {
+#if !IS_HNS
     ConvertIntToDecimalStringN(gStringVar1, (sRoulette->minBet * gTasks[taskId].tMultiplier), STR_CONV_MODE_LEFT_ALIGN, 2);
     StringExpandPlaceholders(gStringVar4, Roulette_Text_YouveWonXCoins);
     DrawStdWindowFrame(sTextWindowId, FALSE);
@@ -1871,6 +1878,7 @@ static void Task_PrintPayout(u8 taskId)
     gTasks[taskId].tPayout = (sRoulette->minBet * gTasks[taskId].tMultiplier);
     gTasks[taskId].data[7] = 0;
     gTasks[taskId].func = Task_GivePayout;
+#endif
 }
 
 #undef tPayout
@@ -1885,6 +1893,7 @@ static void Task_EndTurn(u8 taskId)
 
 static void Task_TryPrintEndTurnMsg(u8 taskId)
 {
+#if !IS_HNS
     u8 i = 0;
     gTasks[taskId].tSelectionId = i;
     sRoulette->betSelection[sRoulette->curBallNum] = SELECTION_NONE;
@@ -1928,10 +1937,12 @@ static void Task_TryPrintEndTurnMsg(u8 taskId)
         CopyWindowToVram(sTextWindowId, COPYWIN_FULL);
         StartTaskAfterDelayOrInput(taskId, Task_StopPlaying, 60, A_BUTTON | B_BUTTON);
     }
+#endif
 }
 
 static void Task_ClearBoard(u8 taskId)
 {
+#if !IS_HNS
     u8 i = 0;
 
     gTasks[taskId].tBallNum = 0;
@@ -1957,6 +1968,7 @@ static void Task_ClearBoard(u8 taskId)
     {
         gTasks[taskId].func = Task_AskKeepPlaying;
     }
+#endif
 }
 
 static void ExitRoulette(u8 taskId)
@@ -3420,6 +3432,7 @@ static void Task_NotEnoughForMinBet(u8 taskId)
 
 static void Task_PrintMinBet(u8 taskId)
 {
+#if !IS_HNS
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         u32 minBet = sTableMinBets[GET_MIN_BET_ID(gSpecialVar_0x8004)];
@@ -3430,10 +3443,12 @@ static void Task_PrintMinBet(u8 taskId)
         CopyWindowToVram(0, COPYWIN_FULL);
         gTasks[taskId].func = Task_ShowMinBetYesNo;
     }
+#endif
 }
 
 static void Task_PrintRouletteEntryMsg(u8 taskId)
 {
+#if !IS_HNS
     s32 minBet;
     PrintCoinsString(gTasks[taskId].tCoins);
     minBet = sTableMinBets[GET_MIN_BET_ID(gSpecialVar_0x8004)];
@@ -3470,6 +3485,7 @@ static void Task_PrintRouletteEntryMsg(u8 taskId)
         gTasks[taskId].tCoins = 0;
         gTasks[taskId].data[0] = 0;
     }
+#endif
 }
 
 void PlayRoulette(void)

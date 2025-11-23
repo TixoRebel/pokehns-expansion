@@ -873,7 +873,7 @@
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
 #define TRAINERS_COUNT_HNS 864
-#if (IS_HNS != TRUE)
+#if !IS_HNS
 #define TRAINERS_COUNT                      TRAINERS_COUNT_EMERALD
 #define MAX_TRAINERS_COUNT                  864
 #else

@@ -138,10 +138,8 @@ def ImportWildEncounterFile():
     global fieldData
     global tabStr
     tabStr = "    "
-    """
-    HnS to do - make dynamic or make json helper to produce core file form version file
-    """
-    wFile = open("src/data/wild_encounters-hns.json")
+
+    wFile = open("src/data/wild_encounters.json")
     wData = json.load(wFile)
 
     encounterTotalCount = []

@@ -160,7 +160,7 @@ EventScript_ResetAllBerries::
 @ HnS PORT NOTE - Should now be 1:1 w/ HnS Modern, but maybe could be handled better?
 EventScript_ResetAllMapFlags::
 	@HnS FLAGHEAP1
-#if (IS_HNS == TRUE)
+#if IS_HNS
 	setflag FLAG_HIDE_BATTLE_TOWER_OPPONENT
 	setflag FLAG_HIDE_DEOXYS @???
 	setflag FLAG_HIDE_CONTEST_POKE_BALL @???

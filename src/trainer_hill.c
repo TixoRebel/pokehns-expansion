@@ -674,6 +674,7 @@ static void SetTimerValue(u32 *dst, u32 val)
 
 void LoadTrainerHillObjectEventTemplates(void)
 {
+#if !IS_HNS
     u8 i, floorId;
     struct ObjectEventTemplate *eventTemplates = gSaveBlock1Ptr->objectEventTemplates;
 
@@ -703,6 +704,7 @@ void LoadTrainerHillObjectEventTemplates(void)
     }
 
     FreeDataStruct();
+#endif
 }
 
 bool32 LoadTrainerHillFloorObjectEventScripts(void)
@@ -905,7 +907,11 @@ void SetHillTrainerFlag(void)
 
 const u8 *GetTrainerHillTrainerScript(void)
 {
+#if !IS_HNS
     return TrainerHill_EventScript_TrainerBattle;
+#else
+    return NULL;
+#endif
 }
 
 static void ShowTrainerHillPostBattleText(void)

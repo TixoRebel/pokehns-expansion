@@ -2,7 +2,7 @@
 #define GUARD_CONSTANTS_HEAL_LOCATIONS_H
 
 //
-// DO NOT MODIFY THIS FILE! It is auto-generated from src/data/heal_locations-hns.json and Inja template src/data/heal_locations.constants.json.txt
+// DO NOT MODIFY THIS FILE! It is auto-generated from src/data/heal_locations.json and Inja template src/data/heal_locations.constants.json.txt
 //
 
 

@@ -130,6 +130,8 @@ else
 O_LEVEL ?= 2
 endif
 CPPFLAGS := $(INCLUDE_CPP_ARGS) -Wno-trigraphs -DMODERN=1 -DTESTING=$(TEST) -D$(GAME_VERSION) -std=gnu17
+# Preprocessor flags for preproc #ifs in assembly files
+CPP_ASFLAGS := -D$(GAME_VERSION)
 ARMCC := $(PREFIX)gcc
 PATH_ARMCC := PATH="$(PATH)" $(ARMCC)
 CC1 := $(shell $(PATH_ARMCC) --print-prog-name=cc1) -quiet
@@ -197,8 +199,11 @@ ALL_LEARNABLES_JSON := $(LEARNSET_HELPERS_BUILD_DIR)/all_learnables.json
 WILD_ENCOUNTERS_TOOL_DIR := $(TOOLS_DIR)/wild_encounters
 AUTO_GEN_TARGETS += $(DATA_SRC_SUBDIR)/wild_encounters.h
 
-$(DATA_SRC_SUBDIR)/wild_encounters.h: $(DATA_SRC_SUBDIR)/wild_encounters-$(MAP_VERSION).json $(WILD_ENCOUNTERS_TOOL_DIR)/wild_encounters_to_header.py $(INCLUDE_DIRS)/config/overworld.h $(INCLUDE_DIRS)/config/dexnav.h
+# Ensure wild_encounters.json is generated before wild_encounters.h
+$(DATA_SRC_SUBDIR)/wild_encounters.h: $(DATA_SRC_SUBDIR)/wild_encounters.json $(WILD_ENCOUNTERS_TOOL_DIR)/wild_encounters_to_header.py $(INCLUDE_DIRS)/config/overworld.h $(INCLUDE_DIRS)/config/dexnav.h
 	python3 $(WILD_ENCOUNTERS_TOOL_DIR)/wild_encounters_to_header.py > $@
+
+$(DATA_SRC_SUBDIR)/wild_encounters.json: .versioned_json.stamp
 
 $(C_BUILDDIR)/wild_encounter.o: c_dep += $(DATA_SRC_SUBDIR)/wild_encounters.h
 
@@ -242,7 +247,8 @@ ifeq ($(SETUP_PREREQS),1)
     $(error Errors occurred while building tools. See error messages above for more details)
   endif
   # Oh and also generate mapjson sources before we use `SCANINC`.
-  $(foreach line, $(shell $(MAKE) MAP_VERSION=$(MAP_VERSION) generated | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
+  # GAME_VERSION used to define the IS_HNS preproc check
+  $(foreach line, $(shell $(MAKE) GAME_VERSION=$(GAME_VERSION) MAP_VERSION=$(MAP_VERSION) generated | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
   ifneq ($(.SHELLSTATUS),0)
     $(error Errors occurred while generating map-related sources. See error messages above for more details)
   endif
@@ -316,7 +322,7 @@ check: $(TESTELF)
 	$(ROMTESTHYDRA) $(ROMTEST) $(OBJCOPY) $(HEADLESSELF)
 
 # Other rules
-rom: $(ROM)
+rom: versioned-json $(ROM)
 ifeq ($(COMPARE),1)
 	@$(SHA1) rom.sha1
 endif
@@ -354,9 +360,20 @@ include spritesheet_rules.mk
 include json_data_rules.mk
 include audio_rules.mk
 
+# Automatically generate versioned JSON-derived outputs (groups/layouts headers, etc.)
+# for any invoked build target except clean-related ones, removing need to call
+# `make generated` explicitly. Skip for clean/tidy to avoid needless regeneration.
+ifneq ($(MAKECMDGOALS),)
+# Exclude clean-related goals plus generated + versioned-json to avoid circular deps.
+NEEDS_GENERATED := $(filter-out clean tidy clean-% generated versioned-json,$(MAKECMDGOALS))
+ifneq ($(NEEDS_GENERATED),)
+$(NEEDS_GENERATED): generated
+endif
+endif
+
 # NOTE: Tools must have been built prior (FIXME)
 # so you can't really call this rule directly
-generated: $(AUTO_GEN_TARGETS)
+generated: .versioned_json.stamp $(AUTO_GEN_TARGETS)
 	@: # Silence the "Nothing to be done for `generated'" message, which some people were confusing for an error.
 
 
@@ -381,6 +398,40 @@ clean-generated:
 	@echo "rm -f <AUTO_GEN_TARGETS>"
 	@rm -f $(ALL_LEARNABLES_JSON)
 	@echo "rm -f <ALL_LEARNABLES_JSON>"
+	@rm -f $(VERSIONED_JSON_TARGETS) .versioned_json.stamp
+	@echo "rm -f <VERSIONED_JSON_TARGETS> .versioned_json.stamp"
+
+# -----------------------------------------------------------------------------
+# Versioned JSON consolidation
+# Produces unsuffixed JSON files from their $(MAP_VERSION)/$(BUILD_NAME) inputs.
+# Generated via tools/gen_versioned_json.py.
+# -----------------------------------------------------------------------------
+
+VERSIONED_JSON_SCRIPT := tools/gen_versioned_json.py
+VERSIONED_JSON_TARGETS := \
+	data/layouts/layouts.json \
+	data/maps/map_groups.json \
+	src/data/heal_locations.json \
+	src/data/wild_encounters.json
+
+VERSIONED_JSON_SOURCES := \
+	data/layouts/layouts_$(MAP_VERSION).json \
+	data/maps/map_groups_$(MAP_VERSION).json \
+	src/data/heal_locations_$(MAP_VERSION).json \
+	src/data/wild_encounters_$(MAP_VERSION).json
+
+# Stamp-based single invocation.
+.versioned_json.stamp: $(VERSIONED_JSON_SOURCES) $(VERSIONED_JSON_SCRIPT)
+	python3 $(VERSIONED_JSON_SCRIPT) --build $(MAP_VERSION)
+	@echo "Versioned JSON generation complete for build $(MAP_VERSION)."
+	@touch $@
+
+$(VERSIONED_JSON_TARGETS): .versioned_json.stamp
+	@:
+
+versioned-json: .versioned_json.stamp
+
+.PHONY: versioned-json
 
 COMPETITIVE_PARTY_SYNTAX := $(shell PATH="$(PATH)"; echo 'COMPETITIVE_PARTY_SYNTAX' | $(CPP) $(CPPFLAGS) -imacros include/gba/defines.h -imacros include/config/general.h | tail -n1)
 ifeq ($(COMPETITIVE_PARTY_SYNTAX),1)
@@ -447,7 +498,7 @@ ifneq ($(NODEP),1)
 endif
 
 $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.s
-	$(PREPROC) $< charmap.txt | $(CPP) $(INCLUDE_SCANINC_ARGS) - | $(PREPROC) -ie $< charmap.txt | $(AS) $(ASFLAGS) -o $@
+	$(PREPROC) $< charmap.txt | $(CPP) $(CPP_ASFLAGS) $(INCLUDE_SCANINC_ARGS) - | $(PREPROC) -ie $< charmap.txt | $(AS) $(ASFLAGS) -o $@
 
 $(C_BUILDDIR)/%.d: $(C_SUBDIR)/%.s
 	$(SCANINC) -M $@ $(INCLUDE_SCANINC_ARGS) -I "" $<
@@ -457,7 +508,7 @@ ifneq ($(NODEP),1)
 endif
 
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s
-	$(PREPROC) $< charmap.txt | $(CPP) $(INCLUDE_SCANINC_ARGS) - | $(PREPROC) -ie $< charmap.txt | $(AS) $(ASFLAGS) -o $@
+	$(PREPROC) $< charmap.txt | $(CPP) $(CPP_ASFLAGS) $(INCLUDE_SCANINC_ARGS) - | $(PREPROC) -ie $< charmap.txt | $(AS) $(ASFLAGS) -o $@
 
 $(DATA_ASM_BUILDDIR)/%.d: $(DATA_ASM_SUBDIR)/%.s
 	$(SCANINC) -M $@ $(INCLUDE_SCANINC_ARGS) -I "" $<

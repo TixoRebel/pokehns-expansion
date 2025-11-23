@@ -438,12 +438,17 @@ string generate_groups_text(Json groups_data) {
 
     text << get_generated_warning("data/maps/map_groups.json", true);
 
+    string version_suffix = (version == "emerald") ? "" : ("_" + version);
+
     for (auto &key : groups_data["group_order"].array_items()) {
         string group = json_to_string(key);
         text << group << "::\n";
         auto maps = groups_data[group].array_items();
-        for (Json &map_name : maps)
-            text << "\t.4byte " << json_to_string(map_name) << "\n";
+        for (Json &map_name : maps) {
+            string map_label = json_to_string(map_name);
+            // Use the map label as-is from map_groups.json to match the actual label defined in header.inc
+            text << "\t.4byte " << map_label << "\n";
+        }
         text << "\n";
     }
 
@@ -479,8 +484,17 @@ string generate_connections_text(Json groups_data, string include_path) {
 
     text << get_generated_warning("data/maps/map_groups.json", true);
 
-    for (Json map_name : map_names)
-        text << "\t.include \"" << include_path << "/" <<  json_to_string(map_name) << "/connections.inc\"\n";
+    string map_dir_suffix = (version == "emerald") ? "" : ("_" + version);
+    for (Json map_name : map_names) {
+        string map_name_str = json_to_string(map_name);
+        // Don't append suffix if map name already has it
+        if (version != "emerald" && map_name_str.size() >= map_dir_suffix.size() &&
+            map_name_str.substr(map_name_str.size() - map_dir_suffix.size()) == map_dir_suffix) {
+            text << "\t.include \"" << include_path << "/" << map_name_str << "/connections.inc\"\n";
+        } else {
+            text << "\t.include \"" << include_path << "/" << map_name_str << map_dir_suffix << "/connections.inc\"\n";
+        }
+    }
 
     return text.str();
 }
@@ -496,8 +510,16 @@ string generate_headers_text(Json groups_data, string include_path) {
 
     text << get_generated_warning("data/maps/map_groups.json", true);
 
-    for (string map_name : map_names)
-        text << "\t.include \"" << include_path << "/" << map_name << "/header.inc\"\n";
+    string map_dir_suffix = (version == "emerald") ? "" : ("_" + version);
+    for (string map_name : map_names) {
+        // Don't append suffix if map name already has it
+        if (version != "emerald" && map_name.size() >= map_dir_suffix.size() &&
+            map_name.substr(map_name.size() - map_dir_suffix.size()) == map_dir_suffix) {
+            text << "\t.include \"" << include_path << "/" << map_name << "/header.inc\"\n";
+        } else {
+            text << "\t.include \"" << include_path << "/" << map_name << map_dir_suffix << "/header.inc\"\n";
+        }
+    }
 
     return text.str();
 }
@@ -513,8 +535,16 @@ string generate_events_text(Json groups_data, string include_path) {
 
     text << get_generated_warning(include_path + "/map_groups.json", true);
 
-    for (string map_name : map_names)
-        text << "\t.include \"" << include_path << "/" << map_name << "/events.inc\"\n";
+    string map_dir_suffix = (version == "emerald") ? "" : ("_" + version);
+    for (string map_name : map_names) {
+        // Don't append suffix if map name already has it
+        if (version != "emerald" && map_name.size() >= map_dir_suffix.size() &&
+            map_name.substr(map_name.size() - map_dir_suffix.size()) == map_dir_suffix) {
+            text << "\t.include \"" << include_path << "/" << map_name << "/events.inc\"\n";
+        } else {
+            text << "\t.include \"" << include_path << "/" << map_name << map_dir_suffix << "/events.inc\"\n";
+        }
+    }
 
     return text.str();
 }
@@ -542,7 +572,15 @@ string generate_map_constants_text(string groups_filepath, Json groups_data) {
         int map_count = 0; //DEBUG
 
         for (auto &map_name : groups_data[groupName].array_items()) {
-            string map_filepath = file_dir + json_to_string(map_name) + sep + "map.json";
+            string map_dir_suffix = (version == "emerald") ? "" : ("_" + version);
+            string map_name_str = json_to_string(map_name);
+            // Don't append suffix if map name already has it
+            string map_dir_path = map_name_str;
+            if (version != "emerald" && !(map_name_str.size() >= map_dir_suffix.size() &&
+                map_name_str.substr(map_name_str.size() - map_dir_suffix.size()) == map_dir_suffix)) {
+                map_dir_path += map_dir_suffix;
+            }
+            string map_filepath = file_dir + map_dir_path + sep + "map.json";
             string err_str;
             Json map_data = Json::parse(read_text_file(map_filepath), err_str);
             if (map_data == Json())

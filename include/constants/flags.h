@@ -1,6 +1,7 @@
 #ifndef GUARD_CONSTANTS_FLAGS_H
 #define GUARD_CONSTANTS_FLAGS_H
 
+#include "constants/global.h"
 #include "constants/opponents.h"
 #include "constants/rematches.h"
 

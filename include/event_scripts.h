@@ -417,6 +417,7 @@ extern const u8 EventScript_Whirlpool[];
 //player pc
 extern const u8 LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC[];
 extern const u8 LittlerootTown_MaysHouse_2F_EventScript_TurnOffPlayerPC[];
+extern const u8 NewBarkTown_PlayersHouse_2F_EventScript_TurnOffPlayerPC[];
 
 // Mauville Old Man (Giddy)
 extern const u8 GiddyText_Is[];

@@ -527,6 +527,8 @@ extern const u8 Debug_CheatStart[];
 extern const u8 Debug_HatchAnEgg[];
 extern const u8 PlayersHouse_2F_EventScript_SetWallClock[];
 extern const u8 PlayersHouse_2F_EventScript_CheckWallClock[];
+extern const u8 NewBarkTown_PlayersHouse_2F_EventScript_SetWallClock[];
+extern const u8 NewBarkTown_PlayersHouse_2F_EventScript_CheckWallClock[];
 extern const u8 Debug_CheckSaveBlock[];
 extern const u8 Debug_CheckROMSpace[];
 extern const u8 Debug_BoxFilledMessage[];
@@ -541,6 +543,7 @@ extern const u8 Debug_BerryPestsDisabled[];
 extern const u8 Debug_BerryWeedsDisabled[];
 
 extern const u8 FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon[];
+extern const u8 BlackthornCity_MoveRelearnersHouse_EventScript_ChooseMon[];
 
 #include "data/map_group_count.h"
 
@@ -2322,12 +2325,12 @@ static void DebugAction_Util_FontTest(u8 taskId)
 
 static void DebugAction_TimeMenu_CheckWallClock(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, PlayersHouse_2F_EventScript_CheckWallClock);
+    Debug_DestroyMenu_Full_Script(taskId, (IS_HNS ? NewBarkTown_PlayersHouse_2F_EventScript_CheckWallClock : PlayersHouse_2F_EventScript_CheckWallClock));
 }
 
 static void DebugAction_TimeMenu_SetWallClock(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, PlayersHouse_2F_EventScript_SetWallClock);
+    Debug_DestroyMenu_Full_Script(taskId, (IS_HNS ? NewBarkTown_PlayersHouse_2F_EventScript_SetWallClock : PlayersHouse_2F_EventScript_SetWallClock));
 }
 
 static void DebugAction_Util_WatchCredits(u8 taskId)
@@ -4862,7 +4865,7 @@ static void DebugAction_BerryFunctions_Weeds(u8 taskId)
 
 static void DebugAction_Party_MoveReminder(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon);
+    Debug_DestroyMenu_Full_Script(taskId, (IS_HNS ? BlackthornCity_MoveRelearnersHouse_EventScript_ChooseMon : FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon));
 }
 
 static void DebugAction_Party_HatchAnEgg(u8 taskId)

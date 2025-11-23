@@ -1828,6 +1828,7 @@ static void Task_AppealSetup(u8 taskId)
 
 static void Task_DoAppeals(u8 taskId)
 {
+#if !IS_HNS
     u8 spriteId;
     s32 i;
     u8 contestant = eContest.currentContestant;
@@ -2541,6 +2542,7 @@ static void Task_DoAppeals(u8 taskId)
         }
         return;
     }
+#endif
 }
 
 static void Task_EndWaitForLink(u8 taskId)

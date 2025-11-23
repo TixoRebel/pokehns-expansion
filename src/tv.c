@@ -4190,6 +4190,7 @@ void SanitizeTVShowLocationsForRuby(TVShow *shows)
 // gSpecialVar_0x8004 here is set from GetRandomActiveShowIdx in EventScript_TryDoTVShow
 void DoTVShow(void)
 {
+#if !IS_HNS
     if (gSaveBlock1Ptr->tvShows[gSpecialVar_0x8004].common.active)
     {
         switch (gSaveBlock1Ptr->tvShows[gSpecialVar_0x8004].common.kind)
@@ -4292,6 +4293,7 @@ void DoTVShow(void)
             break;
         }
     }
+#endif
 }
 
 static void DoTVShowBravoTrainerPokemonProfile(void)
@@ -4562,6 +4564,7 @@ static void DoTVShowTodaysSmartShopper(void)
 
 static void DoTVShowTheNameRaterShow(void)
 {
+#if !IS_HNS
     TVShow *show;
     u8 state;
 
@@ -4644,6 +4647,7 @@ static void DoTVShowTheNameRaterShow(void)
         break;
     }
     ShowFieldMessage(sTVNameRaterTextGroup[state]);
+#endif
 }
 
 static void DoTVShowPokemonTodaySuccessfulCapture(void)

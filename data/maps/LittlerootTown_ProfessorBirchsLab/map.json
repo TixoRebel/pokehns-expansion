@@ -1,6 +1,6 @@
 {
   "id": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
-  "name": "LittlerootTown_ProfessorBirchsLab",
+  "name": "NewBarkTown_Lab",
   "layout": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
   "music": "MUS_BIRCH_LAB",
   "region_map_section": "MAPSEC_NEW_BARK_TOWN",
@@ -25,7 +25,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Aide",
+      "script": "NewBarkTown_Lab_EventScript_Aide",
       "flag": "0"
     },
     {
@@ -39,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Birch",
+      "script": "NewBarkTown_Lab_EventScript_Birch",
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
@@ -53,7 +53,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Rival",
+      "script": "NewBarkTown_Lab_EventScript_Rival",
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
@@ -67,7 +67,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil",
+      "script": "NewBarkTown_Lab_EventScript_Cyndaquil",
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
@@ -81,7 +81,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Totodile",
+      "script": "NewBarkTown_Lab_EventScript_Totodile",
       "flag": "FLAG_GARBAGEFLAG"
     },
     {
@@ -95,7 +95,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita",
+      "script": "NewBarkTown_Lab_EventScript_Chikorita",
       "flag": "FLAG_GARBAGEFLAG"
     }
   ],
@@ -123,7 +123,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Machine"
+      "script": "NewBarkTown_Lab_EventScript_Machine"
     },
     {
       "type": "sign",
@@ -131,7 +131,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Machine"
+      "script": "NewBarkTown_Lab_EventScript_Machine"
     },
     {
       "type": "sign",
@@ -139,7 +139,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Book"
+      "script": "NewBarkTown_Lab_EventScript_Book"
     },
     {
       "type": "sign",
@@ -147,7 +147,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Book"
+      "script": "NewBarkTown_Lab_EventScript_Book"
     },
     {
       "type": "sign",
@@ -155,7 +155,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf"
+      "script": "NewBarkTown_Lab_EventScript_Bookshelf"
     },
     {
       "type": "sign",
@@ -163,7 +163,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf"
+      "script": "NewBarkTown_Lab_EventScript_Bookshelf"
     },
     {
       "type": "sign",
@@ -171,7 +171,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf"
+      "script": "NewBarkTown_Lab_EventScript_Bookshelf"
     },
     {
       "type": "sign",
@@ -179,7 +179,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf"
+      "script": "NewBarkTown_Lab_EventScript_Bookshelf"
     },
     {
       "type": "sign",
@@ -187,7 +187,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf"
+      "script": "NewBarkTown_Lab_EventScript_Bookshelf"
     },
     {
       "type": "sign",
@@ -195,7 +195,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PC"
+      "script": "NewBarkTown_Lab_EventScript_PC"
     },
     {
       "type": "sign",
@@ -203,7 +203,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PC"
+      "script": "NewBarkTown_Lab_EventScript_PC"
     },
     {
       "type": "sign",
@@ -211,7 +211,7 @@
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PC"
+      "script": "NewBarkTown_Lab_EventScript_PC"
     },
     {
       "type": "sign",
@@ -219,7 +219,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PC"
+      "script": "NewBarkTown_Lab_EventScript_PC"
     },
     {
       "type": "sign",
@@ -227,7 +227,7 @@
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PC"
+      "script": "NewBarkTown_Lab_EventScript_PC"
     },
     {
       "type": "sign",
@@ -235,7 +235,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PC"
+      "script": "NewBarkTown_Lab_EventScript_PC"
     }
   ]
 }
