@@ -74,6 +74,10 @@ bool32 IsLastHealLocationPlayerHouse()
         || IsLastHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F))
         return TRUE;
 
+#else
+    if (IsLastHealLocation(MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F))
+        return TRUE;
+
 #endif // !IS_HNS
     return FALSE;
 }

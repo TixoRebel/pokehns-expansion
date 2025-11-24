@@ -73,6 +73,7 @@ void DeactivateAllRoamers(void)
         SetRoamerInactive(i);
 }
 
+#if !IS_HNS
 static void ClearRoamerLocationHistory(u32 roamerIndex)
 {
     u32 i;
@@ -83,6 +84,7 @@ static void ClearRoamerLocationHistory(u32 roamerIndex)
         sLocationHistory[roamerIndex][i][MAP_NUM] = 0;
     }
 }
+#endif // !IS_HNS
 
 void MoveAllRoamersToOtherLocationSets(void)
 {

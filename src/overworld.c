@@ -1359,11 +1359,15 @@ u8 GetMapMusicFadeoutSpeed(void)
 
 void TryFadeOutOldMapMusic(void)
 {
+#if IS_HNS
+    u16 warpMusic = GetWarpDestinationMusic();
+    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
+        FadeOutMapMusic(GetMapMusicFadeoutSpeed());
+#else
     u16 currentMusic = GetCurrentMapMusic();
     u16 warpMusic = GetWarpDestinationMusic();
     if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
     {
-#if !IS_HNS
         if (currentMusic == MUS_SURF
             && VarGet(VAR_SKY_PILLAR_STATE) == 2
             && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SOOTOPOLIS_CITY)
@@ -1373,9 +1377,9 @@ void TryFadeOutOldMapMusic(void)
             && sWarpDestination.x == 29
             && sWarpDestination.y == 53)
             return;
-#endif // !IS_HNS
         FadeOutMapMusic(GetMapMusicFadeoutSpeed());
     }
+#endif // IS_HNS
 }
 
 bool8 BGMusicStopped(void)

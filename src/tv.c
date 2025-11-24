@@ -82,7 +82,9 @@ static EWRAM_DATA u16 sFindThatGamerCoinsSpent = 0;
 static EWRAM_DATA u8 sFindThatGamerWhichGame = SLOT_MACHINE;
 static EWRAM_DATA ALIGNED(4) u8 sRecordMixingPartnersWithoutShowsToShare = 0;
 static EWRAM_DATA ALIGNED(4) u8 sTVShowState = 0;
+#if !IS_HNS
 static EWRAM_DATA u8 sTVSecretBaseSecretsRandomValues[3] = {};
+#endif
 
 static void ClearPokeNews(void);
 static u8 GetTVGroupByShowId(u8);
@@ -124,7 +126,6 @@ static void ClearPokeNewsIfGameNotComplete(void);
 static s8 GetPokeNewsSlotIfActive(PokeNews *, u8);
 static void InitTryMixPokeNewsShow(PokeNews *[POKE_NEWS_COUNT], PokeNews *[POKE_NEWS_COUNT]);
 static bool8 TryMixPokeNewsShow(PokeNews *, PokeNews *, s8);
-static void TVShowDone(void);
 static void InterviewAfter_FanClubLetter(void);
 static void InterviewAfter_RecentHappenings(void);
 static void InterviewAfter_PkmnFanClubOpinions(void);
@@ -136,7 +137,6 @@ static void InitWorldOfMastersShowAttempt(void);
 static void TryPutPokemonTodayFailedOnTheAir(void);
 static void TryStartRandomMassOutbreak(void);
 static void TryPutRandomPokeNewsOnAir(void);
-static void SortPurchasesByQuantity(void);
 static void UpdateMassOutbreakTimeLeft(u16);
 static void TryEndMassOutbreak(u16);
 static void UpdatePokeNewsCountdown(u16);
@@ -156,6 +156,9 @@ static void InterviewBefore_ContestLiveUpdates(void);
 static void InterviewBefore_3CheersForPokeblocks(void);
 static void InterviewBefore_FanClubSpecial(void);
 static void ChangeBoxPokemonNickname_CB(void);
+#if !IS_HNS
+static void SortPurchasesByQuantity(void);
+static void TVShowDone(void);
 static void DoTVShowPokemonFanClubLetter(void);
 static void DoTVShowRecentHappenings(void);
 static void DoTVShowPokemonFanClubOpinions(void);
@@ -188,6 +191,7 @@ static void DoTVShowWhatsNo1InHoennToday(void);
 static void DoTVShowSecretBaseSecrets(void);
 static void DoTVShowSafariFanClub(void);
 static void DoTVShowLilycoveContestLady(void);
+#endif
 
 static const struct {
     u16 species;
@@ -2789,6 +2793,7 @@ size_t CountDigits(int value)
     return count;
 }
 
+#if !IS_HNS
 static void SmartShopper_BufferPurchaseTotal(u8 varIdx, TVShow *show)
 {
     u8 i;
@@ -2804,6 +2809,7 @@ static void SmartShopper_BufferPurchaseTotal(u8 varIdx, TVShow *show)
     else
         ConvertIntToDecimalString(varIdx, price);
 }
+#endif
 
 static bool8 IsRecordMixShowAlreadySpawned(u8 kind, bool8 delete)
 {
@@ -2830,6 +2836,7 @@ static bool8 IsRecordMixShowAlreadySpawned(u8 kind, bool8 delete)
     return FALSE;
 }
 
+#if !IS_HNS
 static void SortPurchasesByQuantity(void)
 {
     u8 i, j;
@@ -2850,6 +2857,7 @@ static void SortPurchasesByQuantity(void)
         }
     }
 }
+#endif
 
 static void TryReplaceOldTVShowOfKind(u8 kind)
 {
@@ -3063,12 +3071,14 @@ static void CompactTVShowArray(TVShow *shows)
     }
 }
 
+#if !IS_HNS
 static u16 GetRandomDifferentSpeciesAndNameSeenByPlayer(u8 varIdx, u16 excludedSpecies)
 {
     u16 species = GetRandomDifferentSpeciesSeenByPlayer(excludedSpecies);
     StringCopy(gTVStringVarPtrs[varIdx], GetSpeciesName(species));
     return species;
 }
+#endif
 
 static u16 GetRandomDifferentSpeciesSeenByPlayer(u16 excludedSpecies)
 {
@@ -3134,6 +3144,7 @@ static bool8 BernoulliTrial(u16 ratio)
     return TRUE;
 }
 
+#if !IS_HNS
 // For TVSHOW_FAN_CLUB_LETTER / TVSHOW_RECENT_HAPPENINGS
 // Both are assumed to have the same struct layout
 static void GetRandomWordFromShow(TVShow *show)
@@ -3250,6 +3261,7 @@ static void GetNicknameSubstring(u8 varIdx, u8 whichPosition, u8 charParam, u16 
     }
     StringCopy(gTVStringVarPtrs[varIdx], buff);
 }
+#endif
 
 // Unused script special
 bool8 IsTVShowAlreadyInQueue(void)
@@ -4296,6 +4308,7 @@ void DoTVShow(void)
 #endif
 }
 
+#if !IS_HNS
 static void DoTVShowBravoTrainerPokemonProfile(void)
 {
     TVShow *show;
@@ -5420,7 +5433,7 @@ static void DoTVShow3CheersForPokeblocks(void)
     }
     ShowFieldMessage(sTV3CheersForPokeblocksTextGroup[state]);
 }
-
+#endif
 void DoTVShowInSearchOfTrainers(void)
 {
     u8 state;
@@ -5474,7 +5487,7 @@ void DoTVShowInSearchOfTrainers(void)
     }
     ShowFieldMessage(sTVInSearchOfTrainersTextGroup[state]);
 }
-
+#if !IS_HNS
 static void DoTVShowPokemonAngler(void)
 {
     TVShow *show;
@@ -6818,6 +6831,7 @@ static void TVShowDone(void)
     sTVShowState = 0;
     gSaveBlock1Ptr->tvShows[gSpecialVar_0x8004].common.active = FALSE;
 }
+#endif
 
 void ResetTVShowState(void)
 {
