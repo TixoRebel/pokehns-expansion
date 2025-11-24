@@ -26,15 +26,16 @@ jobs:
           sudo apt install -y binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi libpng-dev python3
         # build-essential and git are already installed
 
-      - name: ROM (Emerald)
-        env:
-          COMPARE: 0
-          GAME_VERSION: EMERALD
-        run: make emerald -j${nproc} -O all
+      ### Reintroduce once Emerald capability is restored
+      #- name: ROM (Emerald)
+      #  env:
+      #    COMPARE: 0
+      #    GAME_VERSION: EMERALD
+      #  run: make emerald -j${nproc} -O all
 
       - name: LTO
         env:
-          GAME_VERSION: EMERALD
+          GAME_VERSION: HEARTGOLD
         run: |
           make tidy
           make -j${nproc} LTO=1
