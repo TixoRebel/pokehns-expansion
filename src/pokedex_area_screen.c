@@ -1,5 +1,6 @@
 #include "global.h"
 #include "bg.h"
+#include "decompress.h"
 #include "event_data.h"
 #include "gpu_regs.h"
 #include "graphics.h"

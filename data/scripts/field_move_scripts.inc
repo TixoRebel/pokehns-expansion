@@ -13,7 +13,7 @@ EventScript_CutTree::
 	lockall
 	goto_if_unset FLAG_BADGE02_GET, EventScript_CheckTreeCantCut
 	goto_if_unset FLAG_RECEIVED_HM_CUT, EventScript_CheckTreeCantCut @ HnS PORT NOTE - checks for badge and access to move, not party movesets
-	@checkpartymove MOVE_CUT @ HnS PORT TODO - maybe replace with "checkpartylearnsets" or modify behavior?
+	checkfieldmove FIELD_MOVE_CUT, TRUE @ HnS PORT TODO - maybe replace with "checkpartylearnsets" or modify behavior? @@ Expansion 1.13.0
 	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
 	@setfieldeffectargument 0, VAR_RESULT
@@ -80,7 +80,7 @@ EventScript_RockSmash::
 	lockall
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CantSmashRock
 	goto_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, EventScript_CantSmashRock
-	@checkpartymove MOVE_ROCK_SMASH
+	checkfieldmove FIELD_MOVE_ROCK_SMASH, TRUE
 	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
 	@setfieldeffectargument 0, VAR_RESULT
@@ -115,7 +115,6 @@ EventScript_SmashRock:: @ fallthrough
 EventScript_Headbutt::
 	lockall
 	goto_if_unset FLAG_GET_HEADBUTT, EventScript_CantHeadbuttTree
-	@checkpartymove MOVE_HEADBUTT
 	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantHeadbuttTree
 	@setfieldeffectargument 0, VAR_RESULT
@@ -335,7 +334,7 @@ EventScript_StrengthBoulder::
 	lockall
 	goto_if_unset FLAG_BADGE03_GET, EventScript_CantStrength
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder @ NOTE - checks if Strength is already active
-	@checkpartymove MOVE_STRENGTH
+	checkfieldmove FIELD_MOVE_STRENGTH, TRUE
 	@checkitem ITEM_HM_STRENGTH @ HnS PORT NOTE - why checkitem and not FLAG_RECEIVED_HM_STRENGTH?
 	@goto_if_eq VAR_RESULT, FALSE, EventScript_CantStrength
 	goto_if_unset FLAG_RECEIVED_HM_STRENGTH, EventScript_CantStrength
@@ -406,9 +405,8 @@ EventScript_UseWaterfall::
 	goto_if_unset FLAG_BADGE08_GET, EventScript_CantWaterfall @ badge 8
 	goto_if_unset FLAG_RECEIVED_HM_WATERFALL, EventScript_CantWaterfall
 	@goto_if_set FLAG_SYS_USE_WATERFALL, EventScript_CheckActivatedWaterfall @ NOTE - checks if Waterfall is already active
-	@checkpartymove MOVE_WATERFALL
+	checkfieldmove FIELD_MOVE_WATERFALL
 	@checkitem ITEM_HM_WATERFALL @ HnS PORT NOTE - why checkitem and not FLAG_RECEIVED_HM_WATERFALL?
-	@checkpartymove MOVE_WATERFALL
 	setvar VAR_RESULT, 0
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -448,7 +446,7 @@ Text_MonUsedWaterfall:
 @ HnS PORT NOTE - this is just Expansion's version of dive
 EventScript_UseDive::
 	lockall
-	checkpartymove MOVE_DIVE
+	checkfieldmove FIELD_MOVE_DIVE
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantDive
 	copyvar 0x8004 VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -477,7 +475,7 @@ EventScript_EndDive::
 
 EventScript_UseDiveUnderwater::
 	lockall
-	checkpartymove MOVE_DIVE
+	checkfieldmove FIELD_MOVE_DIVE
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSurface
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
@@ -659,3 +657,36 @@ EventScript_Defog::
 	waitstate
 	releaseall
 	end
+
+EventScript_UseRockClimb::
+	lockall
+	checkfieldmove FIELD_MOVE_ROCK_CLIMB
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantRockClimb
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	setfieldeffectargument 0, VAR_RESULT
+	msgbox Text_WantToRockClimb, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
+	msgbox Text_MonUsedRockClimb, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_ROCK_CLIMB
+	waitstate
+	goto EventScript_EndRockClimb
+	end
+
+EventScript_CantRockClimb::
+	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
+
+EventScript_EndRockClimb::
+	releaseall
+	end
+
+Text_WantToRockClimb:
+    .string "The cliff is steep.\n"
+    .string "Would you like to use Rock Climb?$"
+
+Text_MonUsedRockClimb:
+    .string "{STR_VAR_1} used Rock Climb!$"
+
+Text_CantRockClimb:
+    .string "The cliff is steep.\n"
+    .string "A Pokémon may be able to climb it.$"

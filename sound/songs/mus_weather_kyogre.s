@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	mus_weather_kyogre_grp, voicegroup089
+	.equ	mus_weather_kyogre_grp, voicegroup_abnormal_weather
 	.equ	mus_weather_kyogre_pri, 0
 	.equ	mus_weather_kyogre_rev, reverb_set+50
 	.equ	mus_weather_kyogre_mvl, 127

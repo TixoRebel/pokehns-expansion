@@ -80,7 +80,7 @@ AquaHideout_UnusedRubyMap2_EventScript_CloseBrailleMsg::
 	releaseall
 	msgbox AquaHideout_UnusedRubyMap2_EventScript_CloseBrailleMsgText, MSGBOX_DEFAULT
 	waitbuttonpress
-	chooseitem KEYITEMS_POCKET
+	chooseitem POCKET_KEY_ITEMS
 	goto_if_eq VAR_ITEM_ID, ITEM_SAPPHIRE, AquaHideout_UnusedRubyMap2_EventScript_OpenRegiEntrance
 	msgbox AquaHideout_UnusedRubyMap2_EventScript_CloseBrailleMsgText3, MSGBOX_AUTOCLOSE
 	end

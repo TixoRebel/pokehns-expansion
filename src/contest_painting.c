@@ -424,24 +424,24 @@ static void LoadContestPaintingFrame(u8 contestWinnerId, bool8 isForArtist)
         switch (gContestPaintingWinner->contestCategory / NUM_PAINTING_CAPTIONS)
         {
         case CONTEST_CATEGORY_COOL:
-            RLUnCompVram(sPictureFrameTiles_Cool, (void *)VRAM);
-            RLUnCompWram(sPictureFrameTilemap_Cool, gContestMonPixels);
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Cool, (void *)VRAM);
+            DecompressDataWithHeaderWram(sPictureFrameTilemap_Cool, gContestMonPixels);
             break;
         case CONTEST_CATEGORY_BEAUTY:
-            RLUnCompVram(sPictureFrameTiles_Beauty, (void *)VRAM);
-            RLUnCompWram(sPictureFrameTilemap_Beauty, gContestMonPixels);
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Beauty, (void *)VRAM);
+            DecompressDataWithHeaderWram(sPictureFrameTilemap_Beauty, gContestMonPixels);
             break;
         case CONTEST_CATEGORY_CUTE:
-            RLUnCompVram(sPictureFrameTiles_Cute, (void *)VRAM);
-            RLUnCompWram(sPictureFrameTilemap_Cute, gContestMonPixels);
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Cute, (void *)VRAM);
+            DecompressDataWithHeaderWram(sPictureFrameTilemap_Cute, gContestMonPixels);
             break;
         case CONTEST_CATEGORY_SMART:
-            RLUnCompVram(sPictureFrameTiles_Smart, (void *)VRAM);
-            RLUnCompWram(sPictureFrameTilemap_Smart, gContestMonPixels);
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Smart, (void *)VRAM);
+            DecompressDataWithHeaderWram(sPictureFrameTilemap_Smart, gContestMonPixels);
             break;
         case CONTEST_CATEGORY_TOUGH:
-            RLUnCompVram(sPictureFrameTiles_Tough, (void *)VRAM);
-            RLUnCompWram(sPictureFrameTilemap_Tough, gContestMonPixels);
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Tough, (void *)VRAM);
+            DecompressDataWithHeaderWram(sPictureFrameTilemap_Tough, gContestMonPixels);
             break;
         }
 
@@ -466,8 +466,8 @@ static void LoadContestPaintingFrame(u8 contestWinnerId, bool8 isForArtist)
     else if (contestWinnerId < MUSEUM_CONTEST_WINNERS_START)
     {
         // Load Contest Hall lobby frame
-        RLUnCompVram(sPictureFrameTiles_HallLobby, (void *)VRAM);
-        RLUnCompVram(sPictureFrameTilemap_HallLobby, (void *)(BG_SCREEN_ADDR(12)));
+        DecompressDataWithHeaderVram(sPictureFrameTiles_HallLobby, (void *)VRAM);
+        DecompressDataWithHeaderVram(sPictureFrameTilemap_HallLobby, (void *)(BG_SCREEN_ADDR(12)));
     }
     else
     {
@@ -475,24 +475,24 @@ static void LoadContestPaintingFrame(u8 contestWinnerId, bool8 isForArtist)
         switch (gContestPaintingWinner->contestCategory / NUM_PAINTING_CAPTIONS)
         {
         case CONTEST_CATEGORY_COOL:
-            RLUnCompVram(sPictureFrameTiles_Cool, (void *)VRAM);
-            RLUnCompVram(sPictureFrameTilemap_Cool, (void *)(BG_SCREEN_ADDR(12)));
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Cool, (void *)VRAM);
+            DecompressDataWithHeaderVram(sPictureFrameTilemap_Cool, (void *)(BG_SCREEN_ADDR(12)));
             break;
         case CONTEST_CATEGORY_BEAUTY:
-            RLUnCompVram(sPictureFrameTiles_Beauty, (void *)VRAM);
-            RLUnCompVram(sPictureFrameTilemap_Beauty, (void *)(BG_SCREEN_ADDR(12)));
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Beauty, (void *)VRAM);
+            DecompressDataWithHeaderVram(sPictureFrameTilemap_Beauty, (void *)(BG_SCREEN_ADDR(12)));
             break;
         case CONTEST_CATEGORY_CUTE:
-            RLUnCompVram(sPictureFrameTiles_Cute, (void *)VRAM);
-            RLUnCompVram(sPictureFrameTilemap_Cute, (void *)(BG_SCREEN_ADDR(12)));
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Cute, (void *)VRAM);
+            DecompressDataWithHeaderVram(sPictureFrameTilemap_Cute, (void *)(BG_SCREEN_ADDR(12)));
             break;
         case CONTEST_CATEGORY_SMART:
-            RLUnCompVram(sPictureFrameTiles_Smart, (void *)VRAM);
-            RLUnCompVram(sPictureFrameTilemap_Smart, (void *)(BG_SCREEN_ADDR(12)));
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Smart, (void *)VRAM);
+            DecompressDataWithHeaderVram(sPictureFrameTilemap_Smart, (void *)(BG_SCREEN_ADDR(12)));
             break;
         case CONTEST_CATEGORY_TOUGH:
-            RLUnCompVram(sPictureFrameTiles_Tough, (void *)VRAM);
-            RLUnCompVram(sPictureFrameTilemap_Tough, (void *)(BG_SCREEN_ADDR(12)));
+            DecompressDataWithHeaderVram(sPictureFrameTiles_Tough, (void *)VRAM);
+            DecompressDataWithHeaderVram(sPictureFrameTilemap_Tough, (void *)(BG_SCREEN_ADDR(12)));
             break;
         }
     }

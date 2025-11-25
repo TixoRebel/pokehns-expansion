@@ -18,7 +18,7 @@
 If you use **`pokehns-expansion`**, please credit **RHH (Rom Hacking Hideout)** and **pokemonHnS**. Optionally, include the version number for clarity.
 
 ```
-Based off pokehns-expansion https://github.com/TixoRebel/pokehns-expansion, using RHH's pokeemerald-expansion 1.12.2 https://github.com/rh-hideout/pokeemerald-expansion/ and pokemonHnS https://github.com/PokemonHnS-Development/pokemonHnS.
+Based off pokehns-expansion https://github.com/TixoRebel/pokehns-expansion, using RHH's pokeemerald-expansion 1.13.0 https://github.com/rh-hideout/pokeemerald-expansion/ and pokemonHnS https://github.com/PokemonHnS-Development/pokemonHnS.
 ```
 
 Please consider [crediting all contributors](CREDITS.md) involved in the upstream pokeemerald-expansion project!
