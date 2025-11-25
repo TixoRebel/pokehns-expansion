@@ -101,7 +101,9 @@ static void CalcZoomScrollParams(s16 scrollX, s16 scrollY, s16 c, s16 d, u16 e, 
 static u16 GetMapSecIdAt(u16 x, u16 y);
 static void RegionMap_SetBG2XAndBG2Y(s16 x, s16 y);
 static void InitMapBasedOnPlayerLocation(void);
+#if !IS_HNS
 static void RegionMap_InitializeStateBasedOnSSTidalLocation(void);
+#endif // !IS_HNS
 static u8 GetMapsecType(u16 mapSecId);
 static u16 CorrectSpecialMapSecId_Internal(u16 mapSecId);
 static u16 GetTerraOrMarineCaveMapSecId(void);
@@ -1325,6 +1327,7 @@ static void InitMapBasedOnPlayerLocation(void)
     sRegionMap->cursorPosY = ey + y + MAPCURSOR_Y_MIN;
 }
 
+#if !IS_HNS
 static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 {
     // 1) Pick the variant for THIS screen so layout matches art
@@ -1439,8 +1442,7 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
         sRegionMap->cursorPosY = ey + y + MAPCURSOR_Y_MIN;
     }
 }
-
-
+#endif // !IS_HNS
 
 static u8 GetMapsecType(u16 mapSecId)
 {
