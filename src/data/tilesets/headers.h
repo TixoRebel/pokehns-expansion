@@ -13,7 +13,6 @@
 // the color indices to blend are stored in the palette's color 0
 #define LIGHT_PAL(x) ((x) < NUM_PALS_IN_PRIMARY ? 1 << (x) : 1 << ((x) - NUM_PALS_IN_PRIMARY))
 
-//#if !IS_HNS
 const struct Tileset gTileset_General =
 {
     .isCompressed = TRUE,
@@ -806,7 +805,7 @@ const struct Tileset gTileset_NavelRock =
     .metatileAttributes = gMetatileAttributes_NavelRock,
     .callback = NULL,
 };
-//#else
+
 const struct Tileset gTileset_Johto_General =
 {
     .isCompressed = TRUE,
@@ -1829,7 +1828,6 @@ const struct Tileset gTileset_SeaCottage =
     .metatileAttributes = gMetatileAttributes_SeaCottage,
     .callback = NULL,
 };
-//#endif // !IS_HNS
 
 const struct Tileset gTileset_BattleFrontierRankingHall =
 {
