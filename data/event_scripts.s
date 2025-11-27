@@ -850,7 +850,7 @@ gStdScripts_End::
 	.include "data/maps/Route114_LanettesHouse/scripts.inc"
 	.include "data/maps/Route116_TunnelersRestHouse/scripts.inc"
 	.include "data/maps/Route117_PokemonDayCare/scripts.inc"
-	.include "data/maps/Route121_SafariZoneGate_SafariZoneEntrance/scripts.inc"
+	.include "data/maps/Route121_SafariZoneEntrance/scripts.inc"
 	.include "data/maps/MeteorFalls_1F_1R/scripts.inc"
 	.include "data/maps/MeteorFalls_1F_2R/scripts.inc"
 	.include "data/maps/MeteorFalls_B1F_1R/scripts.inc"
@@ -1263,9 +1263,9 @@ HallOfFame_EventScript_ResetEliteFour::
 Common_EventScript_InfoAttendant::
 	lock
 	faceplayer
-	msgbox Route121_SafariZoneGate_SafariZoneEntrance_Text_WelcomeFirstTime, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route121_SafariZoneGate_SafariZoneEntrance_EventScript_FirstTimeInfo
-	msgbox Route121_SafariZoneGate_SafariZoneEntrance_Text_ComeInAndEnjoy, MSGBOX_DEFAULT
+	msgbox Route121_SafariZoneEntrance_Text_WelcomeFirstTime, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route121_SafariZoneEntrance_EventScript_FirstTimeInfo
+	msgbox Route121_SafariZoneEntrance_Text_ComeInAndEnjoy, MSGBOX_DEFAULT
 	release
 	end
 

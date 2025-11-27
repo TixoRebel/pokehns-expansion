@@ -394,9 +394,6 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
 
 u16 GetCurrentMapWildMonHeaderId(void)
 {
-#if IS_HNS
-    return 0; // HnS TODO - put in dummy return to avoid errors
-#else
     u16 i;
     for (i = 0; ; i++)
     {
@@ -410,7 +407,8 @@ u16 GetCurrentMapWildMonHeaderId(void)
             // HnS - appears to skip invalid time-based encounters?
             // if (VarGet(VAR_TIME_BASED_ENCOUNTER) >= 1 && VarGet(VAR_TIME_BASED_ENCOUNTER) <= 4)
             //    i += (VarGet(VAR_TIME_BASED_ENCOUNTER) - 1);
-            
+
+#if !IS_HNS
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ALTERING_CAVE))
             {
@@ -420,13 +418,13 @@ u16 GetCurrentMapWildMonHeaderId(void)
 
                 i += alteringCaveId;
             }
+#endif
 
             return i;
         }
     }
 
     return HEADER_NONE;
-#endif // IS_HNS
 }
 
 enum TimeOfDay GetTimeOfDayForEncounters(u32 headerId, enum WildPokemonArea area)

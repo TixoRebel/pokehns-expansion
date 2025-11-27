@@ -1906,8 +1906,8 @@ void CB2_NewGame(void)
     ScriptContext_Init();
     UnlockPlayerFieldControls();
 #if !IS_HNS
-    gFieldCallback = ExecuteTruckSequence;
-    gFieldCallback2 = NULL;
+    //gFieldCallback = ExecuteTruckSequence;
+    //gFieldCallback2 = NULL;
 #endif // !IS_HNS
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();

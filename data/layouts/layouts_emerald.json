@@ -1356,13 +1356,13 @@
     },
     {
       "id": "LAYOUT_ROUTE121_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
-      "name": "Route121_SafariZoneGate_SafariZoneEntrance_Layout",
+      "name": "Route121_SafariZoneEntrance_Layout",
       "width": 18,
       "height": 14,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Shop",
-      "border_filepath": "data/layouts/Route121_SafariZoneGate_SafariZoneEntrance/border.bin",
-      "blockdata_filepath": "data/layouts/Route121_SafariZoneGate_SafariZoneEntrance/map.bin",
+      "border_filepath": "data/layouts/Route121_SafariZoneEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Route121_SafariZoneEntrance/map.bin",
       "layout_version": "emerald"
     },
     {
