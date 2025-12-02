@@ -51,130 +51,13 @@
 
 
 #include "data/region_map/region_map_entries.h"        // defines gRegionMapEntries (JK)
+#include "data/region_map/region_map_entries_johto.h"  // defines gRegionMapEntries (JK)
 
 // ✅ each of these must DEFINE its own array:
 //    sRegionMap_MapSectionLayout_JK[15][28]
 //    sRegionMap_MapSectionLayout_Johto[15][28]
 #include "data/region_map/region_map_layout.h"
 #include "data/region_map/region_map_layout_johto.h"
-
-const struct RegionMapLocation gRegionMapEntries_Johto[] = {
-    [MAPSEC_VIOLET_CITY] = { 7, 5, 1, 1, sMapName_VIOLET_CITY},
-    [MAPSEC_AZALEA_TOWN] = { 6, 12, 1, 1, sMapName_AZALEA_TOWN},
-    [MAPSEC_GOLDENROD_CITY] = { 5, 7, 1, 2, sMapName_GOLDENROD_CITY},
-    [MAPSEC_ECRUTEAK_CITY] = { 6, 3, 1, 1, sMapName_ECRUTEAK_CITY},
-    [MAPSEC_OLIVINE_CITY] = { 3, 6, 1, 1, sMapName_OLIVINE_CITY},
-    [MAPSEC_CIANWOOD_CITY] = { 1, 9, 1, 1, sMapName_CIANWOOD_CITY},
-    [MAPSEC_SAFARI_ZONE_GATE] = { 0, 7, 1, 1, sMapName_SAFARI_ZONE_GATE},
-    [MAPSEC_MAHOGANY_TOWN] = { 9, 3, 1, 1, sMapName_MAHOGANY_TOWN},
-    [MAPSEC_BLACKTHORN_CITY] = { 12, 3, 1, 1, sMapName_BLACKTHORN_CITY},
-    [MAPSEC_CHERRYGROVE_CITY] = { 9, 11, 1, 1, sMapName_CHERRYGROVE_CITY},
-    [MAPSEC_INDIGO_PLATEAU] = { 16, 2, 1, 2, sMapName_INDIGO_PLATEAU},
-    [MAPSEC_ROUTE_26] = { 16, 7, 1, 4, sMapName_ROUTE_26},
-    [MAPSEC_ROUTE_27] = { 14, 11, 3, 1, sMapName_ROUTE_27},
-    [MAPSEC_ROUTE_28] = { 15, 7, 1, 1, sMapName_ROUTE_28},
-    [MAPSEC_ROUTE_29] = { 10, 11, 3, 1, sMapName_ROUTE_29},
-    [MAPSEC_ROUTE_30] = { 9, 6, 1, 5, sMapName_ROUTE_30},
-    [MAPSEC_ROUTE_31] = { 8, 5, 2, 1, sMapName_ROUTE_31},
-    [MAPSEC_ROUTE_32] = { 7, 6, 1, 5, sMapName_ROUTE_32},
-    [MAPSEC_ROUTE_33] = { 7, 12, 1, 1, sMapName_ROUTE_33},
-    [MAPSEC_ROUTE_34] = { 5, 9, 1, 2, sMapName_ROUTE_34},
-    [MAPSEC_ROUTE_35] = { 5, 6, 1, 1, sMapName_ROUTE_35},
-    [MAPSEC_ROUTE_36] = { 6, 5, 1, 1, sMapName_ROUTE_36},
-    [MAPSEC_ROUTE_37] = { 6, 4, 1, 1, sMapName_ROUTE_37},
-    [MAPSEC_ROUTE_38] = { 4, 3, 2, 1, sMapName_ROUTE_38},
-    [MAPSEC_ROUTE_39] = { 3, 3, 1, 3, sMapName_ROUTE_39},
-    [MAPSEC_ROUTE_40] = { 2, 6, 1, 3, sMapName_ROUTE_40},
-    [MAPSEC_ROUTE_41] = { 2, 9, 1, 1, sMapName_ROUTE_41},
-    [MAPSEC_ROUTE_42] = { 7, 3, 2, 1, sMapName_ROUTE_42},
-    [MAPSEC_ROUTE_43] = { 9, 2, 1, 1, sMapName_ROUTE_43},
-    [MAPSEC_ROUTE_44] = { 10, 3, 2, 1, sMapName_ROUTE_44},
-    [MAPSEC_ROUTE_45] = { 12, 4, 1, 5, sMapName_ROUTE_45},
-    [MAPSEC_ROUTE_46] = { 11, 8, 1, 3, sMapName_ROUTE_46},
-    [MAPSEC_ROUTE_47] = { 0, 9, 1, 1, sMapName_ROUTE_47},
-    [MAPSEC_ROUTE_48] = { 0, 8, 1, 1, sMapName_ROUTE_48},
-    [MAPSEC_SAFARI_ZONE] = { 0, 6, 1, 1, sMapName_SAFARI_ZONE},
-    [MAPSEC_VICTORY_ROAD] = { 16, 4, 1, 4, sMapName_VICTORY_ROAD},
-    [MAPSEC_PALLET_TOWN] = { 19, 11, 1, 1, sMapName_PALLET_TOWN},
-    [MAPSEC_VIRIDIAN_CITY] = { 19, 7, 1, 1, sMapName_VIRIDIAN_CITY},
-    [MAPSEC_PEWTER_CITY] = { 19, 2, 1, 1, sMapName_PEWTER_CITY},
-    [MAPSEC_CERULEAN_CITY] = { 24, 2, 1, 1, sMapName_CERULEAN_CITY},
-    [MAPSEC_LAVENDER_TOWN] = { 27, 5, 1, 1, sMapName_LAVENDER_TOWN},
-    [MAPSEC_VERMILION_CITY] = { 24, 7, 1, 1, sMapName_VERMILION_CITY},
-    [MAPSEC_CELADON_CITY] = { 22, 5, 1, 1, sMapName_CELADON_CITY},
-    [MAPSEC_FUCHSIA_CITY] = { 24, 11, 1, 1, sMapName_FUCHSIA_CITY},
-    [MAPSEC_SOUTHERN_ISLAND] = { 9, 14, 1, 1, sMapName_SOUTHERN_ISLAND},
-    [MAPSEC_FARAWAY_ISLAND] = { 9, 14, 1, 1, sMapName_FARAWAY_ISLAND},
-    [MAPSEC_BIRTH_ISLAND] = { 9, 14, 1, 1, sMapName_BIRTH_ISLAND},
-    [MAPSEC_CINNABAR_ISLAND] = { 19, 13, 1, 1, sMapName_CINNABAR_ISLAND},
-    [MAPSEC_SAFFRON_CITY] = { 24, 5, 1, 1, sMapName_SAFFRON_CITY},
-    [MAPSEC_ROUTE_10_POKECENTER] = { 27, 3, 1, 1, sMapName_ROUTE_10},
-    [MAPSEC_ROUTE_1] = { 19, 8, 1, 3, sMapName_ROUTE_1},
-    [MAPSEC_ROUTE_2] = { 19, 3, 1, 4, sMapName_ROUTE_2},
-    [MAPSEC_ROUTE_3] = { 20, 2, 2, 1, sMapName_ROUTE_3},
-    [MAPSEC_ROUTE_4] = { 22, 2, 2, 1, sMapName_ROUTE_4},
-    [MAPSEC_ROUTE_5] = { 24, 3, 1, 2, sMapName_ROUTE_5},
-    [MAPSEC_ROUTE_6] = { 24, 6, 1, 1, sMapName_ROUTE_6},
-    [MAPSEC_ROUTE_7] = { 23, 5, 1, 1, sMapName_ROUTE_7},
-    [MAPSEC_ROUTE_8] = { 25, 5, 2, 1, sMapName_ROUTE_8},
-    [MAPSEC_ROUTE_9] = { 25, 2, 3, 1, sMapName_ROUTE_9},
-    [MAPSEC_ROUTE_10] = { 27, 3, 1, 1, sMapName_ROUTE_10},
-    [MAPSEC_ROUTE_11] = { 25, 5, 2, 1, sMapName_ROUTE_11},
-    [MAPSEC_ROUTE_12] = { 27, 6, 1, 4, sMapName_ROUTE_12},
-    [MAPSEC_ROUTE_13] = { 26, 10, 2, 1, sMapName_ROUTE_13},
-    [MAPSEC_ROUTE_14] = { 26, 11, 1, 1, sMapName_ROUTE_14},
-    [MAPSEC_ROUTE_15] = { 25, 11, 1, 1, sMapName_ROUTE_15},
-    [MAPSEC_ROUTE_16] = { 21, 5, 1, 1, sMapName_ROUTE_16},
-    [MAPSEC_ROUTE_17] = { 21, 6, 1, 6, sMapName_ROUTE_17},
-    [MAPSEC_ROUTE_18] = { 22, 11, 2, 1, sMapName_ROUTE_18},
-    [MAPSEC_ROUTE_19] = { 22, 12, 3, 2, sMapName_ROUTE_19},
-    [MAPSEC_ROUTE_20] = { 20, 13, 2, 1, sMapName_ROUTE_20},
-    [MAPSEC_ROUTE_21] = { 19, 12, 1, 1, sMapName_ROUTE_21},
-    [MAPSEC_ROUTE_22] = { 17, 7, 2, 1, sMapName_ROUTE_22},
-    [MAPSEC_ROUTE_24] = { 24, 0, 1, 2, sMapName_ROUTE_24},
-    [MAPSEC_ROUTE_25] = { 25, 0, 1, 1, sMapName_ROUTE_25},
-    [MAPSEC_VIRIDIAN_FOREST] = { 19, 4, 1, 2, sMapName_VIRIDIAN_FOREST},
-    [MAPSEC_MT_MOON] = { 21, 2, 2, 1, sMapName_MT__MOON},
-    [MAPSEC_S_S_ANNE] = { 13, 15, 1, 1, sMapName_S_S__ANNE},
-    [MAPSEC_UNDERGROUND_PATH_2] = { 24, 5, 1, 1, sMapName_UNDERGROUND_PATH},
-    [MAPSEC_DIGLETTS_CAVE] = { 20, 3, 6, 4, sMapName_DIGLETT_S_CAVE},
-    [MAPSEC_ROCKET_HIDEOUT] = { 9, 3, 1, 1, sMapName_ROCKET_HIDEOUT},
-    [MAPSEC_SILPH_CO] = { 24, 5, 1, 1, sMapName_SILPH_CO_},
-    [MAPSEC_ROCK_TUNNEL] = { 27, 3, 1, 1, sMapName_ROCK_TUNNEL},
-    [MAPSEC_SEAFOAM_ISLANDS] = { 22, 13, 1, 1, sMapName_SEAFOAM_ISLANDS},
-    [MAPSEC_POKEMON_TOWER] = { 27, 5, 1, 1, sMapName_POK__MON_TOWER},
-    [MAPSEC_CERULEAN_CAVE] = { 23, 1, 1, 1, sMapName_CERULEAN_CAVE},
-    [MAPSEC_POWER_PLANT] = { 27, 3, 1, 1, sMapName_POWER_PLANT},
-    [MAPSEC_NEW_BARK_TOWN] = { 13, 11, 1, 1, sMapName_NEW_BARK_TOWN},
-    [MAPSEC_INDIGO_PLATEAU2] = { 16, 2, 1, 2, sMapName_},
-    [MAPSEC_UNDERGROUND_PATH] = { 24, 5, 1, 1, sMapName_},
-    [MAPSEC_DARK_CAVE] = { 10, 5, 1, 1, sMapName_DARK_CAVE},
-    [MAPSEC_UNION_CAVE] = { 7, 11, 1, 2, sMapName_UNION_CAVE},
-    [MAPSEC_ILEX_FOREST] = { 5, 11, 1, 2, sMapName_ILEX_FOREST},
-    [MAPSEC_NATIONAL_PARK] = { 5, 5, 1, 1, sMapName_NATIONAL_PARK},
-    [MAPSEC_WHIRL_ISLANDS] = { 2, 9, 1, 1, sMapName_WHIRL_ISLANDS},
-    [MAPSEC_CLIFF_CAVE] = { 0, 9, 1, 1, sMapName_CLIFF_CAVE},
-    [MAPSEC_MT_MORTAR] = { 10, 3, 1, 1, sMapName_MT_MORTAR},
-    [MAPSEC_LAKE_OF_RAGE] = { 9, 1, 1, 1, sMapName_LAKE_OF_RAGE},
-    [MAPSEC_ICE_PATH] = { 11, 2, 2, 1, sMapName_ICE_PATH},
-    [MAPSEC_MT_SILVER] = { 14, 7, 1, 1, sMapName_MT__SILVER},
-    [MAPSEC_TOHJO_FALLS] = { 14, 10, 1, 1, sMapName_TOHJO_FALLS},
-    [MAPSEC_SPROUT_TOWER] = { 7, 5, 1, 1, sMapName_SPROUT_TOWER},
-    [MAPSEC_SLOWPOKE_WELL] = { 6, 12, 1, 1, sMapName_SLOWPOKE_WELL},
-    [MAPSEC_BURNED_TOWER] = { 6, 3, 1, 1, sMapName_BURNED_TOWER},
-    [MAPSEC_TIN_TOWER] = { 6, 2, 1, 1, sMapName_TIN_TOWER},
-    [MAPSEC_DRAGONS_DEN] = { 12, 2, 1, 1, sMapName_Dragon_s_Den},
-    [MAPSEC_RUINS_OF_ALPH] = { 6, 6, 1, 1, sMapName_Ruins_of_Alph},
-    [MAPSEC_SS_AQUA] = { 9, 14, 10, 1, sMapName_S_S__AQUA},
-    [MAPSEC_EMBEDDED_TOWER] = { 1, 10, 1, 1, sMapName_EMBEDDED_TOWER},
-    [MAPSEC_OLIVINE_LIGHTHOUSE] = { 3, 6, 1, 1, sMapName_LIGHTHOUSE},
-    [MAPSEC_BATTLE_FRONTIER] = { 1, 17, 1, 1, sMapName_},
-    [MAPSEC_FORTREE_CITY] = { 1, 17, 1, 1, sMapName_},
-    [MAPSEC_LILYCOVE_CITY] = { 2, 17, 1, 1, sMapName_},
-    [MAPSEC_MOSSDEEP_CITY] = { 3, 17, 1, 1, sMapName_},
-    [MAPSEC_SOOTOPOLIS_CITY] = { 3, 17, 1, 1, sMapName_},
-};
-
 
 enum {
     TAG_CURSOR,
@@ -218,7 +101,9 @@ static void CalcZoomScrollParams(s16 scrollX, s16 scrollY, s16 c, s16 d, u16 e, 
 static u16 GetMapSecIdAt(u16 x, u16 y);
 static void RegionMap_SetBG2XAndBG2Y(s16 x, s16 y);
 static void InitMapBasedOnPlayerLocation(void);
+#if !IS_HNS
 static void RegionMap_InitializeStateBasedOnSSTidalLocation(void);
+#endif // !IS_HNS
 static u8 GetMapsecType(u16 mapSecId);
 static u16 CorrectSpecialMapSecId_Internal(u16 mapSecId);
 static u16 GetTerraOrMarineCaveMapSecId(void);
@@ -606,17 +491,17 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_ROUTE_46] = {MAP_GROUP(MAP_ROUTE46), MAP_NUM(MAP_ROUTE46), HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_47] = {MAP_GROUP(MAP_ROUTE47), MAP_NUM(MAP_ROUTE47), HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_48] = {MAP_GROUP(MAP_ROUTE48), MAP_NUM(MAP_ROUTE48), HEAL_LOCATION_NONE},
-    [MAPSEC_DARK_CAVE] = {MAP_GROUP(MAP_ROUTE124), MAP_NUM(MAP_ROUTE124), HEAL_LOCATION_NONE},
-    [MAPSEC_UNION_CAVE] = {MAP_GROUP(MAP_ROUTE125), MAP_NUM(MAP_ROUTE125), HEAL_LOCATION_NONE},
-    [MAPSEC_ILEX_FOREST] = {MAP_GROUP(MAP_ROUTE126), MAP_NUM(MAP_ROUTE126), HEAL_LOCATION_NONE},
-    [MAPSEC_NATIONAL_PARK] = {MAP_GROUP(MAP_ROUTE127), MAP_NUM(MAP_ROUTE127), HEAL_LOCATION_NONE},
-    [MAPSEC_WHIRL_ISLANDS] = {MAP_GROUP(MAP_ROUTE128), MAP_NUM(MAP_ROUTE128), HEAL_LOCATION_NONE},
-    [MAPSEC_CLIFF_CAVE] = {MAP_GROUP(MAP_ROUTE129), MAP_NUM(MAP_ROUTE129), HEAL_LOCATION_NONE},
-    [MAPSEC_MT_MORTAR] = {MAP_GROUP(MAP_ROUTE130), MAP_NUM(MAP_ROUTE130), HEAL_LOCATION_NONE},
+    [MAPSEC_DARK_CAVE] = {MAP_GROUP(MAP_DARK_CAVE_SOUTH_SIDE), MAP_NUM(MAP_DARK_CAVE_SOUTH_SIDE), HEAL_LOCATION_NONE},
+    [MAPSEC_UNION_CAVE] = {MAP_GROUP(MAP_UNION_CAVE_1F), MAP_NUM(MAP_UNION_CAVE_1F), HEAL_LOCATION_NONE},
+    [MAPSEC_ILEX_FOREST] = {MAP_GROUP(MAP_ILEX_FOREST), MAP_NUM(MAP_ILEX_FOREST), HEAL_LOCATION_NONE},
+    [MAPSEC_NATIONAL_PARK] = {MAP_GROUP(MAP_NATIONAL_PARK_NORMAL), MAP_NUM(MAP_NATIONAL_PARK_NORMAL), HEAL_LOCATION_NONE},
+    [MAPSEC_WHIRL_ISLANDS] = {MAP_GROUP(MAP_WHIRL_ISLANDS_1F), MAP_NUM(MAP_WHIRL_ISLANDS_1F), HEAL_LOCATION_NONE},
+    [MAPSEC_CLIFF_CAVE] = {MAP_GROUP(MAP_CLIFF_EDGE_CAVE), MAP_NUM(MAP_CLIFF_EDGE_CAVE), HEAL_LOCATION_NONE},
+    [MAPSEC_MT_MORTAR] = {MAP_GROUP(MAP_MT_MORTAR_1F_SOUTH), MAP_NUM(MAP_MT_MORTAR_1F_SOUTH), HEAL_LOCATION_NONE},
     [MAPSEC_LAKE_OF_RAGE] = {MAP_GROUP(MAP_LAKE_OF_RAGE), MAP_NUM(MAP_LAKE_OF_RAGE), HEAL_LOCATION_LAKE_OF_RAGE},
-    [MAPSEC_ICE_PATH] = {MAP_GROUP(MAP_ROUTE132), MAP_NUM(MAP_ROUTE132), HEAL_LOCATION_NONE},
+    [MAPSEC_ICE_PATH] = {MAP_GROUP(MAP_ICE_PATH_1F), MAP_NUM(MAP_ICE_PATH_1F), HEAL_LOCATION_NONE},
     [MAPSEC_MT_SILVER] = {MAP_GROUP(MAP_MT_SILVER_OUTSIDE), MAP_NUM(MAP_MT_SILVER_OUTSIDE), HEAL_LOCATION_MT_SILVER},
-    [MAPSEC_TOHJO_FALLS] = {MAP_GROUP(MAP_ROUTE134), MAP_NUM(MAP_ROUTE134), HEAL_LOCATION_NONE},
+    [MAPSEC_TOHJO_FALLS] = {MAP_GROUP(MAP_TOHJO_FALLS_CAVERN), MAP_NUM(MAP_TOHJO_FALLS_CAVERN), HEAL_LOCATION_NONE},
     [MAPSEC_PALLET_TOWN] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_PALLET_TOWN},
     [MAPSEC_VIRIDIAN_CITY] = {MAP_GROUP(MAP_VIRIDIAN_CITY), MAP_NUM(MAP_VIRIDIAN_CITY), HEAL_LOCATION_VIRIDIAN_CITY},
     [MAPSEC_PEWTER_CITY] = {MAP_GROUP(MAP_PEWTER_CITY), MAP_NUM(MAP_PEWTER_CITY), HEAL_LOCATION_PEWTER_CITY},
@@ -1281,6 +1166,7 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 xOnMap;
     struct WarpData *warp;
 
+#if !IS_HNS
     // S.S. Tidal special handling
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SS_TIDAL_CORRIDOR)
         && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_CORRIDOR)
@@ -1290,6 +1176,7 @@ static void InitMapBasedOnPlayerLocation(void)
         RegionMap_InitializeStateBasedOnSSTidalLocation();
         return;
     }
+#endif // !IS_HNS
 
     // 2) Determine current section and world coords inside its map
     switch (GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
@@ -1306,9 +1193,11 @@ static void InitMapBasedOnPlayerLocation(void)
         mapHeight = gMapHeader.mapLayout->height;
         x = gSaveBlock1Ptr->pos.x;
         y = gSaveBlock1Ptr->pos.y;
+#if !IS_HNS
         if (sRegionMap->mapSecId == MAPSEC_UNDERWATER_SEAFLOOR_CAVERN
          || sRegionMap->mapSecId == MAPSEC_UNDERWATER_MARINE_CAVE)
             sRegionMap->playerIsInCave = TRUE;
+#endif // !IS_HNS
         break;
     case MAP_TYPE_UNDERGROUND:
     case MAP_TYPE_FOREST:
@@ -1438,6 +1327,7 @@ static void InitMapBasedOnPlayerLocation(void)
     sRegionMap->cursorPosY = ey + y + MAPCURSOR_Y_MIN;
 }
 
+#if !IS_HNS
 static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 {
     // 1) Pick the variant for THIS screen so layout matches art
@@ -1552,8 +1442,7 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
         sRegionMap->cursorPosY = ey + y + MAPCURSOR_Y_MIN;
     }
 }
-
-
+#endif // !IS_HNS
 
 static u8 GetMapsecType(u16 mapSecId)
 {

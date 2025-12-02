@@ -806,50 +806,6 @@ const struct Tileset gTileset_NavelRock =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_BattleFrontierRankingHall =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_BattleFrontierRankingHall,
-    .palettes = gTilesetPalettes_BattleFrontierRankingHall,
-    .metatiles = gMetatiles_BattleFrontierRankingHall,
-    .metatileAttributes = gMetatileAttributes_BattleFrontierRankingHall,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_BattleTent =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_BattleTent,
-    .palettes = gTilesetPalettes_BattleTent,
-    .metatiles = gMetatiles_BattleTent,
-    .metatileAttributes = gMetatileAttributes_BattleTent,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_MysteryEventsHouse =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_MysteryEventsHouse,
-    .palettes = gTilesetPalettes_MysteryEventsHouse,
-    .metatiles = gMetatiles_MysteryEventsHouse,
-    .metatileAttributes = gMetatileAttributes_MysteryEventsHouse,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_UnionRoom =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_UnionRoom,
-    .palettes = gTilesetPalettes_UnionRoom,
-    .metatiles = gMetatiles_UnionRoom,
-    .metatileAttributes = gMetatileAttributes_UnionRoom,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_Johto_General =
 {
     .isCompressed = TRUE,
@@ -1870,5 +1826,49 @@ const struct Tileset gTileset_SeaCottage =
     .palettes = gTilesetPalettes_SeaCottage,
     .metatiles = gMetatiles_SeaCottage,
     .metatileAttributes = gMetatileAttributes_SeaCottage,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_BattleFrontierRankingHall =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BattleFrontierRankingHall,
+    .palettes = gTilesetPalettes_BattleFrontierRankingHall,
+    .metatiles = gMetatiles_BattleFrontierRankingHall,
+    .metatileAttributes = gMetatileAttributes_BattleFrontierRankingHall,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_BattleTent =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BattleTent,
+    .palettes = gTilesetPalettes_BattleTent,
+    .metatiles = gMetatiles_BattleTent,
+    .metatileAttributes = gMetatileAttributes_BattleTent,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_MysteryEventsHouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MysteryEventsHouse,
+    .palettes = gTilesetPalettes_MysteryEventsHouse,
+    .metatiles = gMetatiles_MysteryEventsHouse,
+    .metatileAttributes = gMetatileAttributes_MysteryEventsHouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnionRoom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnionRoom,
+    .palettes = gTilesetPalettes_UnionRoom,
+    .metatiles = gMetatiles_UnionRoom,
+    .metatileAttributes = gMetatileAttributes_UnionRoom,
     .callback = NULL,
 };

@@ -122,6 +122,9 @@
 #define TRAINER_PIC_SWIMMING_TRIATHLETE_M 103
 #define TRAINER_PIC_COUNT                 104
 
+#define TRAINER_BACK_PIC_PLAYER_MALE    (IS_HNS ? TRAINER_BACK_PIC_RED : TRAINER_BACK_PIC_BRENDAN)
+#define TRAINER_BACK_PIC_PLAYER_FEMALE  (IS_HNS ? TRAINER_BACK_PIC_LEAF : TRAINER_BACK_PIC_MAY)
+
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

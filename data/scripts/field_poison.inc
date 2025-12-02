@@ -21,7 +21,11 @@ EventScript_FieldWhiteOut::
 	end
 
 EventScript_SetRespawnLavaridgePkmnCenter::
+#if IS_HNS
+	setrespawn HEAL_LOCATION_GOLDENROD_CITY
+#else
 	setrespawn HEAL_LOCATION_LAVARIDGE_TOWN
+#endif
 	return
 
 EventScript_FrontierFieldWhiteOut::

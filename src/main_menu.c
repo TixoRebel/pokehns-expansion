@@ -247,6 +247,7 @@ static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8
 
 // HnS TODO - make this codebase build to emerald, emerald expansion, or heart & soul depending on build flags
 // distinguish Oak Speech from Birch Speech
+#if IS_HNS
 // static void Task_NewGameOakSpeech_Init(u8);
 // static void AddOakSpeechObjects(u8);
 // static void Task_NewGameOakSpeech_WaitToShowOak(u8);
@@ -293,6 +294,7 @@ static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8
 // static void NewGameOakSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
 
 // HnS TODO - add TX options of choice
+#else
 // static void Task_NewGameBirchSpeech_Difficulty(u8);
 // static void Task_NewGameBirchSpeech_Challenge(u8);
 // static void Task_NewGameBirchSpeech_WaitToShowDifficultyMenu(u8);
@@ -303,6 +305,7 @@ static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8
 // static s8 NewGameBirchSpeech_ProcessDifficultyMenuInput(void);
 // static void NewGameBirchSpeech_ClearDifficultyWindow(u8, u8);
 // static void CB2_NewGameBirchSpeech_ReturnFromTxRandomizerChallengesOptions(void);
+#endif // IS_HNS
 
 // .rodata
 
@@ -480,6 +483,7 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
         .baseBlock = 0x85
     },
     // HnS
+#if IS_HNS
     {
         .bg = 0,
         .tilemapLeft = 3,
@@ -498,6 +502,7 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
         .paletteNum = 15,
         .baseBlock = 0x6D
     },
+#endif // IS_HNS
     DUMMY_WIN_TEMPLATE
 };
 

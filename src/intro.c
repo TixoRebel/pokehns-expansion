@@ -1101,9 +1101,9 @@ static u8 SetUpCopyrightScreen(void)
         REG_DISPCNT = DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON;
         SetSerialCallback(SerialCB_CopyrightScreen);
         GameCubeMultiBoot_Init(&gMultibootProgramStruct);
-#if HNS_INTRO == TRUE
+#if IS_HNS
         m4aSongNumStart(MUS_HG_INTRO);
-#endif
+#endif // IS_HNS
     // Expansion
     // REG_DISPCNT needs to be overwritten the second time, because otherwise the intro won't show up on VBA 1.7.2 and John GBA Lite emulators.
     // The REG_DISPCNT overwrite is NOT needed in m-GBA, No$GBA, VBA 1.8.0, My Boy and Pizza Boy GBA emulators.
@@ -1130,7 +1130,8 @@ static u8 SetUpCopyrightScreen(void)
         SetMainCallback2(CB2_ExpansionIntro);
         CreateTask(Task_HandleExpansionIntro, 0);
 // HnS = Heart & Soul
-#elif HNS_INTRO == TRUE
+#endif
+#if IS_HNS
         // ResetTasks();
         SetMainCallback2(CB2_HnSIntro);
         CreateTask(Task_HandleHnSIntro, 0);

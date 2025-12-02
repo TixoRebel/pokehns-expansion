@@ -34,8 +34,9 @@ EWRAM_DATA u8 gEncounteredRoamerIndex = 0;
 //         map in the location table there is not a location set that starts with
 //         that map then the roamer will be significantly less likely to move away
 //         from that map when it lands there.
-static const u8 sRoamerLocations[][6] =
+static const u8 sRoamerLocations[][(IS_HNS ? 0 : 6)] =
 {
+#if !IS_HNS
     { MAP_NUM(MAP_ROUTE110), MAP_NUM(MAP_ROUTE111), MAP_NUM(MAP_ROUTE117), MAP_NUM(MAP_ROUTE118), MAP_NUM(MAP_ROUTE134), ___ },
     { MAP_NUM(MAP_ROUTE111), MAP_NUM(MAP_ROUTE110), MAP_NUM(MAP_ROUTE117), MAP_NUM(MAP_ROUTE118), ___, ___ },
     { MAP_NUM(MAP_ROUTE117), MAP_NUM(MAP_ROUTE111), MAP_NUM(MAP_ROUTE110), MAP_NUM(MAP_ROUTE118), ___, ___ },
@@ -57,6 +58,7 @@ static const u8 sRoamerLocations[][6] =
     { MAP_NUM(MAP_ROUTE133), MAP_NUM(MAP_ROUTE132), MAP_NUM(MAP_ROUTE134), ___, ___, ___ },
     { MAP_NUM(MAP_ROUTE134), MAP_NUM(MAP_ROUTE133), MAP_NUM(MAP_ROUTE110), ___, ___, ___ },
     { ___, ___, ___, ___, ___, ___ },
+#endif // !IS_HNS
 };
 
 #undef ___
@@ -71,6 +73,7 @@ void DeactivateAllRoamers(void)
         SetRoamerInactive(i);
 }
 
+#if !IS_HNS
 static void ClearRoamerLocationHistory(u32 roamerIndex)
 {
     u32 i;
@@ -81,6 +84,7 @@ static void ClearRoamerLocationHistory(u32 roamerIndex)
         sLocationHistory[roamerIndex][i][MAP_NUM] = 0;
     }
 }
+#endif // !IS_HNS
 
 void MoveAllRoamersToOtherLocationSets(void)
 {
@@ -100,6 +104,7 @@ void MoveAllRoamers(void)
 
 static void CreateInitialRoamerMon(u8 index, u16 species, u8 level)
 {
+#if !IS_HNS
     ClearRoamerLocationHistory(index);
     CreateMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     ROAMER(index)->ivs = GetMonData(&gEnemyParty[0], MON_DATA_IVS);
@@ -118,6 +123,7 @@ static void CreateInitialRoamerMon(u8 index, u16 species, u8 level)
     ROAMER(index)->active = TRUE;
     sRoamerLocation[index][MAP_GRP] = ROAMER_MAP_GROUP;
     sRoamerLocation[index][MAP_NUM] = sRoamerLocations[Random() % NUM_LOCATION_SETS][0];
+#endif // !IS_HNS
 }
 
 static u8 GetFirstInactiveRoamerIndex(void)
@@ -180,6 +186,7 @@ void UpdateLocationHistoryForRoamer(void)
 
 void RoamerMoveToOtherLocationSet(u32 roamerIndex)
 {
+#if !IS_HNS
     u8 mapNum = 0;
 
     if (!ROAMER(roamerIndex)->active)
@@ -199,10 +206,12 @@ void RoamerMoveToOtherLocationSet(u32 roamerIndex)
         }
     } while (sRoamerLocation[roamerIndex][MAP_NUM] == mapNum);
     sRoamerLocation[roamerIndex][MAP_NUM] = mapNum;
+#endif // !IS_HNS
 }
 
 void RoamerMove(u32 roamerIndex)
 {
+#if !IS_HNS
     u8 locSet = 0;
 
     if ((Random() % 16) == 0)
@@ -234,6 +243,7 @@ void RoamerMove(u32 roamerIndex)
             locSet++;
         }
     }
+#endif // !IS_HNS
 }
 
 bool8 IsRoamerAt(u32 roamerIndex, u8 mapGroup, u8 mapNum)

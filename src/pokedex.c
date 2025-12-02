@@ -4608,6 +4608,14 @@ u16 GetKantoPokedexCount(u8 caseID)
     return count;
 }
 
+// HnS TODO?
+u32 GetRegionalPokedexCount(u8 caseID)
+{
+    if (IS_HNS)
+        return GetKantoPokedexCount(caseID);
+    return GetHoennPokedexCount(caseID);
+}
+
 bool16 HasAllHoennMons(void)
 {
     u32 i, j;
@@ -4632,6 +4640,14 @@ bool8 HasAllKantoMons(void)
             return FALSE;
     }
     return TRUE;
+}
+
+// HnS TODO?
+bool16 HasAllRegionalMons(void)
+{
+    if (IS_HNS)
+        return HasAllKantoMons();
+    return HasAllHoennMons();
 }
 
 bool16 HasAllMons(void)

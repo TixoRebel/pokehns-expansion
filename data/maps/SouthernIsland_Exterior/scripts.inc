@@ -3,7 +3,7 @@ SouthernIsland_Exterior_MapScripts::
 	.byte 0
 
 SouthernIsland_Exterior_OnTransition:
-	setflag FLAG_VISITED_CERULEAN_CITY
+	setflag FLAG_LANDMARK_SOUTHERN_ISLAND
 	end
 
 SouthernIsland_Exterior_EventScript_Sailor::
@@ -19,7 +19,7 @@ SouthernIsland_Exterior_EventScript_Sailor::
 	hideobjectat LOCALID_SOUTHERN_ISLAND_SAILOR, MAP_SOUTHERN_ISLAND_EXTERIOR
 	setvar VAR_0x8004, LOCALID_SOUTHERN_ISLAND_SS_TIDAL
 	call Common_EventScript_FerryDepartIsland
-	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 16
+	warp MAP_LILYCOVE_CITY_HARBOR, 8, 11
 	waitstate
 	release
 	end

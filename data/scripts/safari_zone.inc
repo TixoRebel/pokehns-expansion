@@ -102,7 +102,7 @@ SafariZone_Text_PokeblockWasPlaced:
 	.string "The {STR_VAR_1} was placed\n"
 	.string "on the {POKEBLOCK} FEEDER.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_WelcomeToSafariZone:
+Route121_SafariZoneEntrance_Text_WelcomeToSafariZone:
 	.string "Welcome to the SAFARI ZONE!\p"
 	.string "Here, you may witness many kinds of\n"
 	.string "POKéMON rarely seen in JOHTO.\p"
@@ -114,14 +114,14 @@ Route121_SafariZoneGate_SafariZoneEntrance_Text_WelcomeToSafariZone:
 	.string "for keeps!\p"
 	.string "Come in and enjoy the SAFARI ZONE!$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_WelcomeFirstTime:
+Route121_SafariZoneEntrance_Text_WelcomeFirstTime:
 	.string "Welcome to the SAFARI ZONE!\n"
 	.string "Is it your first time here?$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_ComeInAndEnjoy:
+Route121_SafariZoneEntrance_Text_ComeInAndEnjoy:
 	.string "Come in and enjoy the SAFARI ZONE!$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_FirstTimeInfo:
+Route121_SafariZoneEntrance_Text_FirstTimeInfo:
 	.string "When you enter the SAFARI ZONE, you\n"
 	.string "start with 30 SAFARI BALLS for\l"
 	.string "catching POKéMON.\p"
@@ -130,39 +130,39 @@ Route121_SafariZoneGate_SafariZoneEntrance_Text_FirstTimeInfo:
 	.string "walked 500 steps.\p"
 	.string "Come in and enjoy the SAFARI ZONE!$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_WouldYouLikeToPlay:
+Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay:
 	.string "Welcome to the SAFARI ZONE!\p"
 	.string "All you can catch for just ¥500!\n"
 	.string "Would you like to play a SAFARI Game?$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_PlayAnotherTime:
+Route121_SafariZoneEntrance_Text_PlayAnotherTime:
 	.string "Okay.\n"
 	.string "Please play another time!$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_NotEnoughMoney:
+Route121_SafariZoneEntrance_Text_NotEnoughMoney:
 	.string "You don't have enough money.\n"
 	.string "Sorry.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_ThatWillBe500Please:
+Route121_SafariZoneEntrance_Text_ThatWillBe500Please:
 	.string "That will be ¥500, please.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_HereAreYourSafariBalls:
+Route121_SafariZoneEntrance_Text_HereAreYourSafariBalls:
 	.string "Here are your SAFARI BALLS.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_Received30SafariBalls:
+Route121_SafariZoneEntrance_Text_Received30SafariBalls:
 	.string "{PLAYER} received 30 SAFARI BALLS.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_PleaseEnjoyYourself:
+Route121_SafariZoneEntrance_Text_PleaseEnjoyYourself:
 	.string "We'll let you know when your game\n"
 	.string "is over.\p"
 	.string "So, until then, enjoy yourself, please!\n"
 	.string "Off you go on your wild excursion!$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_PCIsFull:
+Route121_SafariZoneEntrance_Text_PCIsFull:
 	.string "Excuse me!\n"
 	.string "Your PC BOX is full.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_YouNeedPokeblockCase:
+Route121_SafariZoneEntrance_Text_YouNeedPokeblockCase:
 	.string "Excuse me!\n"
 	.string "You seem to be without a {POKEBLOCK} CASE.\p"
 	.string "Your SAFARI Game will be much more\n"
@@ -229,7 +229,7 @@ SafariZone_South_Text_Youngster:
 	.string "I guess POKéMON must have eaten it\n"
 	.string "without me noticing.$"
 
-Route121_SafariZoneGate_SafariZoneEntrance_Text_TrainerTip:
+Route121_SafariZoneEntrance_Text_TrainerTip:
 	.string "SAFARI ZONE TRAINER TIP!\p"
 	.string "Throw {POKEBLOCK}S at wild POKéMON to make\n"
 	.string "them less likely to flee.$"

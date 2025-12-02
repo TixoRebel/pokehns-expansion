@@ -2,6 +2,7 @@
 
 static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS - 1] =
 {
+#if !IS_HNS
     [HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F - 1] =
     {
         .mapGroup = MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F),
@@ -127,6 +128,7 @@ static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS 
         .x = 3,
         .y = 4,
     },
+#endif // !IS_HNS
     [HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR - 1] =
     {
         .mapGroup = MAP_GROUP(MAP_SOUTHERN_ISLAND_EXTERIOR),
@@ -146,10 +148,11 @@ static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS 
 
 // localIds can be found in the generated events.inc file for the specific heal location map
 // e.g. for OldaleTown_PokemonCenter1F/events.inc the following entry gets generated:
-// object_event 1, OBJ_EVENT_GFX_NURSE, 7, 2, 3, MOVEMENT_TYPE_FACE_DOWN, 0, 0, TRAINER_TYPE_NONE, 0, OldaleTown_PokemonCenter_1F_EventScript_Nurse, 0
+// object_event 1, OBJ_EVENT_GFX_NURSE, 7, 2, 3, MOVEMENT_TYPE_FACE_DOWN, 0, 0, TRAINER_TYPE_NONE, 0, Common_EventScript_Nurse, 0
 // In this case the localId is 1.
 static const u8 sHealNpcLocalId[NUM_HEAL_LOCATIONS - 1] =
 {
+#if !IS_HNS
     [HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F - 1] = 1,
     [HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F - 1] = 1,
     [HEAL_LOCATION_PETALBURG_CITY - 1] = 1,
@@ -170,6 +173,7 @@ static const u8 sHealNpcLocalId[NUM_HEAL_LOCATIONS - 1] =
     [HEAL_LOCATION_VERDANTURF_TOWN - 1] = 1,
     [HEAL_LOCATION_PACIFIDLOG_TOWN - 1] = 1,
     [HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE - 1] = 1,
+#endif // !IS_HNS
     [HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR - 1] = 0, // no heal npc
     [HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST - 1] = 1,
 };

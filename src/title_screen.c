@@ -63,13 +63,15 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite);
 // const rom data
 static const u16 sUnusedUnknownPal[]            = INCBIN_U16("graphics/title_screen/unused.gbapal");
 
+#if IS_HNS
 static const u32 sTitleScreenHnSGfx[]           = INCBIN_U32("graphics/title_screen/hns_title_screen.4bpp.smol");
-static const u32 sTitleScreenRayquazaGfx[]      = INCBIN_U32("graphics/title_screen/rayquaza.4bpp.smol");
 static const u32 sTitleScreenHnSTilemap[]       = INCBIN_U32("graphics/title_screen/hns_title_screen.bin.smolTM");
+#else
+static const u32 sTitleScreenRayquazaGfx[]      = INCBIN_U32("graphics/title_screen/rayquaza.4bpp.smol");
 static const u32 sTitleScreenRayquazaTilemap[]  = INCBIN_U32("graphics/title_screen/rayquaza.bin.smolTM"); // TODO - return this to using expansion's rayquaza.bin
-static const u32 sTitleScreenLogoShineGfx[]     = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.smol");
 static const u32 sTitleScreenCloudsGfx[]        = INCBIN_U32("graphics/title_screen/clouds.4bpp.smol");
-
+#endif // IS_HNS
+static const u32 sTitleScreenLogoShineGfx[]     = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.smol");
 
 
 // Used to blend "Emerald Version" as it passes over over the Pokémon banner.
@@ -606,12 +608,15 @@ void CB2_InitTitleScreen(void)
         DecompressDataWithHeaderVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
         LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
         // bg3
+#if IS_HNS
         DecompressDataWithHeaderVram(sTitleScreenHnSGfx, (void *)(BG_CHAR_ADDR(2)));
         DecompressDataWithHeaderVram(sTitleScreenHnSTilemap, (void *)(BG_SCREEN_ADDR(26)));
+#else
         // bg1
         // HnS PORT - Apparently clouds were not wanted
         // DecompressDataWithHeaderVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
         // DecompressDataWithHeaderVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
+#endif // IS_HNS
         ScanlineEffect_Stop();
         ResetTasks();
         ResetSpriteData();
@@ -620,7 +625,11 @@ void CB2_InitTitleScreen(void)
         LoadCompressedSpriteSheet(&sSpriteSheet_EmeraldVersion[0]);
         LoadCompressedSpriteSheet(&sSpriteSheet_PressStart[0]);
         LoadCompressedSpriteSheet(&sPokemonLogoShineSpriteSheet[0]);
+#if IS_HNS
         LoadPalette(gTitleScreenHnSVersionPal, OBJ_PLTT_ID(0), PLTT_SIZE_4BPP);
+#else
+        LoadPalette(gTitleScreenEmeraldVersionPal, OBJ_PLTT_ID(0), PLTT_SIZE_4BPP);
+#endif // IS_HNS
         LoadSpritePalette(&sSpritePalette_PressStart[0]);
         gMain.state = 2;
         break;

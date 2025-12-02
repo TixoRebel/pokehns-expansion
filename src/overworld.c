@@ -1115,6 +1115,7 @@ static u8 UNUSED GetObjectEventLoadFlag(void)
 
 static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
 {
+#if !IS_HNS
     if (!FlagGet(FLAG_SYS_WEATHER_CTRL))
         return FALSE;
     if (warp->mapGroup == 0)
@@ -1143,11 +1144,13 @@ static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
             }
         }
     }
+#endif // !IS_HNS
     return FALSE;
 }
 
 static bool16 NoMusicInSotopolisWithLegendaries(struct WarpData *warp)
 {
+#if !IS_HNS
     if (VarGet(VAR_SKY_PILLAR_STATE) != 1)
         return FALSE;
     else if (warp->mapGroup != MAP_GROUP(MAP_SOOTOPOLIS_CITY))
@@ -1155,11 +1158,13 @@ static bool16 NoMusicInSotopolisWithLegendaries(struct WarpData *warp)
     else if (warp->mapNum == MAP_NUM(MAP_SOOTOPOLIS_CITY))
         return TRUE;
     else
+#endif // !IS_HNS
         return FALSE;
 }
 
 static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
 {
+#if !IS_HNS
     if (VarGet(VAR_WEATHER_INSTITUTE_STATE))
         return FALSE;
     else if (warp->mapGroup != MAP_GROUP(MAP_ROUTE119_WEATHER_INSTITUTE_1F))
@@ -1168,11 +1173,13 @@ static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
      || warp->mapNum == MAP_NUM(MAP_ROUTE119_WEATHER_INSTITUTE_2F))
         return TRUE;
     else
+#endif // !IS_HNS
         return FALSE;
 }
 
 static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
 {
+#if !IS_HNS
     if (VarGet(VAR_GARBAGEVAR) == 0)
         return FALSE;
     else if (VarGet(VAR_GARBAGEVAR) > 2)
@@ -1182,6 +1189,7 @@ static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
     else if (warp->mapNum == MAP_NUM(MAP_MOSSDEEP_CITY_SPACE_CENTER_1F)
      || warp->mapNum == MAP_NUM(MAP_MOSSDEEP_CITY_SPACE_CENTER_2F))
         return TRUE;
+#endif // !IS_HNS
     return FALSE;
 }
 
@@ -1201,8 +1209,9 @@ u16 GetLocationMusic(struct WarpData *warp)
 
 u16 GetCurrLocationDefaultMusic(void)
 {
-    u16 music;
+    u16 music = GetLocationMusic(&gSaveBlock1Ptr->location);
 
+#if !IS_HNS
     // Play the desert music only when the sandstorm is active on Route 111.
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE111)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE111)
@@ -1221,11 +1230,15 @@ u16 GetCurrLocationDefaultMusic(void)
         else
             return MUS_ROUTE119;
     }
+#else
+    return music;
+#endif // !IS_HNS
 }
 
 u16 GetWarpDestinationMusic(void)
 {
     u16 music = GetLocationMusic(&sWarpDestination);
+#if !IS_HNS
     if (music != MUS_ROUTE118)
     {
         return music;
@@ -1238,6 +1251,9 @@ u16 GetWarpDestinationMusic(void)
         else
             return MUS_ROUTE119;
     }
+#else
+    return music;
+#endif // !IS_HNS
 }
 
 void Overworld_ResetMapMusic(void)
@@ -1343,6 +1359,11 @@ u8 GetMapMusicFadeoutSpeed(void)
 
 void TryFadeOutOldMapMusic(void)
 {
+#if IS_HNS
+    u16 warpMusic = GetWarpDestinationMusic();
+    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
+        FadeOutMapMusic(GetMapMusicFadeoutSpeed());
+#else
     u16 currentMusic = GetCurrentMapMusic();
     u16 warpMusic = GetWarpDestinationMusic();
     if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
@@ -1358,6 +1379,7 @@ void TryFadeOutOldMapMusic(void)
             return;
         FadeOutMapMusic(GetMapMusicFadeoutSpeed());
     }
+#endif // IS_HNS
 }
 
 bool8 BGMusicStopped(void)
@@ -1444,6 +1466,7 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
 
 static void ChooseAmbientCrySpecies(void)
 {
+#if !IS_HNS
     if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE130)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE130))
      && !IsMirageIslandPresent())
@@ -1454,6 +1477,7 @@ static void ChooseAmbientCrySpecies(void)
         sAmbientCrySpecies = GetLocalWaterMon();
     }
     else
+#endif // !IS_HNS
     {
         sAmbientCrySpecies = GetLocalWildMon(&sIsAmbientCryWaterMon);
     }
@@ -1882,8 +1906,10 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
+#if !IS_HNS
     //gFieldCallback = ExecuteTruckSequence;
     //gFieldCallback2 = NULL;
+#endif // !IS_HNS
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);

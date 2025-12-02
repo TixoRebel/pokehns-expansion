@@ -42,8 +42,10 @@ extern const u8 EventScript_SprayWoreOff[];
 #define WILD_CHECK_REPEL    (1 << 0)
 #define WILD_CHECK_KEEN_EYE (1 << 1)
 
+#if !IS_HNS
 static u16 FeebasRandom(void);
 static void FeebasSeedRng(u16 seed);
+#endif
 static void UpdateChainFishingStreak();
 static bool8 IsWildLevelAllowedByRepel(u8 level);
 static void ApplyFluteEncounterRateMod(u32 *encRate);
@@ -57,7 +59,9 @@ static bool8 TryGetAbilityInfluencedWildMonIndex(const struct WildPokemon *wildM
 static bool8 IsAbilityAllowingEncounter(u8 level);
 
 EWRAM_DATA static u8 sWildEncountersDisabled = 0;
+#if !IS_HNS
 EWRAM_DATA static u32 sFeebasRngValue = 0;
+#endif
 EWRAM_DATA bool8 gIsFishingEncounter = 0;
 EWRAM_DATA bool8 gIsSurfingEncounter = 0;
 EWRAM_DATA u8 gChainFishingDexNavStreak = 0;
@@ -88,6 +92,7 @@ void DisableWildEncounters(bool8 disabled)
 // of the inaccessible water metatiles (so that they can't be selected as a Feebas spot) they
 // use a different metatile that isn't actually surfable because it has MB_NORMAL instead.
 // This function is given the coordinates and section of a fishing spot and returns which number it is.
+#if !IS_HNS
 static u16 GetFeebasFishingSpotId(s16 targetX, s16 targetY, u8 section)
 {
     u16 x, y;
@@ -110,9 +115,11 @@ static u16 GetFeebasFishingSpotId(s16 targetX, s16 targetY, u8 section)
     }
     return spotId + 1;
 }
+#endif
 
 static bool8 CheckFeebas(void)
 {
+#if !IS_HNS
     u8 i;
     u16 feebasSpots[NUM_FEEBAS_SPOTS];
     s16 x, y;
@@ -172,9 +179,11 @@ static bool8 CheckFeebas(void)
                 return TRUE;
         }
     }
+#endif // !IS_HNS
     return FALSE;
 }
 
+#if !IS_HNS
 static u16 FeebasRandom(void)
 {
     sFeebasRngValue = ISO_RANDOMIZE2(sFeebasRngValue);
@@ -185,6 +194,7 @@ static void FeebasSeedRng(u16 seed)
 {
     sFeebasRngValue = seed;
 }
+#endif
 
 // LAND_WILD_COUNT
 u8 ChooseWildMonIndex_Land(void)
@@ -358,7 +368,6 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
 u16 GetCurrentMapWildMonHeaderId(void)
 {
     u16 i;
-
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
@@ -371,7 +380,8 @@ u16 GetCurrentMapWildMonHeaderId(void)
             // HnS - appears to skip invalid time-based encounters?
             // if (VarGet(VAR_TIME_BASED_ENCOUNTER) >= 1 && VarGet(VAR_TIME_BASED_ENCOUNTER) <= 4)
             //    i += (VarGet(VAR_TIME_BASED_ENCOUNTER) - 1);
-            
+
+#if !IS_HNS
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ALTERING_CAVE))
             {
@@ -381,6 +391,7 @@ u16 GetCurrentMapWildMonHeaderId(void)
 
                 i += alteringCaveId;
             }
+#endif
 
             return i;
         }

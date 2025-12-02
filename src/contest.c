@@ -65,6 +65,7 @@ static void Task_SelectedMove(u8 taskId);
 static void Task_EndCommunicateMoveSelections(u8 taskId);
 static void Task_HideMoveSelectScreen(u8 taskId);
 static void Task_HideApplauseMeterForAppealStart(u8 taskId);
+#if !IS_HNS
 static void Task_WaitHideApplauseMeterForAppealStart(u8 taskId);
 static void Task_AppealSetup(u8 taskId);
 static void Task_DoAppeals(u8 taskId);
@@ -96,11 +97,16 @@ static void PrintContestantTrainerName(u8);
 static void PrintContestantTrainerNameWithColor(u8, u8);
 static void PrintContestantMonName(u8);
 static void PrintContestantMonNameWithColor(u8, u8);
+#endif
 static u8 CreateJudgeSprite(void);
 static u8 CreateJudgeSpeechBubbleSprite(void);
+#if !IS_HNS
 static u8 CreateContestantSprite(u16, bool8, u32, u32);
+#endif
 static void PrintContestMoveDescription(u16);
+#if !IS_HNS
 static u16 SanitizeSpecies(u16);
+#endif
 static void ContestClearGeneralTextWindow(void);
 static u16 GetChosenMove(u8);
 static void GetAllChosenMoves(void);
@@ -116,16 +122,21 @@ static void ContestDebugDoPrint(void);
 static void DrawContestantWindows(void);
 static void ApplyNextTurnOrder(void);
 static void SlideApplauseMeterIn(void);
+#if !IS_HNS
 static void SlideApplauseMeterOut(void);
+#endif
 static void SetBgForCurtainDrop(void);
 static void UpdateContestantBoxOrder(void);
+#if !IS_HNS
 static void Task_StartDropCurtainAtRoundEnd(u8);
 static void AnimateSliderHearts(u8);
+#endif
 static void CreateInvisibleBattleTargetSprite(void);
 static void Contest_StartTextPrinter(const u8 *, u32);
 static void ContestBG_FillBoxWithIncrementingTile(u8, u16, u8, u8, u8, u8, u8, s16);
 static bool32 Contest_RunTextPrinters(void);
 static void Contest_SetBgCopyFlags(u32 flagIndex);
+#if !IS_HNS
 static void CalculateFinalScores(void);
 static void CalculateAppealMoveImpact(u8);
 static void SetMoveAnimAttackerData(u8);
@@ -153,23 +164,31 @@ static void RankContestants(void);
 static void SetAttentionLevels(void);
 static void UpdateHeartSliders(void);
 static bool8 SlidersDoneUpdating(void);
+#endif
 static void ContestBG_FillBoxWithTile(u8, u16, u8, u8, u8, u8, u8);
 static void Contest_PrintTextToBg0WindowStd(u32, const u8 *);
+#if !IS_HNS
 static s16 GetContestantRound2Points(u8);
 static void DetermineFinalStandings(void);
 static bool8 DidContestantPlaceHigher(s32, s32, struct ContestFinalStandings *);
 static void Task_UpdateAppealHearts(u8);
 static void SpriteCB_UpdateHeartSlider(struct Sprite *);
+#endif
 static void Task_FlashJudgeAttentionEye(u8);
+#if !IS_HNS
 static void Task_StopFlashJudgeAttentionEye(u8);
+#endif
 static void Task_UnusedBlend(u8);
 static void InitUnusedBlendTaskData(u8);
+#if !IS_HNS
 static void UpdateBlendTaskContestantData(u8);
 static void SpriteCB_BlinkContestantBox(struct Sprite *);
 static void SpriteCB_EndBlinkContestantBox(struct Sprite *sprite);
 static u8 StartApplauseOverflowAnimation(void);
 static void Task_ApplauseOverflowAnimation(u8);
+#endif
 static void Task_SlideApplauseMeterIn(u8);
+#if !IS_HNS
 static void Task_SlideApplauseMeterOut(u8);
 static void Task_ShowAndUpdateApplauseMeter(u8);
 static void Task_AnimateAudience(u8);
@@ -184,6 +203,7 @@ static void SetBattleTargetSpritePosition(void);
 static void CalculateContestLiveUpdateData(void);
 static void SetConestLiveUpdateTVData(void);
 static void SetContestLiveUpdateFlags(u8);
+#endif
 static void ContestDebugPrintBitStrings(void);
 static void StripPlayerNameForLinkContest(u8 *);
 static void StripMonNameForLinkContest(u8 *, s32);
@@ -1084,6 +1104,7 @@ static const s8 sContestExcitementTable[CONTEST_CATEGORIES_COUNT][CONTEST_CATEGO
     }
 };
 
+#if !IS_HNS
 static void CopyNicknameToFit(u8 *dest, u32 contestant)
 {
     u8 *end = StringCopy(dest, gContestMons[contestant].nickname);
@@ -1095,6 +1116,7 @@ static void CopyMoveNameToFit(u8 *dest, u32 move)
     u8 *end = StringCopy(dest, GetMoveName(move));
     WrapFontIdToFit(dest, end, FONT_NORMAL, 84);
 }
+#endif
 
 static void TaskDummy1(u8 taskId)
 {
@@ -1246,6 +1268,7 @@ static void AllocContestResources(void)
     gBattleAnimBgTilemapBuffer = gContestResources->contestBgTilemaps[1];
 }
 
+#if !IS_HNS
 static void FreeContestResources(void)
 {
     FREE_AND_SET_NULL(gContestResources->contest);
@@ -1268,6 +1291,7 @@ static void FreeContestResources(void)
     gBattleAnimBgTileBuffer = NULL;
     gBattleAnimBgTilemapBuffer = NULL;
 }
+#endif
 
 void CB2_StartContest(void)
 {
@@ -1784,6 +1808,7 @@ static void Task_HideMoveSelectScreen(u8 taskId)
 
 static void Task_HideApplauseMeterForAppealStart(u8 taskId)
 {
+#if !IS_HNS
     if (++gTasks[taskId].data[0] > 2)
     {
         gTasks[taskId].data[0] = 0;
@@ -1794,18 +1819,22 @@ static void Task_HideApplauseMeterForAppealStart(u8 taskId)
             gTasks[taskId].func = Task_WaitHideApplauseMeterForAppealStart;
         }
     }
+#endif
 }
 
+#if !IS_HNS
 static void Task_WaitHideApplauseMeterForAppealStart(u8 taskId)
 {
     if (!eContest.applauseMeterIsMoving && !eContest.sliderHeartsAnimating)
         gTasks[taskId].func = Task_AppealSetup;
 }
+#endif
 
 #define tState data[0]
 #define tMonSpriteId data[2]
 #define tCounter data[10]
 
+#if !IS_HNS
 static void Task_AppealSetup(u8 taskId)
 {
     if (++gTasks[taskId].data[0] > 19)
@@ -2623,6 +2652,7 @@ static void Task_ReadyUpdateHeartSliders(u8 taskId)
 
 static void Task_UpdateHeartSliders(u8 taskId)
 {
+#if !IS_HNS
     switch (gTasks[taskId].data[0])
     {
     case 0:
@@ -2650,6 +2680,7 @@ static void Task_UpdateHeartSliders(u8 taskId)
         gTasks[taskId].func = Task_WaitForHeartSliders;
         break;
     }
+#endif
 }
 
 static void Task_WaitForHeartSliders(u8 taskId)
@@ -2860,6 +2891,7 @@ static void FieldCB_ContestReturnToField(void)
     UnlockPlayerFieldControls();
     ScriptContext_Enable();
 }
+#endif
 
 static void TryPutPlayerLast(void)
 {
@@ -2867,12 +2899,14 @@ static void TryPutPlayerLast(void)
         gContestPlayerMonIndex = CONTESTANT_COUNT - 1;
 }
 
+#if !IS_HNS
 static bool8 IsPlayerLinkLeader(void)
 {
     if (gContestPlayerMonIndex == gContestLinkLeaderIndex)
         return TRUE;
     return FALSE;
 }
+#endif
 
 void CreateContestMonFromParty(u8 partyIndex)
 {
@@ -3098,6 +3132,7 @@ u8 GetContestEntryEligibility(struct Pokemon *pkmn)
 
 static void DrawContestantWindowText(void)
 {
+#if !IS_HNS
     s32 i;
 
     for (i = 0; i < CONTESTANT_COUNT; i++)
@@ -3106,8 +3141,10 @@ static void DrawContestantWindowText(void)
         PrintContestantTrainerName(i);
         PrintContestantMonName(i);
     }
+#endif
 }
 
+#if !IS_HNS
 static u8 *Contest_CopyStringWithColor(const u8 *string, u8 color)
 {
     u8 *ptr = StringCopy(gDisplayedStringBattle, gText_ColorTransparent);
@@ -3146,6 +3183,7 @@ static void PrintContestantMonNameWithColor(u8 contestant, u8 color)
     Contest_CopyStringWithColor(gContestMons[contestant].nickname, color);
     Contest_PrintTextToBg0WindowAt(gContestantTurnOrder[contestant], gDisplayedStringBattle, 5, 1, GetFontIdToFit(gContestMons[contestant].nickname, FONT_NARROW, 0, 50));
 }
+#endif
 
 static u16 CalculateContestantRound1Points(u8 who, u8 contestCategory)
 {
@@ -3217,6 +3255,7 @@ static u8 CreateJudgeSpeechBubbleSprite(void)
     return spriteId;
 }
 
+#if !IS_HNS
 static u8 CreateContestantSprite(u16 species, bool8 isShiny, u32 personality, u32 index)
 {
     u8 spriteId;
@@ -3242,6 +3281,7 @@ static u8 CreateContestantSprite(u16 species, bool8 isShiny, u32 personality, u3
 
     return spriteId;
 }
+#endif
 
 bool8 IsSpeciesNotUnown(u16 species)
 {
@@ -3359,6 +3399,7 @@ static void UNUSED DrawMoveEffectSymbols(void)
         DrawMoveEffectSymbol(eContestantStatus[i].currMove, i);
 }
 
+#if !IS_HNS
 static u16 GetStarTileOffset(void)
 {
     return 0x2034;
@@ -3473,6 +3514,7 @@ static void DrawStatusSymbols(void)
     for (i = 0; i < CONTESTANT_COUNT; i++)
         DrawStatusSymbol(i);
 }
+#endif
 
 static void ContestClearGeneralTextWindow(void)
 {
@@ -3507,6 +3549,7 @@ static void GetAllChosenMoves(void)
         eContestantStatus[i].currMove = GetChosenMove(i);
 }
 
+#if !IS_HNS
 static void RankContestants(void)
 {
     s32 i;
@@ -3635,6 +3678,7 @@ static void SetContestantStatusesForNextRound(void)
     }
     eContestExcitement.frozen = FALSE;
 }
+#endif
 
 bool8 Contest_IsMonsTurnDisabled(u8 contestant)
 {
@@ -3644,6 +3688,7 @@ bool8 Contest_IsMonsTurnDisabled(u8 contestant)
         return FALSE;
 }
 
+#if !IS_HNS
 static void CalculateTotalPointsForContestant(u8 contestant)
 {
     gContestMonRound2Points[contestant] = GetContestantRound2Points(contestant);
@@ -3727,6 +3772,7 @@ static void DetermineFinalStandings(void)
     for (i = 0; i < CONTESTANT_COUNT; i++)
         gContestFinalStandings[standings[i].contestant] = i;
 }
+#endif
 
 void SaveLinkContestResults(void)
 {
@@ -3739,6 +3785,7 @@ void SaveLinkContestResults(void)
     }
 }
 
+#if !IS_HNS
 static bool8 DidContestantPlaceHigher(s32 a, s32 b, struct ContestFinalStandings *standings)
 {
     bool8 retVal;
@@ -3760,6 +3807,7 @@ static bool8 DidContestantPlaceHigher(s32 a, s32 b, struct ContestFinalStandings
         retVal = FALSE;
     return retVal;
 }
+#endif
 
 static void ContestPrintLinkStandby(void)
 {
@@ -3777,6 +3825,7 @@ static void FillContestantWindowBgs(void)
         ContestBG_FillBoxWithTile(0, 0, 0x16, 2 + i * 5, 8, 2, 0x11);
 }
 
+#if !IS_HNS
 static u16 GetAppealHeartTileOffset(u8 contestant)
 {
     u16 offset;
@@ -3931,6 +3980,7 @@ static void Task_UpdateAppealHearts(u8 taskId)
             gTasks[taskId].tHeartsSign = -gTasks[taskId].tHeartsSign;
     }
 }
+#endif
 
 static void CreateSliderHeartSprites(void)
 {
@@ -3949,6 +3999,7 @@ static void CreateSliderHeartSprites(void)
 #define sTargetX    data[1]
 #define sMoveX      data[2]
 
+#if !IS_HNS
 static void UpdateHeartSlider(u8 contestant)
 {
     u8 spriteId;
@@ -3971,6 +4022,7 @@ static void UpdateHeartSlider(u8 contestant)
     gSprites[spriteId].callback = SpriteCB_UpdateHeartSlider;
 }
 
+#if !IS_HNS
 static void UpdateHeartSliders(void)
 {
     s32 i;
@@ -4006,6 +4058,7 @@ static void SpriteCB_UpdateHeartSlider(struct Sprite *sprite)
         sprite->x2 += sprite->sMoveX;
     }
 }
+#endif
 
 #undef sContestant
 #undef sTargetX
@@ -4019,6 +4072,7 @@ static void UpdateSliderHeartSpriteYPositions(void)
     for (i = 0; i < CONTESTANT_COUNT; i++)
         gSprites[eContestGfxState[i].sliderHeartSpriteId].y = sSliderHeartYPositions[gContestantTurnOrder[i]];
 }
+#endif
 
 // Used to hide (or subsequently reshow) the bottom two slider hearts that get hidden by text windows by moving them offscreen
 static void SetBottomSliderHeartsInvisibility(bool8 invisible)
@@ -4076,6 +4130,7 @@ static void CreateJudgeAttentionEyeTask(void)
         gTasks[taskId].data[i * 4] = 0xFF;
 }
 
+#if !IS_HNS
 static void StartFlashJudgeAttentionEye(u8 contestant)
 {
     gTasks[eContest.judgeAttentionTaskId].data[contestant * 4 + 0] = 0;
@@ -4101,6 +4156,7 @@ static void Task_StopFlashJudgeAttentionEye(u8 taskId)
         DestroyTask(taskId);
     }
 }
+#endif
 
 static void Task_FlashJudgeAttentionEye(u8 taskId)
 {
@@ -4148,6 +4204,7 @@ static void InitUnusedBlendTaskData(u8 contestant)
     gTasks[eContest.blendTaskId].data[contestant * 4 + 1] = 0;
 }
 
+#if !IS_HNS
 static void UpdateBlendTaskContestantsData(void)
 {
     s32 i;
@@ -4174,6 +4231,7 @@ static void UpdateBlendTaskContestantData(u8 contestant)
                      &gPlttBufferFaded[palOffset2],
                      PLTT_SIZEOF(1));
 }
+#endif
 
 // See comments on CreateUnusedBlendTask
 static void Task_UnusedBlend(u8 taskId)
@@ -4207,6 +4265,7 @@ static void Task_UnusedBlend(u8 taskId)
     }
 }
 
+#if !IS_HNS
 static void StartStopFlashJudgeAttentionEye(u8 contestant)
 {
     if (eContestantStatus[contestant].hasJudgesAttention)
@@ -4337,6 +4396,7 @@ static void UNUSED ContestDebugTogglePointTotal(void)
         ContestDebugDoPrint();
     }
 }
+#endif
 
 static void ContestDebugDoPrint(void)
 {
@@ -4518,6 +4578,7 @@ static void DrawContestantWindows(void)
     DrawContestantWindowText();
 }
 
+#if !IS_HNS
 static void CalculateAppealMoveImpact(u8 contestant)
 {
     u16 move;
@@ -4635,6 +4696,7 @@ static void CalculateAppealMoveImpact(u8 contestant)
     }
     eContestantStatus[contestant].contestantAnimTarget = i;
 }
+#endif
 
 void SetContestantEffectStringID(u8 contestant, u8 effectStringId)
 {
@@ -4660,6 +4722,7 @@ void SetStartledString(u8 contestant, u8 jam)
         SetContestantEffectStringID(contestant, CONTEST_STRING_LOOKED_DOWN);
 }
 
+#if !IS_HNS
 static void PrintAppealMoveResultText(u8 contestant, u8 stringId)
 {
     StringCopy(gStringVar1, gContestMons[contestant].nickname);
@@ -4678,6 +4741,7 @@ static void PrintAppealMoveResultText(u8 contestant, u8 stringId)
     ContestClearGeneralTextWindow();
     Contest_StartTextPrinter(gStringVar4, TRUE);
 }
+#endif
 
 void MakeContestantNervous(u8 p)
 {
@@ -4763,6 +4827,7 @@ static void ApplyNextTurnOrder(void)
     }
 }
 
+#if !IS_HNS
 static void SpriteCB_JudgeSpeechBubble(struct Sprite *sprite)
 {
     if (sprite->data[1]++ > 84)
@@ -4840,12 +4905,14 @@ static void UpdateApplauseMeter(void)
             StartApplauseOverflowAnimation();
     }
 }
+#endif
 
 s8 Contest_GetMoveExcitement(u16 move)
 {
     return sContestExcitementTable[gSpecialVar_ContestCategory][GetMoveContestCategory(move)];
 }
 
+#if !IS_HNS
 static u8 StartApplauseOverflowAnimation(void)
 {
     u8 taskId = CreateTask(Task_ApplauseOverflowAnimation, 10);
@@ -4884,6 +4951,7 @@ static void Task_ApplauseOverflowAnimation(u8 taskId)
         }
     }
 }
+#endif
 
 static void SlideApplauseMeterIn(void)
 {
@@ -4909,6 +4977,7 @@ static void Task_SlideApplauseMeterIn(u8 taskId)
     }
 }
 
+#if !IS_HNS
 static void SlideApplauseMeterOut(void)
 {
     if (gSprites[eContest.applauseMeterSpriteId].invisible == TRUE)
@@ -4973,6 +5042,7 @@ static void Task_ShowAndUpdateApplauseMeter(u8 taskId)
         break;
     }
 }
+#endif
 
 static void UNUSED HideApplauseMeterNoAnim(void)
 {
@@ -4989,6 +5059,7 @@ static void UNUSED ShowApplauseMeterNoAnim(void)
 #define tFrame  data[11]
 #define tCycles data[12]
 
+#if !IS_HNS
 static void AnimateAudience(void)
 {
     CreateTask(Task_AnimateAudience, 15);
@@ -5019,6 +5090,7 @@ static void Task_AnimateAudience(u8 taskId)
         }
     }
 }
+#endif
 
 #undef tDelay
 #undef tFrame
@@ -5030,6 +5102,7 @@ static void Task_AnimateAudience(u8 taskId)
 #define tTargetBlendCoeff data[3]
 #define tBlendDelay       data[10]
 
+#if !IS_HNS
 static void BlendAudienceBackground(s8 excitementDir, s8 blendDir)
 {
     u8 taskId = CreateTask(Task_BlendAudienceBackground, 10);
@@ -5149,6 +5222,7 @@ static void DrawUnnervedSymbols(void)
         }
     }
 }
+#endif
 
 bool8 IsContestantAllowedToCombo(u8 contestant)
 {
@@ -5222,6 +5296,7 @@ static void UpdateContestantBoxOrder(void)
     }
 }
 
+#if !IS_HNS
 static void Task_StartDropCurtainAtRoundEnd(u8 taskId)
 {
     gBattle_BG1_X = 0;
@@ -5342,9 +5417,11 @@ static void Task_StartRaiseCurtainAtRoundEnd(u8 taskId)
         gTasks[taskId].func = Task_UpdateRaiseCurtainAtRoundEnd;
     }
 }
+#endif
 
 #define tAnimId data[0]
 
+#if !IS_HNS
 static void AnimateSliderHearts(u8 animId)
 {
     s32 i;
@@ -5383,9 +5460,11 @@ static void Task_WaitForSliderHeartAnim(u8 taskId)
         DestroyTask(taskId);
     }
 }
+#endif
 
 #undef tAnimId
 
+#if !IS_HNS
 static u16 SanitizeMove(u16 move)
 {
     if (move >= MOVES_COUNT)
@@ -5462,14 +5541,18 @@ static void SetMoveAnimAttackerData(u8 contestant)
     gContestResources->moveAnim->otId = gContestMons[contestant].otId;
     gContestResources->moveAnim->isShiny = gContestMons[contestant].isShiny;
 }
+#endif
 
 static void CreateInvisibleBattleTargetSprite(void)
 {
+#if !IS_HNS
     gBattlerSpriteIds[B_POSITION_OPPONENT_RIGHT] = CreateInvisibleSpriteWithCallback(SpriteCallbackDummy);
     InitSpriteAffineAnim(&gSprites[gBattlerSpriteIds[gBattlerTarget]]);
     SetBattleTargetSpritePosition();
+#endif
 }
 
+#if !IS_HNS
 static void SetBattleTargetSpritePosition(void)
 {
     struct Sprite *sprite = &gSprites[gBattlerSpriteIds[B_POSITION_OPPONENT_RIGHT]];
@@ -5498,6 +5581,7 @@ static void SetMoveTargetPosition(u16 move)
         break;
     }
 }
+#endif
 
 static void Contest_PrintTextToBg0WindowStd(u32 windowId, const u8 *b)
 {
@@ -5730,6 +5814,7 @@ void ClearContestWinnerPicsInContestHall(void)
         gSaveBlock1Ptr->contestWinners[i] = gDefaultContestWinners[i];
 }
 
+#if !IS_HNS
 static void SetContestLiveUpdateFlags(u8 contestant)
 {
     s32 i;
@@ -5789,9 +5874,11 @@ static void SetContestLiveUpdateFlags(u8 contestant)
         gContestResources->tv[contestant].loserFlags |= CONTESTLIVE_FLAG_MISSED_EXCITEMENT;
     }
 }
+#endif
 
 #define APPEAL_MOVES_END 0xFFFF
 
+#if !IS_HNS
 static void CalculateContestLiveUpdateData(void)
 {
     u8 loser;
@@ -6016,6 +6103,7 @@ static void SetConestLiveUpdateTVData(void)
     ContestLiveUpdates_SetWinnerMoveUsed(gContestResources->tv[winner].move);
     ContestLiveUpdates_SetLoserData(loserFlag, loser);
 }
+#endif
 
 // Unused
 void ContestDebugToggleBitfields(bool8 loserFlags)

@@ -158,6 +158,7 @@
 
 #define NO_DELAY 0xFFFF
 
+#if !IS_HNS
 enum {
     BALL_STATE_ROLLING,
     BALL_STATE_STUCK,
@@ -239,6 +240,7 @@ enum {
     SPR_62,
     SPR_63,
 };
+#endif
 
 // Start points for sprite IDs that are looped over
 #define SPR_WHEEL_BALLS SPR_WHEEL_BALL_1
@@ -250,6 +252,7 @@ enum {
 #define SPR_COLOR_HEADERS SPR_COLOR_HEADER_1
 #define SPR_GRID_BALLS SPR_GRID_BALL_1
 
+#if !IS_HNS
 struct Shroomish
 {
     u16 startAngle;
@@ -375,15 +378,15 @@ static void Task_RecordBallHit(u8);
 static void Task_SlideGridOnscreen(u8);
 static void Task_FlashBallOnWinningSquare(u8);
 static void Task_PrintSpinResult(u8);
-static void Task_PrintPayout(u8);
-static void Task_EndTurn(u8);
-static void Task_TryPrintEndTurnMsg(u8);
-static void Task_ClearBoard(u8);
+static void Task_PrintPayout(u8);//
+static void Task_EndTurn(u8);//
+static void Task_TryPrintEndTurnMsg(u8);//
+static void Task_ClearBoard(u8);//
 static void ExitRoulette(u8);
 static void Task_ExitRoulette(u8);
 static void StartTaskAfterDelayOrInput(u8, TaskFunc, u16, u16);
 static void ResetBallDataForNewSpin(u8);
-static void ResetHits(void);
+static void ResetHits(void);//
 static void Task_AcceptMinBet(u8);
 static void Task_DeclineMinBet(u8);
 static u8 RecordHit(u8, u8);
@@ -391,24 +394,24 @@ static bool8 IsHitInBetSelection(u8, u8);
 static void FlashSelectionOnWheel(u8);
 static void DrawGridBackground(u8);
 static u8 GetMultiplier(u8);
-static void UpdateWheelPosition(void);
-static void LoadOrFreeMiscSpritePalettesAndSheets(u8);
-static void CreateGridSprites(void);
+static void UpdateWheelPosition(void);//
+static void LoadOrFreeMiscSpritePalettesAndSheets(u8);//
+static void CreateGridSprites(void);//
 static void ShowHideGridIcons(bool8, u8);
 static void CreateGridBallSprites(void);
 static void ShowHideGridBalls(bool8, u8);
 static void ShowHideWinSlotCursor(u8);
-static void CreateWheelIconSprites(void);
+static void CreateWheelIconSprites(void);//
 static void SpriteCB_WheelIcon(struct Sprite *);
-static void CreateInterfaceSprites(void);
+static void CreateInterfaceSprites(void);//
 static void SetCreditDigits(u16);
 static void SetMultiplierSprite(u8);
 static void SetBallCounterNumLeft(u8);
 static void SpriteCB_GridSquare(struct Sprite *);
-static void CreateWheelCenterSprite(void);
+static void CreateWheelCenterSprite(void);//
 static void SpriteCB_WheelCenter(struct Sprite *);
-static void CreateWheelBallSprites(void);
-static void HideWheelBalls(void);
+static void CreateWheelBallSprites(void);//
+static void HideWheelBalls(void);//
 static void SpriteCB_RollBall_Start(struct Sprite *);
 static void CreateShroomishSprite(struct Sprite *);
 static void CreateTaillowSprite(struct Sprite *);
@@ -1156,7 +1159,7 @@ static void InitRouletteTableData(void)
     }
     RtcCalcLocalTime();
 }
-
+#endif
 // Task data for the roulette game tasks, starting with Task_StartPlaying
 #define tMultiplier      data[2]
 #define tSelectionId     data[4]
@@ -1167,6 +1170,7 @@ static void InitRouletteTableData(void)
 #define tWinningSquare   data[12]
 #define tCoins           data[13]
 
+#if !IS_HNS
 static void CB2_LoadRoulette(void)
 {
     u8 taskId;
@@ -3471,16 +3475,20 @@ static void Task_PrintRouletteEntryMsg(u8 taskId)
         gTasks[taskId].data[0] = 0;
     }
 }
+#endif
 
 void PlayRoulette(void)
 {
+#if !IS_HNS
     u8 taskId;
     LockPlayerFieldControls();
     ShowCoinsWindow(GetCoins(), 1, 1);
     taskId = CreateTask(Task_PrintRouletteEntryMsg, 0);
     gTasks[taskId].tCoins = GetCoins();
+#endif
 }
 
+#if !IS_HNS
 static void LoadOrFreeMiscSpritePalettesAndSheets(bool8 free)
 {
     if (!free)
@@ -4757,3 +4765,4 @@ static void SpriteCB_Taillow(struct Sprite *sprite)
     gSprites[sprite->sMonSpriteId].callback = SpriteCB_Taillow_FlyIn;
     m4aSongNumStart(SE_FALL);
 }
+#endif

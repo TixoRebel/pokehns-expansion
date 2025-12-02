@@ -1128,11 +1128,14 @@ static void HallOfFameRecordEffect_Init(struct Task *task)
     task->tState++;
     task->tBallSpriteId = CreateGlowingPokeballsEffect(task->tNumMons, task->tFirstBallX, task->tFirstBallY, FALSE);
     taskId = FindTaskIdByFunc(Task_HallOfFameRecord);
+#if IS_HNS
     CreateHofMonitorSprite(taskId, 120, 24, FALSE);
-    // CreateHofMonitorSprite(taskId, 40, 8, TRUE);
-    // CreateHofMonitorSprite(taskId, 72, 8, TRUE);
-    // CreateHofMonitorSprite(taskId, 168, 8, TRUE);
-    // CreateHofMonitorSprite(taskId, 200, 8, TRUE);
+#else
+    CreateHofMonitorSprite(taskId, 40, 8, TRUE);
+    CreateHofMonitorSprite(taskId, 72, 8, TRUE);
+    CreateHofMonitorSprite(taskId, 168, 8, TRUE);
+    CreateHofMonitorSprite(taskId, 200, 8, TRUE);
+#endif // IS_HNS
 }
 
 static void HallOfFameRecordEffect_WaitForBallPlacement(struct Task *task)
@@ -3228,7 +3231,11 @@ u8 FldEff_UseSurf(void)
 
     // HnS PORT - I refuse to remove my beloved surf music
     Overworld_ClearSavedMusic();
+#if IS_HNS
     Overworld_ChangeMusicTo(MUS_HG_SURF);
+#else
+    Overworld_ChangeMusicTo(MUS_SURF);
+#endif // IS_HNS
     return FALSE;
 }
 
