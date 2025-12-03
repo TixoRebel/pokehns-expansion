@@ -35,9 +35,9 @@ The best bug reports have enough information that we won't have to contact you f
 
 ## Feature Requests
 
-This section guides you through submitting a feature request for pokeemerald-expansion, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+This section guides you through submitting a feature request for pokehns-expansion, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
 
-- We use [GitHub](https://github.com/rh-hideout/pokeemerald-expansion/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen+label%3Afeature-request) issues to track feature requests. 
+- We use [GitHub](https://github.com/TixoRebel/pokehns-expansion/issues/new) issues to track feature requests. 
 
 ### What should I do before making a feature request?
 
@@ -65,7 +65,7 @@ If you have read all of this and still need help, feel free to start a thread in
 ### What should I do before starting a pull request?
 
 - If you're new to git and GitHub, [Team Aqua's Asset Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/) has a [guide on forking and cloning the repository](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/wiki/The-Basics-of-GitHub). Make sure you have a [local copy](INSTALL.md) of `pokehns-expansion`.
-- Make sure your contribution is in [scope](docs/team_procedures/scope.md) - if it is not clear if something is in scope, you can start a discussion thread in the [#feedback-and-suggestions](https://discord.com/channels/1392695844607754291/1417827944902168637) channel of the [the RHH Discord Server!](https://discord.gg/w66hrmhGNq).
+- Make sure your contribution is in [scope](docs/team_procedures/scope.md) - if it is not clear if something is in scope, you can start a discussion thread in the [#feedback-and-suggestions](https://discord.com/channels/1392695844607754291/1417827944902168637) channel of the [the Heart & Soul Discord Server!](https://discord.gg/w66hrmhGNq).
 - Choose a branch to contribute your PR to:
     - **`main`**: Fixes for critical bugs that are currently present in the `main` branch.
     - **`development-bugfix`**: All other pull requests.
@@ -92,7 +92,7 @@ git switch -c newFeature # the name newFeature can be anything you want. This tu
 #### 4. Copy your target branch to your new branch
 This will change your new branch to match the latest version of your chosen target branch.
 ```bash
-git reset --hard development-bugfix # If your PR is going to target main, replace upcoming with main.
+git reset --hard development-bugfix # If your PR is going to target main, replace development-bugfix with main.
 ```
 
 #### 5. Implement your code
