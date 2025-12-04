@@ -27,6 +27,7 @@
 #include "overworld.h"
 #include "walda_phrase.h"
 #include "main.h"
+#include "decompress.h"
 #include "constants/event_objects.h"
 #include "constants/rgb.h"
 #include "decompress.h"

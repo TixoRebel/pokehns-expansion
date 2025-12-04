@@ -2,7 +2,6 @@
 #define GUARD_CONSTANTS_FOLLOWER_NPC_H
 
 // NPC Follower Flags
-#define FOLLOWER_NPC_FLAG_HAS_RUNNING_FRAMES    0x1     // Only use this if the NPC has running anim frames. Part of FOLLOWER_NPC_FLAG_ALL_LAND.
 #define FOLLOWER_NPC_FLAG_CAN_BIKE              0x2     // Player is allowed to use the Bike. Part of FOLLOWER_NPC_FLAG_ALL_LAND.
 #define FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE       0x4     // Player is allowed to use Fly/Teleport/EscapeRope/etc. Part of FOLLOWER_NPC_FLAG_ALL_LAND.
 #define FOLLOWER_NPC_FLAG_CAN_SURF              0x8     // Player is allowed to Surf. Part of FOLLOWER_NPC_FLAG_ALL_WATER.
@@ -16,7 +15,6 @@
 #define FOLLOWER_NPC_FLAG_ALL                   FOLLOWER_NPC_FLAG_ALL_LAND | FOLLOWER_NPC_FLAG_ALL_WATER | FOLLOWER_NPC_FLAG_CLEAR_ON_WHITE_OUT
 
 // Shorter flag names for ease of use in setfollowernpc script macro
-#define FNPC_RUNNING                          FOLLOWER_NPC_FLAG_HAS_RUNNING_FRAMES
 #define FNPC_BIKE                             FOLLOWER_NPC_FLAG_CAN_BIKE
 #define FNPC_LEAVE_ROUTE                      FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE
 #define FNPC_SURF                             FOLLOWER_NPC_FLAG_CAN_SURF
@@ -28,9 +26,5 @@
 #define FNPC_ALL_LAND                         FOLLOWER_NPC_FLAG_ALL_LAND
 #define FNPC_ALL_WATER                        FOLLOWER_NPC_FLAG_ALL_WATER
 #define FNPC_ALL                              FOLLOWER_NPC_FLAG_ALL
-
-
-#define FNPC_NONE   0
-#define FNPC_ALWAYS 2
 
 #endif // GUARD_CONSTANTS_FOLLOWER_NPC_H

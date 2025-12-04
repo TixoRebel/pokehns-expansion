@@ -31,6 +31,8 @@ ANALYZE      ?= 0
 UNUSED_ERROR ?= 0
 # Adds -Og and -g flags, which optimize the build for debugging and include debug info respectively
 DEBUG        ?= 0
+# Adds -flto flag, which increases link time but results in a more efficient binary (especially in audio processing)
+LTO          ?= 0
 
 ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
@@ -135,7 +137,15 @@ CPP_ASFLAGS := -D$(GAME_VERSION)
 ARMCC := $(PREFIX)gcc
 PATH_ARMCC := PATH="$(PATH)" $(ARMCC)
 CC1 := $(shell $(PATH_ARMCC) --print-prog-name=cc1) -quiet
-override CFLAGS += -mthumb -mthumb-interwork -O$(O_LEVEL) -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -Wno-pointer-to-int-cast -std=gnu17 -Werror -Wall -Wno-strict-aliasing -Wno-attribute-alias -Woverride-init
+
+override CFLAGS += -mthumb -mthumb-interwork -O$(O_LEVEL) -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -Wno-pointer-to-int-cast -std=gnu17 -Werror -Wall -Wno-strict-aliasing -Wno-attribute-alias -Woverride-init -Wnonnull -Wenum-conversion
+
+ifneq ($(LTO),0)
+  ifneq ($(TEST),1)
+    override CFLAGS += -flto=auto -fno-fat-lto-objects -fno-asynchronous-unwind-tables -ffunction-sections -fdata-sections
+  endif
+endif
+
 ifeq ($(ANALYZE),1)
   override CFLAGS += -fanalyzer
 endif
@@ -301,14 +311,14 @@ agbcc:
 
 LD_SCRIPT_TEST := ld_script_test.ld
 
-$(OBJ_DIR)/ld_script_test.ld: $(LD_SCRIPT_TEST) $(LD_SCRIPT_DEPS)
+$(OBJ_DIR)/ld_script_test.ld: $(LD_SCRIPT_TEST)
 	cd $(OBJ_DIR) && sed "s#tools/#../../tools/#g" ../../$(LD_SCRIPT_TEST) > ld_script_test.ld
 
 $(TESTELF): $(OBJ_DIR)/ld_script_test.ld $(OBJS) $(TEST_OBJS) libagbsyscall tools check-tools
 	@echo "cd $(OBJ_DIR) && $(LD) -T ld_script_test.ld -o ../../$@ <objects> <test-objects> <lib>"
 	@cd $(OBJ_DIR) && $(LD) $(TESTLDFLAGS) -T ld_script_test.ld -o ../../$@ $(OBJS_REL) $(TEST_OBJS_REL) $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) -d0 --silent
-	$(PATCHELF) $(TESTELF) gTestRunnerArgv "$(TESTS)\0"
+	$(PATCHELF) $(TESTELF) gTestRunnerArgv "$(TESTS:%*=%)\0"
 
 ifeq ($(GITHUB_REPOSITORY_OWNER),rh-hideout)
 TEST_SKIP_IS_FAIL := \x01
@@ -359,6 +369,18 @@ include map_data_rules.mk
 include spritesheet_rules.mk
 include json_data_rules.mk
 include audio_rules.mk
+include trainer_rules.mk
+
+# Automatically generate versioned JSON-derived outputs (groups/layouts headers, etc.)
+# for any invoked build target except clean-related ones, removing need to call
+# `make generated` explicitly. Skip for clean/tidy to avoid needless regeneration.
+ifneq ($(MAKECMDGOALS),)
+# Exclude clean-related goals plus generated + versioned-json to avoid circular deps.
+NEEDS_GENERATED := $(filter-out clean tidy clean-% generated versioned-json,$(MAKECMDGOALS))
+ifneq ($(NEEDS_GENERATED),)
+$(NEEDS_GENERATED): generated
+endif
+endif
 
 # Automatically generate versioned JSON-derived outputs (groups/layouts headers, etc.)
 # for any invoked build target except clean-related ones, removing need to call
@@ -432,11 +454,6 @@ $(VERSIONED_JSON_TARGETS): .versioned_json.stamp
 versioned-json: .versioned_json.stamp
 
 .PHONY: versioned-json
-
-COMPETITIVE_PARTY_SYNTAX := $(shell PATH="$(PATH)"; echo 'COMPETITIVE_PARTY_SYNTAX' | $(CPP) $(CPPFLAGS) -imacros include/gba/defines.h -imacros include/config/general.h | tail -n1)
-ifeq ($(COMPETITIVE_PARTY_SYNTAX),1)
-%.h: %.party ; $(CPP) $(CPPFLAGS) -traditional-cpp - < $< | $(TRAINERPROC) -o $@ -i $< -
-endif
 
 $(C_BUILDDIR)/librfu_intr.o: CFLAGS := -mthumb-interwork -O2 -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -Wno-pointer-to-int-cast
 $(C_BUILDDIR)/berry_crush.o: override CFLAGS += -Wno-address-of-packed-member
@@ -539,19 +556,28 @@ $(DATA_SRC_SUBDIR)/pokemon/teachable_learnsets.h: $(TEACHABLE_DEPS)
 
 # Linker script
 LD_SCRIPT := ld_script_modern.ld
-LD_SCRIPT_DEPS :=
 
 # Final rules
 
 libagbsyscall:
 	@$(MAKE) -C libagbsyscall TOOLCHAIN=$(TOOLCHAIN) MODERN=1
 
-# Elf from object files
-LDFLAGS = -Map ../../$(MAP)
-$(ELF): $(LD_SCRIPT) $(LD_SCRIPT_DEPS) $(OBJS) libagbsyscall
-	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ../../$< --print-memory-usage -o ../../$@ $(OBJS_REL) $(LIB) | cat
-	@echo "cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ../../$< --print-memory-usage -o ../../$@ <objs> <libs> | cat"
+# Enable LTO LDFLAGS if set
+ifneq ($(LTO),0)
+LDFLAGS := -march=armv4t -mabi=apcs-gnu -mcpu=arm7tdmi -Xlinker -Map=../../$(MAP) -Xlinker --print-memory-usage -Xassembler -meabi=5 -Xassembler -march=armv4t -Xassembler -mcpu=arm7tdmi -Xlinker --gc-sections
+LDFLAGS += -Xlinker -flto=auto
+$(ELF): $(LD_SCRIPT) $(OBJS) libagbsyscall
+	@echo "cd $(OBJ_DIR) && $(ARMCC) $(LDFLAGS) -T ../../$< -o ../../$@ <objs> <libs>"
+	+@cd $(OBJ_DIR) && $(ARMCC) $(LDFLAGS) -T ../../$< -o ../../$@ $(OBJS_REL) $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
+else
+# Output .map file, memory usage readout and gc sections to clean-up unused data
+LDFLAGS = -Map ../../$(MAP) --print-memory-usage --gc-sections
+$(ELF): $(LD_SCRIPT) $(OBJS) libagbsyscall
+	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ../../$<  -o ../../$@ $(OBJS_REL) $(LIB) | cat
+	@echo "cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ../../$< -o ../../$@ <objs> <libs> | cat"
+	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
+endif
 
 # Builds the rom from the elf file
 $(ROM): $(ELF)

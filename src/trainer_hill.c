@@ -315,7 +315,7 @@ static u8 GetFloorId(void)
 #endif
 }
 
-u8 GetTrainerHillOpponentClass(u16 trainerId)
+enum TrainerClassID GetTrainerHillOpponentClass(u16 trainerId)
 {
     u8 id = trainerId - 1;
 
