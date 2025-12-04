@@ -521,7 +521,7 @@ const void * const gBattleEnvironmentPalette_Rayquaza[TIMES_OF_DAY_COUNT] = {
     .tilemap = gBattleEnvironmentTilemap_##background,          \
     .entryTileset = gBattleEnvironmentAnimTiles_##background,   \
     .entryTilemap = gBattleEnvironmentAnimTilemap_##background, \
-    .palette = gBattleEnvironmentPalette_##background,           \
+    .palette = gBattleEnvironmentPalette_##background,          \
 }
 
 const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] =
