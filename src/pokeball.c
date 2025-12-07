@@ -11,6 +11,7 @@
 #include "sprite.h"
 #include "task.h"
 #include "trig.h"
+#include "test_runner.h"
 #include "util.h"
 #include "data.h"
 #include "item.h"
@@ -610,8 +611,8 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
 {
     u32 throwCaseId, ballId, battler, ballSpriteId;
     bool32 notSendOut = FALSE;
-    u32 throwXoffset = (B_ENEMY_THROW_BALLS >= GEN_6) ? 24 : 0;
-    s32 throwYoffset = (B_ENEMY_THROW_BALLS >= GEN_6) ? -16 : 24;
+    u32 throwXoffset = (B_ENEMY_THROW_BALLS >= GEN_6 && !gTestRunnerHeadless) ? 24 : 0;
+    s32 throwYoffset = (B_ENEMY_THROW_BALLS >= GEN_6 && !gTestRunnerHeadless) ? -16 : 24;
 
     if (gTasks[taskId].tFrames == 0)
     {
@@ -688,7 +689,7 @@ static inline void DoPokeballSendOutSoundEffect(u32 battler)
 
 static inline void *GetOpponentMonSendOutCallback(void)
 {
-    return (B_ENEMY_THROW_BALLS >= GEN_6) ? SpriteCB_MonSendOut_1 : SpriteCB_OpponentMonSendOut;
+    return (B_ENEMY_THROW_BALLS >= GEN_6 && !gTestRunnerHeadless) ? SpriteCB_MonSendOut_1 : SpriteCB_OpponentMonSendOut;
 }
 
 // This sequence of functions is very similar to those that get run when
@@ -1218,7 +1219,7 @@ static void SpriteCB_MonSendOut_2(struct Sprite *sprite)
     u32 r7;
     bool32 rightPosition = (IsBattlerPlayer(sprite->sBattler)) ? B_POSITION_PLAYER_RIGHT : B_POSITION_OPPONENT_RIGHT;
 
-    if (HIBYTE(sprite->data[7]) >= 35 && HIBYTE(sprite->data[7]) < 80)
+    if (HIBYTE(sprite->data[7]) >= 35 && HIBYTE(sprite->data[7]) < 80 && !gTestRunnerHeadless)
     {
         s16 r4;
 
@@ -1259,7 +1260,8 @@ static void SpriteCB_MonSendOut_2(struct Sprite *sprite)
             sprite->data[0] = 0;
 
             if (IsDoubleBattle() && gBattleSpritesDataPtr->animationData->introAnimActive
-             && sprite->sBattler == GetBattlerAtPosition(rightPosition))
+             && sprite->sBattler == GetBattlerAtPosition(rightPosition)
+             && !gTestRunnerHeadless)
                 sprite->callback = SpriteCB_ReleaseMon2FromBall;
             else
                 sprite->callback = SpriteCB_ReleaseMonFromBall;
@@ -1282,12 +1284,15 @@ static void SpriteCB_ReleaseMon2FromBall(struct Sprite *sprite)
 
 static void SpriteCB_OpponentMonSendOut(struct Sprite *sprite)
 {
+    if (gTestRunnerHeadless)
+        sprite->data[0] = 15;
     sprite->data[0]++;
     if (sprite->data[0] > 15)
     {
         sprite->data[0] = 0;
         if (IsDoubleBattle() && gBattleSpritesDataPtr->animationData->introAnimActive
-         && sprite->sBattler == GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))
+         && sprite->sBattler == GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT)
+         && !gTestRunnerHeadless)
             sprite->callback = SpriteCB_ReleaseMon2FromBall;
         else
             sprite->callback = SpriteCB_ReleaseMonFromBall;
@@ -1547,7 +1552,7 @@ void StartHealthboxSlideIn(u8 battler)
         healthboxSprite->y2 = -healthboxSprite->y2;
     }
     gSprites[healthboxSprite->data[5]].callback(&gSprites[healthboxSprite->data[5]]);
-    if (GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT)
+    if (GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT && !gTestRunnerHeadless)
         healthboxSprite->callback = SpriteCB_HealthboxSlideInDelayed;
 }
 

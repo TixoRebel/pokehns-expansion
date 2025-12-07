@@ -35,9 +35,6 @@ static void UpdateFeetInFlowingWaterFieldEffect(struct Sprite *);
 static void UpdateAshFieldEffect_Wait(struct Sprite *);
 static void UpdateAshFieldEffect_Show(struct Sprite *);
 static void UpdateAshFieldEffect_End(struct Sprite *);
-void SynchroniseSurfAnim(struct ObjectEvent *, struct Sprite *);
-void SynchroniseSurfPosition(struct ObjectEvent *, struct Sprite *);
-void UpdateBobbingEffect(struct ObjectEvent *playerObj, struct Sprite *playerSprite, struct Sprite *sprite);
 static void SpriteCB_UnderwaterSurfBlob(struct Sprite *);
 static u32 ShowDisguiseFieldEffect(u8, u8, u8);
 u32 FldEff_Shadow(void);
@@ -1244,16 +1241,6 @@ static u8 GetSurfBlob_HasPlayerOffset(struct Sprite *sprite)
     return (sprite->sBitfield & 0xF00) >> 8;
 }
 
-void UpdateSurfBlobFieldEffect(struct Sprite *sprite)
-{
-    struct ObjectEvent *playerObj = &gObjectEvents[sprite->sPlayerObjId];
-    struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
-    SynchroniseSurfAnim(playerObj, sprite);
-    SynchroniseSurfPosition(playerObj, sprite);
-    UpdateBobbingEffect(playerObj, playerSprite, sprite);
-    sprite->oam.priority = playerSprite->oam.priority;
-}
-
 void SynchroniseSurfAnim(struct ObjectEvent *playerObj, struct Sprite *sprite)
 {
     // Indexes into sAnimTable_SurfBlob
@@ -1327,6 +1314,16 @@ void UpdateBobbingEffect(struct ObjectEvent *playerObj, struct Sprite *playerSpr
             sprite->y = playerSprite->y + 8;
         }
     }
+}
+
+void UpdateSurfBlobFieldEffect(struct Sprite *sprite)
+{
+    struct ObjectEvent *playerObj = &gObjectEvents[sprite->sPlayerObjId];
+    struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
+    SynchroniseSurfAnim(playerObj, sprite);
+    SynchroniseSurfPosition(playerObj, sprite);
+    UpdateBobbingEffect(playerObj, playerSprite, sprite);
+    sprite->oam.priority = playerSprite->oam.priority;
 }
 
 #undef sBitfield

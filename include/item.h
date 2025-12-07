@@ -225,6 +225,7 @@ bool32 CheckBagHasSpace(u16 itemId, u16 count);
 u32 GetFreeSpaceForItemInBag(u16 itemId);
 bool32 AddBagItem(u16 itemId, u16 count);
 bool32 RemoveBagItem(u16 itemId, u16 count);
+void RemoveBagItemFromSlot(struct BagPocket *pocket, u16 slotId, u16 count);
 u8 CountUsedPCItemSlots(void);
 bool8 CheckPCHasSpace(u16 itemId, u16 count); // HnS
 bool32 CheckPCHasItem(u16 itemId, u16 count);
