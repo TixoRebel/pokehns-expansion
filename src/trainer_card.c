@@ -26,6 +26,7 @@
 #include "graphics.h"
 #include "trainer_pokemon_sprites.h"
 #include "contest_util.h"
+#include "decompress.h"
 #include "constants/songs.h"
 #include "constants/game_stat.h"
 #include "constants/battle_frontier.h"
@@ -84,7 +85,7 @@ struct TrainerCardData
     u8 cardType;
     bool8 isHoenn;
     u16 blendColor;
-    void (*callback2)(void);
+    MainCallback callback2;
     struct TrainerCard trainerCard;
     u16 frontTilemap[600];
     u16 backTilemap[600];

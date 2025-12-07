@@ -4,6 +4,7 @@ Class: Pkmn Trainer 1
 Pic: Brendan
 Gender: Male
 Music: Male
+Back Pic: Brendan
 
 === PARTNER_STEVEN ===
 Name: STEVEN
@@ -11,6 +12,8 @@ Class: Rival
 Pic: Steven
 Gender: Male
 Music: Male
+Back Pic: Steven
+AI: Basic Trainer
 
 Metang
 Brave Nature
@@ -45,9 +48,10 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 === PARTNER_LANCE ===
 Name: LANCE
 Class: Rival
-Pic: Lance
+Pic: Champion Lance
 Gender: Male
 Music: Male
+Back Pic: Lance
 
 Gyarados @ Leftovers
 Level: 54

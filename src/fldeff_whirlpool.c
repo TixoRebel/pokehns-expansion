@@ -26,7 +26,7 @@ static void FieldMove_Whirlpool(void);
 
 // Called when Whirlpool is used from the party menu
 // For interacting with a headbutt-able tree in the field, see EventScript_Whirlpool
-bool8 SetUpFieldMove_Whirlpool(void)
+bool32 SetUpFieldMove_Whirlpool(void)
 {
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WHIRLPOOL) == TRUE)
     {

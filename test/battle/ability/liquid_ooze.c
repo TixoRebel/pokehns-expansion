@@ -113,7 +113,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes Strength Sap users to lose HP instead of 
  */
 SINGLE_BATTLE_TEST("Liquid Ooze causes leech seed victim to faint before seeder")
 {
-    u16 ability;
+    enum Ability ability;
     PARAMETRIZE { ability = ABILITY_CLEAR_BODY; }
     PARAMETRIZE { ability = ABILITY_LIQUID_OOZE; }
     GIVEN {
@@ -140,9 +140,9 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes leech seed victim to faint before seeder"
 
 SINGLE_BATTLE_TEST("Liquid Ooze causes Dream Eater users to lose HP instead of heal (Gen 5+)")
 {
-    KNOWN_FAILING;
     s16 damage;
     GIVEN {
+        WITH_CONFIG(GEN_DREAM_EATER_LIQUID_OOZE, GEN_5);
         ASSUME(GetMoveEffect(MOVE_SPORE) == EFFECT_NON_VOLATILE_STATUS);
         ASSUME(GetMoveNonVolatileStatus(MOVE_SPORE) == MOVE_EFFECT_SLEEP);
         ASSUME(GetMoveEffect(MOVE_DREAM_EATER) == EFFECT_DREAM_EATER);
@@ -167,6 +167,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze does not cause Dream Eater users to lose HP inst
 {
     s16 damage;
     GIVEN {
+        WITH_CONFIG(GEN_DREAM_EATER_LIQUID_OOZE, GEN_3);
         ASSUME(GetMoveEffect(MOVE_SPORE) == EFFECT_NON_VOLATILE_STATUS);
         ASSUME(GetMoveNonVolatileStatus(MOVE_SPORE) == MOVE_EFFECT_SLEEP);
         ASSUME(GetMoveEffect(MOVE_DREAM_EATER) == EFFECT_DREAM_EATER);
@@ -184,5 +185,36 @@ SINGLE_BATTLE_TEST("Liquid Ooze does not cause Dream Eater users to lose HP inst
         HP_BAR(player, captureDamage: &damage);
     } THEN {
         EXPECT_LT(damage, 0); // Negative damage = Heal
+    }
+}
+
+SINGLE_BATTLE_TEST("Liquid Ooze HP loss from Absorb is blocked by Magic Guard")
+{
+    GIVEN {
+        PLAYER(SPECIES_CLEFFA) { Ability(ABILITY_MAGIC_GUARD); }
+        OPPONENT(SPECIES_TENTACOOL) { Ability(ABILITY_LIQUID_OOZE); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_ABSORB); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
+        HP_BAR(opponent);
+        NONE_OF {
+            HP_BAR(player);
+            MESSAGE("Wobbuffet sucked up the liquid ooze!");
+        }
+    }
+}
+
+SINGLE_BATTLE_TEST("Liquid Ooze HP loss from Leech Seed is blocked by Magic Guard")
+{
+    GIVEN {
+        PLAYER(SPECIES_CLEFFA) { Ability(ABILITY_MAGIC_GUARD); }
+        OPPONENT(SPECIES_TENTACOOL) { Ability(ABILITY_LIQUID_OOZE); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEECH_SEED); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEECH_SEED, player);
+        HP_BAR(opponent);
+        NOT HP_BAR(player);
     }
 }

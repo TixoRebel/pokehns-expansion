@@ -1,5 +1,6 @@
 #include "global.h"
 #include "bg.h"
+#include "decompress.h"
 #include "event_data.h"
 #include "gpu_regs.h"
 #include "graphics.h"
@@ -86,7 +87,7 @@ struct OverworldArea
 {
     u8 mapGroup;
     u8 mapNum;
-    u16 regionMapSectionId;
+    mapsec_u16_t regionMapSectionId;
 };
 
 struct
@@ -107,7 +108,7 @@ struct
     /*0x61C*/ u16 areaShadeBldArgHi;
     /*0x61E*/ bool8 showingMarkers;
     /*0x61F*/ u8 markerFlashCounter;
-    /*0x620*/ u16 specialAreaRegionMapSectionIds[MAX_AREA_MARKERS];
+    /*0x620*/ mapsec_u16_t specialAreaRegionMapSectionIds[MAX_AREA_MARKERS];
     /*0x660*/ struct Sprite *areaMarkerSprites[MAX_AREA_MARKERS];
     /*0x6E0*/ u16 numAreaMarkerSprites;
     /*0x6E2*/ u16 alteringCaveCounter;
@@ -127,7 +128,7 @@ static void FindMapsWithMon(u16);
 static void BuildAreaGlowTilemap(void);
 static void SetAreaHasMon(u16, u16);
 static void SetSpecialMapHasMon(u16, u16);
-static u16 GetRegionMapSectionId(u8, u8);
+static mapsec_u16_t GetRegionMapSectionId(u8, u8);
 static bool8 MapHasSpecies(const struct WildEncounterTypes *, u16);
 static bool8 MonListHasSpecies(const struct WildPokemonInfo *, u16, u16);
 static void DoAreaGlow(void);
@@ -157,7 +158,7 @@ static const u16 sSpeciesHiddenFromAreaScreen[] = { SPECIES_WYNAUT };
 
 // Return the region-map section at (x,y) tiles on the Pokédex area screen.
 // Uses the same layout as the Pokédex art: flag set => combined; unset => johto.
-static inline u16 DexGetMapSecAt(u16 x, u16 y)
+static inline mapsec_u16_t DexGetMapSecAt(u16 x, u16 y)
 {
     const bool32 isCombined = FlagGet(FLAG_VISITED_KANTO);
     const u8 (*grid)[MAP_WIDTH] = isCombined
@@ -614,7 +615,7 @@ static const u16 sSpeciesHiddenFromAreaScreenModern[] = {
     SPECIES_KLEAVOR*/
 };
 
-static const u16 sMovingRegionMapSections[(IS_HNS ? 0 : 3)] =
+static const mapsec_u16_t sMovingRegionMapSections[(IS_HNS ? 0 : 3)] =
 {
 #if !IS_HNS
     MAPSEC_MARINE_CAVE,
@@ -650,7 +651,7 @@ static const u16 sHiddenPokemon[][3] =
     {NUM_SPECIES}
 };
 
-static const u16 sLandmarkData[][2] =
+static const mapsec_u16_t sLandmarkData[][2] =
 {
 #if !IS_HNS
     {MAPSEC_SKY_PILLAR,       FLAG_LANDMARK_SKY_PILLAR},
@@ -743,7 +744,7 @@ static const struct WindowTemplate sTimeOfDayWindowLabelTemplates[] =
         .baseBlock = 0x16C
     },
 
-    [DEX_AREA_LABEL_AREA_UNKNOWN] = 
+    [DEX_AREA_LABEL_AREA_UNKNOWN] =
     {
         .bg = LABEL_WINDOW_BG,
         .tilemapLeft = 12,
@@ -911,7 +912,7 @@ static void SetSpecialMapHasMon(u16 mapGroup, u16 mapNum)
 
     if (sPokedexAreaScreen->numSpecialAreas < MAX_AREA_MARKERS)
     {
-        u16 regionMapSectionId = GetRegionMapSectionId(mapGroup, mapNum);
+        mapsec_u16_t regionMapSectionId = GetRegionMapSectionId(mapGroup, mapNum);
         if (regionMapSectionId < MAPSEC_NONE)
         {
             // Don't highlight the area if it's a moving area (Marine/Terra Cave)
@@ -945,7 +946,7 @@ static void SetSpecialMapHasMon(u16 mapGroup, u16 mapNum)
     }
 }
 
-static u16 GetRegionMapSectionId(u8 mapGroup, u8 mapNum)
+static mapsec_u16_t GetRegionMapSectionId(u8 mapGroup, u8 mapNum)
 {
     return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
 }
@@ -1467,7 +1468,7 @@ static void CreateAreaMarkerSprites(void)
     u8 spriteId;
     s16 x, y;
     u16 rx, ry, rw, rh;
-    s16 mapSecId;
+    mapsec_u16_t mapSecId;
     s16 numSprites = 0;
 
     LoadSpriteSheet(&sAreaMarkerSpriteSheet);

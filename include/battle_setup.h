@@ -1,6 +1,7 @@
 #ifndef GUARD_BATTLE_SETUP_H
 #define GUARD_BATTLE_SETUP_H
 
+#include "battle_transition.h"
 #include "gym_leader_rematch.h"
 
 #define REMATCHES_COUNT 5
@@ -66,10 +67,10 @@ void BattleSetup_StartLatiBattle(void);
 void BattleSetup_StartLegendaryBattle(void);
 void StartGroudonKyogreBattle(void);
 void StartRegiBattle(void);
-u8 BattleSetup_GetEnvironmentId(void);
-u8 GetWildBattleTransition(void);
-u8 GetTrainerBattleTransition(void);
-u8 GetSpecialBattleTransition(s32 id);
+enum BattleEnvironments BattleSetup_GetEnvironmentId(void);
+enum BattleTransition GetWildBattleTransition(void);
+enum BattleTransition GetTrainerBattleTransition(void);
+enum BattleTransition GetSpecialBattleTransition(enum BattleTransitionGroup id);
 void ChooseStarter(void);
 void ResetTrainerOpponentIds(void);
 void SetMapVarsToTrainerA(void);
@@ -79,6 +80,7 @@ void ConfigureAndSetUpOneTrainerBattle(u8 trainerObjEventId, const u8 *trainerSc
 void ConfigureTwoTrainersBattle(u8 trainerObjEventId, const u8 *trainerScript);
 void SetUpTwoTrainersBattle(void);
 bool32 GetTrainerFlagFromScriptPointer(const u8 *data);
+bool32 GetRematchFromScriptPointer(const u8 *data);
 void SetTrainerFacingDirection(void);
 u8 GetTrainerBattleMode(void);
 bool8 GetTrainerFlag(void);
@@ -97,12 +99,14 @@ const u8 *GetTrainerALoseText(void);
 const u8 *GetTrainerBLoseText(void);
 const u8 *GetTrainerWonSpeech(void);
 void UpdateRematchIfDefeated(s32 rematchTableId);
+void ClearCurrentTrainerWantRematchVsSeeker(void);
 void IncrementRematchStepCounter(void);
 void TryUpdateRandomTrainerRematches(u16 mapGroup, u16 mapNum);
 bool32 DoesSomeoneWantRematchIn(u16 mapGroup, u16 mapNum);
 bool32 IsRematchTrainerIn(u16 mapGroup, u16 mapNum);
 u16 GetLastBeatenRematchTrainerId(u16 trainerId);
 bool8 ShouldTryRematchBattle(void);
+bool8 ShouldTryRematchBattleForTrainerId(u16 trainerId);
 bool8 IsTrainerReadyForRematch(void);
 u8 GetMaxPartySize(void);
 void ShouldTryGetTrainerScript(void);
