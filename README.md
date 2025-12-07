@@ -1,6 +1,7 @@
 # About `pokehns-expansion`
 
 ![Gif that shows debugging functionality that is unique to pokeemerald-expansion such as rerolling Trainer ID, Cheat Start, PC from Debug Menu, Debug PC Fill, Pokémon Sprite Visualizer, Debug Warp to Map, and Battle Debug Menu](https://github.com/user-attachments/assets/cf9dfbee-4c6b-4bca-8e0a-07f116ef891c) ![Gif that shows overworld functionality that is unique to pokeemerald-expansion such as indoor running, BW2 style map popups, overworld followers, DNA Splicers, Gen 1 style fishing, OW Item descriptions, Quick Run from Battle, Use Last Ball, Wild Double Battles, and Catch from EXP](https://github.com/user-attachments/assets/383af243-0904-4d41-bced-721492fbc48e) ![Gif that shows off a number of modern Pokémon battle mechanics happening in the pokeemerald-expansion engine: 2 vs 1 battles, modern Pokémon, items, moves, abilities, fully customizable opponents and partners, Trainer Slides, and generational gimmicks](https://github.com/user-attachments/assets/50c576bc-415e-4d66-a38f-ad712f3316be)
+The above gifs are from the **`pokeemerald-expansion`** repository.
 
 <!-- If you want to re-record or change these gifs, here are some notes that I used: https://files.catbox.moe/05001g.md -->
 
@@ -10,7 +11,7 @@
 # PLEASE NOTE WHILE READING THIS DOCUMENTATION
 **1:** This README and the rest of the documentation are very much **still work in progress**. They have been taken from the parent **`pokeemerald-expansion`** project and will gradually be updated over time. Please feel free to contribute to this effort.
 **2:** The **`pokehns-expansion`** project itself is also very much **still work in progress**. If this point is still in the documentation, the project will only be accepting pull requests for bug fixes, feature alignment to the original **`pokehns`** project, and the **`pokehns`** 2.0 release feature list, which may be found further down this page in the **`PULL REQUEST SCOPE`** section.
-**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.14.0`**. Further incremental updates will be made until the project is aligned with the latest **`pokeemerald-expansion`** **`master`** branch.
+**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.14.1`**. Incremental updates will be made as time permits after new releases of the **`pokeemerald-expansion`** **`master`** branch become available.
 
 # [Features](FEATURES.md)
 
@@ -23,7 +24,7 @@
 If you use **`pokehns-expansion`**, please credit **RHH (Rom Hacking Hideout)** and **pokemonHnS**. Optionally, include the version number for clarity.
 
 ```
-Based off pokehns-expansion https://github.com/TixoRebel/pokehns-expansion, using RHH's pokeemerald-expansion 1.14.0 https://github.com/rh-hideout/pokeemerald-expansion/ and pokemonHnS https://github.com/PokemonHnS-Development/pokemonHnS.
+Based off pokehns-expansion https://github.com/TixoRebel/pokehns-expansion, using RHH's pokeemerald-expansion 1.14.1 https://github.com/rh-hideout/pokeemerald-expansion/ and pokemonHnS https://github.com/PokemonHnS-Development/pokemonHnS.
 ```
 
 Please consider [crediting all contributors](CREDITS.md) involved in the upstream pokeemerald-expansion project!

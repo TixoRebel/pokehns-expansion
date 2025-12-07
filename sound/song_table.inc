@@ -420,6 +420,7 @@ gSongTable::
 	song mus_contest, MUSIC_PLAYER_BGM, 0
 	song mus_encounter_magma, MUSIC_PLAYER_BGM, 0
 	song mus_intro_battle, MUSIC_PLAYER_BGM, 0
+	song mus_weather_kyogre, MUSIC_PLAYER_BGM, 0
 	song mus_weather_groudon, MUSIC_PLAYER_BGM, 0
 	song mus_sootopolis, MUSIC_PLAYER_BGM, 0
 	song mus_contest_results, MUSIC_PLAYER_BGM, 0
