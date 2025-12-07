@@ -38,7 +38,7 @@ bool8 CheckMetatileBehaviorInFrontOfPlayer(u32 metatileBehavior)
 
 // Called when Headbutt is used from the party menu
 // For interacting with a headbutt-able tree in the field, see EventScript_Headbutt
-bool8 SetUpFieldMove_Headbutt(void)
+bool32 SetUpFieldMove_Headbutt(void)
 {
     if (CheckMetatileBehaviorInFrontOfPlayer(MB_HEADBUTT_TREE))
     {

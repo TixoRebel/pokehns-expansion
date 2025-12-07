@@ -20,11 +20,11 @@
 #include "field_specials.h"
 #include "fldeff.h"
 #include "region_map.h"
+#include "decompress.h"
 #include "constants/region_map_sections.h"
 #include "heal_location.h"
 #include "constants/field_specials.h"
 #include "constants/heal_locations.h"
-#include "constants/map_types.h"
 #include "constants/rgb.h"
 #include "constants/weather.h"
 #include "constants/flags.h"
@@ -53,7 +53,6 @@
 #include "data/region_map/region_map_entries.h"        // defines gRegionMapEntries (JK)
 #include "data/region_map/region_map_entries_johto.h"  // defines gRegionMapEntries (JK)
 
-// ✅ each of these must DEFINE its own array:
 //    sRegionMap_MapSectionLayout_JK[15][28]
 //    sRegionMap_MapSectionLayout_Johto[15][28]
 #include "data/region_map/region_map_layout.h"
@@ -731,6 +730,7 @@ bool8 LoadRegionMapGfx(void)
             DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sActiveMapGfxLZ, 0, 0, 0);
         else
             DecompressDataWithHeaderVram(sActiveMapGfxLZ, (u16 *)BG_CHAR_ADDR(2));
+            //DecompressDataWithHeaderVram(sRegionMapBg_GfxLZ, (u16 *)BG_CHAR_ADDR(2)); - Expansion 1.13.0
         break;
     case 1:
         if (sRegionMap->bgManaged)
@@ -741,6 +741,7 @@ bool8 LoadRegionMapGfx(void)
         else
         {
             DecompressDataWithHeaderVram(sActiveMapTilemapLZ, (u16 *)BG_SCREEN_ADDR(28));
+            //DecompressDataWithHeaderVram(sRegionMapBg_TilemapLZ, (u16 *)BG_SCREEN_ADDR(28)); - Expansion 1.13.0
         }
         break;
     case 2:

@@ -26,6 +26,7 @@
 #include "graphics.h"
 #include "trainer_pokemon_sprites.h"
 #include "contest_util.h"
+#include "decompress.h"
 #include "constants/songs.h"
 #include "constants/game_stat.h"
 #include "constants/battle_frontier.h"

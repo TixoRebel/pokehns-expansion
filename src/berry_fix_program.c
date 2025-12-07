@@ -12,6 +12,7 @@
 #include "text.h"
 #include "menu.h"
 #include "m4a.h"
+#include "decompress.h"
 #include "constants/rgb.h"
 #include "decompress.h"
 
