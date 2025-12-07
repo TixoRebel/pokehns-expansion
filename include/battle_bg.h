@@ -9,7 +9,7 @@ struct BattleBackground
     const void *tilemap;
     const void *entryTileset;
     const void *entryTilemap;
-    const void * const *palette;
+    const void *palette;
 };
 
 extern const void * const gBattleEnvironmentPalette_TallGrass[TIMES_OF_DAY_COUNT];
@@ -22,6 +22,7 @@ extern const void * const gBattleEnvironmentPalette_Rock[TIMES_OF_DAY_COUNT];
 extern const void * const gBattleEnvironmentPalette_Cave[TIMES_OF_DAY_COUNT];
 extern const void * const gBattleEnvironmentPalette_Plain[TIMES_OF_DAY_COUNT];
 extern const void * const gBattleEnvironmentPalette_Building[TIMES_OF_DAY_COUNT];
+extern const void * const gBattleEnvironmentPalette_Blue_Building[TIMES_OF_DAY_COUNT];
 extern const void * const gBattleEnvironmentPalette_Frontier[TIMES_OF_DAY_COUNT];
 extern const void * const gBattleEnvironmentPalette_Stadium[TIMES_OF_DAY_COUNT];
 extern const void * const gBattleEnvironmentPalette_Rayquaza[TIMES_OF_DAY_COUNT];

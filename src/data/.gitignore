@@ -1,5 +1,6 @@
 heal_locations.h
 wild_encounters.h
 region_map/region_map_entries.h
+region_map/region_map_entries_johto.h
 region_map/porymap_config.json
 tutor_moves.h

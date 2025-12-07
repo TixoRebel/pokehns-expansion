@@ -10,7 +10,11 @@ IcePath_B1F_hns_MapScripts::
 	.byte 0
 
 IcePath_B1F_OnTransition: 
-	copyvar VAR_ICE_STEP_COUNT, 1
+#ifdef UBFIX
+	setvar VAR_ICE_STEP_COUNT, 1
+#else
+	copyvar VAR_ICE_STEP_COUNT, 1, warn=FALSE
+#endif
 	callnative SetTimeBasedEncounters
 	end
 

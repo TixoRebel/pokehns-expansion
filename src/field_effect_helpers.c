@@ -35,9 +35,6 @@ static void UpdateFeetInFlowingWaterFieldEffect(struct Sprite *);
 static void UpdateAshFieldEffect_Wait(struct Sprite *);
 static void UpdateAshFieldEffect_Show(struct Sprite *);
 static void UpdateAshFieldEffect_End(struct Sprite *);
-void SynchroniseSurfAnim(struct ObjectEvent *, struct Sprite *);
-void SynchroniseSurfPosition(struct ObjectEvent *, struct Sprite *);
-void UpdateBobbingEffect(struct ObjectEvent *playerObj, struct Sprite *playerSprite, struct Sprite *sprite);
 static void SpriteCB_UnderwaterSurfBlob(struct Sprite *);
 static u32 ShowDisguiseFieldEffect(u8, u8, u8);
 u32 FldEff_Shadow(void);
@@ -1244,16 +1241,6 @@ static u8 GetSurfBlob_HasPlayerOffset(struct Sprite *sprite)
     return (sprite->sBitfield & 0xF00) >> 8;
 }
 
-void UpdateSurfBlobFieldEffect(struct Sprite *sprite)
-{
-    struct ObjectEvent *playerObj = &gObjectEvents[sprite->sPlayerObjId];
-    struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
-    SynchroniseSurfAnim(playerObj, sprite);
-    SynchroniseSurfPosition(playerObj, sprite);
-    UpdateBobbingEffect(playerObj, playerSprite, sprite);
-    sprite->oam.priority = playerSprite->oam.priority;
-}
-
 void SynchroniseSurfAnim(struct ObjectEvent *playerObj, struct Sprite *sprite)
 {
     // Indexes into sAnimTable_SurfBlob
@@ -1263,10 +1250,10 @@ void SynchroniseSurfAnim(struct ObjectEvent *playerObj, struct Sprite *sprite)
         [DIR_NORTH] = 1,
         [DIR_WEST] = 2,
         [DIR_EAST] = 3,
-        [DIR_SOUTHWEST] = 0,
-        [DIR_SOUTHEAST] = 0,
-        [DIR_NORTHWEST] = 1,
-        [DIR_NORTHEAST] = 1,
+        [DIR_SOUTHWEST] = 2,
+        [DIR_SOUTHEAST] = 3,
+        [DIR_NORTHWEST] = 2,
+        [DIR_NORTHEAST] = 3,
     };
 
     if (!GetSurfBlob_DontSyncAnim(sprite))
@@ -1329,6 +1316,16 @@ void UpdateBobbingEffect(struct ObjectEvent *playerObj, struct Sprite *playerSpr
     }
 }
 
+void UpdateSurfBlobFieldEffect(struct Sprite *sprite)
+{
+    struct ObjectEvent *playerObj = &gObjectEvents[sprite->sPlayerObjId];
+    struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
+    SynchroniseSurfAnim(playerObj, sprite);
+    SynchroniseSurfPosition(playerObj, sprite);
+    UpdateBobbingEffect(playerObj, playerSprite, sprite);
+    sprite->oam.priority = playerSprite->oam.priority;
+}
+
 #undef sBitfield
 #undef sPlayerOffset
 #undef sPlayerObjId
@@ -1385,6 +1382,24 @@ u32 FldEff_Dust(void)
         sprite->oam.priority = gFieldEffectArguments[3];
         sprite->sJumpElevation = gFieldEffectArguments[2];
         sprite->sJumpFldEff = FLDEFF_DUST;
+    }
+    return 0;
+}
+
+u32 FldEff_RockClimbDust(void)
+{
+    u8 spriteId;
+    struct Sprite *sprite;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 12);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_ROCK_CLIMB_DUST], gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->data[0] = gFieldEffectArguments[2];
+        sprite->data[1] = FLDEFF_ROCK_CLIMB_DUST;
     }
     return 0;
 }
@@ -1885,4 +1900,3 @@ static void UpdateGrassFieldEffectSubpriority(struct Sprite *sprite, u8 elevatio
         }
     }
 }
-

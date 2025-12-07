@@ -43,5 +43,7 @@ void UpdateSparkleFieldEffect(struct Sprite *sprite);
 void SetSpriteInvisible(u8 spriteId);
 void ShowWarpArrowSprite(u8 spriteId, u8 direction, s16 x, s16 y);
 void UpdateBobbingEffect(struct ObjectEvent *playerObj, struct Sprite *playerSprite, struct Sprite *sprite);
+void SynchroniseSurfPosition(struct ObjectEvent *, struct Sprite *);
+void SynchroniseSurfAnim(struct ObjectEvent *, struct Sprite *);
 
 #endif //GUARD_FIELD_EFFECT_HELPERS_H

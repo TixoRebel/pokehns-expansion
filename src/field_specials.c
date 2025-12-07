@@ -19,14 +19,16 @@
 #include "field_weather.h"
 #include "graphics.h"
 #include "international_string_util.h"
+#include "item.h"
 #include "item_icon.h"
 #include "link.h"
-#include "load_save.h"
 #include "list_menu.h"
+#include "load_save.h"
 #include "main.h"
-#include "mystery_gift.h"
 #include "match_call.h"
 #include "menu.h"
+#include "metatile_behavior.h"
+#include "mystery_gift.h"
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokeblock.h"
@@ -59,7 +61,6 @@
 #include "constants/field_specials.h"
 #include "constants/items.h"
 #include "constants/heal_locations.h"
-#include "constants/map_types.h"
 #include "constants/mystery_gift.h"
 #include "constants/slot_machine.h"
 #include "constants/songs.h"
@@ -125,14 +126,14 @@ static void Task_MoveElevator(u8);
 static void MoveElevatorWindowLights(u16, bool8);
 static void Task_MoveElevatorWindowLights(u8);
 static void Task_ShowScrollableMultichoice(u8);
-static void FillFrontierExchangeCornerWindowAndItemIcon(u16, u16);
-static void ShowBattleFrontierTutorWindow(u8, u16);
+static void FillFrontierExchangeCornerWindowAndItemIcon(enum ScrollMulti, u16);
+static void ShowBattleFrontierTutorWindow(enum ScrollMulti, u16);
 static void InitScrollableMultichoice(void);
 static void ScrollableMultichoice_ProcessInput(u8);
 static void ScrollableMultichoice_UpdateScrollArrows(u8);
 static void ScrollableMultichoice_MoveCursor(s32, bool8, struct ListMenu *);
-static void HideFrontierExchangeCornerItemIcon(u16, u16);
-static void ShowBattleFrontierTutorMoveDescription(u8, u16);
+static void HideFrontierExchangeCornerItemIcon(enum ScrollMulti, u16);
+static void ShowBattleFrontierTutorMoveDescription(enum ScrollMulti, u16);
 static void CloseScrollableMultichoice(u8);
 static void ScrollableMultichoice_RemoveScrollArrows(u8);
 static void Task_ScrollableMultichoice_WaitReturnToList(u8);
@@ -322,11 +323,12 @@ bool32 CountSSTidalStep(u16 delta)
     return TRUE;
 }
 
-u8 GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
+enum SSTidalLocation GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
 {
 #if !IS_HNS
     u16 *varCruiseStepCount = GetVarPointer(VAR_CRUISE_STEP_COUNT);
-    switch (*GetVarPointer(VAR_SS_TIDAL_STATE))
+
+    switch ((enum SSTidalState)(*GetVarPointer(VAR_SS_TIDAL_STATE)))
     {
     case SS_TIDAL_BOARD_SLATEPORT:
     case SS_TIDAL_LAND_SLATEPORT:
@@ -1001,7 +1003,7 @@ void FieldShowRegionMap(void)
 
 static bool32 IsBuildingPCTile(u32 tileId)
 {
-    return gMapHeader.mapLayout->primaryTileset == &gTileset_Building && (tileId == METATILE_Building_PC_On || tileId == METATILE_Building_PC_Off);
+    return (MetatileBehavior_IsPC(UNPACK_BEHAVIOR(GetMetatileAttributesById(tileId))));
 }
 
 static bool32 IsPlayerHousePCTile(u32 tileId)
@@ -1290,7 +1292,7 @@ void IsGrassTypeInParty(void)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
-            if (gSpeciesInfo[species].types[0] == TYPE_GRASS || gSpeciesInfo[species].types[1] == TYPE_GRASS)
+            if (GetSpeciesType(species, 0) == TYPE_GRASS || GetSpeciesType(species, 1) == TYPE_GRASS)
             {
                 gSpecialVar_Result = TRUE;
                 return;
@@ -1689,7 +1691,7 @@ u16 GetMysteryGiftCardStat(void)
 
 bool8 BufferTMHMMoveName(void)
 {
-    if (gSpecialVar_0x8004 >= ITEM_TM01 && gSpecialVar_0x8004 <= ITEM_HM08)
+    if (gItemsInfo[gSpecialVar_0x8004].pocket == POCKET_TM_HM)
     {
         StringCopy(gStringVar2, GetMoveName(ItemIdToBattleMoveId(gSpecialVar_0x8004)));
         return TRUE;
@@ -1798,7 +1800,7 @@ static const u16 sElevatorWindowTiles_Descending[ELEVATOR_WINDOW_HEIGHT][ELEVATO
 
 void SetDeptStoreFloor(void)
 {
-    u8 deptStoreFloor;
+    enum DeptStoreFloorNumber deptStoreFloor;
     switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
     {
 #if !IS_HNS
@@ -2319,7 +2321,7 @@ void ShowScrollableMultichoice(void)
     struct Task *task = &gTasks[taskId];
     task->tScrollMultiId = gSpecialVar_0x8004;
 
-    switch (gSpecialVar_0x8004)
+    switch ((enum ScrollMulti)gSpecialVar_0x8004)
     {
     case SCROLL_MULTI_NONE:
         task->tMaxItemsOnScreen = 1;
@@ -3032,7 +3034,7 @@ void CloseFrontierExchangeCornerItemIconWindow(void)
     RemoveWindow(sFrontierExchangeCorner_ItemIconWindowId);
 }
 
-static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
+static void FillFrontierExchangeCornerWindowAndItemIcon(enum ScrollMulti menu, u16 selection)
 {
     #include "data/battle_frontier/battle_frontier_exchange_corner.h"
 
@@ -3075,6 +3077,8 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
             AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
             ShowFrontierExchangeCornerItemIcon(sFrontierExchangeCorner_HoldItems[selection]);
             break;
+        default:
+            break;
         }
     }
 }
@@ -3093,7 +3097,7 @@ static void ShowFrontierExchangeCornerItemIcon(u16 item)
     }
 }
 
-static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
+static void HideFrontierExchangeCornerItemIcon(enum ScrollMulti menu, u16 unused)
 {
     if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES)
     {
@@ -3105,6 +3109,8 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR:
             // This makes sure deleting the icon will not clear palettes in use by object events
             FieldEffectFreeGraphicsResources(&gSprites[sScrollableMultichoice_ItemSpriteId]);
+            break;
+        default:
             break;
         }
         sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
@@ -3153,7 +3159,7 @@ void BufferBattleFrontierTutorMoveName(void)
     StringCopy(gStringVar1, GetMoveName(gSpecialVar_0x8005));
 }
 
-static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
+static void ShowBattleFrontierTutorWindow(enum ScrollMulti menu, u16 selection)
 {
     static const struct WindowTemplate sBattleFrontierTutor_WindowTemplate =
     {
@@ -3177,7 +3183,7 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
     }
 }
 
-static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
+static void ShowBattleFrontierTutorMoveDescription(enum ScrollMulti menu, u16 selection)
 {
     static const u8 *const sBattleFrontier_TutorMoveDescriptions1[] =
     {
@@ -4593,8 +4599,8 @@ void GetObjectPosition(u16* xPointer, u16* yPointer, u32 localId, u32 useTemplat
 
     objectId = GetObjectEventIdByLocalId(localId);
     objEvent = &gObjectEvents[objectId];
-    *xPointer = objEvent->currentCoords.x - 7;
-    *yPointer = objEvent->currentCoords.y - 7;
+    *xPointer = objEvent->currentCoords.x - MAP_OFFSET;
+    *yPointer = objEvent->currentCoords.y - MAP_OFFSET;
 }
 
 bool32 CheckObjectAtXY(u32 x, u32 y)
@@ -4821,11 +4827,11 @@ void ChooseItemFromBag(void)
 {
     switch (VarGet(VAR_TEMP_1))
     {
-    case ITEMS_POCKET:
-    case BALLS_POCKET:
-    case TMHM_POCKET:
-    case BERRIES_POCKET:
-    case KEYITEMS_POCKET:
+    case POCKET_ITEMS:
+    case POCKET_POKE_BALLS:
+    case POCKET_TM_HM:
+    case POCKET_BERRIES:
+    case POCKET_KEY_ITEMS:
         GoToBagMenu(ITEMMENULOCATION_CHOOSE_ITEM, VarGet(VAR_TEMP_1), CB2_ReturnToFieldContinueScript);
     default:
         break;
@@ -5001,4 +5007,16 @@ void SwitchMonAbility(void)
     {
         gSpecialVar_Result = FALSE;
     }
+}
+void SetHiddenNature(void)
+{
+    u32 hiddenNature = gSpecialVar_Result;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HIDDEN_NATURE, &hiddenNature);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+void SetAbility(void)
+{
+    u32 ability = gSpecialVar_Result;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM, &ability);
 }

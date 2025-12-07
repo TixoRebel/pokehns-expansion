@@ -31,7 +31,7 @@ jobs:
           COMPARE: 0
         run: |
           make clean
-          make -j${nproc} -O
+          make -j${nproc} -O all
 
       - name: LTO (HnS)
         env:

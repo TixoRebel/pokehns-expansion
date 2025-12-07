@@ -67,7 +67,7 @@ Basement Key		 Radio Tower (False Manager)
 Card Key		 Goldenrod Underground (Manager)
 Tidal or Clear Bell	 Goldenrod Radio Tower (Manager)
 GS Ball			 Ruins of Alph
-Lost Item		 Vermillion City
+Lost Item		 Vermilion City
 Machine Part		 Cerulean City
 Mystery Egg		 Route 30
 Old Rod			 Route 32 (Man inside Pokemon Center)
