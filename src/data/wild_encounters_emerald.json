@@ -1,7 +1,5 @@
 {
-  "build_name": [
-    "emerald"
-  ],
+  "build_name": "emerald",
   "wild_encounter_groups": [
     {
       "label": "gWildMonHeaders",

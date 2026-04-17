@@ -59,9 +59,7 @@ def detect_build_name(cli_build: str | None, clean: bool) -> str | None:
     if clean is True:
         """if map_version.s exists, that is the build being 'cleaned', else return None"""
         env = read_map_version_file() or os.environ.get("MAP_VERSION")
-        if env:
-            return env
-        return None
+        return env or None
     if cli_build:
         return cli_build
     env = os.environ.get("BUILD_NAME")
@@ -78,14 +76,14 @@ def detect_clean(cli_clean: bool | None) -> bool:
     val = os.environ.get("VERSIONED_JSON_CLEAN")
     if not val:
         return False
-    return val not in ("0", "false", "False", "no", "NO")
+    return val.lower() in ("1", "true", "yes")
 
 def build_tasks(build: str, clean: bool) -> List[Task]:
     if build is None:
         return []
     else:
         """if map_groups.json exists, then we are not building after 'clean'"""
-        if clean is True:
+        if clean or read_map_group_core():
             return [
                 ("../data/layouts/layouts.json", f"../data/layouts/layouts_{build}.json"),
                 ("../data/maps/map_groups.json", f"../data/maps/map_groups_{build}.json"),
@@ -93,21 +91,12 @@ def build_tasks(build: str, clean: bool) -> List[Task]:
                 ("../src/data/wild_encounters.json", f"../src/data/wild_encounters_{build}.json"),
             ]
         else:
-            notFresh = read_map_group_core()
-            if notFresh is not None:
-                return [
-                    ("../data/layouts/layouts.json", f"../data/layouts/layouts_{build}.json"),
-                    ("../data/maps/map_groups.json", f"../data/maps/map_groups_{build}.json"),
-                    ("../src/data/heal_locations.json", f"../src/data/heal_locations_{build}.json"),
-                    ("../src/data/wild_encounters.json", f"../src/data/wild_encounters_{build}.json"),
-                ]
-            else:
-                return [
-                    (f"../data/layouts/layouts_{build}.json", "../data/layouts/layouts.json"),
-                    (f"../data/maps/map_groups_{build}.json", "../data/maps/map_groups.json"),
-                    (f"../src/data/heal_locations_{build}.json", "../src/data/heal_locations.json"),
-                    (f"../src/data/wild_encounters_{build}.json", "../src/data/wild_encounters.json"),
-                ]
+            return [
+                (f"../data/layouts/layouts_{build}.json", "../data/layouts/layouts.json"),
+                (f"../data/maps/map_groups_{build}.json", "../data/maps/map_groups.json"),
+                (f"../src/data/heal_locations_{build}.json", "../src/data/heal_locations.json"),
+                (f"../src/data/wild_encounters_{build}.json", "../src/data/wild_encounters.json"),
+            ]
 
 def copy_json(src: str, dst: str) -> str:
     """Load + dump to ensure valid JSON; preserve formatting (compact)."""
@@ -125,7 +114,6 @@ def main() -> int:
     parser.add_argument("--build", help="Build/version name (emerald, hns, etc). Overrides env BUILD_NAME/MAP_VERSION.")
     parser.add_argument("--strict", action="store_true", help="Fail if any expected source file is missing.")
     parser.add_argument("--clean", dest="clean", action="store_true", help="Force clean mode (overrides env).")
-    parser.add_argument("--no-clean", dest="clean", action="store_false", help="Disable clean mode.")
     parser.set_defaults(clean=None)
     args = parser.parse_args()
 

@@ -1,7 +1,5 @@
 {
-  "build_name": [
-    "emerald"
-  ],
+  "build_name": "emerald",
   "heal_locations": [
     {
       "id": "HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",

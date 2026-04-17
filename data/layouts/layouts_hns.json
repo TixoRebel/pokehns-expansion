@@ -1,7 +1,5 @@
 {
-  "build_name": [
-    "hns"
-  ],
+  "build_name": "hns",
   "layouts_table_label": "gMapLayouts",
   "layouts": [
     {

@@ -1,7 +1,5 @@
 {
-  "build_name": [
-    "hns"
-  ],
+  "build_name": "hns",
   "group_order": [
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorNewBark",
