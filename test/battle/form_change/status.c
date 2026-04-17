@@ -1,9 +1,9 @@
 #include "global.h"
+#include "overworld.h"
 #include "test/battle.h"
 
 SINGLE_BATTLE_TEST("Shaymin-Sky reverts to Shaymin-Land when frozen or frostbitten")
 {
-    //KNOWN_FAILING; // This test tosses a coin every time I swear
     u32 move;
 
     PARAMETRIZE { move = MOVE_POWDER_SNOW; }
@@ -13,6 +13,7 @@ SINGLE_BATTLE_TEST("Shaymin-Sky reverts to Shaymin-Land when frozen or frostbitt
     PARAMETRIZE { move = MOVE_POISON_FANG; }
 
     GIVEN {
+        SetTimeOfDay(12); // Force time around midday to prevent local time causing test to fail outside of DAY hours
         ASSUME(MoveHasAdditionalEffect(MOVE_POWDER_SNOW, MOVE_EFFECT_FREEZE_OR_FROSTBITE));
         ASSUME(MoveHasAdditionalEffect(MOVE_EMBER, MOVE_EFFECT_BURN));
         ASSUME(MoveHasAdditionalEffect(MOVE_THUNDERSHOCK, MOVE_EFFECT_PARALYSIS));
