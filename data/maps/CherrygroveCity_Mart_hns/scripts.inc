@@ -41,13 +41,11 @@ Cherrygrove_Pokemart_EventScript_Clerk2::
 	release
 	end
 
-	.align 3
+	.align 2
 Cherrygrove_Pokemart_Pokemart:
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_NONE
-	release
-	end
+	pokemartlistend
 
 Cherrygrove_Pokemart_Text_CooltrainerM:
 	.string "They're fresh out of POKé BALLS!\p"

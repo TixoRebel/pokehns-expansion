@@ -23,9 +23,7 @@ MtMoon_Shop_Pokemart:
 	.2byte ITEM_SODA_POP
 	.2byte ITEM_LEMONADE
 	.2byte ITEM_REPEL
-	.2byte ITEM_NONE
-	release
-	end
+	pokemartlistend
 
 MtMoon_Shop_Text_GiftShopLass:
 	.string "When the sun goes down, CLEFAIRY\n"

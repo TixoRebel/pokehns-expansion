@@ -211,9 +211,7 @@ MahoganyTown_Pokemart:
 	.2byte ITEM_UP_GRADE
 	.2byte ITEM_SPELL_TAG
 	.2byte ITEM_NEVER_MELT_ICE
-	.2byte ITEM_NONE
-	release
-	end
+	pokemartlistend
 
 MahoganyTown_Shop_Text_Granny:
 	.string "Please come back another time.\n"
