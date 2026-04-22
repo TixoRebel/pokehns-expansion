@@ -142,5 +142,12 @@
       "script": "Route26North_Trigger"
     }
   ],
-  "bg_events": []
+  "bg_events": [],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_ROUTE26NORTH",
+      "x": 12,
+      "y": 6
+    }
+  ]
 }

@@ -624,5 +624,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EcruteakCity_EventScript_CitySign"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_ECRUTEAK_CITY",
+      "x": 39,
+      "y": 48
+    }
   ]
 }

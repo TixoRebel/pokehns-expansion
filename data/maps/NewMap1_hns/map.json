@@ -16,5 +16,12 @@
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_NEW_MAP1",
+      "x": 22,
+      "y": 18
+    }
+  ]
 }

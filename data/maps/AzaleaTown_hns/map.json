@@ -388,5 +388,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AzaleaTown_EventScript_AzaleaSign"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_AZALEA_TOWN",
+      "x": 31,
+      "y": 16
+    }
   ]
 }

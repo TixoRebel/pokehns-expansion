@@ -290,5 +290,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NewBarkTown_EventScript_ElmsHouseMailbox"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_NEW_BARK_TOWN",
+      "x": 20,
+      "y": 12
+    }
   ]
 }

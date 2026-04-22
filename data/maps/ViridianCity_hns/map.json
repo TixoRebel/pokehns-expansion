@@ -159,5 +159,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_EventScript_CitySign2"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_CITY",
+      "x": 26,
+      "y": 27
+    }
   ]
 }

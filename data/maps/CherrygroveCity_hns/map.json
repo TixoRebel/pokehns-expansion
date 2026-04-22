@@ -310,5 +310,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CherryGroveCity_EventScript_Sign"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_CHERRYGROVE_CITY",
+      "x": 47,
+      "y": 8
+    }
   ]
 }

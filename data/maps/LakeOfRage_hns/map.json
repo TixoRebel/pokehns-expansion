@@ -276,5 +276,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LakeOfRage_EventScript_Sign2"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_LAKE_OF_RAGE",
+      "x": 31,
+      "y": 43
+    }
   ]
 }

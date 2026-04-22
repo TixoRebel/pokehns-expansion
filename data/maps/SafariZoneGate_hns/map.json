@@ -181,5 +181,12 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_SAFARI_ZONE_GATE",
+      "x": 11,
+      "y": 16
+    }
+  ]
 }

@@ -91,5 +91,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EventScript_BookShelf"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+      "x": 4,
+      "y": 4
+    }
   ]
 }

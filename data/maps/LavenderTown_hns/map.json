@@ -285,5 +285,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavenderTown_EventScript_SoulHouseSign"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_LAVENDER_TOWN",
+      "x": 10,
+      "y": 6
+    }
   ]
 }

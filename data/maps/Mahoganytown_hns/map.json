@@ -644,5 +644,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MahoganyTown_EventScript_GymSign"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_MAHOGANYTOWN",
+      "x": 21,
+      "y": 20
+    }
   ]
 }

@@ -358,5 +358,12 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FuchsiaCity_EventScript_Kabuto"
     }
+  ],
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_FUCHSIA_CITY",
+      "x": 25,
+      "y": 32
+    }
   ]
 }
