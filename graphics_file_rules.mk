@@ -220,6 +220,12 @@ $(TILESETGFXDIR)/secondary/battle_frontier_ranking_hall/tiles.4bpp: %.4bpp: %.pn
 $(TILESETGFXDIR)/secondary/mystery_events_house/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 509 -Wnum_tiles
 
+$(TILESETGFXDIR)/secondary/cave_mt_moon/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 256 -Wnum_tiles
+
+$(TILESETGFXDIR)/secondary/johto_bike_shop/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 384 -Wnum_tiles
+
 
 
 ### Fonts ###

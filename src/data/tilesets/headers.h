@@ -993,7 +993,7 @@ const struct Tileset gTileset_Johto_General =
     .palettes = gTilesetPalettes_Johto_General,
     .metatiles = gMetatiles_Johto_General,
     .metatileAttributes = gMetatileAttributes_Johto_General,
-    .callback = InitTilesetAnim_JohtoGeneral,
+    .callback = InitTilesetAnim_General,
 };
 
 const struct Tileset gTileset_Kanto_PokemonCenter =
@@ -1235,7 +1235,7 @@ const struct Tileset gTileset_EcruteakTheater =
     .palettes = gTilesetPalettes_EcruteakTheater,
     .metatiles = gMetatiles_EcruteakTheater,
     .metatileAttributes = gMetatileAttributes_EcruteakTheater,
-    .callback = InitTilesetAnim_ecruteak_theater,
+    .callback = InitTilesetAnim_Ecruteak_Theater,
 };
 
 const struct Tileset gTileset_PortIndoor =
@@ -1312,7 +1312,7 @@ const struct Tileset gTileset_Kanto_General =
     .palettes = gTilesetPalettes_Kanto_General,
     .metatiles = gMetatiles_Kanto_General,
     .metatileAttributes = gMetatileAttributes_Kanto_General,
-    .callback = InitTilesetAnim_JohtoGeneral,
+    .callback = InitTilesetAnim_General,
 };
 
 const struct Tileset gTileset_Route38_Farmland =
@@ -1499,7 +1499,7 @@ const struct Tileset gTileset_Johto_NorthEast =
     .palettes = gTilesetPalettes_Johto_NorthEast,
     .metatiles = gMetatiles_Johto_NorthEast,
     .metatileAttributes = gMetatileAttributes_Johto_NorthEast,
-    .callback = InitTilesetAnim_JohtoGeneral,
+    .callback = InitTilesetAnim_General,
 };
 
 const struct Tileset gTileset_Blackthorn =
@@ -1763,7 +1763,7 @@ const struct Tileset gTileset_Johto_South =
     .palettes = gTilesetPalettes_Johto_South,
     .metatiles = gMetatiles_Johto_South,
     .metatileAttributes = gMetatileAttributes_Johto_South,
-    .callback = InitTilesetAnim_JohtoGeneral,
+    .callback = InitTilesetAnim_General,
 };
 
 const struct Tileset gTileset_VioletCity =
@@ -1818,7 +1818,7 @@ const struct Tileset gTileset_Johto_NorthWest =
     .palettes = gTilesetPalettes_Johto_NorthWest,
     .metatiles = gMetatiles_Johto_NorthWest,
     .metatileAttributes = gMetatileAttributes_Johto_NorthWest,
-    .callback = InitTilesetAnim_JohtoGeneral,
+    .callback = InitTilesetAnim_General,
 };
 
 const struct Tileset gTileset_BellchimeTrail =

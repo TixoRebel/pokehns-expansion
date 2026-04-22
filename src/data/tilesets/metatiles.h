@@ -490,4 +490,25 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
 
+const u16 gMetatiles_Cave_MtMoon[] = INCBIN_U16("data/tilesets/secondary/cave_mt_moon/metatiles.bin");
+const u16 gMetatileAttributes_Cave_MtMoon[] = INCBIN_U16("data/tilesets/secondary/cave_mt_moon/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoBikeShop[] = INCBIN_U16("data/tilesets/secondary/johto_bike_shop/metatiles.bin");
+const u16 gMetatileAttributes_JohtoBikeShop[] = INCBIN_U16("data/tilesets/secondary/johto_bike_shop/metatile_attributes.bin");
+
+const u16 gMetatiles_General_Frontier_East[] = INCBIN_U16("data/tilesets/primary/general_frontier_east/metatiles.bin");
+const u16 gMetatileAttributes_General_Frontier_East[] = INCBIN_U16("data/tilesets/primary/general_frontier_east/metatile_attributes.bin");
+
+const u16 gMetatiles_General_Frontier_West[] = INCBIN_U16("data/tilesets/primary/general_frontier_west/metatiles.bin");
+const u16 gMetatileAttributes_General_Frontier_West[] = INCBIN_U16("data/tilesets/primary/general_frontier_west/metatile_attributes.bin");
+
+const u16 gMetatiles_InsideBuilding_Contest[] = INCBIN_U16("data/tilesets/primary/building_contest/metatiles.bin");
+const u16 gMetatileAttributes_InsideBuilding_Contest[] = INCBIN_U16("data/tilesets/primary/building_contest/metatile_attributes.bin");
+
+const u16 gMetatiles_InsideBuilding_TrainerHill[] = INCBIN_U16("data/tilesets/primary/building_Trainerhill/metatiles.bin");
+const u16 gMetatileAttributes_InsideBuilding_TrainerHill[] = INCBIN_U16("data/tilesets/primary/building_Trainerhill/metatile_attributes.bin");
+
+const u16 gMetatiles_TrainerHill_Courtyard[] = INCBIN_U16("data/tilesets/secondary/battle_tower_outer/metatiles.bin");
+const u16 gMetatileAttributes_TrainerHill_Courtyard[] = INCBIN_U16("data/tilesets/secondary/battle_tower_outer/metatile_attributes.bin");
+
 
