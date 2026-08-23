@@ -1,4 +1,4 @@
-## Development of pokehns-expansion has moved elsewhere, please stay tuned for updates soon™ 🙂 
+## Development of pokehns-expansion has moved to [PokemonHnS-Development/pokehns-expansion](https://github.com/PokemonHnS-Development/pokehns-expansion)
 
 # About `pokehns-expansion`
 
